@@ -3,27 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مختبر الرياضيات (5–9)</title>
+  <title>مختبر تطبيقات الرياضيات (الصف 5–9)</title>
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header>
-    <h1>مختبر الرياضيات – الصف الخامس إلى التاسع</h1>
-    <p>تطبيقات تفاعلية قصيرة لشرح مفاهيم أساسية بصريًا.</p>
+  <header class="wrap">
+    <h1>مختبر تطبيقات الرياضيات – الصف الخامس إلى التاسع</h1>
+    <p class="sub">تطبيقات قصيرة تفاعلية لشرح المفاهيم بصريًا وبأسلوب ممتع.</p>
+
     <div class="filters">
       <label>الصف:
-        <select id="gradeFilter">
+        <select id="gradeFilter" aria-label="ترشيح حسب الصف">
           <option value="all">الكل</option>
-          <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
         </select>
       </label>
-      <input id="q" placeholder="ابحث عن تطبيق...">
+
+      <input id="q" type="search" placeholder="ابحث عن تطبيق (مثال: مجموع، كسور، فيثاغورس)..." aria-label="بحث">
+      <span id="count" class="muted"></span>
     </div>
   </header>
-  <main id="appsGrid" class="grid"></main>
 
-  <script src="js/utils.js"></script>
-  <script src="js/main.js"></script>
+  <main id="appsGrid" class="grid" aria-live="polite"></main>
+
+  <footer class="foot">
+    <span>© مختبر الرياضيات — <a href="https://github.com" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
+
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>
