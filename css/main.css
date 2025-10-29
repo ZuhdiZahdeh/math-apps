@@ -1,1 +1,15 @@
-css/main.css
+:root{ --bg:#0b1220; --panel:#0f172a; --text:#e2e8f0; --muted:#94a3b8; --accent:#f59e0b; }
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,Tajawal,Arial;background:linear-gradient(120deg,#0a0f1d,#111827);color:var(--text)}
+header{padding:16px 20px}
+h1{margin:0 0 6px;font-size:1.6rem}
+.filters{display:flex;gap:10px;align-items:center;margin-top:8px}
+input,select{padding:8px;border-radius:10px;border:1px solid #243145;background:#0f172a;color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:16px}
+.card{display:block;background:var(--panel);border:1px solid #1e293b;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:.2s transform}
+.card:hover{transform:translateY(-3px)}
+.card img{width:100%;height:140px;object-fit:cover}
+.card .meta{padding:10px}
+.card h3{margin:.2rem 0;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem;min-height:40px}
+.tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;font-size:.85rem;color:#cbd5e1}
