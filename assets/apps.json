@@ -1,9 +1,9 @@
 [
-  {
+    {
     "id": "gauss-pairing",
     "title": "قاعدة التزاوج (حيلة غاوس)",
-    "grades": [5,6,7],
-    "tags": ["جمع", "متتاليات", "تصور بصري"],
+    "grades": [5, 6, 7],
+    "tags": ["جمع", "متتاليات", "تمثيل بصري"],
     "path": "apps/gauss-pairing/index.html",
     "thumb": "images/thumbs/gauss-pairing.png",
     "desc": "تجربة بصرية لمجموع 1..n عبر تكوين مستطيل n×(n+1) ثم أخذ نصفه."
