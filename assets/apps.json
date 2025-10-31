@@ -14,7 +14,7 @@
     "grades": [5,6],
     "tags": ["عدد", "قواسم", "مضاعفات"],
     "path": "apps/factors-lcm/index.html",
-    "thumb": "images/thumbs/factors-lcm.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "استكشاف العوامل والمضاعفات و القاسم والمضاعف المشترك الأصغر."
   },
   {
@@ -23,7 +23,7 @@
     "grades": [5,6],
     "tags": ["كسور", "تمثيل بصري"],
     "path": "apps/fractions-tiles/index.html",
-    "thumb": "images/thumbs/fractions-tiles.png",
+    "thumb":"images/thumbs/placeholder.jpg",
     "desc": "لوحات تفاعلية لتمثيل ومقارنة الكسور وجمعها."
   },
   {
@@ -32,7 +32,7 @@
     "grades": [5,6,7],
     "tags": ["هندسة", "مساحة", "محيط"],
     "path": "apps/area-perimeter/index.html",
-    "thumb": "images/thumbs/area-perimeter.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "حسابات تفاعلية للمستطيلات والمضلعات البسيطة."
   },
   {
@@ -41,7 +41,7 @@
     "grades": [7,8],
     "tags": ["إحداثيات", "تمثيل نقاط"],
     "path": "apps/coordinate-plane/index.html",
-    "thumb": "images/thumbs/coordinate-plane.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "رسم نقاط وتحركاتها على المستوى الديكارتي."
   },
   {
@@ -50,7 +50,7 @@
     "grades": [7,8,9],
     "tags": ["خط مستقيم", "معادلات"],
     "path": "apps/slope-intercept/index.html",
-    "thumb": "images/thumbs/slope-intercept.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "استكشاف y=mx+b وتغير الميل والتقاطع."
   },
   {
@@ -59,7 +59,7 @@
     "grades": [6,7],
     "tags": ["زوايا", "هندسة"],
     "path": "apps/angle-sum-triangle/index.html",
-    "thumb": "images/thumbs/angle-sum-triangle.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "برهان قصّ/لصق بصري أن مجموع الزوايا = 180°."
   },
   {
@@ -68,7 +68,7 @@
     "grades": [8,9],
     "tags": ["فيثاغورس", "هندسة"],
     "path": "apps/pythagoras-tiles/index.html",
-    "thumb": "images/thumbs/pythagoras-tiles.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "تصور بصري لـ a²+b²=c² بالبلاطات."
   },
   {
@@ -77,7 +77,7 @@
     "grades": [6,7,8],
     "tags": ["نِسَب", "معدل", "نسبة"],
     "path": "apps/ratios-proportions/index.html",
-    "thumb": "images/thumbs/ratios-proportions.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "مسائل معدل/نسبة وتكبير/تصغير تفاعلي."
   },
   {
@@ -86,7 +86,7 @@
     "grades": [7,8,9],
     "tags": ["دائرة", "محيط", "مساحة"],
     "path": "apps/circle-measures/index.html",
-    "thumb": "images/thumbs/circle-measures.png",
+    "thumb": "images/thumbs/placeholder.jpg",
     "desc": "ارتباط القطر/نصف القطر بالمحيط والمساحة بصريًا."
   }
 ]
