@@ -109,7 +109,7 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 .postExplain h3{margin:.2rem 0 .4rem;font-size:1.1rem}
 .postExplain p{margin:.35rem 0;color:var(--text)}
 
-/* ===== نافذة القصة ===== */
+/* ===== نافذة القصة + أدواتها ===== */
 .modal{
   position:fixed; inset:0; display:none; align-items:center; justify-content:center;
   background:rgba(2,6,23,.65); z-index:60;
@@ -117,7 +117,7 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 .modal.show{ display:flex; }
 .modal .card{
   background:var(--panel); border:1px solid #334155; border-radius:16px;
-  width:min(92vw, 820px); max-height:80vh; padding:16px 18px; box-shadow:0 24px 60px rgba(0,0,0,.35);
+  width:min(92vw, 820px); max-height:80vh; padding:16px 18px; box-shadow:0 24px 60px rgba(0,0,0,.35)
 }
 .modalHead{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
 .modal .story{
@@ -126,6 +126,18 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 }
 .modal .story p{ margin:.2rem 0 .6rem; }
 .modal .controls{ display:flex; gap:8px; align-items:center; margin-top:10px; }
+
+.segmented{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.seg{
+  border:1px solid #334155; background:#0b1324; color:#e5e7eb; padding:8px 12px; border-radius:10px;
+  cursor:pointer; font-weight:700;
+}
+.seg.active{ background:#1e293b; border-color:#475569; }
+
+.voiceGroup{ display:flex; align-items:center; gap:16px; margin-top:10px; flex-wrap:wrap; }
+.voiceGroup legend{ font-weight:700; margin-inline-end:2px; }
+.voiceGroup label{ display:inline-flex; align-items:center; gap:6px; }
+.muted{ color:var(--muted); }
 
 @media (max-width:600px){
   :root{--block:22px; --gap:5px}
