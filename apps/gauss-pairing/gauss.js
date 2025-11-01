@@ -1,6 +1,13 @@
-/* حيلة غاوس – تزاوج الأعداد (سُلّم المكعبات) مع مبدّل وضع */
+/* حيلة غاوس – تزاوج الأعداد (سُلّم المكعبات) مع مبدّل وضع + حفظ في LocalStorage */
 (() => {
   "use strict";
+
+  // تخزين وضع الإكمال
+  const MODE_STORE = {
+    key: 'mathapps.gauss.mode',
+    get(){ try { return localStorage.getItem(this.key); } catch { return null; } },
+    set(v){ try { localStorage.setItem(this.key, v); } catch {} }
+  };
 
   const $  = (id)=>document.getElementById(id);
   const txt = (id, v)=>{ const el=$(id); if(el) el.textContent=v; };
@@ -23,15 +30,13 @@
   const updZoom=()=>{ if(zv) zv.textContent=Math.round((zoomPx/DEFAULT_FS)*100)+'%'; };
   const setFs=(px)=>{ px=Math.max(14,Math.min(26,px)); document.documentElement.style.fontSize=px+'px'; zoomPx=px; updZoom(); if(arena.classList.contains('complete')) updateGuides(); };
 
-  let currentN=parseInt(nInput?.value||'10',10);
+  let currentN=parseInt(nInput?.value||'20',10);
   let stepIndex=0, explainTimer=null;
 
   function readBlockGap(){
     const cs=getComputedStyle(document.documentElement);
-    return {
-      block: parseFloat(cs.getPropertyValue('--block'))||28,
-      gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6
-    };
+    return { block: parseFloat(cs.getPropertyValue('--block'))||28,
+             gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6 };
   }
 
   function setMode(m){
@@ -39,8 +44,12 @@
     arena.classList.remove('mode-top','mode-right');
     arena.classList.add(mode==='top' ? 'mode-top' : 'mode-right');
     if(modeLabel) modeLabel.textContent = (mode==='top') ? 'من الأعلى' : 'على اليمين';
-    // إعادة بناء لتحديث الأسهم واتجاه الحركة
-    build(currentN);
+    modeToggle?.setAttribute('aria-pressed', mode==='right' ? 'true' : 'false');
+    modeToggle?.setAttribute('title', `التبديل بين أوضاع الإكمال (الحالي: ${(mode==='top')?'من الأعلى':'على اليمين'})`);
+
+    MODE_STORE.set(mode);      // حفظ الاختيار
+
+    build(currentN);           // إعادة البناء ليتوافق مع الوضع
   }
 
   function build(n){
@@ -171,9 +180,7 @@
   resetBtn.addEventListener('click', reset);
 
   if(modeToggle){
-    modeToggle.addEventListener('click', ()=>{
-      setMode(mode==='top' ? 'right' : 'top');
-    });
+    modeToggle.addEventListener('click', ()=> setMode(mode==='top' ? 'right' : 'top'));
   }
 
   if(dismissBtn){
@@ -186,12 +193,12 @@
 
   window.addEventListener('resize', ()=>{ if(arena.classList.contains('complete')) updateGuides(); });
 
-  if($('zoomIn')) $('zoomIn').addEventListener('click', ()=>setFs(zoomPx+1));
-  if($('zoomOut')) $('zoomOut').addEventListener('click', ()=>setFs(zoomPx-1));
-  if($('zoomReset')) $('zoomReset').addEventListener('click', ()=>setFs(DEFAULT_FS));
+  if(zi) zi.addEventListener('click', ()=>setFs(zoomPx+1));
+  if(zo) zo.addEventListener('click', ()=>setFs(zoomPx-1));
+  if(zr) zr.addEventListener('click', ()=>setFs(DEFAULT_FS));
   updZoom();
 
-  // تشغيل أولي
-  setMode('top');         // الوضع الافتراضي
-  build(currentN);
+  // تشغيل أولي مع استرجاع الوضع من LocalStorage
+  const savedMode = MODE_STORE.get();
+  setMode(savedMode === 'right' ? 'right' : 'top'); // يستدعي build(currentN) داخليًا
 })();
