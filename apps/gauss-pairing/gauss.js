@@ -1,11 +1,11 @@
-/* حيلة غاوس – حركة أفقية فقط + إزالة مبدّل الوضع */
+/* حيلة غاوس – حركة أفقية فقط + قصة مبسطة/كاملة + صوت طفل/معلّم (MP3 أو TTS) */
 (() => {
   "use strict";
 
   const $  = (id)=>document.getElementById(id);
   const txt = (id, v)=>{ const el=$(id); if(el) el.textContent=v; };
 
-  // عناصر التحكم
+  // عناصر التحكم الرئيسة
   const nInput=$('n'), grid=$('grid'), arena=$('arena');
   const playBtn=$('play'), stepBtn=$('step'), resetBtn=$('reset'), speedSel=$('speed');
   const postExplain=$('postExplain'), dismissBtn=$('dismiss');
@@ -22,12 +22,123 @@
   let currentN=parseInt(nInput?.value||'20',10);
   let stepIndex=0, explainTimer=null;
 
+  /* =====================  القصة  ===================== */
+
+  // نص قصير (للصف الخامس)
+  const STORY_SHORT_HTML = `
+    <p><b>من هو غاوس؟</b> طفل ذكي صار لاحقًا عالِم رياضيات كبير.</p>
+    <p><b>ماذا حصل؟</b> طلب المعلّم من التلاميذ جمع الأعداد من <b>1</b> إلى <b>100</b>.</p>
+    <p>فكّر غاوس: لو جمعنا العدد الأول مع الأخير نحصل دائمًا على <b>101</b>:
+       <span dir="ltr">1+100</span>، ثم <span dir="ltr">2+99</span>…</p>
+    <p>لدينا <b>50</b> زوجًا، إذن المجموع <b>50 × 101 = 5050</b>.</p>
+    <p>وبالتعميم لأي <span dir="ltr">n</span> يكون:
+      <span class="eq" dir="ltr">S = n(n+1)/2</span>.
+    </p>
+  `;
+
+  // نص كامل
+  const STORY_FULL_HTML = `
+    <p><b>المكان والزمان:</b> مدرسة ابتدائية ببلدة براونشفايغ الألمانية نحو <b>1785</b>، وكان غاوس في التاسعة تقريبًا.</p>
+    <p><b>المهمة:</b> جمع الأعداد من <b>1</b> إلى <b>100</b>:
+      <span class="eq" dir="ltr">S = 1 + 2 + 3 + … + 99 + 100</span></p>
+    <p>لاحظ غاوس أن بداية السلسلة ونهايتها تصنعان أزواجًا متساوية المجموع:
+      <span dir="ltr">(1+100) = 101</span>، <span dir="ltr">(2+99) = 101</span>، …</p>
+    <p>عدد الأزواج <b>50</b>، إذن <b>المجموع = 50 × 101 = 5050</b>. ومن هنا جاءت الصيغة العامة:
+      <span class="eq" dir="ltr">S = n(n+1)/2</span>.</p>
+    <p>تُعرَف هذه بالطريقة البصرية/الذكية لتجميع المتتالية، وهي ما نطبّقه في هذا التطبيق.</p>
+  `;
+
+  // عناصر القصة
+  const storyBtn    = $('storyBtn');
+  const storyModal  = $('storyModal');
+  const storyBody   = $('storyBody');
+  const storyPlay   = $('storyPlay');
+  const storyStop   = $('storyStop');
+  const storyClose  = $('storyClose');
+  const tabShort    = $('tabShort');
+  const tabFull     = $('tabFull');
+
+  // ملفات MP3 الاختيارية (لو موجودة)
+  const audioChild   = $('storyAudioChild');   // مسار: ../../assets/audio/ar/gauss-story-child.mp3
+  const audioTeacher = $('storyAudioTeacher'); // مسار: ../../assets/audio/ar/gauss-story-teacher.mp3
+
+  // اختيار النبرة
+  const vChild   = $('vChild');
+  const vTeacher = $('vTeacher');
+
+  // حالة القصة
+  let storyTab = 'short'; // 'short' | 'full'
+  const setStoryTab = (t)=>{
+    storyTab = (t==='full') ? 'full' : 'short';
+    tabShort.classList.toggle('active', storyTab==='short');
+    tabFull.classList.toggle('active',  storyTab==='full');
+    tabShort.setAttribute('aria-selected', storyTab==='short' ? 'true':'false');
+    tabFull .setAttribute('aria-selected', storyTab==='full'  ? 'true':'false');
+    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
+  };
+
+  function openStory(){
+    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
+    storyModal.classList.add('show');
+    storyModal.focus();
+  }
+  function closeStory(){
+    stopStoryAudio();
+    storyModal.classList.remove('show');
+  }
+
+  // انتقاء مصدر الصوت: MP3 (لو وُجد) أو TTS
+  function chooseAudioSource(){
+    const voice = vTeacher?.checked ? 'teacher' : 'child';
+    // لو ملف MP3 موجود للنبرة المختارة، نرجّحه
+    if (voice==='child'   && audioChild   && audioChild.getAttribute('src'))   return { type:'mp3', el:audioChild };
+    if (voice==='teacher' && audioTeacher && audioTeacher.getAttribute('src')) return { type:'mp3', el:audioTeacher };
+    // وإلا نستخدم TTS مع طبقة صوت مناسبة
+    const pitch = (voice==='child') ? 1.25 : 0.95;
+    return { type:'tts', pitch };
+  }
+
+  function speakStoryTTS(pitch=1.0){
+    if (!('speechSynthesis' in window)) {
+      alert('المتصفح لا يدعم تحويل النص إلى كلام. يمكنك إضافة ملف MP3 بدلًا من ذلك.');
+      return;
+    }
+    const text = storyBody.textContent.replace(/\s+/g,' ').trim();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang  = 'ar-SA';
+    utter.rate  = 1.0;
+    utter.pitch = pitch;
+
+    // محاولة اختيار صوت عربي إن وُجد
+    const voices = window.speechSynthesis.getVoices();
+    const ar = voices.find(v => /ar/i.test(v.lang) || /Arabic|العربية/i.test(v.name));
+    if (ar) utter.voice = ar;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }
+
+  function playStory(){
+    const src = chooseAudioSource();
+    if (src.type==='mp3'){
+      src.el.currentTime = 0;
+      src.el.play();
+    } else {
+      speakStoryTTS(src.pitch);
+    }
+  }
+  function stopStoryAudio(){
+    if (audioChild){   audioChild.pause();   audioChild.currentTime=0; }
+    if (audioTeacher){ audioTeacher.pause(); audioTeacher.currentTime=0; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
+  /* =====================  البناء والأنيميشن  ===================== */
+
   function readBlockGap(){
     const cs=getComputedStyle(document.documentElement);
-    return {
-      block: parseFloat(cs.getPropertyValue('--block'))||28,
-      gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6
-    };
+    return { block: parseFloat(cs.getPropertyValue('--block'))||28,
+             gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6 };
   }
 
   function build(n){
@@ -36,7 +147,7 @@
     stepIndex=0;
 
     const {block,gap}=readBlockGap();
-    const slideBase = (n+2) * (block+gap);  // انزياح أفقي آمن يبدأ من يسار السطر
+    const slideBase = (n+2) * (block+gap);  // انزياح أفقي ابتدائي
 
     for(let r=1;r<=n;r++){
       const row=document.createElement('div'); row.className='row';
@@ -48,14 +159,14 @@
       for(let i=0;i<r;i++){ const b=document.createElement('div'); b.className='block a'; groupA.appendChild(b); }
       row.appendChild(groupA);
 
-      // سهم أفقي توضيحي
+      // سهم أفقي
       const spacer=document.createElement('div'); spacer.className='spacer';
       const arrow=document.createElement('div'); arrow.className='pairArrow'; arrow.textContent='→';
       spacer.appendChild(arrow); row.appendChild(spacer);
 
-      // المكمل B (عدد مكعباته n+1-r)
+      // المكمل B
       const groupB=document.createElement('div'); groupB.className='group b'; groupB.dataset.size=(n+1-r);
-      groupB.style.setProperty('--slide', slideBase + 'px');   // مقدار الإزاحة الأفقية الابتدائية
+      groupB.style.setProperty('--slide', slideBase + 'px');
       for(let i=0;i<(n+1-r);i++){ const b=document.createElement('div'); b.className='block b'; groupB.appendChild(b); }
       row.appendChild(groupB);
 
@@ -70,7 +181,6 @@
     txt('dimA', n); txt('dimB', n+1);
     txt('areaVal', n*(n+1)); txt('sumVal', (n*(n+1))/2);
 
-    // تقدير عرض الحلبة
     const approx=(block+gap)*(n+1)+140;
     grid.style.minWidth=Math.max(approx,420)+'px';
   }
@@ -80,7 +190,7 @@
     if(i>=rows.length) return false;
     const b=rows[i].querySelector('.group.b'); if(!b) return false;
     const duration=parseInt(speedSel.value,10);
-    b.getBoundingClientRect(); // force reflow
+    b.getBoundingClientRect(); // reflow
     b.style.transitionDuration=duration+'ms';
     b.classList.add('in');
     const arrow=rows[i].querySelector('.pairArrow'); if(arrow) arrow.classList.add('show');
@@ -152,7 +262,20 @@
     vText.textContent=currentN+' (n)';
   }
 
-  // الأحداث
+  /* =====================  الأحداث  ===================== */
+
+  // تفاعل القصة
+  storyBtn?.addEventListener('click', openStory);
+  storyClose?.addEventListener('click', closeStory);
+  storyModal?.addEventListener('click', (e)=>{ if(e.target===storyModal) closeStory(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && storyModal?.classList.contains('show')) closeStory(); });
+
+  tabShort?.addEventListener('click', ()=> setStoryTab('short'));
+  tabFull ?.addEventListener('click', ()=> setStoryTab('full'));
+  storyPlay?.addEventListener('click', playStory);
+  storyStop?.addEventListener('click', stopStoryAudio);
+
+  // تفاعل اللوحة
   nInput.addEventListener('input',e=>{ currentN=parseInt(e.target.value,10); build(currentN); });
   playBtn.addEventListener('click', play);
   stepBtn.addEventListener('click', ()=>{ const ok=revealRowB(stepIndex); if(ok){ stepIndex++; if(stepIndex===currentN) markComplete(); }});
@@ -174,5 +297,11 @@
   updZoom();
 
   // تشغيل أولي
+  setStoryTab('short');  // يبدأ بالنسخة المبسّطة
   build(currentN);
+
+  // لبعض المتصفحات يجب استدعاء getVoices بعد onvoiceschanged لتحميل أصوات TTS
+  if ('speechSynthesis' in window){
+    window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+  }
 })();
