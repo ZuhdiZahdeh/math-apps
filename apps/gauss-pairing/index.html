@@ -88,6 +88,26 @@
 
     <div class="footer">صُمِّم للشرح الصفي لمرحلة الصف الخامس–السابع. يمكنك تعديل عدد الدرجات والسرعة، وتشغيل الأنيميشن خطوة بخطوة.</div>
   </div>
+<!-- نافذة القصة -->
+<div id="storyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="storyTitle" tabindex="-1">
+  <div class="card" role="document">
+    <div class="modalHead">
+      <h3 id="storyTitle">القصة وراء اكتشاف حيلة غاوس</h3>
+      <button class="btn ghost small" id="storyClose" title="إغلاق">✕</button>
+    </div>
+
+    <!-- ملف صوتي اختياري: ضع ملفك هنا إن رغبت (وإلا سيُستخدم TTS) -->
+    <!-- مثال: ضع الملف في assets/audio/ar/gauss-story.mp3 ثم فعّل السطر التالي وعدّل المسار -->
+    <!-- <audio id="storyAudio" src="../../assets/audio/ar/gauss-story.mp3" preload="none"></audio> -->
+
+    <article id="storyBody" class="story"></article>
+
+    <div class="controls">
+      <button class="btn primary" id="storyPlay">🔊 استمع</button>
+      <button class="btn ghost" id="storyStop">⏹ إيقاف</button>
+    </div>
+  </div>
+</div>
 
   <script defer src="gauss.js"></script>
 </body>
