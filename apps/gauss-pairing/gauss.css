@@ -9,6 +9,8 @@
   --muted: #94a3b8;
   --accent: #f59e0b;
   --pair-outline: #f59e0bcc;
+    /* عرض الشعار ديناميكي: من 52px إلى 84px حسب العرض */
+  --brandW: clamp(52px, 6vw, 84px);
 }
 *{box-sizing:border-box}
 html{font-size:18px}
@@ -139,8 +141,47 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 .voiceGroup label{ display:inline-flex; align-items:center; gap:6px; }
 .muted{ color:var(--muted); }
 
-@media (max-width:600px){
+/* عنصر الرابط الحامل للشعار */
+.brand-logo{
+  position: fixed;
+  /* إجبار أعلى-يسار دائمًا */
+  left: 14px !important;
+  right: auto !important;
+  top: 14px !important;
+
+  z-index: 50;          /* أقل من نافذة القصة (z-index:60) */
+  display: block;
+  line-height: 0;
+  pointer-events: auto;
+}
+
+/* صورة الشعار نفسها */
+.brand-logo img{
+  width: var(--brandW) !important;  /* تحجيم مضبوط */
+  height: auto !important;          /* بدون تمدد رأسي */
+  aspect-ratio: 1 / 1;              /* يحافظ على الشكل الدائري */
+  object-fit: contain;               /* لا يتمطّط */
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .2s ease, filter .2s ease;
+}
+.brand-logo:hover img{
+  transform: scale(1.04);
+  filter: brightness(1.06);
+}
+
+/* نترك مكانًا على اليسار في أعلى الصفحة كي لا يتغطّى النص بالشعار */
+header{
+  padding-inline-start: calc(var(--brandW) + 18px);
+}
+
+/* الشعار لا يظهر في الطباعة */
+@media print{
+  .brand-logo{ display: none !important; }
+}
+@media (max-width:640px){
   :root{--block:22px; --gap:5px}
   .panel{gap:8px}
   .panel input[type=range]{width:140px}
+  header{ padding-inline-start: calc(var(--brandW) + 12px); }
 }
