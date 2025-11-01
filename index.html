@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>مختبر تطبيقات الرياضيات (الصف 5–9)</title>
+
+  <!-- أيقونة الموقع -->
   <link rel="icon" href="assets/favicon.ico">
+
+  <!-- تنسيقات الفهرس -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -35,7 +39,13 @@
     <span>© مختبر الرياضيات — <a href="https://github.com" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 
-  <script defer src="js/utils.js"></script>
-  <script defer src="js/main.js"></script>
+  <!-- تحميل كـ ES Module (IMPORTANT) -->
+  <script type="module" src="js/main.js" defer></script>
+
+  <!-- في حال تعطيل الجافاسكربت -->
+  <noscript>
+    <style>#appsGrid{padding:18px;color:#fca5a5}</style>
+    <div class="wrap">الرجاء تفعيل JavaScript لعرض قائمة التطبيقات.</div>
+  </noscript>
 </body>
 </html>
