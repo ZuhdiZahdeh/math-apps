@@ -1,13 +1,6 @@
-/* حيلة غاوس – تزاوج الأعداد (سُلّم المكعبات) مع مبدّل وضع + حفظ في LocalStorage */
+/* حيلة غاوس – حركة أفقية فقط + إزالة مبدّل الوضع */
 (() => {
   "use strict";
-
-  // تخزين وضع الإكمال
-  const MODE_STORE = {
-    key: 'mathapps.gauss.mode',
-    get(){ try { return localStorage.getItem(this.key); } catch { return null; } },
-    set(v){ try { localStorage.setItem(this.key, v); } catch {} }
-  };
 
   const $  = (id)=>document.getElementById(id);
   const txt = (id, v)=>{ const el=$(id); if(el) el.textContent=v; };
@@ -17,11 +10,7 @@
   const playBtn=$('play'), stepBtn=$('step'), resetBtn=$('reset'), speedSel=$('speed');
   const postExplain=$('postExplain'), dismissBtn=$('dismiss');
 
-  // مبدّل الوضع
-  const modeToggle=$('modeToggle'), modeLabel=$('modeLabel');
-  let mode = 'top'; // 'top' | 'right'
-
-  // الإرشادات الرسومية
+  // دلائل الأبعاد
   const guides=$('guides'), hLine=$('hLine'), vLine=$('vLine'), hText=$('hText'), vText=$('vText');
 
   // تكبير/تصغير
@@ -35,21 +24,10 @@
 
   function readBlockGap(){
     const cs=getComputedStyle(document.documentElement);
-    return { block: parseFloat(cs.getPropertyValue('--block'))||28,
-             gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6 };
-  }
-
-  function setMode(m){
-    mode = (m==='right') ? 'right' : 'top';
-    arena.classList.remove('mode-top','mode-right');
-    arena.classList.add(mode==='top' ? 'mode-top' : 'mode-right');
-    if(modeLabel) modeLabel.textContent = (mode==='top') ? 'من الأعلى' : 'على اليمين';
-    modeToggle?.setAttribute('aria-pressed', mode==='right' ? 'true' : 'false');
-    modeToggle?.setAttribute('title', `التبديل بين أوضاع الإكمال (الحالي: ${(mode==='top')?'من الأعلى':'على اليمين'})`);
-
-    MODE_STORE.set(mode);      // حفظ الاختيار
-
-    build(currentN);           // إعادة البناء ليتوافق مع الوضع
+    return {
+      block: parseFloat(cs.getPropertyValue('--block'))||28,
+      gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6
+    };
   }
 
   function build(n){
@@ -58,6 +36,8 @@
     stepIndex=0;
 
     const {block,gap}=readBlockGap();
+    const slideBase = (n+2) * (block+gap);  // انزياح أفقي آمن يبدأ من يسار السطر
+
     for(let r=1;r<=n;r++){
       const row=document.createElement('div'); row.className='row';
 
@@ -68,15 +48,14 @@
       for(let i=0;i<r;i++){ const b=document.createElement('div'); b.className='block a'; groupA.appendChild(b); }
       row.appendChild(groupA);
 
+      // سهم أفقي توضيحي
       const spacer=document.createElement('div'); spacer.className='spacer';
-      const arrow=document.createElement('div'); arrow.className='pairArrow';
-      arrow.textContent = (mode==='top') ? '⬇' : '↗';
+      const arrow=document.createElement('div'); arrow.className='pairArrow'; arrow.textContent='→';
       spacer.appendChild(arrow); row.appendChild(spacer);
 
-      // المكمل B
+      // المكمل B (عدد مكعباته n+1-r)
       const groupB=document.createElement('div'); groupB.className='group b'; groupB.dataset.size=(n+1-r);
-      const lift = Math.max(0, (r-1)*(block+gap)); // مقدار الرفع الرأسي/القطري
-      groupB.style.setProperty('--lift', lift+'px');
+      groupB.style.setProperty('--slide', slideBase + 'px');   // مقدار الإزاحة الأفقية الابتدائية
       for(let i=0;i<(n+1-r);i++){ const b=document.createElement('div'); b.className='block b'; groupB.appendChild(b); }
       row.appendChild(groupB);
 
@@ -179,10 +158,6 @@
   stepBtn.addEventListener('click', ()=>{ const ok=revealRowB(stepIndex); if(ok){ stepIndex++; if(stepIndex===currentN) markComplete(); }});
   resetBtn.addEventListener('click', reset);
 
-  if(modeToggle){
-    modeToggle.addEventListener('click', ()=> setMode(mode==='top' ? 'right' : 'top'));
-  }
-
   if(dismissBtn){
     dismissBtn.addEventListener('click', (e)=>{ e.preventDefault(); if(explainTimer){ clearTimeout(explainTimer); explainTimer=null; } postExplain?.classList.add('hidden'); });
   }
@@ -198,7 +173,6 @@
   if(zr) zr.addEventListener('click', ()=>setFs(DEFAULT_FS));
   updZoom();
 
-  // تشغيل أولي مع استرجاع الوضع من LocalStorage
-  const savedMode = MODE_STORE.get();
-  setMode(savedMode === 'right' ? 'right' : 'top'); // يستدعي build(currentN) داخليًا
+  // تشغيل أولي
+  build(currentN);
 })();
