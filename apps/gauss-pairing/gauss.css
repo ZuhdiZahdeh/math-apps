@@ -18,6 +18,7 @@ body{
   background:linear-gradient(120deg,#0a0f1d,#111827);
   color:var(--text)
 }
+
 header{ padding:18px 20px 8px; line-height:1.5; }
 header .topbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 header h1{margin:0;font-size:1.8rem;font-weight:800}
@@ -51,7 +52,7 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 }
 .arena .grid{display:flex;flex-direction:column;align-items:flex-start;gap:var(--gap);min-height:calc((var(--block)+var(--gap))*8);}
 
-.row{display:flex;align-items:center;gap:var(--gap);position:relative;min-height:var(--block)}
+.row{display:flex;align-items:center;gap:var(--gap);position:relative;min-height:var(--block);overflow:visible}
 .row .label{width:40px;text-align:center;color:var(--muted);font-size:1rem}
 
 .group{display:flex;gap:var(--gap)}
@@ -59,19 +60,39 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
 .block.a{background:linear-gradient(180deg, #3b82f6, #1e40af)}
 .block.b{background:linear-gradient(180deg, #34d399, #065f46)}
 
-/* === التعديل الأهم: وضع B فوق السلم عبر إزاحة رأسية محسوبة لكل صف === */
-.group.b{
-  position:relative;
-  z-index:2;
-  /* تبدأ من أسفل الصف ثم تصعد إلى موضعها النهائي فوق السلم */
-  transform: translateY(calc(110% - var(--lift, 0px)));
+/* ===== أوضاع الإكمال ===== */
+
+/* وضع الإكمال من الأعلى */
+.arena.mode-top .group.b{
+  position: relative; z-index:2;
+  /* البداية: تحت الصف بمقدار block+gap (ثابت آمن) */
+  transform: translateY(calc(var(--block) + var(--gap)));
   opacity:0;
 }
-.group.b.in{
-  transform: translateY(calc(0px - var(--lift, 0px)));
+.arena.mode-top .group.b.in{
+  /* النهاية: فوق السلم بمقدار الرفع المحسوب لكل صف */
+  transform: translateY(calc(-1 * var(--lift, 0px)));
   opacity:1;
-  transition:transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
+  transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
 }
+
+/* وضع الإكمال على اليمين (انزلاق قطري خفيف) */
+.arena.mode-right .group.b{
+  position: relative; z-index:2;
+  /* البداية: أعلى-يسار بمقدار lift قطريًا، تنتهي عند موضعها يمين السلم */
+  transform: translate(calc(-1 * var(--lift, 0px)), calc(-1 * var(--lift, 0px)));
+  opacity:0;
+}
+.arena.mode-right .group.b.in{
+  transform: translate(0,0);
+  opacity:1;
+  transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
+}
+
+/* أسهم التوضيح الصغيرة */
+.spacer{ position:relative; width:24px; display:flex; align-items:center; justify-content:center; }
+.pairArrow{ font-size:18px; line-height:1; color:var(--accent); opacity:0; transform:translateY(8px); transition:opacity .35s ease, transform .35s ease; }
+.pairArrow.show{ opacity:1; transform:none; }
 
 .legend{display:flex;gap:12px;align-items:center;margin-top:10px;color:var(--muted);font-size:1rem}
 .k{display:inline-flex;align-items:center;gap:6px}
@@ -86,10 +107,6 @@ header p{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
   content:""; position:absolute; inset:18px; border:2px dashed var(--pair-outline); border-radius:14px; pointer-events:none; animation:outlinePulse 1.2s ease 1;
 }
 @keyframes outlinePulse{0%{transform:scale(.98);opacity:.4}100%{transform:scale(1);opacity:1}}
-
-.spacer{ position:relative; width:24px; display:flex; align-items:center; justify-content:center; }
-.pairArrow{ font-size:18px; line-height:1; color:var(--accent); opacity:0; transform:translateY(8px); transition:opacity .35s ease, transform .35s ease; }
-.pairArrow.show{ opacity:1; transform:none; }
 
 .guides{ position:absolute; inset:18px; width:calc(100% - 36px); height:calc(100% - 36px); pointer-events:none; opacity:0; transition:opacity .35s ease; }
 .arena.complete .guides{ opacity:.95; }
