@@ -24,12 +24,19 @@
     <div class="panel" role="region" aria-label="لوح التحكم">
       <label for="n">عدد الدرجات (n): <b id="nVal">20</b></label>
       <input id="n" type="range" min="1" max="30" step="1" value="20" aria-label="عدد الدرجات" />
+
       <label for="speed">السرعة:</label>
       <select id="speed" aria-label="سرعة الأنيميشن">
         <option value="800">بطيء</option>
         <option value="600" selected>متوسط</option>
         <option value="350">سريع</option>
       </select>
+
+      <!-- مبدّل الوضع (يُحفظ في LocalStorage) -->
+      <button id="modeToggle" class="btn ghost" title="التبديل بين أوضاع الإكمال">
+        وضع الإكمال: <span id="modeLabel">من الأعلى</span>
+      </button>
+
       <button class="btn primary" id="play">تشغيل التزاوج</button>
       <button class="btn ghost" id="step">خطوة</button>
       <button class="btn ghost" id="reset">إعادة الضبط</button>
@@ -40,6 +47,7 @@
         <button class="btn ghost small" id="zoomIn" title="تكبير (+)">تكبير +</button>
         <button class="btn ghost small" id="zoomReset" title="افتراضي">افتراضي</button>
       </div>
+
       <span class="hint">نصيحة: عدّل n ثم اضغط تشغيل. يمكنك المشاهدة خطوة بخطوة أيضًا.</span>
     </div>
 
@@ -89,4 +97,3 @@
   <script defer src="gauss.js"></script>
 </body>
 </html>
-
