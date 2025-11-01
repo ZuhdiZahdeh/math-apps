@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>حيلة غاوس – تزاوج الأعداد (سُلّم المكعبات)</title>
-  <!-- فافكون من جذر المستودع -->
-  <link rel="icon" href="../../assets/favicon.ico">
-  <link rel="stylesheet" href="gauss.css">
+  <link rel="icon" href="../../assets/favicon.ico" />
+  <link rel="stylesheet" href="gauss.css" />
 </head>
 <body>
   <header>
@@ -14,8 +13,9 @@
       <a class="btn ghost small" href="../../index.html" title="الرجوع للفهرس">↩︎ الرجوع للفهرس</a>
       <h1>حيلة غاوس – تجميع (تزاوج) الأعداد بصريًا</h1>
     </div>
-    <p>نُنشئ سُلّمًا من المكعبات من 1 إلى <b id="nLabel">20</b>، ثم نُكمّله بمكعبات مكافئة لتكوين مستطيل أبعاده
-      <span id="dimsLabel">20 × 21</span> ليتضح أن <span class="eq">2S = n(n+1)</span> ثم
+    <p>
+      نُنشئ سُلّمًا من المكعبات من 1 إلى <b id="nLabel">20</b>، ثم نُكمّله بمكعبات مكافئة لتكوين مستطيل
+      أبعاده <span id="dimsLabel">20 × 21</span> ليتضح أن <span class="eq">2S = n(n+1)</span> ثم
       <span class="eq">S = n(n+1)/2</span>.
     </p>
   </header>
@@ -31,11 +31,6 @@
         <option value="600" selected>متوسط</option>
         <option value="350">سريع</option>
       </select>
-
-      <!-- مبدّل الوضع (يُحفظ في LocalStorage) -->
-      <button id="modeToggle" class="btn ghost" title="التبديل بين أوضاع الإكمال">
-        وضع الإكمال: <span id="modeLabel">من الأعلى</span>
-      </button>
 
       <button class="btn primary" id="play">تشغيل التزاوج</button>
       <button class="btn ghost" id="step">خطوة</button>
@@ -54,7 +49,7 @@
     <div class="arena" id="arena">
       <div class="grid" id="grid" aria-live="polite"></div>
 
-      <!-- طبقة SVG للأسهم الإيضاحية (تظهر بعد الاكتمال) -->
+      <!-- دلائل الأبعاد (تظهر بعد الاكتمال) -->
       <svg id="guides" class="guides" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
