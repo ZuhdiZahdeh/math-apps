@@ -244,6 +244,40 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
 
 /* ترك هوامش يسار العنوان حتى لا يتغطّى بالشعار */
 header{ padding-inline-start: calc(var(--brandW) + 18px) }
+/* ——— Overrides مؤكدة التطبيق ——— */
+.panel button.btn{ 
+  font-weight:800;
+  border-width:2px;
+  box-shadow:0 6px 14px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.panel button#play.btn{
+  background: linear-gradient(180deg,#34d399,#059669) !important;
+  color:#fff;
+  border-color: color-mix(in srgb, #059669 70%, black);
+}
+.panel button#step.btn{
+  background: linear-gradient(180deg,#38bdf8,#0284c7) !important;
+  color:#fff;
+  border-color: color-mix(in srgb, #0284c7 70%, black);
+}
+.panel button#reset.btn{
+  background: linear-gradient(180deg,#f59e0b,#ef4444) !important;
+  color:#fff;
+  border-color: color-mix(in srgb, #ef4444 70%, black);
+}
+.panel button#storyBtn.btn{
+  background: linear-gradient(180deg,#f472b6,#7c3aed) !important;
+  color:#fff;
+  border-color: color-mix(in srgb, #7c3aed 70%, black);
+}
+.panel button#zoomIn.btn,
+.panel button#zoomOut.btn,
+.panel button#zoomReset.btn{
+  background: linear-gradient(180deg,#a78bfa,#6d28d9) !important;
+  color:#fff;
+  border-color: color-mix(in srgb, #6d28d9 70%, black);
+}
 
 /* الطباعة */
 @media print{ .brand-logo{ display:none !important } }
