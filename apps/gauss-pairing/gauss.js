@@ -1,275 +1,328 @@
-/* ============================================
-   Gauss Pairing — Logic
-   ملفات: gauss.js
-   آخر تعديل: إيزومتري + localStorage + fitGuideLabels ديناميكي
-   ============================================ */
+/* حيلة غاوس – حركة أفقية فقط + قصة مبسطة/كاملة + صوت طفل/معلّم (MP3 أو TTS) */
+(() => {
+  "use strict";
 
-document.addEventListener('DOMContentLoaded', () => {
-  /* عناصر الواجهة (متوافقة مع index.html السابق) */
-  const arena       = document.getElementById('arena');        // .arena
-  const stage       = document.getElementById('stage');        // .stage (لأجل الـZoom)
-  const grid        = document.getElementById('grid');         // .grid
-  const guides      = document.getElementById('guides');       // <svg> للعرض/الطول
-  const postExplain = document.getElementById('postExplain');  // صندوق الشرح بعد الاكتمال
+  const $  = (id)=>document.getElementById(id);
+  const txt = (id, v)=>{ const el=$(id); if(el) el.textContent=v; };
 
-  // تحكّم التشغيل
-  const playBtn   = document.getElementById('play');
-  const stepBtn   = document.getElementById('step');
-  const resetBtn  = document.getElementById('reset');
+  // عناصر التحكم الرئيسة
+  const nInput=$('n'), grid=$('grid'), arena=$('arena');
+  const playBtn=$('play'), stepBtn=$('step'), resetBtn=$('reset'), speedSel=$('speed');
+  const postExplain=$('postExplain'), dismissBtn=$('dismiss');
 
-  // n والسرعة
-  const nRange  = document.getElementById('nRange');
-  const speedEl = document.getElementById('speed');
+  // دلائل الأبعاد
+  const guides=$('guides'), hLine=$('hLine'), vLine=$('vLine'), hText=$('hText'), vText=$('vText');
 
-  // زوم
-  const zoomOut   = document.getElementById('zoomOut');
-  const zoomIn    = document.getElementById('zoomIn');
-  const zoomReset = document.getElementById('zoomReset');
+  // تكبير/تصغير
+  const DEFAULT_FS=18; let zoomPx=DEFAULT_FS;
+  const zi=$('zoomIn'), zo=$('zoomOut'), zr=$('zoomReset'), zv=$('zoomVal');
+  const updZoom=()=>{ if(zv) zv.textContent=Math.round((zoomPx/DEFAULT_FS)*100)+'%'; };
+  const setFs=(px)=>{ px=Math.max(14,Math.min(26,px)); document.documentElement.style.fontSize=px+'px'; zoomPx=px; updZoom(); if(arena.classList.contains('complete')) updateGuides(); };
 
-  // إيزومتري
-  const isoToggle  = document.getElementById('toggleIso');   // زر تبديل المسطّح/الإيزومتري
-  const depthRange = document.getElementById('depthRange');  // منزلق عمق
-  const depthValue = document.getElementById('depthValue');  // عرض قيمة العمق
+  let currentN=parseInt(nInput?.value||'20',10);
+  let stepIndex=0, explainTimer=null;
 
-  // القيم
-  let n = parseInt(nRange?.value || '20', 10);
-  let speed = (speedEl?.value || 'medium');
-  let zoom = 1;
+  /* =====================  القصة  ===================== */
 
-  // حالة التحريك
-  let isPlaying = false;
-  let currentRow = 0;
-  let timer = null;
+  // نص قصير (للصف الخامس)
+  const STORY_SHORT_HTML = `
+    <p><b>من هو غاوس؟</b> طفل ذكي صار لاحقًا عالِم رياضيات كبير.</p>
+    <p><b>ماذا حصل؟</b> طلب المعلّم من التلاميذ جمع الأعداد من <b>1</b> إلى <b>100</b>.</p>
+    <p>فكّر غاوس: لو جمعنا العدد الأول مع الأخير نحصل دائمًا على <b>101</b>:
+       <span dir="ltr">1+100</span>، ثم <span dir="ltr">2+99</span>…</p>
+    <p>لدينا <b>50</b> زوجًا، إذن المجموع <b>50 × 101 = 5050</b>.</p>
+    <p>وبالتعميم لأي <span dir="ltr">n</span> يكون:
+      <span class="eq" dir="ltr">S = n(n+1)/2</span>.
+    </p>
+  `;
 
-  // حفظ/استرجاع وضع الإيزومتري والعمق
-  const savedIso    = localStorage.getItem('gp_iso');
-  const savedDepth  = localStorage.getItem('gp_iso_depth');
+  // نص كامل — روائي مع تركيز على “التفكير المختلف” والتفريد
+  const STORY_FULL_HTML = `
+    <p>في <b>براونشفايغ</b> بألمانيا، أواخر القرن الثامن عشر، جلس الأطفال إلى مقاعدهم الخشبية.
+       كتب المعلّم <b>بوخنر</b> على اللوح مهمةً تبدو مملة:
+       <span class="eq" dir="ltr">S = 1 + 2 + 3 + … + 99 + 100</span>.
+       أراد منهم أن ينشغلوا طويلًا.</p>
 
-  if (savedIso === '1') {
-    arena.classList.add('iso');
-    if (isoToggle) isoToggle.classList.add('active');
+    <p>انحنى معظم التلاميذ على ألواحهم: 1+2=3… 3+3=6… أمّا <b>غاوس</b> فتوقّف.
+       لم يُمسك بالقلم فورًا، بل <b>تأمّل</b>. رأى في سطر الأعداد <b>نمطًا</b>:
+       لو جمع الأول مع الأخير نحصل على <b>101</b>، ثم الثاني مع ما قبل الأخير… <b>الأزواج كلّها 101</b>!</p>
+
+    <p>تحرّك غاوس بخطواتٍ واثقة إلى مكتب المعلّم، ووضع لوحه الحجري: <b>5050</b>.
+       رفع بوخنر حاجبيه: «انتهيت؟» أجاب الصبي بهدوء الواثق:
+       «نعم؛ لدينا <b>50 زوجًا</b>، وكل زوج <b>101</b>؛ إذن <b>50×101</b>».
+       ثم أضاف — وكأنه يكشف سرًّا — «وبصورةٍ عامة، مجموع 1 إلى n يساوي:
+       <span class="eq" dir="ltr">S = n(n+1)/2</span>».</p>
+
+    <p>أدرك المعلّم أن أمامه <b>عقلاً صغيرًا يفكّر بطريقة مختلفة</b>.
+       لم يعد التحدّي أن يجعله يكرّر ما يفعله الآخرون، بل أن <b>يوجّه ذكاءه</b>.
+       ومنذ ذلك اليوم صار يعطيه <b>مسائل غير تقليدية</b>:
+       تنظيم الأعداد إلى أشكال، عدّها كمستطيلات ومثلثات، تخمين القاعدة ثم برهنتها…
+       وفي الوقت نفسه كان يهيّئ لبقية الصف <b>طُرقًا متدرجة</b>،
+       ويطلب من غاوس أن <b>يشرح فكرته لزملائه</b> بلطف.</p>
+
+    <p>تحوّل الصف إلى ورشة أفكار: <b>من يرى النمط؟ من يجرّب طريقة أخرى؟</b>
+       تعلّم التلاميذ أن الحل ليس سطرًا طويلًا من الجمع، بل <b>نظرةٌ ذكية</b> تغيّر كل شيء.
+       هكذا نشأت «حيلة غاوس» التي نراها في هذا التطبيق عندما نكمّل السُّلَّم ليصبح
+       <b>مستطيلاً</b> بعدده <span dir="ltr">2S = n(n+1)</span>، ثم نأخذ <b>نصفه</b>:
+       <span class="eq" dir="ltr">S = n(n+1)/2</span>.</p>
+
+    <p>القصة ليست عن عبقري واحد فقط؛ إنها أيضًا عن <b>معلّم</b> أدرك
+       <b>الفروق الفردية</b>، فصار يوزّع التحديات <b>بحسب حاجة كل طالب</b>،
+       ويُنمي <b>جرأة التفكير</b> لا مجرد تقليد الخطوات.</p>
+  `;
+
+  // عناصر القصة
+  const storyBtn    = $('storyBtn');
+  const storyModal  = $('storyModal');
+  const storyBody   = $('storyBody');
+  const storyPlay   = $('storyPlay');
+  const storyStop   = $('storyStop');
+  const storyClose  = $('storyClose');
+  const tabShort    = $('tabShort');
+  const tabFull     = $('tabFull');
+
+  // ملفات MP3 الاختيارية (لو موجودة)
+  const audioChild   = $('storyAudioChild');   // مسار: ../../assets/audio/ar/gauss-story-child.mp3
+  const audioTeacher = $('storyAudioTeacher'); // مسار: ../../assets/audio/ar/gauss-story-teacher.mp3
+
+  // اختيار النبرة
+  const vChild   = $('vChild');
+  const vTeacher = $('vTeacher');
+
+  // حالة القصة
+  let storyTab = 'full'; // سنبدأ بالنص الكامل
+  const setStoryTab = (t)=>{
+    storyTab = (t==='full') ? 'full' : 'short';
+    tabShort?.classList.toggle('active', storyTab==='short');
+    tabFull ?.classList.toggle('active',  storyTab==='full');
+    tabShort?.setAttribute('aria-selected', storyTab==='short' ? 'true':'false');
+    tabFull ?.setAttribute('aria-selected', storyTab==='full'  ? 'true':'false');
+    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
+  };
+
+  function openStory(){
+    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
+    storyModal.classList.add('show');
+    storyModal.focus();
   }
-  if (savedDepth) {
-    arena.style.setProperty('--depth', `${savedDepth}px`);
-    if (depthRange) depthRange.value = savedDepth;
-    if (depthValue) depthValue.textContent = `${savedDepth}px`;
-  } else {
-    const def = 12;
-    arena.style.setProperty('--depth', `${def}px`);
-    if (depthRange) depthRange.value = def;
-    if (depthValue) depthValue.textContent = `${def}px`;
+  function closeStory(){
+    stopStoryAudio();
+    storyModal.classList.remove('show');
   }
 
-  /* =========================
-     بناء الشبكة (السُلّم الأصلي)
-     ========================= */
-  function build(){
-    stop();
-    grid.innerHTML = '';
-    arena.classList.remove('complete');
-    postExplain?.classList.add('hidden');
-    guides.style.opacity = 0;
+  // انتقاء مصدر الصوت: MP3 (لو وُجد) أو TTS
+  function chooseAudioSource(){
+    const voice = vTeacher?.checked ? 'teacher' : 'child';
+    if (voice==='child'   && audioChild   && audioChild.getAttribute('src'))   return { type:'mp3', el:audioChild };
+    if (voice==='teacher' && audioTeacher && audioTeacher.getAttribute('src')) return { type:'mp3', el:audioTeacher };
+    const pitch = (voice==='child') ? 1.25 : 0.95; // طبقة صوت تقريبية
+    return { type:'tts', pitch };
+  }
 
-    // نبني n صفوف: الصف i يحوي i مربعات من المجموعة A (الزرقاء)
-    for(let i=1; i<=n; i++){
-      const row = document.createElement('div');
-      row.className = 'row';
-      // نحاول الاصطفاف يمين الشبكة لتبدو مثل سلّم قطري
-      row.style.justifyContent = 'end';
+  function speakStoryTTS(pitch=1.0){
+    if (!('speechSynthesis' in window)) {
+      alert('المتصفح لا يدعم تحويل النص إلى كلام. يمكنك إضافة ملف MP3 بدلًا من ذلك.');
+      return;
+    }
+    const text = storyBody.textContent.replace(/\s+/g,' ').trim();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang  = 'ar-SA';
+    utter.rate  = 1.0;
+    utter.pitch = pitch;
 
-      for(let j=0; j<i; j++){
-        const cell = document.createElement('div');
-        cell.className = 'cell a';
-        row.appendChild(cell);
-      }
+    // اختيار صوت عربي إن وُجد
+    const voices = window.speechSynthesis.getVoices();
+    const ar = voices.find(v => /ar/i.test(v.lang) || /Arabic|العربية/i.test(v.name));
+    if (ar) utter.voice = ar;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }
+
+  function playStory(){
+    const src = chooseAudioSource();
+    if (src.type==='mp3'){
+      src.el.currentTime = 0;
+      src.el.play();
+    } else {
+      speakStoryTTS(src.pitch);
+    }
+  }
+  function stopStoryAudio(){
+    if (audioChild){   audioChild.pause();   audioChild.currentTime=0; }
+    if (audioTeacher){ audioTeacher.pause(); audioTeacher.currentTime=0; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
+  /* =====================  البناء والأنيميشن  ===================== */
+
+  function readBlockGap(){
+    const cs=getComputedStyle(document.documentElement);
+    return { block: parseFloat(cs.getPropertyValue('--block'))||28,
+             gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6 };
+  }
+
+  function build(n){
+    grid.innerHTML=''; arena.classList.remove('complete'); postExplain?.classList.remove('hidden');
+    if(explainTimer){ clearTimeout(explainTimer); explainTimer=null; }
+    stepIndex=0;
+
+    const {block,gap}=readBlockGap();
+    const slideBase = (n+2) * (block+gap);  // انزياح أفقي ابتدائي
+
+    for(let r=1;r<=n;r++){
+      const row=document.createElement('div'); row.className='row';
+
+      const label=document.createElement('div'); label.className='label'; label.textContent=r; row.appendChild(label);
+
+      // السلم الأصلي A
+      const groupA=document.createElement('div'); groupA.className='group a';
+      for(let i=0;i<r;i++){ const b=document.createElement('div'); b.className='block a'; groupA.appendChild(b); }
+      row.appendChild(groupA);
+
+      // سهم أفقي
+      const spacer=document.createElement('div'); spacer.className='spacer';
+      const arrow=document.createElement('div'); arrow.className='pairArrow'; arrow.textContent='→';
+      spacer.appendChild(arrow); row.appendChild(spacer);
+
+      // المكمل B
+      const groupB=document.createElement('div'); groupB.className='group b'; groupB.dataset.size=(n+1-r);
+      groupB.style.setProperty('--slide', slideBase + 'px');
+      for(let i=0;i<(n+1-r);i++){ const b=document.createElement('div'); b.className='block b'; groupB.appendChild(b); }
+      row.appendChild(groupB);
+
       grid.appendChild(row);
     }
 
-    // نرسم خطوط/نصوص دليل الطول والعرض حسب n
-    drawGuides();
+    // نصوص
+    txt('nVal',n); txt('nLabel',n);
+    txt('dimsLabel',`${n} × ${n+1}`);
+    txt('rectCells', n*(n+1));
+    txt('sum', (n*(n+1))/2);
+    txt('dimA', n); txt('dimB', n+1);
+    txt('areaVal', n*(n+1)); txt('sumVal', (n*(n+1))/2);
 
-    currentRow = 0;
-    fitGuideLabels(); // ⟵ ضبط أحجام «الطول/العرض» ديناميكيًا
+    const approx=(block+gap)*(n+1)+140;
+    grid.style.minWidth=Math.max(approx,420)+'px';
   }
 
-  /* دليل الطول/العرض (SVG مبسّط) */
-  function drawGuides(){
-    const w = grid.clientWidth - 40;
-    const h = grid.clientHeight - 40;
-
-    // أبعاد المستطيل النهائي: n × (n+1)
-    // نكتفي برسم خط أفقي في الأسفل (الطول = n+1) وخط رأسي في اليمين (العرض = n)
-    const svg = `
-      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <!-- خط الطول (أفقي في الأسفل) -->
-        <line x1="5" y1="94" x2="95" y2="94"></line>
-        <text x="50" y="98" text-anchor="middle" class="tMuted">الطول = n+1</text>
-
-        <!-- خط العرض (رأسي في اليمين) -->
-        <line x1="95" y1="10" x2="95" y2="94"></line>
-        <text x="98" y="54" transform="rotate(-90 98,54)">العرض = n</text>
-      </svg>
-    `;
-    guides.innerHTML = svg;
+  function revealRowB(i){
+    const rows=[...grid.querySelectorAll('.row')];
+    if(i>=rows.length) return false;
+    const b=rows[i].querySelector('.group.b'); if(!b) return false;
+    const duration=parseInt(speedSel.value,10);
+    b.getBoundingClientRect(); // reflow
+    b.style.transitionDuration=duration+'ms';
+    b.classList.add('in');
+    const arrow=rows[i].querySelector('.pairArrow'); if(arrow) arrow.classList.add('show');
+    return true;
   }
 
-  /* تشغيل الأنيميشن: نكمل المستطيل بإضافة مكعّبات مجموعة B فوق/يمين المثلث
-     (عرض بصري أفقي خطوة بخطوة) */
-  function play(){
-    if(isPlaying) return;
-    isPlaying = true;
-
-    // سرعة المؤقّت
-    const delay = speedToMs(speed);
-
-    timer = setInterval(() => {
-      if(currentRow >= n){
-        // اكتمل
-        stop();
-        onComplete();
-        return;
-      }
-      addComplementRow(currentRow + 1);
-      currentRow++;
-    }, delay);
-  }
-
-  function step(){
-    if(currentRow >= n){
-      onComplete();
-      return;
+  async function play(){
+    playBtn.disabled=stepBtn.disabled=nInput.disabled=speedSel.disabled=true;
+    const rows=[...grid.querySelectorAll('.row')]; const duration=parseInt(speedSel.value,10);
+    for(let i=stepIndex;i<rows.length;i++){
+      revealRowB(i); stepIndex=i+1;
+      await new Promise(res=>setTimeout(res, duration*0.9));
     }
-    addComplementRow(currentRow + 1);
-    currentRow++;
+    markComplete();
+    playBtn.disabled=stepBtn.disabled=nInput.disabled=speedSel.disabled=false;
   }
 
-  function stop(){
-    isPlaying = false;
-    if(timer) clearInterval(timer);
-    timer = null;
-  }
-
-  function reset(){
-    stop();
-    build();
-  }
-
-  /* نحاكي «الإكمال» بإضافة n-i+1 مكعّبات من B في الصف المُقابل للصف i
-     بحيث يتكون مستطيل أبعاده n × (n+1) بصريًا */
-  function addComplementRow(i){
-    // الصف i من أسفل يقابله إكمال بطول (n+1 - i)
-    const needed = (n + 1) - i;
-    if(needed <= 0) return;
-
-    const row = grid.children[i-1];
-    if(!row) return;
-
-    // نضيف مكعّبات B في بداية الصف ليبدو كأنه يُستكمَل أفقيًا
-    for(let k=0;k<needed;k++){
-      const cell = document.createElement('div');
-      cell.className = 'cell b';
-      row.insertBefore(cell, row.firstChild);
-    }
-  }
-
-  function onComplete(){
+  function markComplete(){
     arena.classList.add('complete');
-    guides.style.opacity = 1;
-    postExplain?.classList.remove('hidden');
-    fitGuideLabels(); // قد تتغيّر أبعاد الشبكة بعد الاكتمال
-  }
+    txt('dimA',currentN); txt('dimB',currentN+1);
+    txt('areaVal', currentN*(currentN+1));
+    txt('sumVal',  (currentN*(currentN+1))/2);
+    updateGuides();
 
-  /* سرعة */
-  function speedToMs(v){
-    switch(v){
-      case 'slow':   return 450;
-      case 'fast':   return 120;
-      default:       return 250; // medium
+    if(postExplain){
+      postExplain.classList.remove('hidden');
+      if(explainTimer) clearTimeout(explainTimer);
+      explainTimer=setTimeout(()=>{ if(!postExplain.classList.contains('hidden')) postExplain.classList.add('hidden'); }, 10000);
     }
   }
 
-  /* =========== Zoom =========== */
-  function applyZoom(){
-    stage.style.transform = `scale(${zoom})`;
-    if(zoomReset) zoomReset.textContent = `${Math.round(zoom*100)}%`;
-    fitGuideLabels();
+  function reset(){ build(currentN); }
+
+  function updateGuides(){
+    if(!guides || !arena.classList.contains('complete')) return;
+    const firstA=grid.querySelector('.row .group.a .block');
+    const firstRow=grid.querySelector('.row');
+    const lastRow=grid.querySelector('.row:last-child');
+    const lastRowAny=lastRow ? (lastRow.querySelector('.group.a .block') || lastRow.querySelector('.block')) : null;
+    const lastBFirstRow=firstRow ? firstRow.querySelector('.group.b .block:last-child') : null;
+    if(!firstA || !lastRowAny || !lastBFirstRow) return;
+
+    const aRect=arena.getBoundingClientRect(), pad=18;
+    const offL=aRect.left+pad, offT=aRect.top+pad;
+
+    const rA=firstA.getBoundingClientRect();
+    const rBend=lastBFirstRow.getBoundingClientRect();
+    const rLast=lastRowAny.getBoundingClientRect();
+
+    const x1=rA.left-offL, x2=rBend.right-offL;
+    const yMid=(rA.top-offT)+rA.height/2;
+    const y1v=rA.top-offT, y2v=rLast.bottom-offT;
+    const xV=x1-10;
+
+    const w=aRect.width-2*pad, h=aRect.height-2*pad;
+    guides.setAttribute('viewBox',`0 0 ${w} ${h}`);
+
+    hLine.setAttribute('x1',x1); hLine.setAttribute('y1',yMid);
+    hLine.setAttribute('x2',x2); hLine.setAttribute('y2',yMid);
+    vLine.setAttribute('x1',xV); vLine.setAttribute('y1',y1v);
+    vLine.setAttribute('x2',xV); vLine.setAttribute('y2',y2v);
+
+    hText.setAttribute('x',(x1+x2)/2-16);
+    hText.setAttribute('y',yMid-8);
+    hText.textContent=(currentN+1)+' (n+1)';
+
+    vText.setAttribute('x',xV-10);
+    vText.setAttribute('y',(y1v+y2v)/2+12);
+    vText.textContent=currentN+' (n)';
   }
 
-  /* =========== Iso / Depth =========== */
-  function setIso(isIso){
-    arena.classList.toggle('iso', isIso);
-    if(isoToggle){
-      isoToggle.classList.toggle('active', isIso);
-      isoToggle.setAttribute('aria-pressed', isIso ? 'true' : 'false');
-    }
-    localStorage.setItem('gp_iso', isIso ? '1' : '0');
-    // بعد تبديل الطبقات قد تتغيّر المسافات
-    requestAnimationFrame(fitGuideLabels);
+  /* =====================  الأحداث  ===================== */
+
+  // تفاعل القصة
+  storyBtn?.addEventListener('click', openStory);
+  storyClose?.addEventListener('click', closeStory);
+  storyModal?.addEventListener('click', (e)=>{ if(e.target===storyModal) closeStory(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && storyModal?.classList.contains('show')) closeStory(); });
+
+  tabShort?.addEventListener('click', ()=> setStoryTab('short'));
+  tabFull ?.addEventListener('click', ()=> setStoryTab('full'));
+  storyPlay?.addEventListener('click', playStory);
+  storyStop?.addEventListener('click', stopStoryAudio);
+
+  // تفاعل اللوحة
+  nInput.addEventListener('input',e=>{ currentN=parseInt(e.target.value,10); build(currentN); });
+  playBtn.addEventListener('click', play);
+  stepBtn.addEventListener('click', ()=>{ const ok=revealRowB(stepIndex); if(ok){ stepIndex++; if(stepIndex===currentN) markComplete(); }});
+  resetBtn.addEventListener('click', reset);
+
+  if(dismissBtn){
+    dismissBtn.addEventListener('click', (e)=>{ e.preventDefault(); if(explainTimer){ clearTimeout(explainTimer); explainTimer=null; } postExplain?.classList.add('hidden'); });
+  }
+  if(postExplain){
+    postExplain.addEventListener('click', (e)=>{ if(e.target===postExplain) postExplain.classList.add('hidden'); });
+    postExplain.querySelector('.card')?.addEventListener('click', (e)=> e.stopPropagation());
   }
 
-  function setDepth(px){
-    const v = Math.max(4, Math.min(24, parseInt(px,10) || 12));
-    arena.style.setProperty('--depth', `${v}px`);
-    if(depthValue) depthValue.textContent = `${v}px`;
-    if(depthRange) depthRange.value = String(v);
-    localStorage.setItem('gp_iso_depth', String(v));
-    requestAnimationFrame(fitGuideLabels);
+  window.addEventListener('resize', ()=>{ if(arena.classList.contains('complete')) updateGuides(); });
+
+  if(zi) zi.addEventListener('click', ()=>setFs(zoomPx+1));
+  if(zo) zo.addEventListener('click', ()=>setFs(zoomPx-1));
+  if(zr) zr.addEventListener('click', ()=>setFs(DEFAULT_FS));
+  updZoom();
+
+  // تشغيل أولي
+  setStoryTab('full');  // يبدأ بالنص الكامل افتراضيًا
+  build(currentN);
+
+  // لبعض المتصفحات يجب استدعاء getVoices بعد onvoiceschanged لتحميل أصوات TTS
+  if ('speechSynthesis' in window){
+    window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
   }
-
-  /* =========== ضبط ديناميكي لدليل الطول/العرض =========== */
-  function fitGuideLabels(){
-    const r = grid.getBoundingClientRect();
-    if(!r.width || !r.height) return;
-
-    const minDim = Math.min(r.width, r.height);
-    // حجم خط النص بين 12 و 28 بكسل وفقًا لحجم الشبكة
-    const fs = Math.max(12, Math.min(28, minDim * 0.05));
-    const stroke = Math.max(1.2, Math.min(3, fs / 10));
-
-    guides.style.setProperty('--guideFont',  fs + 'px');
-    guides.style.setProperty('--guideStroke', stroke);
-  }
-
-  /* =======================
-     الأحداث (Event Listeners)
-     ======================= */
-  playBtn?.addEventListener('click', play);
-  stepBtn?.addEventListener('click', step);
-  resetBtn?.addEventListener('click', reset);
-
-  nRange?.addEventListener('input', e=>{
-    n = parseInt(e.target.value, 10) || 1;
-    build();
-  });
-  speedEl?.addEventListener('change', e=>{
-    speed = e.target.value;
-    if(isPlaying){
-      stop();
-      play();
-    }
-  });
-
-  zoomIn?.addEventListener('click', ()=>{
-    zoom = Math.min(2.0, +(zoom + 0.1).toFixed(2));
-    applyZoom();
-  });
-  zoomOut?.addEventListener('click', ()=>{
-    zoom = Math.max(0.6, +(zoom - 0.1).toFixed(2));
-    applyZoom();
-  });
-  zoomReset?.addEventListener('click', ()=>{
-    zoom = 1;
-    applyZoom();
-  });
-
-  isoToggle?.addEventListener('click', ()=>{
-    setIso(!arena.classList.contains('iso'));
-  });
-  depthRange?.addEventListener('input', e=> setDepth(e.target.value));
-
-  window.addEventListener('resize', fitGuideLabels);
-
-  /* أوّل بناء */
-  build();
-  applyZoom();
-});
+})();
