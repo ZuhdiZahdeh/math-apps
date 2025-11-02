@@ -1,328 +1,383 @@
-/* حيلة غاوس – حركة أفقية فقط + قصة مبسطة/كاملة + صوت طفل/معلّم (MP3 أو TTS) */
+/* gauss-pairing.js — نسخة نهائية
+   - تزاوج أفقي فقط لتكوين المستطيل
+   - منظور إيزومتري اختياري + عمق محفوظ
+   - قصة (قصير/كامل) + TTS
+   - Zoom
+   - بطاقات تربوية cards.html داخل Modal + طباعة/فتح خارجي
+   - ضبط ديناميكي لحجم أدلة "الطول/العرض"
+*/
+
 (() => {
-  "use strict";
+  // عناصر DOM الأساسية
+  const arena      = document.getElementById('arena');
+  const grid       = document.getElementById('grid');
+  const stage      = document.getElementById('stage');
 
-  const $  = (id)=>document.getElementById(id);
-  const txt = (id, v)=>{ const el=$(id); if(el) el.textContent=v; };
+  const playBtn    = document.getElementById('play');
+  const stepBtn    = document.getElementById('step');
+  const resetBtn   = document.getElementById('reset');
 
-  // عناصر التحكم الرئيسة
-  const nInput=$('n'), grid=$('grid'), arena=$('arena');
-  const playBtn=$('play'), stepBtn=$('step'), resetBtn=$('reset'), speedSel=$('speed');
-  const postExplain=$('postExplain'), dismissBtn=$('dismiss');
+  const nRange     = document.getElementById('nRange');
+  const nLabel     = document.getElementById('nLabel');
+  const nSpanTop   = document.getElementById('nSpanTop');
+  const nSpan2     = document.getElementById('nSpan2');
+  const dimsTop    = document.getElementById('dimsTop');
 
-  // دلائل الأبعاد
-  const guides=$('guides'), hLine=$('hLine'), vLine=$('vLine'), hText=$('hText'), vText=$('vText');
+  const rectCells  = document.getElementById('rectCells');
+  const rectCells2 = document.getElementById('rectCells2');
+  const sumVal     = document.getElementById('sumVal');
 
-  // تكبير/تصغير
-  const DEFAULT_FS=18; let zoomPx=DEFAULT_FS;
-  const zi=$('zoomIn'), zo=$('zoomOut'), zr=$('zoomReset'), zv=$('zoomVal');
-  const updZoom=()=>{ if(zv) zv.textContent=Math.round((zoomPx/DEFAULT_FS)*100)+'%'; };
-  const setFs=(px)=>{ px=Math.max(14,Math.min(26,px)); document.documentElement.style.fontSize=px+'px'; zoomPx=px; updZoom(); if(arena.classList.contains('complete')) updateGuides(); };
+  const guides     = document.getElementById('guides');
+  const postExplain= document.getElementById('postExplain');
+  const hideExplain= document.getElementById('hideExplain');
 
-  let currentN=parseInt(nInput?.value||'20',10);
-  let stepIndex=0, explainTimer=null;
+  // منظور + عمق
+  const isoToggle  = document.getElementById('isoToggle');
+  const depthCtrl  = document.getElementById('depthCtrl');
+  const depthRange = document.getElementById('depthRange');
+  const depthValue = document.getElementById('depthValue');
 
-  /* =====================  القصة  ===================== */
+  // Zoom
+  const zoomIn     = document.getElementById('zoomIn');
+  const zoomOut    = document.getElementById('zoomOut');
+  const zoomReset  = document.getElementById('zoomReset');
 
-  // نص قصير (للصف الخامس)
-  const STORY_SHORT_HTML = `
-    <p><b>من هو غاوس؟</b> طفل ذكي صار لاحقًا عالِم رياضيات كبير.</p>
-    <p><b>ماذا حصل؟</b> طلب المعلّم من التلاميذ جمع الأعداد من <b>1</b> إلى <b>100</b>.</p>
-    <p>فكّر غاوس: لو جمعنا العدد الأول مع الأخير نحصل دائمًا على <b>101</b>:
-       <span dir="ltr">1+100</span>، ثم <span dir="ltr">2+99</span>…</p>
-    <p>لدينا <b>50</b> زوجًا، إذن المجموع <b>50 × 101 = 5050</b>.</p>
-    <p>وبالتعميم لأي <span dir="ltr">n</span> يكون:
-      <span class="eq" dir="ltr">S = n(n+1)/2</span>.
-    </p>
-  `;
+  // قصة + TTS
+  const storyBtn   = document.getElementById('storyBtn');
+  const storyModal = document.getElementById('storyModal');
+  const closeStory = document.getElementById('closeStory');
+  const tabShort   = document.getElementById('tabShort');
+  const tabFull    = document.getElementById('tabFull');
+  const storyText  = document.getElementById('storyText');
+  const ttsPlay    = document.getElementById('ttsPlay');
+  const ttsStop    = document.getElementById('ttsStop');
 
-  // نص كامل — روائي مع تركيز على “التفكير المختلف” والتفريد
-  const STORY_FULL_HTML = `
-    <p>في <b>براونشفايغ</b> بألمانيا، أواخر القرن الثامن عشر، جلس الأطفال إلى مقاعدهم الخشبية.
-       كتب المعلّم <b>بوخنر</b> على اللوح مهمةً تبدو مملة:
-       <span class="eq" dir="ltr">S = 1 + 2 + 3 + … + 99 + 100</span>.
-       أراد منهم أن ينشغلوا طويلًا.</p>
+  // بطاقات تربوية
+  const cardsBtn     = document.getElementById('cardsBtn');
+  const cardsModal   = document.getElementById('cardsModal');
+  const cardsFrame   = document.getElementById('cardsFrame');
+  const closeCards   = document.getElementById('closeCards');
+  const printCards   = document.getElementById('printCards');
+  const openCardsNew = document.getElementById('openCardsNew');
 
-    <p>انحنى معظم التلاميذ على ألواحهم: 1+2=3… 3+3=6… أمّا <b>غاوس</b> فتوقّف.
-       لم يُمسك بالقلم فورًا، بل <b>تأمّل</b>. رأى في سطر الأعداد <b>نمطًا</b>:
-       لو جمع الأول مع الأخير نحصل على <b>101</b>، ثم الثاني مع ما قبل الأخير… <b>الأزواج كلّها 101</b>!</p>
+  // حالة عامة
+  let n = parseInt(nRange.value, 10);
+  let currentRow = 0;
+  let animDelay = 140;
+  let zoom = 1;
 
-    <p>تحرّك غاوس بخطواتٍ واثقة إلى مكتب المعلّم، ووضع لوحه الحجري: <b>5050</b>.
-       رفع بوخنر حاجبيه: «انتهيت؟» أجاب الصبي بهدوء الواثق:
-       «نعم؛ لدينا <b>50 زوجًا</b>، وكل زوج <b>101</b>؛ إذن <b>50×101</b>».
-       ثم أضاف — وكأنه يكشف سرًّا — «وبصورةٍ عامة، مجموع 1 إلى n يساوي:
-       <span class="eq" dir="ltr">S = n(n+1)/2</span>».</p>
+  // حفظ/استرجاع n
+  const savedN = parseInt(localStorage.getItem('gp_n') || nRange.value, 10);
+  if (!isNaN(savedN)) { nRange.value = savedN; n = savedN; }
 
-    <p>أدرك المعلّم أن أمامه <b>عقلاً صغيرًا يفكّر بطريقة مختلفة</b>.
-       لم يعد التحدّي أن يجعله يكرّر ما يفعله الآخرون، بل أن <b>يوجّه ذكاءه</b>.
-       ومنذ ذلك اليوم صار يعطيه <b>مسائل غير تقليدية</b>:
-       تنظيم الأعداد إلى أشكال، عدّها كمستطيلات ومثلثات، تخمين القاعدة ثم برهنتها…
-       وفي الوقت نفسه كان يهيّئ لبقية الصف <b>طُرقًا متدرجة</b>،
-       ويطلب من غاوس أن <b>يشرح فكرته لزملائه</b> بلطف.</p>
+  /* ====== بناء الشبكة ====== */
+  function build() {
+    grid.innerHTML = '';
+    arena.classList.remove('complete');
+    postExplain.classList.add('hidden');
+    guides.style.opacity = 0;
 
-    <p>تحوّل الصف إلى ورشة أفكار: <b>من يرى النمط؟ من يجرّب طريقة أخرى؟</b>
-       تعلّم التلاميذ أن الحل ليس سطرًا طويلًا من الجمع، بل <b>نظرةٌ ذكية</b> تغيّر كل شيء.
-       هكذا نشأت «حيلة غاوس» التي نراها في هذا التطبيق عندما نكمّل السُّلَّم ليصبح
-       <b>مستطيلاً</b> بعدده <span dir="ltr">2S = n(n+1)</span>، ثم نأخذ <b>نصفه</b>:
-       <span class="eq" dir="ltr">S = n(n+1)/2</span>.</p>
+    // نص الرأس
+    nLabel.textContent = n;
+    nSpanTop.textContent = n;
+    nSpan2.textContent = n;
+    dimsTop.textContent = `${n+1} × ${n}`;
 
-    <p>القصة ليست عن عبقري واحد فقط؛ إنها أيضًا عن <b>معلّم</b> أدرك
-       <b>الفروق الفردية</b>، فصار يوزّع التحديات <b>بحسب حاجة كل طالب</b>،
-       ويُنمي <b>جرأة التفكير</b> لا مجرد تقليد الخطوات.</p>
-  `;
+    updateFormulas();
 
-  // عناصر القصة
-  const storyBtn    = $('storyBtn');
-  const storyModal  = $('storyModal');
-  const storyBody   = $('storyBody');
-  const storyPlay   = $('storyPlay');
-  const storyStop   = $('storyStop');
-  const storyClose  = $('storyClose');
-  const tabShort    = $('tabShort');
-  const tabFull     = $('tabFull');
+    // n صفوف
+    for (let r = 1; r <= n; r++) {
+      const row = document.createElement('div');
+      row.className = 'row';
 
-  // ملفات MP3 الاختيارية (لو موجودة)
-  const audioChild   = $('storyAudioChild');   // مسار: ../../assets/audio/ar/gauss-story-child.mp3
-  const audioTeacher = $('storyAudioTeacher'); // مسار: ../../assets/audio/ar/gauss-story-teacher.mp3
+      // A: r مكعبات
+      const groupA = document.createElement('div');
+      groupA.className = 'group a';
+      for (let i = 0; i < r; i++) {
+        const b = document.createElement('div');
+        b.className = 'block a';
+        groupA.appendChild(b);
+      }
 
-  // اختيار النبرة
-  const vChild   = $('vChild');
-  const vTeacher = $('vTeacher');
+      // فاصل + سهم
+      const spacer = document.createElement('div');
+      spacer.className = 'spacer';
+      const arrow = document.createElement('span');
+      arrow.className = 'pairArrow';
+      arrow.textContent = '↠';
+      spacer.appendChild(arrow);
 
-  // حالة القصة
-  let storyTab = 'full'; // سنبدأ بالنص الكامل
-  const setStoryTab = (t)=>{
-    storyTab = (t==='full') ? 'full' : 'short';
-    tabShort?.classList.toggle('active', storyTab==='short');
-    tabFull ?.classList.toggle('active',  storyTab==='full');
-    tabShort?.setAttribute('aria-selected', storyTab==='short' ? 'true':'false');
-    tabFull ?.setAttribute('aria-selected', storyTab==='full'  ? 'true':'false');
-    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
-  };
+      // B: (n+1 - r) مكعبات
+      const groupB = document.createElement('div');
+      groupB.className = 'group b';
+      for (let i = 0; i < (n + 1 - r); i++) {
+        const b = document.createElement('div');
+        b.className = 'block b';
+        groupB.appendChild(b);
+      }
 
-  function openStory(){
-    storyBody.innerHTML = (storyTab==='short') ? STORY_SHORT_HTML : STORY_FULL_HTML;
-    storyModal.classList.add('show');
-    storyModal.focus();
-  }
-  function closeStory(){
-    stopStoryAudio();
-    storyModal.classList.remove('show');
-  }
-
-  // انتقاء مصدر الصوت: MP3 (لو وُجد) أو TTS
-  function chooseAudioSource(){
-    const voice = vTeacher?.checked ? 'teacher' : 'child';
-    if (voice==='child'   && audioChild   && audioChild.getAttribute('src'))   return { type:'mp3', el:audioChild };
-    if (voice==='teacher' && audioTeacher && audioTeacher.getAttribute('src')) return { type:'mp3', el:audioTeacher };
-    const pitch = (voice==='child') ? 1.25 : 0.95; // طبقة صوت تقريبية
-    return { type:'tts', pitch };
-  }
-
-  function speakStoryTTS(pitch=1.0){
-    if (!('speechSynthesis' in window)) {
-      alert('المتصفح لا يدعم تحويل النص إلى كلام. يمكنك إضافة ملف MP3 بدلًا من ذلك.');
-      return;
-    }
-    const text = storyBody.textContent.replace(/\s+/g,' ').trim();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang  = 'ar-SA';
-    utter.rate  = 1.0;
-    utter.pitch = pitch;
-
-    // اختيار صوت عربي إن وُجد
-    const voices = window.speechSynthesis.getVoices();
-    const ar = voices.find(v => /ar/i.test(v.lang) || /Arabic|العربية/i.test(v.name));
-    if (ar) utter.voice = ar;
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
-  }
-
-  function playStory(){
-    const src = chooseAudioSource();
-    if (src.type==='mp3'){
-      src.el.currentTime = 0;
-      src.el.play();
-    } else {
-      speakStoryTTS(src.pitch);
-    }
-  }
-  function stopStoryAudio(){
-    if (audioChild){   audioChild.pause();   audioChild.currentTime=0; }
-    if (audioTeacher){ audioTeacher.pause(); audioTeacher.currentTime=0; }
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-  }
-
-  /* =====================  البناء والأنيميشن  ===================== */
-
-  function readBlockGap(){
-    const cs=getComputedStyle(document.documentElement);
-    return { block: parseFloat(cs.getPropertyValue('--block'))||28,
-             gap:   parseFloat(cs.getPropertyValue('--gap'))  || 6 };
-  }
-
-  function build(n){
-    grid.innerHTML=''; arena.classList.remove('complete'); postExplain?.classList.remove('hidden');
-    if(explainTimer){ clearTimeout(explainTimer); explainTimer=null; }
-    stepIndex=0;
-
-    const {block,gap}=readBlockGap();
-    const slideBase = (n+2) * (block+gap);  // انزياح أفقي ابتدائي
-
-    for(let r=1;r<=n;r++){
-      const row=document.createElement('div'); row.className='row';
-
-      const label=document.createElement('div'); label.className='label'; label.textContent=r; row.appendChild(label);
-
-      // السلم الأصلي A
-      const groupA=document.createElement('div'); groupA.className='group a';
-      for(let i=0;i<r;i++){ const b=document.createElement('div'); b.className='block a'; groupA.appendChild(b); }
       row.appendChild(groupA);
-
-      // سهم أفقي
-      const spacer=document.createElement('div'); spacer.className='spacer';
-      const arrow=document.createElement('div'); arrow.className='pairArrow'; arrow.textContent='→';
-      spacer.appendChild(arrow); row.appendChild(spacer);
-
-      // المكمل B
-      const groupB=document.createElement('div'); groupB.className='group b'; groupB.dataset.size=(n+1-r);
-      groupB.style.setProperty('--slide', slideBase + 'px');
-      for(let i=0;i<(n+1-r);i++){ const b=document.createElement('div'); b.className='block b'; groupB.appendChild(b); }
+      row.appendChild(spacer);
       row.appendChild(groupB);
-
       grid.appendChild(row);
+
+      // حساب انزياح B
+      const block = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--block'));
+      const gap   = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
+      const spacerW = spacer.getBoundingClientRect().width || 24;
+      const slide = (groupA.children.length * (block + gap)) + spacerW;
+      groupB.style.setProperty('--slide', slide + 'px');
+
+      row._arrow = arrow;
+      row._groupB = groupB;
     }
 
-    // نصوص
-    txt('nVal',n); txt('nLabel',n);
-    txt('dimsLabel',`${n} × ${n+1}`);
-    txt('rectCells', n*(n+1));
-    txt('sum', (n*(n+1))/2);
-    txt('dimA', n); txt('dimB', n+1);
-    txt('areaVal', n*(n+1)); txt('sumVal', (n*(n+1))/2);
-
-    const approx=(block+gap)*(n+1)+140;
-    grid.style.minWidth=Math.max(approx,420)+'px';
+    currentRow = 0;
+    updateFormulas();
+    fitGuideLabels();
   }
 
-  function revealRowB(i){
-    const rows=[...grid.querySelectorAll('.row')];
-    if(i>=rows.length) return false;
-    const b=rows[i].querySelector('.group.b'); if(!b) return false;
-    const duration=parseInt(speedSel.value,10);
-    b.getBoundingClientRect(); // reflow
-    b.style.transitionDuration=duration+'ms';
-    b.classList.add('in');
-    const arrow=rows[i].querySelector('.pairArrow'); if(arrow) arrow.classList.add('show');
-    return true;
+  function updateFormulas() {
+    const rect = n * (n + 1);
+    rectCells.textContent  = rect;
+    rectCells2.textContent = rect;
+    sumVal.textContent     = (rect / 2).toString();
   }
 
-  async function play(){
-    playBtn.disabled=stepBtn.disabled=nInput.disabled=speedSel.disabled=true;
-    const rows=[...grid.querySelectorAll('.row')]; const duration=parseInt(speedSel.value,10);
-    for(let i=stepIndex;i<rows.length;i++){
-      revealRowB(i); stepIndex=i+1;
-      await new Promise(res=>setTimeout(res, duration*0.9));
+  function playAll() {
+    reset(false);
+    let r = 0;
+    const rows = Array.from(grid.children);
+
+    const timer = setInterval(() => {
+      if (r >= rows.length) {
+        clearInterval(timer);
+        onComplete();
+        return;
+      }
+      revealRow(rows[r]);
+      r++;
+    }, animDelay);
+  }
+
+  function stepOnce() {
+    const rows = Array.from(grid.children);
+    if (currentRow < rows.length) {
+      revealRow(rows[currentRow]);
+      currentRow++;
+      if (currentRow === rows.length) onComplete();
     }
-    markComplete();
-    playBtn.disabled=stepBtn.disabled=nInput.disabled=speedSel.disabled=false;
   }
 
-  function markComplete(){
+  function revealRow(row) {
+    if (!row || row._groupB.classList.contains('in')) return;
+    row._groupB.classList.add('in');
+    requestAnimationFrame(() => { row._arrow.classList.add('show'); });
+  }
+
+  function onComplete() {
     arena.classList.add('complete');
-    txt('dimA',currentN); txt('dimB',currentN+1);
-    txt('areaVal', currentN*(currentN+1));
-    txt('sumVal',  (currentN*(currentN+1))/2);
-    updateGuides();
+    guides.style.opacity = 1;
+    postExplain.classList.remove('hidden');
 
-    if(postExplain){
-      postExplain.classList.remove('hidden');
-      if(explainTimer) clearTimeout(explainTimer);
-      explainTimer=setTimeout(()=>{ if(!postExplain.classList.contains('hidden')) postExplain.classList.add('hidden'); }, 10000);
+    // إخفاء تلقائي بعد 10 ثوانٍ
+    setTimeout(() => {
+      if (!postExplain.classList.contains('hidden')) {
+        postExplain.classList.add('hidden');
+      }
+    }, 10000);
+
+    fitGuideLabels();
+  }
+
+  function reset(rebuild = true) {
+    arena.classList.remove('complete');
+    guides.style.opacity = 0;
+    postExplain.classList.add('hidden');
+    Array.from(grid.children).forEach(row => {
+      row._groupB?.classList.remove('in');
+      row._arrow?.classList.remove('show');
+    });
+    currentRow = 0;
+    if (rebuild) build();
+  }
+
+  // تغيّر n
+  nRange.addEventListener('input', () => {
+    n = parseInt(nRange.value, 10);
+    nLabel.textContent = n;
+    nSpanTop.textContent = n;
+    localStorage.setItem('gp_n', String(n));
+    build();
+  });
+
+  // أزرار التشغيل
+  playBtn.addEventListener('click', playAll);
+  stepBtn.addEventListener('click', stepOnce);
+  resetBtn.addEventListener('click', () => reset(true));
+  hideExplain.addEventListener('click', () => postExplain.classList.add('hidden'));
+
+  /* ====== Zoom ====== */
+  function applyZoom() {
+    stage.style.transform = `scale(${zoom})`;
+    zoomReset.textContent = `${Math.round(zoom * 100)}%`;
+    fitGuideLabels();
+  }
+  zoomIn.addEventListener('click', () => { zoom = Math.min(1.6, +(zoom + 0.1).toFixed(2)); applyZoom(); });
+  zoomOut.addEventListener('click', () => { zoom = Math.max(0.6, +(zoom - 0.1).toFixed(2)); applyZoom(); });
+  zoomReset.addEventListener('click', () => { zoom = 1; applyZoom(); });
+
+  /* ====== منظور: مسطّح/إيزومتري + عمق ====== */
+  const savedIso    = localStorage.getItem('gp_iso') === '1';
+  const savedDepth  = parseInt(localStorage.getItem('gp_iso_depth') || depthRange.value, 10);
+
+  function applyIsoUI(isIso){
+    isoToggle.setAttribute('aria-pressed', isIso ? 'true' : 'false');
+    isoToggle.textContent = isIso ? 'منظور: إيزومتري' : 'منظور: مسطّح';
+    depthCtrl.style.display = isIso ? 'inline-flex' : 'none';
+  }
+  function setIso(isIso){
+    arena.classList.toggle('iso', isIso);
+    applyIsoUI(isIso);
+    localStorage.setItem('gp_iso', isIso ? '1' : '0');
+    requestAnimationFrame(fitGuideLabels);
+  }
+  function setDepth(px){
+    const v = Math.max(4, Math.min(20, parseInt(px, 10) || 10));
+    arena.style.setProperty('--depth', v + 'px');
+    depthValue.textContent = v + 'px';
+    depthRange.value = v;
+    localStorage.setItem('gp_iso_depth', String(v));
+    requestAnimationFrame(fitGuideLabels);
+  }
+  isoToggle.addEventListener('click', () => {
+    const newState = !arena.classList.contains('iso');
+    setIso(newState);
+    if (newState) setDepth(depthRange.value);
+  });
+  depthRange.addEventListener('input', () => setDepth(depthRange.value));
+  setIso(savedIso);
+  setDepth(savedDepth);
+
+  /* ====== القصة + TTS ====== */
+  const storyShort = `
+  <p><b>من هو غاوس؟</b> طفل ذكي صار لاحقًا عالِم رياضيات كبير.</p>
+  <p><b>ماذا حصل؟</b> طلب المعلّم من التلاميذ جمع الأعداد من <span dir="ltr">1 إلى 100</span>.</p>
+  <p>فكّر غاوس: لو جمعنا الأول مع الأخير نحصل دائمًا على <span dir="ltr">101</span>: <span dir="ltr">1+100</span>، ثم <span dir="ltr">2+99</span>…</p>
+  <p>لدينا <b>50 زوجًا</b> إذن: <span dir="ltr">50 × 101 = 5050</span>. للتعميم لأي <span dir="ltr">n</span> يكون: <span dir="ltr">S = n(n+1)/2</span>.</p>
+  `;
+
+  const storyFull = `
+  <p>في <b>براونشفايغ</b> بألمانيا، أواخر القرن الثامن عشر، جلس الأطفال إلى مقاعدهم الخشبية. كتب المعلّم <b>بوخنر</b> على اللوح مهمة تبدو مملّة: 
+     <span dir="ltr">S = 1 + 2 + 3 + … + 99 + 100</span> — أراد منهم أن ينشغلوا طويلاً.</p>
+  <p>انحنى معظم التلاميذ على أوراقهم؛ أمّا <b>غاوس</b> فتأمّل. رأى في سطر الأعداد نمطًا: لو جمع الأول مع الأخير نحصل دائمًا على <span dir="ltr">101</span>؛ ثم الثاني مع ما قبل الأخير… الأزواج كلّها <span dir="ltr">101</span>!</p>
+  <p>تحرّك غاوس بخطوات واثقة إلى مكتب المعلّم، ووضع لوحه الحجري: <b>5050</b>. قال: «انتهيت!». أجاب الصبي بهدوء الواثق: 
+     «لدينا <span dir="ltr">50</span> زوجًا، وكل زوج <span dir="ltr">101</span>، إذن <span dir="ltr">50×101</span>». وكأنه يكشف سرًّا — وبصورة عامّة: 
+     <span dir="ltr">مجموع n هو n(n+1)/2</span>.</p>
+  <p>أدرك المعلّم أن أمامه عقلًا صغيرًا يُفكِّر بطريقة مختلفة، فصار يقدّم له مسائل أعمق تناسب مستواه، مراعيًا <b>الفروق الفردية</b> بين التلاميذ.</p>
+  `;
+
+  function setStory(mode = 'full'){
+    storyText.innerHTML = (mode === 'short') ? storyShort : storyFull;
+    tabShort.classList.toggle('active', mode === 'short');
+    tabFull.classList.toggle('active',  mode === 'full');
+    tabShort.setAttribute('aria-selected', mode === 'short' ? 'true' : 'false');
+    tabFull.setAttribute ('aria-selected', mode === 'full'  ? 'true' : 'false');
+    localStorage.setItem('gp_story_mode', mode);
+    stopTTS();
+  }
+  function openStory(){
+    storyModal.classList.add('show');
+    storyModal.setAttribute('aria-hidden','false');
+  }
+  function closeStoryModal(){
+    storyModal.classList.remove('show');
+    storyModal.setAttribute('aria-hidden','true');
+    stopTTS();
+  }
+  storyBtn.addEventListener('click', openStory);
+  closeStory.addEventListener('click', closeStoryModal);
+  tabShort.addEventListener('click', () => setStory('short'));
+  tabFull .addEventListener('click', () => setStory('full'));
+  const savedMode = localStorage.getItem('gp_story_mode') || 'full';
+  setStory(savedMode);
+
+  // TTS
+  const voiceRadios = Array.from(document.querySelectorAll('input[name="voice"]'));
+  function getVoicePrefs(){
+    const v = (voiceRadios.find(r => r.checked) || {value:'kid'}).value;
+    return (v === 'kid') ? { rate: 1.05, pitch: 1.25 } : { rate: 1.0, pitch: 1.0 };
+  }
+  function speak(text){
+    if (!('speechSynthesis' in window)) return;
+    const u = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g,' '));
+    const {rate,pitch} = getVoicePrefs();
+    u.lang = 'ar'; u.rate = rate; u.pitch = pitch;
+    stopTTS(); window.speechSynthesis.speak(u);
+  }
+  function stopTTS(){ if ('speechSynthesis' in window) window.speechSynthesis.cancel(); }
+  ttsPlay.addEventListener('click', () => speak(storyText.innerText));
+  ttsStop.addEventListener('click', stopTTS);
+
+  /* ====== بطاقات تربوية (cards.html داخل Modal) ====== */
+  function openCards() {
+    // كسر كاش اختياري
+    cardsFrame.src = 'cards.html?v=2025-11-02a';
+    cardsModal.classList.add('show');
+    cardsModal.setAttribute('aria-hidden','false');
+  }
+  function closeCardsFn() {
+    cardsModal.classList.remove('show');
+    cardsModal.setAttribute('aria-hidden','true');
+    cardsFrame.src = '';
+  }
+  cardsBtn?.addEventListener('click', openCards);
+  closeCards?.addEventListener('click', closeCardsFn);
+  openCardsNew?.addEventListener('click', ()=> window.open('cards.html?v=2025-11-02a','_blank'));
+  printCards?.addEventListener('click', ()=>{
+    const w = cardsFrame?.contentWindow;
+    if (w) w.print();
+  });
+  // اختصار T لفتح/إغلاق البطاقات
+  document.addEventListener('keydown', (e)=>{
+    if (e.key.toLowerCase() === 't' && !e.altKey && !e.metaKey && !e.ctrlKey) {
+      if (cardsModal?.classList.contains('show')) closeCardsFn(); else openCards();
     }
+  });
+
+  /* ====== ضبط ديناميكي لأحجام أدلة الطول/العرض ====== */
+  function fitGuideLabels(){
+    const r = grid.getBoundingClientRect();
+    if(!r.width || !r.height) return;
+    const minDim = Math.min(r.width, r.height);
+    const fs = Math.max(12, Math.min(28, minDim * 0.05));
+    const stroke = Math.max(1.2, Math.min(3, fs / 10));
+    guides.style.setProperty('--guideFont',  fs + 'px');
+    guides.style.setProperty('--guideStroke', stroke);
   }
 
-  function reset(){ build(currentN); }
-
-  function updateGuides(){
-    if(!guides || !arena.classList.contains('complete')) return;
-    const firstA=grid.querySelector('.row .group.a .block');
-    const firstRow=grid.querySelector('.row');
-    const lastRow=grid.querySelector('.row:last-child');
-    const lastRowAny=lastRow ? (lastRow.querySelector('.group.a .block') || lastRow.querySelector('.block')) : null;
-    const lastBFirstRow=firstRow ? firstRow.querySelector('.group.b .block:last-child') : null;
-    if(!firstA || !lastRowAny || !lastBFirstRow) return;
-
-    const aRect=arena.getBoundingClientRect(), pad=18;
-    const offL=aRect.left+pad, offT=aRect.top+pad;
-
-    const rA=firstA.getBoundingClientRect();
-    const rBend=lastBFirstRow.getBoundingClientRect();
-    const rLast=lastRowAny.getBoundingClientRect();
-
-    const x1=rA.left-offL, x2=rBend.right-offL;
-    const yMid=(rA.top-offT)+rA.height/2;
-    const y1v=rA.top-offT, y2v=rLast.bottom-offT;
-    const xV=x1-10;
-
-    const w=aRect.width-2*pad, h=aRect.height-2*pad;
-    guides.setAttribute('viewBox',`0 0 ${w} ${h}`);
-
-    hLine.setAttribute('x1',x1); hLine.setAttribute('y1',yMid);
-    hLine.setAttribute('x2',x2); hLine.setAttribute('y2',yMid);
-    vLine.setAttribute('x1',xV); vLine.setAttribute('y1',y1v);
-    vLine.setAttribute('x2',xV); vLine.setAttribute('y2',y2v);
-
-    hText.setAttribute('x',(x1+x2)/2-16);
-    hText.setAttribute('y',yMid-8);
-    hText.textContent=(currentN+1)+' (n+1)';
-
-    vText.setAttribute('x',xV-10);
-    vText.setAttribute('y',(y1v+y2v)/2+12);
-    vText.textContent=currentN+' (n)';
+  // رسم خطوط ونصوص الأدلة داخل الـSVG
+  function drawGuides(){
+    const svg = `
+      <line x1="5" y1="95" x2="95" y2="95"></line>
+      <text x="50" y="99" text-anchor="middle" class="tMuted">الطول = n+1</text>
+      <line x1="95" y1="5" x2="95" y2="95"></line>
+      <text x="98" y="50" transform="rotate(-90 98,50)">العرض = n</text>
+    `;
+    guides.innerHTML = svg;
   }
 
-  /* =====================  الأحداث  ===================== */
+  /* ====== أحداث أخرى ====== */
+  window.addEventListener('resize', fitGuideLabels);
 
-  // تفاعل القصة
-  storyBtn?.addEventListener('click', openStory);
-  storyClose?.addEventListener('click', closeStory);
-  storyModal?.addEventListener('click', (e)=>{ if(e.target===storyModal) closeStory(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && storyModal?.classList.contains('show')) closeStory(); });
-
-  tabShort?.addEventListener('click', ()=> setStoryTab('short'));
-  tabFull ?.addEventListener('click', ()=> setStoryTab('full'));
-  storyPlay?.addEventListener('click', playStory);
-  storyStop?.addEventListener('click', stopStoryAudio);
-
-  // تفاعل اللوحة
-  nInput.addEventListener('input',e=>{ currentN=parseInt(e.target.value,10); build(currentN); });
-  playBtn.addEventListener('click', play);
-  stepBtn.addEventListener('click', ()=>{ const ok=revealRowB(stepIndex); if(ok){ stepIndex++; if(stepIndex===currentN) markComplete(); }});
-  resetBtn.addEventListener('click', reset);
-
-  if(dismissBtn){
-    dismissBtn.addEventListener('click', (e)=>{ e.preventDefault(); if(explainTimer){ clearTimeout(explainTimer); explainTimer=null; } postExplain?.classList.add('hidden'); });
+  /* ====== تشغيل أولي ====== */
+  function init(){
+    drawGuides();
+    applyZoom();
+    build();
+    setIso(savedIso);
+    setDepth(savedDepth);
   }
-  if(postExplain){
-    postExplain.addEventListener('click', (e)=>{ if(e.target===postExplain) postExplain.classList.add('hidden'); });
-    postExplain.querySelector('.card')?.addEventListener('click', (e)=> e.stopPropagation());
-  }
+  init();
 
-  window.addEventListener('resize', ()=>{ if(arena.classList.contains('complete')) updateGuides(); });
-
-  if(zi) zi.addEventListener('click', ()=>setFs(zoomPx+1));
-  if(zo) zo.addEventListener('click', ()=>setFs(zoomPx-1));
-  if(zr) zr.addEventListener('click', ()=>setFs(DEFAULT_FS));
-  updZoom();
-
-  // تشغيل أولي
-  setStoryTab('full');  // يبدأ بالنص الكامل افتراضيًا
-  build(currentN);
-
-  // لبعض المتصفحات يجب استدعاء getVoices بعد onvoiceschanged لتحميل أصوات TTS
-  if ('speechSynthesis' in window){
-    window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
-  }
 })();
