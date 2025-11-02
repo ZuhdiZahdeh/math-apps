@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>بطاقات تربوية — حيلة جاوس (تزاوج الأعداد)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#0f172a;
+    --ink:#0b1323;
+    --card:#ffffff;
+    --muted:#5b677a;
+    --accent:#2563eb;
+    --green:#16a34a;
+    --orange:#f59e0b;
+    --red:#ef4444;
+    --cyan:#06b6d4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Tajawal", "Noto Kufi Arabic", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:#f3f4f6;
+    color:#111827;
+    line-height:1.65;
+    padding:24px;
+  }
+  header{
+    text-align:center;
+    margin-bottom:16px;
+  }
+  h1{
+    margin:0 0 6px;
+    font-size:28px;
+    color:#0f172a;
+  }
+  .subtitle{ color:#475569; font-weight:600 }
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:16px;
+    align-items:stretch;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:16px 16px 18px;
+    box-shadow: 0 4px 12px rgba(15,23,42,.06);
+    page-break-inside: avoid;
+  }
+  .card h2{
+    margin:0 0 8px;
+    font-size:20px;
+    color:#0b1323;
+    display:flex; align-items:center; gap:8px;
+  }
+  .tag{
+    display:inline-block;
+    padding:.15rem .55rem;
+    border-radius:999px;
+    font-size:12px;
+    background:#eef2ff;
+    color:#3730a3;
+    margin-inline-start:6px;
+    border:1px solid #e0e7ff;
+  }
+  ul{margin:8px 0 0 0; padding-inline-start:20px}
+  li{margin:.2rem 0}
+  .muted{color:#556274}
+  .ok{color:var(--green); font-weight:700}
+  .bad{color:var(--red); font-weight:700}
+  .tip{background:#ecfeff; color:#155e75; border:1px solid #a5f3fc; padding:8px 10px; border-radius:10px; margin-top:6px}
+  .ex{
+    background:#fffbeb; border:1px solid #fed7aa; padding:8px 10px; border-radius:10px; margin-top:6px
+  }
+  .rubric table{width:100%; border-collapse: collapse; margin-top:4px}
+  .rubric th, .rubric td{border:1px solid #e5e7eb; padding:6px; font-size:14px}
+  .rubric th{background:#f1f5f9}
+  footer{margin-top:18px; text-align:center; color:#6b7280; font-size:13px}
+  @media print{
+    body{background:#fff; padding:0}
+    header{margin:0 0 8px; padding:12px}
+    .grid{gap:10px; padding:12px}
+    .card{box-shadow:none; border-color:#d1d5db}
+    footer{position:fixed; bottom:8px; left:0; right:0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>مجموعة البطاقات التربوية — مسألة درج المكعبات &nbsp;(<span style="color:#2563eb">حيلة جاوس</span>)</h1>
+  <div class="subtitle">للاستخدام الصفي المباشر: مقدمة، قصة، خطوات الحل البصري، أسئلة، تقويم، إثراء، وأدوار</div>
+</header>
+
+<section class="grid">
+  <article class="card">
+    <h2>١) بطاقة الهدف التعلمي <span class="tag">Learning Goals</span></h2>
+    <ul>
+      <li>استخلاص صيغة مجموع الأعداد الطبيعية: <strong>S = n(n+1)/2</strong> من تمثيل بصري.</li>
+      <li>الربط بين الجبر والهندسة: تحويل جمع طويل إلى مساحة مستطيل.</li>
+      <li>استخدام استراتيجيات <strong>التجميع/التزاوج</strong> واكتشاف النمط.</li>
+      <li>التواصل الرياضي شفهياً وكتابياً، والتبرير: لماذا القسمة على ٢؟ ولماذا <em>n+1</em>؟</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>٢) بطاقة القصة — نسخة قصيرة <span class="tag">Story</span></h2>
+    <p>أعطى المعلّم <strong>بوخنر</strong> مسألة طويلة: اجمعوا من ١ إلى ١٠٠. توقّف الطفل <strong>جاوس</strong> وفكّر مختلفًا: ١+١٠٠=١٠١، ٢+٩٩=١٠١… لدينا ٥٠ زوجًا × ١٠١ = ٥٠٥٠. أدرك المعلم ذكاءه ومنذ ذلك اليوم قدّم له تحدّيات أعلى، وراعى الفروق الفردية.</p>
+    <div class="tip">الرسالة: كافئ التفكير المختلف، واسمح بوقت للتأمل لا للتكرار فقط.</div>
+  </article>
+
+  <article class="card">
+    <h2>٣) بطاقة القصة — نسخة روائية</h2>
+    <p>صف قديم، سبورة سوداء. كتب بوخنر: <em>١+٢+…+٩٩+١٠٠</em>. انشغل التلاميذ بالحساب، أما جاوس فنظر للسطر كاملًا: رأى أزواجًا متساوية ١٠١. خمسون زوجًا = ٥٠ × ١٠١ = ٥٠٥٠. اندهش المعلم، ومن هنا بدأ التفريد ورعاية الموهبة.</p>
+  </article>
+
+  <article class="card">
+    <h2>٤) بطاقة المسألة/السياق</h2>
+    <p><strong>مسألة الدرج:</strong> الدرجة الأولى ١ مكعب… حتى الدرجة <em>n</em>. كم عدد المكعبات؟</p>
+    <ul>
+      <li>مثلًا: <em>n=20</em> ⇒ الناتج ٢١٠.</li>
+      <li>سياقات مشابهة: مدرّج الكراسي، طابور المغارف، صفوف الصناديق.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>٥) بطاقة خطوات الحل البصري <span class="tag">مع النموذج</span></h2>
+    <ul>
+      <li>عرض السُّلّم الأصلي من ١ إلى <em>n</em>.</li>
+      <li>إضافة قطع «مكمِّلة» أفقيًا لتتكوّن <strong>مستطيل</strong> أبعاده <em>n × (n+1)</em>.</li>
+      <li>توضيح أن المستطيل = سُلّمين متطابقين ⇒ نأخذ <strong>النصف</strong>.</li>
+      <li>النتيجة: <strong>S = n(n+1)/2</strong>.</li>
+    </ul>
+    <div class="tip">سؤال موجِّه: لماذا صار الطول <em>n+1</em>؟ ولماذا نقسم على ٢؟</div>
+  </article>
+
+  <article class="card">
+    <h2>٦) بطاقة التعميم والصيغة</h2>
+    <p>لأي عدد طبيعي <em>n</em>:
+      <br><strong>S = 1 + 2 + … + n = n(n+1)/2</strong>.</p>
+    <div class="ex">مثال: <strong>n = 10</strong> ⇒ <strong>S = 55</strong>، <strong>n = 50</strong> ⇒ <strong>S = 1275</strong>.</div>
+  </article>
+
+  <article class="card">
+    <h2>٧) بطاقة أسئلة صفية (٣ مستويات)</h2>
+    <ul>
+      <li><strong>مستوى 1:</strong> احسب المجموع لـ n = 12، 30.</li>
+      <li><strong>مستوى 2:</strong> اشرح لماذا نقسم على ٢ بجملة واحدة.</li>
+      <li><strong>مستوى 3:</strong> ألّف مسألة حياتية تنتهي بنفس القاعدة وقدّم الحلّ.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>٨) بطاقة الأدوار والفروق الفردية</h2>
+    <ul>
+      <li><strong>العارض:</strong> يشغّل الأنيميشن ويشرح.</li>
+      <li><strong>المبرِّر:</strong> يعلّل القسمة على ٢.</li>
+      <li><strong>المصمّم:</strong> يبتكر سياقًا حياتيًا جديدًا.</li>
+      <li class="muted">بدائل: بطاقة مساعدة خطوة-بخطوة لمن يحتاج دعماً إضافيًا.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>٩) بطاقة الأخطاء الشائعة</h2>
+    <ul>
+      <li class="bad">نسيان القسمة على ٢.</li>
+      <li class="bad">اعتبار الطول = <em>n</em> بدل <em>n+1</em>.</li>
+      <li class="bad">الجمع التسلسلي دون رؤية النمط.</li>
+      <li class="ok">علاج: أعد تشكيل المستطيل واطلب تفسير «زوج ذكي».</li>
+    </ul>
+  </article>
+
+  <article class="card rubric">
+    <h2>١٠) بطاقة التقييم السريع (Rubric مختصر)</h2>
+    <table>
+      <tr><th>البُعد</th><th>ممتاز</th><th>جيد</th><th>يحتاج دعم</th></tr>
+      <tr><td>الفهم البصري</td><td>يُكوّن المستطيل ويشرح الأزواج</td><td>يُكوّن المستطيل جزئيًا</td><td>لا يربط بين الشكل والمجموع</td></tr>
+      <tr><td>التبرير</td><td>يبرّر القسمة على ٢ بوضوح</td><td>تفسير ناقص</td><td>لا يعلّل</td></tr>
+      <tr><td>التعميم</td><td>يستنتج S=n(n+1)/2 ويطبّق</td><td>يطبّق مع أخطاء بسيطة</td><td>يحتاج صيغة جاهزة</td></tr>
+    </table>
+  </article>
+
+  <article class="card">
+    <h2>١١) بطاقة تقويم ختامي (Exit Ticket)</h2>
+    <ul>
+      <li>اكتب سبب القسمة على ٢ بجملة واحدة.</li>
+      <li>احسب S عندما n=25.</li>
+      <li>ألّف مسألة من بيئتك تعتمد نفس الفكرة.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>١٢) بطاقة الإثراء والتحدّي</h2>
+    <ul>
+      <li>صمّم خوارزمية تحسب S تلقائيًا، ثم اختبرها لقيم كبيرة.</li>
+      <li>اكتب برهانًا نصيًا أو رسوميًا لقاعدة جاوس.</li>
+      <li>جرّب مجموع الأعداد الزوجية/الفردية حتى n واستنتج صيغة.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>١٣) بطاقة STEM/برمجة</h2>
+    <ul>
+      <li>ربط النموذج البرمجي (HTML/CSS/JS) بالتفكير الرياضي.</li>
+      <li>تغيير n/السرعة/التكبير وملاحظة الأثر على التمثيل.</li>
+      <li>توثيق لقطات شاشة مع شرح الطالب للفكرة (Portfolio).</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>١٤) بطاقة عبارات جاهزة للمعلم</h2>
+    <ul>
+      <li>“كوّن شكلًا بدل جمعٍ طويل.”</li>
+      <li>“سلّمان متطابقان ⇒ مستطيل n×(n+1) ⇒ نقسم على ٢.”</li>
+      <li>“فكّر مثل جاوس: ابحث عن الزوج الذكي.”</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>١٥) بطاقة القصة الصوتية (اختياري)</h2>
+    <p>سجّل القصة بصوت طفل/معلّم (MP3 دقيقتان) لتدعيم الذاكرة السمعية. ضع زر “استمع/إيقاف” داخل النموذج.</p>
+  </article>
+
+  <article class="card">
+    <h2>١٦) بطاقة ملاحظات الصف</h2>
+    <ul>
+      <li>ماذا كان أسهل جزء؟ ما الذي يحتاج تبسيطًا أكثر؟</li>
+      <li>من جرّب طريقة مختلفة للوصول للإجابة نفسها؟</li>
+    </ul>
+  </article>
+</section>
+
+<footer>
+  إعداد: زهدي زاهدة — نسخة بطاقات قابلة للطباعة (A4). يمكن طباعة على ورق مقصوص كبطاقات نشاط.
+</footer>
+</body>
+</html>
