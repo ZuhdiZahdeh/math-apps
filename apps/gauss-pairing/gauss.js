@@ -1,337 +1,275 @@
-/* gauss-pairing.js — نسخة نهائية
-   - بناء سُلَّم من 1..n
-   - تزاوج أفقي فقط: مجموعة B تنزلق يمينًا لتكمل المستطيل
-   - منظور إيزومتري اختياري + عمق محفوظ
-   - قصة (نص قصير/كامل) + TTS (استمع/إيقاف)
-   - تكبير/تصغير
-*/
+/* ============================================
+   Gauss Pairing — Logic
+   ملفات: gauss.js
+   آخر تعديل: إيزومتري + localStorage + fitGuideLabels ديناميكي
+   ============================================ */
 
-(() => {
-  // ====== عناصر DOM
-  const arena      = document.getElementById('arena');
-  const grid       = document.getElementById('grid');
-  const stage      = document.getElementById('stage');
+document.addEventListener('DOMContentLoaded', () => {
+  /* عناصر الواجهة (متوافقة مع index.html السابق) */
+  const arena       = document.getElementById('arena');        // .arena
+  const stage       = document.getElementById('stage');        // .stage (لأجل الـZoom)
+  const grid        = document.getElementById('grid');         // .grid
+  const guides      = document.getElementById('guides');       // <svg> للعرض/الطول
+  const postExplain = document.getElementById('postExplain');  // صندوق الشرح بعد الاكتمال
 
-  const playBtn    = document.getElementById('play');
-  const stepBtn    = document.getElementById('step');
-  const resetBtn   = document.getElementById('reset');
+  // تحكّم التشغيل
+  const playBtn   = document.getElementById('play');
+  const stepBtn   = document.getElementById('step');
+  const resetBtn  = document.getElementById('reset');
 
-  const nRange     = document.getElementById('nRange');
-  const nLabel     = document.getElementById('nLabel');
-  const nSpanTop   = document.getElementById('nSpanTop');
-  const nSpan2     = document.getElementById('nSpan2');
-  const dimsTop    = document.getElementById('dimsTop');
+  // n والسرعة
+  const nRange  = document.getElementById('nRange');
+  const speedEl = document.getElementById('speed');
 
-  const rectCells  = document.getElementById('rectCells');
-  const rectCells2 = document.getElementById('rectCells2');
-  const sumVal     = document.getElementById('sumVal');
+  // زوم
+  const zoomOut   = document.getElementById('zoomOut');
+  const zoomIn    = document.getElementById('zoomIn');
+  const zoomReset = document.getElementById('zoomReset');
 
-  const guides     = document.getElementById('guides');
-  const guideW     = document.getElementById('guideW');
-  const guideH     = document.getElementById('guideH');
-  const postExplain= document.getElementById('postExplain');
-  const hideExplain = document.getElementById('hideExplain');
+  // إيزومتري
+  const isoToggle  = document.getElementById('toggleIso');   // زر تبديل المسطّح/الإيزومتري
+  const depthRange = document.getElementById('depthRange');  // منزلق عمق
+  const depthValue = document.getElementById('depthValue');  // عرض قيمة العمق
 
-  // منظور + عمق
-  const isoToggle  = document.getElementById('isoToggle');
-  const depthCtrl  = document.getElementById('depthCtrl');
-  const depthRange = document.getElementById('depthRange');
-  const depthValue = document.getElementById('depthValue');
+  // القيم
+  let n = parseInt(nRange?.value || '20', 10);
+  let speed = (speedEl?.value || 'medium');
+  let zoom = 1;
 
-  // تكبير
-  const zoomIn     = document.getElementById('zoomIn');
-  const zoomOut    = document.getElementById('zoomOut');
-  const zoomReset  = document.getElementById('zoomReset');
+  // حالة التحريك
+  let isPlaying = false;
+  let currentRow = 0;
+  let timer = null;
 
-  // قصة + TTS
-  const storyBtn   = document.getElementById('storyBtn');
-  const storyModal = document.getElementById('storyModal');
-  const closeStory = document.getElementById('closeStory');
-  const tabShort   = document.getElementById('tabShort');
-  const tabFull    = document.getElementById('tabFull');
-  const storyText  = document.getElementById('storyText');
-  const ttsPlay    = document.getElementById('ttsPlay');
-  const ttsStop    = document.getElementById('ttsStop');
+  // حفظ/استرجاع وضع الإيزومتري والعمق
+  const savedIso    = localStorage.getItem('gp_iso');
+  const savedDepth  = localStorage.getItem('gp_iso_depth');
 
-  // ====== حالة عامة
-  let n = parseInt(nRange.value, 10);         // عدد الدرجات
-  let currentRow = 0;                          // آخر صف تمّ تشغيله
-  let animDelay = 140;                         // تأخير بسيط بين الصفوف
-  let zoom = 1;                                // مقياس العرض
+  if (savedIso === '1') {
+    arena.classList.add('iso');
+    if (isoToggle) isoToggle.classList.add('active');
+  }
+  if (savedDepth) {
+    arena.style.setProperty('--depth', `${savedDepth}px`);
+    if (depthRange) depthRange.value = savedDepth;
+    if (depthValue) depthValue.textContent = `${savedDepth}px`;
+  } else {
+    const def = 12;
+    arena.style.setProperty('--depth', `${def}px`);
+    if (depthRange) depthRange.value = def;
+    if (depthValue) depthValue.textContent = `${def}px`;
+  }
 
-  // حفظ/استرجاع بعض الإعدادات
-  const savedN = parseInt(localStorage.getItem('gp_n') || nRange.value, 10);
-  if (!isNaN(savedN)) { nRange.value = savedN; n = savedN; }
-
-  // ====== بناء الشبكة
-  function build() {
+  /* =========================
+     بناء الشبكة (السُلّم الأصلي)
+     ========================= */
+  function build(){
+    stop();
     grid.innerHTML = '';
     arena.classList.remove('complete');
-    postExplain.classList.add('hidden');
+    postExplain?.classList.add('hidden');
+    guides.style.opacity = 0;
 
-    // تحديث نصوص الرأس
-    nLabel.textContent = n;
-    nSpanTop.textContent = n;
-    nSpan2.textContent = n;
-    dimsTop.textContent = `${n+1} × ${n}`;
-
-    // نص الارشاد
-    updateFormulas();
-
-    // نبني n صفوف
-    for (let r = 1; r <= n; r++) {
+    // نبني n صفوف: الصف i يحوي i مربعات من المجموعة A (الزرقاء)
+    for(let i=1; i<=n; i++){
       const row = document.createElement('div');
       row.className = 'row';
+      // نحاول الاصطفاف يمين الشبكة لتبدو مثل سلّم قطري
+      row.style.justifyContent = 'end';
 
-      // مجموعة A (السلم الأصلي): r مكعبات
-      const groupA = document.createElement('div');
-      groupA.className = 'group a';
-      for (let i = 0; i < r; i++) {
-        const b = document.createElement('div');
-        b.className = 'block a';
-        groupA.appendChild(b);
+      for(let j=0; j<i; j++){
+        const cell = document.createElement('div');
+        cell.className = 'cell a';
+        row.appendChild(cell);
       }
-
-      // سهم/فاصل
-      const spacer = document.createElement('div');
-      spacer.className = 'spacer';
-      const arrow = document.createElement('span');
-      arrow.className = 'pairArrow';
-      arrow.textContent = '↠';
-      spacer.appendChild(arrow);
-
-      // مجموعة B (المُكمل): (n+1 - r) مكعبات
-      const groupB = document.createElement('div');
-      groupB.className = 'group b';
-      for (let i = 0; i < (n + 1 - r); i++) {
-        const b = document.createElement('div');
-        b.className = 'block b';
-        groupB.appendChild(b);
-      }
-
-      // ترتيب العناصر: A | spacer | B (B ستبدأ منزاحة لليسار)
-      row.appendChild(groupA);
-      row.appendChild(spacer);
-      row.appendChild(groupB);
       grid.appendChild(row);
-
-      // حساب مقدار الانزياح المطلوب لـ B (عرض A + عرض الفاصل)
-      const block = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--block'));
-      const gap   = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
-      const spacerW = spacer.getBoundingClientRect().width || 24;
-      const slide = (groupA.children.length * (block + gap)) + spacerW;
-      groupB.style.setProperty('--slide', slide + 'px');
-
-      // نخزن سهماً للعرض لاحقاً
-      row._arrow = arrow;
-      row._groupB = groupB;
     }
 
+    // نرسم خطوط/نصوص دليل الطول والعرض حسب n
+    drawGuides();
+
     currentRow = 0;
-    updateFormulas();
+    fitGuideLabels(); // ⟵ ضبط أحجام «الطول/العرض» ديناميكيًا
   }
 
-  // حسابات المعادلات
-  function updateFormulas() {
-    const rect = n * (n + 1);
-    rectCells.textContent  = rect;
-    rectCells2.textContent = rect;
-    sumVal.textContent     = (rect / 2).toString();
+  /* دليل الطول/العرض (SVG مبسّط) */
+  function drawGuides(){
+    const w = grid.clientWidth - 40;
+    const h = grid.clientHeight - 40;
 
-    guideW.textContent = `الطول = ${n}`;
-    guideH.textContent = `العرض = ${n+1}`;
+    // أبعاد المستطيل النهائي: n × (n+1)
+    // نكتفي برسم خط أفقي في الأسفل (الطول = n+1) وخط رأسي في اليمين (العرض = n)
+    const svg = `
+      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <!-- خط الطول (أفقي في الأسفل) -->
+        <line x1="5" y1="94" x2="95" y2="94"></line>
+        <text x="50" y="98" text-anchor="middle" class="tMuted">الطول = n+1</text>
+
+        <!-- خط العرض (رأسي في اليمين) -->
+        <line x1="95" y1="10" x2="95" y2="94"></line>
+        <text x="98" y="54" transform="rotate(-90 98,54)">العرض = n</text>
+      </svg>
+    `;
+    guides.innerHTML = svg;
   }
 
-  // تشغيل كل الصفوف
-  function playAll() {
-    reset(false);
-    let r = 0;
-    const rows = Array.from(grid.children);
+  /* تشغيل الأنيميشن: نكمل المستطيل بإضافة مكعّبات مجموعة B فوق/يمين المثلث
+     (عرض بصري أفقي خطوة بخطوة) */
+  function play(){
+    if(isPlaying) return;
+    isPlaying = true;
 
-    const timer = setInterval(() => {
-      if (r >= rows.length) {
-        clearInterval(timer);
+    // سرعة المؤقّت
+    const delay = speedToMs(speed);
+
+    timer = setInterval(() => {
+      if(currentRow >= n){
+        // اكتمل
+        stop();
         onComplete();
         return;
       }
-      revealRow(rows[r]);
-      r++;
-    }, animDelay);
+      addComplementRow(currentRow + 1);
+      currentRow++;
+    }, delay);
   }
 
-  // خطوة واحدة
-  function stepOnce() {
-    const rows = Array.from(grid.children);
-    if (currentRow < rows.length) {
-      revealRow(rows[currentRow]);
-      currentRow++;
-      if (currentRow === rows.length) onComplete();
+  function step(){
+    if(currentRow >= n){
+      onComplete();
+      return;
+    }
+    addComplementRow(currentRow + 1);
+    currentRow++;
+  }
+
+  function stop(){
+    isPlaying = false;
+    if(timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function reset(){
+    stop();
+    build();
+  }
+
+  /* نحاكي «الإكمال» بإضافة n-i+1 مكعّبات من B في الصف المُقابل للصف i
+     بحيث يتكون مستطيل أبعاده n × (n+1) بصريًا */
+  function addComplementRow(i){
+    // الصف i من أسفل يقابله إكمال بطول (n+1 - i)
+    const needed = (n + 1) - i;
+    if(needed <= 0) return;
+
+    const row = grid.children[i-1];
+    if(!row) return;
+
+    // نضيف مكعّبات B في بداية الصف ليبدو كأنه يُستكمَل أفقيًا
+    for(let k=0;k<needed;k++){
+      const cell = document.createElement('div');
+      cell.className = 'cell b';
+      row.insertBefore(cell, row.firstChild);
     }
   }
 
-  // إظهار صف: إزاحة B -> 0 وإظهار السهم
-  function revealRow(row) {
-    if (!row || row._groupB.classList.contains('in')) return;
-    row._groupB.classList.add('in');
-    requestAnimationFrame(() => { row._arrow.classList.add('show'); });
-  }
-
-  // عند اكتمال جميع الصفوف
-  function onComplete() {
+  function onComplete(){
     arena.classList.add('complete');
     guides.style.opacity = 1;
-    postExplain.classList.remove('hidden');
-
-    // إخفاء تلقائي بعد 10 ثوانٍ (يمكن إعادة فتحها يدويًا)
-    setTimeout(() => {
-      if (!postExplain.classList.contains('hidden')) {
-        postExplain.classList.add('hidden');
-      }
-    }, 10000);
+    postExplain?.classList.remove('hidden');
+    fitGuideLabels(); // قد تتغيّر أبعاد الشبكة بعد الاكتمال
   }
 
-  // إعادة ضبط
-  function reset(rebuild = true) {
-    arena.classList.remove('complete');
-    guides.style.opacity = 0;
-    postExplain.classList.add('hidden');
-    Array.from(grid.children).forEach(row => {
-      row._groupB?.classList.remove('in');
-      row._arrow?.classList.remove('show');
-    });
-    currentRow = 0;
-    if (rebuild) build();
+  /* سرعة */
+  function speedToMs(v){
+    switch(v){
+      case 'slow':   return 450;
+      case 'fast':   return 120;
+      default:       return 250; // medium
+    }
   }
 
-  // تغيّر n
-  nRange.addEventListener('input', () => {
-    n = parseInt(nRange.value, 10);
-    nLabel.textContent = n;
-    nSpanTop.textContent = n;
-    localStorage.setItem('gp_n', String(n));
-    build();
-  });
-
-  // أزرار التشغيل
-  playBtn.addEventListener('click', playAll);
-  stepBtn.addEventListener('click', () => { stepOnce(); });
-  resetBtn.addEventListener('click', () => reset(true));
-  hideExplain.addEventListener('click', () => postExplain.classList.add('hidden'));
-
-  // ====== تكبير/تصغير
-  function applyZoom() {
+  /* =========== Zoom =========== */
+  function applyZoom(){
     stage.style.transform = `scale(${zoom})`;
-    zoomReset.textContent = `${Math.round(zoom * 100)}%`;
+    if(zoomReset) zoomReset.textContent = `${Math.round(zoom*100)}%`;
+    fitGuideLabels();
   }
-  zoomIn.addEventListener('click', () => { zoom = Math.min(1.6, +(zoom + 0.1).toFixed(2)); applyZoom(); });
-  zoomOut.addEventListener('click', () => { zoom = Math.max(0.6, +(zoom - 0.1).toFixed(2)); applyZoom(); });
-  zoomReset.addEventListener('click', () => { zoom = 1; applyZoom(); });
 
-  // ====== منظور: مسطّح/إيزومتري + عمق (محفوظ)
-  const savedIso    = localStorage.getItem('gp_iso') === '1';
-  const savedDepth  = parseInt(localStorage.getItem('gp_iso_depth') || depthRange.value, 10);
-
-  function applyIsoUI(isIso){
-    isoToggle.setAttribute('aria-pressed', isIso ? 'true' : 'false');
-    isoToggle.textContent = isIso ? 'منظور: إيزومتري' : 'منظور: مسطّح';
-    depthCtrl.style.display = isIso ? 'inline-flex' : 'none';
-  }
+  /* =========== Iso / Depth =========== */
   function setIso(isIso){
     arena.classList.toggle('iso', isIso);
-    applyIsoUI(isIso);
+    if(isoToggle){
+      isoToggle.classList.toggle('active', isIso);
+      isoToggle.setAttribute('aria-pressed', isIso ? 'true' : 'false');
+    }
     localStorage.setItem('gp_iso', isIso ? '1' : '0');
+    // بعد تبديل الطبقات قد تتغيّر المسافات
+    requestAnimationFrame(fitGuideLabels);
   }
+
   function setDepth(px){
-    const v = Math.max(4, Math.min(20, parseInt(px, 10) || 10));
-    arena.style.setProperty('--depth', v + 'px');
-    depthValue.textContent = v + 'px';
-    depthRange.value = v;
+    const v = Math.max(4, Math.min(24, parseInt(px,10) || 12));
+    arena.style.setProperty('--depth', `${v}px`);
+    if(depthValue) depthValue.textContent = `${v}px`;
+    if(depthRange) depthRange.value = String(v);
     localStorage.setItem('gp_iso_depth', String(v));
+    requestAnimationFrame(fitGuideLabels);
   }
-  isoToggle.addEventListener('click', () => {
-    const newState = !arena.classList.contains('iso');
-    setIso(newState);
-    if (newState) setDepth(depthRange.value);
+
+  /* =========== ضبط ديناميكي لدليل الطول/العرض =========== */
+  function fitGuideLabels(){
+    const r = grid.getBoundingClientRect();
+    if(!r.width || !r.height) return;
+
+    const minDim = Math.min(r.width, r.height);
+    // حجم خط النص بين 12 و 28 بكسل وفقًا لحجم الشبكة
+    const fs = Math.max(12, Math.min(28, minDim * 0.05));
+    const stroke = Math.max(1.2, Math.min(3, fs / 10));
+
+    guides.style.setProperty('--guideFont',  fs + 'px');
+    guides.style.setProperty('--guideStroke', stroke);
+  }
+
+  /* =======================
+     الأحداث (Event Listeners)
+     ======================= */
+  playBtn?.addEventListener('click', play);
+  stepBtn?.addEventListener('click', step);
+  resetBtn?.addEventListener('click', reset);
+
+  nRange?.addEventListener('input', e=>{
+    n = parseInt(e.target.value, 10) || 1;
+    build();
   });
-  depthRange.addEventListener('input', () => setDepth(depthRange.value));
+  speedEl?.addEventListener('change', e=>{
+    speed = e.target.value;
+    if(isPlaying){
+      stop();
+      play();
+    }
+  });
 
-  setIso(savedIso);
-  setDepth(savedDepth);
+  zoomIn?.addEventListener('click', ()=>{
+    zoom = Math.min(2.0, +(zoom + 0.1).toFixed(2));
+    applyZoom();
+  });
+  zoomOut?.addEventListener('click', ()=>{
+    zoom = Math.max(0.6, +(zoom - 0.1).toFixed(2));
+    applyZoom();
+  });
+  zoomReset?.addEventListener('click', ()=>{
+    zoom = 1;
+    applyZoom();
+  });
 
-  // ====== القصة + TTS
-  const storyShort = `
-  <p><b>من هو غاوس؟</b> طفل ذكي صار لاحقًا عالِم رياضيات كبير.</p>
-  <p><b>ماذا حصل؟</b> طلب المعلّم من التلاميذ جمع الأعداد من <span dir="ltr">1 إلى 100</span>.</p>
-  <p>فكّر غاوس: لو جمعنا الأول مع الأخير نحصل دائمًا على <span dir="ltr">101</span>: <span dir="ltr">1+100</span>، ثم <span dir="ltr">2+99</span>…</p>
-  <p>لدينا <b>50 زوجًا</b> إذن: <span dir="ltr">50 × 101 = 5050</span>. للتعميم لأي <span dir="ltr">n</span> يكون: <span dir="ltr">S = n(n+1)/2</span>.</p>
-  `;
+  isoToggle?.addEventListener('click', ()=>{
+    setIso(!arena.classList.contains('iso'));
+  });
+  depthRange?.addEventListener('input', e=> setDepth(e.target.value));
 
-  const storyFull = `
-  <p>في <b>براونشفايغ</b> بألمانيا، أواخر القرن الثامن عشر، جلس الأطفال إلى مقاعدهم الخشبية. كتب المعلّم <b>بوخنر</b> على اللوح مهمة تبدو مملّة: 
-     <span dir="ltr">S = 1 + 2 + 3 + … + 99 + 100</span> — أراد منهم أن ينشغلوا طويلاً.</p>
-  <p>انحنى معظم التلاميذ على أوراقهم؛ أمّا <b>غاوس</b> فتأمّل. رأى في سطر الأعداد نمطًا: لو جمع الأول مع الأخير نحصل دائمًا على <span dir="ltr">101</span>؛ ثم الثاني مع ما قبل الأخير… الأزواج كلّها <span dir="ltr">101</span>!</p>
-  <p>تحرّك غاوس بخطوات واثقة إلى مكتب المعلّم، ووضع لوحه الحجري: <b>5050</b>. قال: «انتهيت!». أجاب الصبي بهدوء الواثق: 
-     «لدينا <span dir="ltr">50</span> زوجًا، وكل زوج <span dir="ltr">101</span>، إذن <span dir="ltr">50×101</span>». وكأنه يكشف سرًّا — وبصورة عامّة: 
-     <span dir="ltr">مجموع n هو n(n+1)/2</span>.</p>
-  <p>أدرك المعلّم أن أمامه عقلًا صغيرًا يُفكِّر بطريقة مختلفة، فصار يقدّم له مسائل أعمق تناسب مستواه، مراعيًا <b>الفروق الفردية</b> بين التلاميذ.</p>
-  `;
+  window.addEventListener('resize', fitGuideLabels);
 
-  function setStory(mode = 'full'){
-    storyText.innerHTML = (mode === 'short') ? storyShort : storyFull;
-    tabShort.classList.toggle('active', mode === 'short');
-    tabFull.classList.toggle('active',  mode === 'full');
-    tabShort.setAttribute('aria-selected', mode === 'short' ? 'true' : 'false');
-    tabFull.setAttribute ('aria-selected', mode === 'full'  ? 'true' : 'false');
-    localStorage.setItem('gp_story_mode', mode);
-    stopTTS();
-  }
-
-  function openStory(){
-    storyModal.classList.add('show');
-    storyModal.setAttribute('aria-hidden','false');
-  }
-  function closeStoryModal(){
-    storyModal.classList.remove('show');
-    storyModal.setAttribute('aria-hidden','true');
-    stopTTS();
-  }
-
-  storyBtn.addEventListener('click', openStory);
-  closeStory.addEventListener('click', closeStoryModal);
-  tabShort.addEventListener('click', () => setStory('short'));
-  tabFull .addEventListener('click', () => setStory('full'));
-
-  // استرجاع وضع القصة
-  const savedMode = localStorage.getItem('gp_story_mode') || 'full';
-  setStory(savedMode);
-
-  // ====== TTS (Web Speech API)
-  const voiceRadios = Array.from(document.querySelectorAll('input[name="voice"]'));
-  function getVoicePrefs(){
-    const v = (voiceRadios.find(r => r.checked) || {value:'kid'}).value;
-    return (v === 'kid') ? { rate: 1.05, pitch: 1.25 } : { rate: 1.0, pitch: 1.0 };
-  }
-
-  function speak(text){
-    if (!('speechSynthesis' in window)) return;
-    const u = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g,' '));
-    const {rate,pitch} = getVoicePrefs();
-    u.lang = 'ar';
-    u.rate = rate; u.pitch = pitch;
-    stopTTS();
-    window.speechSynthesis.speak(u);
-  }
-  function stopTTS(){
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-  }
-
-  ttsPlay.addEventListener('click', () => speak(storyText.innerText));
-  ttsStop.addEventListener('click', stopTTS);
-
-  // ====== تهيئة أولية
-  applyZoom();
+  /* أوّل بناء */
   build();
-  setIso(savedIso);
-  setDepth(savedDepth);
-
-})();
+  applyZoom();
+});
