@@ -1,25 +1,20 @@
-/* gauss-pairing.css — نسخة أطفال (ألوان أزرار جذّابة) */
+/* gauss-pairing.css — نسخة نهائية للأطفال + منظور إيزومتري اختياري + ضبط ديناميكي لأدلة الطول/العرض */
 
-/* ===================== المتغيرات العامة ===================== */
 :root{
   --block: 28px;
   --gap: 6px;
-
-  --a: #2563eb;
-  --b: #10b981;
 
   --bg: #0b1220;
   --panel: #0f172a;
   --text: #e2e8f0;
   --muted: #94a3b8;
   --accent: #f59e0b;
-  --pair-outline: #f59e0bcc;
 
-  /* عرض الشعار ديناميكي: من 52px إلى 84px حسب العرض */
+  /* عرض الشعار ديناميكي */
   --brandW: clamp(52px, 6vw, 84px);
 }
 
-/* ===================== أساسيات الصفحة ===================== */
+/* أساسيات */
 *{ box-sizing:border-box }
 html{ font-size:18px }
 body{
@@ -28,15 +23,15 @@ body{
   background:linear-gradient(120deg,#0a0f1d,#111827);
   color:var(--text);
 }
-
+.shell{ max-width:1100px; margin:0 auto; padding:10px 16px 32px }
 header{ padding:18px 20px 8px; line-height:1.5; }
 header .topbar{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
 header h1{ margin:0; font-size:1.8rem; font-weight:800 }
 header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
+header .back{ margin-inline-end:6px }
+.grow{ flex:1 }
 
-.shell{ max-width:1000px; margin:0 auto; padding:10px 16px 32px }
-
-/* ===================== لوحة التحكم ===================== */
+/* لوحة التحكم */
 .panel{
   background:var(--panel);
   border:1px solid #1e293b;
@@ -45,14 +40,12 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
   display:flex; flex-wrap:wrap; align-items:center; gap:10px;
   box-shadow:0 10px 30px rgb(0 0 0 / .25);
 }
-.panel label{ font-size:1rem; color:var(--muted) }
-.panel input[type=range]{ width:200px; accent-color:#22c55e; } /* لون منزلق يناسب الأطفال */
+.panel label.rangeLab{ color:var(--muted); font-size:1rem }
+.panel input[type=range]{ width:200px; accent-color:#22c55e; }
 
-/* ===================== أزرار – نسخة أطفال ===================== */
-/* قاعدة عامة لكل الأزرار */
+/* أزرار */
 .btn{
-  --btnA: #1f2937;     /* لون علوي افتراضي */
-  --btnB: #111827;     /* لون سفلي افتراضي */
+  --btnA:#1f2937; --btnB:#111827;
   appearance:none; cursor:pointer;
   padding:10px 14px; border-radius:14px;
   font-weight:800; letter-spacing:.2px;
@@ -74,15 +67,6 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
   box-shadow:0 0 0 4px #fff3, 0 0 0 6px #60a5fa;
 }
 .btn.small{ padding:8px 12px; border-radius:12px; font-size:.95rem }
-
-/* أزرار بألوان محددة بدون تعديل HTML (حسب المعرّف) */
-#play   { --btnA:#34d399; --btnB:#059669; } /* تشغيل التزاوج — أخضر مرح */
-#step   { --btnA:#38bdf8; --btnB:#0284c7; } /* خطوة — سماوي واضح */
-#reset  { --btnA:#f59e0b; --btnB:#ef4444; } /* إعادة الضبط — تحذير لطيف */
-#storyBtn{--btnA:#f472b6; --btnB:#7c3aed; } /* القصة — وردي/بنفسجي ممتع */
-#zoomIn, #zoomOut, #zoomReset{ --btnA:#a78bfa; --btnB:#6d28d9; } /* أزرار التكبير */
-
-/* أزرار من نوع ghost */
 .btn.ghost{
   background:linear-gradient(180deg,#0b1324,#0a0f1d);
   color:#e5e7eb;
@@ -92,13 +76,21 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
   box-shadow:0 6px 14px rgba(0,0,0,.25), 0 0 0 3px #22d3ee55;
 }
 
-/* زر ذو نمط "primary" (في حال وُجد داخل HTML) */
-.btn.primary{ --btnA:#3b82f6; --btnB:#1e40af; }
+/* ألوان خاصة لأزرار محددة */
+#isoToggle[aria-pressed="true"]{ --btnA:#60a5fa; --btnB:#2563eb; }
+#cardsBtn{ --btnA:#22d3ee; --btnB:#06b6d4; color:#042e33; }
 
-/* مجموعة أزرار التكبير */
-.zoomGroup{ display:inline-flex; align-items:center; gap:8px; margin-inline-start:auto; flex-wrap:wrap }
+/* عناصر التحكم بالإيزومتري */
+.isoGroup{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+#depthCtrl.depthCtrl{
+  display:none; align-items:center; gap:8px; background:transparent;
+  padding:6px 8px; border-radius:10px;
+}
+#depthRange{ width:160px; accent-color:#f59e0b; }
+#depthValue{ min-width:42px; text-align:center; font-weight:800; color:#e5e7eb; }
 
-/* ===================== ساحة العرض ===================== */
+/* ساحة العرض */
+.hint{ color:var(--muted); font-size:1rem }
 .arena{
   position:relative; margin:18px auto 6px; padding:18px;
   border-radius:18px; border:1px solid #1e293b;
@@ -106,79 +98,74 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
     radial-gradient(1200px 400px at 50% -10%, rgba(59,130,246,.18), rgba(16,185,129,.12) 30%, rgba(0,0,0,0) 70%),
     #0b1220;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+  overflow:auto;
 }
-.arena .grid{
-  display:flex; flex-direction:column; align-items:flex-start;
-  gap:var(--gap); min-height:calc((var(--block)+var(--gap))*8);
-}
+#stage{ transform-origin: 50% 0; }
 
-.row{ display:flex; align-items:center; gap:var(--gap); position:relative; min-height:var(--block); overflow:visible }
-.row .label{ width:40px; text-align:center; color:var(--muted); font-size:1rem }
-
+/* شبكة العرض */
+.grid{ display:flex; flex-direction:column; align-items:flex-start; gap:var(--gap); }
+.row{ display:flex; align-items:center; gap:var(--gap); position:relative; min-height:var(--block); }
 .group{ display:flex; gap:var(--gap) }
+
+/* مكعبات ثلاثية الأبعاد (افتراضيًا) */
 .block{
-  width:var(--block); height:var(--block);
-  border-radius:6px;
-  box-shadow:0 2px 6px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06)
+  position: relative;
+  width: var(--block);
+  height: var(--block);
+  border-radius: 8px;
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.35),
+    inset 2px 2px 3px rgba(255,255,255,.12),
+    inset -4px -4px 8px rgba(0,0,0,.35);
 }
-.block.a{ background:linear-gradient(180deg,#3b82f6,#1e40af) }
-.block.b{ background:linear-gradient(180deg,#34d399,#065f46) }
+.block.a{
+  --hi:#93c5fd; --mid:#3b82f6; --lo:#1e40af;
+  background:
+    radial-gradient(120% 100% at 20% 18%, var(--hi), transparent 55%),
+    linear-gradient(145deg, var(--mid) 10%, var(--mid) 50%, var(--lo) 92%);
+}
+.block.b{
+  --hi:#6ee7b7; --mid:#34d399; --lo:#065f46;
+  background:
+    radial-gradient(120% 100% at 20% 18%, var(--hi), transparent 55%),
+    linear-gradient(145deg, var(--mid) 10%, var(--mid) 50%, var(--lo) 92%);
+}
+.block::after{
+  content:""; position:absolute; top:10%; left:12%; width:48%; height:48%;
+  border-radius:50%;
+  background: radial-gradient(closest-side, rgba(255,255,255,.30), rgba(255,255,255,0));
+  pointer-events:none; filter: blur(.5px); opacity:.35;
+}
 
-/* ——— الحركة: أفقي فقط ——— */
-/* البداية: على نفس ارتفاع الصف، مع انزياح أفقي لليسار بـ --slide */
-.group.b{
-  position:relative; z-index:2;
-  transform:translate(calc(-1 * var(--slide, 0px)), 0);
-  opacity:0;
-}
-.group.b.in{
-  transform:translate(0, 0);
-  opacity:1;
-  transition:transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
-}
-
-/* سهم صغير يوضّح الانزلاق الأفقي */
+/* الحركة: أفقي فقط */
 .spacer{ position:relative; width:24px; display:flex; align-items:center; justify-content:center }
-.pairArrow{
-  font-size:18px; line-height:1; color:var(--accent);
-  opacity:0; transform:translateY(8px);
-  transition:opacity .35s ease, transform .35s ease;
-}
+.pairArrow{ font-size:18px; line-height:1; color:var(--accent); opacity:0; transform:translateY(8px); transition:opacity .35s ease, transform .35s ease; }
 .pairArrow.show{ opacity:1; transform:none }
+.group.b{ position:relative; z-index:2; transform:translate(calc(-1 * var(--slide, 0px)), 0); opacity:0; }
+.group.b.in{ transform:translate(0, 0); opacity:1; transition:transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease; }
 
-/* وسيلة إيضاح */
+/* وسيلة إيضاح وصيغ */
 .legend{ display:flex; gap:12px; align-items:center; margin-top:10px; color:var(--muted); font-size:1rem }
 .k{ display:inline-flex; align-items:center; gap:6px }
 .pill{ width:14px; height:14px; border-radius:4px; display:inline-block }
-
-/* صيغ */
 .formula{ margin-top:16px; border-top:1px dashed #273449; padding-top:12px; color:#e5e7eb; font-size:1.05rem }
-.hint{ color:var(--muted); font-size:1rem }
-
-/* تذييل */
-.footer{ margin-top:8px; color:var(--muted); font-size:.95rem; text-align:center }
-.footer .credit{ margin-top:6px; color:var(--muted); font-size:.95rem; text-align:center; opacity:.95 }
 
 /* إبراز المستطيل النهائي */
 .arena.complete::after{
-  content:""; position:absolute; inset:18px;
-  border:2px dashed var(--pair-outline); border-radius:14px;
+  content:""; position:absolute; inset:18px; border:2px dashed #f59e0bcc; border-radius:14px;
   pointer-events:none; animation:outlinePulse 1.2s ease 1;
 }
-@keyframes outlinePulse{
-  0%{ transform:scale(.98); opacity:.4 }
-  100%{ transform:scale(1); opacity:1 }
-}
+@keyframes outlinePulse{ 0%{ transform:scale(.98); opacity:.4 } 100%{ transform:scale(1); opacity:1 } }
 
-/* خطوط وأبعاد المستطيل */
+/* أدلة الطول/العرض (SVG) — أحجام ديناميكية */
 .guides{
   position:absolute; inset:18px; width:calc(100% - 36px); height:calc(100% - 36px);
   pointer-events:none; opacity:0; transition:opacity .35s ease;
 }
 .arena.complete .guides{ opacity:.95 }
-.guides text{ font:600 16px System-ui, Tajawal, sans-serif; fill:#e5e7eb }
+.guides text{ font: 600 var(--guideFont, 16px) System-ui, Tajawal, sans-serif; fill:#e5e7eb }
 .guides .tMuted{ fill:var(--muted) }
-.guides line{ stroke:var(--accent); stroke-width:2 }
+.guides line{ stroke:var(--accent); stroke-width: var(--guideStroke, 2); }
 
 /* نافذة الشرح بعد الاكتمال */
 .postExplain{
@@ -196,7 +183,7 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
 .postExplain h3{ margin:.2rem 0 .4rem; font-size:1.1rem }
 .postExplain p{ margin:.35rem 0; color:var(--text) }
 
-/* ===================== نافذة القصة ===================== */
+/* نافذة موحّدة (للstory وcards) */
 .modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,.65); z-index:60 }
 .modal.show{ display:flex }
 .modal .card{
@@ -209,9 +196,6 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
   max-height:55vh; overflow:auto; padding-inline-end:10px;
 }
 .modal .story p{ margin:.2rem 0 .6rem }
-.modal .controls{ display:flex; gap:8px; align-items:center; margin-top:10px }
-
-/* ألسنة التبديل داخل القصة */
 .segmented{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px }
 .seg{
   --btnA:#0ea5e9; --btnB:#0369a1;
@@ -220,69 +204,66 @@ header p{ margin:.3rem 0 0; color:var(--muted); font-size:1.05rem }
   border:2px solid color-mix(in srgb, var(--btnB) 70%, black);
 }
 .seg.active{ filter:brightness(1.08) saturate(1.05) }
-
 .voiceGroup{ display:flex; align-items:center; gap:16px; margin-top:10px; flex-wrap:wrap }
 .voiceGroup legend{ font-weight:700; margin-inline-end:2px }
 .voiceGroup label{ display:inline-flex; align-items:center; gap:6px }
 .muted{ color:var(--muted) }
 
-/* ===================== شعار الكلية ===================== */
+/* تخصيص نافذة البطاقات */
+.cardsCard{ width:min(92vw,900px) !important; height:min(86vh,900px); display:flex; flex-direction:column }
+.cardsFrame{ flex:1; width:100%; border:none; background:#fff; border-radius:12px }
+
+/* شعار الكلية */
 .brand-logo{
-  position:fixed;
-  left:14px !important; right:auto !important; top:14px !important;
+  position:fixed; left:14px !important; right:auto !important; top:14px !important;
   z-index:50; display:block; line-height:0; pointer-events:auto;
 }
 .brand-logo img{
-  width:var(--brandW) !important;
-  height:auto !important;
-  aspect-ratio:1/1; object-fit:contain;
+  width:var(--brandW) !important; height:auto !important; aspect-ratio:1/1; object-fit:contain;
   border-radius:50%;
   box-shadow:0 6px 18px rgba(0,0,0,.25);
   transition:transform .2s ease, filter .2s ease;
 }
 .brand-logo:hover img{ transform:scale(1.04); filter:brightness(1.06) }
-
-/* ترك هوامش يسار العنوان حتى لا يتغطّى بالشعار */
 header{ padding-inline-start: calc(var(--brandW) + 18px) }
-/* ——— Overrides مؤكدة التطبيق ——— */
-.panel button.btn{ 
-  font-weight:800;
-  border-width:2px;
-  box-shadow:0 6px 14px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
-}
-
-.panel button#play.btn{
-  background: linear-gradient(180deg,#34d399,#059669) !important;
-  color:#fff;
-  border-color: color-mix(in srgb, #059669 70%, black);
-}
-.panel button#step.btn{
-  background: linear-gradient(180deg,#38bdf8,#0284c7) !important;
-  color:#fff;
-  border-color: color-mix(in srgb, #0284c7 70%, black);
-}
-.panel button#reset.btn{
-  background: linear-gradient(180deg,#f59e0b,#ef4444) !important;
-  color:#fff;
-  border-color: color-mix(in srgb, #ef4444 70%, black);
-}
-.panel button#storyBtn.btn{
-  background: linear-gradient(180deg,#f472b6,#7c3aed) !important;
-  color:#fff;
-  border-color: color-mix(in srgb, #7c3aed 70%, black);
-}
-.panel button#zoomIn.btn,
-.panel button#zoomOut.btn,
-.panel button#zoomReset.btn{
-  background: linear-gradient(180deg,#a78bfa,#6d28d9) !important;
-  color:#fff;
-  border-color: color-mix(in srgb, #6d28d9 70%, black);
-}
-
-/* الطباعة */
 @media print{ .brand-logo{ display:none !important } }
 
-/* ===================== استجابة ===================== */
+/* منظور إيزومتري (اختياري عبر .iso) */
+.arena.iso{
+  --depth: clamp(6px, 1.6vw, 12px);
+  padding-top: calc(18px + var(--depth));
+  padding-right: calc(18px + var(--depth));
+}
+.arena.iso .grid{  gap: calc(var(--gap) + var(--depth)); }
+.arena.iso .group{ gap: calc(var(--gap) + var(--depth)); }
+.arena.iso .block{
+  border-radius:4px;
+  box-shadow:
+    0 6px 12px rgba(0,0,0,.35),
+    inset 1px 1px 2px rgba(255,255,255,.08),
+    inset -2px -2px 3px rgba(0,0,0,.22);
+  background: linear-gradient(145deg, var(--front1) 10%, var(--front2) 90%);
+}
+.arena.iso .block.a{ --front1:#3b82f6; --front2:#1e40af; --top:#60a5fa; --side:#1b3a94; }
+.arena.iso .block.b{ --front1:#34d399; --front2:#065f46; --top:#6ee7b7; --side:#064e3b; }
+.arena.iso .block::before{
+  content:""; position:absolute; left:0; top: calc(-1 * var(--depth));
+  width:100%; height: var(--depth);
+  background: linear-gradient(145deg, var(--top), color-mix(in srgb, var(--top) 75%, black));
+  transform: skewX(-45deg); transform-origin: bottom left;
+  border-top-left-radius:4px; border-top-right-radius:4px; filter: brightness(1.02);
+  pointer-events:none;
+}
+.arena.iso .block::after{
+  content:""; position:absolute; top:0; left:100%;
+  width: var(--depth); height: 100%;
+  background: linear-gradient(145deg, var(--side), color-mix(in srgb, var(--side) 65%, black));
+  transform: skewY(-45deg); transform-origin: top left;
+  border-bottom-right-radius:4px; filter: brightness(.95);
+  pointer-events:none;
+}
+
+/* استجابة */
 @media (max-width:640px){
   :root{ --block:22px; --gap:5px }
   .panel{ gap:8px }
