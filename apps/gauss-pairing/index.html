@@ -1,157 +1,154 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>حيلة غاوس – تزاوج الأعداد (سُلّم المكعبات)</title>
-  <link rel="icon" href="../../assets/favicon.ico" />
-  <link rel="stylesheet" href="gauss.css?v=2025-11-01a">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>حيـلة غاوس – تجميع (تزاوج) الأعداد بصريًا</title>
+  <link rel="icon" href="../../assets/favicon.ico">
+  <link rel="stylesheet" href="gauss.css?v=2025-11-02a">
 </head>
 <body>
-  <header>
-    <div class="topbar">
-      <a class="btn ghost small" href="../../index.html" title="الرجوع للفهرس">↩︎ الرجوع للفهرس</a>
-      <h1>حيلة غاوس – تجميع (تزاوج) الأعداد بصريًا</h1>
-    </div>
-    <p>
-      نُنشئ سُلّمًا من المكعبات من 1 إلى <b id="nLabel">20</b>، ثم نُكمّله بمكعبات مكافئة لتكوين مستطيل
-      أبعاده <span id="dimsLabel">20 × 21</span> ليتضح أن <span class="eq">2S = n(n+1)</span> ثم
-      <span class="eq">S = n(n+1)/2</span>.
-    </p>
-    <a class="brand-logo" href="https://zuhdizahdeh.github.io/math-apps/" target="_blank" rel="noopener"
-   title="الكلية الإبراهيمية بالقدس">
-  <img src="../../assets/ibrahimieh-logo-gauss-pairing.png" alt="شعار الكلية الإبراهيمية بالقدس">
-</a>
-  </header>
-<!-- شعار الكلية (ثابت أعلى يسار) -->
 
+  <!-- شعار أعلى اليسار -->
+  <a class="brand-logo" href="https://ibrahimieh.edu/" target="_blank" rel="noopener"
+     title="الكلية الإبراهيمية بالقدس">
+    <img src="../../assets/ibrahimieh-logo-black.png" alt="شعار الكلية الإبراهيمية بالقدس">
+  </a>
 
   <div class="shell">
-    <div class="panel" role="region" aria-label="لوح التحكم">
-      <label for="n">عدد الدرجات (n): <b id="nVal">20</b></label>
-      <input id="n" type="range" min="1" max="30" step="1" value="20" aria-label="عدد الدرجات" />
+    <header>
+      <div class="topbar">
+        <a class="back btn ghost small" href="../../index.html" title="الرجوع للفهرس">↩︎ الرجوع للفهرس</a>
+        <h1>حيـلة غاوس – تجميع (تزاوج) الأعداد بصريًا</h1>
+      </div>
+      <p>
+        نبني سُلّمًا من المكعبات من <b>1</b> إلى <b id="nSpanTop">20</b> ثم نُكمِّله بمكعبات مكافئة لتتكوّن مُستطيل أبعاده
+        <b id="dimsTop">21 × 20</b> ليتضح أن <span dir="ltr">2S = n(n+1)</span> ثم <span dir="ltr">S = n(n+1)/2</span>.
+      </p>
+    </header>
 
-      <label for="speed">السرعة:</label>
-      <select id="speed" aria-label="سرعة الأنيميشن">
-        <option value="800">بطيء</option>
-        <option value="600" selected>متوسط</option>
-        <option value="350">سريع</option>
-      </select>
+    <!-- لوحة التحكم -->
+    <div class="panel">
+      <button id="play" class="btn" style="--btnA:#34d399;--btnB:#059669;">تشغيل التزاوج</button>
+      <button id="step" class="btn" style="--btnA:#38bdf8;--btnB:#0284c7;">خطوة</button>
+      <button id="reset" class="btn" style="--btnA:#f59e0b;--btnB:#ef4444;">إعادة الضبط</button>
 
-      <button class="btn primary" id="play">تشغيل التزاوج</button>
-      <button class="btn ghost" id="step">خطوة</button>
-      <button class="btn ghost" id="reset">إعادة الضبط</button>
+      <button id="storyBtn" class="btn" title="القصة وراء اكتشاف حيـلة غاوس" style="--btnA:#f472b6;--btnB:#7c3aed;">القصة</button>
+      <button id="cardsBtn" class="btn" title="البطاقات التربوية" style="--btnA:#22d3ee;--btnB:#06b6d4;color:#042e33">📚 البطاقات</button>
 
-      <div class="zoomGroup" role="group" aria-label="التحكم بالتكبير">
-        <button class="btn ghost small" id="zoomOut" title="تصغير (−)">تصغير −</button>
-        <span id="zoomVal" class="hint" style="min-width:52px;display:inline-block;text-align:center">100%</span>
-        <button class="btn ghost small" id="zoomIn" title="تكبير (+)">تكبير +</button>
-        <button class="btn ghost small" id="zoomReset" title="افتراضي">افتراضي</button>
+      <!-- منظور + عمق -->
+      <div class="isoGroup">
+        <button id="isoToggle" class="btn ghost" aria-pressed="false" title="تبديل عرض المكعبات: مسطّح/إيزومتري">
+          منظور: مسطّح
+        </button>
+        <label id="depthCtrl" class="depthCtrl muted" for="depthRange" title="التحكم بعمق الإيزومتري">
+          العمق:
+          <input type="range" id="depthRange" min="4" max="20" step="1" value="10">
+          <span id="depthValue">10px</span>
+        </label>
       </div>
 
-      <!-- زر القصة -->
-      <button class="btn ghost" id="storyBtn" title="اقرأ/استمع لقصة اكتشاف الحيلة">📖 القصة</button>
+      <!-- مجموعة التكبير -->
+      <div class="zoomGroup">
+        <button id="zoomOut" class="btn small" style="--btnA:#a78bfa;--btnB:#6d28d9;">تصغير −</button>
+        <button id="zoomReset" class="btn small" style="--btnA:#a78bfa;--btnB:#6d28d9;">100%</button>
+        <button id="zoomIn" class="btn small" style="--btnA:#a78bfa;--btnB:#6d28d9;">تكبير +</button>
+      </div>
 
-      <span class="hint">نصيحة: عدّل n ثم اضغط تشغيل. يمكنك المشاهدة خطوة بخطوة أيضًا.</span>
-      <button id="cardsBtn" class="btn info">📚 البطاقات التربوية</button>
+      <div class="grow"></div>
 
+      <!-- عدد الدرجات -->
+      <label class="rangeLab">عدد الدرجات (n):</label>
+      <input id="nRange" type="range" min="3" max="30" step="1" value="20" />
+      <span id="nLabel">20</span>
     </div>
 
+    <p class="hint">نصيحة: عدِّل n ثم اضغط تشغيل. يمكنك المشاهدة <b>خطوة بخطوة</b> أيضًا.</p>
+
+    <!-- ساحة العرض -->
     <div class="arena" id="arena">
-      <div class="grid" id="grid" aria-live="polite"></div>
+      <div class="stage" id="stage">
+        <div class="grid" id="grid"></div>
 
-      <!-- دلائل الأبعاد -->
-      <svg id="guides" class="guides" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="currentColor"></path>
-          </marker>
-        </defs>
-        <line id="hLine" x1="0" y1="0" x2="0" y2="0" marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
-        <line id="vLine" x1="0" y1="0" x2="0" y2="0" marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
-        <text id="hText" x="0" y="0">n+1</text>
-        <text id="vText" x="0" y="0" transform="rotate(-90 0,0)">n</text>
-      </svg>
+        <div class="legend">
+          <span class="k"><span class="pill" style="background:linear-gradient(180deg,#3b82f6,#1e40af)"></span> السُّلَّم الأصلي (A)</span>
+          <span class="k"><span class="pill" style="background:linear-gradient(180deg,#34d399,#065f46)"></span> المُكمل (B) لإكمال المستطيل</span>
+        </div>
 
-      <div class="legend" aria-hidden="true">
-        <span class="k"><span class="pill" style="background:linear-gradient(180deg,#3b82f6,#1e40af)"></span> السُلّم الأصلي (A)</span>
-        <span class="k"><span class="pill" style="background:linear-gradient(180deg,#34d399,#065f46)"></span> المكمل (B) لإكمال المستطيل</span>
-      </div>
+        <div class="formula" id="formulaBox">
+          <div>بسبب التزاوج صفًا صفًا نحصل على مُستطيل بعدده <b id="rectCells">420</b> مكعبًا.</div>
+          <div>إذًا <span dir="ltr">2S = n(n+1)</span> ⇒ <b dir="ltr">S = n(n+1)/2 = <span id="sumVal">210</span></b>.</div>
+        </div>
 
-      <div class="formula" id="formula">
-        <div>2S = n(n+1) ← لأن سُلّمين متكاملين يشكّلان مستطيلًا بعدده <span id="rectCells">420</span> مكعبًا.</div>
-        <div>إذن S = n(n+1)/2 = <b id="sum">210</b> مكعّبًا.</div>
-      </div>
+        <!-- خطوط إرشادية تظهر بعد الاكتمال -->
+        <svg class="guides" id="guides" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
 
-      <!-- لوحة الشرح بعد الاكتمال -->
-      <div class="postExplain" id="postExplain" role="status" aria-live="polite">
-        <div class="card">
-          <h3>الآن أصبح الشكل <span style="color:var(--accent);font-weight:800">مُستطيلاً</span></h3>
-          <p>الأبعاد: <b><span id="dimA">20</span> × <span id="dimB">21</span></b>.</p>
-          <p>مساحة المستطيل = الطول × العرض = <b id="areaVal">420</b> مكعبًا، وتمثّل عدد المكعبات داخل المستطيل، أي مكعبات السُلّمين معًا (<b>2S</b>).</p>
-          <p>لكننا نريد مكعبات <b>سُلّم واحد فقط</b> ⇒ الجواب النهائي هو <b>نصف</b> هذا العدد:
-            <span class="eq">S = n(n+1)/2 = <span id="sumVal">210</span></span>.
-          </p>
-          <button class="btn ghost small" id="dismiss">إخفاء الشرح</button>
+        <!-- نافذة شرح سريعة بعد الاكتمال -->
+        <div class="postExplain hidden" id="postExplain">
+          <div class="card">
+            <h3>فكرة النتيجة</h3>
+            <p>
+              بعد اكتمال التزاوج صار لدينا <b>مستطيل</b> بعدده <span id="rectCells2">420</span> مكعبًا،
+              أي <span dir="ltr">2S = n(n+1)</span> ⇒ <b dir="ltr">S = n(n+1)/2</b>. هذا هو عدد المكعبات في
+              سُلَّمٍ من 1 إلى <b id="nSpan2">20</b>.
+            </p>
+            <div style="display:flex; gap:8px; justify-content:flex-end">
+              <button class="btn ghost small" id="hideExplain">إخفاء</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer">
-  <div class="footer-note">مُهيّأ للشرح الصفي للصف الخامس... </div>
-  <div class="credit">إعداد: زهدي زاهدة — الكلية الإبراهيمية بالقدس</div>
-</div>
 
+    <div class="footer">
+      <div class="footer-note">مُهيّأ للشرح الصّفي للمرحلة الخامسة–السابعة. يمكنك تعديل عدد الدرجات والسرعة وتشغيل الأنيميشن خطوة بخطوة.</div>
+      <div class="credit">إعداد: زهدي زاهدة — الكلية الإبراهيمية بالقدس</div>
+    </div>
   </div>
 
   <!-- نافذة القصة -->
-  <div id="storyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="storyTitle" tabindex="-1">
-    <div class="card" role="document">
+  <div class="modal" id="storyModal" aria-hidden="true" role="dialog" aria-labelledby="storyTitle">
+    <div class="card">
       <div class="modalHead">
-        <h3 id="storyTitle">القصة وراء اكتشاف حيلة غاوس</h3>
-        <button class="btn ghost small" id="storyClose" title="إغلاق">✕</button>
+        <h2 id="storyTitle">القصة وراء اكتشاف حيـلة غاوس</h2>
+        <button class="btn ghost small" id="closeStory">✕</button>
       </div>
 
-      <!-- مقاطع صوتية اختيارية (إن وُضعت تُستخدم تلقائيًا) -->
-      <!-- ضع ملفاتك ثم أزل التعليقات التالية وعدّل المسارات -->
-      <!-- <audio id="storyAudioChild"   src="../../assets/audio/ar/gauss-story-child.mp3"   preload="none"></audio> -->
-      <!-- <audio id="storyAudioTeacher" src="../../assets/audio/ar/gauss-story-teacher.mp3" preload="none"></audio> -->
-
-      <!-- تبويب نص قصير / نص كامل -->
-      <div class="segmented" role="tablist" aria-label="اختيار نوع النص">
-        <button id="tabShort" class="seg active" role="tab" aria-selected="true">نص قصير (للصف الخامس)</button>
-        <button id="tabFull"   class="seg" role="tab" aria-selected="false">نص كامل</button>
+      <div class="segmented" role="tablist" aria-label="اختيار نص القصة">
+        <button id="tabShort" class="seg"  role="tab" aria-selected="false">نص قصير (للصف الخامس)</button>
+        <button id="tabFull"  class="seg active" role="tab" aria-selected="true">نص كامل</button>
       </div>
 
-      <article id="storyBody" class="story" aria-live="polite"></article>
-
-      <!-- اختيار نبرة الصوت -->
-      <fieldset class="voiceGroup">
-        <legend>نبرة الصوت:</legend>
-        <label><input type="radio" name="voice" id="vChild" value="child" checked> طفل</label>
-        <label><input type="radio" name="voice" id="vTeacher" value="teacher"> معلّم</label>
-        <small class="muted">* إن وُجد ملف MP3 مطابق للنبرة سيُستخدم تلقائيًا، وإلا سيُستخدم TTS.</small>
-      </fieldset>
+      <div class="story" id="storyText"></div>
 
       <div class="controls">
-        <button class="btn primary" id="storyPlay">🔊 استمع</button>
-        <button class="btn ghost"   id="storyStop">⏹ إيقاف</button>
+        <button id="ttsPlay"  class="btn small">استمع</button>
+        <button id="ttsStop"  class="btn ghost small">إيقاف</button>
+
+        <fieldset class="voiceGroup">
+          <legend class="muted">نبرة الصوت:</legend>
+          <label><input type="radio" name="voice" value="kid"   checked> طفل</label>
+          <label><input type="radio" name="voice" value="adult"> معلّم</label>
+          <span class="muted">إن وُجد ملف MP3 مطابق للنبرة سيُستخدم تلقائيًا، وإلا سيُستخدم TTS.</span>
+        </fieldset>
       </div>
     </div>
   </div>
-<div class="modal" id="cardsModal" aria-hidden="true" role="dialog" aria-labelledby="cardsTitle">
-  <div class="card" style="width:min(92vw,900px);height:min(86vh,900px);display:flex;flex-direction:column">
-    <div class="modalHead">
-      <h2 id="cardsTitle">البطاقات التربوية</h2>
-      <div class="grow"></div>
-      <button id="printCards" class="btn ghost small" title="طباعة">🖨️ طباعة</button>
-      <button id="openCardsNew" class="btn small" title="فتح في تبويب">↗︎ فتح خارجي</button>
-      <button id="closeCards" class="btn ghost small">✕</button>
-    </div>
-    <iframe id="cardsFrame" src="" style="flex:1;border:none;background:#fff"></iframe>
-  </div>
-</div>
 
-  <script defer src="gauss.js"></script>
+  <!-- نافذة البطاقات التربوية -->
+  <div class="modal" id="cardsModal" aria-hidden="true" role="dialog" aria-labelledby="cardsTitle">
+    <div class="card cardsCard">
+      <div class="modalHead">
+        <h2 id="cardsTitle">البطاقات التربوية</h2>
+        <div class="grow"></div>
+        <button id="printCards" class="btn ghost small" title="طباعة">🖨️ طباعة</button>
+        <button id="openCardsNew" class="btn small" title="فتح في تبويب">↗︎ فتح خارجي</button>
+        <button id="closeCards" class="btn ghost small">✕</button>
+      </div>
+      <iframe id="cardsFrame" src="" class="cardsFrame" title="البطاقات"></iframe>
+    </div>
+  </div>
+
+  <script src="gauss.js?v=2025-11-02a"></script>
 </body>
 </html>
