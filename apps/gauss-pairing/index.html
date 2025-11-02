@@ -139,6 +139,18 @@
       </div>
     </div>
   </div>
+<div class="modal" id="cardsModal" aria-hidden="true" role="dialog" aria-labelledby="cardsTitle">
+  <div class="card" style="width:min(92vw,900px);height:min(86vh,900px);display:flex;flex-direction:column">
+    <div class="modalHead">
+      <h2 id="cardsTitle">البطاقات التربوية</h2>
+      <div class="grow"></div>
+      <button id="printCards" class="btn ghost small" title="طباعة">🖨️ طباعة</button>
+      <button id="openCardsNew" class="btn small" title="فتح في تبويب">↗︎ فتح خارجي</button>
+      <button id="closeCards" class="btn ghost small">✕</button>
+    </div>
+    <iframe id="cardsFrame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
 
   <script defer src="gauss.js"></script>
 </body>
