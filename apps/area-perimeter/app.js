@@ -1,15 +1,14 @@
-/* ===========================================================
-   apps/gauss-pairing/area-perimeter/app.js
-   بناء سُلّم (A) + إكمال أفقي (B) + أدلة طول/عرض ديناميكية
-   Zoom + حفظ n مستقبلاً إن رغبتَ (يمكن الإضافة بسهولة)
-   =========================================================== */
+/* apps/area-perimeter/app.js — بناء الشبكة + ضبط الأدلة + ربط الأزرار */
 
-(() => {
-  // عناصر DOM
+document.addEventListener('DOMContentLoaded', () => {
+  // عناصر الواجهة حسب IDs في index.html
   const grid       = document.getElementById('grid');
   const stage      = document.getElementById('stage');
 
-  const nRange     = document.getElementById('nRange'); // إن لم يوجد تجاهله
+  const lenRange   = document.getElementById('lenRange');
+  const widRange   = document.getElementById('widRange');
+  const resetBtn   = document.getElementById('resetBtn');
+
   const zoomInBtn  = document.getElementById('zoomIn');
   const zoomOutBtn = document.getElementById('zoomOut');
   const zoomReset  = document.getElementById('zoomReset');
@@ -18,123 +17,93 @@
   const tH         = document.getElementById('tH');
   const tV         = document.getElementById('tV');
 
-  const resetBtn   = document.getElementById('reset');
-  const zoomGroup  = document.querySelector('.zoomGroup');
-
   // حالة
-  let L = 6;                  // عدد صفوف A (الدرجات)
-  let W = 8;                  // عدد أعمدة A قبل الإكمال
+  let L = clampInt(parseIntSafe(lenRange?.value), 1, 100) ?? 6;
+  let W = clampInt(parseIntSafe(widRange?.value), 1, 100) ?? 8;
   let zoom = 1;
 
   // دوال مساعدة
-  function getCSSNumber(name){
-    return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0;
-  }
+  function parseIntSafe(v){ const n = parseInt(v,10); return Number.isFinite(n)? n : null; }
+  function clampInt(v,min,max){ return Math.min(Math.max(v,min),max); }
+  function cssNum(name){ return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0; }
 
-  // بناء شبكة A (السلم) + تهيئة B كإزاحة أفقية
   function buildGrid(){
     grid.innerHTML = '';
-    const cell = getCSSNumber('--cell') || 28;
-    const gap  = getCSSNumber('--gap')  || 6;
-
     grid.style.gridTemplateColumns = `repeat(${W}, var(--cell))`;
     grid.style.gridTemplateRows    = `repeat(${L}, var(--cell))`;
 
-    // نبني السلم A (مستطيل L×W)
-    for(let r=0; r<L; r++){
-      for(let c=0; c<W; c++){
+    for(let r=0;r<L;r++){
+      for(let c=0;c<W;c++){
         const el = document.createElement('div');
         el.className = 'cell a';
         grid.appendChild(el);
       }
     }
-
-    // سلوك الإكمال B يحصل عند الطلب (في هذا النموذج عرضنا القياسات فقط)
-    updateMeasures();
-
-    // أدلة الطول/العرض
-    updateGuidesText();
-    fitGuideLabels(); // ← مهم لضبط حجم الخط والسطرين
+    updateGuideTexts();
+    fitGuideLabels();
   }
 
-  // تحديث نصوص الأدلة
-  function updateGuidesText(){
+  function updateGuideTexts(){
     if (tH) tH.textContent = `الطول = W = ${W}`;
     if (tV) tV.textContent = `العرض = L = ${L}`;
   }
 
-  // تحديث القياسات (يمكنك ربطه ببطاقاتك)
-  function updateMeasures(){
-    const pEl = document.querySelector('.info [data-p]');
-    const aEl = document.querySelector('.info [data-a]');
-    const da  = document.querySelector('.info [data-da]');
-    const dp  = document.querySelector('.info [data-dp]');
-    const A = L * W;
-    const P = 2 * (L + W);
-    if (aEl) aEl.textContent = A;
-    if (pEl) pEl.textContent = P;
-    if (da)  da.textContent  = '0';
-    if (dp)  dp.textContent  = '0';
-  }
-
-  // ضبط النص وسُمك الخط طبقًا لحجم الشبكة على الشاشة
-  // ملاحظة: نأخذ في الاعتبار عامل التكبير (zoom) حتى لا يحدث تضخيم مزدوج
+  // يضبط حجم خط الـSVG وسُمك الخط حسب حجم الشبكة ومعامل التكبير
   function fitGuideLabels(){
     const r = grid.getBoundingClientRect();
-    if (!r.width || !r.height) return;
+    if (!r || !r.width || !r.height) return;
 
     const base = Math.min(r.width, r.height) / Math.max(zoom, 0.001);
 
-    // أصغر من قبل كي لا يطغى على المكعبات
-    const fs = clamp(base * 0.035, 10, 18);     // 3.5% من البعد الأصغر
-    const stroke = clamp(base * 0.0025, 0.8, 1.4);
+    // خط أصغر بكثير: 2%–3.2% من البعد الأصغر
+    const fs     = Math.max(9,  Math.min(16, base * 0.028));
+    const stroke = Math.max(0.6, Math.min(1.1, base * 0.0016));
 
-    guides.style.setProperty('--gFont',   `${fs}px`);
-    guides.style.setProperty('--gStroke', `${stroke}`);
+    guides?.style.setProperty('--gFont',   `${fs}px`);
+    guides?.style.setProperty('--gStroke', `${stroke}`);
 
-    // إزاحة طفيفة للنصَّين عن الحواف (بوحدات viewBox)
-    const pad = Math.min(6, (fs / base) * 100 * 0.6); // نسبة تقريبية
-    const tHY = (98 - pad).toFixed(1);
-    const tVX = (98 - pad).toFixed(1);
-
-    if (tH) tH.setAttribute('y', tHY);
-    if (tV) tV.setAttribute('x', tVX);
+    // نبعد النص قليلاً عن الحواف (بوحدات viewBox 0..100)
+    const padPct = Math.min(6, (fs / base) * 100 * 0.7);
+    if (tH) tH.setAttribute('y', (98 - padPct).toString());
+    if (tV) tV.setAttribute('x', (98 - padPct).toString());
   }
 
-  function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
-
-  // Zoom
   function applyZoom(){
-    stage.style.transform = `scale(${zoom})`;
-    if(zoomReset) { zoomReset.textContent = `${Math.round(zoom * 100)}%`; }
-    fitGuideLabels(); // ← حتى تتكيف النصوص والسُمك مع التكبير/التصغير
+    if (stage) stage.style.transform = `scale(${zoom})`;
+    if (zoomReset) zoomReset.textContent = `${Math.round(zoom*100)}%`;
+    fitGuideLabels();
   }
 
-  // أحداث الواجهـة
-  if (nRange) {
-    nRange.addEventListener('input', e=>{
-      // لو استعملت شريط n عام، يمكن أن تُسند n إلى L/W كما تشاء
-      // هنا سنجعل L = n و W ثابتة مثالًا
-      L = parseInt(e.target.value, 10) || 6;
+  // --------- روابط الأحداث ---------
+  if (lenRange) {
+    lenRange.addEventListener('input', e => {
+      L = clampInt(parseIntSafe(e.target.value), 1, 100);
+      buildGrid();
+    });
+  }
+  if (widRange) {
+    widRange.addEventListener('input', e => {
+      W = clampInt(parseIntSafe(e.target.value), 1, 100);
+      buildGrid();
+    });
+  }
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      L = 6; W = 8; zoom = 1;
+      if (lenRange) lenRange.value = String(L);
+      if (widRange) widRange.value = String(W);
+      applyZoom();
       buildGrid();
     });
   }
 
-  document.getElementById('zoomIn') .addEventListener('click', ()=>{ zoom = clamp(zoom + 0.1, 0.6, 2.0); applyZoom(); });
-  document.getElementById('zoomOut').addEventListener('click', ()=>{ zoom = clamp(zoom - 0.1, 0.6, 2.0); applyZoom(); });
-  document.getElementById('zoomReset').addEventListener('click', ()=>{ zoom = 1; applyZoom(); });
+  if (zoomInBtn)  zoomInBtn.addEventListener('click', () => { zoom = Math.min(2.0, +(zoom + 0.1).toFixed(2)); applyZoom(); });
+  if (zoomOutBtn) zoomOut.addEventListener('click',   () => { zoom = Math.max(0.6, +(zoom - 0.1).toFixed(2)); applyZoom(); });
+  if (zoomReset)  zoomReset.addEventListener('click', () => { zoom = 1; applyZoom(); });
 
-  // في هذا النموذج الأساسي لا نضيف B تلقائيًا، لكنه متاح للتوسعة لاحقًا
-  if (document.getElementById('reset')) {
-    resetBtn.addEventListener('click', ()=>{
-      L = 6; W = 8; zoom = 1; applyZoom(); buildGrid();
-    });
-  }
-
-  // إعادة الضبط عند تغيير المقاس
   window.addEventListener('resize', fitGuideLabels);
 
-  // أول تشغيل
+  // --------- تشغيل أولي ---------
   buildGrid();
   applyZoom();
-})();
+});
