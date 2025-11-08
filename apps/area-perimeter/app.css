@@ -1,0 +1,149 @@
+/* ============== Area-Perimeter — Styles ============== */
+:root{
+  --cell: 28px;
+  --gap: 6px;
+
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --text: #e5e7eb;
+  --muted:#9aa3b2;
+  --accent:#f59e0b;
+
+  --brandW: clamp(52px, 6vw, 84px);
+}
+
+*{ box-sizing:border-box }
+html{ font-size:18px }
+body{
+  margin:0; color:var(--text);
+  font-family: system-ui, "Tajawal", "Noto Kufi Arabic", Arial, sans-serif;
+  background: linear-gradient(120deg,#0a0f1d,#111827);
+}
+
+/* شعار */
+.brand-logo{
+  position:fixed; left:14px; top:14px; z-index:30;
+  display:block; line-height:0;
+}
+.brand-logo img{
+  width:var(--brandW); height:auto; aspect-ratio:1/1; object-fit:contain;
+  border-radius:50%; box-shadow:0 6px 18px rgba(0,0,0,.25);
+  transition: transform .2s ease, filter .2s ease;
+}
+.brand-logo:hover img{ transform: scale(1.05); filter: brightness(1.08) }
+
+/* الإطار العام */
+.shell{ max-width:1100px; margin:0 auto; padding:12px 16px 28px }
+header{ padding:12px 0 2px }
+.topbar{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+h1{ margin:0; font-weight:800; font-size:1.6rem }
+.lead{ margin:.4rem 0 0; color:#c7d2fe }
+
+/* أزرار */
+.btn{
+  --a:#1f2937; --b:#111827;
+  border:2px solid color-mix(in srgb,var(--b) 70%, black);
+  color:#fff; background: linear-gradient(180deg, var(--a), var(--b));
+  padding:10px 14px; border-radius:12px;
+  font-weight:800; letter-spacing:.2px; cursor:pointer;
+  box-shadow:0 6px 14px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+  transition: transform .1s ease, filter .15s ease, box-shadow .2s ease;
+}
+.btn:hover{ transform: translateY(-2px); filter: saturate(1.05) brightness(1.05) }
+.btn:active{ transform: translateY(0) }
+.btn.small{ padding:8px 12px; font-size:.95rem }
+.btn.ghost{
+  background: linear-gradient(180deg,#0b1324,#0a0f1d);
+  border-color: #334155;
+}
+.success{ --a:#34d399; --b:#059669 }
+.info   { --a:#38bdf8; --b:#0284c7 }
+.danger { --a:#f59e0b; --b:#ef4444 }
+
+/* لوحة التحكم */
+.panel{
+  margin: 12px 0 12px;
+  background: var(--panel);
+  border:1px solid #1e293b; border-radius:14px;
+  padding: 12px; display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.ctrl{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+.ctrl.buttons{ gap:8px }
+.ctrl.zoom{ margin-inline-start:auto; gap:8px }
+input[type="range"]{ width: 200px; accent-color:#22c55e }
+
+/* الساحة */
+.arena{
+  position: relative; margin: 12px 0 10px;
+  background: radial-gradient(1200px 400px at 50% -10%, rgba(59,130,246,.18), rgba(16,185,129,.12) 30%, rgba(0,0,0,0) 70%), #0b1220;
+  border:1px solid #1e293b; border-radius:18px;
+  padding: 18px; box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+#stage{ transform-origin: 50% 0 }
+
+/* الشبكة */
+.grid{
+  display: grid;
+  gap: var(--gap);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.cell{
+  width: var(--cell); height: var(--cell);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.08)), #2563eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.cell.flash{
+  animation: pop .45s ease;
+}
+@keyframes pop{
+  0%{ transform: scale(.6); filter: brightness(1.4) }
+  70%{ transform: scale(1.05) }
+  100%{ transform: scale(1) }
+}
+.colNew .cell.newCol,
+.rowNew .cell.newRow{
+  outline: 2px dashed #f59e0b;
+  animation: blink .8s ease;
+}
+@keyframes blink{
+  0%,100%{ outline-color:#f59e0b }
+  50%{ outline-color:#fbbf24 }
+}
+
+/* أدلة الطول/العرض */
+.guides{
+  position:absolute; inset:18px; width:calc(100% - 36px); height:calc(100% - 36px);
+  pointer-events:none; opacity:.95;
+}
+.guides line{ stroke:#f59e0b; stroke-width: var(--gStroke, 2) }
+.guides text{ font: 600 var(--gFont, 16px) system-ui, Tajawal, sans-serif; fill:#e5e7eb }
+
+/* لوحة المعلومات */
+.info{
+  display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap: 12px; margin-top: 8px;
+}
+.tile{
+  background: var(--panel);
+  border:1px solid #1e293b; border-radius:14px;
+  padding: 10px 12px; box-shadow:0 8px 20px rgba(0,0,0,.22);
+}
+.kpi{ display:flex; align-items:baseline; gap:8px; margin-bottom:6px }
+.kpi .label{ color:#cbd5e1; font-weight:700 }
+.kpi .val{ font-weight:900; font-size:1.4rem }
+.note{ color:#9aa3b2; font-size:.95rem }
+.tile.delta .val{ color:#f59e0b }
+.code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#93c5fd }
+
+/* التذييل */
+.foot{ margin-top:10px; color:#9aa3b2; font-size:.95rem; text-align:center }
+
+/* طباعة */
+@media print{
+  .brand-logo{ display:none }
+}
