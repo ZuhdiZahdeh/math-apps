@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     guides.style.setProperty('--gFont', '5px');
     guides.style.setProperty('--gStroke', '0.4');
 
-    if (tH) tH.setAttribute('y', '150');  // أسفل قليلاً داخل الـ viewBox
-    if (tV) tV.setAttribute('x', '50');  // يمين قليلاً داخل الـ viewBox
+    if (tH) tH.setAttribute('y', '97.5');  // أسفل قليلاً داخل الـ viewBox
+    if (tV) tV.setAttribute('x', '97.5');  // يمين قليلاً داخل الـ viewBox
   }
 
   /* -------------------- التكبير/التصغير -------------------- */
