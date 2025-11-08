@@ -2,27 +2,105 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🚧 التطبيق في طور الإنشاء</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>المساحة والمحيط — مختبر تفاعلي</title>
   <link rel="icon" href="../../assets/favicon.ico">
-  <style>
-    :root{ --bg:#0b1220; --panel:#0f172a; --text:#e2e8f0; --muted:#94a3b8; }
-    *{box-sizing:border-box} html{font-size:18px}
-    body{margin:0;font-family:System-ui,Tajawal,Arial;background:linear-gradient(120deg,#0a0f1d,#111827);color:var(--text)}
-    main{min-height:100dvh;display:grid;place-items:center;padding:24px}
-    .card{background:var(--panel);border:1px solid #1e293b;border-radius:16px;padding:22px 20px;max-width:720px;text-align:center}
-    h1{margin:.2rem 0 .5rem;font-size:1.6rem}
-    a.btn{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:12px;border:1px solid #334155;background:#111827;color:#e5e7eb;text-decoration:none;font-weight:700}
-    a.btn:hover{background:#1f2937}
-  </style>
+  <link rel="stylesheet" href="app.css?v=1.0">
 </head>
 <body>
-  <main>
-    <section class="card">
-      <h1>🚧 التطبيق في طور الإنشاء</h1>
-      <p>سيتم نشر هذا التطبيق قريبًا.</p>
-      <a class="btn" href="../../index.html">↩︎ الرجوع إلى الصفحة الرئيسية</a>
+
+  <!-- شعار اختياري أعلى اليسار (احذف إن لم ترغب) -->
+  <a class="brand-logo" href="https://ibrahimieh.edu/" target="_blank" rel="noopener" title="الكلية الإبراهيمية بالقدس">
+    <img src="../../assets/ibrahimieh-logo-black.png" alt="شعار الكلية الإبراهيمية بالقدس">
+  </a>
+
+  <div class="shell">
+
+    <header>
+      <div class="topbar">
+        <a class="btn ghost small" href="../../index.html" title="الرجوع للفهرس">↩︎ رجوع</a>
+        <h1>المساحة والمحيط — مستطيل وحدات</h1>
+      </div>
+      <p class="lead">
+        البلاط داخل الشكل = <b>مساحة</b>، والسياج حول الشكل = <b>محيط</b>. غيّر <b>L</b> (الطول) و<b>W</b> (العرض)،
+        أو أضِف صفًا/عمودًا وشاهد كيف تتغير <span class="code">ΔA</span> و<span class="code">ΔP</span>.
+      </p>
+    </header>
+
+    <!-- لوحة تحكم -->
+    <section class="panel">
+      <div class="ctrl">
+        <label for="lenRange">الطول L: <b id="lenVal">6</b></label>
+        <input id="lenRange" type="range" min="1" max="20" step="1" value="6">
+      </div>
+
+      <div class="ctrl">
+        <label for="widRange">العرض W: <b id="widVal">8</b></label>
+        <input id="widRange" type="range" min="1" max="20" step="1" value="8">
+      </div>
+
+      <div class="ctrl buttons">
+        <button id="addRow"   class="btn success" title="إضافة صف">+ صف</button>
+        <button id="addCol"   class="btn info"    title="إضافة عمود">+ عمود</button>
+        <button id="resetBtn" class="btn danger"  title="إعادة الضبط">إعادة الضبط</button>
+      </div>
+
+      <div class="ctrl zoom">
+        <button id="zoomOut"  class="btn small">تصغير −</button>
+        <button id="zoomReset"class="btn small">100%</button>
+        <button id="zoomIn"   class="btn small">تكبير +</button>
+      </div>
     </section>
-  </main>
+
+    <!-- ساحة العرض -->
+    <section class="arena">
+      <div id="stage">
+        <div id="grid" class="grid" aria-live="polite"></div>
+
+        <!-- أدلة مرئية -->
+        <svg id="guides" class="guides" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line id="gH" x1="5" y1="95" x2="95" y2="95"></line>
+          <line id="gV" x1="95" y1="5"  x2="95" y2="95"></line>
+          <text id="tH" x="50" y="99" text-anchor="middle">الطول = W</text>
+          <text id="tV" x="98" y="50" transform="rotate(-90 98,50)">العرض = L</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- لوحة المعلومات -->
+    <section class="info">
+      <div class="tile">
+        <div class="kpi">
+          <span class="label">المساحة A</span>
+          <span id="areaVal" class="val">48</span>
+        </div>
+        <div class="note">A = L × W</div>
+      </div>
+      <div class="tile">
+        <div class="kpi">
+          <span class="label">المحيط P</span>
+          <span id="periVal" class="val">28</span>
+        </div>
+        <div class="note">P = 2(L + W)</div>
+      </div>
+      <div class="tile delta">
+        <div class="kpi">
+          <span class="label">ΔA</span>
+          <span id="deltaA" class="val">+0</span>
+        </div>
+        <div class="kpi">
+          <span class="label">ΔP</span>
+          <span id="deltaP" class="val">+0</span>
+        </div>
+        <div class="note">عند إضافة صف/عمود</div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span class="muted">إعداد: زهدي زاهدة — مخصّص للصف الخامس/السادس — يمكن استعمال الأسهم ← ↑ لضبط القيم</span>
+    </footer>
+  </div>
+
+  <script src="app.js?v=1.0"></script>
 </body>
 </html>
