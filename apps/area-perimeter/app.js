@@ -1,158 +1,140 @@
-/* Area-Perimeter — Interactive Lab (L×W) */
+/* ===========================================================
+   apps/gauss-pairing/area-perimeter/app.js
+   بناء سُلّم (A) + إكمال أفقي (B) + أدلة طول/عرض ديناميكية
+   Zoom + حفظ n مستقبلاً إن رغبتَ (يمكن الإضافة بسهولة)
+   =========================================================== */
 
 (() => {
-  // DOM refs
-  const lenRange  = document.getElementById('lenRange');
-  const widRange  = document.getElementById('widRange');
-  const lenVal    = document.getElementById('lenVal');
-  const widVal    = document.getElementById('widVal');
+  // عناصر DOM
+  const grid       = document.getElementById('grid');
+  const stage      = document.getElementById('stage');
 
-  const addRowBtn = document.getElementById('addRow');
-  const addColBtn = document.getElementById('addCol');
-  const resetBtn  = document.getElementById('resetBtn');
+  const nRange     = document.getElementById('nRange'); // إن لم يوجد تجاهله
+  const zoomInBtn  = document.getElementById('zoomIn');
+  const zoomOutBtn = document.getElementById('zoomOut');
+  const zoomReset  = document.getElementById('zoomReset');
 
-  const grid      = document.getElementById('grid');
-  const stage     = document.getElementById('stage');
+  const guides     = document.getElementById('guides');
+  const tH         = document.getElementById('tH');
+  const tV         = document.getElementById('tV');
 
-  const areaVal   = document.getElementById('areaVal');
-  const periVal   = document.getElementById('periVal');
-  const deltaA    = document.getElementById('deltaA');
-  const deltaP    = document.getElementById('deltaP');
+  const resetBtn   = document.getElementById('reset');
+  const zoomGroup  = document.querySelector('.zoomGroup');
 
-  // Guides
-  const guides    = document.getElementById('guides');
-  const tH        = document.getElementById('tH');
-  const tV        = document.getElementById('tV');
-
-  // Zoom
-  const zoomInBtn = document.getElementById('zoomIn');
-  const zoomOutBtn= document.getElementById('zoomOut');
-  const zoomResetBtn = document.getElementById('zoomReset');
-
-  let L = parseInt(lenRange.value, 10) || 6;
-  let W = parseInt(widRange.value, 10) || 8;
+  // حالة
+  let L = 6;                  // عدد صفوف A (الدرجات)
+  let W = 8;                  // عدد أعمدة A قبل الإكمال
   let zoom = 1;
 
-  // Build grid
-  function buildGrid({flash}={}) {
-    // CSS grid template
+  // دوال مساعدة
+  function getCSSNumber(name){
+    return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0;
+  }
+
+  // بناء شبكة A (السلم) + تهيئة B كإزاحة أفقية
+  function buildGrid(){
+    grid.innerHTML = '';
+    const cell = getCSSNumber('--cell') || 28;
+    const gap  = getCSSNumber('--gap')  || 6;
+
     grid.style.gridTemplateColumns = `repeat(${W}, var(--cell))`;
     grid.style.gridTemplateRows    = `repeat(${L}, var(--cell))`;
 
-    // Build cells
-    let html = '';
-    for (let r = 0; r < L; r++){
-      for (let c = 0; c < W; c++){
-        const isNewCol = flash === 'col' && c === W-1;
-        const isNewRow = flash === 'row' && r === L-1;
-        const cls = ['cell', 'flash'];
-        if (isNewCol) cls.push('newCol');
-        if (isNewRow) cls.push('newRow');
-        html += `<div class="${cls.join(' ')}"></div>`;
+    // نبني السلم A (مستطيل L×W)
+    for(let r=0; r<L; r++){
+      for(let c=0; c<W; c++){
+        const el = document.createElement('div');
+        el.className = 'cell a';
+        grid.appendChild(el);
       }
     }
-    grid.innerHTML = html;
 
-    // Add contextual classes to toggle dashed outline on the new strip
-    grid.classList.toggle('colNew', flash === 'col');
-    grid.classList.toggle('rowNew', flash === 'row');
+    // سلوك الإكمال B يحصل عند الطلب (في هذا النموذج عرضنا القياسات فقط)
+    updateMeasures();
 
-    // Update texts
-    lenVal.textContent = L;
-    widVal.textContent = W;
-    tH.textContent = `الطول = W = ${W}`;
-    tV.textContent = `العرض = L = ${L}`;
-
-    updateKPI();
-    fitGuides();
+    // أدلة الطول/العرض
+    updateGuidesText();
+    fitGuideLabels(); // ← مهم لضبط حجم الخط والسطرين
   }
 
-  function updateKPI(){
+  // تحديث نصوص الأدلة
+  function updateGuidesText(){
+    if (tH) tH.textContent = `الطول = W = ${W}`;
+    if (tV) tV.textContent = `العرض = L = ${L}`;
+  }
+
+  // تحديث القياسات (يمكنك ربطه ببطاقاتك)
+  function updateMeasures(){
+    const pEl = document.querySelector('.info [data-p]');
+    const aEl = document.querySelector('.info [data-a]');
+    const da  = document.querySelector('.info [data-da]');
+    const dp  = document.querySelector('.info [data-dp]');
     const A = L * W;
     const P = 2 * (L + W);
-    areaVal.textContent = A;
-    periVal.textContent = P;
+    if (aEl) aEl.textContent = A;
+    if (pEl) pEl.textContent = P;
+    if (da)  da.textContent  = '0';
+    if (dp)  dp.textContent  = '0';
   }
 
-  function showDelta(dA, dP){
-    deltaA.textContent = (dA>0?'+':'') + dA;
-    deltaP.textContent = (dP>0?'+':'') + dP;
-    // Flash effect
-    deltaA.parentElement.classList.add('flashKPI');
-    deltaP.parentElement.classList.add('flashKPI');
-    setTimeout(() => {
-      deltaA.parentElement.classList.remove('flashKPI');
-      deltaP.parentElement.classList.remove('flashKPI');
-    }, 600);
-  }
-
-  function addColumn(){
-    // ΔA = L, ΔP = 2 (إن كان L≥1)
-    W = Math.min(50, W + 1);
-    widRange.value = W;
-    showDelta(L, 2);
-    buildGrid({flash:'col'});
-  }
-
-  function addRow(){
-    // ΔA = W, ΔP = 2 (إن كان W≥1)
-    L = Math.min(50, L + 1);
-    lenRange.value = L;
-    showDelta(W, 2);
-    buildGrid({flash:'row'});
-  }
-
-  function resetAll(){
-    L = parseInt(lenRange.value = 6, 10);
-    W = parseInt(widRange.value = 8, 10);
-    showDelta(0,0);
-    buildGrid({flash:undefined});
-    zoom = 1;
-    applyZoom();
-  }
-
-  function applyZoom(){
-    stage.style.transform = `scale(${zoom})`;
-    zoomResetBtn.textContent = `${Math.round(zoom*100)}%`;
-    fitGuides();
-  }
-
-  // Fit guide label sizes dynamically
-  function fitGuides(){
+  // ضبط النص وسُمك الخط طبقًا لحجم الشبكة على الشاشة
+  // ملاحظة: نأخذ في الاعتبار عامل التكبير (zoom) حتى لا يحدث تضخيم مزدوج
+  function fitGuideLabels(){
     const r = grid.getBoundingClientRect();
     if (!r.width || !r.height) return;
-    const minDim = Math.min(r.width, r.height);
-    const fs = Math.max(12, Math.min(26, minDim * 0.06));
-    const stroke = Math.max(1.2, Math.min(3, fs/10));
-    guides.style.setProperty('--gFont',  fs + 'px');
-    guides.style.setProperty('--gStroke', stroke);
+
+    const base = Math.min(r.width, r.height) / Math.max(zoom, 0.001);
+
+    // أصغر من قبل كي لا يطغى على المكعبات
+    const fs = clamp(base * 0.035, 10, 18);     // 3.5% من البعد الأصغر
+    const stroke = clamp(base * 0.0025, 0.8, 1.4);
+
+    guides.style.setProperty('--gFont',   `${fs}px`);
+    guides.style.setProperty('--gStroke', `${stroke}`);
+
+    // إزاحة طفيفة للنصَّين عن الحواف (بوحدات viewBox)
+    const pad = Math.min(6, (fs / base) * 100 * 0.6); // نسبة تقريبية
+    const tHY = (98 - pad).toFixed(1);
+    const tVX = (98 - pad).toFixed(1);
+
+    if (tH) tH.setAttribute('y', tHY);
+    if (tV) tV.setAttribute('x', tVX);
   }
 
-  // Events
-  lenRange.addEventListener('input', e => { L = parseInt(e.target.value,10)||1; buildGrid(); });
-  widRange.addEventListener('input', e => { W = parseInt(e.target.value,10)||1; buildGrid(); });
+  function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
 
-  addColBtn.addEventListener('click', addColumn);
-  addRowBtn.addEventListener('click', addRow);
-  resetBtn.addEventListener('click', resetAll);
+  // Zoom
+  function applyZoom(){
+    stage.style.transform = `scale(${zoom})`;
+    if(zoomReset) { zoomReset.textContent = `${Math.round(zoom * 100)}%`; }
+    fitGuideLabels(); // ← حتى تتكيف النصوص والسُمك مع التكبير/التصغير
+  }
 
-  zoomInBtn.addEventListener('click', ()=>{ zoom = Math.min(1.8, +(zoom+0.1).toFixed(2)); applyZoom(); });
-  zoomOutBtn.addEventListener('click', ()=>{ zoom = Math.max(0.6, +(zoom-0.1).toFixed(2)); applyZoom(); });
-  zoomResetBtn.addEventListener('click', ()=>{ zoom = 1; applyZoom(); });
+  // أحداث الواجهـة
+  if (nRange) {
+    nRange.addEventListener('input', e=>{
+      // لو استعملت شريط n عام، يمكن أن تُسند n إلى L/W كما تشاء
+      // هنا سنجعل L = n و W ثابتة مثالًا
+      L = parseInt(e.target.value, 10) || 6;
+      buildGrid();
+    });
+  }
 
-  // Keyboard shortcuts: ↑↓ لن L، ←→ لـ W
-  document.addEventListener('keydown', (e)=>{
-    if (e.altKey || e.metaKey || e.ctrlKey) return;
-    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)){
-      e.preventDefault();
-      if (e.key === 'ArrowUp')   { L = Math.min(50, L+1); lenRange.value=L; buildGrid({flash:'row'}); }
-      if (e.key === 'ArrowDown') { L = Math.max(1, L-1);  lenRange.value=L; buildGrid(); }
-      if (e.key === 'ArrowRight'){ W = Math.min(50, W+1); widRange.value=W; buildGrid({flash:'col'}); }
-      if (e.key === 'ArrowLeft') { W = Math.max(1, W-1);  widRange.value=W; buildGrid(); }
-    }
-  });
+  document.getElementById('zoomIn') .addEventListener('click', ()=>{ zoom = clamp(zoom + 0.1, 0.6, 2.0); applyZoom(); });
+  document.getElementById('zoomOut').addEventListener('click', ()=>{ zoom = clamp(zoom - 0.1, 0.6, 2.0); applyZoom(); });
+  document.getElementById('zoomReset').addEventListener('click', ()=>{ zoom = 1; applyZoom(); });
 
-  // Init
+  // في هذا النموذج الأساسي لا نضيف B تلقائيًا، لكنه متاح للتوسعة لاحقًا
+  if (document.getElementById('reset')) {
+    resetBtn.addEventListener('click', ()=>{
+      L = 6; W = 8; zoom = 1; applyZoom(); buildGrid();
+    });
+  }
+
+  // إعادة الضبط عند تغيير المقاس
+  window.addEventListener('resize', fitGuideLabels);
+
+  // أول تشغيل
   buildGrid();
   applyZoom();
 })();
