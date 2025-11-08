@@ -45,20 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // يصغّر النص/السماكة حسب حجم الشبكة وبعد التكبير
-  function fitGuideLabels(){
-    const r = grid.getBoundingClientRect();
-    if (!r.width || !r.height) return;
+function fitGuideLabels() {
+  if (!guides) return;
+  // حجم النص 6px فقط، وسُمك الخط 0.4px دائماً
+  guides.style.setProperty('--gFont', '6px');
+  guides.style.setProperty('--gStroke', '0.4');
+  // أبعد النص خطوة بسيطة عن الحواف داخل الـ viewBox:
+  if (tH) tH.setAttribute('y', '97.5');
+  if (tV) tV.setAttribute('x', '97.5');
+}
 
-    const base   = Math.min(r.width, r.height) / Math.max(zoom, 0.001);
-
-    // أصغر بوضوح: 1.5%–2.2% من أصغر بُعد
-    const fs     = clamp(base * 0.018, 8, 12);        // px
-    const stroke = clamp(base * 0.0010, 0.35, 0.7);   // px
-
-    if (guides){
-      guides.style.setProperty('--gFont',   `${fs}px`);
-      guides.style.setProperty('--gStroke', `${stroke}`);
-    }
 
     // إزاحة خفيفة عن الحواف داخل viewBox 0..100
     const padPct = Math.min(6, (fs / base) * 100 * 0.7);
