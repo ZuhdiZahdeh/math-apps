@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ورقة عمل — المربع والمستطيل (الصف الخامس)</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --paper:#ffffff;
+    --ink:#0b1323;
+    --muted:#475569;
+    --accent:#2563eb;
+    --green:#16a34a;
+    --yellow:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html{font-size:16px}
+  body{
+    margin:0;
+    font-family: "Tajawal","Cairo","Noto Kufi Arabic",system-ui,Segoe UI,Arial,sans-serif;
+    background:#f1f5f9;
+    color:#111827;
+  }
+  .page{
+    width:210mm; min-height:297mm;
+    margin:10mm auto; background:#fff; box-shadow:0 0 8px rgba(0,0,0,.15);
+    padding:18mm;
+  }
+  header{
+    display:flex; align-items:center; gap:12px; border-bottom:2px solid #e5e7ef; padding-bottom:10px; margin-bottom:12px
+  }
+  header img{width:42px;height:42px;object-fit:contain}
+  header h1{margin:0;font-size:28px}
+  header .sub{color:#475569; font-size:14px}
+  h2{margin:12px 0 8px; color:#0f172a}
+  h3{margin:8px 0}
+  p{margin:6px 0}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .box{border:1px solid #e5e7eb; border-radius:12px; padding:12px}
+  .shape{
+    width:100%; height:220px; background:linear-gradient(180deg,#f8fafc,#eef2ff);
+    border-radius:10px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .formula{background:#f8fafc; border:1px dashed #cbd5e1; padding:8px; border-radius:8px; margin-top:8px}
+  .tbl{width:100%; border-collapse:collapse; margin-top:8px}
+  .tbl th,.tbl td{border:1px solid #e5e7eb; padding:6px; text-align:center}
+  .muted{color:#64748b}
+  .gap{height:10px}
+  .numline{ display:flex; align-items:center; gap:8px; margin-top:8px }
+  .line{ flex:1; border-bottom:2px dotted #cbd5e1; height:0; }
+  .small{ font-size:13px }
+  @media print{
+    body{ background:#fff }
+    .page{ box-shadow:none; margin:0; padding:0 }
+    header{ margin:0 0 8mm; padding:8mm }
+  }
+</style>
+</head>
+<body>
+
+<section class="page">
+
+  <header>
+    <img src="https://raw.githubusercontent.com/ZuhdiZahdeh/math-apps/main/assets/ibrahimieh-logo-black.png" alt="شعار الكلية">
+    <div>
+      <h1>ورقة عمل — المربع والمستطيل (الصف الخامس)</h1>
+      <div class="sub">أهداف: فهم المفهوم والقانون، وحلّ مسائل حياتيّة على المحيط والمساحة.</div>
+    </div>
+  </header>
+
+  <h2>١) تذكير بالمفاهيم والقوانين</h2>
+  <div class="grid-2">
+    <div class="box">
+      <h3>المربع</h3>
+      <div class="shape" aria-label="شكل مربع">
+        <svg viewBox="0 0 220 220" width="100%" height="100%">
+          <rect x="40" y="40" width="140" height="140" rx="6" ry="6" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+          <line x1="40" y1="185" x2="180" y2="185" stroke="#2563eb" stroke-width="4"/>
+          <text x="110" y="205" text-anchor="middle" font-size="14" fill="#2563eb">طول الضلع = <tspan font-weight="bold">س</tspan></text>
+        </svg>
+      </div>
+      <div class="formula">
+        <div>المحيط = مجموع أطوال الأضلاع = <b>4 × س</b></div>
+        <div>المساحة = طول الضلع × نفسه = <b>س × س = س²</b></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>المستطيل</h3>
+      <div class="shape" aria-label="شكل مستطيل">
+        <svg viewBox="0 0 260 180" width="100%" height="100%">
+          <rect x="40" y="40" width="180" height="100" rx="6" ry="6" fill="#e2e8f0" stroke="#1e293b" stroke-width="2"/>
+          <line x1="40" y1="150" x2="220" y2="150" stroke="#16a34a" stroke-width="4"/>
+          <text x="130" y="168" text-anchor="middle" font-size="14" fill="#16a34a">الطول = <tspan font-weight="bold">ط</tspan></text>
+          <line x1="30" y1="40" x2="30" y2="140" stroke="#2563eb" stroke-width="4"/>
+          <text x="22" y="100" transform="rotate(-90 22,100)" text-anchor="middle" font-size="14" fill="#2563eb">العرض = <tspan font-weight="bold">ع</tspan></text>
+        </svg>
+      </div>
+      <div class="formula">
+        <div>المحيط = <b>2 × (الطول + العرض)</b></div>
+        <div>المساحة = <b>الطول × العرض</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap"></div>
+
+  <h2>٢) تدريب على الحساب</h2>
+  <div class="box">
+    <p class="muted small">أوجد كُلًا من المحيط والمساحة:</p>
+    <table class="tbl">
+      <tr><th>الشكل</th><th>الأبعاد</th><th>المحيط</th><th>المساحة</th></tr>
+      <tr><td>مربع</td><td>س = ٧ سم</td><td></td><td></td></tr>
+      <tr><td>مستطيل</td><td>ط = ١٢ سم ، ع = ٥ سم</td><td></td><td></td></tr>
+      <tr><td>مستطيل</td><td>ط = ١٥ سم ، ع = ٩ سم</td><td></td><td></td></tr>
+      <tr><td>مربع</td><td>س = ٩ سم</td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="gap"></div>
+
+  <h2>٣) مسائل حياتيّة (كلاميّة)</h2>
+  <div class="box">
+    <ol>
+      <li><b>حديقة مستطيلة:</b> يريد سامر إحاطة حديقة طولها ١٨م وعرضها ١٢م بسياج. كم مترًا من السياج يحتاج؟ وإذا كان ثمن المتر ١٥ شيكلًا، فما التكلفة الكليّة؟</li>
+      <li><b>أرض الصف:</b> غرفة صف مربّعة طول ضلعها ٦م. كم مترًا مربعًا من البلاط نحتاج لتغطية الأرض؟ وإذا كان سعر المتر المربع ٣٠ شيكلًا فكم التكلفة؟</li>
+      <li><b>إطار صورة:</b> صورة مستطيلة أبعادها ٢٥ سم × ٣٥ سم، نريد عمل إطار عرضُه ٢ سم حولها. ما مساحة الإطار فقط؟ وما مساحة الصورة مع الإطار؟</li>
+      <li><b>ممر الحديقة:</b> مستطيل أبعاده ٢٠م × ١٠م. نريد صنع ممرّ بعرض ١م حول الحديقة من الداخل. احسب مساحة الممر فقط.</li>
+    </ol>
+  </div>
+
+  <div class="gap"></div>
+
+  <h2>٤) أسئلة فهم سريعة</h2>
+  <div class="box">
+    <ul>
+      <li>لماذا في المستطيل <b>المحيط = 2(الطول + العرض)</b>؟ اشرح بجملة.</li>
+      <li>لماذا في المربع <b>المساحة = س²</b>؟ ماذا تعني كلمة “س²”؟</li>
+      <li>إذا زاد الطول ٣ سم وبقي العرض ثابتًا، فكم تزيد المساحة؟</li>
+      <li>إذا كان المحيط ٣٦ سم وطول المستطيل ١٠ سم، فما عرضه؟</li>
+    </ul>
+  </div>
+
+  <div class="gap"></div>
+  <p class="muted">إعداد: المعلّم/ة .................................... | الصف: ............ | التاريخ: ............</p>
+
+</section>
+</body>
+</html>
