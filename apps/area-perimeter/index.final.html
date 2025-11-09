@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang=\"ar\" dir=\"rtl\">
+<head>
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">
+  <title>المساحة والمحيط — مستطيل وحدات</title>
+  <link rel=\"icon\" href=\"../../assets/favicon.ico\">
+  <link rel=\"stylesheet\" href=\"app.final.css?v=1.1.0\">
+  <style>
+    /* طباعة بسيطة للمعادلات داخل code */
+    code { background:#111827; padding:.1rem .35rem; border-radius:6px; font-weight:700 }
+  </style>
+</head>
+<body>
+
+  <!-- شعار أعلى اليسار (اختياري) -->
+  <a class=\"brand-logo\" href=\"https://ibrahimieh.edu/\" target=\"_blank\" rel=\"noopener\" title=\"الكلية الإبراهيمية بالقدس\">
+    <img src=\"../../assets/ibrahimieh-logo-black.png\" alt=\"شعار الكلية الإبراهيمية بالقدس\">
+  </a>
+
+  <div class=\"shell\">
+
+    <header>
+      <div class=\"topbar\">
+        <a class=\"btn small\" href=\"../../index.html\" title=\"الرجوع للفهرس\">↩︎ رجوع</a>
+        <h1>المساحة والمحيط — مستطيل وحدات</h1>
+      </div>
+      <p>
+        البلاط داخل الشكل = <b>مساحة</b>، والسياج حول الشكل = <b>محيط</b>.
+        غيّر <b>L</b> (الطول/الصفوف) و<b>W</b> (العرض/الأعمدة)، أو أضف صفًا/عمودًا، وشاهد كيف تتغير الفكرة بصريًا.
+      </p>
+    </header>
+
+    <!-- === أهداف الدرس (استقرائي) === -->
+    <section id=\"objectives\" dir=\"rtl\" lang=\"ar\" class=\"info\">
+      <article class=\"card\">
+        <h3>هدف المحيط</h3>
+        <ul>
+          <li>تعريف المحيط: مجموع أطوال حدود الشكل.</li>
+          <li>حساب محيط المربع/المستطيل/المثلث/الدوائر والأشكال المركّبة.</li>
+          <li>كتابة الوحدة الصحيحة: سم/م.</li>
+        </ul>
+        <p><strong>قاعدة المستطيل:</strong> <code>P = 2(L + W)</code></p>
+      </article>
+      <article class=\"card\">
+        <h3>هدف المساحة</h3>
+        <ul>
+          <li>تعريف المساحة: عدد الوحدات المربّعة التي تغطي سطح الشكل.</li>
+          <li>حساب مساحة المربع/المستطيل/المثلث/الدوائر والأشكال المركّبة بالتقسيم أو الطرح.</li>
+          <li>كتابة الوحدة المربّعة: سم²/م².</li>
+        </ul>
+        <p><strong>قاعدة المستطيل:</strong> <code>A = L × W</code></p>
+      </article>
+      <article class=\"card\">
+        <details>
+          <summary>سؤال قصصي (تطبيقي)</summary>
+          <div class=\"story\">
+            <p>في ساحة الكلية، يريد النادي العلمي إنشاء حديقة مستطيلة طولها <b>9 م</b> وعرضها <b>5 م</b>.
+            سيُوضع سياج حولها وتُغطّى أرضيتها بالعشب.</p>
+            <ol>
+              <li>احسب <b>محيط الحديقة</b> (طول السياج المطلوب).</li>
+              <li>احسب <b>مساحة الحديقة</b> (كم مترًا مربّعًا من العشب نحتاج؟).</li>
+              <li>إذا أُضيف <b>ممر خشبي بعرض 0.5 م</b> حول الحديقة من الخارج:
+                <ul>
+                  <li>أ) ما <b>المحيط الجديد</b> الذي يحتاجه السياج؟</li>
+                  <li>ب) ما <b>مساحة الممر وحده</b>؟</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <!-- لوحة التحكم -->
+    <section class=\"panel\">
+
+      <!-- أزرار صف/عمود -->
+      <div class=\"ctrl\">
+        <button id=\"addRow\" class=\"btn\">+ صف</button>
+        <button id=\"addCol\" class=\"btn\">+ عمود</button>
+        <button id=\"resetBtn\" class=\"btn\">إعادة الضبط</button>
+      </div>
+
+      <!-- منزلق العرض W -->
+      <div class=\"ctrl\">
+        <label for=\"widRange\">العرض W:</label>
+        <input id=\"widRange\" type=\"range\" min=\"1\" max=\"20\" step=\"1\" value=\"8\">
+      </div>
+
+      <!-- منزلق الطول L -->
+      <div class=\"ctrl\">
+        <label for=\"lenRange\">الطول L:</label>
+        <input id=\"lenRange\" type=\"range\" min=\"1\" max=\"20\" step=\"1\" value=\"6\">
+      </div>
+
+      <!-- أزرار المفهوم البصري -->
+      <div class=\"ctrl\">
+        <button id=\"btnArea\" class=\"btn\" style=\"--btnA:#fbbf24;--btnB:#f59e0b;color:#1b1300\" title=\"تلوين المساحة (الكل)\">المساحة</button>
+        <button id=\"btnPerimeter\" class=\"btn\" style=\"--btnA:#f87171;--btnB:#ef4444\" title=\"تلوين المحيط (الحواف)\">المحيط</button>
+      </div>
+
+      <!-- Zoom -->
+      <div class=\"zoomGroup\">
+        <button id=\"zoomIn\" class=\"btn small\">تكبير +</button>
+        <button id=\"zoomReset\" class=\"btn small\">100%</button>
+        <button id=\"zoomOut\" class=\"btn small\">تصغير −</button>
+      </div>
+
+    </section>
+
+    <!-- لوحة قيَم حية (استقرائي: من العدّ إلى القاعدة) -->
+    <section class=\"metrics\" aria-live=\"polite\">
+      <div id=\"metrics\">...</div>
+    </section>
+
+    <!-- ساحة العرض -->
+    <section class=\"arena\">
+      <div id=\"stage\">
+        <div id=\"grid\" class=\"grid\" aria-live=\"polite\"></div>
+
+        <!-- أدلة الطول/العرض (SVG) -->
+        <svg id=\"guides\" class=\"guides\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\">
+          <!-- خط أفقي للعرض (أسفل الشبكة) -->
+          <line id=\"gH\" x1=\"5\" y1=\"95\" x2=\"95\" y2=\"95\"></line>
+          <!-- خط رأسي للطول (يمين الشبكة) -->
+          <line id=\"gV\" x1=\"95\" y1=\"5\"  x2=\"95\" y2=\"95\"></line>
+          <!-- نصوص صغيرة (حجمها يُثبّت من JS: --gFont=6px) -->
+          <text id=\"tH\" x=\"50\" y=\"97.5\" text-anchor=\"middle\">العرض = W = 8</text>
+          <text id=\"tV\" x=\"97.5\" y=\"50\" transform=\"rotate(-90 98,50)\">الطول = L = 6</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- خطوات التعلّم الاستقرائي -->
+    <section class=\"info steps\">
+      <article class=\"card\">
+        <h3>1) استكشاف المحيط</h3>
+        <p>اضغط <b>المحيط</b> لتلوين الحواف فقط. عدّ مربعات الحافة في الاتجاهين، ثم لاحِظ أن التجميع يعطي القاعدة <code>P = 2(L + W)</code>.</p>
+      </article>
+      <article class=\"card\">
+        <h3>2) استكشاف المساحة</h3>
+        <p>اضغط <b>المساحة</b> لتلوين كل المربعات. عدّ الصفوف × الأعمدة، واستنتج <code>A = L × W</code>.</p>
+      </article>
+      <article class=\"card\">
+        <h3>3) ثبّت الفِكرة بالأوراق</h3>
+        <p>استخدم أوراق العمل: صفحة المستطيلات أولًا، ثم الأشكال المركّبة (تقسيم/طرح الأجزاء).</p>
+      </article>
+    </section>
+
+    <!-- موارد -->
+    <section class=\"info resources\">
+      <article class=\"card\">
+        <h3>أوراق عمل</h3>
+        <ul>
+          <li><a href=\"../../assets/worksheets/area_perimeter_worksheets_ar_logo.pdf\" target=\"_blank\">تحميل أوراق العمل (عربي + شعار)</a></li>
+          <li><a href=\"../../assets/worksheets/area_perimeter_answer_key_ar_logo.pdf\" target=\"_blank\">تحميل مفتاح الإجابات</a></li>
+        </ul>
+      </article>
+      <article class=\"card\">
+        <h3>نصوص مختصرة</h3>
+        <p>المحيط = طول السياج حول الشكل. المساحة = التبليط داخل الشكل.</p>
+      </article>
+    </section>
+
+  </div>
+
+  <script src=\"app.final.js?v=1.1.0\" defer></script>
+</body>
+</html>
