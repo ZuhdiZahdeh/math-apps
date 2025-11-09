@@ -7,8 +7,7 @@
   <link rel="icon" href="../../assets/favicon.ico">
   <link rel="stylesheet" href="app.css">
   <style>
-    /* تنسيق بسيط للمعادلات داخل code */
-    code { background:#111827; padding:.1rem .35rem; border-radius:6px; font-weight:700; color:#fff }
+    code{background:#111827;color:#fff;padding:.1rem .35rem;border-radius:6px;font-weight:700}
   </style>
 </head>
 <body>
@@ -19,7 +18,6 @@
   </a>
 
   <div class="shell">
-
     <header>
       <div class="topbar">
         <a class="btn small" href="../../index.html" title="الرجوع للفهرس">↩︎ رجوع</a>
@@ -31,8 +29,8 @@
       </p>
     </header>
 
-    <!-- === أهداف الدرس (استقرائي) === -->
-    <section id="objectives" dir="rtl" lang="ar" class="info">
+    <!-- أهداف الدرس -->
+    <section id="objectives" class="info">
       <article class="card">
         <h3>هدف المحيط</h3>
         <ul>
@@ -55,8 +53,7 @@
         <details>
           <summary>سؤال قصصي (تطبيقي)</summary>
           <div class="story">
-            <p>في ساحة الكلية، يريد النادي العلمي إنشاء حديقة مستطيلة طولها <b>9 م</b> وعرضها <b>5 م</b>.
-            سيُوضع سياج حولها وتُغطّى أرضيتها بالعشب.</p>
+            <p>في ساحة الكلية، يريد النادي العلمي إنشاء حديقة مستطيلة طولها <b>9 م</b> وعرضها <b>5 م</b>. سيُوضع سياج حولها وتُغطّى أرضيتها بالعشب.</p>
             <ol>
               <li>احسب <b>محيط الحديقة</b> (طول السياج المطلوب).</li>
               <li>احسب <b>مساحة الحديقة</b> (كم مترًا مربّعًا من العشب نحتاج؟).</li>
@@ -74,32 +71,23 @@
 
     <!-- لوحة التحكم -->
     <section class="panel">
-      <!-- أزرار صف/عمود -->
       <div class="ctrl">
         <button id="addRow" class="btn">+ صف</button>
         <button id="addCol" class="btn">+ عمود</button>
         <button id="resetBtn" class="btn">إعادة الضبط</button>
       </div>
-
-      <!-- منزلق العرض W -->
       <div class="ctrl">
         <label for="widRange">العرض W:</label>
         <input id="widRange" type="range" min="1" max="20" step="1" value="8">
       </div>
-
-      <!-- منزلق الطول L -->
       <div class="ctrl">
         <label for="lenRange">الطول L:</label>
         <input id="lenRange" type="range" min="1" max="20" step="1" value="6">
       </div>
-
-      <!-- أزرار المفهوم البصري -->
       <div class="ctrl">
         <button id="btnArea" class="btn" style="--btnA:#fbbf24;--btnB:#f59e0b;color:#1b1300" title="تلوين المساحة (الكل)">المساحة</button>
         <button id="btnPerimeter" class="btn" style="--btnA:#f87171;--btnB:#ef4444" title="تلوين المحيط (الحواف)">المحيط</button>
       </div>
-
-      <!-- Zoom -->
       <div class="zoomGroup">
         <button id="zoomIn" class="btn small">تكبير +</button>
         <button id="zoomReset" class="btn small">100%</button>
@@ -107,7 +95,7 @@
       </div>
     </section>
 
-    <!-- لوحة قيَم حية (استقرائي: من العدّ إلى القاعدة) -->
+    <!-- لوحة القيم -->
     <section class="metrics" aria-live="polite">
       <div id="metrics">...</div>
     </section>
@@ -119,18 +107,15 @@
 
         <!-- أدلة الطول/العرض (SVG) -->
         <svg id="guides" class="guides" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <!-- خط أفقي للعرض (أسفل الشبكة) -->
           <line id="gH" x1="5" y1="95" x2="95" y2="95"></line>
-          <!-- خط رأسي للطول (يمين الشبكة) -->
-          <line id="gV" x1="95" y1="5"  x2="95" y2="95"></line>
-          <!-- نصوص صغيرة (حجمها يُثبّت من JS: --gFont=6px) -->
+          <line id="gV" x1="95" y1="5" x2="95" y2="95"></line>
           <text id="tH" x="50" y="97.5" text-anchor="middle">العرض = W = 8</text>
           <text id="tV" x="97.5" y="50" transform="rotate(-90 98,50)">الطول = L = 6</text>
         </svg>
       </div>
     </section>
 
-    <!-- خطوات التعلّم الاستقرائي -->
+    <!-- خطوات -->
     <section class="info steps">
       <article class="card">
         <h3>1) استكشاف المحيط</h3>
@@ -141,7 +126,7 @@
         <p>اضغط <b>المساحة</b> لتلوين كل المربعات. عدّ الصفوف × الأعمدة، واستنتج <code>A = L × W</code>.</p>
       </article>
       <article class="card">
-        <h3>3) ثبّت الفِكرة بالأوراق</h3>
+        <h3>3) ثبّت الفكرة بالأوراق</h3>
         <p>استخدم أوراق العمل: صفحة المستطيلات أولًا، ثم الأشكال المركّبة (تقسيم/طرح الأجزاء).</p>
       </article>
     </section>
@@ -160,7 +145,6 @@
         <p>المحيط = طول السياج حول الشكل. المساحة = التبليط داخل الشكل.</p>
       </article>
     </section>
-
   </div>
 
   <script src="app.js" defer></script>
