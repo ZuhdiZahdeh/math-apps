@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  \"use strict\";
+  'use strict';
 
   // عناصر DOM
   const grid       = document.getElementById('grid');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let L = toInt(lenRange?.value, 6);   // الطول = عدد الصفوف
   let W = toInt(widRange?.value, 8);   // العرض = عدد الأعمدة
   let zoom = 1;
-  let mode = \"none\";                // none | area | perimeter
+  let mode = 'none';                   // none | area | perimeter
 
   // أدوات
   function toInt(v, fallback){ const n = parseInt(v,10); return Number.isFinite(n) ? n : fallback; }
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =================== بناء الشبكة =================== */
   function buildGrid() {
     if (!grid) return;
-    grid.innerHTML = "";
+    grid.innerHTML = '';
 
     grid.style.gridTemplateColumns = `repeat(${W}, var(--cell))`;
     grid.style.gridTemplateRows    = `repeat(${L}, var(--cell))`;
@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const P = 2 * (L + W);
     const A = L * W;
     metricsEl.innerHTML = `
-      <div class='row'>
-        <span class='tag'>المحيط</span>
+      <div class="row">
+        <span class="tag">المحيط</span>
         <div>P = 2(L + W) = 2(${L} + ${W}) = <b>${P}</b> وحدة</div>
       </div>
-      <div class='row'>
-        <span class='tag'>المساحة</span>
+      <div class="row">
+        <span class="tag">المساحة</span>
         <div>A = L × W = ${L} × ${W} = <b>${A}</b> وحدة²</div>
       </div>`;
   }
@@ -101,26 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function highlightArea(){
     clearHighlights();
-    const cells = grid.querySelectorAll('.cell');
-    cells.forEach(el => el.classList.add('areaHi'));
-    mode = \"area\";
+    grid.querySelectorAll('.cell').forEach(el => el.classList.add('areaHi'));
+    mode = 'area';
   }
 
   function highlightPerimeter(){
     clearHighlights();
-    const cells = grid.querySelectorAll('.cell');
-    cells.forEach(el => {
+    grid.querySelectorAll('.cell').forEach(el => {
       const r = +el.dataset.r, c = +el.dataset.c;
       if (r === 0 || r === L-1 || c === 0 || c === W-1) {
         el.classList.add('periHi');
       }
     });
-    mode = \"perimeter\";
+    mode = 'perimeter';
   }
 
   function applyMode(){
-    if (mode === \"area\") highlightArea();
-    else if (mode === \"perimeter\") highlightPerimeter();
+    if (mode === 'area')       highlightArea();
+    else if (mode === 'perimeter') highlightPerimeter();
   }
 
   /* =================== Zoom =================== */
@@ -146,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (resetBtn) resetBtn.addEventListener('click', () => {
-    L = 6; W = 8; zoom = 1; mode = \"none\";
+    L = 6; W = 8; zoom = 1; mode = 'none';
     if (lenRange) lenRange.value = String(L);
     if (widRange) widRange.value = String(W);
     applyZoom();
@@ -154,12 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (btnArea) btnArea.addEventListener('click', () => {
-    mode = (mode === \"area\") ? \"none\" : \"area\";
-    if (mode === \"none\") clearHighlights(); else highlightArea();
+    mode = (mode === 'area') ? 'none' : 'area';
+    if (mode === 'none') clearHighlights(); else highlightArea();
   });
   if (btnPeri) btnPeri.addEventListener('click', () => {
-    mode = (mode === \"perimeter\") ? \"none\" : \"perimeter\";
-    if (mode === \"none\") clearHighlights(); else highlightPerimeter();
+    mode = (mode === 'perimeter') ? 'none' : 'perimeter';
+    if (mode === 'none') clearHighlights(); else highlightPerimeter();
   });
 
   if (zoomInBtn)  zoomInBtn.addEventListener('click',  () => { zoom = clamp(zoom + 0.10, 0.6, 2.0); applyZoom(); });
