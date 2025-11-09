@@ -13,7 +13,7 @@
 html{ font-size:16px }
 body{
   margin:0;
-  font-family: system-ui, \"Tajawal\", \"Noto Kufi Arabic\", Arial, Helvetica, sans-serif;
+  font-family: system-ui, "Tajawal", "Noto Kufi Arabic", Arial, Helvetica, sans-serif;
   background: linear-gradient(120deg,#0a0f1d,#111827);
   color: var(--text);
 }
@@ -25,7 +25,7 @@ header .topbar{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
 header h1{ margin:0; font-size:1.9rem; font-weight:800 }
 header p{ margin:.35rem 0 0; color:var(--muted); font-size:1.05rem }
 
-/* بطاقات معلومات (الأهداف/الخطوات/الموارد) */
+/* بطاقات معلومات */
 .info{
   display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap:12px; margin:14px 0;
@@ -52,7 +52,7 @@ header p{ margin:.35rem 0 0; color:var(--muted); font-size:1.05rem }
 .panel input[type=range]{ width:220px; accent-color:#22c55e }
 .zoomGroup{ display:inline-flex; align-items:center; gap:8px; margin-inline-start:auto; flex-wrap:wrap }
 
-/* أزرار ملونة للأطفال */
+/* أزرار */
 .btn{
   --btnA:#1f2937; --btnB:#111827;
   appearance:none; cursor:pointer;
@@ -107,33 +107,18 @@ header p{ margin:.35rem 0 0; color:var(--muted); font-size:1.05rem }
     radial-gradient(120% 100% at 20% 18%, #93c5fd, transparent 55%),
     linear-gradient(145deg, #3b82f6 10%, #3b82f6 50%, #1e40af 92%);
 }
-.cell.b{
-  background:
-    radial-gradient(120% 100% at 20% 18%, #6ee7b7, transparent 55%),
-    linear-gradient(145deg, #34d399 10%, #34d399 50%, #065f46 92%);
-}
-
-/* تلوين بصري للمفاهيم */
 .cell.areaHi{
   background:
     radial-gradient(120% 100% at 20% 18%, #fde68a, transparent 55%),
     linear-gradient(145deg, #fbbf24 10%, #f59e0b 90%);
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.35),
-    inset 2px 2px 3px rgba(255,255,255,.12),
-    inset -4px -4px 8px rgba(0,0,0,.35);
 }
 .cell.periHi{
   background:
     radial-gradient(120% 100% at 20% 18%, #fecaca, transparent 55%),
     linear-gradient(145deg, #f87171 10%, #ef4444 90%);
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.35),
-    inset 2px 2px 3px rgba(255,255,255,.12),
-    inset -4px -4px 8px rgba(0,0,0,.35);
 }
 
-/* أدلة الطول/العرض (SVG) — القيم تُثبَّت من JS */
+/* أدلة الطول/العرض (SVG) */
 .guides{
   position:absolute; inset:18px;
   width:calc(100% - 36px); height:calc(100% - 36px);
@@ -145,11 +130,11 @@ header p{ margin:.35rem 0 0; color:var(--muted); font-size:1.05rem }
   vector-effect: non-scaling-stroke;
 }
 .guides text{
-  font: 700 var(--gFont, 11px) system-ui, \"Tajawal\", sans-serif;
+  font: 700 var(--gFont, 11px) system-ui, "Tajawal", sans-serif;
   fill: #e5e7eb; opacity: .65; letter-spacing: .3px;
 }
 
-/* لوحة قيَم حية */
+/* لوحة القيم */
 .metrics{
   margin:12px 0;
   background:var(--panel); border:1px solid #1e293b; border-radius:16px;
@@ -161,11 +146,11 @@ header p{ margin:.35rem 0 0; color:var(--muted); font-size:1.05rem }
 
 /* الشعار */
 .brand-logo{
-  position:fixed; left:14px !important; right:auto !important; top:14px !important;
+  position:fixed; left:14px; top:14px;
   z-index:50; display:block; line-height:0; pointer-events:auto;
 }
 .brand-logo img{
-  width:var(--brandW) !important; height:auto !important; aspect-ratio:1/1; object-fit:contain;
+  width:var(--brandW); height:auto; aspect-ratio:1/1; object-fit:contain;
   border-radius:50%; box-shadow:0 6px 18px rgba(0,0,0,.25);
   transition: transform .2s ease, filter .2s ease;
 }
