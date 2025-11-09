@@ -32,7 +32,7 @@
     "grades": [5,6,7],
     "tags": ["هندسة", "مساحة", "محيط"],
     "path": "apps/area-perimeter/index.html",
-    "thumb": "images/thumbs/placeholder.jpg",
+    "thumb": "images/thumbs/area-perimeter.png",
     "desc": "حسابات تفاعلية للمستطيلات والمضلعات البسيطة."
   },
   {
