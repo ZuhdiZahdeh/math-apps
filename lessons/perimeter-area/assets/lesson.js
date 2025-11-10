@@ -1,6 +1,6 @@
-// assets/lesson.js  — نسخة نظيفة
+// assets/lesson.js
 (() => {
-  const $ = (sel, root=document) => root.querySelector(sel);
+  const $  = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
   // فتح/إغلاق كل البطاقات
@@ -21,7 +21,7 @@
   if (fsMinus) fsMinus.addEventListener('click', () => setFS(--fs));
   if (fsReset) fsReset.addEventListener('click', () => { fs = 16; setFS(fs); });
 
-  // أسئلة المعلم: إظهار/إخفاء
+  // أسئلة المعلّم: إظهار/إخفاء
   function bindToggleAnswers(scope=document){
     $$('.toggle-answer', scope).forEach(btn => {
       btn.addEventListener('click', () => {
@@ -37,7 +37,7 @@
   if (revealAll) revealAll.addEventListener('click', () => { $$('.answer').forEach(a => a.classList.add('show')); $$('.toggle-answer').forEach(b => b.textContent = 'إخفاء الإجابة'); });
   if (hideAll)   hideAll.addEventListener('click',   () => { $$('.answer').forEach(a => a.classList.remove('show')); $$('.toggle-answer').forEach(b => b.textContent = 'إظهار الإجابة'); });
 
-  // لعبة المطابقة الثلاثية (قوائم)
+  // لعبة المطابقة الثلاثية (قوائم منسدلة)
   const triplets = [
     {dims:'1×5', P:'12م', A:'5م²'},
     {dims:'2×3', P:'10م', A:'6م²'},
@@ -142,7 +142,7 @@
     b.addEventListener('drop', e => { e.preventDefault(); if (dragEl) { b.appendChild(dragEl); dragEl = null; } });
   });
 
-  // === التطبيق المصغّر (W×L) ===
+  // التطبيق المصغّر (W×L)
   const ap = $('#apScope');
   if (ap){
     let W=8, L=6, zoom=1;
@@ -188,7 +188,6 @@
     }
     function clearColors(){ $$('.cell',grid).forEach(c => c.classList.remove('on-area','on-per')); }
 
-    // الأحداث
     $('#widRange', ap).addEventListener('input', e => { W = +e.target.value; buildGrid(); });
     $('#lenRange', ap).addEventListener('input', e => { L = +e.target.value; buildGrid(); });
     $('#addRow', ap).addEventListener('click', () => { L = Math.min(20, L+1); $('#lenRange', ap).value = L; buildGrid(); });
