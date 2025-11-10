@@ -15,7 +15,6 @@
   font-size:var(--fs);
 }
 
-/* الهيدر كما هو */
 .header{
   position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px);
   background:linear-gradient(90deg,#0b1020cc,#0b132acc);
@@ -38,19 +37,29 @@ main{padding:24px 16px 60px}
 @media (max-width:900px){.grid{grid-template-columns:repeat(6,1fr)}}
 @media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 
-/* العنوان في الـ summary يبقى داكنًا كما هو */
+/* العنوان (summary) يبقى داكنًا كما هو */
 details.card{grid-column:span 6;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0f1a39}
 details.card.wide{grid-column:span 12}
-details.card>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#101935,#0f1a39)}
+details.card>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#101935,#0f1a39);color:#eef2ff}
 details.card>summary::-webkit-details-marker{display:none}
 details.card[open]>summary{filter:brightness(1.05)}
+details.card>summary h3{color:#eef2ff}
 
-/* جسم البطاقة: Linen + نص أسود */
-details.card .body{
-  padding:16px;background:#FAF0E6;color:#000; /* <-- المطلوب */
+/* جسم البطاقة الافتراضي: Linen + نص أسود */
+details.card .body{padding:16px;background:#FAF0E6;color:#000}
+
+/* تحسين البطاقات المتداخلة داخل جسم بطاقة أخرى */
+details.card .body details.card{margin:12px 0;border:0;background:transparent}
+details.card .body details.card>summary{
+  background:linear-gradient(180deg,#101935,#0f1a39);
+  color:#eef2ff;border:1px solid var(--border);border-radius:12px;padding:12px 16px
+}
+details.card .body details.card>summary h3{color:#eef2ff}
+details.card .body details.card .body{
+  background:#FAF0E6;color:#000;border:1px solid #e5e7eb;border-radius:12px
 }
 
-/* عناصر مساعدة داخل الجسم */
+/* عناصر مساعدة */
 .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;padding:2px 6px;border-radius:6px;background:#fff;border:1px solid #cbd5e1;color:#111}
 .note{background:#fff7e6;border:1px dashed #eab308;padding:10px 12px;border-radius:10px;color:#111}
 .table-wrap{overflow:auto}
@@ -59,17 +68,17 @@ th,td{padding:10px 12px;border-bottom:1px solid #e5e7eb;color:#111}
 thead th{background:#f1f5f9;position:sticky;top:0}
 tbody tr:hover{background:#fff}
 
+/* شارات */
 .pill{display:inline-block;padding:2px 8px;font-size:12px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#111}
 .pill.perimeter{background:#ffe2e2;color:#8a0f0f;border-color:#fca5a5}
 .pill.area{background:#fff5cc;color:#7a5a00;border-color:#fde68a}
 .pill.warn{background:#fff0d6;color:#7a4a00;border-color:#fbbf24}
-
 .legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:#111}
 .legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-inline-start:4px}
 .legend .per{background:var(--perimeter)}
 .legend .ar{background:var(--area)}
 
-/* أسئلة/امتحان: خلفيات فاتحة لتناسب النص الأسود */
+/* امتحان/أسئلة */
 .quiz{display:grid;gap:14px}
 .q{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff;color:#111}
 .q h4{margin:0 0 8px 0}
@@ -81,7 +90,7 @@ tbody tr:hover{background:#fff}
 .tile{display:inline-block;margin:6px;cursor:grab}
 .bucket h5{margin:0 0 8px 0;color:#111}
 
-/* نسخة التطبيق المصغّرة – ألوان فاتحة */
+/* التطبيق المصغّر (W×L) */
 .ap-scope{--cell:32px;--gFont:10px;--gStroke:.6;margin-top:8px}
 .ap-scope .panel{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#ffffff;color:#111}
 .ap-scope .ctrl{display:flex;gap:8px;align-items:center}
@@ -101,44 +110,5 @@ tbody tr:hover{background:#fff}
 
 /* زر العودة لأعلى */
 .to-top{position:fixed;inset-inline-end:16px;inset-block-end:16px;z-index:50}
-/* ===== تحسين القراءة للبطاقات المتداخلة فقط ===== */
-
-/* جسم كل بطاقة: خلفية Linen ونص أسود (وفق طلبك) */
-details.card .body{
-  background:#FAF0E6; color:#000;
-}
-
-/* عندما تكون هناك بطاقات داخل جسم بطاقة أخرى */
-details.card .body details.card{
-  margin:12px 0;
-  border:0;            /* إزالة إطار الخلفية الداكنة من العنصر الحاوي */
-  background:transparent;
-}
-
-/* عنوان البطاقة المتداخلة: داكن + نص فاتح واضح فوقه */
-details.card .body details.card > summary{
-  background:linear-gradient(180deg,#101935,#0f1a39);
-  color:#eef2ff;                     /* نص أبيض مزرق واضح */
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:12px 16px;
-}
-
-/* تأكيد لون العنوان والعناصر داخله */
-details.card .body details.card > summary h3{ color:#eef2ff; }
-details.card .body details.card > summary .pill{
-  background:#1f2937; color:#fff; border-color:#334155;
-}
-
-/* جسم البطاقة المتداخلة يبقى Linen مع حدود خفيفة */
-details.card .body details.card .body{
-  background:#FAF0E6; color:#000;
-  border:1px solid #e5e7eb; border-radius:12px;
-}
-
-/* عناصر الملاحظات والأساطير داخل الخلفية الفاتحة */
-details.card .body .note{ background:#fff7e6; color:#111; border-color:#f0ce7a; }
-details.card .body .legend, 
-details.card .body .legend *{ color:#111; }
 
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
