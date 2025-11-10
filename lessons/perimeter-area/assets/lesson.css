@@ -1,59 +1,104 @@
 :root { --fs: 16px; }
-.lesson-root{ --bg:#0b1020; --card:#101935; --muted:#c7d2fe; --text:#eef2ff; --accent:#22d3ee; --accent-2:#a78bfa; --perimeter:#ef4444; --area:#fde047; --ok:#10b981; --warn:#f59e0b; --err:#ef4444; --border:#1f2a53; --chip:#0f2349; --body:#0b2142; }
-.lesson-root{ font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Kufi Arabic", Tahoma, Arial, sans-serif; background:linear-gradient(160deg,#0b1020, #0b132a 50%, #0d1633); color:var(--text); font-size:var(--fs); }
-.header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px); background:linear-gradient(90deg,#0b1020cc,#0b132acc); border-bottom:1px solid var(--border); }
-.container{ max-width:1100px; margin-inline:auto; padding:16px }
-.hero{ display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap }
-.title{ font-size:clamp(22px,3.2vw,34px); margin:0 }
-.subtitle{ margin:6px 0 0; color:var(--muted); font-size:clamp(14px,2vw,16px) }
-.tags{ display:flex; gap:8px; flex-wrap:wrap }
-.tag{ border:1px solid var(--border); background:var(--chip); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:13px }
-.controls{ display:flex; gap:10px; flex-wrap:wrap; align-items:center }
-.btn{ appearance:none; border:1px solid var(--border); background:var(--card); color:var(--text); padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600 }
-.btn.primary{ background:linear-gradient(180deg,var(--accent),#16b4ca); color:#00131b; border-color:#0ea5b7 }
-.btn.ghost{ background:transparent }
-.btn.small{ padding:6px 10px; font-size:0.9em }
 
+.lesson-root{
+  --bg:#0b1020; --card:#101935; --muted:#c7d2fe; --text:#eef2ff;
+  --accent:#22d3ee; --accent-2:#a78bfa;
+  --perimeter:#ef4444; --area:#fde047;
+  --ok:#10b981; --warn:#f59e0b; --err:#ef4444;
+  --border:#1f2a53; --chip:#0f2349;
+}
 
-main{ padding:24px 16px 60px }
-.grid{ display:grid; gap:14px; grid-template-columns:repeat(12,1fr) }
-@media (max-width:900px){ .grid{ grid-template-columns:repeat(6,1fr) } }
-@media (max-width:640px){ .grid{ grid-template-columns:repeat(2,1fr) } }
+.lesson-root{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,"Noto Kufi Arabic",Tahoma,Arial,sans-serif;
+  background:linear-gradient(160deg,#0b1020, #0b132a 50%, #0d1633);
+  color:var(--text);
+  font-size:var(--fs);
+}
 
+/* الهيدر كما هو */
+.header{
+  position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px);
+  background:linear-gradient(90deg,#0b1020cc,#0b132acc);
+  border-bottom:1px solid var(--border);
+}
+.container{max-width:1100px;margin-inline:auto;padding:16px}
+.hero{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.title{font-size:clamp(22px,3.2vw,34px);margin:0}
+.subtitle{margin:6px 0 0;color:var(--muted);font-size:clamp(14px,2vw,16px)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{border:1px solid var(--border);background:var(--chip);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:13px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{appearance:none;border:1px solid var(--border);background:#101935;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+.btn.primary{background:linear-gradient(180deg,var(--accent),#16b4ca);color:#00131b;border-color:#0ea5b7}
+.btn.ghost{background:transparent}
+.btn.small{padding:6px 10px;font-size:.9em}
 
-details.card{ grid-column:span 6; background:linear-gradient(180deg,#101935,#0f1a39); border:1px solid var(--border); border-radius:16px; overflow:hidden }
-details.card.wide{ grid-column:span 12 }
-details.card > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; border-bottom:1px solid var(--border); background:linear-gradient(180deg,#101935,#0f1a39); }
-details.card > summary::-webkit-details-marker{ display:none }
-details.card[open] > summary{ filter:brightness(1.05) }
-details.card .body{ padding:16px; background:var(--card) }
-/* اللون البديل المقترح لجسد البطاقة (أنيق ومتباين مع العنوان): */
-details.card .body.alt-body{ background:var(--body) }
+main{padding:24px 16px 60px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
+@media (max-width:900px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 
+/* العنوان في الـ summary يبقى داكنًا كما هو */
+details.card{grid-column:span 6;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0f1a39}
+details.card.wide{grid-column:span 12}
+details.card>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#101935,#0f1a39)}
+details.card>summary::-webkit-details-marker{display:none}
+details.card[open]>summary{filter:brightness(1.05)}
 
-.kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; padding:2px 6px; border-radius:6px; background:#06102a; border:1px solid var(--border) }
-.note{ background:#0b1a39; border:1px dashed var(--border); padding:10px 12px; border-radius:10px; color:var(--muted) }
-.table-wrap{ overflow:auto }
-table{ width:100%; border-collapse:separate; border-spacing:0 }
-th, td{ padding:10px 12px; border-bottom:1px solid var(--border) }
-thead th{ background:#0f1d42; position:sticky; top:0 }
-tbody tr:hover{ background:#0e1a36 }
+/* جسم البطاقة: Linen + نص أسود */
+details.card .body{
+  padding:16px;background:#FAF0E6;color:#000; /* <-- المطلوب */
+}
 
+/* عناصر مساعدة داخل الجسم */
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;padding:2px 6px;border-radius:6px;background:#fff;border:1px solid #cbd5e1;color:#111}
+.note{background:#fff7e6;border:1px dashed #eab308;padding:10px 12px;border-radius:10px;color:#111}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:separate;border-spacing:0}
+th,td{padding:10px 12px;border-bottom:1px solid #e5e7eb;color:#111}
+thead th{background:#f1f5f9;position:sticky;top:0}
+tbody tr:hover{background:#fff}
 
-/* نسخة مصغّرة من تطبيق W×L — نطاق محكَم لمنع أي تعارض */
-.ap-scope .area-btn{ --btnA:#fbbf24; --btnB:#f59e0b; color:#1b1300; background:linear-gradient(180deg,var(--btnA),var(--btnB)) }
-.ap-scope .per-btn{ --btnA:#f87171; --btnB:#ef4444; background:linear-gradient(180deg,var(--btnA),var(--btnB)); color:#190203 }
-.ap-scope .metrics{ margin:10px 0; border:1px solid var(--border); border-radius:12px; padding:10px; background:#0c1832 }
-.ap-scope .metrics .row{ display:flex; gap:10px; margin:6px 0; align-items:center }
-.ap-scope .metrics .tag{ display:inline-block; min-width:80px; text-align:center; border-radius:999px; padding:2px 8px; background:#0d2148; color:var(--muted); border:1px solid var(--border) }
-.ap-scope .arena{ border:1px solid var(--border); border-radius:12px; padding:10px; background:#0c1832; position:relative }
-.ap-scope #stage{ width:100%; overflow:auto; transform-origin:center; display:grid; place-items:center }
-.ap-scope .grid{ display:grid; gap:2px }
-.ap-scope .cell{ width:var(--cell); height:var(--cell); background:#0e244e; border:1px solid #13295a }
-.ap-scope .cell.on-area{ background:#f59e0b33 }
-.ap-scope .cell.on-per{ background:#ef444444 }
-.ap-scope .guides{ width:100%; height:100%; position:absolute; inset:0; pointer-events:none; font: var(--gFont) ui-sans-serif, system-ui; stroke:#cbd5e1; stroke-width:var(--gStroke); fill:#cbd5e1 }
+.pill{display:inline-block;padding:2px 8px;font-size:12px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#111}
+.pill.perimeter{background:#ffe2e2;color:#8a0f0f;border-color:#fca5a5}
+.pill.area{background:#fff5cc;color:#7a5a00;border-color:#fde68a}
+.pill.warn{background:#fff0d6;color:#7a4a00;border-color:#fbbf24}
 
+.legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:#111}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-inline-start:4px}
+.legend .per{background:var(--perimeter)}
+.legend .ar{background:var(--area)}
 
-/* وصولية */
-@media (prefers-reduced-motion: reduce){ *{ scroll-behavior:auto } }
+/* أسئلة/امتحان: خلفيات فاتحة لتناسب النص الأسود */
+.quiz{display:grid;gap:14px}
+.q{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff;color:#111}
+.q h4{margin:0 0 8px 0}
+.q .feedback{margin-top:8px;font-weight:600}
+.q.correct{outline:2px solid var(--ok)}
+.q.incorrect{outline:2px solid var(--err)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bucket,.tile{border:1px dashed #cbd5e1;border-radius:12px;padding:10px;min-height:52px;background:#fff;color:#111}
+.tile{display:inline-block;margin:6px;cursor:grab}
+.bucket h5{margin:0 0 8px 0;color:#111}
+
+/* نسخة التطبيق المصغّرة – ألوان فاتحة */
+.ap-scope{--cell:32px;--gFont:10px;--gStroke:.6;margin-top:8px}
+.ap-scope .panel{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#ffffff;color:#111}
+.ap-scope .ctrl{display:flex;gap:8px;align-items:center}
+.ap-scope .btn{background:#f1f5f9;color:#111}
+.ap-scope .area-btn{--btnA:#fbbf24;--btnB:#f59e0b;color:#1b1300;background:linear-gradient(180deg,var(--btnA),var(--btnB))}
+.ap-scope .per-btn{--btnA:#f87171;--btnB:#ef4444;background:linear-gradient(180deg,var(--btnA),var(--btnB));color:#190203}
+.ap-scope .metrics{margin:10px 0;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fff;color:#111}
+.ap-scope .metrics .row{display:flex;gap:10px;margin:6px 0;align-items:center}
+.ap-scope .metrics .tag{display:inline-block;min-width:80px;text-align:center;border-radius:999px;padding:2px 8px;background:#f1f5f9;color:#111;border:1px solid #e5e7eb}
+.ap-scope .arena{border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fff;color:#111;position:relative}
+.ap-scope #stage{width:100%;overflow:auto;transform-origin:center;display:grid;place-items:center}
+.ap-scope .grid{display:grid;gap:2px}
+.ap-scope .cell{width:var(--cell);height:var(--cell);background:#ffffff;border:1px solid #d1d5db}
+.ap-scope .cell.on-area{background:#f59e0b33}
+.ap-scope .cell.on-per{background:#ef444433}
+.ap-scope .guides{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;font:var(--gFont) ui-sans-serif,system-ui;stroke:#334155;stroke-width:var(--gStroke);fill:#334155}
+
+/* زر العودة لأعلى */
+.to-top{position:fixed;inset-inline-end:16px;inset-block-end:16px;z-index:50}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
