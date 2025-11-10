@@ -112,7 +112,19 @@ tbody tr:hover{background:#fff}
 .ap-scope .cell{width:var(--cell);height:var(--cell);background:#ffffff;border:1px solid #d1d5db}
 .ap-scope .cell.on-area{background:var(--areaFill)}
 .ap-scope .cell.on-per{background:var(--perFill)}
-.ap-scope .guides{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;font:var(--gFont) ui-sans-serif,system-ui;stroke:#334155;stroke-width:var(--gStroke);fill:#334155}
+/*.ap-scope .guides{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;font:var(--gFont) ui-sans-serif,system-ui;stroke:#334155;stroke-width:var(--gStroke);fill:#334155} */
+.ap-scope .guides{
+  position:absolute;
+  inset:0;                /* تملأ الحاوية بالكامل */
+  pointer-events:none;    /* غير قابل للنقر */
+  /* خط النصوص داخل الـSVG (إن وُجدت) */
+  font-family: var(--gFont, ui-sans-serif, system-ui);
+  font-size: 8px;        /* عدّلها كما تريد */
+  /* نمط خطوط ورسومات الـSVG */
+  stroke: #334155;
+  stroke-width: var(--gStroke, 1.5px);
+  fill: #334155;
+}
 
 /* زر العودة لأعلى */
 .to-top{position:fixed;inset-inline-end:16px;inset-block-end:16px;z-index:50}
