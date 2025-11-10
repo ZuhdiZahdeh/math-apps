@@ -174,7 +174,7 @@
         <!-- لعبة المطابقة (قوائم) -->
         <details class="card wide" open>
           <summary><h3>لعبة بطاقات المطابقة — (أبعاد ↔ محيط ↔ مساحة)</h3><span class="pill">تدريب</span></summary>
-          <div class="body" style="background-color:#008B8B;">
+          <div class="body">
             <p>اختر المطابقة الصحيحة لكل بطاقة أبعاد ثم اضغط <strong>تحقق</strong>.</p>
             <div class="tri-grid" id="triMatch"></div>
             <div class="controls"><button class="btn" id="checkTri">تحقق</button><button class="btn" id="shuffleTri">إعادة خلط</button><span class="score" id="triScore"></span></div>
@@ -214,9 +214,9 @@
         <!-- التقويم + امتحان محوسب -->
         <details class="card wide">
           <summary><h3>التقويم + امتحان محوسب (10 بنود)</h3><span class="pill">تصحيح تلقائي</span></summary>
-          <div class="body" style="background-color:#008B8B;">
+          <div class="body">
             <div class="note">بطاقة خروج: مستطيل 4×7م → \(P=22\)م، \(A=28\)م²؛ حدّد الوحدة الصحيحة.</div>
-            <form class="quiz" id="quizForm">
+            <form class="quiz" id="quizForm" style="background-color:#008B8B;">
               <div class="q" data-type="mc" data-correct="b"><h4>1) ما تعريف <strong>المحيط</strong>؟</h4><label><input type="radio" name="q1" value="a"> عدد الوحدات المربعة داخل الشكل</label><br><label><input type="radio" name="q1" value="b"> طول الحدّ الخارجي للشكل</label><br><label><input type="radio" name="q1" value="c"> مساحة السطح</label><div class="feedback"></div></div>
               <div class="q" data-type="mc" data-correct="c"><h4>2) مساحة مستطيل 8×3م = ؟</h4><label><input type="radio" name="q2" value="a"> 20م²</label><br><label><input type="radio" name="q2" value="b"> 18م</label><br><label><input type="radio" name="q2" value="c"> 24م²</label><div class="feedback"></div></div>
               <div class="q" data-type="mc" data-correct="b"><h4>3) محيط مستطيل 4×7م = ؟</h4><label><input type="radio" name="q3" value="a"> 28م²</label><br><label><input type="radio" name="q3" value="b"> 22م</label><br><label><input type="radio" name="q3" value="c"> 24م</label><div class="feedback"></div></div>
