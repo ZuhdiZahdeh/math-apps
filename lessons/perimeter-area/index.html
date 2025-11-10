@@ -3,693 +3,356 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>مختبر درس محوسب — المحيط والمساحة (صف خامس)</title>
-  <style>
-    :root{
-      --bg:#0b1020;           /* خلفية داكنة أنيقة */
-      --card:#101935;         /* بطاقات */
-      --muted:#c7d2fe;        /* نص خافت */
-      --text:#eef2ff;         /* نص أساسي */
-      --accent:#22d3ee;       /* زر رئيسي سماوي */
-      --accent-2:#a78bfa;     /* لهجة ثانوية */
-      --perimeter:#ef4444;    /* أحمر للمحيط */
-      --area:#fde047;         /* أصفر للمساحة */
-      --ok:#10b981;           /* صح */
-      --warn:#f59e0b;         /* تحذير */
-      --err:#ef4444;          /* خطأ */
-      --border: #1f2a53;
-      --chip:#0f2349;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
-      background:linear-gradient(160deg,#0b1020 0%, #0b132a 50%, #0d1633 100%);
-      color:var(--text);
-    }
-    header{
-      position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px);
-      background: linear-gradient(90deg, #0b1020cc, #0b132acc);
-      border-bottom:1px solid var(--border);
-    }
-    .container{max-width:1100px; margin-inline:auto; padding:16px}
-    .hero{display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
-    .title{font-size:clamp(22px,3.2vw,34px); margin:0}
-    .subtitle{margin:6px 0 0; color:var(--muted); font-size:clamp(14px,2vw,16px)}
-    .tags{display:flex; gap:8px; flex-wrap:wrap}
-    .tag{border:1px solid var(--border); background:var(--chip); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:13px}
-    .controls{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{appearance:none; border:1px solid var(--border); background:var(--card); color:var(--text); padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600}
-    .btn:hover{filter:brightness(1.1)}
-    .btn.primary{background:linear-gradient(180deg, var(--accent), #16b4ca); color:#00131b; border-color:#0ea5b7}
-    .btn.ghost{background:transparent}
-
-    main{padding:24px 16px 60px}
-    .grid{display:grid; gap:14px; grid-template-columns:repeat(12,1fr)}
-    @media (max-width:900px){.grid{grid-template-columns:repeat(6,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-
-    .card{grid-column:span 6; background:linear-gradient(180deg,#101935,#0f1a39); border:1px solid var(--border); border-radius:16px; overflow:hidden}
-    .card.wide{grid-column:span 12}
-    .card.narrow{grid-column:span 4}
-    .card .head{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; border-bottom:1px solid var(--border)}
-    .card h3{margin:0; font-size:clamp(17px,2.4vw,20px)}
-    .card .body{padding:16px}
-
-    details.card > summary{list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; border-bottom:1px solid var(--border)}
-    details.card > summary::-webkit-details-marker{display:none}
-    details.card[open] > summary{background:#0e1a36}
-
-    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; padding:2px 6px; border-radius:6px; background:#06102a; border:1px solid var(--border)}
-    .note{background:#0b1a39; border:1px dashed var(--border); padding:10px 12px; border-radius:10px; color:var(--muted)}
-
-    table{width:100%; border-collapse:separate; border-spacing:0}
-    th, td{padding:10px 12px; border-bottom:1px solid var(--border)}
-    thead th{background:#0f1d42; position:sticky; top:0}
-    tbody tr:hover{background:#0e1a36}
-
-    .pill{display:inline-block; padding:2px 8px; font-size:12px; border-radius:999px; border:1px solid var(--border)}
-    .pill.perimeter{background: #2b1120; color:#ffd2d2; border-color:#611e2c}
-    .pill.area{background:#2b240b; color:#fff1b3; border-color:#6a5712}
-
-    .legend{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-    .legend i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-inline-start:4px}
-    .legend .per{background:var(--perimeter)}
-    .legend .ar{background:var(--area)}
-
-    .answer{display:none; margin-top:8px; padding:10px 12px; background:#0a1a38; border:1px solid var(--border); border-radius:10px}
-    .answer.show{display:block}
-
-    .iframe-wrap{border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#0a1733}
-    .iframe-wrap header{padding:8px 12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); position:static; background:#0d1a38}
-    .iframe-wrap iframe{width:100%; height:520px; border:0; display:block}
-
-    .chips{display:flex; gap:6px; flex-wrap:wrap}
-
-    /* إمتحان محوسب */
-    .quiz{display:grid; gap:14px}
-    .q{border:1px solid var(--border); border-radius:12px; padding:12px; background:#0c1733}
-    .q h4{margin:0 0 8px 0}
-    .q .feedback{margin-top:8px; font-weight:600}
-    .q.correct{outline:2px solid var(--ok)}
-    .q.incorrect{outline:2px solid var(--err)}
-
-    /* مطابقة (سحب/إفلات) ثنائية */
-    .match{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    .bucket, .tile{border:1px dashed var(--border); border-radius:12px; padding:10px; min-height:52px; background:#0a1730}
-    .tile{display:inline-block; margin:6px; cursor:grab}
-    .bucket h5{margin:0 0 8px 0; color:var(--muted)}
-
-    /* بطاقات المطابقة الثلاثية (أبعاد ↔ محيط ↔ مساحة) — وضع مبسّط بالقوائم */
-    .tri-grid{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px}
-    .tri-grid .tri-card{background:#0c1733; border:1px solid var(--border); border-radius:12px; padding:12px}
-    .tri-grid label{display:block; margin:8px 0 4px; color:var(--muted)}
-    .score{font-weight:700}
-
-    /* شارة تلوين للمحيط/المساحة */
-    .swatch{display:inline-flex; align-items:center; gap:6px; margin-inline-end:10px}
-    .swatch i{width:14px; height:14px; border-radius:3px; display:inline-block}
-
-    /* زر أعلى الصفحة */
-    .to-top{position:fixed; inset-inline-end:16px; inset-block-end:16px; z-index:50}
-  </style>
+  <title>درس محوسب — المحيط والمساحة (نسخة عامة قابلة للدمج)</title>
+  <!-- فصل التنسيقات والسكربتات: لا تعتمد على صفحات أخرى -->
+  <link rel="stylesheet" href="../lesson.css">
+  <script defer src="../lesson.js"></script>
 </head>
 <body>
-  <header>
-    <div class="container hero">
-      <div>
-        <h1 class="title">مختبر الدرس المحوسب — <span class="pill perimeter">المحيط</span> و<span class="pill area">المساحة</span> (الصف الخامس)</h1>
-        <p class="subtitle">منهج استقصائي (ملاحظة → مقارنة → فرضية → اختبار/تعميم → صوغ القاعدة → تطبيق وتوسّع) مع ترميز لوني: <span class="swatch"><i style="background:var(--perimeter)"></i>أحمر للمحيط</span>، <span class="swatch"><i style="background:var(--area)"></i>أصفر للمساحة</span>.</p>
-        <div class="tags">
-          <span class="tag">قابل للتوسّع</span>
-          <span class="tag">قابل للدمج ضمن Math Apps</span>
-          <span class="tag">RTL + وصولية</span>
+  <div class="lesson-root">
+    <header class="header">
+      <div class="container hero">
+        <div>
+          <h1 class="title">الدرس المحوسب — <span class="pill perimeter">المحيط</span> و<span class="pill area">المساحة</span></h1>
+          <p class="subtitle">منهج استقصائي (ملاحظة → مقارنة → فرضية → اختبار/تعميم → صوغ القاعدة → تطبيق وتوسّع). الترميز اللوني ثابت: <span class="swatch"><i class="per"></i>أحمر للمحيط</span>، <span class="swatch"><i class="ar"></i>أصفر للمساحة</span>.</p>
+          <div class="tags">
+            <span class="tag">مستقل عن بقية الموقع</span>
+            <span class="tag">قابل للتوسّع</span>
+            <span class="tag">RTL + وصولية</span>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="btn primary" id="expandAll">فتح كل البطاقات</button>
+          <button class="btn" id="collapseAll">إغلاق كل البطاقات</button>
+          <div class="font-ctrl" role="group" aria-label="تحكم حجم الخط">
+            <button class="btn small" id="fsPlus" title="تكبير A+">A+</button>
+            <button class="btn small" id="fsReset" title="إرجاع 100%">100%</button>
+            <button class="btn small" id="fsMinus" title="تصغير A-">A-</button>
+          </div>
         </div>
       </div>
-      <div class="controls">
-        <button class="btn primary" id="expandAll">فتح كل البطاقات</button>
-        <button class="btn" id="collapseAll">إغلاق كل البطاقات</button>
-        <a class="btn ghost" href="#دليل-الدمج">دليل الدمج</a>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <section class="grid" aria-label="شبكة البطاقات">
-      <!-- بطاقة الأهداف -->
-      <details class="card" open>
-        <summary><h3>الأهداف السلوكية</h3><span class="pill">انقر للفتح/الإغلاق</span></summary>
-        <div class="body">
-          <ul>
-            <li>تمييز الفرق بين <strong>المحيط</strong> (طول الحد الخارجي) و<strong>المساحة</strong> (عدد الوحدات المربعة داخل الشكل).</li>
-            <li>استنتاج وصوغ القوانين: مستطيل \(P=2(ط+ع)\)، \(A=ط×ع\) — مربع \(P=4s\) ، \(A=s^2\).</li>
-            <li>حساب محيط/مساحة مربعات ومستطيلات بدقة مع اختيار <strong>الوحدة الصحيحة</strong> (م/سم للمحيط، م²/سم² للمساحة).</li>
-            <li>تطبيق المفهوم على مسائل حياتية وبطاقات المطابقة.</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- بطاقة التوزيع الزمني -->
-      <details class="card">
-        <summary><h3>التوزيع الزمني المقترح</h3><span class="pill">90 دقيقة</span></summary>
-        <div class="body">
-          <ul>
-            <li>تمهيد (5د) — تذكير بالترميز اللوني.</li>
-            <li>نشاط الساحة: ملاحظة ومقارنة (15د) + سلامة.</li>
-            <li>نشاط صفّي: إحاطة الطاولة/الدرجة ومساحة الجلوس (10د).</li>
-            <li>لعبة بطاقات المطابقة (15د).</li>
-            <li>الاستنتاج وصوغ القاعدة (10د).</li>
-            <li>ورقة عمل تلوين (15د).</li>
-            <li>نشاط الموقع التفاعلي (10د).</li>
-            <li>بطاقة خروج/تقويم ختامي (10د).</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- بطاقة المواد والأدوات -->
-      <details class="card">
-        <summary><h3>المواد والأدوات</h3><span class="pill">ساحة + صف</span></summary>
-        <div class="body">
-          <ul>
-            <li>شريط/طباشير لرسم مستطيل، مخاريط لتحديد الحدود.</li>
-            <li>متر قياس، سترات فسفورية لطلاب الحواف، لوحتي "المحيط/المساحة"، كاميرا.</li>
-            <li>بطاقات أبعاد/محيط/مساحة، أوراق عمل، أقلام <span class="pill perimeter">حمراء</span> و<span class="pill area">صفراء</span>.</li>
-            <li>حاسوب/لوح لفتح التطبيق التفاعلي.</li>
-          </ul>
-          <div class="note">سلامة: تحديد مساحة النشاط، منع الجري/الدفع، توزيع أدوار واضحة، التنسيق بإشارة المعلّم.</div>
-        </div>
-      </details>
-
-      <!-- بطاقة جدول المواد المختصر -->
-      <details class="card">
-        <summary><h3>جدول المواد المختصر</h3><span class="pill">ملخص تجهيز</span></summary>
-        <div class="body">
-          <div style="overflow:auto">
-            <table aria-label="جدول المواد">
-              <thead><tr><th>البند</th><th>الكمية</th><th>ملاحظات</th></tr></thead>
-              <tbody>
-                <tr><td>شريط/طباشير + مخاريط</td><td>حسب الحاجة</td><td>رسم حدود المستطيل في الساحة</td></tr>
-                <tr><td>متر قياس</td><td>2–3</td><td>توزيع على مجموعات</td></tr>
-                <tr><td>سترات فسفورية</td><td>8–12</td><td>تمييز طلاب الحافة</td></tr>
-                <tr><td>بطاقات مطابقة</td><td>مجموعة/صف</td><td>أبعاد/محيط/مساحة</td></tr>
-                <tr><td>ورقة عمل مطبوعة</td><td>نسخة/طالب</td><td>تلوين أحمر/أصفر</td></tr>
-                <tr><td>ألوان</td><td>كافية</td><td>ترميز ثابت</td></tr>
-                <tr><td>كاميرا/هاتف</td><td>1</td><td>صورتا “المحيط/المساحة”</td></tr>
-                <tr><td>حاسوب/لوح</td><td>1+</td><td>تشغيل التطبيق</td></tr>
-              </tbody>
-            </table>
+    <main class="container">
+      <section class="grid" aria-label="شبكة البطاقات">
+        <!-- الأهداف -->
+        <details class="card" open>
+          <summary><h3>الأهداف السلوكية</h3><span class="pill">انقر للفتح/الإغلاق</span></summary>
+          <!-- نحافظ على لون عنوان البطاقة كما هو، ونستخدم لون جسد مختلف مقترَح في CSS -->
+          <div class="body alt-body"> 
+            <ul>
+              <li>تمييز الفرق بين <strong>المحيط</strong> (طول الحد الخارجي) و<strong>المساحة</strong> (عدد الوحدات المربعة داخل الشكل).</li>
+              <li>استنتاج وصوغ القوانين: مستطيل \(P=2(ط+ع)\)، \(A=ط×ع\) — مربع \(P=4s\) ، \(A=s^2\).</li>
+              <li>حساب محيط/مساحة مربعات ومستطيلات بدقة مع اختيار <strong>الوحدة الصحيحة</strong> (م/سم للمحيط، م²/سم² للمساحة).</li>
+              <li>تطبيق المفهوم على مسائل حياتية وبطاقات المطابقة.</li>
+            </ul>
           </div>
-        </div>
-      </details>
+        </details>
 
-      <!-- قسم البنية الاستقرائية الصارمة -->
-      <details class="card wide" open>
-        <summary><h3>البنية الاستقرائية الصارمة</h3><span class="pill">أ → و</span></summary>
-        <div class="body">
-          <div class="legend" style="margin-bottom:8px">
-            <span><i class="per"></i> محيط (أحمر)</span>
-            <span><i class="ar"></i> مساحة (أصفر)</span>
+        <!-- التوزيع الزمني -->
+        <details class="card">
+          <summary><h3>التوزيع الزمني المقترح</h3><span class="pill">90 دقيقة</span></summary>
+          <div class="body">
+            <ul>
+              <li>تمهيد (5د) — تذكير بالترميز اللوني.</li>
+              <li>نشاط الساحة: ملاحظة ومقارنة (15د) + سلامة.</li>
+              <li>نشاط صفّي: إحاطة الطاولة/الدرجة ومساحة الجلوس (10د).</li>
+              <li>لعبة بطاقات المطابقة (15د).</li>
+              <li>الاستنتاج وصوغ القاعدة (10د).</li>
+              <li>ورقة عمل تلوين (15د).</li>
+              <li>نشاط التطبيق المضمَّن (10د).</li>
+              <li>بطاقة خروج/تقويم ختامي (10د).</li>
+            </ul>
           </div>
-          <details class="card" open>
-            <summary><h3>أ) الملاحظة — نشاط الساحة</h3></summary>
-            <div class="body">
-              <ol>
-                <li>طلاب الحافة يقفون على الحدود (<span class="pill perimeter">محيط</span>)، التقط صورة ووسّمها.</li>
-                <li>مجموعة ثانية تصطف داخل الشكل (<span class="pill area">مساحة</span>)، التقط صورة ووسّمها.</li>
-              </ol>
-              <div class="note">اسأل: أين نقف إذا طلبنا "إحاطة"؟ وأين نقف إذا أردنا "ملء" الشكل؟</div>
+        </details>
+
+        <!-- المواد والأدوات -->
+        <details class="card">
+          <summary><h3>المواد والأدوات</h3><span class="pill">ساحة + صف</span></summary>
+          <div class="body">
+            <ul>
+              <li>شريط/طباشير، مخاريط، متر قياس، سترات فسفورية، لوحتي "المحيط/المساحة"، كاميرا.</li>
+              <li>بطاقات أبعاد/محيط/مساحة، أوراق عمل، أقلام <span class="pill perimeter">حمراء</span> و<span class="pill area">صفراء</span>.</li>
+              <li>حاسوب/لوح لتشغيل التطبيق المضمَّن.</li>
+            </ul>
+            <div class="note">سلامة: تحديد مساحة النشاط، منع الجري/الدفع، توزيع أدوار واضحة بإشارة المعلّم.</div>
+          </div>
+        </details>
+
+        <!-- جدول المواد المختصر -->
+        <details class="card">
+          <summary><h3>جدول المواد المختصر</h3><span class="pill">ملخص تجهيز</span></summary>
+          <div class="body">
+            <div class="table-wrap">
+              <table aria-label="جدول المواد">
+                <thead><tr><th>البند</th><th>الكمية</th><th>ملاحظات</th></tr></thead>
+                <tbody>
+                  <tr><td>شريط/طباشير + مخاريط</td><td>حسب الحاجة</td><td>رسم حدود المستطيل في الساحة</td></tr>
+                  <tr><td>متر قياس</td><td>2–3</td><td>توزيع على مجموعات</td></tr>
+                  <tr><td>سترات فسفورية</td><td>8–12</td><td>تمييز طلاب الحافة</td></tr>
+                  <tr><td>بطاقات مطابقة</td><td>مجموعة/صف</td><td>أبعاد/محيط/مساحة</td></tr>
+                  <tr><td>ورقة عمل</td><td>نسخة/طالب</td><td>تلوين أحمر/أصفر</td></tr>
+                  <tr><td>ألوان</td><td>كافية</td><td>ترميز ثابت</td></tr>
+                  <tr><td>كاميرا/هاتف</td><td>1</td><td>صورتا “المحيط/المساحة”</td></tr>
+                  <tr><td>حاسوب/لوح</td><td>1+</td><td>تشغيل التطبيق</td></tr>
+                </tbody>
+              </table>
             </div>
-          </details>
-          <details class="card">
-            <summary><h3>ب) المقارنة</h3></summary>
-            <div class="body">الحد الخارجي <strong>خط</strong> يُقاس بالمتر/السم (محيط). الداخل <strong>مساحة</strong> تُقاس بالمتر المربّع/السم المربّع.</div>
-          </details>
-          <details class="card">
-            <summary><h3>ج) فرضية/تخمين</h3></summary>
-            <div class="body">إذا زاد الطول/العرض: المحيط يزيد غالبًا، والمساحة تزيد — مضاعفة بُعد تُضاعِف المساحة.</div>
-          </details>
-          <details class="card">
-            <summary><h3>د) اختبار/تعميم (صفّي + بطاقات)</h3></summary>
-            <div class="body">
-              <ul>
-                <li>إحاطة الطاولة = محيط. جلوس منتظم = مساحة.</li>
-                <li>لعبة المطابقة (أبعاد/محيط/مساحة) — انظر بطاقة اللعبة أدناه.</li>
-              </ul>
+          </div>
+        </details>
+
+        <!-- البنية الاستقرائية -->
+        <details class="card wide" open>
+          <summary><h3>البنية الاستقرائية الصارمة</h3><span class="pill">أ → و</span></summary>
+          <div class="body">
+            <div class="legend">
+              <span><i class="per"></i> محيط (أحمر)</span>
+              <span><i class="ar"></i> مساحة (أصفر)</span>
             </div>
-          </details>
-          <details class="card">
-            <summary><h3>هـ) صوغ القاعدة</h3></summary>
-            <div class="body">
-              مستطيل: \(P=2(ط+ع)\)، \(A=ط×ع\). مربع: \(P=4s\)، \(A=s^2\). 
-            </div>
-          </details>
-          <details class="card">
-            <summary><h3>و) تطبيق وتوسّع</h3></summary>
-            <div class="body">
-              أوراق تلوين المحيط/المساحة + التطبيق التفاعلي + تحديات محيط ثابت/مساحات مختلفة.
-            </div>
-          </details>
-        </div>
-      </details>
-
-      <!-- أسئلة المعلّم المتدرجة -->
-      <details class="card wide">
-        <summary><h3>أسئلة المعلّم المتدرجة</h3><span class="pill">إجابات مخفية</span></summary>
-        <div class="body">
-          <div class="controls" style="margin-bottom:8px">
-            <button class="btn" id="revealAll">إظهار كل الإجابات</button>
-            <button class="btn" id="hideAll">إخفاء كل الإجابات</button>
-          </div>
-
-          <div class="q">
-            <h4>1) ما تعريف <strong>المحيط</strong>؟ وما تعريف <strong>المساحة</strong>؟</h4>
-            <button class="btn small toggle-answer">إظهار الإجابة</button>
-            <div class="answer">المحيط: طول الحدّ الخارجي للشكل (وحدة طول). المساحة: عدد الوحدات المربعة داخل الشكل (وحدة مربّعة).</div>
-          </div>
-          <div class="q">
-            <h4>2) ما الفرق بين تلوين الحواف بالأحمر وتلوين الداخل بالأصفر؟</h4>
-            <button class="btn small toggle-answer">إظهار الإجابة</button>
-            <div class="answer">الأحمر يرمز للمحيط (خط)، الأصفر يرمز للمساحة (مربعات/وحدات داخلية).</div>
-          </div>
-          <div class="q">
-            <h4>3) إذا ضاعفنا الطول فقط، ماذا يحدث للمحيط؟ وماذا للمساحة؟</h4>
-            <button class="btn small toggle-answer">إظهار الإجابة</button>
-            <div class="answer">المحيط يزداد بمقدار مناسب لجمع الحواف، والمساحة تتضاعف.</div>
-          </div>
-          <div class="q">
-            <h4>4) أعطِ مستطيلين لهما نفس المحيط لكن مساحتين مختلفتين.</h4>
-            <button class="btn small toggle-answer">إظهار الإجابة</button>
-            <div class="answer">مثال: 2×6 و3×5 — كلاهما محيطه 16م، والمساحتان 12م² و15م².</div>
-          </div>
-          <div class="q">
-            <h4>5) ما الوحدة المناسبة لكل من المحيط والمساحة؟ ولماذا؟</h4>
-            <button class="btn small toggle-answer">إظهار الإجابة</button>
-            <div class="answer">المحيط: م/سم لأنّه طول خط. المساحة: م²/سم² لأنها عدد مربعات داخلية.</div>
-          </div>
-        </div>
-      </details>
-
-      <!-- الأخطاء الشائعة -->
-      <details class="card">
-        <summary><h3>الأخطاء الشائعة</h3><span class="pill warn">تنبيه</span></summary>
-        <div class="body">
-          <ul>
-            <li>خلط الوحدة (كتابة م² للمحيط أو م للمساحة).</li>
-            <li>عدّ مربعات الحدود كمحيط — المحيط خط واحد يحيط بالشكل.</li>
-            <li>نسيان مضاعفة (2×) في محيط المستطيل.</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- لعبة بطاقات المطابقة — وضع تفاعلي مبسّط بالقوائم المنسدلة -->
-      <details class="card wide" open>
-        <summary><h3>لعبة بطاقات المطابقة — (أبعاد ↔ محيط ↔ مساحة)</h3><span class="pill">وضع تدريب</span></summary>
-        <div class="body">
-          <p>اختر المطابقة الصحيحة لكل بطاقة أبعاد. ثم اضغط <strong>تحقق</strong>.</p>
-          <div class="tri-grid" id="triMatch">
-            <!-- سيتم توليد العناصر عبر JS -->
-          </div>
-          <div class="controls" style="margin-top:12px">
-            <button class="btn" id="checkTri">تحقق</button>
-            <button class="btn" id="shuffleTri">إعادة خلط</button>
-            <span class="score" id="triScore"></span>
-          </div>
-        </div>
-      </details>
-
-      <!-- أوراق العمل -->
-      <details class="card">
-        <summary><h3>أوراق العمل (تلوين وحساب)</h3><span class="pill">مرفقات</span></summary>
-        <div class="body">
-          <ul>
-            <li>شكل (أ): مربع ضلع 4سم — لوّن <span class="pill perimeter">المحيط بالأحمر</span> و<span class="pill area">المساحة بالأصفر</span>، ثم احسب \(P\) و\(A\).</li>
-            <li>شكل (ب): مستطيل 5×3سم — لوّن واحسب.</li>
-            <li>شكل (ج): مستطيل 7×1سم — لوّن واحسب.</li>
-            <li>شكل (د) للمتميزين: شكل مركّب (L) — جزِّئ إلى مستطيلين.</li>
-          </ul>
-          <div class="note">أضف ملفات PDF إلى مجلد <span class="kbd">worksheets/</span> بجوار هذا الملف، ثم حدّث الروابط بالأسفل.</div>
-          <div class="chips">
-            <a class="btn ghost" href="worksheets/worksheet-A.pdf" target="_blank">تحميل ورقة A (PDF)</a>
-            <a class="btn ghost" href="worksheets/worksheet-B.pdf" target="_blank">تحميل ورقة B (PDF)</a>
-            <a class="btn ghost" href="worksheets/worksheet-C.pdf" target="_blank">تحميل ورقة C (PDF)</a>
-          </div>
-        </div>
-      </details>
-
-      <!-- بطاقة الدعم والإثراء -->
-      <details class="card">
-        <summary><h3>الدعم والإثراء</h3><span class="pill">تمييز</span></summary>
-        <div class="body">
-          <strong>دعم:</strong> مربعات شبكية/قطع 1×1، جمل مساعدة، عمل ثنائي. <br/>
-          <strong>إثراء:</strong> محيط ثابت مع مساحات مختلفة، مضلعات بسيطة بالتجزئة، ملاحظة الدائرة (محيط/مساحة) دون صيغ.
-        </div>
-      </details>
-
-      <!-- بطاقة إدارة الصف -->
-      <details class="card">
-        <summary><h3>إدارة الصف</h3><span class="pill">أدوار ومجموعات</span></summary>
-        <div class="body">
-          تقسيم لأدوار: قائد، كاتب، مصوّر، مراقب سلامة، متحدّث. إشارات يد لطلب الكلمة. توقيت واضح لكل محطة.
-        </div>
-      </details>
-
-      <!-- بطاقة التقويم + امتحان محوسب -->
-      <details class="card wide">
-        <summary><h3>التقويم + امتحان محوسب (10 بنود)</h3><span class="pill">تصحيح تلقائي</span></summary>
-        <div class="body">
-          <div class="note">بطاقة خروج سريعة (اختياري): مستطيل 4×7م → \(P=22\)م، \(A=28\)م²؛ اذكر الوحدة الصحيحة لكل منهما.</div>
-
-          <form class="quiz" id="quizForm">
-            <!-- 1: تعريف (اختيار) -->
-            <div class="q" data-type="mc" data-correct="b">
-              <h4>1) ما تعريف <strong>المحيط</strong>؟</h4>
-              <label><input type="radio" name="q1" value="a"> عدد الوحدات المربعة داخل الشكل</label><br>
-              <label><input type="radio" name="q1" value="b"> طول الحدّ الخارجي للشكل</label><br>
-              <label><input type="radio" name="q1" value="c"> مساحة السطح</label>
-              <div class="feedback"></div>
-            </div>
-            <!-- 2: مساحة 8×3 -->
-            <div class="q" data-type="mc" data-correct="c">
-              <h4>2) مساحة مستطيل أبعاده 8×3 م تساوي:</h4>
-              <label><input type="radio" name="q2" value="a"> 20م²</label><br>
-              <label><input type="radio" name="q2" value="b"> 18م</label><br>
-              <label><input type="radio" name="q2" value="c"> 24م²</label>
-              <div class="feedback"></div>
-            </div>
-            <!-- 3: محيط 4×7 -->
-            <div class="q" data-type="mc" data-correct="b">
-              <h4>3) محيط مستطيل 4×7 م يساوي:</h4>
-              <label><input type="radio" name="q3" value="a"> 28م²</label><br>
-              <label><input type="radio" name="q3" value="b"> 22م</label><br>
-              <label><input type="radio" name="q3" value="c"> 24م</label>
-              <div class="feedback"></div>
-            </div>
-            <!-- 4: صواب/خطأ وحدة المساحة -->
-            <div class="q" data-type="mc" data-correct="b">
-              <h4>4) ص/خ: وحدة المساحة قد تكون "متر".</h4>
-              <label><input type="radio" name="q4" value="a"> صواب</label><br>
-              <label><input type="radio" name="q4" value="b"> خطأ</label>
-              <div class="feedback"></div>
-            </div>
-            <!-- 5: مربع ضلع 6 -->
-            <div class="q" data-type="input" data-correct="24,36">
-              <h4>5) مربع ضلعُه 6م: اكتب المحيط ثم المساحة (افصل بفاصلة عربية أو إنجليزية).</h4>
-              <input type="text" name="q5" placeholder="مثال: 24,36">
-              <div class="feedback"></div>
-            </div>
-            <!-- 6: مطابقة (أبعاد ↔ محيط) DnD -->
-            <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;12م&quot;,&quot;2×3&quot;:&quot;10م&quot;,&quot;3×3&quot;:&quot;12م&quot;}">
-              <h4>6) طابق كل بطاقة <strong>أبعاد</strong> مع بطاقة <strong>محيط</strong> المناسبة (اسحب وأسقط).</h4>
-              <div class="match">
-                <div>
-                  <div class="tile" draggable="true">1×5</div>
-                  <div class="tile" draggable="true">2×3</div>
-                  <div class="tile" draggable="true">3×3</div>
-                </div>
-                <div>
-                  <div class="bucket" data-label="12م"><h5>12م</h5></div>
-                  <div class="bucket" data-label="10م"><h5>10م</h5></div>
-                  <div class="bucket" data-label="14م"><h5>14م</h5></div>
-                </div>
+            <details class="card" open>
+              <summary><h3>أ) الملاحظة — نشاط الساحة</h3></summary>
+              <div class="body">
+                <ol>
+                  <li>طلاب الحافة يقفون على الحدود (<span class="pill perimeter">محيط</span>)، التقط صورة ووسّمها.</li>
+                  <li>مجموعة ثانية تصطف داخل الشكل (<span class="pill area">مساحة</span>)، التقط صورة ووسّمها.</li>
+                </ol>
+                <div class="note">اسأل: أين نقف إذا طلبنا "إحاطة"؟ وأين نقف إذا أردنا "ملء" الشكل؟</div>
               </div>
-              <div class="feedback"></div>
-            </div>
-            <!-- 7: مطابقة (أبعاد ↔ مساحة) DnD -->
-            <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;5م²&quot;,&quot;2×3&quot;:&quot;6م²&quot;,&quot;3×3&quot;:&quot;9م²&quot;}">
-              <h4>7) طابق كل بطاقة <strong>أبعاد</strong> مع بطاقة <strong>مساحة</strong> المناسبة.</h4>
-              <div class="match">
-                <div>
-                  <div class="tile" draggable="true">1×5</div>
-                  <div class="tile" draggable="true">2×3</div>
-                  <div class="tile" draggable="true">3×3</div>
-                </div>
-                <div>
-                  <div class="bucket" data-label="5م²"><h5>5م²</h5></div>
-                  <div class="bucket" data-label="6م²"><h5>6م²</h5></div>
-                  <div class="bucket" data-label="9م²"><h5>9م²</h5></div>
-                </div>
+            </details>
+            <details class="card">
+              <summary><h3>ب) المقارنة</h3></summary>
+              <div class="body">الحد الخارجي <strong>خط</strong> يُقاس بالمتر/السم (محيط). الداخل <strong>مساحة</strong> تُقاس بالمتر المربّع/السم المربّع.</div>
+            </details>
+            <details class="card">
+              <summary><h3>ج) فرضية/تخمين</h3></summary>
+              <div class="body">إذا زاد الطول/العرض: المحيط يزيد غالبًا، والمساحة تزيد — مضاعفة بُعد تُضاعِف المساحة.</div>
+            </details>
+            <details class="card">
+              <summary><h3>د) اختبار/تعميم (صفّي + بطاقات)</h3></summary>
+              <div class="body">
+                <ul>
+                  <li>إحاطة الطاولة = محيط. جلوس منتظم = مساحة.</li>
+                  <li>لعبة المطابقة (أبعاد/محيط/مساحة) — انظر بطاقة اللعبة أدناه.</li>
+                </ul>
               </div>
-              <div class="feedback"></div>
-            </div>
-            <!-- 8: اختيار نفس المحيط -->
-            <div class="q" data-type="mc" data-correct="a">
-              <h4>8) أي زوج له <strong>نفس المحيط</strong>؟</h4>
-              <label><input type="radio" name="q8" value="a"> 2×6 و3×5</label><br>
-              <label><input type="radio" name="q8" value="b"> 1×8 و2×5</label>
-              <div class="feedback"></div>
-            </div>
-            <!-- 9: مسألة كلامية قصيرة -->
-            <div class="q" data-type="input" data-correct="28,45">
-              <h4>9) حديقة 5×9م: اكتب المحيط ثم المساحة (افصل بفاصلة).</h4>
-              <input type="text" name="q9" placeholder="مثال: 28,45">
-              <div class="feedback"></div>
-            </div>
-            <!-- 10: تصحيح خطأ -->
-            <div class="q" data-type="input" data-correct="14م">
-              <h4>10) طالب كتب: "محيط المستطيل 3×4 = 12م²". اكتب التصحيح المختصر الصحيح للوحدة والقيمة.</h4>
-              <input type="text" name="q10" placeholder="مثال: 14م">
-              <div class="feedback"></div>
-            </div>
-            <div class="controls">
-              <button class="btn primary" type="button" id="gradeQuiz">صحّح الامتحان</button>
-              <button class="btn" type="button" id="resetQuiz">إعادة تعيين</button>
-              <span class="score" id="quizScore"></span>
-            </div>
-          </form>
-        </div>
-      </details>
-
-      <!-- بطاقة الروبرك -->
-      <details class="card">
-        <summary><h3>معايير تقدير الأداء (روبرك مختصر)</h3><span class="pill">4 مستويات</span></summary>
-        <div class="body">
-          <div style="overflow:auto">
-            <table>
-              <thead><tr><th>المعيار</th><th>ممتاز (4)</th><th>جيّد (3)</th><th>مقبول (2)</th><th>بحاجة لدعم (1)</th></tr></thead>
-              <tbody>
-                <tr><td>فهم المفهوم</td><td>يشرح بدقة مع أمثلة</td><td>يميّز غالبًا</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
-                <tr><td>الحساب والدقة</td><td>صحيح وبالوحدات</td><td>أخطاء طفيفة</td><td>أخطاء متكررة</td><td>لا يكتمل</td></tr>
-                <tr><td>اختيار الوحدة</td><td>دائمًا صحيح</td><td>نادراً يخطئ</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
-                <tr><td>الاستقصاء والمشاركة</td><td>يقود ويبرهن</td><td>يشارك بانتظام</td><td>محدود</td><td>سلبي</td></tr>
-              </tbody>
-            </table>
+            </details>
+            <details class="card">
+              <summary><h3>هـ) صوغ القاعدة</h3></summary>
+              <div class="body">مستطيل: \(P=2(ط+ع)\)، \(A=ط×ع\). مربع: \(P=4s\)، \(A=s^2\).</div>
+            </details>
+            <details class="card">
+              <summary><h3>و) تطبيق وتوسّع</h3></summary>
+              <div class="body">أوراق تلوين + التطبيق المضمّن + تحديات محيط ثابت/مساحات مختلفة.</div>
+            </details>
           </div>
-        </div>
-      </details>
+        </details>
 
-      <!-- بطاقة القواعد الصريحة -->
-      <details class="card">
-        <summary><h3>القواعد الصريحة (مع الوحدات الصحيحة)</h3><span class="pill">صيغ</span></summary>
-        <div class="body">
-          <ul>
-            <li><strong>المحيط</strong>: مستطيل \(P=2(ط+ع)\) — <em>وحدة طول</em> (م/سم). مربع \(P=4s\).</li>
-            <li><strong>المساحة</strong>: مستطيل \(A=ط×ع\) — <em>وحدة مربعة</em> (م²/سم²). مربع \(A=s^2\).</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- بطاقة ملاحظات تنفيذ سريعة -->
-      <details class="card">
-        <summary><h3>ملاحظات تنفيذ سريعة</h3><span class="pill">نصائح</span></summary>
-        <div class="body">
-          <ul>
-            <li>ثبّت الترميز: <span class="pill perimeter">أحمر = محيط</span>، <span class="pill area">أصفر = مساحة</span>.</li>
-            <li>شعار على اللوح: "المحيط <strong>نجمع ثم نُضاعف</strong>، المساحة <strong>نضرب</strong>".</li>
-            <li>علّق صوري الساحة تحت عنوانَي "المحيط" و"المساحة".</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- بطاقة التطبيق التفاعلي (دمج الموقع) -->
-      <details class="card wide" open>
-        <summary><h3>تجريب الوحدات — تطبيق تفاعلي مدمج</h3><span class="pill">Area & Perimeter App</span></summary>
-        <div class="body">
-          <div class="iframe-wrap">
-            <header>
-              <span class="pill">المصدر:</span>
-              <a class="btn ghost" target="_blank" href="https://zuhdizahdeh.github.io/math-apps/apps/area-perimeter/index.html">فتح في تبويب جديد</a>
-            </header>
-            <iframe src="https://zuhdizahdeh.github.io/math-apps/apps/area-perimeter/index.html" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <!-- أسئلة المعلّم -->
+        <details class="card wide">
+          <summary><h3>أسئلة المعلّم المتدرجة</h3><span class="pill">إجابات مخفية</span></summary>
+          <div class="body">
+            <div class="controls compact">
+              <button class="btn" id="revealAll">إظهار كل الإجابات</button>
+              <button class="btn" id="hideAll">إخفاء كل الإجابات</button>
+            </div>
+            <div class="q"><h4>1) ما تعريف <strong>المحيط</strong>؟ وما تعريف <strong>المساحة</strong>؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط: طول الحدّ الخارجي. المساحة: عدد الوحدات المربعة داخل الشكل.</div></div>
+            <div class="q"><h4>2) ما الفرق بين تلوين الحواف بالأحمر وتلوين الداخل بالأصفر؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">الأحمر للمحيط (خط)، الأصفر للمساحة (مربعات).</div></div>
+            <div class="q"><h4>3) إذا ضاعفنا الطول فقط، ماذا يحدث للمحيط؟ وماذا للمساحة؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط يزداد؛ المساحة تتضاعف.</div></div>
+            <div class="q"><h4>4) أعطِ مستطيلين لهما نفس المحيط لكن مساحتين مختلفتين.</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">2×6 و3×5 (المحيط 16م؛ المساحتان 12 و15 م²).</div></div>
+            <div class="q"><h4>5) ما الوحدة المناسبة لكل من المحيط والمساحة؟ ولماذا؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط: م/سم (طول). المساحة: م²/سم² (مربعات).</div></div>
           </div>
-          <p style="margin-top:10px" class="note">تعليمات قصيرة: غيّر الطول/العرض جرّب تساوي المحيط لاختلاف المساحة، ثم استخرج مثالًا يبيّن الفرق بين وحدة المحيط والمساحة.</p>
-        </div>
-      </details>
+        </details>
 
-      <!-- دليل الدمج والتوسعة -->
-      <details class="card wide" id="دليل-الدمج">
-        <summary><h3>دليل الدمج ضمن موقع <span class="kbd">math-apps</span> والتوسعة</h3><span class="pill">هيكل مقترح</span></summary>
-        <div class="body">
+        <!-- الأخطاء الشائعة -->
+        <details class="card">
+          <summary><h3>الأخطاء الشائعة</h3><span class="pill warn">تنبيه</span></summary>
+          <div class="body">
+            <ul>
+              <li>خلط الوحدة (محيط بم² أو مساحة بم).</li>
+              <li>عدّ مربعات الحدود كمحيط.</li>
+              <li>نسيان مضاعفة (2×) في محيط المستطيل.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- لعبة المطابقة (قوائم) -->
+        <details class="card wide" open>
+          <summary><h3>لعبة بطاقات المطابقة — (أبعاد ↔ محيط ↔ مساحة)</h3><span class="pill">تدريب</span></summary>
+          <div class="body">
+            <p>اختر المطابقة الصحيحة لكل بطاقة أبعاد. ثم اضغط <strong>تحقق</strong>.</p>
+            <div class="tri-grid" id="triMatch"></div>
+            <div class="controls"><button class="btn" id="checkTri">تحقق</button><button class="btn" id="shuffleTri">إعادة خلط</button><span class="score" id="triScore"></span></div>
+          </div>
+        </details>
+
+        <!-- أوراق العمل -->
+        <details class="card">
+          <summary><h3>أوراق العمل</h3><span class="pill">مرفقات</span></summary>
+          <div class="body">
+            <ul>
+              <li>مربع ضلع 4سم — لوّن <span class="pill perimeter">المحيط</span> بالأحمر و<span class="pill area">المساحة</span> بالأصفر واحسب \(P\) و\(A\).</li>
+              <li>مستطيل 5×3سم — لوّن واحسب.</li>
+              <li>مستطيل 7×1سم — لوّن واحسب.</li>
+              <li>شكل مركّب (L) — جزِّئ إلى مستطيلين.</li>
+            </ul>
+            <div class="note">ضع ملفات PDF داخل <span class="kbd">worksheets/</span> وعدّل الروابط:</div>
+            <div class="chips">
+              <a class="btn ghost" href="worksheets/worksheet-A.pdf" target="_blank">تحميل ورقة A (PDF)</a>
+              <a class="btn ghost" href="worksheets/worksheet-B.pdf" target="_blank">تحميل ورقة B (PDF)</a>
+              <a class="btn ghost" href="worksheets/worksheet-C.pdf" target="_blank">تحميل ورقة C (PDF)</a>
+            </div>
+          </div>
+        </details>
+
+        <!-- الدعم والإثراء -->
+        <details class="card">
+          <summary><h3>الدعم والإثراء</h3><span class="pill">تمييز</span></summary>
+          <div class="body">دعم: مربعات شبكية/قطع 1×1، جمل مساعدة، عمل ثنائي. إثراء: محيط ثابت، مضلعات بالتجزئة، ملاحظة الدائرة دون صيغ.</div>
+        </details>
+
+        <!-- إدارة الصف -->
+        <details class="card">
+          <summary><h3>إدارة الصف</h3><span class="pill">أدوار</span></summary>
+          <div class="body">أدوار: قائد، كاتب، مصوّر، مراقب سلامة، متحدّث. إشارات يد وتوقيت واضح لكل محطة.</div>
+        </details>
+
+        <!-- التقويم + امتحان محوسب -->
+        <details class="card wide">
+          <summary><h3>التقويم + امتحان محوسب (10 بنود)</h3><span class="pill">تصحيح تلقائي</span></summary>
+          <div class="body">
+            <div class="note">بطاقة خروج: مستطيل 4×7م → \(P=22\)م، \(A=28\)م²؛ حدّد الوحدة الصحيحة.</div>
+            <form class="quiz" id="quizForm">
+              <div class="q" data-type="mc" data-correct="b"><h4>1) ما تعريف <strong>المحيط</strong>؟</h4><label><input type="radio" name="q1" value="a"> عدد الوحدات المربعة داخل الشكل</label><br><label><input type="radio" name="q1" value="b"> طول الحدّ الخارجي للشكل</label><br><label><input type="radio" name="q1" value="c"> مساحة السطح</label><div class="feedback"></div></div>
+              <div class="q" data-type="mc" data-correct="c"><h4>2) مساحة مستطيل 8×3م = ؟</h4><label><input type="radio" name="q2" value="a"> 20م²</label><br><label><input type="radio" name="q2" value="b"> 18م</label><br><label><input type="radio" name="q2" value="c"> 24م²</label><div class="feedback"></div></div>
+              <div class="q" data-type="mc" data-correct="b"><h4>3) محيط مستطيل 4×7م = ؟</h4><label><input type="radio" name="q3" value="a"> 28م²</label><br><label><input type="radio" name="q3" value="b"> 22م</label><br><label><input type="radio" name="q3" value="c"> 24م</label><div class="feedback"></div></div>
+              <div class="q" data-type="mc" data-correct="b"><h4>4) ص/خ: وحدة المساحة قد تكون "متر".</h4><label><input type="radio" name="q4" value="a"> صواب</label><br><label><input type="radio" name="q4" value="b"> خطأ</label><div class="feedback"></div></div>
+              <div class="q" data-type="input" data-correct="24,36"><h4>5) مربع ضلعُه 6م: اكتب المحيط ثم المساحة (افصل بفاصلة).</h4><input type="text" name="q5" placeholder="مثال: 24,36"><div class="feedback"></div></div>
+              <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;12م&quot;,&quot;2×3&quot;:&quot;10م&quot;,&quot;3×3&quot;:&quot;12م&quot;}"><h4>6) طابق الأبعاد مع المحيط (سحب وإفلات).</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="12م"><h5>12م</h5></div><div class="bucket" data-label="10م"><h5>10م</h5></div><div class="bucket" data-label="14م"><h5>14م</h5></div></div></div><div class="feedback"></div></div>
+              <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;5م²&quot;,&quot;2×3&quot;:&quot;6م²&quot;,&quot;3×3&quot;:&quot;9م²&quot;}"><h4>7) طابق الأبعاد مع المساحة.</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="5م²"><h5>5م²</h5></div><div class="bucket" data-label="6م²"><h5>6م²</h5></div><div class="bucket" data-label="9م²"><h5>9م²</h5></div></div></div><div class="feedback"></div></div>
+              <div class="q" data-type="mc" data-correct="a"><h4>8) أي زوج له نفس المحيط؟</h4><label><input type="radio" name="q8" value="a"> 2×6 و3×5</label><br><label><input type="radio" name="q8" value="b"> 1×8 و2×5</label><div class="feedback"></div></div>
+              <div class="q" data-type="input" data-correct="28,45"><h4>9) حديقة 5×9م: اكتب المحيط ثم المساحة.</h4><input type="text" name="q9" placeholder="مثال: 28,45"><div class="feedback"></div></div>
+              <div class="q" data-type="input" data-correct="14م"><h4>10) صحّح: "محيط 3×4 = 12م²" →</h4><input type="text" name="q10" placeholder="مثال: 14م"><div class="feedback"></div></div>
+              <div class="controls"><button class="btn primary" type="button" id="gradeQuiz">صحّح الامتحان</button><button class="btn" type="button" id="resetQuiz">إعادة تعيين</button><span class="score" id="quizScore"></span></div>
+            </form>
+          </div>
+        </details>
+
+        <!-- الروبرك -->
+        <details class="card">
+          <summary><h3>معايير تقدير الأداء (روبرك مختصر)</h3><span class="pill">4 مستويات</span></summary>
+          <div class="body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>المعيار</th><th>ممتاز (4)</th><th>جيّد (3)</th><th>مقبول (2)</th><th>بحاجة لدعم (1)</th></tr></thead>
+                <tbody>
+                  <tr><td>فهم المفهوم</td><td>يشرح بدقة مع أمثلة</td><td>يميّز غالبًا</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
+                  <tr><td>الحساب والدقة</td><td>صحيح وبالوحدات</td><td>أخطاء طفيفة</td><td>أخطاء متكررة</td><td>لا يكتمل</td></tr>
+                  <tr><td>اختيار الوحدة</td><td>دائمًا صحيح</td><td>نادراً يخطئ</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
+                  <tr><td>الاستقصاء والمشاركة</td><td>يقود ويبرهن</td><td>يشارك بانتظام</td><td>محدود</td><td>سلبي</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- القواعد الصريحة -->
+        <details class="card">
+          <summary><h3>القواعد الصريحة (مع الوحدات الصحيحة)</h3><span class="pill">صيغ</span></summary>
+          <div class="body">
+            <ul>
+              <li><strong>المحيط</strong>: مستطيل \(P=2(ط+ع)\) — <em>وحدة طول</em> (م/سم). مربع \(P=4s\).</li>
+              <li><strong>المساحة</strong>: مستطيل \(A=ط×ع\) — <em>وحدة مربعة</em> (م²/سم²). مربع \(A=s^2\).</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- ملاحظات تنفيذ -->
+        <details class="card">
+          <summary><h3>ملاحظات تنفيذ سريعة</h3><span class="pill">نصائح</span></summary>
+          <div class="body">
+            <ul>
+              <li><span class="pill perimeter">أحمر = محيط</span>، <span class="pill area">أصفر = مساحة</span>.</li>
+              <li>عبارة تذكّر: "المحيط نجمع ثم نُضاعف، المساحة نضرب".</li>
+              <li>علّق صوري الساحة تحت عنوانَي "المحيط" و"المساحة".</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- === التطبيق المضمَّن (نسخة مصغّرة مستقلة عن الأصل) === -->
+        <details class="card wide" open>
+          <summary><h3>تجريب الوحدات — نسخة مصغّرة مضمّنة (W×L)</h3><span class="pill">للتجريب فقط</span></summary>
+          <div class="body">
+            <div class="ap-scope" id="apScope">
+              <section class="panel">
+                <div class="ctrl">
+                  <button id="addRow" class="btn">+ صف</button>
+                  <button id="addCol" class="btn">+ عمود</button>
+                  <button id="resetBtn" class="btn">إعادة الضبط</button>
+                </div>
+                <div class="ctrl">
+                  <label for="widRange">العرض W:</label>
+                  <input id="widRange" type="range" min="1" max="20" step="1" value="8">
+                </div>
+                <div class="ctrl">
+                  <label for="lenRange">الطول L:</label>
+                  <input id="lenRange" type="range" min="1" max="20" step="1" value="6">
+                </div>
+                <div class="ctrl">
+                  <button id="btnArea" class="btn area-btn" title="تلوين المساحة (الكل)">المساحة</button>
+                  <button id="btnPerimeter" class="btn per-btn" title="تلوين المحيط (الحواف)">المحيط</button>
+                </div>
+                <div class="zoomGroup">
+                  <button id="zoomIn" class="btn small">تكبير +</button>
+                  <button id="zoomReset" class="btn small">100%</button>
+                  <button id="zoomOut" class="btn small">تصغير −</button>
+                </div>
+              </section>
+
+              <section class="metrics" aria-live="polite">
+                <div id="metrics"></div>
+              </section>
+
+              <section class="arena">
+                <div id="stage" style="transform: scale(1);">
+                  <div id="grid" class="grid" aria-live="polite"></div>
+                  <svg id="guides" class="guides" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <line id="gH" x1="5" y1="95" x2="95" y2="95"></line>
+                    <line id="gV" x1="95" y1="5" x2="95" y2="95"></line>
+                    <text id="tH" x="50" y="97.5" text-anchor="middle">العرض = W = 8</text>
+                    <text id="tV" x="97.5" y="50" transform="rotate(-90 98,50)">الطول = L = 6</text>
+                  </svg>
+                </div>
+              </section>
+            </div>
+            <p class="note" style="margin-top:10px">هذه نسخة مصغّرة مستقلة لا تؤثر على الصفحة الأصلية <span class="kbd">apps/area-perimeter/index.html</span> ولا تعتمد عليها.</p>
+          </div>
+        </details>
+
+        <!-- دليل الدمج -->
+        <details class="card wide">
+          <summary><h3>دليل الدمج والتوسعة في الموقع</h3><span class="pill">هيكل</span></summary>
+          <div class="body">
 <ol>
-<li><strong>هيكل مجلدات</strong> (داخل مستودع <span class="kbd">math-apps</span>):
-  <pre class="kbd">/lessons/
-  └─ /grade5/
-     └─ /perimeter-area/
-        ├─ index.html   ← هذا الملف
-        ├─ worksheets/  ← ملفات PDF للأوراق
-        └─ assets/      ← إن أردت CSS/JS منفصلة لاحقًا</pre>
+<li><strong>المسار المستهدف</strong> (كما طلبت): <span class="kbd">/lessons/perimeter-area/index.html</span> على GitHub Pages:
+<pre class="kbd">/lessons/
+  └─ /perimeter-area/
+     ├─ index.html       ← هذا الملف
+     ├─ /worksheets/     ← أوراق العمل PDF
+     └─ /assets/
+        ├─ lesson.css
+        └─ lesson.js</pre>
 </li>
-<li><strong>الربط من الصفحة الرئيسية</strong>: أضف بطاقة/رابط إلى <span class="kbd">/lessons/grade5/perimeter-area/</span> في الشبكة الرئيسية للموقع.</li>
-<li><strong>توحيد الهوية البصرية</strong>: إن كان للموقع نمط CSS عام، انقل أجزاء <em>اللون والخط</em> إليه، واحتفِظ بالمتغيرات (<span class="kbd">--perimeter</span>، <span class="kbd">--area</span>) للاتساق.</li>
-<li><strong>قابلية التوسعة</strong>: أنشئ ملف <span class="kbd">/lessons/lessons.json</span> يصف الدروس (العنوان، الصف، المسار، وسوم). صفحة <span class="kbd">/lessons/index.html</span> تقرأه وتبني شبكة بطاقات تلقائيًا.</li>
-<li><strong>التطبيقات القصيرة</strong>: ضع كل تطبيق داخل <span class="kbd">/apps/&lt;app-name&gt;/index.html</span> ثم اربطه من بطاقات الدروس كـ <em>iframe</em> كما في الأعلى.</li>
-<li><strong>من دون بُنْيَة بناء</strong>: الملف يعمل مباشرة على GitHub Pages (HTML+CSS+JS فقط). عند الحاجة، يمكن لاحقًا نقل الأكواد إلى ملفات منفصلة تحت <span class="kbd">assets/</span>.</li>
-<li><strong>إضافة درس جديد</strong>: انسخ هذا المجلّد، غيّر العناوين/المحتوى، واستبدل التطبيق المُضمّن إن لزم.</li>
+<li><strong>إضافة بطاقة من الرئيسية</strong> إلى <span class="kbd">/lessons/perimeter-area/</span>.</li>
+<li><strong>لا تعارض</strong>: جميع الأنماط والسكربتات مُحاطة بـ <span class="kbd">.lesson-root</span> و <span class="kbd">.ap-scope</span> لمنع أي تداخل مع "مختبر تطبيقات الرياضيات – الصف الخامس إلى التاسع".</li>
+<li><strong>توسعة لاحقة</strong>: إنشاء <span class="kbd">/lessons/lessons.json</span> وفهرس <span class="kbd">/lessons/index.html</span> لتوليد بطاقات الدروس تلقائيًا.</li>
 </ol>
-        </div>
-      </details>
+          </div>
+        </details>
 
-    </section>
+      </section>
 
-    <button class="btn to-top" id="toTop">↑ أعلى</button>
-
-  </main>
-
-  <script>
-    // فتح/إغلاق كل البطاقات
-    const expandAllBtn = document.getElementById('expandAll');
-    const collapseAllBtn = document.getElementById('collapseAll');
-    expandAllBtn.addEventListener('click',()=>{
-      document.querySelectorAll('details.card').forEach(d=>d.open=true);
-    });
-    collapseAllBtn.addEventListener('click',()=>{
-      document.querySelectorAll('details.card').forEach(d=>d.open=false);
-    });
-
-    // أعلى الصفحة
-    document.getElementById('toTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-    // أسئلة المعلّم: إظهار/إخفاء الإجابات
-    function bindToggleAnswers(scope=document){
-      scope.querySelectorAll('.toggle-answer').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-          const ans = btn.nextElementSibling;
-          ans.classList.toggle('show');
-          btn.textContent = ans.classList.contains('show') ? 'إخفاء الإجابة' : 'إظهار الإجابة';
-        });
-      });
-    }
-    bindToggleAnswers();
-    document.getElementById('revealAll').addEventListener('click',()=>{
-      document.querySelectorAll('.answer').forEach(a=>a.classList.add('show'));
-      document.querySelectorAll('.toggle-answer').forEach(b=>b.textContent='إخفاء الإجابة');
-    });
-    document.getElementById('hideAll').addEventListener('click',()=>{
-      document.querySelectorAll('.answer').forEach(a=>a.classList.remove('show'));
-      document.querySelectorAll('.toggle-answer').forEach(b=>b.textContent='إظهار الإجابة');
-    });
-
-    // لعبة المطابقة الثلاثية (قوائم مبسّطة)
-    const triplets = [
-      {dims:'1×5', P:'12م', A:'5م²'},
-      {dims:'2×3', P:'10م', A:'6م²'},
-      {dims:'3×3', P:'12م', A:'9م²'},
-      {dims:'1×3', P:'8م',  A:'3م²'},
-      {dims:'2×4', P:'12م', A:'8م²'},
-      {dims:'2×5', P:'14م', A:'10م²'},
-    ];
-    const triRoot = document.getElementById('triMatch');
-    function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);}
-    function renderTri(){
-      triRoot.innerHTML='';
-      const Popts = shuffle([...new Set(triplets.map(t=>t.P))]);
-      const Aopts = shuffle([...new Set(triplets.map(t=>t.A))]);
-      shuffle(triplets).slice(0,4).forEach((t,i)=>{
-        const card = document.createElement('div');
-        card.className='tri-card';
-        card.innerHTML = `
-          <h4>الأبعاد: <strong>${t.dims}</strong></h4>
-          <label>اختر المحيط المناسب:</label>
-          <select data-role="P">
-            <option value="">— اختر —</option>
-            ${Popts.map(p=>`<option>${p}</option>`).join('')}
-          </select>
-          <label>اختر المساحة المناسبة:</label>
-          <select data-role="A">
-            <option value="">— اختر —</option>
-            ${Aopts.map(a=>`<option>${a}</option>`).join('')}
-          </select>
-          <input type="hidden" data-ansP value="${t.P}">
-          <input type="hidden" data-ansA value="${t.A}">
-        `;
-        triRoot.appendChild(card);
-      });
-    }
-    renderTri();
-    document.getElementById('checkTri').addEventListener('click',()=>{
-      let correct=0, total=0;
-      triRoot.querySelectorAll('.tri-card').forEach(card=>{
-        total+=2;
-        const Psel = card.querySelector('select[data-role="P"]').value;
-        const Asel = card.querySelector('select[data-role="A"]').value;
-        const Pans = card.querySelector('[data-ansP]').value;
-        const Aans = card.querySelector('[data-ansA]').value;
-        card.style.outline='none';
-        const okP = Psel===Pans; const okA = Asel===Aans;
-        if(okP && okA){card.style.outline='2px solid var(--ok)'; correct+=2;}
-        else if(okP || okA){card.style.outline='2px dashed var(--warn)'; correct+=1;}
-        else{card.style.outline='2px solid var(--err)';}
-      });
-      document.getElementById('triScore').textContent = `النتيجة: ${correct}/${total}`;
-    });
-    document.getElementById('shuffleTri').addEventListener('click',()=>{renderTri(); document.getElementById('triScore').textContent='';});
-
-    // امتحان محوسب: تصحيح
-    function normalizeVal(v){return (v||'').toString().trim().replace(/\s+/g,'').replace('،',',');}
-    document.getElementById('gradeQuiz').addEventListener('click',()=>{
-      const qs = document.querySelectorAll('#quizForm .q');
-      let score=0, total=qs.length;
-      qs.forEach((q,i)=>{
-        q.classList.remove('correct','incorrect');
-        const fb = q.querySelector('.feedback'); fb.textContent='';
-        const type = q.dataset.type;
-        if(type==='mc'){
-          const correct = q.dataset.correct;
-          const val = (q.querySelector('input[type="radio"]:checked')||{}).value || '';
-          if(val===correct){score++; q.classList.add('correct'); fb.textContent='صحيح'; fb.style.color='var(--ok)';}
-          else{q.classList.add('incorrect'); fb.textContent='تحقّق من التعريف/الوحدة.'; fb.style.color='var(--err)';}
-        }
-        if(type==='input'){
-          const ans = normalizeVal(q.dataset.correct);
-          const val = normalizeVal(q.querySelector('input').value);
-          if(ans.includes(',')){
-            // زوج قيم: محيط,مساحة
-            const [a1,a2] = ans.split(',');
-            const [v1,v2] = val.split(',');
-            if(v1===a1 && v2===a2){score++; q.classList.add('correct'); fb.textContent='صحيح'; fb.style.color='var(--ok)';}
-            else{q.classList.add('incorrect'); fb.textContent='تذكّر: المحيط أولاً ثم المساحة وبالوحدة الصحيحة.'; fb.style.color='var(--err)';}
-          } else {
-            if(val===ans){score++; q.classList.add('correct'); fb.textContent='صحيح'; fb.style.color='var(--ok)';}
-            else{q.classList.add('incorrect'); fb.textContent='انتبه للوحدة والقيمة.'; fb.style.color='var(--err)';}
-          }
-        }
-        if(type==='match'){
-          const map = JSON.parse(q.dataset.match);
-          let local=0, need=Object.keys(map).length;
-          q.querySelectorAll('.bucket').forEach(b=>{
-            const label = b.dataset.label; const tiles=[...b.querySelectorAll('.tile')].map(t=>t.textContent.trim());
-            tiles.forEach(t=>{ if(map[t]===label) local++; });
-          });
-          if(local===need){score++; q.classList.add('correct'); fb.textContent='كل الأزواج صحيحة.'; fb.style.color='var(--ok)';}
-          else{q.classList.add('incorrect'); fb.textContent=`${local}/${need} مطابقات صحيحة — راجع الصيغ.`; fb.style.color='var(--warn)';}
-        }
-      });
-      document.getElementById('quizScore').textContent = `الدرجة: ${score}/${total}`;
-    });
-    document.getElementById('resetQuiz').addEventListener('click',()=>{
-      const form = document.getElementById('quizForm');
-      form.reset();
-      form.querySelectorAll('.q').forEach(q=>{q.classList.remove('correct','incorrect'); q.querySelector('.feedback').textContent='';});
-      document.getElementById('quizScore').textContent='';
-    });
-
-    // سحب وإفلات مبسّط للمطابقة الثنائية
-    let dragEl=null;
-    document.querySelectorAll('.tile').forEach(t=>{
-      t.addEventListener('dragstart',e=>{dragEl=t; e.dataTransfer.setData('text/plain', t.textContent);});
-    });
-    document.querySelectorAll('.bucket').forEach(b=>{
-      b.addEventListener('dragover',e=>{e.preventDefault();});
-      b.addEventListener('drop',e=>{e.preventDefault(); if(dragEl){ b.appendChild(dragEl); dragEl=null; }});
-    });
-  </script>
+      <button class="btn to-top" id="toTop">↑ أعلى</button>
+    </main>
+  </div>
 </body>
 </html>
