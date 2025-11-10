@@ -90,8 +90,14 @@ tbody tr:hover{background:#fff}
 .tile{display:inline-block;margin:6px;cursor:grab}
 .bucket h5{margin:0 0 8px 0;color:#111}
 
-/* التطبيق المصغّر (W×L) */
-.ap-scope{--cell:32px;--gFont:10px;--gStroke:.6;margin-top:8px}
+/* التطبيق المصغّر (W×L) — مع ألوان قابلة للتغيير */
+.ap-scope{
+  --cell:32px; --gFont:10px; --gStroke:.6;
+  /* الألوان الافتراضية (يمكن تغييرها من JS عند الضغط على الأزرار) */
+  --areaFill: rgba(255,165,0,0.45);   /* Orange */
+  --perFill:  rgba(255,99,71,0.55);   /* Tomato */
+  margin-top:8px;
+}
 .ap-scope .panel{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#ffffff;color:#111}
 .ap-scope .ctrl{display:flex;gap:8px;align-items:center}
 .ap-scope .btn{background:#f1f5f9;color:#111}
@@ -104,8 +110,8 @@ tbody tr:hover{background:#fff}
 .ap-scope #stage{width:100%;overflow:auto;transform-origin:center;display:grid;place-items:center}
 .ap-scope .grid{display:grid;gap:2px}
 .ap-scope .cell{width:var(--cell);height:var(--cell);background:#ffffff;border:1px solid #d1d5db}
-.ap-scope .cell.on-area{background:#f59e0b33}
-.ap-scope .cell.on-per{background:#ef444433}
+.ap-scope .cell.on-area{background:var(--areaFill)}
+.ap-scope .cell.on-per{background:var(--perFill)}
 .ap-scope .guides{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;font:var(--gFont) ui-sans-serif,system-ui;stroke:#334155;stroke-width:var(--gStroke);fill:#334155}
 
 /* زر العودة لأعلى */
