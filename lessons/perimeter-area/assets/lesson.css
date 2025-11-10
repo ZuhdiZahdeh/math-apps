@@ -94,8 +94,8 @@ tbody tr:hover{background:#fff}
 .ap-scope{
   --cell:32px; --gFont:10px; --gStroke:.6;
   /* الألوان الافتراضية (يمكن تغييرها من JS عند الضغط على الأزرار) */
-  --areaFill: rgba(255,165,0,0.45);   /* Orange */
-  --perFill:  rgba(255,99,71,0.55);   /* Tomato */
+  --areaFill: rgb(255,165,0);   /* Orange */
+  --perFill:  rgb(255,99,71);   /* Tomato */
   margin-top:8px;
 }
 .ap-scope .panel{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#ffffff;color:#111}
