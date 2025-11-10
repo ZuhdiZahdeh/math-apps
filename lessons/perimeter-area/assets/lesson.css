@@ -101,4 +101,44 @@ tbody tr:hover{background:#fff}
 
 /* زر العودة لأعلى */
 .to-top{position:fixed;inset-inline-end:16px;inset-block-end:16px;z-index:50}
+/* ===== تحسين القراءة للبطاقات المتداخلة فقط ===== */
+
+/* جسم كل بطاقة: خلفية Linen ونص أسود (وفق طلبك) */
+details.card .body{
+  background:#FAF0E6; color:#000;
+}
+
+/* عندما تكون هناك بطاقات داخل جسم بطاقة أخرى */
+details.card .body details.card{
+  margin:12px 0;
+  border:0;            /* إزالة إطار الخلفية الداكنة من العنصر الحاوي */
+  background:transparent;
+}
+
+/* عنوان البطاقة المتداخلة: داكن + نص فاتح واضح فوقه */
+details.card .body details.card > summary{
+  background:linear-gradient(180deg,#101935,#0f1a39);
+  color:#eef2ff;                     /* نص أبيض مزرق واضح */
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px 16px;
+}
+
+/* تأكيد لون العنوان والعناصر داخله */
+details.card .body details.card > summary h3{ color:#eef2ff; }
+details.card .body details.card > summary .pill{
+  background:#1f2937; color:#fff; border-color:#334155;
+}
+
+/* جسم البطاقة المتداخلة يبقى Linen مع حدود خفيفة */
+details.card .body details.card .body{
+  background:#FAF0E6; color:#000;
+  border:1px solid #e5e7eb; border-radius:12px;
+}
+
+/* عناصر الملاحظات والأساطير داخل الخلفية الفاتحة */
+details.card .body .note{ background:#fff7e6; color:#111; border-color:#f0ce7a; }
+details.card .body .legend, 
+details.card .body .legend *{ color:#111; }
+
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
