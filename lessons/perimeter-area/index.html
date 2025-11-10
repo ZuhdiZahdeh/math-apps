@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>درس محوسب — المحيط والمساحة (نسخة عامة قابلة للدمج)</title>
- <!-- فصل التنسيقات والسكربتات: لا تعتمد على صفحات أخرى -->
-<link rel="stylesheet" href="assets/lesson.css">
-<script defer src="assets/lesson.js"></script>
-
+  <title>درس محوسب — المحيط والمساحة (نسخة عامة)</title>
+  <link rel="stylesheet" href="assets/lesson.css">
+  <script defer src="assets/lesson.js"></script>
 </head>
 <body>
   <div class="lesson-root">
@@ -15,11 +13,12 @@
       <div class="container hero">
         <div>
           <h1 class="title">الدرس المحوسب — <span class="pill perimeter">المحيط</span> و<span class="pill area">المساحة</span></h1>
-          <p class="subtitle">منهج استقصائي (ملاحظة → مقارنة → فرضية → اختبار/تعميم → صوغ القاعدة → تطبيق وتوسّع). الترميز اللوني ثابت: <span class="swatch"><i class="per"></i>أحمر للمحيط</span>، <span class="swatch"><i class="ar"></i>أصفر للمساحة</span>.</p>
+          <p class="subtitle">
+            منهج استقصائي (ملاحظة → مقارنة → فرضية → اختبار/تعميم → صوغ القاعدة → تطبيق وتوسّع).
+            الترميز: <span class="swatch"><i class="per"></i>أحمر للمحيط</span>، <span class="swatch"><i class="ar"></i>أصفر للمساحة</span>.
+          </p>
           <div class="tags">
-            <span class="tag">مستقل عن بقية الموقع</span>
-            <span class="tag">قابل للتوسّع</span>
-            <span class="tag">RTL + وصولية</span>
+            <span class="tag">مستقل</span><span class="tag">قابل للتوسّع</span><span class="tag">RTL + وصولية</span>
           </div>
         </div>
         <div class="controls">
@@ -39,13 +38,12 @@
         <!-- الأهداف -->
         <details class="card" open>
           <summary><h3>الأهداف السلوكية</h3><span class="pill">انقر للفتح/الإغلاق</span></summary>
-          <!-- نحافظ على لون عنوان البطاقة كما هو، ونستخدم لون جسد مختلف مقترَح في CSS -->
-          <div class="body alt-body"> 
+          <div class="body">
             <ul>
               <li>تمييز الفرق بين <strong>المحيط</strong> (طول الحد الخارجي) و<strong>المساحة</strong> (عدد الوحدات المربعة داخل الشكل).</li>
               <li>استنتاج وصوغ القوانين: مستطيل \(P=2(ط+ع)\)، \(A=ط×ع\) — مربع \(P=4s\) ، \(A=s^2\).</li>
-              <li>حساب محيط/مساحة مربعات ومستطيلات بدقة مع اختيار <strong>الوحدة الصحيحة</strong> (م/سم للمحيط، م²/سم² للمساحة).</li>
-              <li>تطبيق المفهوم على مسائل حياتية وبطاقات المطابقة.</li>
+              <li>حساب محيط/مساحة مربعات ومستطيلات مع اختيار الوحدة الصحيحة.</li>
+              <li>تطبيق المفهوم على مسائل وبطاقات المطابقة.</li>
             </ul>
           </div>
         </details>
@@ -55,14 +53,9 @@
           <summary><h3>التوزيع الزمني المقترح</h3><span class="pill">90 دقيقة</span></summary>
           <div class="body">
             <ul>
-              <li>تمهيد (5د) — تذكير بالترميز اللوني.</li>
-              <li>نشاط الساحة: ملاحظة ومقارنة (15د) + سلامة.</li>
-              <li>نشاط صفّي: إحاطة الطاولة/الدرجة ومساحة الجلوس (10د).</li>
-              <li>لعبة بطاقات المطابقة (15د).</li>
-              <li>الاستنتاج وصوغ القاعدة (10د).</li>
-              <li>ورقة عمل تلوين (15د).</li>
-              <li>نشاط التطبيق المضمَّن (10د).</li>
-              <li>بطاقة خروج/تقويم ختامي (10د).</li>
+              <li>تمهيد (5د)</li><li>نشاط الساحة (15د)</li><li>نشاط صفّي (10د)</li>
+              <li>لعبة مطابقة (15د)</li><li>صوغ القاعدة (10د)</li>
+              <li>ورقة عمل (15د)</li><li>نشاط التطبيق (10د)</li><li>بطاقة خروج (10د)</li>
             </ul>
           </div>
         </details>
@@ -72,11 +65,11 @@
           <summary><h3>المواد والأدوات</h3><span class="pill">ساحة + صف</span></summary>
           <div class="body">
             <ul>
-              <li>شريط/طباشير، مخاريط، متر قياس، سترات فسفورية، لوحتي "المحيط/المساحة"، كاميرا.</li>
+              <li>شريط/طباشير، مخاريط، متر قياس، سترات فسفورية، لوحتي “المحيط/المساحة”، كاميرا.</li>
               <li>بطاقات أبعاد/محيط/مساحة، أوراق عمل، أقلام <span class="pill perimeter">حمراء</span> و<span class="pill area">صفراء</span>.</li>
-              <li>حاسوب/لوح لتشغيل التطبيق المضمَّن.</li>
+              <li>حاسوب/لوح للتطبيق.</li>
             </ul>
-            <div class="note">سلامة: تحديد مساحة النشاط، منع الجري/الدفع، توزيع أدوار واضحة بإشارة المعلّم.</div>
+            <div class="note">سلامة: تحديد مساحة النشاط، منع الجري/الدفع، أدوار واضحة بإشارة المعلّم.</div>
           </div>
         </details>
 
@@ -93,7 +86,6 @@
                   <tr><td>سترات فسفورية</td><td>8–12</td><td>تمييز طلاب الحافة</td></tr>
                   <tr><td>بطاقات مطابقة</td><td>مجموعة/صف</td><td>أبعاد/محيط/مساحة</td></tr>
                   <tr><td>ورقة عمل</td><td>نسخة/طالب</td><td>تلوين أحمر/أصفر</td></tr>
-                  <tr><td>ألوان</td><td>كافية</td><td>ترميز ثابت</td></tr>
                   <tr><td>كاميرا/هاتف</td><td>1</td><td>صورتا “المحيط/المساحة”</td></tr>
                   <tr><td>حاسوب/لوح</td><td>1+</td><td>تشغيل التطبيق</td></tr>
                 </tbody>
@@ -102,14 +94,15 @@
           </div>
         </details>
 
-        <!-- البنية الاستقرائية -->
+        <!-- البنية الاستقرائية الصارمة (خلفية مخصّصة فقط هنا) -->
         <details class="card wide" open>
           <summary><h3>البنية الاستقرائية الصارمة</h3><span class="pill">أ → و</span></summary>
-          <div class="body">
+          <div class="body" style="background-color:#008B8B;">
             <div class="legend">
               <span><i class="per"></i> محيط (أحمر)</span>
               <span><i class="ar"></i> مساحة (أصفر)</span>
             </div>
+
             <details class="card" open>
               <summary><h3>أ) الملاحظة — نشاط الساحة</h3></summary>
               <div class="body">
@@ -117,41 +110,43 @@
                   <li>طلاب الحافة يقفون على الحدود (<span class="pill perimeter">محيط</span>)، التقط صورة ووسّمها.</li>
                   <li>مجموعة ثانية تصطف داخل الشكل (<span class="pill area">مساحة</span>)، التقط صورة ووسّمها.</li>
                 </ol>
-                <div class="note">اسأل: أين نقف إذا طلبنا "إحاطة"؟ وأين نقف إذا أردنا "ملء" الشكل؟</div>
+                <div class="note">اسأل: أين نقف إذا طلبنا “إحاطة”؟ وأين نقف إذا أردنا “ملء” الشكل؟</div>
               </div>
             </details>
+
             <details class="card">
               <summary><h3>ب) المقارنة</h3></summary>
-              <div class="body">الحد الخارجي <strong>خط</strong> يُقاس بالمتر/السم (محيط). الداخل <strong>مساحة</strong> تُقاس بالمتر المربّع/السم المربّع.</div>
+              <div class="body">الحد الخارجي خط يُقاس بالمتر/السم (محيط). الداخل مساحة تُقاس بالمتر/السم المربّع.</div>
             </details>
+
             <details class="card">
               <summary><h3>ج) فرضية/تخمين</h3></summary>
-              <div class="body">إذا زاد الطول/العرض: المحيط يزيد غالبًا، والمساحة تزيد — مضاعفة بُعد تُضاعِف المساحة.</div>
+              <div class="body">زيادة الطول/العرض تزيد المحيط غالبًا؛ ومضاعفة أحد البعدين تُضاعف المساحة.</div>
             </details>
+
             <details class="card">
               <summary><h3>د) اختبار/تعميم (صفّي + بطاقات)</h3></summary>
               <div class="body">
-                <ul>
-                  <li>إحاطة الطاولة = محيط. جلوس منتظم = مساحة.</li>
-                  <li>لعبة المطابقة (أبعاد/محيط/مساحة) — انظر بطاقة اللعبة أدناه.</li>
-                </ul>
+                <ul><li>إحاطة الطاولة = محيط.</li><li>جلوس منتظم = مساحة.</li><li>لعبة المطابقة بالأسفل.</li></ul>
               </div>
             </details>
+
             <details class="card">
               <summary><h3>هـ) صوغ القاعدة</h3></summary>
               <div class="body">مستطيل: \(P=2(ط+ع)\)، \(A=ط×ع\). مربع: \(P=4s\)، \(A=s^2\).</div>
             </details>
+
             <details class="card">
               <summary><h3>و) تطبيق وتوسّع</h3></summary>
-              <div class="body">أوراق تلوين + التطبيق المضمّن + تحديات محيط ثابت/مساحات مختلفة.</div>
+              <div class="body">أوراق تلوين + التطبيق المصغّر + محيط ثابت ومساحات مختلفة.</div>
             </details>
           </div>
         </details>
 
-        <!-- أسئلة المعلّم -->
+        <!-- أسئلة المعلّم المتدرجة (خلفية مخصّصة فقط هنا) -->
         <details class="card wide">
           <summary><h3>أسئلة المعلّم المتدرجة</h3><span class="pill">إجابات مخفية</span></summary>
-          <div class="body">
+          <div class="body" style="background-color:#008B8B;">
             <div class="controls compact">
               <button class="btn" id="revealAll">إظهار كل الإجابات</button>
               <button class="btn" id="hideAll">إخفاء كل الإجابات</button>
@@ -159,7 +154,7 @@
             <div class="q"><h4>1) ما تعريف <strong>المحيط</strong>؟ وما تعريف <strong>المساحة</strong>؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط: طول الحدّ الخارجي. المساحة: عدد الوحدات المربعة داخل الشكل.</div></div>
             <div class="q"><h4>2) ما الفرق بين تلوين الحواف بالأحمر وتلوين الداخل بالأصفر؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">الأحمر للمحيط (خط)، الأصفر للمساحة (مربعات).</div></div>
             <div class="q"><h4>3) إذا ضاعفنا الطول فقط، ماذا يحدث للمحيط؟ وماذا للمساحة؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط يزداد؛ المساحة تتضاعف.</div></div>
-            <div class="q"><h4>4) أعطِ مستطيلين لهما نفس المحيط لكن مساحتين مختلفتين.</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">2×6 و3×5 (المحيط 16م؛ المساحتان 12 و15 م²).</div></div>
+            <div class="q"><h4>4) أعطِ مستطيلين لهما نفس المحيط لكن مساحتين مختلفتين.</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">2×6 و3×5 — محيط 16م؛ المساحتان 12 و15 م².</div></div>
             <div class="q"><h4>5) ما الوحدة المناسبة لكل من المحيط والمساحة؟ ولماذا؟</h4><button class="btn small toggle-answer">إظهار الإجابة</button><div class="answer">المحيط: م/سم (طول). المساحة: م²/سم² (مربعات).</div></div>
           </div>
         </details>
@@ -180,7 +175,7 @@
         <details class="card wide" open>
           <summary><h3>لعبة بطاقات المطابقة — (أبعاد ↔ محيط ↔ مساحة)</h3><span class="pill">تدريب</span></summary>
           <div class="body">
-            <p>اختر المطابقة الصحيحة لكل بطاقة أبعاد. ثم اضغط <strong>تحقق</strong>.</p>
+            <p>اختر المطابقة الصحيحة لكل بطاقة أبعاد ثم اضغط <strong>تحقق</strong>.</p>
             <div class="tri-grid" id="triMatch"></div>
             <div class="controls"><button class="btn" id="checkTri">تحقق</button><button class="btn" id="shuffleTri">إعادة خلط</button><span class="score" id="triScore"></span></div>
           </div>
@@ -191,16 +186,15 @@
           <summary><h3>أوراق العمل</h3><span class="pill">مرفقات</span></summary>
           <div class="body">
             <ul>
-              <li>مربع ضلع 4سم — لوّن <span class="pill perimeter">المحيط</span> بالأحمر و<span class="pill area">المساحة</span> بالأصفر واحسب \(P\) و\(A\).</li>
+              <li>مربع ضلع 4سم — لوّن <span class="pill perimeter">المحيط</span> بالأحمر و<span class="pill area">المساحة</span> بالأصفر واحسب.</li>
               <li>مستطيل 5×3سم — لوّن واحسب.</li>
               <li>مستطيل 7×1سم — لوّن واحسب.</li>
               <li>شكل مركّب (L) — جزِّئ إلى مستطيلين.</li>
             </ul>
-            <div class="note">ضع ملفات PDF داخل <span class="kbd">worksheets/</span> وعدّل الروابط:</div>
             <div class="chips">
-              <a class="btn ghost" href="worksheets/worksheet-A.pdf" target="_blank">تحميل ورقة A (PDF)</a>
-              <a class="btn ghost" href="worksheets/worksheet-B.pdf" target="_blank">تحميل ورقة B (PDF)</a>
-              <a class="btn ghost" href="worksheets/worksheet-C.pdf" target="_blank">تحميل ورقة C (PDF)</a>
+              <a class="btn ghost" href="worksheets/worksheet-A.pdf" target="_blank">تحميل ورقة A</a>
+              <a class="btn ghost" href="worksheets/worksheet-B.pdf" target="_blank">تحميل ورقة B</a>
+              <a class="btn ghost" href="worksheets/worksheet-C.pdf" target="_blank">تحميل ورقة C</a>
             </div>
           </div>
         </details>
@@ -208,7 +202,7 @@
         <!-- الدعم والإثراء -->
         <details class="card">
           <summary><h3>الدعم والإثراء</h3><span class="pill">تمييز</span></summary>
-          <div class="body">دعم: مربعات شبكية/قطع 1×1، جمل مساعدة، عمل ثنائي. إثراء: محيط ثابت، مضلعات بالتجزئة، ملاحظة الدائرة دون صيغ.</div>
+          <div class="body">دعم: مربعات شبكية/قطع 1×1، جمل مساعدة، عمل ثنائي. إثراء: محيط ثابت، مضلعات بالتجزئة، ملاحظة الدائرة.</div>
         </details>
 
         <!-- إدارة الصف -->
@@ -228,8 +222,8 @@
               <div class="q" data-type="mc" data-correct="b"><h4>3) محيط مستطيل 4×7م = ؟</h4><label><input type="radio" name="q3" value="a"> 28م²</label><br><label><input type="radio" name="q3" value="b"> 22م</label><br><label><input type="radio" name="q3" value="c"> 24م</label><div class="feedback"></div></div>
               <div class="q" data-type="mc" data-correct="b"><h4>4) ص/خ: وحدة المساحة قد تكون "متر".</h4><label><input type="radio" name="q4" value="a"> صواب</label><br><label><input type="radio" name="q4" value="b"> خطأ</label><div class="feedback"></div></div>
               <div class="q" data-type="input" data-correct="24,36"><h4>5) مربع ضلعُه 6م: اكتب المحيط ثم المساحة (افصل بفاصلة).</h4><input type="text" name="q5" placeholder="مثال: 24,36"><div class="feedback"></div></div>
-              <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;12م&quot;,&quot;2×3&quot;:&quot;10م&quot;,&quot;3×3&quot;:&quot;12م&quot;}"><h4>6) طابق الأبعاد مع المحيط (سحب وإفلات).</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="12م"><h5>12م</h5></div><div class="bucket" data-label="10م"><h5>10م</h5></div><div class="bucket" data-label="14م"><h5>14م</h5></div></div></div><div class="feedback"></div></div>
-              <div class="q" data-type="match" data-match="{&quot;1×5&quot;:&quot;5م²&quot;,&quot;2×3&quot;:&quot;6م²&quot;,&quot;3×3&quot;:&quot;9م²&quot;}"><h4>7) طابق الأبعاد مع المساحة.</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="5م²"><h5>5م²</h5></div><div class="bucket" data-label="6م²"><h5>6م²</h5></div><div class="bucket" data-label="9م²"><h5>9م²</h5></div></div></div><div class="feedback"></div></div>
+              <div class="q" data-type="match" data-match='{"1×5":"12م","2×3":"10م","3×3":"12م"}'><h4>6) طابق الأبعاد مع المحيط (سحب وإفلات).</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="12م"><h5>12م</h5></div><div class="bucket" data-label="10م"><h5>10م</h5></div><div class="bucket" data-label="14م"><h5>14م</h5></div></div></div><div class="feedback"></div></div>
+              <div class="q" data-type="match" data-match='{"1×5":"5م²","2×3":"6م²","3×3":"9م²"}'><h4>7) طابق الأبعاد مع المساحة.</h4><div class="match"><div><div class="tile" draggable="true">1×5</div><div class="tile" draggable="true">2×3</div><div class="tile" draggable="true">3×3</div></div><div><div class="bucket" data-label="5م²"><h5>5م²</h5></div><div class="bucket" data-label="6م²"><h5>6م²</h5></div><div class="bucket" data-label="9م²"><h5>9م²</h5></div></div></div><div class="feedback"></div></div>
               <div class="q" data-type="mc" data-correct="a"><h4>8) أي زوج له نفس المحيط؟</h4><label><input type="radio" name="q8" value="a"> 2×6 و3×5</label><br><label><input type="radio" name="q8" value="b"> 1×8 و2×5</label><div class="feedback"></div></div>
               <div class="q" data-type="input" data-correct="28,45"><h4>9) حديقة 5×9م: اكتب المحيط ثم المساحة.</h4><input type="text" name="q9" placeholder="مثال: 28,45"><div class="feedback"></div></div>
               <div class="q" data-type="input" data-correct="14م"><h4>10) صحّح: "محيط 3×4 = 12م²" →</h4><input type="text" name="q10" placeholder="مثال: 14م"><div class="feedback"></div></div>
@@ -248,7 +242,7 @@
                 <tbody>
                   <tr><td>فهم المفهوم</td><td>يشرح بدقة مع أمثلة</td><td>يميّز غالبًا</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
                   <tr><td>الحساب والدقة</td><td>صحيح وبالوحدات</td><td>أخطاء طفيفة</td><td>أخطاء متكررة</td><td>لا يكتمل</td></tr>
-                  <tr><td>اختيار الوحدة</td><td>دائمًا صحيح</td><td>نادراً يخطئ</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
+                  <tr><td>اختيار الوحدة</td><td>دائمًا صحيح</td><td>نادرًا يخطئ</td><td>يخلط أحيانًا</td><td>يخلط غالبًا</td></tr>
                   <tr><td>الاستقصاء والمشاركة</td><td>يقود ويبرهن</td><td>يشارك بانتظام</td><td>محدود</td><td>سلبي</td></tr>
                 </tbody>
               </table>
@@ -261,8 +255,8 @@
           <summary><h3>القواعد الصريحة (مع الوحدات الصحيحة)</h3><span class="pill">صيغ</span></summary>
           <div class="body">
             <ul>
-              <li><strong>المحيط</strong>: مستطيل \(P=2(ط+ع)\) — <em>وحدة طول</em> (م/سم). مربع \(P=4s\).</li>
-              <li><strong>المساحة</strong>: مستطيل \(A=ط×ع\) — <em>وحدة مربعة</em> (م²/سم²). مربع \(A=s^2\).</li>
+              <li><strong>المحيط</strong>: مستطيل \(P=2(ط+ع)\) — وحدة طول (م/سم). مربع \(P=4s\).</li>
+              <li><strong>المساحة</strong>: مستطيل \(A=ط×ع\) — وحدة مربعة (م²/سم²). مربع \(A=s^2\).</li>
             </ul>
           </div>
         </details>
@@ -273,13 +267,13 @@
           <div class="body">
             <ul>
               <li><span class="pill perimeter">أحمر = محيط</span>، <span class="pill area">أصفر = مساحة</span>.</li>
-              <li>عبارة تذكّر: "المحيط نجمع ثم نُضاعف، المساحة نضرب".</li>
-              <li>علّق صوري الساحة تحت عنوانَي "المحيط" و"المساحة".</li>
+              <li>عبارة: “المحيط نجمع ثم نُضاعف، المساحة نضرب”.</li>
+              <li>علّق صوري الساحة تحت عنوانَي “المحيط” و“المساحة”.</li>
             </ul>
           </div>
         </details>
 
-        <!-- === التطبيق المضمَّن (نسخة مصغّرة مستقلة عن الأصل) === -->
+        <!-- التطبيق المصغّر (W×L) -->
         <details class="card wide" open>
           <summary><h3>تجريب الوحدات — نسخة مصغّرة مضمّنة (W×L)</h3><span class="pill">للتجريب فقط</span></summary>
           <div class="body">
@@ -325,7 +319,6 @@
                 </div>
               </section>
             </div>
-            <p class="note" style="margin-top:10px">هذه نسخة مصغّرة مستقلة لا تؤثر على الصفحة الأصلية <span class="kbd">apps/area-perimeter/index.html</span> ولا تعتمد عليها.</p>
           </div>
         </details>
 
@@ -333,23 +326,13 @@
         <details class="card wide">
           <summary><h3>دليل الدمج والتوسعة في الموقع</h3><span class="pill">هيكل</span></summary>
           <div class="body">
-<ol>
-<li><strong>المسار المستهدف</strong> (كما طلبت): <span class="kbd">/lessons/perimeter-area/index.html</span> على GitHub Pages:
-<pre class="kbd">/lessons/
-  └─ /perimeter-area/
-     ├─ index.html       ← هذا الملف
-     ├─ /worksheets/     ← أوراق العمل PDF
-     └─ /assets/
-        ├─ lesson.css
-        └─ lesson.js</pre>
-</li>
-<li><strong>إضافة بطاقة من الرئيسية</strong> إلى <span class="kbd">/lessons/perimeter-area/</span>.</li>
-<li><strong>لا تعارض</strong>: جميع الأنماط والسكربتات مُحاطة بـ <span class="kbd">.lesson-root</span> و <span class="kbd">.ap-scope</span> لمنع أي تداخل مع "مختبر تطبيقات الرياضيات – الصف الخامس إلى التاسع".</li>
-<li><strong>توسعة لاحقة</strong>: إنشاء <span class="kbd">/lessons/lessons.json</span> وفهرس <span class="kbd">/lessons/index.html</span> لتوليد بطاقات الدروس تلقائيًا.</li>
-</ol>
+            <ol>
+              <li>المسار: <span class="kbd">/lessons/perimeter-area/</span> وفيه <span class="kbd">index.html</span> + <span class="kbd">assets/lesson.css</span> + <span class="kbd">assets/lesson.js</span> + <span class="kbd">worksheets/</span>.</li>
+              <li>أضف رابطًا من الصفحة الرئيسية إلى <span class="kbd">/lessons/perimeter-area/</span>.</li>
+              <li>عزل الأنماط والسكربتات عبر النطاقين <span class="kbd">.lesson-root</span> و<span class="kbd">.ap-scope</span> لمنع التعارض.</li>
+            </ol>
           </div>
         </details>
-
       </section>
 
       <button class="btn to-top" id="toTop">↑ أعلى</button>
