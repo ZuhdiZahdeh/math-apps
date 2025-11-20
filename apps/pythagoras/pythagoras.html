@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>درس محوسب: نظرية فيثاغورس</title>
+  <link rel="stylesheet" href="pythagoras.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>درس محوسب: نظرية فيثاغورس</h1>
+    <p class="subtitle">اكتشاف بصري، ربط بالمساحة، حل مسائل، تطبيقات حياتية، ولعبة تحدّي</p>
+  </header>
+
+  <main class="app-container">
+    <!-- تبويب رئيسي -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="tab-visual">1. مرحلة الاكتشاف البصري</button>
+      <button class="tab" data-tab="tab-area">2. ربط النظرية بالمساحة</button>
+      <button class="tab" data-tab="tab-steps">3. حل المسائل خطوة بخطوة</button>
+      <button class="tab" data-tab="tab-real">4. مسائل حياتية</button>
+      <button class="tab" data-tab="tab-challenge">5. لعبة التحدي</button>
+    </nav>
+
+    <!-- 1) الاكتشاف البصري -->
+    <section id="tab-visual" class="tab-panel active">
+      <h2>مرحلة 1: الاكتشاف البصري لنظرية فيثاغورس</h2>
+      <p class="section-intro">
+        غيّر طولي الضلعين القائمين في المثلث القائم، ولاحظ ماذا يحدث لمجموع مربعيهما مقارنة بمربّع الوتر.
+      </p>
+
+      <div class="panel-grid">
+        <!-- التحكم -->
+        <div class="panel-box">
+          <h3>اختيار أضلاع المثلث القائم</h3>
+
+          <div class="slider-group">
+            <label for="aSlider">
+              طول الضلع القائم الأول (<strong>a</strong>):
+            </label>
+            <div class="slider-row">
+              <input type="range" id="aSlider" min="1" max="20" value="3">
+              <span class="slider-value"><span id="aValue">3</span> وحدات</span>
+            </div>
+          </div>
+
+          <div class="slider-group">
+            <label for="bSlider">
+              طول الضلع القائم الثاني (<strong>b</strong>):
+            </label>
+            <div class="slider-row">
+              <input type="range" id="bSlider" min="1" max="20" value="4">
+              <span class="slider-value"><span id="bValue">4</span> وحدات</span>
+            </div>
+          </div>
+
+          <div class="result-block">
+            <h4>نتائج المثلث الحالي</h4>
+            <p>
+              طول الوتر (<strong>c</strong>) ≈
+              <span id="cValue">5</span> وحدات
+            </p>
+            <p class="formula-line">
+              <span>a² + b² = </span>
+              <span id="sumSquares">25</span>
+              <span> &nbsp; و &nbsp; c² = </span>
+              <span id="cSquare">25</span>
+            </p>
+            <p id="pythagorasStatus" class="status-ok">
+              ✅ مجموع مربعي الضلعين القائمين يساوي مربّع الوتر
+            </p>
+          </div>
+
+          <table class="mini-table">
+            <thead>
+              <tr>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>a²</th>
+                <th>b²</th>
+                <th>a² + b²</th>
+                <th>c²</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="tA">3</td>
+                <td id="tB">4</td>
+                <td id="tC">5</td>
+                <td id="tASq">9</td>
+                <td id="tBSq">16</td>
+                <td id="tSumSq">25</td>
+                <td id="tCSq">25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- الرسم -->
+        <div class="panel-box">
+          <h3>رسم المثلث القائم</h3>
+          <div class="triangle-wrapper">
+            <svg id="triangleSvg" viewBox="0 0 220 180" aria-label="مثلث قائم">
+              <!-- الأرض -->
+              <line x1="20" y1="150" x2="200" y2="150" class="ground"></line>
+              <!-- المثلث -->
+              <polygon id="triShape" class="triangle"
+                points="20,150 140,150 20,60"></polygon>
+              <!-- علامة الزاوية القائمة -->
+              <polyline id="rightAngleMarker" class="right-angle"
+                points="30,150 30,140 20,140"></polyline>
+              <!-- تسميات تقريبية -->
+              <text id="labelA" x="110" y="165" class="tri-label">a</text>
+              <text id="labelB" x="5" y="100" class="tri-label">b</text>
+              <text id="labelC" x="90" y="95" class="tri-label">c</text>
+            </svg>
+            <p class="hint">
+              المثلث المعروض هو مثلث قائم الزاوية، الضلعان الأفقي والعمودي هما الضلعان القائمان،
+              والضلع المائل هو الوتر.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) ربط النظرية بالمساحة -->
+    <section id="tab-area" class="tab-panel">
+      <h2>مرحلة 2: ربط النظرية بمساحات المربعات</h2>
+      <p class="section-intro">
+        المربعات التالية تمثّل المربّع المبني على كل ضلع من أضلاع المثلث القائم.
+        استخدم نفس القيم لـ a و b، ولاحظ أن:
+        مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
+      </p>
+
+      <div class="panel-grid">
+        <div class="panel-box">
+          <h3>المربعات على الأضلاع</h3>
+          <div class="area-squares">
+            <div class="area-square" id="squareA">
+              <div class="square-label">مربع على الضلع a</div>
+              <div class="square-visual"></div>
+              <div class="square-info">
+                طول الضلع a =
+                <span id="areaAValue">3</span> وحدات<br>
+                مساحة المربع =
+                <span id="areaASq">9</span> وحدة مساحة
+              </div>
+            </div>
+            <div class="area-square" id="squareB">
+              <div class="square-label">مربع على الضلع b</div>
+              <div class="square-visual"></div>
+              <div class="square-info">
+                طول الضلع b =
+                <span id="areaBValue">4</span> وحدات<br>
+                مساحة المربع =
+                <span id="areaBSq">16</span> وحدة مساحة
+              </div>
+            </div>
+            <div class="area-square highlight" id="squareC">
+              <div class="square-label">مربع على الوتر c</div>
+              <div class="square-visual"></div>
+              <div class="square-info">
+                طول الوتر c ≈
+                <span id="areaCValue">5</span> وحدات<br>
+                مساحة المربع ≈
+                <span id="areaCSq">25</span> وحدة مساحة
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <h3>شبكة وحدات المساحة</h3>
+          <p>
+            يمكنك عرض شبكة مربعات صغيرة داخل كل مربع، لتلاحظ أن عدد الوحدات في مربّع الوتر
+            يساوي مجموع عدد الوحدات في المربعين الآخرين.
+          </p>
+          <label class="toggle-label">
+            <input type="checkbox" id="gridToggle">
+            <span>إظهار شبكة الوحدات داخل المربعات</span>
+          </label>
+
+          <div class="area-summary">
+            <p>
+              مجموع مساحتي مربعي الضلعين القائمين:
+              <strong><span id="areaSumAB">25</span></strong> وحدة مساحة.
+            </p>
+            <p>
+              مساحة مربع الوتر:
+              <strong><span id="areaOnlyC">25</span></strong> وحدة مساحة.
+            </p>
+            <p class="status-ok">
+              ✅ إذن: مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) حل المسائل خطوة بخطوة -->
+    <section id="tab-steps" class="tab-panel">
+      <h2>مرحلة 3: حل المسائل خطوة بخطوة</h2>
+      <p class="section-intro">
+        اختر نوع المسألة، أدخل المعطيات، ثم شاهد الحل يظهر خطوة بخطوة بدلاً من النتيجة النهائية مباشرة.
+      </p>
+
+      <div class="panel-grid">
+        <div class="panel-box">
+          <h3>اختيار نوع المسألة وإدخال المعطيات</h3>
+
+          <div class="solve-mode">
+            <label>
+              <input type="radio" name="solveMode" value="hyp" checked>
+              أبحث عن الوتر (<strong>c</strong>) عندما أعرف الضلعين القائمين a و b
+            </label>
+            <label>
+              <input type="radio" name="solveMode" value="leg">
+              أبحث عن ضلع قائم مجهول عندما أعرف الضلع القائم الآخر والوتر
+            </label>
+          </div>
+
+          <div class="solve-inputs">
+            <div class="input-group">
+              <label for="solveA">
+                الضلع القائم الأول (<strong>a</strong>):
+              </label>
+              <input type="number" id="solveA" min="0" step="0.1" placeholder="مثال: 3">
+            </div>
+            <div class="input-group" id="solveBGroup">
+              <label for="solveB">
+                الضلع القائم الثاني (<strong>b</strong>):
+              </label>
+              <input type="number" id="solveB" min="0" step="0.1" placeholder="مثال: 4">
+            </div>
+            <div class="input-group" id="solveCGroup">
+              <label for="solveC">
+                الوتر (<strong>c</strong>):
+              </label>
+              <input type="number" id="solveC" min="0" step="0.1" placeholder="مثال: 5" disabled>
+            </div>
+          </div>
+
+          <div class="buttons-row">
+            <button id="startSteps" class="primary-btn">ابدأ عرض الخطوات</button>
+            <button id="resetSteps" class="secondary-btn">إعادة الضبط</button>
+          </div>
+
+          <p id="stepsError" class="error-msg"></p>
+        </div>
+
+        <div class="panel-box">
+          <h3>الخطوات التفصيلية للحل</h3>
+          <ol id="stepsList" class="steps-list">
+            <!-- الخطوات ستظهر هنا ديناميكيًا -->
+          </ol>
+          <div class="buttons-row steps-nav">
+            <button id="prevStep" class="secondary-btn" disabled>الخطوة السابقة</button>
+            <button id="nextStep" class="primary-btn" disabled>الخطوة التالية</button>
+          </div>
+          <p id="finalResult" class="final-result"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) مسائل حياتية -->
+    <section id="tab-real" class="tab-panel">
+      <h2>مرحلة 4: مسائل حياتية مصوّرة</h2>
+      <p class="section-intro">
+        اختر مسألة حياتية من القائمة، انظر إلى الرسم، ثم استخدم نظرية فيثاغورس لحساب الطول المجهول.
+      </p>
+
+      <div class="real-layout">
+        <div class="panel-box real-list">
+          <h3>اختر مسألة</h3>
+          <button class="real-problem-btn" data-problem="ladder">مسألة 1: السلم والجدار</button>
+          <button class="real-problem-btn" data-problem="yard">مسألة 2: ساحة المدرسة</button>
+          <button class="real-problem-btn" data-problem="tv">مسألة 3: شاشة التلفاز</button>
+          <button class="real-problem-btn" data-problem="rope">مسألة 4: عمود الإنارة والحبل</button>
+        </div>
+
+        <div class="panel-box real-content">
+          <div id="realSceneWrapper" class="real-scene-wrapper">
+            <!-- رسم: السلم والجدار -->
+            <div class="real-scene" id="scene-ladder">
+              <svg viewBox="0 0 240 160">
+                <!-- الأرض -->
+                <rect x="0" y="130" width="240" height="30" class="ground"></rect>
+                <!-- الجدار -->
+                <rect x="40" y="30" width="20" height="100" class="wall"></rect>
+                <!-- السلم -->
+                <line x1="40" y1="130" x2="160" y2="40" class="ladder"></line>
+              </svg>
+            </div>
+
+            <!-- رسم: ساحة المدرسة -->
+            <div class="real-scene" id="scene-yard">
+              <svg viewBox="0 0 240 160">
+                <rect x="40" y="40" width="150" height="100" class="yard"></rect>
+                <circle cx="40" cy="40" r="5" class="point"></circle>
+                <circle cx="190" cy="140" r="5" class="point"></circle>
+                <line x1="40" y1="40" x2="190" y2="140" class="diagonal"></line>
+              </svg>
+            </div>
+
+            <!-- رسم: شاشة التلفاز -->
+            <div class="real-scene" id="scene-tv">
+              <svg viewBox="0 0 240 160">
+                <rect x="40" y="40" width="160" height="100" class="tv-frame"></rect>
+                <line x1="40" y1="40" x2="200" y2="140" class="diagonal"></line>
+              </svg>
+            </div>
+
+            <!-- رسم: عمود الإنارة والحبل -->
+            <div class="real-scene" id="scene-rope">
+              <svg viewBox="0 0 240 160">
+                <rect x="40" y="40" width="15" height="90" class="pole"></rect>
+                <rect x="0" y="130" width="240" height="30" class="ground"></rect>
+                <circle cx="55" cy="40" r="4" class="point"></circle>
+                <circle cx="140" cy="130" r="4" class="point"></circle>
+                <line x1="55" y1="40" x2="140" y2="130" class="rope"></line>
+              </svg>
+            </div>
+          </div>
+
+          <div class="real-text">
+            <h3 id="realTitle">اختر مسألة من القائمة لعرضها هنا</h3>
+            <p id="realDescription" class="real-description">
+              بعد اختيار المسألة، سيظهر لك وصفها هنا مع الرسم المناسب.
+            </p>
+
+            <div class="real-input">
+              <label for="realAnswerInput">
+                إجابتك (طول الضلع المجهول بوحدة القياس المناسبة):
+              </label>
+              <input type="number" id="realAnswerInput" step="0.1">
+              <div class="buttons-row">
+                <button id="realCheckBtn" class="primary-btn">تحقق من الإجابة</button>
+                <button id="realShowSolution" class="secondary-btn">عرض الحل باختصار</button>
+              </div>
+              <p id="realFeedback" class="feedback"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) لعبة التحدي -->
+    <section id="tab-challenge" class="tab-panel">
+      <h2>مرحلة 5: لعبة التحدّي في نظرية فيثاغورس</h2>
+      <p class="section-intro">
+        أجب عن أكبر عدد ممكن من الأسئلة في نظرية فيثاغورس. كل سؤال إمّا عن إيجاد الوتر أو إيجاد ضلع قائم مجهول.
+      </p>
+
+      <div class="panel-box challenge-box">
+        <div class="challenge-stats">
+          <span>عدد الأسئلة المجاب عنها: <strong id="chTotal">0</strong></span>
+          <span>عدد الإجابات الصحيحة: <strong id="chCorrect">0</strong></span>
+        </div>
+
+        <div id="chQuestion" class="challenge-question">
+          اضغط على "سؤال جديد" للبدء.
+        </div>
+
+        <div class="challenge-input">
+          <label for="chAnswer">إجابتك:</label>
+          <input type="number" id="chAnswer" step="0.1">
+          <div class="buttons-row">
+            <button id="chSubmit" class="primary-btn">تحقق</button>
+            <button id="chNext" class="secondary-btn">سؤال جديد</button>
+          </div>
+        </div>
+
+        <p id="chFeedback" class="feedback"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>برنامج تعليمي تفاعلي لمساعدة طلاب الصف الثامن على فهم نظرية فيثاغورس.</p>
+  </footer>
+
+  <script src="pythagoras.js"></script>
+</body>
+</html>
