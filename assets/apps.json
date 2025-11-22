@@ -63,14 +63,14 @@
     "desc": "برهان قصّ/لصق بصري أن مجموع الزوايا = 180°."
   },
   {
-    "id": "pythagoras-tiles",
-    "title": "نظرية فيثاغورس بالبلاطات",
-    "grades": [8,9],
-    "tags": ["فيثاغورس", "هندسة"],
-    "path": "apps/pythagoras-tiles/index.html",
-    "thumb": "images/thumbs/placeholder.jpg",
-    "desc": "تصور بصري لـ a²+b²=c² بالبلاطات."
-  },
+  "id": "pythagoras",
+  "title": "شرح نظرية فيثاغورس – الصف الثامن",
+  "path": "apps/pythagoras/pythagoras.html",
+  "thumb": "images/thumbs/pythagoras.png",
+  "grades": [8],
+  "tags": ["هندسة", "نظرية فيثاغورس", "مثلثات"],
+  "desc": "درس محوسب تفاعلي لاكتشاف نظرية فيثاغورس بصريًا، وربطها بمساحات المربعات، مع مسائل حياتية ولعبة تحدّي."
+},
   {
     "id": "ratios-proportions",
     "title": "النِسَب و التناسب",
