@@ -76,6 +76,8 @@ function setupVisualStage() {
   const squareVisualC = document.querySelector("#squareC .square-visual");
 
   const gridToggle = document.getElementById("gridToggle");
+  const areaAnswersToggle = document.getElementById("areaAnswersToggle");
+  let showAreaAnswers = false; // افتراضيًا: نخفي قيم المساحات
 
   function updateAll() {
     const a = parseFloat(aSlider.value);
@@ -130,16 +132,25 @@ function setupVisualStage() {
       areaSumAB &&
       areaOnlyC
     ) {
+      // أطوال الأضلاع تعرض دائمًا
       areaAValue.textContent = a.toString();
       areaBValue.textContent = b.toString();
       areaCValue.textContent = roundTo(c, 3).toString();
 
-      areaASq.textContent = roundTo(a2, 3).toString();
-      areaBSq.textContent = roundTo(b2, 3).toString();
-      areaCSq.textContent = roundTo(c2, 3).toString();
-
-      areaSumAB.textContent = roundTo(sum, 3).toString();
-      areaOnlyC.textContent = roundTo(c2, 3).toString();
+      // قيم المساحات: إمّا أرقام أو مخفية برمز "؟"
+      if (showAreaAnswers) {
+        areaASq.textContent = roundTo(a2, 3).toString();
+        areaBSq.textContent = roundTo(b2, 3).toString();
+        areaCSq.textContent = roundTo(c2, 3).toString();
+        areaSumAB.textContent = roundTo(sum, 3).toString();
+        areaOnlyC.textContent = roundTo(c2, 3).toString();
+      } else {
+        areaASq.textContent = "؟";
+        areaBSq.textContent = "؟";
+        areaCSq.textContent = "؟";
+        areaSumAB.textContent = "؟";
+        areaOnlyC.textContent = "؟";
+      }
 
       // ضبط حجم المربعات تقريبياً بحسب أطوال الأضلاع
       const maxSide = Math.max(a, b, c);
@@ -169,7 +180,7 @@ function setupVisualStage() {
 
   // شبكة الوحدات
   if (gridToggle) {
-    gridToggle.addEventListener("change", () => {
+    const applyGrid = () => {
       const visuals = document.querySelectorAll(".square-visual");
       visuals.forEach((v) => {
         if (gridToggle.checked) {
@@ -178,6 +189,17 @@ function setupVisualStage() {
           v.classList.remove("show-grid");
         }
       });
+    };
+
+    gridToggle.addEventListener("change", applyGrid);
+    applyGrid(); // تطبيق الحالة الابتدائية
+  }
+
+  // إظهار/إخفاء قيم المساحات (للمعلم)
+  if (areaAnswersToggle) {
+    areaAnswersToggle.addEventListener("change", () => {
+      showAreaAnswers = areaAnswersToggle.checked;
+      updateAll();
     });
   }
 
@@ -733,4 +755,4 @@ function roundTo(num, decimals) {
 
 function isPositiveNumber(x) {
   return typeof x === "number" && !isNaN(x) && x > 0;
-  }
+}
