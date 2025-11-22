@@ -170,29 +170,37 @@
         </div>
 
         <div class="panel-box">
-          <h3>شبكة وحدات المساحة</h3>
-          <p>
-            يمكنك عرض شبكة مربعات صغيرة داخل كل مربع، لتلاحظ أن عدد الوحدات في مربّع الوتر
-            يساوي مجموع عدد الوحدات في المربعين الآخرين.
-          </p>
-          <label class="toggle-label">
-            <input type="checkbox" id="gridToggle">
-            <span>إظهار شبكة الوحدات داخل المربعات</span>
-          </label>
+<h3>شبكة وحدات المساحة</h3>
+<p>
+  يمكنك عرض شبكة مربعات صغيرة داخل كل مربع، لتلاحظ أن عدد الوحدات في مربّع الوتر
+  يساوي مجموع عدد الوحدات في المربعين الآخرين.
+</p>
+<label class="toggle-label">
+  <!-- نخليها مفعّلة افتراضيًا عشان الشبكة تظهر مباشرة -->
+  <input type="checkbox" id="gridToggle" checked>
+  <span>إظهار شبكة الوحدات داخل المربعات</span>
+</label>
 
-          <div class="area-summary">
-            <p>
-              مجموع مساحتي مربعي الضلعين القائمين:
-              <strong><span id="areaSumAB">25</span></strong> وحدة مساحة.
-            </p>
-            <p>
-              مساحة مربع الوتر:
-              <strong><span id="areaOnlyC">25</span></strong> وحدة مساحة.
-            </p>
-            <p class="status-ok">
-              ✅ إذن: مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
-            </p>
-          </div>
+<!-- زر جديد لإظهار/إخفاء الإجابات -->
+<label class="toggle-label">
+  <input type="checkbox" id="areaAnswersToggle">
+  <span>إظهار قيم المساحات (للمعلم)</span>
+</label>
+
+<div class="area-summary">
+  <p>
+    مجموع مساحتي مربعي الضلعين القائمين:
+    <strong><span id="areaSumAB">25</span></strong> وحدة مساحة.
+  </p>
+  <p>
+    مساحة مربع الوتر:
+    <strong><span id="areaOnlyC">25</span></strong> وحدة مساحة.
+  </p>
+  <p class="status-ok">
+    ✅ إذن: مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
+  </p>
+</div>
+
         </div>
       </div>
     </section>
