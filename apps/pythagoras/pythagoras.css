@@ -117,6 +117,21 @@ body {
   padding: 0.9rem 0.9rem 1rem;
   border: 1px solid #e5e7eb;
 }
+/* بطاقة خاصة برسم المثلث القائم */
+.panel-box-triangle {
+  background-color: #4a9ef1;
+  border-color: #1d4ed8;
+  color: #f9fafb;
+}
+
+/* لتضمن أن العنوان والنص داخل البطاقة واضحان على الخلفية الزرقاء */
+.panel-box-triangle h3 {
+  color: #f9fafb;
+}
+
+.panel-box-triangle .hint {
+  color: #e0f2fe;
+}
 
 .panel-box h3 {
   margin-top: 0;
