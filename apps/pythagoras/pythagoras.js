@@ -77,7 +77,9 @@ function setupVisualStage() {
 
   const gridToggle = document.getElementById("gridToggle");
   const areaAnswersToggle = document.getElementById("areaAnswersToggle");
-  let showAreaAnswers = false; // افتراضيًا: نخفي قيم المساحات
+  let showAreaAnswers = false; // إخفاء قيم المساحات افتراضيًا
+
+  const CELL_SIZE = 8; // حجم المربع الصغير (لعد الوحدات بسهولة)
 
   function updateAll() {
     const a = parseFloat(aSlider.value);
@@ -89,6 +91,7 @@ function setupVisualStage() {
     const c2 = c * c;
     const sum = a2 + b2;
 
+    // قيم a, b, c في مرحلة الاكتشاف
     aValueSpan.textContent = a.toString();
     bValueSpan.textContent = b.toString();
     cValueSpan.textContent = roundTo(c, 3).toString();
@@ -96,7 +99,7 @@ function setupVisualStage() {
     sumSquaresSpan.textContent = roundTo(sum, 3).toString();
     cSquareSpan.textContent = roundTo(c2, 3).toString();
 
-    // حالة فيثاغورس
+    // حالة تحقق نظرية فيثاغورس
     if (Math.abs(sum - c2) < 1e-6) {
       statusP.textContent =
         "✅ مجموع مربعي الضلعين القائمين يساوي مربّع الوتر (ينطبق عليه نظرية فيثاغورس)";
@@ -121,7 +124,7 @@ function setupVisualStage() {
     // تحديث رسم المثلث
     updateTriangleDrawing(triShape, rightAngleMarker, labelA, labelB, labelC, a, b);
 
-    // تحديث مربعات المساحة
+    // تحديث مربعات المساحة (مرحلة 2)
     if (
       areaAValue &&
       areaBValue &&
@@ -132,12 +135,12 @@ function setupVisualStage() {
       areaSumAB &&
       areaOnlyC
     ) {
-      // أطوال الأضلاع تعرض دائمًا
+      // أطوال الأضلاع تظهر دائمًا
       areaAValue.textContent = a.toString();
       areaBValue.textContent = b.toString();
       areaCValue.textContent = roundTo(c, 3).toString();
 
-      // قيم المساحات: إمّا أرقام أو مخفية برمز "؟"
+      // قيم المساحات: إمّا أرقام أو "؟" حسب زر المعلم
       if (showAreaAnswers) {
         areaASq.textContent = roundTo(a2, 3).toString();
         areaBSq.textContent = roundTo(b2, 3).toString();
@@ -152,25 +155,28 @@ function setupVisualStage() {
         areaOnlyC.textContent = "؟";
       }
 
-      // ضبط حجم المربعات تقريبياً بحسب أطوال الأضلاع
-      const maxSide = Math.max(a, b, c);
-      const base = 90; // حجم تقريبي
-      const scale = maxSide > 0 ? base / maxSide : 1;
+      // جعل الشبكة تعبّر عن طول الضلع (عدد الخلايا في كل اتجاه ≈ طول الضلع)
+      const aCells = Math.max(1, Math.round(a));
+      const bCells = Math.max(1, Math.round(b));
+      const cCells = Math.max(1, Math.round(c)); // الوتر غالبًا غير صحيح، نقرّبه
 
       if (squareVisualA) {
-        const sizeA = Math.max(20, a * scale);
+        const sizeA = aCells * CELL_SIZE;
         squareVisualA.style.width = sizeA + "px";
         squareVisualA.style.height = sizeA + "px";
+        squareVisualA.style.backgroundSize = `${CELL_SIZE}px ${CELL_SIZE}px`;
       }
       if (squareVisualB) {
-        const sizeB = Math.max(20, b * scale);
+        const sizeB = bCells * CELL_SIZE;
         squareVisualB.style.width = sizeB + "px";
         squareVisualB.style.height = sizeB + "px";
+        squareVisualB.style.backgroundSize = `${CELL_SIZE}px ${CELL_SIZE}px`;
       }
       if (squareVisualC) {
-        const sizeC = Math.max(20, c * scale);
+        const sizeC = cCells * CELL_SIZE;
         squareVisualC.style.width = sizeC + "px";
         squareVisualC.style.height = sizeC + "px";
+        squareVisualC.style.backgroundSize = `${CELL_SIZE}px ${CELL_SIZE}px`;
       }
     }
   }
@@ -178,7 +184,7 @@ function setupVisualStage() {
   aSlider.addEventListener("input", updateAll);
   bSlider.addEventListener("input", updateAll);
 
-  // شبكة الوحدات
+  // شبكة الوحدات داخل المربعات
   if (gridToggle) {
     const applyGrid = () => {
       const visuals = document.querySelectorAll(".square-visual");
@@ -195,7 +201,7 @@ function setupVisualStage() {
     applyGrid(); // تطبيق الحالة الابتدائية
   }
 
-  // إظهار/إخفاء قيم المساحات (للمعلم)
+  // زر إظهار/إخفاء قيم المساحات (للمعلم)
   if (areaAnswersToggle) {
     areaAnswersToggle.addEventListener("change", () => {
       showAreaAnswers = areaAnswersToggle.checked;
