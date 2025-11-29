@@ -29,7 +29,7 @@
       </p>
 
       <div class="panel-grid">
-        <!-- التحكم -->
+        <!-- التحكم + الجدول المصغّر + جدول التجربة -->
         <div class="panel-box">
           <h3>اختيار أضلاع المثلث القائم</h3>
 
@@ -94,12 +94,42 @@
               </tr>
             </tbody>
           </table>
+
+          <!-- جدول تجربة العالم فيثاغورس -->
+          <div class="exp-table-wrapper">
+            <h3>جدول تجربة فيثاغورس للمثلثات القائمة</h3>
+            <p class="exp-intro">
+              في كل صف يظهر مثلث قائم جديد. استخدم قيم الأضلاع <strong>a</strong> و
+              <strong>b</strong> و <strong>c</strong> لحساب مربّعاتها، ثم اكتب النتائج
+              في الجدول واضغط زر <strong>فحص</strong>. عندما يكون الصف صحيحًا بالكامل
+              تظهر علامة ✓ خضراء ويتم تفعيل الصف التالي.
+            </p>
+
+            <table id="pyExpTable" class="exp-table">
+              <thead>
+                <tr>
+                  <th>رقم المثلث</th>
+                  <th>a</th>
+                  <th>b</th>
+                  <th>c</th>
+                  <th>a²</th>
+                  <th>b²</th>
+                  <th class="exp-col-sum">a² + b²</th>
+                  <th class="exp-col-c">c²</th>
+                  <th>النتيجة</th>
+                </tr>
+              </thead>
+              <tbody id="pyExpBody">
+                <!-- الصفوف تضاف ديناميكياً عبر JavaScript -->
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- الرسم -->
         <div class="panel-box panel-box-triangle">
-        <h3>رسم المثلث القائم</h3>
-        <div class="triangle-wrapper">
+          <h3>رسم المثلث القائم</h3>
+          <div class="triangle-wrapper">
             <svg id="triangleSvg" viewBox="0 0 220 180" aria-label="مثلث قائم">
               <!-- الأرض -->
               <line x1="20" y1="150" x2="200" y2="150" class="ground"></line>
@@ -132,7 +162,7 @@
         مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
       </p>
 
-      <div class="panel-grid">
+      <div class="panel-grid" id="tab-area-grid">
         <div class="panel-box">
           <h3>المربعات على الأضلاع</h3>
           <div class="area-squares">
@@ -170,37 +200,34 @@
         </div>
 
         <div class="panel-box">
-<h3>شبكة وحدات المساحة</h3>
-<p>
-  يمكنك عرض شبكة مربعات صغيرة داخل كل مربع، لتلاحظ أن عدد الوحدات في مربّع الوتر
-  يساوي مجموع عدد الوحدات في المربعين الآخرين.
-</p>
-<label class="toggle-label">
-  <!-- نخليها مفعّلة افتراضيًا عشان الشبكة تظهر مباشرة -->
-  <input type="checkbox" id="gridToggle" checked>
-  <span>إظهار شبكة الوحدات داخل المربعات</span>
-</label>
+          <h3>شبكة وحدات المساحة</h3>
+          <p>
+            يمكنك عرض شبكة مربعات صغيرة داخل كل مربع، لتلاحظ أن عدد الوحدات في مربّع الوتر
+            يساوي مجموع عدد الوحدات في المربعين الآخرين.
+          </p>
+          <label class="toggle-label">
+            <input type="checkbox" id="gridToggle" checked>
+            <span>إظهار شبكة الوحدات داخل المربعات</span>
+          </label>
 
-<!-- زر جديد لإظهار/إخفاء الإجابات -->
-<label class="toggle-label">
-  <input type="checkbox" id="areaAnswersToggle">
-  <span>إظهار قيم المساحات (للمعلم)</span>
-</label>
+          <label class="toggle-label">
+            <input type="checkbox" id="areaAnswersToggle">
+            <span>إظهار قيم المساحات (للمعلم)</span>
+          </label>
 
-<div class="area-summary">
-  <p>
-    مجموع مساحتي مربعي الضلعين القائمين:
-    <strong><span id="areaSumAB">25</span></strong> وحدة مساحة.
-  </p>
-  <p>
-    مساحة مربع الوتر:
-    <strong><span id="areaOnlyC">25</span></strong> وحدة مساحة.
-  </p>
-  <p class="status-ok">
-    ✅ إذن: مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
-  </p>
-</div>
-
+          <div class="area-summary">
+            <p>
+              مجموع مساحتي مربعي الضلعين القائمين:
+              <strong><span id="areaSumAB">25</span></strong> وحدة مساحة.
+            </p>
+            <p>
+              مساحة مربع الوتر:
+              <strong><span id="areaOnlyC">25</span></strong> وحدة مساحة.
+            </p>
+            <p class="status-ok">
+              ✅ إذن: مساحة مربع الوتر = مجموع مساحتي مربعي الضلعين القائمين.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -291,11 +318,8 @@
             <!-- رسم: السلم والجدار -->
             <div class="real-scene" id="scene-ladder">
               <svg viewBox="0 0 240 160">
-                <!-- الأرض -->
                 <rect x="0" y="130" width="240" height="30" class="ground"></rect>
-                <!-- الجدار -->
                 <rect x="40" y="30" width="20" height="100" class="wall"></rect>
-                <!-- السلم -->
                 <line x1="40" y1="130" x2="160" y2="40" class="ladder"></line>
               </svg>
             </div>
