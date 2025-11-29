@@ -1,8 +1,9 @@
-// درس محوسب: نظرية فيثاغورس
+// درس محوسب: نظرية فيثاغورس :contentReference[oaicite:2]{index=2}
 
 document.addEventListener("DOMContentLoaded", () => {
   setupTabs();
   setupVisualStage();
+  setupExperimentTable(); // ← مرحلة جدول التجربة
   setupStepSolver();
   setupRealProblems();
   setupChallengeGame();
@@ -263,6 +264,166 @@ function updateTriangleDrawing(
 }
 
 /* =========================
+   2.5) جدول تجربة فيثاغورس
+   ========================= */
+function setupExperimentTable() {
+  const tbody = document.getElementById("pyExpBody");
+  if (!tbody) return;
+
+  // بيانات المثلثات التجريبية (مثلثات قائمة بالأعداد الصحيحة)
+  const experiments = [
+    { a: 3, b: 4, c: 5 },
+    { a: 6, b: 8, c: 10 },
+    { a: 5, b: 12, c: 13 },
+    { a: 8, b: 15, c: 17 },
+  ];
+
+  experiments.forEach((tri, index) => {
+    const tr = document.createElement("tr");
+    tr.dataset.index = index.toString();
+    if (index > 0) {
+      tr.classList.add("exp-row-locked");
+    }
+
+    // رقم المثلث
+    const tdIndex = document.createElement("td");
+    tdIndex.textContent = (index + 1).toString();
+    tr.appendChild(tdIndex);
+
+    // a, b, c (ثابتة)
+    function makeSideCell(value, sideClass) {
+      const td = document.createElement("td");
+      const span = document.createElement("span");
+      span.className = sideClass;
+      span.textContent = value.toString();
+      td.appendChild(span);
+      return td;
+    }
+
+    tr.appendChild(makeSideCell(tri.a, "exp-side-a"));
+    tr.appendChild(makeSideCell(tri.b, "exp-side-b"));
+    tr.appendChild(makeSideCell(tri.c, "exp-side-c"));
+
+    // حقول الإدخال: a², b², a²+b², c²
+    function makeInput(className) {
+      const input = document.createElement("input");
+      input.type = "number";
+      input.className = "exp-input " + className;
+      input.inputMode = "numeric";
+      return input;
+    }
+
+    const inputA2 = makeInput("exp-a2");
+    const inputB2 = makeInput("exp-b2");
+    const inputSum = makeInput("exp-sum");
+    const inputC2 = makeInput("exp-c2");
+
+    const tdA2 = document.createElement("td");
+    tdA2.appendChild(inputA2);
+    tr.appendChild(tdA2);
+
+    const tdB2 = document.createElement("td");
+    tdB2.appendChild(inputB2);
+    tr.appendChild(tdB2);
+
+    const tdSum = document.createElement("td");
+    tdSum.classList.add("exp-col-sum");
+    tdSum.appendChild(inputSum);
+    tr.appendChild(tdSum);
+
+    const tdC2 = document.createElement("td");
+    tdC2.classList.add("exp-col-c");
+    tdC2.appendChild(inputC2);
+    tr.appendChild(tdC2);
+
+    // عمود النتيجة (زر + صح)
+    const tdStatus = document.createElement("td");
+    tdStatus.className = "exp-status-cell";
+
+    const checkBtn = document.createElement("button");
+    checkBtn.type = "button";
+    checkBtn.textContent = "فحص";
+    checkBtn.className = "exp-check-btn";
+
+    const checkMark = document.createElement("span");
+    checkMark.textContent = "✅";
+    checkMark.className = "exp-check-mark";
+    checkMark.style.display = "none";
+
+    tdStatus.appendChild(checkBtn);
+    tdStatus.appendChild(checkMark);
+    tr.appendChild(tdStatus);
+
+    // تعطيل الصفوف التالية في البداية
+    if (index > 0) {
+      Array.from(tr.querySelectorAll("input, button")).forEach((el) => {
+        el.disabled = true;
+      });
+    } else {
+      tr.classList.add("exp-row-active");
+    }
+
+    // حدث الفحص
+    checkBtn.addEventListener("click", () => {
+      const a2Expected = tri.a * tri.a;
+      const b2Expected = tri.b * tri.b;
+      const sumExpected = a2Expected + b2Expected;
+      const c2Expected = tri.c * tri.c;
+
+      const a2Val = Number(inputA2.value);
+      const b2Val = Number(inputB2.value);
+      const sumVal = Number(inputSum.value);
+      const c2Val = Number(inputC2.value);
+
+      [inputA2, inputB2, inputSum, inputC2].forEach((inp) => {
+        inp.classList.remove("exp-input-wrong");
+      });
+
+      function isCorrect(expected, actual) {
+        if (!isFinite(actual)) return false;
+        return Math.abs(actual - expected) < 1e-6;
+      }
+
+      const okA2 = isCorrect(a2Expected, a2Val);
+      const okB2 = isCorrect(b2Expected, b2Val);
+      const okSum = isCorrect(sumExpected, sumVal);
+      const okC2 = isCorrect(c2Expected, c2Val);
+
+      if (okA2 && okB2 && okSum && okC2) {
+        // الصف صحيح
+        tr.classList.add("exp-row-correct");
+        checkMark.style.display = "inline";
+        checkBtn.disabled = true;
+        Array.from(tr.querySelectorAll("input")).forEach((inp) => {
+          inp.disabled = true;
+        });
+
+        // تفعيل الصف التالي إن وجد
+        const nextIndex = index + 1;
+        const nextRow = tbody.querySelector(`tr[data-index="${nextIndex}"]`);
+        if (nextRow) {
+          nextRow.classList.remove("exp-row-locked");
+          nextRow.classList.add("exp-row-active");
+          Array.from(nextRow.querySelectorAll("input, button")).forEach(
+            (el) => {
+              el.disabled = false;
+            }
+          );
+        }
+      } else {
+        // تلوين الحقول الخاطئة
+        if (!okA2) inputA2.classList.add("exp-input-wrong");
+        if (!okB2) inputB2.classList.add("exp-input-wrong");
+        if (!okSum) inputSum.classList.add("exp-input-wrong");
+        if (!okC2) inputC2.classList.add("exp-input-wrong");
+      }
+    });
+
+    tbody.appendChild(tr);
+  });
+}
+
+/* =========================
    3) حل المسائل خطوة بخطوة
    ========================= */
 function setupStepSolver() {
@@ -305,12 +466,26 @@ function setupStepSolver() {
   modeRadios.forEach((radio) => {
     radio.addEventListener("change", () => {
       currentMode = radio.value;
-      updateSolveInputsForMode(currentMode, solveA, solveB, solveC, solveBGroup, solveCGroup);
+      updateSolveInputsForMode(
+        currentMode,
+        solveA,
+        solveB,
+        solveC,
+        solveBGroup,
+        solveCGroup
+      );
       clearSteps();
     });
   });
 
-  updateSolveInputsForMode(currentMode, solveA, solveB, solveC, solveBGroup, solveCGroup);
+  updateSolveInputsForMode(
+    currentMode,
+    solveA,
+    solveB,
+    solveC,
+    solveBGroup,
+    solveCGroup
+  );
 
   startBtn.addEventListener("click", () => {
     clearSteps();
@@ -331,7 +506,8 @@ function setupStepSolver() {
       const a = parseFloat(solveA.value);
       const c = parseFloat(solveC.value);
       if (!isPositiveNumber(a) || !isPositiveNumber(c)) {
-        errorP.textContent = "الرجاء إدخال قيم موجبة للوتر c وللضلع القائم a.";
+        errorP.textContent =
+          "الرجاء إدخال قيم موجبة للوتر c وللضلع القائم a.";
         return;
       }
       if (c <= a) {
@@ -397,7 +573,11 @@ function setupStepSolver() {
 
     const last = steps[steps.length - 1];
     if (currentIndex === steps.length - 1 && last && last.result != null) {
-      finalResultP.textContent = "النتيجة النهائية: " + last.label + " ≈ " + roundTo(last.result, 3);
+      finalResultP.textContent =
+        "النتيجة النهائية: " +
+        last.label +
+        " ≈ " +
+        roundTo(last.result, 3);
     }
   });
 
@@ -425,7 +605,14 @@ function setupStepSolver() {
   }
 }
 
-function updateSolveInputsForMode(mode, solveA, solveB, solveC, solveBGroup, solveCGroup) {
+function updateSolveInputsForMode(
+  mode,
+  solveA,
+  solveB,
+  solveC,
+  solveBGroup,
+  solveCGroup
+) {
   if (!solveA || !solveB || !solveC) return;
   if (mode === "hyp") {
     // إيجاد الوتر: نستخدم a و b، ونترك c للحل
@@ -469,13 +656,22 @@ function buildStepsForHypotenuse(a, b) {
       text: `٣) نعوض: ${a}² + ${b}² = c².`,
     },
     {
-      text: `٤) نحسب مربعي الضلعين: ${a}² = ${roundTo(a2, 3)} ، و ${b}² = ${roundTo(b2, 3)}.`,
+      text: `٤) نحسب مربعي الضلعين: ${a}² = ${roundTo(a2, 3)} ، و ${b}² = ${roundTo(
+        b2,
+        3
+      )}.`,
     },
     {
-      text: `٥) نجمع: a² + b² = ${roundTo(a2, 3)} + ${roundTo(b2, 3)} = ${roundTo(sum, 3)} = c².`,
+      text: `٥) نجمع: a² + b² = ${roundTo(a2, 3)} + ${roundTo(
+        b2,
+        3
+      )} = ${roundTo(sum, 3)} = c².`,
     },
     {
-      text: `٦) نأخذ الجذر التربيعي للطرفين: c = √${roundTo(sum, 3)} ≈ ${roundTo(c, 3)}.`,
+      text: `٦) نأخذ الجذر التربيعي للطرفين: c = √${roundTo(
+        sum,
+        3
+      )} ≈ ${roundTo(c, 3)}.`,
       result: c,
       label: "طول الوتر c",
     },
@@ -499,13 +695,22 @@ function buildStepsForLeg(a, c) {
       text: `٣) نعوض: ${a}² + b² = ${c}².`,
     },
     {
-      text: `٤) نحسب مربعي الأضلاع المعروفة: ${a}² = ${roundTo(a2, 3)} ، و ${c}² = ${roundTo(c2, 3)}.`,
+      text: `٤) نحسب مربعي الأضلاع المعروفة: ${a}² = ${roundTo(
+        a2,
+        3
+      )} ، و ${c}² = ${roundTo(c2, 3)}.`,
     },
     {
-      text: `٥) ننقل a² إلى الطرف الآخر: b² = c² - a² = ${roundTo(c2, 3)} - ${roundTo(a2, 3)} = ${roundTo(diff, 3)}.`,
+      text: `٥) ننقل a² إلى الطرف الآخر: b² = c² - a² = ${roundTo(
+        c2,
+        3
+      )} - ${roundTo(a2, 3)} = ${roundTo(diff, 3)}.`,
     },
     {
-      text: `٦) نأخذ الجذر التربيعي للطرفين: b = √${roundTo(diff, 3)} ≈ ${roundTo(b, 3)}.`,
+      text: `٦) نأخذ الجذر التربيعي للطرفين: b = √${roundTo(
+        diff,
+        3
+      )} ≈ ${roundTo(b, 3)}.`,
       result: b,
       label: "طول الضلع القائم b",
     },
@@ -598,19 +803,16 @@ function setupRealProblems() {
       const id = btn.getAttribute("data-problem");
       if (!id || !problems[id]) return;
 
-      // تفعيل الزر الحالي
       buttons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
       currentProblem = problems[id];
 
-      // عرض الرسم المناسب
       const scenes = sceneWrapper.querySelectorAll(".real-scene");
       scenes.forEach((s) => s.classList.remove("active"));
       const scene = document.getElementById(currentProblem.sceneId);
       if (scene) scene.classList.add("active");
 
-      // النص
       titleEl.textContent = currentProblem.title;
       descEl.textContent = currentProblem.description;
 
@@ -688,7 +890,7 @@ function setupChallengeGame() {
 
   let total = 0;
   let correct = 0;
-  let currentQ = null; // { text, answer, tolerance }
+  let currentQ = null;
 
   function newQuestion() {
     chFeedback.textContent = "";
@@ -703,7 +905,6 @@ function setupChallengeGame() {
       text = `في مثلث قائم الزاوية، طول الضلعين القائمين: a = ${triple.a} ، b = ${triple.b}. احسب طول الوتر c.`;
       answer = triple.c;
     } else {
-      // نختار أن يكون الضلع المعلوم هو a
       text = `في مثلث قائم الزاوية، طول الضلع القائم a = ${triple.a} ، وطول الوتر c = ${triple.c}. احسب طول الضلع القائم الآخر b.`;
       answer = triple.b;
     }
@@ -753,7 +954,6 @@ function setupChallengeGame() {
 /* =========================
    دوال مساعدة عامة
    ========================= */
-
 function roundTo(num, decimals) {
   const factor = Math.pow(10, decimals || 0);
   return Math.round(num * factor) / factor;
