@@ -1,16 +1,17 @@
 // بيانات المثلثات: نقاط في نظام إحداثيات 0–100 مع نوع المثلث
-// حرصت أن تكون كلّها "واضحة" من حيث النوع (بدون التباس)
+// تم التأكد أن المثلثات المنفرجة فعلاً منفرجة الزاوية
+
 const TRIANGLES = [
   // Right triangles (قائمة الزاوية)
   {
     id: 1,
     type: "right",
-    points: "10,85 10,20 80,85", // زاوية قائمة عند النقطة (10,85)
+    points: "10,85 10,20 80,85", // زاوية قائمة عند (10,85)
   },
   {
     id: 2,
     type: "right",
-    points: "20,90 80,90 20,30",
+    points: "20,90 80,90 20,30", // زاوية قائمة عند (20,90)
   },
 
   // Isosceles (non-equilateral) – متساوي الساقين غير متساوي الأضلاع
@@ -25,7 +26,7 @@ const TRIANGLES = [
     points: "50,20 25,80 75,80",
   },
 
-  // Equilateral – متساوي الأضلاع
+  // Equilateral – متساوي الأضلاع (مقارب بصريًا لمتساوي الأضلاع)
   {
     id: 5,
     type: "equilateral",
@@ -37,16 +38,18 @@ const TRIANGLES = [
     points: "50,15 18,80 82,80",
   },
 
-  // Obtuse – منفرج الزاوية
+  // Obtuse – منفرج الزاوية  (أكبر زاوية > 90°)
+  // مثلث 1 منفرج: قاعدة طويلة جدًا وقمّة منخفضة
   {
     id: 7,
     type: "obtuse",
-    points: "15,85 85,85 70,25",
+    points: "10,90 90,90 50,60",
   },
+  // مثلث 2 منفرج: شكل رفيع كما في الصورة التي أرسلتها
   {
     id: 8,
     type: "obtuse",
-    points: "20,80 80,80 65,30",
+    points: "5,85 60,85 95,40",
   },
 ];
 
@@ -64,7 +67,8 @@ function pickRandomTriangle() {
   // لا نختار نفس المثلث مرتين متتاليتين إن أمكن
   let candidate;
   do {
-    candidate = TRIANGLES[Math.floor(Math.random() * TRIANGLES.length)];
+    candidate =
+      TRIANGLES[Math.floor(Math.random() * TRIANGLES.length)];
   } while (currentTriangle && candidate.id === currentTriangle.id);
   currentTriangle = candidate;
 }
@@ -72,7 +76,10 @@ function pickRandomTriangle() {
 function renderTriangle() {
   if (!currentTriangle) return;
   svg.innerHTML = ""; // تنظيف
-  const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+  const polygon = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "polygon"
+  );
   polygon.setAttribute("points", currentTriangle.points);
   polygon.setAttribute("class", "triangle-shape");
   svg.appendChild(polygon);
