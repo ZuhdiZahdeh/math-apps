@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لعبة: ما نوع هذا المثلث؟</title>
+  <link rel="stylesheet" href="triangle-quiz.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>لعبة: ما نوع هذا المثلث؟</h1>
+      <p class="subtitle">
+        انظر إلى الرسم ثم اختر الإجابة الصحيحة من بين الأنواع الأربعة.
+      </p>
+    </header>
+
+    <main>
+      <!-- منطقة الرسم -->
+      <section class="canvas-wrapper" aria-label="رسم المثلث">
+        <svg id="triangleCanvas" viewBox="0 0 100 100"></svg>
+      </section>
+
+      <!-- منطقة الاختيارات -->
+      <section class="controls">
+        <p class="question">ما نوع هذا المثلث؟</p>
+
+        <div class="options">
+          <button class="option-btn" data-type="right">
+            مثلث قائم الزاوية
+          </button>
+          <button class="option-btn" data-type="isosceles">
+            مثلث متساوي الساقين
+          </button>
+          <button class="option-btn" data-type="equilateral">
+            مثلث متساوي الأضلاع
+          </button>
+          <button class="option-btn" data-type="obtuse">
+            مثلث منفرج الزاوية
+          </button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+        <div id="score" class="score"></div>
+
+        <button id="nextBtn" class="next-btn">
+          مثلث جديد ⟳
+        </button>
+
+        <p class="hint">
+          <strong>تنبيه:</strong> إذا كان المثلث متساوي الأضلاع فاختر
+          <em>متساوي الأضلاع</em> (حتى لو كان أيضًا متساوي الساقين).
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        إعداد: أ. زهدي زاهدة – تطبيقات الرياضيات
+      </small>
+    </footer>
+  </div>
+
+  <script src="triangle-quiz.js"></script>
+</body>
+</html>
