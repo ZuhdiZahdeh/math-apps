@@ -725,6 +725,14 @@ body {
   font-size: 1.3rem;
 }
 
+/* إبراز أرقام عمودي a² + b² و c² في جدول التجربة */
+.exp-col-sum .exp-input,
+.exp-col-c .exp-input {
+  font-weight: 700;        /* غامق */
+  color: #111827;          /* لون غامق وواضح */
+  font-size: 1.02rem;      /* أكبر قليلاً من باقي الخلايا */
+}
+
 /* الصفوف المقفولة والصالحة */
 .exp-row-locked {
   opacity: 0.5;
