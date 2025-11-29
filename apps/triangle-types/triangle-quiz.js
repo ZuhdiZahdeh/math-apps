@@ -1,5 +1,5 @@
-// بيانات المثلثات: نقاط في نظام إحداثيات 0–100 مع نوع المثلث
-// تم التأكد أن المثلثات المنفرجة فعلاً منفرجة الزاوية
+// ================== بيانات المثلثات ==================
+// نقاط في نظام إحداثيات 0–100 مع نوع المثلث
 
 const TRIANGLES = [
   // Right triangles (قائمة الزاوية)
@@ -38,14 +38,14 @@ const TRIANGLES = [
     points: "50,15 18,80 82,80",
   },
 
-  // Obtuse – منفرج الزاوية  (أكبر زاوية > 90°)
-  // مثلث 1 منفرج: قاعدة طويلة جدًا وقمّة منخفضة
+  // Obtuse – منفرج الزاوية (أكبر زاوية > 90°)
+  // مثلث منفرج عريض
   {
     id: 7,
     type: "obtuse",
     points: "10,90 90,90 50,60",
   },
-  // مثلث 2 منفرج: شكل رفيع كما في الصورة التي أرسلتها
+  // مثلث منفرج رفيع كما في المثال الذي أرسلته
   {
     id: 8,
     type: "obtuse",
@@ -53,6 +53,44 @@ const TRIANGLES = [
   },
 ];
 
+// ================== إعداد الأصوات ==================
+// تأكد أن الملفات موجودة في:
+// apps/triangle-types/audio/success/...  و  apps/triangle-types/audio/fail/...
+
+const successSounds = [
+  new Audio("audio/success/success_toolMatch_a.mp3"),
+  new Audio("audio/success/success_toolMatch_b.mp3"),
+  new Audio("audio/success/success_toolMatch_c.mp3"),
+  new Audio("audio/success/success_toolMatch_d.mp3"),
+  new Audio("audio/success/success_toolMatch_e.mp3"),
+];
+
+const failSounds = [
+  new Audio("audio/fail/fail_toolMatch_a.mp3"),
+  new Audio("audio/fail/fail_toolMatch_b.mp3"),
+  new Audio("audio/fail/fail_toolMatch_c.mp3"),
+];
+
+function stopAllSounds() {
+  [...successSounds, ...failSounds].forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+}
+
+function playRandomSound(list) {
+  if (!list || list.length === 0) return;
+  stopAllSounds();
+  const index = Math.floor(Math.random() * list.length);
+  const audio = list[index];
+  // تشغيل الصوت بعد ضغطة المستخدم (مسموح في أغلب المتصفحات)
+  audio.currentTime = 0;
+  audio.play().catch(() => {
+    // في حال منعت المتصفح التشغيل التلقائي لا نفعل شيئًا
+  });
+}
+
+// ================== متغيّرات اللعبة ==================
 let currentTriangle = null;
 let score = 0;
 let questionsCount = 0;
@@ -63,8 +101,8 @@ const scoreEl = document.getElementById("score");
 const nextBtn = document.getElementById("nextBtn");
 const optionButtons = Array.from(document.querySelectorAll(".option-btn"));
 
+// اختيار مثلث عشوائي
 function pickRandomTriangle() {
-  // لا نختار نفس المثلث مرتين متتاليتين إن أمكن
   let candidate;
   do {
     candidate =
@@ -73,9 +111,10 @@ function pickRandomTriangle() {
   currentTriangle = candidate;
 }
 
+// رسم المثلث الحالي داخل الـ SVG
 function renderTriangle() {
   if (!currentTriangle) return;
-  svg.innerHTML = ""; // تنظيف
+  svg.innerHTML = "";
   const polygon = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "polygon"
@@ -85,10 +124,12 @@ function renderTriangle() {
   svg.appendChild(polygon);
 }
 
+// تحديث نتيجة اللاعب
 function updateScore() {
   scoreEl.textContent = `النتيجة: ${score} من ${questionsCount}`;
 }
 
+// إعادة تفعيل الأزرار وتصفير التغذية الراجعة
 function resetOptions() {
   optionButtons.forEach((btn) => {
     btn.disabled = false;
@@ -98,12 +139,14 @@ function resetOptions() {
   feedbackEl.className = "feedback";
 }
 
+// إظهار سؤال جديد
 function showNewQuestion() {
   pickRandomTriangle();
   renderTriangle();
   resetOptions();
 }
 
+// عند ضغط أحد أزرار الاختيارات
 function handleOptionClick(event) {
   const chosenType = event.currentTarget.dataset.type;
   if (!currentTriangle) return;
@@ -120,17 +163,20 @@ function handleOptionClick(event) {
     event.currentTarget.classList.add("correct");
     feedbackEl.textContent = "إجابة صحيحة ✅ أحسنت!";
     feedbackEl.classList.add("correct");
+    playRandomSound(successSounds);
   } else {
     event.currentTarget.classList.add("wrong");
     feedbackEl.textContent =
       "إجابة غير صحيحة ❌ النوع الصحيح هو: " +
       readableType(currentTriangle.type);
     feedbackEl.classList.add("wrong");
+    playRandomSound(failSounds);
   }
 
   updateScore();
 }
 
+// تحويل الكود النصّي لنوع المثلث إلى عربي جميل
 function readableType(type) {
   switch (type) {
     case "right":
