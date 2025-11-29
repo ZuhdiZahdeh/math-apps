@@ -75,22 +75,21 @@ const TRIANGLES = [
   },
 ];
 
-// ================== إعداد الأصوات ==================
-// تأكد أن الملفات موجودة في:
-// apps/triangle-types/audio/success/...  و  apps/triangle-types/audio/fail/...
+// ================== إعداد الأصوات المشتركة ==================
+// المسار النسبي من apps/triangle-types/ إلى apps/audio/...
 
 const successSounds = [
-  new Audio("audio/success/success_toolMatch_a.mp3"),
-  new Audio("audio/success/success_toolMatch_b.mp3"),
-  new Audio("audio/success/success_toolMatch_c.mp3"),
-  new Audio("audio/success/success_toolMatch_d.mp3"),
-  new Audio("audio/success/success_toolMatch_e.mp3"),
+  new Audio("../audio/success/success_toolMatch_a.mp3"),
+  new Audio("../audio/success/success_toolMatch_b.mp3"),
+  new Audio("../audio/success/success_toolMatch_c.mp3"),
+  new Audio("../audio/success/success_toolMatch_d.mp3"),
+  new Audio("../audio/success/success_toolMatch_e.mp3"),
 ];
 
 const failSounds = [
-  new Audio("audio/fail/fail_toolMatch_a.mp3"),
-  new Audio("audio/fail/fail_toolMatch_b.mp3"),
-  new Audio("audio/fail/fail_toolMatch_c.mp3"),
+  new Audio("../audio/fail/fail_toolMatch_a.mp3"),
+  new Audio("../audio/fail/fail_toolMatch_b.mp3"),
+  new Audio("../audio/fail/fail_toolMatch_c.mp3"),
 ];
 
 function stopAllSounds() {
