@@ -80,6 +80,15 @@
     "thumb": "images/thumbs/placeholder.jpg",
     "desc": "مسائل معدل/نسبة وتكبير/تصغير تفاعلي."
   },
+    {
+    "id": "triangle-types",
+    "title": "أنواع المثلثات – لعبة تصنيف",
+    "grades": [7, 8],
+    "tags": ["هندسة", "مثلثات", "تصنيف"],
+    "path": "apps/triangle-types/triangle-quiz.html",
+    "thumb": "images/thumbs/triangle-types.png",
+    "desc": "لعبة تفاعلية لتحديد نوع المثلث (قائم، متساوي الأضلاع، متساوي الساقين، منفرج الزاوية)."
+ },
   {
     "id": "circle-measures",
     "title": "قياسات الدائرة",
