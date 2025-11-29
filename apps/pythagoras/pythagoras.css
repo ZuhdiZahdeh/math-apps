@@ -1,4 +1,4 @@
-/* إعدادات عامة */
+/* إعدادات عامة */ :contentReference[oaicite:3]{index=3}
 *,
 *::before,
 *::after {
@@ -130,7 +130,6 @@ body {
   color: #f9fafb;
 }
 
-/* لتضمن أن العنوان والنص داخل البطاقة واضحان على الخلفية الزرقاء */
 .panel-box-triangle h3 {
   color: #f9fafb;
 }
@@ -283,7 +282,7 @@ body {
 }
 
 .square-visual {
-  width: 80px;   /* سيتم تعديلها ديناميكيًا من خلال JavaScript */
+  width: 80px;
   height: 80px;
   border-radius: 0.3rem;
   background-color: #bfdbfe;
@@ -613,4 +612,101 @@ body {
   font-size: 0.85rem;
   color: #6b7280;
   padding-bottom: 1rem;
+}
+
+/* ====== جدول تجربة فيثاغورس ====== */
+
+.exp-table-wrapper {
+  margin-top: 1.2rem;
+  background: #fdfdfd;
+  border-radius: 10px;
+  border: 1px solid #e0e5ff;
+  padding: 0.75rem 0.75rem 1rem;
+}
+
+.exp-intro {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 0.6rem;
+}
+
+.exp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.exp-table th,
+.exp-table td {
+  border: 1px solid #d0d7ff;
+  padding: 0.35rem 0.4rem;
+  text-align: center;
+}
+
+.exp-table thead {
+  background: #eef1ff;
+}
+
+/* لون مميز لعمود a² + b² */
+.exp-col-sum {
+  background: #fff7d6;
+}
+
+/* لون مميز لعمود c² */
+.exp-col-c {
+  background: #ffe0ec;
+}
+
+.exp-input {
+  width: 100%;
+  max-width: 70px;
+  text-align: center;
+  padding: 0.2rem 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #cfd7ff;
+  font-size: 0.85rem;
+}
+
+.exp-input:focus {
+  outline: none;
+  border-color: #4a6aff;
+  box-shadow: 0 0 0 2px rgba(74, 106, 255, 0.18);
+}
+
+.exp-input-wrong {
+  border-color: #e53935;
+  background: #ffebee;
+}
+
+.exp-status-cell {
+  white-space: nowrap;
+}
+
+.exp-check-btn {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  border: none;
+  background: #1f4fa3;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0.3rem;
+}
+
+.exp-check-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.exp-check-mark {
+  font-size: 1.1rem;
+}
+
+/* الصفوف المقفولة والصالحة */
+.exp-row-locked {
+  opacity: 0.5;
+}
+
+.exp-row-correct {
+  background: #e6f7e9;
 }
