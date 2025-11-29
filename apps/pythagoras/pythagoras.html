@@ -29,7 +29,7 @@
       </p>
 
       <div class="panel-grid">
-        <!-- التحكم + الجدول المصغّر + جدول التجربة -->
+        <!-- التحكم + الجدول المصغّر -->
         <div class="panel-box">
           <h3>اختيار أضلاع المثلث القائم</h3>
 
@@ -94,36 +94,6 @@
               </tr>
             </tbody>
           </table>
-
-          <!-- جدول تجربة العالم فيثاغورس -->
-          <div class="exp-table-wrapper">
-            <h3>جدول تجربة فيثاغورس للمثلثات القائمة</h3>
-            <p class="exp-intro">
-              في كل صف يظهر مثلث قائم جديد. استخدم قيم الأضلاع <strong>a</strong> و
-              <strong>b</strong> و <strong>c</strong> لحساب مربّعاتها، ثم اكتب النتائج
-              في الجدول واضغط زر <strong>فحص</strong>. عندما يكون الصف صحيحًا بالكامل
-              تظهر علامة ✓ خضراء ويتم تفعيل الصف التالي.
-            </p>
-
-            <table id="pyExpTable" class="exp-table">
-              <thead>
-                <tr>
-                  <th>رقم المثلث</th>
-                  <th>a</th>
-                  <th>b</th>
-                  <th>c</th>
-                  <th>a²</th>
-                  <th>b²</th>
-                  <th class="exp-col-sum">a² + b²</th>
-                  <th class="exp-col-c">c²</th>
-                  <th>النتيجة</th>
-                </tr>
-              </thead>
-              <tbody id="pyExpBody">
-                <!-- الصفوف تضاف ديناميكياً عبر JavaScript -->
-              </tbody>
-            </table>
-          </div>
         </div>
 
         <!-- الرسم -->
@@ -145,11 +115,44 @@
               <text id="labelC" x="90" y="95" class="tri-label">c</text>
             </svg>
             <p class="hint">
-              المثلث المعروض هو مثلث قائم الزاوية، الضلعان الأفقي والعمودي هما الضلعان القائمان،
+              المثلث المعروض هو مثلث قائم الزاوية، الضلعان الأفقي والعمودي هما الضلعان القائمين،
               والضلع المائل هو الوتر.
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- قسم مستقل: جدول تجربة فيثاغورس -->
+    <section id="tab-experiment" class="exp-section">
+      <div class="exp-table-wrapper exp-full">
+        <h2>جدول تجربة فيثاغورس للمثلثات القائمة</h2>
+        <p class="exp-intro">
+          في كل صف يظهر مثلث قائم جديد. استخدم قيم الأضلاع <strong>a</strong> و
+          <strong>b</strong> و <strong>c</strong> لحساب مربّعاتها، ثم اكتب النتائج
+          في الجدول واضغط زر <strong>فحص</strong>. عندما يكون الصف صحيحًا بالكامل
+          تظهر علامة ✓ خضراء ويتم تفعيل الصف التالي. في النهاية ستلاحظ أن
+          <strong>a² + b²</strong> يساوي دائمًا <strong>c²</strong>.
+        </p>
+
+        <table id="pyExpTable" class="exp-table">
+          <thead>
+            <tr>
+              <th>رقم المثلث</th>
+              <th>a</th>
+              <th>b</th>
+              <th>c</th>
+              <th>a²</th>
+              <th>b²</th>
+              <th class="exp-col-sum">a² + b²</th>
+              <th class="exp-col-c">c²</th>
+              <th>النتيجة</th>
+            </tr>
+          </thead>
+          <tbody id="pyExpBody">
+            <!-- الصفوف تضاف ديناميكياً عبر JavaScript -->
+          </tbody>
+        </table>
       </div>
     </section>
 
