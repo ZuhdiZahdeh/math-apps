@@ -138,42 +138,55 @@
     </section>
 
     <!-- تبويب: مسائل حياتية -->
-    <section id="balance-tab-word" class="balance-tab-panel">
-      <div class="balance-panel-header">
-        <h2>مسائل حياتية → معادلة</h2>
-        <p>اقرأ المسألة، فكّر في المتغيّر والمعادلة، ثم حلّها باستخدام الميزان.</p>
-      </div>
+<section id="balance-tab-word" class="balance-tab-panel">
+  <div class="balance-panel-header">
+    <h2>مسائل حياتية → معادلة</h2>
+    <p>اقرأ المسألة، فكّر في المتغيّر والمعادلة، ثم حلّها باستخدام الميزان.</p>
+  </div>
 
-      <div class="balance-row balance-row-wrap">
-        <label class="balance-field">
-          <span>اختر مسألة:</span>
-          <select id="balance-word-select" class="balance-select"></select>
-        </label>
-      </div>
+  <div class="balance-row balance-row-wrap">
+    <label class="balance-field">
+      <span>اختر مسألة:</span>
+      <select id="balance-word-select" class="balance-select"></select>
+    </label>
+  </div>
 
-      <article class="balance-word-problem">
-        <h3 id="balance-word-context"></h3>
-        <p id="balance-word-text"></p>
-      </article>
+  <article class="balance-word-problem">
+    <div class="balance-word-text">
+      <h3 id="balance-word-context"></h3>
+      <p id="balance-word-text"></p>
+    </div>
 
-      <div class="balance-row balance-row-wrap">
-        <button id="balance-word-equation-toggle-btn" class="balance-secondary-button">
-          إظهار / إخفاء المعادلة المقترحة
-        </button>
-        <button id="balance-word-solve-btn" class="balance-primary-button">
-          حلّ المعادلة باستخدام الميزان
-        </button>
-      </div>
+    <!-- ✅ مكان الصورة المعبرة عن المسألة الكلامية -->
+    <figure class="balance-word-figure">
+      <img
+        id="balance-word-image"
+        class="balance-word-image"
+        src=""
+        alt=""
+        loading="lazy"
+      />
+    </figure>
+  </article>
 
-      <div class="balance-equation-display">
-        <span>المعادلة المقترحة للمسألة:</span>
-        <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
-      </div>
+  <div class="balance-row balance-row-wrap">
+    <button id="balance-word-equation-toggle-btn" class="balance-secondary-button">
+      إظهار / إخفاء المعادلة المقترحة
+    </button>
+    <button id="balance-word-solve-btn" class="balance-primary-button">
+      حلّ المعادلة باستخدام الميزان
+    </button>
+  </div>
 
-      <p class="balance-hint">
-        جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
-      </p>
-    </section>
+  <div class="balance-equation-display">
+    <span>المعادلة المقترحة للمسألة:</span>
+    <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
+  </div>
+
+  <p class="balance-hint">
+    جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
+  </p>
+</section>
 
     <footer class="balance-footer">
       <p>تطبيق تجريبي لمفهوم الميزان وحل المعادلات الخطية.</p>
