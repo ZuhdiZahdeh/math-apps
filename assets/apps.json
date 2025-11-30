@@ -86,7 +86,7 @@
     "grades": [7, 8],
     "tags": ["هندسة", "مثلثات", "تصنيف"],
     "path": "apps/triangle-types/triangle-quiz.html",
-    "thumb": "images/thumbs/triangle-types.png",
+    "thumb": "images/thumbs/triangle-quiz.png",
     "desc": "لعبة تفاعلية لتحديد نوع المثلث (قائم، متساوي الأضلاع، متساوي الساقين، منفرج الزاوية)."
  },
   {
