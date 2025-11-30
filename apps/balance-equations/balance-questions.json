@@ -1,0 +1,80 @@
+{
+  "explore": [
+    {
+      "id": "e1",
+      "label": "x + 4 = 10",
+      "left": { "x": 1, "constant": 4 },
+      "right": { "x": 0, "constant": 10 },
+      "solution": 6
+    },
+    {
+      "id": "e2",
+      "label": "x - 3 = 5",
+      "left": { "x": 1, "constant": -3 },
+      "right": { "x": 0, "constant": 5 },
+      "solution": 8
+    },
+    {
+      "id": "e3",
+      "label": "x + 7 = 2",
+      "left": { "x": 1, "constant": 7 },
+      "right": { "x": 0, "constant": 2 },
+      "solution": -5
+    }
+  ],
+  "train": [
+    {
+      "id": "t1",
+      "label": "x + 4 = 10",
+      "left": { "x": 1, "constant": 4 },
+      "right": { "x": 0, "constant": 10 },
+      "solution": 6
+    },
+    {
+      "id": "t2",
+      "label": "x - 5 = 9",
+      "left": { "x": 1, "constant": -5 },
+      "right": { "x": 0, "constant": 9 },
+      "solution": 14
+    },
+    {
+      "id": "t3",
+      "label": "x + 2 = -3",
+      "left": { "x": 1, "constant": 2 },
+      "right": { "x": 0, "constant": -3 },
+      "solution": -5
+    }
+  ],
+  "word": [
+    {
+      "id": "w1",
+      "shortTitle": "مسألة مصروف الجيب",
+      "context": "مصروف الجيب",
+      "text": "كان مع سامي 4 شواقل، وبعد أن حصل على مبلغ من والده أصبح معه 10 شواقل. كم كان المبلغ الذي حصل عليه من والده؟",
+      "equation": "4 + x = 10",
+      "left": { "x": 1, "constant": 4 },
+      "right": { "x": 0, "constant": 10 },
+      "solution": 6
+    },
+    {
+      "id": "w2",
+      "shortTitle": "مسألة الحرارة",
+      "context": "درجة الحرارة",
+      "text": "كانت درجة الحرارة في الصباح 3 درجات مئوية. بعد الظهر ارتفعت درجة الحرارة بمقدار x درجات فأصبحت 9 درجات. ما قيمة x؟",
+      "equation": "3 + x = 9",
+      "left": { "x": 1, "constant": 3 },
+      "right": { "x": 0, "constant": 9 },
+      "solution": 6
+    },
+    {
+      "id": "w3",
+      "shortTitle": "مسألة علامات الامتحان",
+      "context": "علامات الامتحان",
+      "text": "حصلت مريم في امتحان الرياضيات على علامة أقل بـ 5 علامات من علامة أخيها. إذا كانت علامتها هي 83، وكانت علامة أخيها x، فاكتب معادلة تمثّل الوضع ثم أوجد قيمة x.",
+      "equation": "x - 5 = 83",
+      "left": { "x": 1, "constant": -5 },
+      "right": { "x": 0, "constant": 83 },
+      "solution": 88
+    }
+  ]
+}
