@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ميزان المعادلة – BalanceX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="balance-equations.css">
+</head>
+<body>
+  <main id="balance-app" class="balance-app">
+    <header class="balance-header">
+      <h1>ميزان المعادلة</h1>
+      <p class="balance-subtitle">
+        استكشف فكرة المساواة &quot;=&quot; كميزان، وتدرّب على إضافة النظير الجمعي للطرفين، وربط ذلك بالمسائل الحياتية.
+      </p>
+    </header>
+
+    <!-- التبويبات -->
+    <nav class="balance-tabs">
+      <button class="balance-tab-button active" data-tab="explore">١. استكشاف الميزان</button>
+      <button class="balance-tab-button" data-tab="train">٢. حل المعادلات</button>
+      <button class="balance-tab-button" data-tab="word">٣. مسائل حياتية</button>
+    </nav>
+
+    <!-- تبويب: استكشاف الميزان -->
+    <section id="balance-tab-explore" class="balance-tab-panel active">
+      <div class="balance-panel-header">
+        <h2>استكشاف الميزان</h2>
+        <p>اختر معادلة، ثم استخدم الأزرار لإجراء عمليات متساوية على كفتي الميزان.</p>
+      </div>
+
+      <div class="balance-row balance-row-wrap">
+        <label class="balance-field">
+          <span>اختر معادلة:</span>
+          <select id="balance-explore-equation-select" class="balance-select"></select>
+        </label>
+        <button id="balance-explore-random-btn" class="balance-secondary-button">
+          معادلة عشوائية
+        </button>
+        <button id="balance-explore-reset-btn" class="balance-secondary-button">
+          إعادة البداية
+        </button>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة الحالية:</span>
+        <span id="balance-explore-equation-display" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <div class="balance-balance-container">
+        <div id="balance-explore-balance" class="balance-scale"></div>
+      </div>
+
+      <div class="balance-ops-block">
+        <h3>عمليات سريعة</h3>
+        <div class="balance-row balance-row-wrap">
+          <button class="balance-op-button" data-op="add1">إضافة +1 للطرفين</button>
+          <button class="balance-op-button" data-op="sub1">طرح 1 من الطرفين</button>
+          <button class="balance-op-button" data-op="addx">إضافة x للطرفين</button>
+          <button class="balance-op-button" data-op="subx">طرح x من الطرفين</button>
+        </div>
+
+        <h3>إضافة عدد عام (النظير الجمعي)</h3>
+        <div class="balance-row balance-row-wrap">
+          <label class="balance-field">
+            <span>k:</span>
+            <input id="balance-explore-k-input" type="number" class="balance-input" placeholder="مثال: -4">
+          </label>
+          <button id="balance-explore-addk-btn" class="balance-primary-button">
+            إضافة k للطرفين (يمكن أن يكون سالبًا)
+          </button>
+        </div>
+        <p class="balance-hint">
+          تذكّر: إضافة نفس العدد للطرفين أو طرحه يعطي معادلة مكافئة دون تغيير الحل.
+        </p>
+      </div>
+
+      <div id="balance-explore-log" class="balance-log" aria-live="polite"></div>
+    </section>
+
+    <!-- تبويب: حل المعادلات -->
+    <section id="balance-tab-train" class="balance-tab-panel">
+      <div class="balance-panel-header">
+        <h2>حل المعادلات بالميزان</h2>
+        <p>اختَر معادلة وتدرّب على الوصول إلى الصورة البسيطة: <span dir="ltr">x = a</span>.</p>
+      </div>
+
+      <div class="balance-row balance-row-wrap">
+        <button id="balance-train-next-btn" class="balance-secondary-button">
+          مسألة جديدة
+        </button>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة الأصلية:</span>
+        <span id="balance-train-equation-label" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة بعد خطواتك:</span>
+        <span id="balance-train-equation-current" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <div class="balance-balance-container">
+        <div id="balance-train-balance" class="balance-scale"></div>
+      </div>
+
+      <div class="balance-ops-block">
+        <h3>أضِف أو اطرح نفس العدد من الطرفين</h3>
+        <div class="balance-row balance-row-wrap">
+          <button id="balance-train-add1-btn" class="balance-op-button">+1 للطرفين</button>
+          <button id="balance-train-sub1-btn" class="balance-op-button">-1 للطرفين</button>
+        </div>
+        <div class="balance-row balance-row-wrap">
+          <label class="balance-field">
+            <span>k:</span>
+            <input id="balance-train-k-input" type="number" class="balance-input" placeholder="مثال: -4 أو 3">
+          </label>
+          <button id="balance-train-addk-btn" class="balance-primary-button">
+            إضافة k للطرفين
+          </button>
+          <button id="balance-train-subk-btn" class="balance-secondary-button">
+            طرح k من الطرفين
+          </button>
+        </div>
+        <p class="balance-hint">
+          فكّر: ما النظير الجمعي الذي يجب إضافته للطرفين للتخلّص من العدد الموجود مع <span dir="ltr">x</span>؟
+        </p>
+      </div>
+
+      <div class="balance-row balance-row-wrap">
+        <button id="balance-train-check-btn" class="balance-primary-button" disabled>
+          فحص الحل بالتعويض
+        </button>
+      </div>
+
+      <div id="balance-train-log" class="balance-log" aria-live="polite"></div>
+    </section>
+
+    <!-- تبويب: مسائل حياتية -->
+    <section id="balance-tab-word" class="balance-tab-panel">
+      <div class="balance-panel-header">
+        <h2>مسائل حياتية → معادلة</h2>
+        <p>اقرأ المسألة، فكّر في المتغيّر والمعادلة، ثم حلّها باستخدام الميزان.</p>
+      </div>
+
+      <div class="balance-row balance-row-wrap">
+        <label class="balance-field">
+          <span>اختر مسألة:</span>
+          <select id="balance-word-select" class="balance-select"></select>
+        </label>
+      </div>
+
+      <article class="balance-word-problem">
+        <h3 id="balance-word-context"></h3>
+        <p id="balance-word-text"></p>
+      </article>
+
+      <div class="balance-row balance-row-wrap">
+        <button id="balance-word-equation-toggle-btn" class="balance-secondary-button">
+          إظهار / إخفاء المعادلة المقترحة
+        </button>
+        <button id="balance-word-solve-btn" class="balance-primary-button">
+          حلّ المعادلة باستخدام الميزان
+        </button>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة المقترحة للمسألة:</span>
+        <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <p class="balance-hint">
+        جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
+      </p>
+    </section>
+
+    <footer class="balance-footer">
+      <p>تطبيق تجريبي لمفهوم الميزان وحل المعادلات الخطية.</p>
+    </footer>
+  </main>
+
+  <script src="balance-equations.js" defer></script>
+</body>
+</html>
 
