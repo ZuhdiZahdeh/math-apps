@@ -72,13 +72,13 @@
     "desc": "برهان قصّ/لصق بصري أن مجموع الزوايا = 180°."
   },
   {
-  "id": "pythagoras",
-  "title": "شرح نظرية فيثاغورس – الصف الثامن",
-  "path": "apps/pythagoras/pythagoras.html",
-  "thumb": "images/thumbs/pythagoras.png",
-  "grades": [8],
-  "tags": ["هندسة", "نظرية فيثاغورس", "مثلثات"],
-  "desc": "درس محوسب تفاعلي لاكتشاف نظرية فيثاغورس بصريًا، وربطها بمساحات المربعات، مع مسائل حياتية ولعبة تحدّي."
+  "id": "balance-equations",
+  "title": "ميزان المعادلة – حل المعادلات الخطية",
+  "grades": [8, 9, 10],
+  "tags": ["جبر", "معادلات", "ميزان", "بجروت"],
+  "path": "apps/balance-equations/balance-equations.html",
+  "thumb": "images/thumbs/balance-equations.png",
+  "desc": "تطبيق ميزان تفاعلي لتمثيل المعادلات الخطية، يوضّح فكرة التوازن وإضافة النظير الجمعي للطرفين، مع ربطها بمسائل حياتية كما في منهاج البجروت."
 },
   {
     "id": "ratios-proportions",
