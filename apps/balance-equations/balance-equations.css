@@ -306,6 +306,39 @@ body {
   background: #f9fafb;
   padding: 0.8rem 0.9rem;
   margin: 0.75rem 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.balance-word-text {
+  flex: 2 1 220px;
+}
+
+.balance-word-figure {
+  flex: 1 1 160px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balance-word-image {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  display: none; /* نُظهرها من خلال JS عندما تكون هناك صورة */
+}
+
+/* في الشاشات الصغيرة: النص فوق الصورة */
+@media (max-width: 640px) {
+  .balance-word-problem {
+    flex-direction: column;
+  }
+
+  .balance-word-figure {
+    justify-content: flex-start;
+  }
 }
 
 .balance-word-problem h3 {
