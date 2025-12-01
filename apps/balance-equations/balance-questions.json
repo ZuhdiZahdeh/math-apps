@@ -54,7 +54,9 @@
       "equation": "4 + x = 10",
       "left": { "x": 1, "constant": 4 },
       "right": { "x": 0, "constant": 10 },
-      "solution": 6
+      "solution": 6,
+      "image": "images/balance-equations/w01-allowance.png",
+      "imageAlt": "طفل أمام طاولة عليها كومتان من العملات تمثلان 4 شواقل و10 شواقل مع الأب يعطيه المال"
     },
     {
       "id": "w2",
@@ -64,7 +66,9 @@
       "equation": "3 + x = 9",
       "left": { "x": 1, "constant": 3 },
       "right": { "x": 0, "constant": 9 },
-      "solution": 6
+      "solution": 6,
+      "image": "images/balance-equations/w02-temperature.png",
+      "imageAlt": "ميزان حرارة خارجي مع إشارة لدرجة الحرارة صباحًا 3 درجات ومساءً 9 درجات"
     },
     {
       "id": "w3",
@@ -74,7 +78,9 @@
       "equation": "x - 5 = 83",
       "left": { "x": 1, "constant": -5 },
       "right": { "x": 0, "constant": 83 },
-      "solution": 88
+      "solution": 88,
+      "image": "images/balance-equations/w03-exam-score.png",
+      "imageAlt": "طالبة تنظر إلى ورقة امتحان عليها 83 وبجانبها ورقة أخيها بعلامة أعلى"
     },
     {
       "id": "w4",
@@ -84,7 +90,9 @@
       "equation": "x - 150 = 50",
       "left": { "x": 1, "constant": -150 },
       "right": { "x": 0, "constant": 50 },
-      "solution": 200
+      "solution": 200,
+      "image": "images/balance-equations/w04-bricks.png",
+      "imageAlt": "عامل بناء يقف بجانب حائط طوب مع كومة طوب مستخدم وكومة طوب متبقية"
     },
     {
       "id": "w5",
@@ -94,7 +102,9 @@
       "equation": "x - 38 = 57",
       "left": { "x": 1, "constant": -38 },
       "right": { "x": 0, "constant": 57 },
-      "solution": 95
+      "solution": 95,
+      "image": "images/balance-equations/w05-milk-farm.png",
+      "imageAlt": "مزرعة ألبان مع بقرة وخزان حليب وبعض الحليب يُنقل إلى مصنع الجبنة"
     },
     {
       "id": "w6",
@@ -104,7 +114,9 @@
       "equation": "x - 25 = 55",
       "left": { "x": 1, "constant": -25 },
       "right": { "x": 0, "constant": 55 },
-      "solution": 80
+      "solution": 80,
+      "image": "images/balance-equations/w06-lemonade-profit.png",
+      "imageAlt": "كشك عصير ليمون مع صندوق إيجار ومبلغ ربح متبقٍ على الطاولة"
     },
     {
       "id": "w7",
@@ -114,7 +126,9 @@
       "equation": "x + 18 = 126",
       "left": { "x": 1, "constant": 18 },
       "right": { "x": 0, "constant": 126 },
-      "solution": 108
+      "solution": 108,
+      "image": "images/balance-equations/w07-jockey-weight.png",
+      "imageAlt": "فارس سباق يقف مع معدات السباق على ميزان رقمي يظهر الوزن الكلي"
     },
     {
       "id": "w8",
@@ -124,7 +138,9 @@
       "equation": "x + 4.99 = 39.99",
       "left": { "x": 1, "constant": 4.99 },
       "right": { "x": 0, "constant": 39.99 },
-      "solution": 35.0
+      "solution": 35.0,
+      "image": "images/balance-equations/w08-online-shopping-fee.png",
+      "imageAlt": "شاشة متجر إلكتروني تعرض سعر سلعة ورسوم خدمة ومجموع نهائي"
     },
     {
       "id": "w9",
@@ -134,7 +150,9 @@
       "equation": "x + 120 = 900",
       "left": { "x": 1, "constant": 120 },
       "right": { "x": 0, "constant": 900 },
-      "solution": 780
+      "solution": 780,
+      "image": "images/balance-equations/w09-aluminum-windows.png",
+      "imageAlt": "مصنع نوافذ ألومنيوم مع جزء من النوافذ مركبة وأخرى متبقية في المخزن"
     },
     {
       "id": "w10",
@@ -144,7 +162,9 @@
       "equation": "x - 9.99 = 36.00",
       "left": { "x": 1, "constant": -9.99 },
       "right": { "x": 0, "constant": 36.0 },
-      "solution": 45.99
+      "solution": 45.99,
+      "image": "images/balance-equations/w10-shoe-discount.png",
+      "imageAlt": "حذاء مع بطاقة سعر قديمة مشطوبة وسعر جديد بعد خصم 9.99 شيكل"
     },
     {
       "id": "w11",
@@ -154,7 +174,9 @@
       "equation": "x + 3 = 16",
       "left": { "x": 1, "constant": 3 },
       "right": { "x": 0, "constant": 16 },
-      "solution": 13
+      "solution": 13,
+      "image": "images/balance-equations/w11-square-side.png",
+      "imageAlt": "رسم هندسي لمربع يوضح زيادة طول الضلع بمقدار 3 أمتار ليصبح 16 مترًا"
     },
     {
       "id": "w12",
@@ -164,7 +186,9 @@
       "equation": "x - 7.50 = 924.65",
       "left": { "x": 1, "constant": -7.5 },
       "right": { "x": 0, "constant": 924.65 },
-      "solution": 932.15
+      "solution": 932.15,
+      "image": "images/balance-equations/w12-salary-deduction.png",
+      "imageAlt": "موظف يحمل كشف راتب يظهر فيه خصم الزي الرسمي 7.50 شيكل"
     },
     {
       "id": "w13",
@@ -174,7 +198,9 @@
       "equation": "x + 12 = 45",
       "left": { "x": 1, "constant": 12 },
       "right": { "x": 0, "constant": 45 },
-      "solution": 33
+      "solution": 33,
+      "image": "images/balance-equations/w13-truck-boxes.png",
+      "imageAlt": "شاحنة عند مصنع مع صناديق أفرغت وأخرى متبقية داخل الشاحنة"
     },
     {
       "id": "w14",
@@ -184,7 +210,9 @@
       "equation": "x - 10 = -5",
       "left": { "x": 1, "constant": -10 },
       "right": { "x": 0, "constant": -5 },
-      "solution": 5
+      "solution": 5,
+      "image": "images/balance-equations/w14-wind-chill.png",
+      "imageAlt": "لوحة طقس رقمية تعرض درجة الحرارة الفعلية ودرجة برودة الرياح"
     },
     {
       "id": "w15",
@@ -194,7 +222,9 @@
       "equation": "x - 75 = 55",
       "left": { "x": 1, "constant": -75 },
       "right": { "x": 0, "constant": 55 },
-      "solution": 130
+      "solution": 130,
+      "image": "images/balance-equations/w15-cow-feed.png",
+      "imageAlt": "أبقار قرب معلف حبوب مع أكياس حبوب توضح الكمية التي تم تقديمها والمتبقية"
     },
     {
       "id": "w16",
@@ -204,7 +234,9 @@
       "equation": "x + 2.3 = 20.3",
       "left": { "x": 1, "constant": 2.3 },
       "right": { "x": 0, "constant": 20.3 },
-      "solution": 18.0
+      "solution": 18.0,
+      "image": "images/balance-equations/w16-garden-area.png",
+      "imageAlt": "حديقة مستطيلة مع جزء صغير مضاف موضح بمساحة 2.3 متر مربع"
     },
     {
       "id": "w17",
@@ -214,7 +246,9 @@
       "equation": "x + 14 = 30",
       "left": { "x": 1, "constant": 14 },
       "right": { "x": 0, "constant": 30 },
-      "solution": 16
+      "solution": 16,
+      "image": "images/balance-equations/w17-parallelogram-height.png",
+      "imageAlt": "رسم متوازي أضلاع مع سهم يوضح الارتفاع الأصلي والارتفاع الجديد 30 سم"
     },
     {
       "id": "w18",
@@ -224,7 +258,9 @@
       "equation": "x - 5 = 20",
       "left": { "x": 1, "constant": -5 },
       "right": { "x": 0, "constant": 20 },
-      "solution": 25
+      "solution": 25,
+      "image": "images/balance-equations/w18-triangle-base.png",
+      "imageAlt": "مثلث مرسوم مع تمييز القاعدة وارتفاع 20 مم وفارق 5 مم بينهما"
     },
     {
       "id": "w19",
@@ -234,7 +270,9 @@
       "equation": "x + 13 = 40",
       "left": { "x": 1, "constant": 13 },
       "right": { "x": 0, "constant": 40 },
-      "solution": 27
+      "solution": 27,
+      "image": "images/balance-equations/w19-trapezoid-bases.png",
+      "imageAlt": "شبه منحرف مرسوم مع قياس القاعدة الأولى 13 م والثانية x ومجموع 40 م"
     },
     {
       "id": "w20",
@@ -244,7 +282,9 @@
       "equation": "x + 112 = 200",
       "left": { "x": 1, "constant": 112 },
       "right": { "x": 0, "constant": 200 },
-      "solution": 88
+      "solution": 88,
+      "image": "images/balance-equations/w20-water-tank.png",
+      "imageAlt": "حوض مائي مستطيل يوضح مستوى ماء x لتر ثم إضافة 112 لترًا ليصبح 200 لتر"
     },
     {
       "id": "w21",
@@ -254,7 +294,9 @@
       "equation": "x - 15 = 4",
       "left": { "x": 1, "constant": -15 },
       "right": { "x": 0, "constant": 4 },
-      "solution": 19
+      "solution": 19,
+      "image": "images/balance-equations/w21-prism-cut.png",
+      "imageAlt": "منشور مستطيلي مقطوع الجزء العلوي منه مع بيان ارتفاع الجزء المتبقي والقطعة المقطوعة"
     }
   ]
 }
