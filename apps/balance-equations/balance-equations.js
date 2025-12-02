@@ -57,6 +57,7 @@
   const wordEquationToggleBtn = document.getElementById('balance-word-equation-toggle-btn');
   const wordSolveBtn = document.getElementById('balance-word-solve-btn');
   const wordEquationDisplay = document.getElementById('balance-word-equation-display');
+  const wordImage = document.getElementById('balance-word-image');
 
   /* ===================== أداة مساعدة عامة ===================== */
 
@@ -341,7 +342,10 @@
     }
     renderBalance(exploreBalanceContainer, exploreCurrentEquation);
     if (message) {
-      appendLog(exploreLog, `${message} (المعادلة الآن: <span dir="ltr">${eqString}</span>)`);
+      appendLog(
+        exploreLog,
+        `${message} (المعادلة الآن: <span dir="ltr">${eqString}</span>)`
+      );
     }
   }
 
@@ -425,12 +429,18 @@
     trainEqCurrent.textContent = eqString;
     renderBalance(trainBalanceContainer, trainCurrentEquation);
     if (message) {
-      appendLog(trainLog, `${message} (المعادلة الآن: <span dir="ltr">${eqString}</span>)`);
+      appendLog(
+        trainLog,
+        `${message} (المعادلة الآن: <span dir="ltr">${eqString}</span>)`
+      );
     }
 
     if (isSimpleSolved(trainCurrentEquation)) {
       trainCheckBtn.disabled = false;
-      appendLog(trainLog, '✅ يبدو أنك وصلت إلى صورة من الشكل x = a. يمكنك الآن فحص الحل بالتعويض.');
+      appendLog(
+        trainLog,
+        '✅ يبدو أنك وصلت إلى صورة من الشكل x = a. يمكنك الآن فحص الحل بالتعويض.'
+      );
     }
   }
 
@@ -461,9 +471,15 @@
       `<span dir="ltr">Left = ${leftVal} ، Right = ${rightVal}</span>`;
 
     if (leftVal === rightVal) {
-      appendLog(trainLog, `🔎 فحص الحل:<br>${checkText}<br>✅ الطرفان متساويان، إذن الحل صحيح.`);
+      appendLog(
+        trainLog,
+        `🔎 فحص الحل:<br>${checkText}<br>✅ الطرفان متساويان، إذن الحل صحيح.`
+      );
     } else {
-      appendLog(trainLog, `🔎 فحص الحل:<br>${checkText}<br>⚠ الطرفان غير متساويين، راجع خطواتك.`);
+      appendLog(
+        trainLog,
+        `🔎 فحص الحل:<br>${checkText}<br>⚠ الطرفان غير متساويين، راجع خطواتك.`
+      );
     }
   }
 
@@ -492,7 +508,7 @@
       if (!wordEquationDisplay.textContent) {
         const current = getCurrentWordProblem();
         if (current) {
-          wordEquationDisplay.textContent = current.equation || (current.label || '');
+          wordEquationDisplay.textContent = current.equation || current.label || '';
         }
       } else {
         wordEquationDisplay.textContent = '';
@@ -503,7 +519,6 @@
       const current = getCurrentWordProblem();
       if (!current) return;
 
-      // نستخدم نفس التمرين في تبويب التدريب
       const exercise = {
         id: current.id,
         label: current.equation || current.label,
@@ -513,8 +528,6 @@
       };
 
       startNewTrainExercise(exercise);
-
-      // نقل المستخدم إلى تبويب التدريب
       activateTab('train');
     });
   }
@@ -530,7 +543,29 @@
 
     wordContext.textContent = problem.context || '';
     wordText.textContent = problem.text || '';
-    wordEquationDisplay.textContent = ''; // نخفي المعادلة في البداية
+    wordEquationDisplay.textContent = '';
+
+    // التعامل مع الصورة
+    if (wordImage) {
+      if (problem.image) {
+        // إذا كان المسار مثل "images/..." نضيف ../../ لأنه في الجذر math-apps/
+        let imgSrc = problem.image;
+        if (imgSrc.startsWith('images/')) {
+          imgSrc = `../../${imgSrc}`;
+        }
+        wordImage.src = imgSrc;
+        wordImage.alt =
+          problem.imageAlt ||
+          problem.context ||
+          problem.shortTitle ||
+          'صورة توضيحية للمسألة الكلامية';
+        wordImage.style.display = 'block';
+      } else {
+        wordImage.src = '';
+        wordImage.alt = '';
+        wordImage.style.display = 'none';
+      }
+    }
   }
 
   function activateTab(tabName) {
@@ -571,8 +606,9 @@
       })
       .catch(err => {
         console.error('خطأ في تحميل balance-questions.json:', err);
-        showErrorMessage('لم نتمكّن من تحميل ملف الأسئلة balance-questions.json. تأكّد من وجوده في نفس المجلد مع هذا الملف.');
-        // مع ذلك، نهيئ التبويبات حتى لا يتعطل التخطيط بالكامل
+        showErrorMessage(
+          'لم نتمكّن من تحميل ملف الأسئلة balance-questions.json. تأكّد من وجوده في نفس المجلد مع هذا الملف.'
+        );
         initTabs();
       });
   }
