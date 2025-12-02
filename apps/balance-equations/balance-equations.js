@@ -198,16 +198,21 @@
     container.appendChild(wrapper);
   }
 
+  // ✅ النسخة المعدلة: إضافة حرف "و" بين x والعدد
   function fillPanTokens(panElement, side) {
-    // عناصر x
     const xCoeff = side.x;
     const c = side.c;
 
-    if (xCoeff !== 0) {
+    const hasX = xCoeff !== 0;
+    const hasC = c !== 0;
+
+    // 1) بطاقات x
+    if (hasX) {
       const count = Math.min(Math.abs(xCoeff), 5); // لا نُكثر من التكرار بصريًا
       for (let i = 0; i < count; i++) {
         const token = document.createElement('div');
-        token.className = 'balance-token balance-token-x' + (xCoeff < 0 ? ' negative' : '');
+        token.className =
+          'balance-token balance-token-x' + (xCoeff < 0 ? ' negative' : '');
         token.textContent = 'x';
         panElement.appendChild(token);
       }
@@ -219,10 +224,19 @@
       }
     }
 
-    // عنصر العدد (ككتلة واحدة تحمل القيمة)
-    if (c !== 0) {
+    // 2) حرف "و" بين x والعدد (إذا وُجِد الاثنان)
+    if (hasX && hasC) {
+      const opChip = document.createElement('span');
+      opChip.className = 'balance-op-chip';
+      opChip.textContent = 'و';
+      panElement.appendChild(opChip);
+    }
+
+    // 3) بطاقة العدد
+    if (hasC) {
       const numToken = document.createElement('div');
-      numToken.className = 'balance-token balance-token-num' + (c < 0 ? ' negative' : '');
+      numToken.className =
+        'balance-token balance-token-num' + (c < 0 ? ' negative' : '');
       numToken.textContent = c.toString();
       panElement.appendChild(numToken);
     }
