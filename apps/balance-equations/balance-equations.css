@@ -415,7 +415,7 @@ body {
 
 /* تغيير بسيط في الميزان داخل اللعبة ليتناسق مع الخلفية */
 .balance-background-game .balance-scale {
-  background: rgba(248, 250, 252, 0.15);
+  background: rgb(240, 200, 150);
   border-color: rgba(226, 232, 240, 0.7);
 }
 
