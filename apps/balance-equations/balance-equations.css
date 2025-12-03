@@ -16,6 +16,7 @@ body {
   padding: 1.5rem 1.75rem 1.75rem;
 }
 
+/* ===== العنوان الرئيسي ===== */
 .balance-header {
   border-bottom: 2px solid #e5e7eb;
   padding-bottom: 1rem;
@@ -34,7 +35,7 @@ body {
   color: #4b5563;
 }
 
-/* التبويبات */
+/* ===== التبويبات ===== */
 .balance-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -42,28 +43,54 @@ body {
   margin-bottom: 1rem;
 }
 
+/* أزرار التبويبات بألوان جذابة */
 .balance-tab-button {
   border: none;
   border-radius: 999px;
   padding: 0.45rem 1.1rem;
-  background: #e5e7eb;
-  color: #374151;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, transform 0.1s;
-}
-
-.balance-tab-button.active {
-  background: #1d4ed8;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 500;
+  transition: transform 0.1s, box-shadow 0.15s, opacity 0.15s;
 }
 
+/* توزيع الألوان على التبويبات */
+.balance-tab-button:nth-child(1) {
+  background-color: Tomato;
+}
+
+.balance-tab-button:nth-child(2) {
+  background-color: Orange;
+}
+
+.balance-tab-button:nth-child(3) {
+  background-color: DodgerBlue;
+}
+
+.balance-tab-button:nth-child(4) {
+  background-color: MediumSeaGreen;
+}
+
+/* تبويب نشط */
+.balance-tab-button.active {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* تحويم */
 .balance-tab-button:hover {
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* اللوحات */
+/* تبويب غير نشط خافت قليلاً */
+.balance-tab-button:not(.active) {
+  opacity: 0.85;
+}
+
+/* ===== اللوحات (تبويبات المحتوى) ===== */
 .balance-tab-panel {
   display: none;
 }
@@ -84,7 +111,7 @@ body {
   color: #4b5563;
 }
 
-/* صفوف عامة */
+/* ===== صفوف عامة ===== */
 .balance-row {
   display: flex;
   align-items: center;
@@ -96,7 +123,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* الحقول */
+/* ===== الحقول ===== */
 .balance-field {
   display: flex;
   flex-direction: column;
@@ -124,7 +151,7 @@ body {
   box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35);
 }
 
-/* الأزرار */
+/* ===== الأزرار العامة (ليست تبويبات ولا لعبة) ===== */
 .balance-primary-button,
 .balance-secondary-button,
 .balance-op-button {
@@ -170,7 +197,7 @@ body {
   box-shadow: none;
 }
 
-/* عرض المعادلة النصية */
+/* ===== عرض المعادلة النصية ===== */
 .balance-equation-display {
   display: flex;
   flex-wrap: wrap;
@@ -190,7 +217,7 @@ body {
   color: #111827;
 }
 
-/* الميزان */
+/* ===== الميزان ===== */
 .balance-balance-container {
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;
@@ -199,7 +226,7 @@ body {
 .balance-scale {
   border-radius: 1rem;
   border: 2px solid #e0e7ff;
- background: linear-gradient(to bottom, #f1d4ac, #cda365);
+  background: linear-gradient(to bottom, #f9fafb, #eef2ff);
   padding: 0.9rem 0.8rem 1rem;
 }
 
@@ -299,7 +326,18 @@ body {
   background: #b91c1c;
 }
 
-/* الكتلة النصية للمسائل الحياتية */
+/* حرف "و" بين x والعدد */
+.balance-op-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 0.25rem;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+/* ===== المسائل الحياتية (البطاقة مع النص والصورة) ===== */
 .balance-word-problem {
   border-radius: 0.9rem;
   border: 1px solid #e5e7eb;
@@ -327,33 +365,10 @@ body {
   max-width: 100%;
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-  display: none; /* نُظهرها من خلال JS عندما تكون هناك صورة */
+  display: none; /* تظهر عند وجود صورة من خلال JS */
 }
 
-/* في الشاشات الصغيرة: النص فوق الصورة */
-@media (max-width: 640px) {
-  .balance-word-problem {
-    flex-direction: column;
-  }
-
-  .balance-word-figure {
-    justify-content: flex-start;
-  }
-}
-
-.balance-word-problem h3 {
-  margin: 0 0 0.3rem;
-  font-size: 1rem;
-  color: #1f2937;
-}
-
-.balance-word-problem p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #111827;
-}
-
-/* تلميحات وسجل الخطوات */
+/* ===== تلميحات وسجل الخطوات ===== */
 .balance-hint {
   margin: 0.4rem 0 0;
   font-size: 0.85rem;
@@ -379,7 +394,7 @@ body {
   color: #1f2937;
 }
 
-/* التذييل */
+/* ===== تذييل ===== */
 .balance-footer {
   margin-top: 1.2rem;
   padding-top: 0.75rem;
@@ -388,17 +403,40 @@ body {
   color: #9ca3af;
   text-align: center;
 }
-.balance-op-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  margin: 0 0.25rem;
-  font-size: 1.1rem;
-  color: #4b5563;
+
+/* ===== إطار لعبة التوازن بخلفية مميزة ===== */
+.balance-background-game {
+  background-color: SlateBlue;
+  border-radius: 1rem;
+  padding: 1rem 0.9rem;
+  margin: 0.8rem 0;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 
-/* أزرار اللعبة */
+/* تغيير بسيط في الميزان داخل اللعبة ليتناسق مع الخلفية */
+.balance-background-game .balance-scale {
+  background: rgba(248, 250, 252, 0.15);
+  border-color: rgba(226, 232, 240, 0.7);
+}
+
+.balance-background-game .balance-pan-label {
+  color: #e5e7eb;
+}
+
+/* ===== حالة اللعبة (النقاط / المحاولات / الجولة) ===== */
+.balance-game-status {
+  margin-bottom: 0.75rem;
+}
+
+.balance-status-chip {
+  background: LightGray;
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.85rem;
+  color: #111827;
+}
+
+/* ===== أزرار الخيارات داخل لعبة التوازن ===== */
 .balance-game-options {
   display: flex;
   flex-wrap: wrap;
@@ -412,49 +450,44 @@ body {
   padding: 0.45rem 0.9rem;
   font-size: 0.9rem;
   cursor: pointer;
-  background: #e0f2fe;
-  color: #0f172a;
-  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  color: #ffffff;
+  font-weight: 500;
+  transition: transform 0.1s, box-shadow 0.15s, filter 0.15s;
 }
 
+/* توزيع الألوان على أزرار اللعبة (تتكرر كل 4 أزرار) */
+.balance-game-option-btn:nth-child(4n + 1) {
+  background-color: Violet;
+}
+
+.balance-game-option-btn:nth-child(4n + 2) {
+  background-color: SlateBlue;
+}
+
+.balance-game-option-btn:nth-child(4n + 3) {
+  background-color: DodgerBlue;
+}
+
+.balance-game-option-btn:nth-child(4n + 4) {
+  background-color: Orange;
+}
+
+/* تحويم على أزرار اللعبة غير المعطلة */
 .balance-game-option-btn:hover:not(.disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
-  background: #bfdbfe;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.08);
 }
 
+/* زر خيار معطّل بعد الاختيار */
 .balance-game-option-btn.disabled {
   opacity: 0.6;
   cursor: default;
   box-shadow: none;
-}
-.balance-background-game {
-  background-color: SlateBlue;
-  border-radius: 1rem;
-  padding: 1rem 0.9rem;
-  margin: 0.8rem 0;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+  filter: none;
 }
 
-/* داخل إطار اللعبة نخفف خلفية الميزان لتظهر فوق اللون البنفسجي */
-.balance-background-game .balance-scale {
-  background: rgba(248, 250, 252, 0.15);
-  border-color: rgba(226, 232, 240, 0.7);
-}
-
-/* ونُعطي عناوين اللعبة ولون النص وضوحًا أكبر */
-.balance-background-game h3,
-.balance-background-game .balance-pan-label,
-.balance-background-game .balance-pan-label span {
-  color: #f9fafb;
-}
-
-.balance-background-game .balance-game-option-btn {
-  background: #e0f2fe;
-  color: #0f172a;
-}
-
-/* استجابة للشاشات الصغيرة */
+/* ===== استجابة للشاشات الصغيرة ===== */
 @media (max-width: 640px) {
   .balance-app {
     margin: 0.75rem;
@@ -477,5 +510,13 @@ body {
 
   .balance-pan {
     min-height: 70px;
+  }
+
+  .balance-word-problem {
+    flex-direction: column;
+  }
+
+  .balance-word-figure {
+    justify-content: flex-start;
   }
 }
