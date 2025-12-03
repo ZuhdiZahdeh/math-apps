@@ -461,7 +461,7 @@ body {
 }
 
 .balance-game-option-btn:nth-child(4n + 2) {
-  background-color: SlateBlue;
+  background-color: Tomato;
 }
 
 .balance-game-option-btn:nth-child(4n + 3) {
