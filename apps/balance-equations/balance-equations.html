@@ -20,6 +20,7 @@
       <button class="balance-tab-button active" data-tab="explore">١. استكشاف الميزان</button>
       <button class="balance-tab-button" data-tab="train">٢. حل المعادلات</button>
       <button class="balance-tab-button" data-tab="word">٣. مسائل حياتية</button>
+      <button class="balance-tab-button" data-tab="game">٤. لعبة التوازن</button>
     </nav>
 
     <!-- تبويب: استكشاف الميزان -->
@@ -138,55 +139,111 @@
     </section>
 
     <!-- تبويب: مسائل حياتية -->
-<section id="balance-tab-word" class="balance-tab-panel">
-  <div class="balance-panel-header">
-    <h2>مسائل حياتية → معادلة</h2>
-    <p>اقرأ المسألة، فكّر في المتغيّر والمعادلة، ثم حلّها باستخدام الميزان.</p>
-  </div>
+    <section id="balance-tab-word" class="balance-tab-panel">
+      <div class="balance-panel-header">
+        <h2>مسائل حياتية → معادلة</h2>
+        <p>اقرأ المسألة، فكّر في المتغيّر والمعادلة، ثم حلّها باستخدام الميزان.</p>
+      </div>
 
-  <div class="balance-row balance-row-wrap">
-    <label class="balance-field">
-      <span>اختر مسألة:</span>
-      <select id="balance-word-select" class="balance-select"></select>
-    </label>
-  </div>
+      <div class="balance-row balance-row-wrap">
+        <label class="balance-field">
+          <span>اختر مسألة:</span>
+          <select id="balance-word-select" class="balance-select"></select>
+        </label>
+      </div>
 
-  <article class="balance-word-problem">
-    <div class="balance-word-text">
-      <h3 id="balance-word-context"></h3>
-      <p id="balance-word-text"></p>
-    </div>
+      <article class="balance-word-problem">
+        <div class="balance-word-text">
+          <h3 id="balance-word-context"></h3>
+          <p id="balance-word-text"></p>
+        </div>
 
-    <!-- ✅ مكان الصورة المعبرة عن المسألة الكلامية -->
-    <figure class="balance-word-figure">
-      <img
-        id="balance-word-image"
-        class="balance-word-image"
-        src=""
-        alt=""
-        loading="lazy"
-      />
-    </figure>
-  </article>
+        <!-- مكان الصورة المعبرة عن المسألة الكلامية -->
+        <figure class="balance-word-figure">
+          <img
+            id="balance-word-image"
+            class="balance-word-image"
+            src=""
+            alt=""
+            loading="lazy"
+          />
+        </figure>
+      </article>
 
-  <div class="balance-row balance-row-wrap">
-    <button id="balance-word-equation-toggle-btn" class="balance-secondary-button">
-      إظهار / إخفاء المعادلة المقترحة
-    </button>
-    <button id="balance-word-solve-btn" class="balance-primary-button">
-      حلّ المعادلة باستخدام الميزان
-    </button>
-  </div>
+      <div class="balance-row balance-row-wrap">
+        <button id="balance-word-equation-toggle-btn" class="balance-secondary-button">
+          إظهار / إخفاء المعادلة المقترحة
+        </button>
+        <button id="balance-word-solve-btn" class="balance-primary-button">
+          حلّ المعادلة باستخدام الميزان
+        </button>
+      </div>
 
-  <div class="balance-equation-display">
-    <span>المعادلة المقترحة للمسألة:</span>
-    <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
-  </div>
+      <div class="balance-equation-display">
+        <span>المعادلة المقترحة للمسألة:</span>
+        <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
+      </div>
 
-  <p class="balance-hint">
-    جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
-  </p>
-</section>
+      <p class="balance-hint">
+        جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
+      </p>
+    </section>
+
+    <!-- تبويب: لعبة التوازن -->
+    <section id="balance-tab-game" class="balance-tab-panel">
+      <div class="balance-panel-header">
+        <h2>لعبة التوازن</h2>
+        <p>اختر الحركة الصحيحة لتحافظ على توازن الميزان وتصل إلى حل المعادلة.</p>
+      </div>
+
+      <!-- شريط الحالة: النقاط – المحاولات – رقم الجولة -->
+      <div class="balance-row balance-row-wrap balance-game-status">
+        <div class="balance-status-chip">
+          النقاط:
+          <span id="balance-game-score">0</span>
+        </div>
+        <div class="balance-status-chip">
+          المحاولات:
+          <span id="balance-game-lives">♥♥♥</span>
+        </div>
+        <div class="balance-status-chip">
+          الجولة:
+          <span id="balance-game-round">1 / 4</span>
+        </div>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة الأصلية:</span>
+        <span id="balance-game-equation-label" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <div class="balance-equation-display">
+        <span>المعادلة بعد حركتك:</span>
+        <span id="balance-game-equation-current" class="balance-equation-string" dir="ltr"></span>
+      </div>
+
+      <div class="balance-balance-container">
+        <div id="balance-game-balance" class="balance-scale"></div>
+      </div>
+
+      <div class="balance-ops-block">
+        <h3>اختر الحركة الصحيحة:</h3>
+        <div id="balance-game-options" class="balance-game-options">
+          <!-- أزرار الخيارات تُنشأ ديناميكيًا من خلال JS -->
+        </div>
+      </div>
+
+      <div id="balance-game-feedback" class="balance-log" aria-live="polite"></div>
+
+      <div class="balance-row balance-row-wrap">
+        <button id="balance-game-next-btn" class="balance-primary-button">
+          مسألة تالية
+        </button>
+        <button id="balance-game-restart-btn" class="balance-secondary-button">
+          إعادة اللعبة من البداية
+        </button>
+      </div>
+    </section>
 
     <footer class="balance-footer">
       <p>تطبيق تجريبي لمفهوم الميزان وحل المعادلات الخطية.</p>
@@ -196,4 +253,3 @@
   <script src="balance-equations.js" defer></script>
 </body>
 </html>
-
