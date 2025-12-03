@@ -5,6 +5,7 @@ body {
   font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #f3f4f6;
   color: #111827;
+  font-size: 18px; /* تكبير عام للخط ليتناسب مع البروجيكتور */
 }
 
 .balance-app {
@@ -25,13 +26,13 @@ body {
 
 .balance-header h1 {
   margin: 0 0 0.5rem;
-  font-size: 1.8rem;
+  font-size: 2rem; /* أكبر وأوضح */
   color: #1d4ed8;
 }
 
 .balance-subtitle {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: #4b5563;
 }
 
@@ -47,11 +48,11 @@ body {
 .balance-tab-button {
   border: none;
   border-radius: 999px;
-  padding: 0.45rem 1.1rem;
-  font-size: 0.95rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.05rem; /* أكبر قليلاً */
   cursor: pointer;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;
   transition: transform 0.1s, box-shadow 0.15s, opacity 0.15s;
 }
 
@@ -101,13 +102,13 @@ body {
 
 .balance-panel-header h2 {
   margin: 0 0 0.35rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem; /* أكبر قليلاً */
   color: #111827;
 }
 
 .balance-panel-header p {
   margin: 0 0 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #4b5563;
 }
 
@@ -128,7 +129,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .balance-field span {
@@ -137,11 +138,11 @@ body {
 
 .balance-select,
 .balance-input {
-  min-width: 140px;
+  min-width: 150px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.92rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.98rem;
   outline: none;
 }
 
@@ -157,8 +158,8 @@ body {
 .balance-op-button {
   border-radius: 999px;
   border: none;
-  padding: 0.4rem 1rem;
-  font-size: 0.92rem;
+  padding: 0.45rem 1.05rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
   display: inline-flex;
@@ -201,10 +202,10 @@ body {
 .balance-equation-display {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
   align-items: baseline;
-  margin: 0.5rem 0;
-  font-size: 0.97rem;
+  margin: 0.6rem 0;
+  font-size: 1rem;
 }
 
 .balance-equation-display span:first-child {
@@ -213,28 +214,28 @@ body {
 
 .balance-equation-string {
   font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
-  font-size: 1rem;
+  font-size: 1.15rem; /* تكبير المعادلات */
   color: #111827;
 }
 
 /* ===== الميزان ===== */
 .balance-balance-container {
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .balance-scale {
   border-radius: 1rem;
   border: 2px solid #e0e7ff;
   background: linear-gradient(to bottom, #f9fafb, #eef2ff);
-  padding: 0.9rem 0.8rem 1rem;
+  padding: 0.95rem 0.9rem 1.05rem;
 }
 
 .balance-scale-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .balance-beam {
@@ -269,20 +270,20 @@ body {
 
 .balance-pan {
   flex: 1;
-  min-height: 80px;
+  min-height: 90px;
   border-radius: 0.9rem;
   border: 2px solid #c7d2fe;
   background: linear-gradient(to top, #e5edff, #ffffff);
-  padding: 0.45rem;
+  padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .balance-pan-title {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #4b5563;
   margin-bottom: 0.2rem;
 }
@@ -290,22 +291,22 @@ body {
 .balance-pan-label {
   width: 100%;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #6b7280;
 }
 
 /* العناصر (x والأعداد) */
 .balance-token {
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 34px;
+  min-height: 34px;
   border-radius: 0.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.05rem; /* تكبير محتوى البطاقات */
   box-shadow: 0 3px 8px rgba(15, 23, 42, 0.25);
-  padding: 0.15rem 0.35rem;
+  padding: 0.15rem 0.4rem;
 }
 
 .balance-token-x {
@@ -333,7 +334,7 @@ body {
   justify-content: center;
   font-weight: 700;
   margin: 0 0.25rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #111827;
 }
 
@@ -342,8 +343,8 @@ body {
   border-radius: 0.9rem;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
-  padding: 0.8rem 0.9rem;
-  margin: 0.75rem 0 0.5rem;
+  padding: 0.85rem 0.95rem;
+  margin: 0.8rem 0 0.55rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -371,7 +372,7 @@ body {
 /* ===== تلميحات وسجل الخطوات ===== */
 .balance-hint {
   margin: 0.4rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #6b7280;
 }
 
@@ -380,10 +381,10 @@ body {
   border-radius: 0.75rem;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
-  padding: 0.55rem 0.8rem;
-  max-height: 180px;
+  padding: 0.6rem 0.85rem;
+  max-height: 190px;
   overflow-y: auto;
-  font-size: 0.87rem;
+  font-size: 0.9rem;
 }
 
 .balance-log-entry {
@@ -399,8 +400,8 @@ body {
   margin-top: 1.2rem;
   padding-top: 0.75rem;
   border-top: 1px solid #e5e7eb;
-  font-size: 0.8rem;
-  color: #9ca3af;
+  font-size: 0.9rem;
+  color: #4b5563;
   text-align: center;
 }
 
@@ -415,7 +416,7 @@ body {
 
 /* تغيير بسيط في الميزان داخل اللعبة ليتناسق مع الخلفية */
 .balance-background-game .balance-scale {
-  background: rgb(240, 200, 150);
+  background: rgba(248, 250, 252, 0.15);
   border-color: rgba(226, 232, 240, 0.7);
 }
 
@@ -431,8 +432,8 @@ body {
 .balance-status-chip {
   background: LightGray;
   border-radius: 999px;
-  padding: 0.25rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.95rem;
   color: #111827;
 }
 
@@ -447,11 +448,11 @@ body {
 .balance-game-option-btn {
   border-radius: 0.75rem;
   border: none;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;
   transition: transform 0.1s, box-shadow 0.15s, filter 0.15s;
 }
 
@@ -461,7 +462,7 @@ body {
 }
 
 .balance-game-option-btn:nth-child(4n + 2) {
-  background-color: Tomato;
+  background-color: SlateBlue;
 }
 
 .balance-game-option-btn:nth-child(4n + 3) {
@@ -495,21 +496,21 @@ body {
   }
 
   .balance-header h1 {
-    font-size: 1.45rem;
+    font-size: 1.7rem;
   }
 
   .balance-equation-string {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .balance-token {
-    min-width: 28px;
-    min-height: 28px;
-    font-size: 0.85rem;
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 0.95rem;
   }
 
   .balance-pan {
-    min-height: 70px;
+    min-height: 75px;
   }
 
   .balance-word-problem {
