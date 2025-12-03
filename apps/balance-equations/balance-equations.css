@@ -388,6 +388,46 @@ body {
   color: #9ca3af;
   text-align: center;
 }
+.balance-op-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 0.25rem;
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+/* أزرار اللعبة */
+.balance-game-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.balance-game-option-btn {
+  border-radius: 0.75rem;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: #e0f2fe;
+  color: #0f172a;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+.balance-game-option-btn:hover:not(.disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+  background: #bfdbfe;
+}
+
+.balance-game-option-btn.disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
 
 /* استجابة للشاشات الصغيرة */
 @media (max-width: 640px) {
