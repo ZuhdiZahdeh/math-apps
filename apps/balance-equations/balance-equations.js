@@ -78,6 +78,43 @@
   const gameNextBtn = document.getElementById('balance-game-next-btn');
   const gameRestartBtn = document.getElementById('balance-game-restart-btn');
 
+  // ===== الأصوات (نجاح / فشل) =====
+  const successSoundPaths = [
+    '../audio/success/success_toolMatch_a.mp3',
+    '../audio/success/success_toolMatch_b.mp3',
+    '../audio/success/success_toolMatch_c.mp3',
+    '../audio/success/success_toolMatch_d.mp3',
+    '../audio/success/success_toolMatch_e.mp3'
+  ];
+
+  const failSoundPaths = [
+    '../audio/fail/fail_toolMatch_a.mp3',
+    '../audio/fail/fail_toolMatch_b.mp3',
+    '../audio/fail/fail_toolMatch_c.mp3'
+  ];
+
+  const successSounds = successSoundPaths.map(path => createAudio(path));
+  const failSounds = failSoundPaths.map(path => createAudio(path));
+
+  function createAudio(src) {
+    const audio = new Audio(src);
+    audio.preload = 'auto';
+    return audio;
+  }
+
+  function playRandomSoundFrom(list) {
+    if (!list || !list.length) return;
+    const idx = Math.floor(Math.random() * list.length);
+    const audio = list[idx];
+    try {
+      audio.currentTime = 0;
+      audio.play();
+    } catch (e) {
+      // تجاهل أي خطأ في التشغيل (مثلاً قيود المتصفح)
+      console.warn('تعذر تشغيل الصوت:', e);
+    }
+  }
+
   /* ===================== أداة مساعدة عامة ===================== */
 
   function showErrorMessage(message) {
@@ -620,7 +657,7 @@
       return;
     }
 
-    // تعريف الجولات (يمكنك تعديل النصوص كما تحب)
+    // تعريف الجولات
     gameRounds = [
       {
         id: 'g1',
@@ -737,7 +774,7 @@
       if (gameIsOver) {
         startGame();
       } else {
-        loadCurrentGameRound(); // يحمل الجولة الحالية/التالية حسب المؤشر
+        loadCurrentGameRound();
       }
     });
 
@@ -759,8 +796,8 @@
       // انتهت كل الجولات
       gameIsOver = true;
       setGameButtonsEnabled(false);
-      gameEqLabelEl.textContent = '';
-      gameEqCurrentEl.textContent = '';
+      if (gameEqLabelEl) gameEqLabelEl.textContent = '';
+      if (gameEqCurrentEl) gameEqCurrentEl.textContent = '';
       if (gameFeedbackEl) {
         gameFeedbackEl.innerHTML =
           `🎉 أحسنت! أنهيت جميع المسائل.<br>مجموع نقاطك: <strong>${gameScore}</strong>.`;
@@ -806,6 +843,10 @@
     if (!option.isCorrect) {
       // إجابة خاطئة
       gameLives -= 1;
+
+      // تشغيل صوت الخطأ
+      playRandomSoundFrom(failSounds);
+
       if (buttonEl) {
         buttonEl.disabled = true;
         buttonEl.classList.add('disabled');
@@ -838,6 +879,10 @@
     if (gameEqCurrentEl) gameEqCurrentEl.textContent = eqStr;
 
     gameScore += 10;
+
+    // تشغيل صوت النجاح
+    playRandomSoundFrom(successSounds);
+
     if (gameFeedbackEl) {
       gameFeedbackEl.innerHTML =
         `✅ اختيار صحيح! حصلت على 10 نقاط.<br>` +
@@ -896,7 +941,7 @@
         initExploreTab();
         initTrainTab();
         initWordTab();
-        initGameTab(); // 🔹 تهيئة لعبة التوازن
+        initGameTab(); // تهيئة اللعبة
       })
       .catch(err => {
         console.error('خطأ في تحميل balance-questions.json:', err);
@@ -904,7 +949,7 @@
           'لم نتمكّن من تحميل ملف الأسئلة balance-questions.json. تأكّد من وجوده في نفس المجلد مع هذا الملف.'
         );
         initTabs();
-        initGameTab(); // حتى لو فشل التحميل، نسمح بتشغيل اللعبة لأنها لا تعتمد على JSON
+        initGameTab(); // اللعبة لا تعتمد على JSON، يمكن تشغيلها حتى لو فشل التحميل
       });
   }
 
