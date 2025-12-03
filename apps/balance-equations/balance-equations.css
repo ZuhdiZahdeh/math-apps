@@ -199,7 +199,7 @@ body {
 .balance-scale {
   border-radius: 1rem;
   border: 2px solid #e0e7ff;
-  background: linear-gradient(to bottom, #f9fafb, #eef2ff);
+ background: linear-gradient(to bottom, #f1d4ac, #cda365);
   padding: 0.9rem 0.8rem 1rem;
 }
 
