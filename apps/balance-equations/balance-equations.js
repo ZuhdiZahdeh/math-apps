@@ -59,6 +59,25 @@
   const wordEquationDisplay = document.getElementById('balance-word-equation-display');
   const wordImage = document.getElementById('balance-word-image');
 
+  // ===== حالة وأدوات لعبة التوازن =====
+  let gameRounds = [];
+  let gameCurrentIndex = 0;
+  let gameScore = 0;
+  let gameLives = 3;
+  let gameCurrentEquation = null;
+  let gameIsOver = false;
+
+  const gameScoreEl = document.getElementById('balance-game-score');
+  const gameLivesEl = document.getElementById('balance-game-lives');
+  const gameRoundEl = document.getElementById('balance-game-round');
+  const gameEqLabelEl = document.getElementById('balance-game-equation-label');
+  const gameEqCurrentEl = document.getElementById('balance-game-equation-current');
+  const gameBalanceContainer = document.getElementById('balance-game-balance');
+  const gameOptionsContainer = document.getElementById('balance-game-options');
+  const gameFeedbackEl = document.getElementById('balance-game-feedback');
+  const gameNextBtn = document.getElementById('balance-game-next-btn');
+  const gameRestartBtn = document.getElementById('balance-game-restart-btn');
+
   /* ===================== أداة مساعدة عامة ===================== */
 
   function showErrorMessage(message) {
@@ -198,7 +217,7 @@
     container.appendChild(wrapper);
   }
 
-  // ✅ النسخة المعدلة: إضافة حرف "و" بين x والعدد
+  // ===== النسخة المعدلة: إضافة حرف "و" بين x والعدد =====
   function fillPanTokens(panElement, side) {
     const xCoeff = side.x;
     const c = side.c;
@@ -206,9 +225,9 @@
     const hasX = xCoeff !== 0;
     const hasC = c !== 0;
 
-    // 1) بطاقات x
+    // بطاقات x
     if (hasX) {
-      const count = Math.min(Math.abs(xCoeff), 5); // لا نُكثر من التكرار بصريًا
+      const count = Math.min(Math.abs(xCoeff), 5); // لا نكرر كثيرًا بصريًا
       for (let i = 0; i < count; i++) {
         const token = document.createElement('div');
         token.className =
@@ -224,7 +243,7 @@
       }
     }
 
-    // 2) حرف "و" بين x والعدد (إذا وُجِد الاثنان)
+    // حرف "و" بين x والعدد (إن وجد الاثنان)
     if (hasX && hasC) {
       const opChip = document.createElement('span');
       opChip.className = 'balance-op-chip';
@@ -232,7 +251,7 @@
       panElement.appendChild(opChip);
     }
 
-    // 3) بطاقة العدد
+    // بطاقة العدد (بإشارته كما هي)
     if (hasC) {
       const numToken = document.createElement('div');
       numToken.className =
@@ -557,7 +576,7 @@
 
     wordContext.textContent = problem.context || '';
     wordText.textContent = problem.text || '';
-    wordEquationDisplay.textContent = '';
+    wordEquationDisplay.textContent = ''; // نخفي المعادلة في البداية
 
     // التعامل مع الصورة
     if (wordImage) {
@@ -593,6 +612,266 @@
     });
   }
 
+  /* ===================== لعبة التوازن ===================== */
+
+  function initGameTab() {
+    // لو لم تُحدَّث صفحة HTML بعد، نتوقف بدون أخطاء
+    if (!gameScoreEl || !gameOptionsContainer || !gameNextBtn || !gameRestartBtn) {
+      return;
+    }
+
+    // تعريف الجولات (يمكنك تعديل النصوص كما تحب)
+    gameRounds = [
+      {
+        id: 'g1',
+        label: 'x + 4 = 10',
+        left: { x: 1, constant: 4 },
+        right: { x: 0, constant: 10 },
+        options: [
+          {
+            id: 'g1o1',
+            label: 'أضِف 4 للطرفين',
+            isCorrect: false,
+            explanation: 'هكذا نزيد 4 بدل التخلص منها.'
+          },
+          {
+            id: 'g1o2',
+            label: 'اطرح 4 من الطرفين',
+            isCorrect: true,
+            op: { kind: 'addConst', k: -4 }
+          },
+          {
+            id: 'g1o3',
+            label: 'اطرح 10 من الطرف الأيمن فقط',
+            isCorrect: false,
+            explanation: 'لا نطبّق العملية على طرف واحد فقط.'
+          }
+        ]
+      },
+      {
+        id: 'g2',
+        label: 'x - 3 = 5',
+        left: { x: 1, constant: -3 },
+        right: { x: 0, constant: 5 },
+        options: [
+          {
+            id: 'g2o1',
+            label: 'أضِف 3 للطرف الأيمن فقط',
+            isCorrect: false,
+            explanation: 'يجب أن نضيف 3 لكلا الطرفين.'
+          },
+          {
+            id: 'g2o2',
+            label: 'أضِف 3 للطرفين',
+            isCorrect: true,
+            op: { kind: 'addConst', k: 3 }
+          },
+          {
+            id: 'g2o3',
+            label: 'اطرح 3 من الطرفين',
+            isCorrect: false,
+            explanation: 'هذا يجعل العدد -6 وليس 0 مع x.'
+          }
+        ]
+      },
+      {
+        id: 'g3',
+        label: 'x + 2 = -3',
+        left: { x: 1, constant: 2 },
+        right: { x: 0, constant: -3 },
+        options: [
+          {
+            id: 'g3o1',
+            label: 'اطرح 2 من الطرفين',
+            isCorrect: true,
+            op: { kind: 'addConst', k: -2 }
+          },
+          {
+            id: 'g3o2',
+            label: 'أضِف 2 للطرفين',
+            isCorrect: false,
+            explanation: 'سيصبح العدد مع x أكبر وليس أبسط.'
+          },
+          {
+            id: 'g3o3',
+            label: 'اطرح 3 من الطرف الأيمن فقط',
+            isCorrect: false,
+            explanation: 'لا يجوز تعديل طرف واحد فقط.'
+          }
+        ]
+      },
+      {
+        id: 'g4',
+        label: 'x - 5 = 9',
+        left: { x: 1, constant: -5 },
+        right: { x: 0, constant: 9 },
+        options: [
+          {
+            id: 'g4o1',
+            label: 'أضِف 5 للطرفين',
+            isCorrect: true,
+            op: { kind: 'addConst', k: 5 }
+          },
+          {
+            id: 'g4o2',
+            label: 'اطرح 5 من الطرفين',
+            isCorrect: false,
+            explanation: 'هذا يجعل العدد -10 مع x.'
+          },
+          {
+            id: 'g4o3',
+            label: 'أضِف 9 للطرف الأيمن فقط',
+            isCorrect: false,
+            explanation: 'الجانب الأيمن فقط يتغيّر، فيختل الميزان.'
+          }
+        ]
+      }
+    ];
+
+    // ربط الأزرار
+    gameRestartBtn.addEventListener('click', () => {
+      startGame();
+    });
+
+    gameNextBtn.addEventListener('click', () => {
+      if (gameIsOver) {
+        startGame();
+      } else {
+        loadCurrentGameRound(); // يحمل الجولة الحالية/التالية حسب المؤشر
+      }
+    });
+
+    // بدء اللعبة أول مرة
+    startGame();
+  }
+
+  function startGame() {
+    gameScore = 0;
+    gameLives = 3;
+    gameCurrentIndex = 0;
+    gameIsOver = false;
+    updateGameStatus();
+    loadCurrentGameRound();
+  }
+
+  function loadCurrentGameRound() {
+    if (gameCurrentIndex >= gameRounds.length) {
+      // انتهت كل الجولات
+      gameIsOver = true;
+      setGameButtonsEnabled(false);
+      gameEqLabelEl.textContent = '';
+      gameEqCurrentEl.textContent = '';
+      if (gameFeedbackEl) {
+        gameFeedbackEl.innerHTML =
+          `🎉 أحسنت! أنهيت جميع المسائل.<br>مجموع نقاطك: <strong>${gameScore}</strong>.`;
+      }
+      gameNextBtn.textContent = 'إعادة اللعبة';
+      return;
+    }
+
+    const round = gameRounds[gameCurrentIndex];
+    gameCurrentEquation = createEquationFromData(round);
+
+    const originalString = round.label || equationToString(gameCurrentEquation);
+    if (gameEqLabelEl) gameEqLabelEl.textContent = originalString;
+    if (gameEqCurrentEl) gameEqCurrentEl.textContent = equationToString(gameCurrentEquation);
+    renderBalance(gameBalanceContainer, gameCurrentEquation);
+
+    // عرض الخيارات
+    if (gameOptionsContainer) {
+      gameOptionsContainer.innerHTML = '';
+      round.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'balance-game-option-btn';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => handleGameOptionClick(round, opt, btn));
+        gameOptionsContainer.appendChild(btn);
+      });
+    }
+
+    if (gameFeedbackEl) {
+      gameFeedbackEl.innerHTML = '';
+    }
+
+    setGameButtonsEnabled(true);
+    gameNextBtn.textContent = 'مسألة تالية';
+    updateGameStatus();
+  }
+
+  function handleGameOptionClick(round, option, buttonEl) {
+    if (gameIsOver) return;
+    if (!round || !option) return;
+
+    if (!option.isCorrect) {
+      // إجابة خاطئة
+      gameLives -= 1;
+      if (buttonEl) {
+        buttonEl.disabled = true;
+        buttonEl.classList.add('disabled');
+      }
+      const reason =
+        option.explanation ||
+        'هذه الحركة لا تحافظ على توازن المعادلة لأنها لم تُطبَّق على الطرفين بنفس الطريقة.';
+      if (gameFeedbackEl) {
+        gameFeedbackEl.innerHTML =
+          `❌ هذه الحركة غير صحيحة.<br>${reason}`;
+      }
+      if (gameLives <= 0) {
+        gameIsOver = true;
+        setGameButtonsEnabled(false);
+        if (gameFeedbackEl) {
+          gameFeedbackEl.innerHTML +=
+            '<br>انتهت المحاولات. اضغط "إعادة اللعبة من البداية" لتجربة جديدة.';
+        }
+      }
+      updateGameStatus();
+      return;
+    }
+
+    // إجابة صحيحة
+    if (option.op && option.op.kind === 'addConst') {
+      addConstToBoth(gameCurrentEquation, option.op.k);
+    }
+    const eqStr = equationToString(gameCurrentEquation);
+    renderBalance(gameBalanceContainer, gameCurrentEquation);
+    if (gameEqCurrentEl) gameEqCurrentEl.textContent = eqStr;
+
+    gameScore += 10;
+    if (gameFeedbackEl) {
+      gameFeedbackEl.innerHTML =
+        `✅ اختيار صحيح! حصلت على 10 نقاط.<br>` +
+        `المعادلة الجديدة المكافئة هي: <span dir="ltr">${eqStr}</span>.`;
+    }
+
+    setGameButtonsEnabled(false);
+    gameCurrentIndex += 1;
+    updateGameStatus();
+  }
+
+  function setGameButtonsEnabled(enabled) {
+    const buttons = document.querySelectorAll('.balance-game-option-btn');
+    buttons.forEach(btn => {
+      btn.disabled = !enabled;
+      btn.classList.toggle('disabled', !enabled);
+    });
+  }
+
+  function livesToHearts(lives) {
+    const full = Math.max(0, Math.min(3, lives));
+    return '♥'.repeat(full) + '♡'.repeat(3 - full);
+  }
+
+  function updateGameStatus() {
+    if (gameScoreEl) gameScoreEl.textContent = gameScore.toString();
+    if (gameLivesEl) gameLivesEl.textContent = livesToHearts(gameLives);
+    if (gameRoundEl) {
+      const total = gameRounds.length || 0;
+      const current = Math.min(gameCurrentIndex + 1, total === 0 ? 0 : total);
+      gameRoundEl.textContent = `${current} / ${total}`;
+    }
+  }
+
   /* ===================== تحميل JSON وبدء التطبيق ===================== */
 
   function formatNumber(n) {
@@ -617,6 +896,7 @@
         initExploreTab();
         initTrainTab();
         initWordTab();
+        initGameTab(); // 🔹 تهيئة لعبة التوازن
       })
       .catch(err => {
         console.error('خطأ في تحميل balance-questions.json:', err);
@@ -624,6 +904,7 @@
           'لم نتمكّن من تحميل ملف الأسئلة balance-questions.json. تأكّد من وجوده في نفس المجلد مع هذا الملف.'
         );
         initTabs();
+        initGameTab(); // حتى لو فشل التحميل، نسمح بتشغيل اللعبة لأنها لا تعتمد على JSON
       });
   }
 
