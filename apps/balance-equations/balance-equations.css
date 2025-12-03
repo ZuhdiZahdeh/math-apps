@@ -428,6 +428,31 @@ body {
   cursor: default;
   box-shadow: none;
 }
+.balance-background-game {
+  background-color: SlateBlue;
+  border-radius: 1rem;
+  padding: 1rem 0.9rem;
+  margin: 0.8rem 0;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+/* داخل إطار اللعبة نخفف خلفية الميزان لتظهر فوق اللون البنفسجي */
+.balance-background-game .balance-scale {
+  background: rgba(248, 250, 252, 0.15);
+  border-color: rgba(226, 232, 240, 0.7);
+}
+
+/* ونُعطي عناوين اللعبة ولون النص وضوحًا أكبر */
+.balance-background-game h3,
+.balance-background-game .balance-pan-label,
+.balance-background-game .balance-pan-label span {
+  color: #f9fafb;
+}
+
+.balance-background-game .balance-game-option-btn {
+  background: #e0f2fe;
+  color: #0f172a;
+}
 
 /* استجابة للشاشات الصغيرة */
 @media (max-width: 640px) {
