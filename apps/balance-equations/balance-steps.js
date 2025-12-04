@@ -1,5 +1,5 @@
 // =============================
-// لعبة ميزان المعادلة الخطية – نسخة خطوات الحل
+// لعبة ميزان المعادلة الخطية – نسخة خطوات الحل (مفهوم المعادلة)
 // =============================
 
 // كل مسألة على شكل: aL * X + bL = aR * X + bR
@@ -34,7 +34,7 @@ const equations = [
   }
 ];
 
-// عناصر DOM
+// ===== عناصر DOM =====
 const originalEquationTextEl = document.getElementById("originalEquationText");
 const currentEquationTextEl  = document.getElementById("currentEquationText");
 const pendingHintEl          = document.getElementById("pendingHint");
@@ -44,38 +44,32 @@ const rightValueSpan  = document.getElementById("rightValue");
 const balanceImg      = document.querySelector(".balance-img");
 const statusMessageEl = document.getElementById("statusMessage");
 
-const stepsBody       = document.getElementById("stepsBody");
+const stepsBody           = document.getElementById("stepsBody");
 const verificationSection = document.getElementById("verificationSection");
 const verificationContent = document.getElementById("verificationContent");
 
 const successSound    = document.getElementById("successSound");
 const newEquationBtn  = document.getElementById("btnNewEquation");
-
-// أزرار العمليات (لكلا الطرفين)
 const controlButtons  = document.querySelectorAll(".control-btn");
 
-// =============================
-// حالة اللعبة
-// =============================
-let currentEquation = null;   // المسألة الحالية (الأصلية)
-let aL, bL, aR, bR;           // معاملات المعادلة الحالية على الميزان
-let solutionX = 0;            // الحل الحقيقي لـ X
-let steps = [];               // جدول خطوات الحل
-let pendingOp = null;         // عملية مطبقة على طرف واحد فقط
-let isSolved = false;
+// ===== حالة اللعبة =====
+let currentEquation = null;  // المسألة الأصلية الحالية
+
+// المعاملات الحالية على الميزان
+let aL, bL, aR, bR;
+
+// المعاملات في آخر حالة متوازنة (خطوة صحيحة معتمدة)
+let baseAL, baseBL, baseAR, baseBR;
+
+let steps = [];        // جدول خطوات الحل
+let isSolved = false;  // هل وصلنا لصيغة X = عدد؟
+let solutionX = null;  // قيمة X التي استخرجناها من المعادلة
 
 // =============================
-// دوال مساعدة للمعادلات
+// دوال تنسيق المعادلات
 // =============================
 
-// حساب الحل X من المعاملات
-function computeSolution(eq) {
-  const denom = eq.aL - eq.aR;
-  if (denom === 0) return 0; // نفترض عدم استخدام هذه الحالة
-  return (eq.bR - eq.bL) / denom;
-}
-
-// تنسيق طرف المعادلة (aX + b) كنص
+// تنسيق طرف واحد aX + b كنص
 function formatSide(a, b) {
   let partX = "";
   if (a === 0) {
@@ -130,89 +124,120 @@ function formatExpressionWithValue(a, b, x) {
   return partX + partB;
 }
 
+// وصف التغيير من حالة متوازنة سابقة إلى الحالة الحالية
+function describeDelta(deltaA, deltaB) {
+  const parts = [];
+
+  if (deltaA > 0) {
+    parts.push(
+      deltaA === 1
+        ? "إضافة X إلى طرفي المعادلة"
+        : `إضافة ${deltaA}X إلى طرفي المعادلة`
+    );
+  } else if (deltaA < 0) {
+    const k = Math.abs(deltaA);
+    parts.push(
+      k === 1
+        ? "طرح X من طرفي المعادلة"
+        : `طرح ${k}X من طرفي المعادلة`
+    );
+  }
+
+  if (deltaB > 0) {
+    parts.push(
+      deltaB === 1
+        ? "إضافة 1 إلى طرفي المعادلة"
+        : `إضافة ${deltaB} إلى طرفي المعادلة`
+    );
+  } else if (deltaB < 0) {
+    const k = Math.abs(deltaB);
+    parts.push(
+      k === 1
+        ? "طرح 1 من طرفي المعادلة"
+        : `طرح ${k} من طرفي المعادلة`
+    );
+  }
+
+  if (parts.length === 0) return "لا يوجد تغيير في المعادلة.";
+  if (parts.length === 1) return parts[0];
+  return parts.join(" و ");
+}
+
 // =============================
-// التحكم في الميزان والقيم
+// تحديث الميزان والمعادلة المعروضة
 // =============================
 
-// تحديث الميزان والقيم العددية والنص الحالي للمعادلة
 function updateScaleAndEquation() {
-  const leftVal  = aL * solutionX + bL;
-  const rightVal = aR * solutionX + bR;
+  // عرض المسألة الأصلية والمعادلة الحالية
+  originalEquationTextEl.textContent = currentEquation.text;
+  currentEquationTextEl.textContent  = formatEquation(aL, bL, aR, bR);
 
-  leftValueSpan.textContent  = leftVal.toFixed(2);
-  rightValueSpan.textContent = rightVal.toFixed(2);
+  // عرض شكل الطرفين في السطرين أسفل الميزان
+  leftValueSpan.textContent  = formatSide(aL, bL);
+  rightValueSpan.textContent = formatSide(aR, bR);
 
-  currentEquationTextEl.textContent = formatEquation(aL, bL, aR, bR);
+  // حساب الفروق بين المعاملات الحالية وآخر حالة متوازنة (base)
+  const deltaAL = aL - baseAL;
+  const deltaBL = bL - baseBL;
+  const deltaAR = aR - baseAR;
+  const deltaBR = bR - baseBR;
 
-  // تحريك الميزان
-  const diff = leftVal - rightVal;
-  const EPS = 1e-6;
+  // الفروق بين ما حدث لليسار وما حدث لليمين
+  const dA = deltaAL - deltaAR;
+  const dB = deltaBL - deltaBR;
 
+  const balancedOps = (dA === 0 && dB === 0);
+
+  // تحديث حالة الميزان (CSS)
   balanceImg.classList.remove("balanced", "swing-left", "swing-right");
 
-  if (Math.abs(diff) < EPS) {
+  if (balancedOps) {
     balanceImg.classList.add("balanced");
-  } else if (diff > 0) {
-    balanceImg.classList.add("swing-left");
+    // لو يوجد تغيير فعلي (deltaA أو deltaB ≠ 0) نسجّل خطوة حل جبري
+    if (deltaAL !== 0 || deltaBL !== 0) {
+      addStepFromBase(deltaAL, deltaBL);
+    }
+    pendingHintEl.textContent =
+      "الميزان متوازن: العمليات التي أجريتها على الطرفين متساوية (المعادلة ما زالت مكافئة للأصل).";
+
+    // فحص هل وصلنا لصيغة X = عدد
+    checkSolvedEquation();
   } else {
-    balanceImg.classList.add("swing-right");
-  }
+    // مائل: العمليات غير متساوية على الطرفين
+    // نحدد اتجاه الميل تقريبياً بناءً على مقدار الزيادة/النقصان الكلي
+    const score = dA * 2 + dB; // نفترض X تقريباً أكبر من 1
 
-  // فحص ما إذا وصلنا لصيغة X = عدد مع توازن حقيقي
-  if (checkSolvedEquation()) {
-    handleSolved();
+    if (score > 0) {
+      balanceImg.classList.add("swing-left");
+    } else if (score < 0) {
+      balanceImg.classList.add("swing-right");
+    } else {
+      // حالة نادرة: لو score = 0 لكن ما زالت غير متوازنة، نميل مثلاً لليسار
+      balanceImg.classList.add("swing-left");
+    }
+
+    pendingHintEl.textContent =
+      "الميزان غير متوازن: تحتاج لتطبيق نفس العملية (أو عمليات مكافئة) على الطرف الآخر حتى تعود المعادلة متساوية.";
   }
 }
 
-// فحص حالة الحل النهائي: عزل X في طرف واحد وتوازن حقيقي
-function checkSolvedEquation() {
-  const EPS = 1e-6;
-  const leftVal  = aL * solutionX + bL;
-  const rightVal = aR * solutionX + bR;
-  const balanced = Math.abs(leftVal - rightVal) < EPS;
+// إضافة خطوة جديدة في جدول الحل من base → (aL, bL, aR, bR)
+function addStepFromBase(deltaA, deltaB) {
+  const equationText = formatEquation(aL, bL, aR, bR);
+  const reasonText   = describeDelta(deltaA, deltaB);
 
-  const isolatedOnLeft  = (aL === 1 && aR === 0);
-  const isolatedOnRight = (aR === 1 && aL === 0);
+  steps.push({
+    equation: equationText,
+    reason: reasonText
+  });
 
-  return balanced && (isolatedOnLeft || isolatedOnRight);
-}
+  renderStepsTable();
 
-// عند الوصول للحل الصحيح
-function handleSolved() {
-  if (isSolved) return;
-  isSolved = true;
-
-  statusMessageEl.classList.add("success");
-  statusMessageEl.textContent =
-    `أحسنت! عزلت المتغير X وحصلت على X = ${solutionX.toFixed(2)}.`;
-
-  pendingHintEl.textContent = "يمكنك الآن ملاحظة خطوة التحقق في الأسفل.";
-
-  if (successSound) {
-    successSound.currentTime = 0;
-    successSound.play().catch(() => {});
-  }
-
-  showVerificationStep();
-}
-
-// عرض خطوة التحقق بالتعويض
-function showVerificationStep() {
-  const eq = currentEquation;
-  const x  = solutionX;
-
-  const leftExpr  = formatExpressionWithValue(eq.aL, eq.bL, x);
-  const rightExpr = formatExpressionWithValue(eq.aR, eq.bR, x);
-
-  const leftVal  = eq.aL * x + eq.bL;
-  const rightVal = eq.aR * x + eq.bR;
-
-  verificationContent.innerHTML = `
-    <p>عَوِّض قيمة المتغير <strong>X = ${x}</strong> في المسألة الأصلية:</p>
-    <p class="verify-eq">${leftExpr} = ${rightExpr}</p>
-    <p class="verify-res">${leftVal} = ${rightVal} <span class="verify-ok">/ أحسنت</span></p>
-  `;
-  verificationSection.classList.add("visible");
+  // تحديث حالة base إلى المعادلة الحالية (هذه أصبحت آخر معادلة متوازنة معتمدة)
+  baseAL = aL;
+  baseBL = bL;
+  baseAR = aR;
+  baseBR = bR;
 }
 
 // =============================
@@ -237,35 +262,77 @@ function renderStepsTable() {
   });
 }
 
-// إضافة خطوة جديدة بعد تطبيق نفس العملية على الطرفين
-function addStepForSymmetricOp(opType) {
-  const equationText = formatEquation(aL, bL, aR, bR);
-  const reasonText   = getOperationDescription(opType);
+// =============================
+// فحص حالة الحل النهائي X = عدد
+// =============================
 
-  steps.push({
-    equation: equationText,
-    reason: reasonText
-  });
+function checkSolvedEquation() {
+  if (isSolved) return;
 
-  renderStepsTable();
+  const isolatedOnLeft  = (aL === 1 && aR === 0); // X + cL = cR
+  const isolatedOnRight = (aR === 1 && aL === 0); // cL = X + cR
+
+  if (!isolatedOnLeft && !isolatedOnRight) {
+    return;
+  }
+
+  let xVal;
+
+  if (isolatedOnLeft) {
+    // X + bL = bR  ⇒  X = bR - bL
+    xVal = bR - bL;
+  } else {
+    // bL = X + bR  ⇒  X = bL - bR
+    xVal = bL - bR;
+  }
+
+  solutionX = xVal;
+  handleSolved();
 }
 
-// وصف العملية التي طُبِّقت على الطرفين
-function getOperationDescription(opType) {
-  switch (opType) {
-    case "PLUS1":  return "إضافة 1 إلى طرفي المعادلة";
-    case "MINUS1": return "طرح 1 من طرفي المعادلة";
-    case "PLUSX":  return "إضافة X إلى طرفي المعادلة";
-    case "MINUSX": return "طرح X من طرفي المعادلة";
-    default:       return "";
+function handleSolved() {
+  if (isSolved) return;
+  isSolved = true;
+
+  statusMessageEl.classList.add("success");
+  statusMessageEl.textContent =
+    `أحسنت! وصلت إلى معادلة من شكل X = عدد، وقيمة المتغير هنا هي X = ${solutionX}.`;
+
+  pendingHintEl.textContent =
+    "لاحظ الآن كيف نتحقق من صحة الحل بالتعويض في المسألة الأصلية.";
+
+  if (successSound) {
+    successSound.currentTime = 0;
+    successSound.play().catch(() => {});
   }
+
+  showVerificationStep();
+}
+
+// خطوة التحقق بالتعويض في المسألة الأصلية
+function showVerificationStep() {
+  const eq = currentEquation;
+  const x  = solutionX;
+
+  const leftExpr  = formatExpressionWithValue(eq.aL, eq.bL, x);
+  const rightExpr = formatExpressionWithValue(eq.aR, eq.bR, x);
+
+  const leftVal  = eq.aL * x + eq.bL;
+  const rightVal = eq.aR * x + eq.bR;
+
+  verificationContent.innerHTML = `
+    <p>عَوِّض قيمة المتغير <strong>X = ${x}</strong> في المسألة الأصلية:</p>
+    <p class="verify-eq">${leftExpr} = ${rightExpr}</p>
+    <p class="verify-res">${leftVal} = ${rightVal} <span class="verify-ok">/ أحسنت</span></p>
+  `;
+  verificationSection.classList.add("visible");
 }
 
 // =============================
 // العمليات على الطرفين
 // =============================
 
-// تطبيق العملية على أحد الطرفين فقط (L أو R)
+// تعديل المعاملات aL, bL, aR, bR حسب الطرف والعملية
 function applyOperationToSide(side, opType) {
   switch (opType) {
     case "PLUS1":
@@ -289,37 +356,9 @@ function applyOperationToSide(side, opType) {
 
 // عند الضغط على زر من أزرار الطرفين
 function handleControlClick(side, opType) {
-  if (isSolved) {
-    // بعد الحل يمكن للطالب الضغط لكن لن نُحدّث الخطوات
-    applyOperationToSide(side, opType);
-    updateScaleAndEquation();
-    return;
-  }
-
-  // تطبيق العملية على الطرف الذي اختاره الطالب
+  // حتى بعد الحل، نسمح للطالب بالتلاعب لرؤية تأثير العمليات
   applyOperationToSide(side, opType);
   updateScaleAndEquation();
-
-  // إدارة حالة العملية المعلقة
-  if (
-    pendingOp &&
-    pendingOp.opType === opType &&
-    pendingOp.side !== side
-  ) {
-    // الآن طُبِّقت نفس العملية على الطرف الآخر -> خطوة حل جبري
-    addStepForSymmetricOp(opType);
-    pendingOp = null;
-
-    pendingHintEl.textContent =
-      "أحسنت! عندما تطبق نفس العملية على الطرفين تحافظ على توازن المعادلة.";
-
-  } else {
-    // بدء عملية جديدة معلّقة أو استبدال القديمة
-    pendingOp = { opType, side };
-    const otherSideLabel = side === "L" ? "الأيمن" : "الأيسر";
-    pendingHintEl.textContent =
-      `الآن جرّب تطبيق نفس العملية على الطرف ${otherSideLabel} لتحافظ على توازن المعادلة.`;
-  }
 }
 
 // =============================
@@ -327,32 +366,34 @@ function handleControlClick(side, opType) {
 // =============================
 
 function loadNewEquation() {
-  // اختيار معادلة عشوائية
-  const randomIndex = Math.floor(Math.random() * equations.length);
-  currentEquation = equations[randomIndex];
+  // اختيار مسألة عشوائية
+  const idx = Math.floor(Math.random() * equations.length);
+  currentEquation = equations[idx];
 
+  // تعيين المعاملات الأصلية والحالية
   aL = currentEquation.aL;
   bL = currentEquation.bL;
   aR = currentEquation.aR;
   bR = currentEquation.bR;
 
-  solutionX = computeSolution(currentEquation);
+  // في البداية، الحالة المتوازنة الأساسية = المسألة الأصلية
+  baseAL = aL;
+  baseBL = bL;
+  baseAR = aR;
+  baseBR = bR;
 
+  // إعادة ضبط الحالة العامة
   isSolved  = false;
-  pendingOp = null;
-
-  // مسألة أصلية
-  originalEquationTextEl.textContent = currentEquation.text;
-  currentEquationTextEl.textContent  = formatEquation(aL, bL, aR, bR);
+  solutionX = null;
 
   statusMessageEl.classList.remove("success");
   statusMessageEl.textContent =
-    "حاول عزل المتغير X في أحد الطرفين ثم اجعل الميزان متوازنًا في النهاية.";
+    "حاول بعزل المتغير X في طرف واحد باستخدام عمليات متساوية على الطرفين، حتى تحصل في النهاية على معادلة من شكل X = عدد.";
 
   pendingHintEl.textContent =
-    "طبّق عملية على أحد الطرفين، ثم طبّق نفس العملية على الطرف الآخر لتحافظ على توازن المعادلة.";
+    "ابدأ بتجربة طرح أو إضافة X أو 1 على طرف واحد، ولاحظ ميل الميزان، ثم طبّق عملية مكافئة على الطرف الآخر لإعادته متوازنًا.";
 
-  // إعادة تعيين خطوات الحل
+  // تهيئة جدول الخطوات مع المسألة الأصلية
   steps = [
     {
       equation: formatEquation(aL, bL, aR, bR),
@@ -365,7 +406,7 @@ function loadNewEquation() {
   verificationSection.classList.remove("visible");
   verificationContent.innerHTML = "";
 
-  // إعادة تعيين حالة الميزان
+  // تحديث العرض والميزان
   updateScaleAndEquation();
 }
 
@@ -373,18 +414,15 @@ function loadNewEquation() {
 // ربط الأحداث
 // =============================
 
-// أزرار الطرفين
 controlButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const side  = btn.dataset.side; // "L" أو "R"
-    const opType = btn.dataset.op;  // PLUS1 / MINUS1 / PLUSX / MINUSX
+    const side   = btn.dataset.side; // "L" أو "R"
+    const opType = btn.dataset.op;   // PLUS1 / MINUS1 / PLUSX / MINUSX
     handleControlClick(side, opType);
   });
 });
 
-// زر مسألة جديدة
 newEquationBtn.addEventListener("click", loadNewEquation);
 
 // تشغيل اللعبة أول مرة
 loadNewEquation();
-
