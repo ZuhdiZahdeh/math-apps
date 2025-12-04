@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لعبة ميزان المعادلة الخطية – خطوات الحل</title>
+    <link rel="stylesheet" href="balance-steps.css">
+</head>
+<body>
+
+<main class="balance-steps-container">
+
+    <header class="game-header">
+        <h1>لعبة ميزان المعادلة الخطية (نسخة خطوات الحل)</h1>
+        <p>
+            استخدم أزرار الطرفين لتضيف أو تطرح <strong>X</strong> و<strong>1</strong> من كل كفة،
+            وشاهد كيف يميل الميزان، ثم أعد التوازن بتطبيق نفس العملية على الطرف الآخر.
+        </p>
+    </header>
+
+    <!-- المعادلة الأصلية والمعادلة الحالية -->
+    <section class="equation-section">
+        <div class="equation-line">
+            <span class="label">المسألة الأصلية:</span>
+            <span id="originalEquationText" class="equation-text"></span>
+        </div>
+        <div class="equation-line">
+            <span class="label">المعادلة الحالية على الميزان:</span>
+            <span id="currentEquationText" class="equation-text highlight"></span>
+        </div>
+        <p id="pendingHint" class="pending-hint">
+            طبّق عملية على أحد الطرفين، ثم طبّق نفس العملية على الطرف الآخر لتحافظ على توازن المعادلة.
+        </p>
+    </section>
+
+    <!-- منطقة الميزان والقيم العددية -->
+    <section class="scale-section">
+        <div class="scale-values">
+            <div>قيمة الطرف الأيسر عند الحل الحقيقي: <span id="leftValue">0</span></div>
+            <div>قيمة الطرف الأيمن عند الحل الحقيقي: <span id="rightValue">0</span></div>
+        </div>
+
+        <div class="balance-wrapper">
+            <img src="../../images/balance-equations/balance.png"
+                 alt="ميزان المعادلة"
+                 class="balance-img balanced">
+        </div>
+    </section>
+
+    <!-- أزرار الطرفين -->
+    <section class="controls-section">
+        <h2>أزرار العمليات على الطرفين</h2>
+        <p class="controls-note">
+            يمكنك أولاً تطبيق العملية على طرف واحد فقط لترى الميلان، ثم على الطرف الآخر لإعادة التوازن
+            وتسجيل خطوة حل جبري في الجدول.
+        </p>
+
+        <div class="two-sides-controls">
+
+            <!-- الطرف الأيسر -->
+            <div class="side-column">
+                <h3>الطرف الأيسر</h3>
+                <div class="side-buttons">
+                    <button class="control-btn plus-x"   data-side="L" data-op="PLUSX">+X</button>
+                    <button class="control-btn minus-x"  data-side="L" data-op="MINUSX">-X</button>
+                    <button class="control-btn plus-1"   data-side="L" data-op="PLUS1">+1</button>
+                    <button class="control-btn minus-1"  data-side="L" data-op="MINUS1">-1</button>
+                </div>
+            </div>
+
+            <!-- الطرف الأيمن -->
+            <div class="side-column">
+                <h3>الطرف الأيمن</h3>
+                <div class="side-buttons">
+                    <button class="control-btn plus-x"   data-side="R" data-op="PLUSX">+X</button>
+                    <button class="control-btn minus-x"  data-side="R" data-op="MINUSX">-X</button>
+                    <button class="control-btn plus-1"   data-side="R" data-op="PLUS1">+1</button>
+                    <button class="control-btn minus-1"  data-side="R" data-op="MINUS1">-1</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls-footer">
+            <button id="btnNewEquation" class="new-equation-btn" type="button">مسألة جديدة</button>
+        </div>
+    </section>
+
+    <!-- رسالة الحالة -->
+    <section class="status-section">
+        <div id="statusMessage" class="status-message">
+            حاول عزل المتغير X في أحد الطرفين ثم اجعل الميزان متوازنًا في النهاية.
+        </div>
+    </section>
+
+    <!-- جدول خطوات الحل الجبري -->
+    <section class="steps-section">
+        <h2>خطوات الحل الجبري</h2>
+        <table class="steps-table">
+            <thead>
+                <tr>
+                    <th>المعادلة</th>
+                    <th>العملية على الطرفين</th>
+                </tr>
+            </thead>
+            <tbody id="stepsBody">
+            <!-- تُضاف الصفوف برمجيًا -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- خطوة التحقق -->
+    <section class="verification-section" id="verificationSection">
+        <h2>خطوة التحقق من الحل</h2>
+        <div id="verificationContent" class="verification-content">
+            <!-- يُملأ عند نجاح الحل -->
+        </div>
+    </section>
+
+</main>
+
+<!-- الأصوات -->
+<audio id="successSound" src="../audio/success/clap.mp3" preload="auto"></audio>
+
+<script src="balance-steps.js"></script>
+</body>
+</html>
