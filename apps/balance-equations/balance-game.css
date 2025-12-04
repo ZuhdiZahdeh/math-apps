@@ -49,6 +49,16 @@ body {
     font-weight: 600;
     margin-bottom: 8px;
 }
+.equation-with-x {
+    margin-top: 6px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.equation-with-x .result {
+    font-weight: 700;
+    color: #0b7a3c;
+}
 
 .x-value {
     font-size: 1.1rem;
