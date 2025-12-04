@@ -1,0 +1,222 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0f9adf 0%, #66c2ff 40%, #e6f6ff 100%);
+    color: #123;
+}
+
+/* حاوية اللعبة */
+.balance-game-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px 16px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* العنوان */
+.game-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.game-header h1 {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+    color: #d47a00;
+}
+
+/* المعادلة وقيمة X */
+.equation-section {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.equation-text {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #ffe6bf;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.x-value {
+    font-size: 1.1rem;
+}
+
+#xValueNumber {
+    font-weight: 700;
+    color: #007a3d;
+}
+
+/* منطقة الميزان */
+.scale-section {
+    margin: 20px 0;
+}
+
+.scale-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.scale-values span {
+    font-weight: 700;
+}
+
+/* الحاوية + صورة الميزان */
+.balance-wrapper {
+    width: min(420px, 100%);
+    margin: 0 auto;
+}
+
+.balance-img {
+    width: 100%;
+    transform-origin: 50% 25%; /* نقطة الدوران قرب أعلى العمود */
+}
+
+/* حالات الميزان */
+.balance-img.balanced {
+    animation: none;
+    transform: rotate(0deg);
+}
+
+/* الميزان أثقل في اليسار */
+.balance-img.swing-left {
+    animation: swingLeft 0.7s ease-in-out infinite alternate;
+}
+
+/* الميزان أثقل في اليمين */
+.balance-img.swing-right {
+    animation: swingRight 0.7s ease-in-out infinite alternate;
+}
+
+/* أنيميشن الميلان لليسار */
+@keyframes swingLeft {
+    0%   { transform: rotate(-4deg); }
+    100% { transform: rotate(-11deg); }
+}
+
+/* أنيميشن الميلان لليمين */
+@keyframes swingRight {
+    0%   { transform: rotate(4deg); }
+    100% { transform: rotate(11deg); }
+}
+
+/* أزرار التحكم */
+.controls-section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.controls-title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #134b70;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 8px;
+}
+
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+/* ألوان كل زر (يمكنك تعديلها لتلائم ألوان القطع عندك) */
+.btn-plus1  { background: #ff9800; }
+.btn-minus1 { background: #f44336; }
+.btn-plusx  { background: #ffc107; }
+.btn-minusx { background: #ff5722; }
+
+.control-btn:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.95);
+}
+
+.controls-hint {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* حالة الرسالة وزر المسألة الجديدة */
+.status-section {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.status-message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #eef7ff;
+    color: #134b70;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.status-message.success {
+    background: #e3f6eb;
+    color: #0b7a3c;
+    font-weight: 600;
+}
+
+.new-equation-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #1976d2;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.new-equation-btn:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.95);
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 600px) {
+    .balance-game-container {
+        margin: 10px;
+        padding: 16px 10px 30px;
+    }
+
+    .control-btn {
+        width: 62px;
+        height: 62px;
+        font-size: 1.1rem;
+    }
+
+    .equation-text {
+        font-size: 1.1rem;
+    }
+}
