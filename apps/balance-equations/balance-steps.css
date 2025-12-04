@@ -1,0 +1,320 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0f9adf 0%, #66c2ff 40%, #e6f6ff 100%);
+    color: #123;
+}
+
+/* حاوية اللعبة */
+.balance-steps-container {
+    max-width: 980px;
+    margin: 20px auto;
+    padding: 20px 16px 40px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* العنوان */
+.game-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+.game-header h1 {
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+    color: #d47a00;
+}
+
+/* المعادلات أعلى الصفحة */
+.equation-section {
+    margin-bottom: 16px;
+}
+
+.equation-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.equation-line .label {
+    font-weight: 600;
+    color: #134b70;
+}
+
+.equation-text {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #ffe6bf;
+    min-width: 140px;
+    text-align: center;
+}
+
+.equation-text.highlight {
+    background: #ffe8c9;
+    border: 1px solid #ffb74d;
+    font-weight: 600;
+}
+
+.pending-hint {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* منطقة الميزان */
+.scale-section {
+    margin: 20px 0;
+}
+
+.scale-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+.scale-values span {
+    font-weight: 700;
+}
+
+.balance-wrapper {
+    width: min(420px, 100%);
+    margin: 0 auto;
+}
+
+.balance-img {
+    width: 100%;
+    transform-origin: 50% 25%; /* نقطة دوران الميزان (قرب أعلى العمود) */
+}
+
+/* حالات الميزان */
+.balance-img.balanced {
+    animation: none;
+    transform: rotate(0deg);
+}
+
+/* الميزان أثقل في اليسار */
+.balance-img.swing-left {
+    animation: swingLeft 0.7s ease-in-out infinite alternate;
+}
+
+/* الميزان أثقل في اليمين */
+.balance-img.swing-right {
+    animation: swingRight 0.7s ease-in-out infinite alternate;
+}
+
+/* أنيميشن الميلان لليسار */
+@keyframes swingLeft {
+    0%   { transform: rotate(-4deg); }
+    100% { transform: rotate(-11deg); }
+}
+
+/* أنيميشن الميلان لليمين */
+@keyframes swingRight {
+    0%   { transform: rotate(4deg); }
+    100% { transform: rotate(11deg); }
+}
+
+/* أزرار الطرفين */
+.controls-section {
+    margin-top: 10px;
+}
+
+.controls-section h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    color: #134b70;
+}
+
+.controls-note {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.two-sides-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.side-column {
+    flex: 1 1 220px;
+    min-width: 220px;
+    text-align: center;
+    background: #f5f8ff;
+    border-radius: 14px;
+    padding: 10px;
+    border: 1px solid #d0dcff;
+}
+
+.side-column h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    color: #134b70;
+}
+
+.side-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(70px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+.control-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+/* ألوان الأزرار */
+.plus-x  { background: #ffc107; }
+.minus-x { background: #ff5722; }
+.plus-1  { background: #4caf50; }
+.minus-1 { background: #f44336; }
+
+.control-btn:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.96);
+}
+
+/* زر مسألة جديدة */
+.controls-footer {
+    text-align: center;
+    margin-top: 12px;
+}
+.new-equation-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #1976d2;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+.new-equation-btn:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.95);
+}
+
+/* رسالة الحالة */
+.status-section {
+    margin-top: 15px;
+    text-align: center;
+}
+.status-message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #eef7ff;
+    color: #134b70;
+    font-size: 0.98rem;
+}
+.status-message.success {
+    background: #e3f6eb;
+    color: #0b7a3c;
+    font-weight: 600;
+}
+
+/* جدول خطوات الحل */
+.steps-section {
+    margin-top: 22px;
+}
+
+.steps-section h2 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: #134b70;
+}
+
+.steps-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.steps-table th,
+.steps-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #dde3f5;
+}
+.steps-table th {
+    background: #f0f4ff;
+    text-align: right;
+}
+.steps-table tr:nth-child(even) td {
+    background: #fafbff;
+}
+
+/* قسم التحقق */
+.verification-section {
+    margin-top: 22px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: #fff9e6;
+    border: 1px solid #ffe082;
+    display: none;
+}
+.verification-section.visible {
+    display: block;
+}
+
+.verification-section h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: #aa6c00;
+}
+
+.verification-content p {
+    margin: 6px 0;
+}
+
+.verify-eq,
+.verify-res {
+    font-weight: 600;
+}
+
+.verify-ok {
+    color: #0b7a3c;
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 680px) {
+    .balance-steps-container {
+        margin: 10px;
+        padding: 16px 10px 30px;
+    }
+
+    .control-btn {
+        width: 64px;
+        height: 64px;
+        font-size: 1.1rem;
+    }
+
+    .scale-values {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
