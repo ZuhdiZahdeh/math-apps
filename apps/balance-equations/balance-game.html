@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة ميزان المعادلة الخطية</title>
+    <link rel="stylesheet" href="css/balance-game.css">
+</head>
+<body>
+
+<main class="balance-game-container">
+    <header class="game-header">
+        <h1>لعبة ميزان المعادلة الخطية</h1>
+        <p>استخدم الأزرار لتغيير قيمة <strong>X</strong> حتى يتوازن الميزان.</p>
+    </header>
+
+    <!-- مربع المعادلة وقيمة X الحالية -->
+    <section class="equation-section">
+        <div id="equationText" class="equation-text"></div>
+        <div id="xValue" class="x-value">قيمة X الحالية: <span id="xValueNumber">0</span></div>
+    </section>
+
+    <!-- منطقة الميزان -->
+    <section class="scale-section">
+        <div class="scale-values">
+            <div>قيمة الطرف الأيسر: <span id="leftValue">0</span></div>
+            <div>قيمة الطرف الأيمن: <span id="rightValue">0</span></div>
+        </div>
+
+        <div class="balance-wrapper">
+            <!-- ضع صورة الميزان هنا -->
+            <img src="images/balance.png"
+                 alt="ميزان المعادلة"
+                 class="balance-img balanced">
+        </div>
+    </section>
+
+    <!-- أزرار التحكم -->
+    <section class="controls-section">
+        <h2 class="controls-title">أزرار التحكم في X</h2>
+        <div class="controls-grid">
+            <!-- يمكنك لاحقًا استبدال النص بصورة القرص أو المكعب المناسب -->
+            <button id="btnPlus1"  class="control-btn btn-plus1"  type="button">+1</button>
+            <button id="btnMinus1" class="control-btn btn-minus1" type="button">-1</button>
+            <button id="btnPlusX"  class="control-btn btn-plusx"  type="button">+X</button>
+            <button id="btnMinusX" class="control-btn btn-minusx" type="button">-X</button>
+        </div>
+
+        <p class="controls-hint">
+            الزران <strong>+1</strong> و<strong>-1</strong> يغيّران X خطوة واحدة.<br>
+            الزران <strong>+X</strong> و<strong>-X</strong> يغيّران X بخطوة أكبر (5 درجات) لتسريع التجريب.
+        </p>
+    </section>
+
+    <!-- حالة اللعبة + زر مسألة جديدة -->
+    <section class="status-section">
+        <div id="statusMessage" class="status-message">
+            غيّر قيمة X حتى تصبح قيمتا الطرفين متساويتين ويتوقف الميزان عن الحركة.
+        </div>
+        <button id="btnNewEquation" class="new-equation-btn" type="button">
+            مسألة جديدة
+        </button>
+    </section>
+</main>
+
+<!-- الأصوات -->
+<audio id="successSound" src="audio/clap.mp3" preload="auto"></audio>
+<audio id="errorSound" src="audio/error.mp3" preload="auto"></audio>
+
+<script src="js/balance-game.js"></script>
+</body>
+</html>
 
