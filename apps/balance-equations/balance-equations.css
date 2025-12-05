@@ -136,6 +136,18 @@ body {
   color: #374151;
 }
 
+/* حقل المعادلة التي يكتبها الطالب */
+.balance-input-equation {
+  min-width: 260px;
+  font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+  direction: ltr;
+}
+
+/* جعل خانة المعادلة تتمدّد على العرض المتاح */
+.balance-field-wide {
+  flex: 1 1 260px;
+}
+
 .balance-select,
 .balance-input {
   min-width: 150px;
