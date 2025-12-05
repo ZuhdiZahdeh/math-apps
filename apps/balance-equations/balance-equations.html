@@ -11,7 +11,7 @@
     <header class="balance-header">
       <h1>ميزان المعادلة</h1>
       <p class="balance-subtitle">
-        استكشف فكرة المساواة &quot;=&quot; كميزان، وتدرّب على إضافة النظير الجمعي للطرفين، وربط ذلك بالمسائل الحياتية.
+        استكشف فكرة المساواة "&equals;" كميزان، وتدرّب على إضافة النظير الجمعي للطرفين، وربط ذلك بالمسائل الحياتية.
       </p>
     </header>
 
@@ -184,6 +184,26 @@
         <span id="balance-word-equation-display" class="balance-equation-string" dir="ltr"></span>
       </div>
 
+      <!-- حقل معادلة الطالب + زر فحص -->
+      <div class="balance-row balance-row-wrap">
+        <label class="balance-field balance-field-wide">
+          <span>اكتب المعادلة التي تمثّل المسألة:</span>
+          <input
+            id="balance-word-equation-input"
+            type="text"
+            class="balance-input balance-input-equation"
+            dir="ltr"
+            placeholder="مثال: x + 4 = 10"
+          >
+        </label>
+        <button id="balance-word-equation-check-btn" class="balance-primary-button">
+          فحص المعادلة
+        </button>
+      </div>
+
+      <!-- تغذية راجعة لفحص المعادلة -->
+      <div id="balance-word-equation-feedback" class="balance-log" aria-live="polite"></div>
+
       <p class="balance-hint">
         جرّب أولًا أن تكتب بنفسك معنى المتغيّر والمعادلة على الدفتر، ثم قارن مع ما يعرضه التطبيق.
       </p>
@@ -248,9 +268,9 @@
       </div>
     </section>
 
-<footer class="balance-footer">
-  <p>تطبيق تجريبي لمفهوم الميزان وحل المعادلات الخطية – إعداد الأستاذ زهدي زاهدة.</p>
-</footer>
+    <footer class="balance-footer">
+      <p>تطبيق تجريبي لمفهوم الميزان وحل المعادلات الخطية – إعداد الأستاذ زهدي زاهدة.</p>
+    </footer>
 
   </main>
 
