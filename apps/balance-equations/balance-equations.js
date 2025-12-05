@@ -59,6 +59,11 @@
   const wordEquationDisplay = document.getElementById('balance-word-equation-display');
   const wordImage = document.getElementById('balance-word-image');
 
+  // عناصر معادلة الطالب في المسائل الحياتية
+  const wordEquationInput = document.getElementById('balance-word-equation-input');
+  const wordEquationCheckBtn = document.getElementById('balance-word-equation-check-btn');
+  const wordEquationFeedback = document.getElementById('balance-word-equation-feedback');
+
   // ===== حالة وأدوات لعبة التوازن =====
   let gameRounds = [];
   let gameCurrentIndex = 0;
@@ -201,6 +206,128 @@
   function isSimpleSolved(eq) {
     // الشكل x = a
     return eq.left.x === 1 && eq.left.c === 0 && eq.right.x === 0;
+  }
+
+  /* ===== تحليل المعادلة من نص (للطلاب) + فحص المكافأة ===== */
+
+  //解析 تعبير طرف واحد مثل: "x+4" أو "2x-3" أو "-5"
+  function parseLinearSide(expr) {
+    if (!expr) {
+      return { x: 0, c: 0 };
+    }
+
+    // نحول "-" إلى "+-" حتى يسهل التقسيم
+    let normalized = expr.replace(/-/g, '+-');
+    if (normalized[0] === '+') {
+      normalized = normalized.slice(1);
+    }
+
+    const terms = normalized.split('+');
+    let xCoeff = 0;
+    let c = 0;
+
+    terms.forEach(term => {
+      if (!term) return;
+
+      const hasX = /x/i.test(term);
+      if (hasX) {
+        const withoutX = term.replace(/x/i, '');
+        let coeffStr = withoutX;
+
+        if (coeffStr === '' || coeffStr === '+') {
+          coeffStr = '1';
+        } else if (coeffStr === '-') {
+          coeffStr = '-1';
+        }
+
+        const value = Number(coeffStr);
+        if (!Number.isFinite(value)) {
+          throw new Error('تعذّر قراءة معامل x في الطرف: ' + term);
+        }
+        xCoeff += value;
+      } else {
+        const value = Number(term);
+        if (!Number.isFinite(value)) {
+          throw new Error('تعذّر قراءة العدد في الطرف: ' + term);
+        }
+        c += value;
+      }
+    });
+
+    return { x: xCoeff, c };
+  }
+
+  // تحليل معادلة الطالب من نص مثل: "x+4=10"
+  function parseStudentEquation(input) {
+    if (!input) {
+      throw new Error('يجب أن تكتب معادلة.');
+    }
+
+    const text = input.replace(/\s+/g, ''); // إزالة الفراغات
+    const parts = text.split('=');
+
+    if (parts.length !== 2) {
+      throw new Error('يجب أن تحتوي المعادلة على علامة "=" واحدة.');
+    }
+
+    return {
+      left: parseLinearSide(parts[0]),
+      right: parseLinearSide(parts[1])
+    };
+  }
+
+  // نوع الحل لمعادلة خطية في متغيّر واحد
+  function equationSolution(eq) {
+    // من (Lx*x + Lc) = (Rx*x + Rc)
+    // نحصل على (Lx-Rx)x + (Lc-Rc) = 0
+    const a = eq.left.x - eq.right.x;
+    const cDiff = eq.left.c - eq.right.c;
+
+    if (a === 0 && cDiff === 0) {
+      // 0x + 0 = 0 → جميع الأعداد حل
+      return { type: 'all' };
+    }
+    if (a === 0 && cDiff !== 0) {
+      // 0x + k = 0 , k≠0 → لا حل
+      return { type: 'none' };
+    }
+
+    const value = (eq.right.c - eq.left.c) / a; // a x = (Rc-Lc)
+    return { type: 'unique', value };
+  }
+
+  // مقارنة شكل المعادلتين مباشرة
+  function areEquationsStructurallyEqual(e1, e2) {
+    return (
+      e1.left.x === e2.left.x &&
+      e1.left.c === e2.left.c &&
+      e1.right.x === e2.right.x &&
+      e1.right.c === e2.right.c
+    );
+  }
+
+  // السماح بتبديل الطرفين: x+4=10 أو 10=x+4
+  function areEquationsEquivalentBySwap(e1, e2) {
+    return (
+      e1.left.x === e2.right.x &&
+      e1.left.c === e2.right.c &&
+      e1.right.x === e2.left.x &&
+      e1.right.c === e2.left.c
+    );
+  }
+
+  // مكافأة بالحل (نفس قيمة x) مع استثناء "لا حل" أو "كل x"
+  function areEquationsEquivalentBySolution(studentEq, expectedEq) {
+    const solExpected = equationSolution(expectedEq);
+    const solStudent = equationSolution(studentEq);
+
+    // في التطبيق، مسائلنا الحياتية كلها من نوع حل وحيد
+    if (solExpected.type !== 'unique' || solStudent.type !== 'unique') {
+      return false;
+    }
+
+    const diff = Math.abs(solExpected.value - solStudent.value);
+    return diff < 1e-9; // سماحية عددية صغيرة
   }
 
   /* ===================== رسم الميزان ===================== */
@@ -600,6 +727,11 @@
       startNewTrainExercise(exercise);
       activateTab('train');
     });
+
+    // زر فحص معادلة الطالب
+    if (wordEquationCheckBtn) {
+      wordEquationCheckBtn.addEventListener('click', handleWordEquationCheck);
+    }
   }
 
   function getCurrentWordProblem() {
@@ -614,6 +746,14 @@
     wordContext.textContent = problem.context || '';
     wordText.textContent = problem.text || '';
     wordEquationDisplay.textContent = ''; // نخفي المعادلة في البداية
+
+    // تفريغ حقل الطالب والتغذية الراجعة عند تغيير المسألة
+    if (wordEquationInput) {
+      wordEquationInput.value = '';
+    }
+    if (wordEquationFeedback) {
+      wordEquationFeedback.innerHTML = '';
+    }
 
     // التعامل مع الصورة
     if (wordImage) {
@@ -635,6 +775,71 @@
         wordImage.alt = '';
         wordImage.style.display = 'none';
       }
+    }
+  }
+
+  // فحص معادلة الطالب في تبويب المسائل الحياتية
+  function handleWordEquationCheck() {
+    if (!wordEquationFeedback) return;
+
+    const current = getCurrentWordProblem();
+    if (!current) return;
+
+    wordEquationFeedback.innerHTML = '';
+
+    const raw = wordEquationInput ? wordEquationInput.value.trim() : '';
+    if (!raw) {
+      wordEquationFeedback.innerHTML =
+        '❗ اكتب المعادلة أولًا في الصندوق ثم اضغط "فحص المعادلة".';
+      playRandomSoundFrom(failSounds);
+      return;
+    }
+
+    let studentEq;
+    try {
+      studentEq = parseStudentEquation(raw);
+    } catch (e) {
+      console.warn('خطأ في قراءة معادلة الطالب:', e);
+      wordEquationFeedback.innerHTML =
+        '⚠ لا يمكن قراءة المعادلة. تأكّد من الصيغة مثل: ' +
+        '<span dir="ltr">x + 4 = 10</span> أو ' +
+        '<span dir="ltr">3x - 2 = 7</span>.';
+      playRandomSoundFrom(failSounds);
+      return;
+    }
+
+    const expectedEq = createEquationFromData(current);
+
+    // أولًا: نفس الشكل (مع/بدون تبديل الطرفين)
+    let isEquivalent =
+      areEquationsStructurallyEqual(studentEq, expectedEq) ||
+      areEquationsEquivalentBySwap(studentEq, expectedEq);
+
+    // إن لم يكن نفس الشكل، نفحص المكافأة بالحـل
+    if (!isEquivalent) {
+      isEquivalent = areEquationsEquivalentBySolution(studentEq, expectedEq);
+    }
+
+    const modelString = current.equation || equationToString(expectedEq);
+
+    if (isEquivalent) {
+      wordEquationFeedback.innerHTML =
+        '✅ أحسنت! هذه معادلة صحيحة تمثّل المسألة.<br>' +
+        'إحدى الصيغ النموذجية هي: ' +
+        `<span dir="ltr">${modelString}</span>`;
+      playRandomSoundFrom(successSounds);
+
+      // إظهار المعادلة النموذجية إذا كانت مخفية
+      if (wordEquationDisplay && !wordEquationDisplay.textContent) {
+        wordEquationDisplay.textContent = modelString;
+      }
+    } else {
+      wordEquationFeedback.innerHTML =
+        '❌ هذه المعادلة لا تعطي نفس الحل للمسألة.<br>' +
+        'حاول أن تعيد قراءة نص المسألة وتربطها بعلاقة بين المبلغ المجهول والزيادات/النواقص.<br>' +
+        'مثال لصيغة مكافئة: ' +
+        `<span dir="ltr">${modelString}</span>`;
+      playRandomSoundFrom(failSounds);
     }
   }
 
