@@ -106,5 +106,15 @@
     "path": "apps/circle-measures/index.html",
     "thumb": "images/thumbs/placeholder.jpg",
     "desc": "ارتباط القطر/نصف القطر بالمحيط والمساحة بصريًا."
-  }
+  },
+  {
+  "id": "pythagoras",
+  "title": "شرح نظرية فيثاغورس – الصف الثامن",
+  "path": "apps/pythagoras/pythagoras.html",
+  "thumb": "images/thumbs/pythagoras.png",
+  "grades": [8],
+  "tags": ["هندسة", "نظرية فيثاغورس", "مثلثات"],
+  "desc": "درس محوسب تفاعلي لاكتشاف نظرية فيثاغورس بصريًا، وربطها بمساحات المربعات، مع مسائل حياتية ولعبة تحدّي."
+}
+
 ]
