@@ -107,14 +107,13 @@
     "thumb": "images/thumbs/placeholder.jpg",
     "desc": "ارتباط القطر/نصف القطر بالمحيط والمساحة بصريًا."
   },
-  {
-  "id": "pythagoras",
-  "title": "شرح نظرية فيثاغورس – الصف الثامن",
-  "path": "apps/pythagoras/pythagoras.html",
-  "thumb": "images/thumbs/pythagoras.png",
+{
+  "id": "pythagoras-lottery",
+  "title": "قرعة مسابقة نظرية فيثاغورس",
   "grades": [8],
-  "tags": ["هندسة", "نظرية فيثاغورس", "مثلثات"],
-  "desc": "درس محوسب تفاعلي لاكتشاف نظرية فيثاغورس بصريًا، وربطها بمساحات المربعات، مع مسائل حياتية ولعبة تحدّي."
+  "tags": ["هندسة", "نظرية فيثاغورس", "مسابقة", "قرعة"],
+  "path": "apps/pythagoras/pythagoras-lottery.html",
+  "thumb": "images/thumbs/pythagoras-lottery-thumb.png",
+  "desc": "لعبة قرعة لاختيار طالبة فائزة في مسابقة نظرية فيثاغورس مع عدٍّ تنازلي وتصفيق أمام الصف."
 }
-
 ]
