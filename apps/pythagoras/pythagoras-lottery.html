@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>قرعة نظرية فيثاغورس</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Tahoma", system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at top, #4f46e5, #1e293b);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 20px;
+            padding: 24px 28px;
+            max-width: 600px;
+            width: 95%;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.7rem;
+        }
+
+        .subtitle {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #e5e7eb;
+        }
+
+        .names {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .names input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 12px;
+            border-radius: 999px;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .names input:focus {
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+
+        button {
+            margin-top: 4px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 999px;
+            background: linear-gradient(to left, #f97316, #facc15);
+            color: #1f2933;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(248, 181, 0, 0.5);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px rgba(248, 181, 0, 0.6);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 12px rgba(248, 181, 0, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        #countdown {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 18px 0 6px;
+            display: none;
+        }
+
+        #countdown.animate {
+            animation: pop 0.4s ease-out;
+        }
+
+        #result {
+            margin-top: 14px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #facc15;
+            display: none;
+        }
+
+        .note {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #cbd5f5;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            #countdown {
+                font-size: 3.5rem;
+            }
+            #result {
+                font-size: 1.6rem;
+            }
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>قرعة نظرية فيثاغورس 🧮</h1>
+    <p class="subtitle">أدخل اسمي الطالبتين، ثم اضغط على زر القرعة ليبدأ العد التنازلي وتظهر الفائزة.</p>
+
+    <div class="names">
+        <input id="name1" type="text" placeholder="اسم الطالبة الأولى" />
+        <input id="name2" type="text" placeholder="اسم الطالبة الثانية" />
+    </div>
+
+    <button id="startBtn">ابدأ القرعة 🎲</button>
+
+    <div id="countdown"></div>
+    <div id="result"></div>
+
+    <p class="note">📌 ملاحظة: يمكن تكرار القرعة أكثر من مرة، فقط غيّر الأسماء أو اضغط الزر مرة أخرى.</p>
+</div>
+
+<!-- ضع ملف التصفيق باسم applause.mp3 في نفس المجلد مع هذا الملف -->
+<audio id="applause" src="applause.mp3" preload="auto"></audio>
+
+<script>
+    const name1Input = document.getElementById("name1");
+    const name2Input = document.getElementById("name2");
+    const startBtn = document.getElementById("startBtn");
+    const countdownEl = document.getElementById("countdown");
+    const resultEl = document.getElementById("result");
+    const applauseAudio = document.getElementById("applause");
+
+    startBtn.addEventListener("click", () => {
+        const name1 = name1Input.value.trim();
+        const name2 = name2Input.value.trim();
+
+        if (!name1 || !name2) {
+            alert("من فضلك أدخل اسم طالبتين على الأقل.");
+            return;
+        }
+
+        const names = [name1, name2];
+        const winner = names[Math.floor(Math.random() * names.length)];
+
+        // تجهيز الشاشة للعد التنازلي
+        startBtn.disabled = true;
+        name1Input.disabled = true;
+        name2Input.disabled = true;
+        resultEl.style.display = "none";
+
+        let counter = 10;
+        countdownEl.style.display = "block";
+        countdownEl.textContent = counter;
+        countdownEl.classList.add("animate");
+
+        const intervalId = setInterval(() => {
+            counter--;
+
+            if (counter > 0) {
+                countdownEl.textContent = counter;
+
+                // إعادة تشغيل الأنيميشن كل مرة
+                countdownEl.classList.remove("animate");
+                void countdownEl.offsetWidth; // trick لإعادة تشغيل الأنيميشن
+                countdownEl.classList.add("animate");
+            } else {
+                clearInterval(intervalId);
+                countdownEl.style.display = "none";
+
+                // إظهار النتيجة
+                resultEl.textContent = "الفائزة هي: " + winner + " 🎉";
+                resultEl.style.display = "block";
+
+                // تشغيل التصفيق
+                if (applauseAudio) {
+                    applauseAudio.currentTime = 0;
+                    applauseAudio.play().catch(() => {
+                        // في حال منع المتصفح التشغيل التلقائي
+                        console.log("اضغط على الشاشة للسماح بالتشغيل الصوتي إذا لم يعمل تلقائيًا.");
+                    });
+                }
+
+                // إعادة تفعيل الأزرار لقرعة جديدة
+                startBtn.disabled = false;
+                name1Input.disabled = false;
+                name2Input.disabled = false;
+            }
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
