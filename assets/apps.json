@@ -41,7 +41,7 @@
   "grades": [8, 9],
   "tags": ["هندسة", "مثلثات", "فان هيلي", "برهان", "بجروت"],
   "path": "apps/equilateral-vanhiele/index.html",
-  "thumb": "images/thumbs/equilateral-vanhiele.svg",
+  "thumb": "images/thumbs/equilateral-vanhiele.png",
   "desc": "مسار تفاعلي من التعرّف البصري إلى القياس والاستدلال ثم البرهان الرسمي في المثلث متساوي الأضلاع."
 },
   {
