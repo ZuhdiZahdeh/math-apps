@@ -1,48 +1,294 @@
-<!-- المستوى 1 -->
-<section class="panel level is-active" data-level="1">
-  <h2>المستوى 1 (بصري): بطاقة واحدة — صنّف الشكل</h2>
-  <p class="hint">
-    انظر للشكل فقط (بدون قياس)، ثم اختر:
-    <b>متساوي الأضلاع</b> أو <b>متساوي الساقين</b> أو <b>غير ذلك</b>.
-    <span class="tag">بصري فقط</span>
-  </p>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>المثلث متساوي الأضلاع – لعبة فان هيلي (1–4)</title>
 
-  <div class="l1stage">
-    <div class="l1card panel">
-      <div class="l1top">
-        <div class="l1num">
-          بطاقة <span id="l1Now">1</span> / <span id="l1Total">24</span>
+  <!-- نفس ثيم مختبر التطبيقات -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header class="wrap app-header">
+    <div class="toprow">
+      <div>
+        <h1 class="app-title">المثلث متساوي الأضلاع – لعبة فان هيلي (1–4)</h1>
+        <p class="app-sub">
+          مسار تفاعلي من التعرّف البصري ⇦ القياس والوصف ⇦ الاستدلال غير الرسمي ⇦ البرهان الرسمي.
+        </p>
+      </div>
+
+      <div class="actions">
+        <a class="btn ghost" href="../../index.html">↩ العودة لصفحة التطبيقات</a>
+      </div>
+    </div>
+
+    <div class="controls panel">
+      <div class="row">
+        <label class="lbl">الصف:
+          <select id="gradeSel" class="ctl">
+            <option value="8">الثامن</option>
+            <option value="9">التاسع</option>
+          </select>
+        </label>
+
+        <div class="progress">
+          <div class="muted">التقدم:</div>
+          <div class="bar"><div id="barFill" class="barfill"></div></div>
+          <div id="progText" class="muted">0/4</div>
         </div>
-        <div id="l1Status" class="muted">اختر إجابة ثم اضغط “تحقّق”.</div>
+
+        <button id="resetBtn" class="btn danger">إعادة ضبط</button>
       </div>
 
-      <div id="l1BigShape" class="l1big" aria-live="polite"></div>
-
-      <div class="l1answers">
-        <button class="ansbtn" data-ans="eq">مثلث متساوي الأضلاع</button>
-        <button class="ansbtn" data-ans="iso">مثلث متساوي الساقين</button>
-        <button class="ansbtn" data-ans="other">غير ذلك</button>
-      </div>
-
-      <div class="l1actions">
-        <button id="l1CheckOne" class="btn primary" disabled>تحقّق</button>
-        <button id="l1Prev" class="btn">السابق</button>
-        <button id="l1Next" class="btn">التالي</button>
-        <button id="l1Restart" class="btn danger">إعادة المستوى 1</button>
-        <span id="l1ScoreOne" class="muted"></span>
-      </div>
+      <nav class="tabs" aria-label="مستويات فان هيلي">
+        <button class="tab is-active" data-level="1">1) بصري</button>
+        <button class="tab" data-level="2">2) وصفي</button>
+        <button class="tab" data-level="3">3) استدلال غير رسمي</button>
+        <button class="tab" data-level="4">4) استنتاج رسمي</button>
+      </nav>
     </div>
+  </header>
 
-    <div class="l1nav panel">
-      <div class="l1navhdr">
-        <span class="muted">انتقل مباشرة:</span>
+  <main class="wrap">
+
+    <!-- المستوى 1 (مُحدّث) -->
+    <section class="panel level is-active" data-level="1">
+      <h2>المستوى 1 (بصري): بطاقة واحدة — صنّف الشكل</h2>
+      <p class="hint">
+        انظر للشكل فقط (بدون قياس)، ثم اختر:
+        <b>متساوي الأضلاع</b> أو <b>متساوي الساقين</b> أو <b>غير ذلك</b>.
+        <span class="tag">بصري فقط</span>
+      </p>
+
+      <div class="l1stage">
+        <div class="l1card panel">
+          <div class="l1top">
+            <div class="l1num">
+              بطاقة <span id="l1Now">1</span> / <span id="l1Total">24</span>
+            </div>
+            <div id="l1Status" class="muted">اختر إجابة ثم اضغط “تحقّق”.</div>
+          </div>
+
+          <!-- الشكل الكبير في منتصف الشاشة -->
+          <div id="l1BigShape" class="l1big" aria-live="polite"></div>
+
+          <!-- خيارات الطالب -->
+          <div class="l1answers">
+            <button class="ansbtn" data-ans="eq">مثلث متساوي الأضلاع</button>
+            <button class="ansbtn" data-ans="iso">مثلث متساوي الساقين</button>
+            <button class="ansbtn" data-ans="other">غير ذلك</button>
+          </div>
+
+          <!-- أزرار التحكم -->
+          <div class="l1actions">
+            <button id="l1CheckOne" class="btn primary" disabled>تحقّق</button>
+            <button id="l1Prev" class="btn">السابق</button>
+            <button id="l1Next" class="btn">التالي</button>
+            <button id="l1Restart" class="btn danger">إعادة المستوى 1</button>
+            <span id="l1ScoreOne" class="muted"></span>
+          </div>
+        </div>
+
+        <!-- شريط الأرقام -->
+        <div class="l1nav panel">
+          <div class="l1navhdr">
+            <span class="muted">انتقل مباشرة:</span>
+          </div>
+          <div id="l1Nums" class="l1nums"></div>
+        </div>
       </div>
-      <div id="l1Nums" class="l1nums"></div>
-    </div>
-  </div>
 
-  <div class="nextrow">
-    <button id="to2" class="btn primary">انتقل للمستوى 2</button>
-    <span id="l1Msg" class="muted"></span>
-  </div>
-</section>
+      <div class="nextrow">
+        <button id="to2" class="btn primary">انتقل للمستوى 2</button>
+        <span id="l1Msg" class="muted"></span>
+      </div>
+    </section>
+
+    <!-- المستوى 2 -->
+    <section class="panel level" data-level="2">
+      <h2>المستوى 2 (وصفي): قِس… لاحِظ… اكتشف الخصائص</h2>
+      <p class="hint">
+        اسحب النقطة C لتكوين مثلث. ثم اعرض القياسات ولاحظ: تساوي الأضلاع، تساوي الزوايا، ومحاور التماثل.
+        <span class="tag">سياق: دعامات الأسقف/الجسور</span>
+      </p>
+
+      <div class="twocol">
+        <div class="canvasbox">
+          <canvas id="triCanvas" width="520" height="340" aria-label="رسم مثلث تفاعلي"></canvas>
+
+          <div class="mini">
+            <button id="showMeasures" class="btn">إظهار/إخفاء القياسات</button>
+            <button id="l2Check" class="btn primary">تحقّق: هل هو متساوي الأضلاع؟</button>
+            <button id="l2Reset" class="btn">إعادة نقطة C</button>
+          </div>
+
+          <div id="l2Msg" class="muted"></div>
+        </div>
+
+        <div class="sidepanel">
+          <h3>دفتر الملاحظات (اكتب/اختر)</h3>
+
+          <div class="q">
+            <div class="qtitle">1) ماذا تلاحظ عن الأضلاع عندما يصبح المثلث متساوي الأضلاع؟</div>
+            <select id="l2q1" class="ctl">
+              <option value="">اختر…</option>
+              <option value="a">الأضلاع الثلاثة متساوية</option>
+              <option value="b">ضلعان فقط متساويان</option>
+              <option value="c">لا علاقة</option>
+            </select>
+          </div>
+
+          <div class="q">
+            <div class="qtitle">2) ماذا تلاحظ عن الزوايا؟</div>
+            <select id="l2q2" class="ctl">
+              <option value="">اختر…</option>
+              <option value="a">الزوايا الثلاث متساوية (تقريبًا 60°)</option>
+              <option value="b">زاويتان فقط متساويتان</option>
+              <option value="c">زاوية واحدة 90°</option>
+            </select>
+          </div>
+
+          <div class="q">
+            <div class="qtitle">3) كم محور تماثل للمثلث المتساوي الأضلاع؟</div>
+            <select id="l2q3" class="ctl">
+              <option value="">اختر…</option>
+              <option value="a">3</option>
+              <option value="b">1</option>
+              <option value="c">0</option>
+            </select>
+          </div>
+
+          <div class="mini">
+            <button id="l2Save" class="btn primary">تثبيت الإجابات</button>
+            <span id="l2Score" class="muted"></span>
+          </div>
+
+          <div class="nextrow">
+            <button id="to3" class="btn primary">انتقل للمستوى 3</button>
+            <span id="l2Done" class="muted"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المستوى 3 -->
+    <section class="panel level" data-level="3">
+      <h2>المستوى 3 (استدلال غير رسمي): لماذا؟ اربط الخاصية بالقاعدة</h2>
+      <p class="hint">
+        هنا نربط بين “تساوي الأضلاع” ونتائجها ونفسّر السبب بشكل منطقي (بدون كتابة برهان رسمي كامل).
+      </p>
+
+      <div class="qgrid">
+        <div class="q">
+          <div class="qtitle">1) إذا كان AB = AC فماذا نستنتج عن الزوايا؟</div>
+          <select id="l3_1" class="ctl">
+            <option value="">اختر…</option>
+            <option value="a">∠B = ∠C</option>
+            <option value="b">∠A = 90°</option>
+            <option value="c">AB ⟂ AC</option>
+          </select>
+        </div>
+
+        <div class="q">
+          <div class="qtitle">2) إذا كان AB = BC = CA فماذا عن الزوايا الثلاث؟</div>
+          <select id="l3_2" class="ctl">
+            <option value="">اختر…</option>
+            <option value="a">∠A = ∠B = ∠C</option>
+            <option value="b">∠A مختلفة دائمًا</option>
+            <option value="c">∠B = 90°</option>
+          </select>
+        </div>
+
+        <div class="q">
+          <div class="qtitle">3) إذا كانت الزوايا الثلاث متساوية، فكم قياس كل زاوية؟</div>
+          <select id="l3_3" class="ctl">
+            <option value="">اختر…</option>
+            <option value="a">60°</option>
+            <option value="b">45°</option>
+            <option value="c">90°</option>
+          </select>
+        </div>
+
+        <div class="q">
+          <div class="qtitle">4) لماذا يمكن تبليط سطح بمثلثات متساوية الأضلاع دون فراغات؟</div>
+          <select id="l3_4" class="ctl">
+            <option value="">اختر…</option>
+            <option value="a">لأن 6 مثلثات حول نقطة تعطينا 360° (6×60°)</option>
+            <option value="b">لأن له 4 أضلاع</option>
+            <option value="c">لأن فيه زاوية 90°</option>
+          </select>
+        </div>
+
+        <div class="q wide">
+          <div class="qtitle">5) اكتب “تعليلًا غير رسمي” من 2–3 جمل: لماذا تساوي الأضلاع يؤدي لتساوي الزوايا؟</div>
+          <textarea id="l3_txt" class="ctl" rows="4" placeholder="اكتب تعليلًا قصيرًا… (يقبل إجابة لفظية منطقية)"></textarea>
+          <div class="muted tiny">لن نقيّم الإملاء — فقط وضوح الفكرة.</div>
+        </div>
+      </div>
+
+      <div class="mini">
+        <button id="l3Check" class="btn primary">تحقّق</button>
+        <span id="l3Score" class="muted"></span>
+      </div>
+
+      <div class="nextrow">
+        <button id="to4" class="btn primary">انتقل للمستوى 4</button>
+        <span id="l3Msg" class="muted"></span>
+      </div>
+    </section>
+
+    <!-- المستوى 4 -->
+    <section class="panel level" data-level="4">
+      <h2>المستوى 4 (استنتاج رسمي): رتّب خطوات البرهان واختر السبب</h2>
+      <p class="hint">
+        في الصف التاسع: نطلب ترتيبًا + أسبابًا. في الصف الثامن: نفس النشاط لكن مع تلميحات أقوى وتقويم أخف.
+      </p>
+
+      <div class="twocol">
+        <div class="sidepanel">
+          <h3>برهان (أ): زوايا المثلث المتساوي الأضلاع = 60°</h3>
+          <div id="proofA" class="proof"></div>
+
+          <div class="mini">
+            <button id="checkA" class="btn primary">تحقّق برهان (أ)</button>
+            <span id="scoreA" class="muted"></span>
+          </div>
+
+          <hr class="sep">
+
+          <h3>برهان (ب): في المتساوي الأضلاع: المتوسط = المنصف = الارتفاع</h3>
+          <div id="proofB" class="proof"></div>
+
+          <div class="mini">
+            <button id="checkB" class="btn primary">تحقّق برهان (ب)</button>
+            <span id="scoreB" class="muted"></span>
+          </div>
+
+          <div class="nextrow">
+            <button id="finish" class="btn primary">إنهاء + حفظ النتيجة</button>
+            <span id="finalMsg" class="muted"></span>
+          </div>
+        </div>
+
+        <div class="canvasbox">
+          <h3>رسم داعم</h3>
+          <canvas id="proofCanvas" width="520" height="340" aria-label="رسم داعم للبرهان"></canvas>
+          <p class="muted tiny">
+            ملاحظة: في البرهان (ب) نستخدم النقطة M منتصف BC لمقارنة المثلثين ABM و ACM (تطابق SSS).
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap foot app-foot">
+    <span class="muted">© مختبر الرياضيات — لعبة فان هيلي (المثلث متساوي الأضلاع)</span>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
