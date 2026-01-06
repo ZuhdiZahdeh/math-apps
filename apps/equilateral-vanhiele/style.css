@@ -360,3 +360,10 @@ textarea.ctl{
 .tiny{ font-size:.9rem; }
 
 .app-foot{ margin-top:18px; }
+/* عرض بطاقات المستوى البصري */
+.l1big img{
+  width: min(520px, 85%);
+  height: auto;
+  display: block;
+  user-select: none;
+}
