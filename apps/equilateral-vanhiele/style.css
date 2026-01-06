@@ -162,10 +162,7 @@
   justify-content:center;
   border-radius:16px;
   border:1px solid #22314a;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(59,130,246,.18), transparent 55%),
-    radial-gradient(ellipse at 80% 70%, rgba(245,158,11,.18), transparent 55%),
-    #0b1220;
+  background: #f8fafc;
   margin:12px 0;
 }
 
