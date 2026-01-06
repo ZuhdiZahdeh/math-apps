@@ -1,0 +1,102 @@
+[
+  {
+    "id": "eq_01",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_01.svg"
+  },
+  {
+    "id": "eq_02",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_02.svg"
+  },
+  {
+    "id": "eq_03",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_03.svg"
+  },
+  {
+    "id": "eq_04",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_04.svg"
+  },
+  {
+    "id": "eq_05",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_05.svg"
+  },
+  {
+    "id": "eq_06",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_06.svg"
+  },
+  {
+    "id": "eq_07",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_07.svg"
+  },
+  {
+    "id": "eq_08",
+    "kind": "eq",
+    "src": "apps/equilateral-vanhiele/assets/cards/eq_08.svg"
+  },
+  {
+    "id": "iso_01",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_01.svg"
+  },
+  {
+    "id": "iso_02",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_02.svg"
+  },
+  {
+    "id": "iso_03",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_03.svg"
+  },
+  {
+    "id": "iso_04",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_04.svg"
+  },
+  {
+    "id": "iso_05",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_05.svg"
+  },
+  {
+    "id": "iso_06",
+    "kind": "iso",
+    "src": "apps/equilateral-vanhiele/assets/cards/iso_06.svg"
+  },
+  {
+    "id": "right_01",
+    "kind": "right",
+    "src": "apps/equilateral-vanhiele/assets/cards/right_01.svg"
+  },
+  {
+    "id": "right_02",
+    "kind": "right",
+    "src": "apps/equilateral-vanhiele/assets/cards/right_02.svg"
+  },
+  {
+    "id": "right_03",
+    "kind": "right",
+    "src": "apps/equilateral-vanhiele/assets/cards/right_03.svg"
+  },
+  {
+    "id": "right_04",
+    "kind": "right",
+    "src": "apps/equilateral-vanhiele/assets/cards/right_04.svg"
+  },
+  {
+    "id": "obtuse_01",
+    "kind": "obtuse",
+    "src": "apps/equilateral-vanhiele/assets/cards/obtuse_01.svg"
+  },
+  {
+    "id": "obtuse_02",
+    "kind": "obtuse",
+    "src": "apps/equilateral-vanhiele/assets/cards/obtuse_02.svg"
+  }
+]
