@@ -104,9 +104,8 @@ function toGameKind(kind) {
    Level 1 – Load cards.json
 ========================= */
 const MANIFEST_URLS = [
-  "./assets/cards/cards.json", // recommended
-  "./assets/cards.json",
-  "./cards.json"
+  "./assets/cards/cards.json" // recommended
+  
 ];
 
 async function loadCardsManifest() {
