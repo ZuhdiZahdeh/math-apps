@@ -1,6 +1,7 @@
 /* =========================
    Equilateral Triangle – Van Hiele (1–4)
    Grades: 8, 9
+   Level 1 reads cards.json + displays SVG images
 ========================= */
 
 const KEY = "eq_vanhiele_progress_v1";
@@ -14,35 +15,38 @@ const state = {
   done: { 1:false, 2:false, 3:false, 4:false },
   scores: { 1:null, 2:null, 3:null, 4:null },
 
-  /* ===== Level 1 (NEW) ===== */
+  // Level 1 (manifest-driven)
   l1: {
     idx: 0,
-    order: [],
-    selectedAns: null,
-    results: {} // { cardId: "ok" | "bad" }
+    order: [],          // shuffled cards array
+    selectedAns: null,  // "eq" | "iso" | "other"
+    results: {},        // { [cardId]: "ok"|"bad" }
+    cards: [],          // raw manifest cards
+    loading: true,
+    error: null,
   },
 
-  /* ===== Level 2 ===== */
+  // Level 2 state (kept)
   l2: { show:false, ok:false },
 };
 
 /* =========================
-   Progress persistence
+   Save / Load progress
 ========================= */
-
 function saveProgress() {
-  localStorage.setItem(KEY, JSON.stringify({
+  const payload = {
     grade: state.grade,
     done: state.done,
     scores: state.scores
-  }));
+  };
+  localStorage.setItem(KEY, JSON.stringify(payload));
 }
-
 function loadProgress() {
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return;
     const p = JSON.parse(raw);
+    if (!p) return;
     state.grade = p.grade ?? state.grade;
     state.done  = p.done  ?? state.done;
     state.scores= p.scores?? state.scores;
@@ -57,18 +61,17 @@ function setProgressUI() {
 
 function setLevel(level) {
   state.level = level;
-  document.querySelectorAll(".tab").forEach(t =>
-    t.classList.toggle("is-active", +t.dataset.level === level)
-  );
-  document.querySelectorAll(".level").forEach(sec =>
-    sec.classList.toggle("is-active", +sec.dataset.level === level)
-  );
+  document.querySelectorAll(".tab").forEach(t=>{
+    t.classList.toggle("is-active", +t.dataset.level === level);
+  });
+  document.querySelectorAll(".level").forEach(sec=>{
+    sec.classList.toggle("is-active", +sec.dataset.level === level);
+  });
 }
 
 /* =========================
-   Utilities
+   Helpers
 ========================= */
-
 function shuffle(arr){
   const a = [...arr];
   for(let i=a.length-1;i>0;i--){
@@ -78,188 +81,461 @@ function shuffle(arr){
   return a;
 }
 
-/* =========================
-   SVG helpers (Level 1 shapes)
-========================= */
+// Manifest src normalization:
+// - If src is "apps/equilateral-vanhiele/assets/cards/eq_01.svg" -> convert to "./assets/cards/eq_01.svg"
+// - If already relative -> keep
+function normalizeSrc(src) {
+  if (!src) return "";
+  const prefix = "apps/equilateral-vanhiele/";
+  if (src.startsWith(prefix)) return "./" + src.slice(prefix.length);
+  if (src.startsWith("/")) return src;         // absolute on same domain
+  if (src.startsWith("./") || src.startsWith("../")) return src;
+  return "./" + src;
+}
 
-function svgPoly(points) {
-  return `<svg viewBox="0 0 100 70" aria-hidden="true">
-    <polygon points="${points}" fill="none" stroke="currentColor"
-      stroke-width="8" stroke-linejoin="round"/>
-  </svg>`;
-}
-function svgPath(d) {
-  return `<svg viewBox="0 0 100 70" aria-hidden="true">
-    <path d="${d}" fill="none" stroke="currentColor"
-      stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>`;
-}
-function svgCircle() {
-  return `<svg viewBox="0 0 100 70" aria-hidden="true">
-    <circle cx="50" cy="35" r="24"
-      fill="none" stroke="currentColor" stroke-width="8"/>
-  </svg>`;
+// Convert manifest kind -> game answer kind
+function toGameKind(kind) {
+  if (kind === "eq") return "eq";
+  if (kind === "iso") return "iso";
+  return "other"; // right / obtuse / any other
 }
 
 /* =========================
-   Level 1 – Cards data
+   Level 1 – Load cards.json
 ========================= */
-
-const L1_CARDS = [
-  {id:1,  kind:"eq",  svg: svgPoly("50,8 12,62 88,62")},
-  {id:2,  kind:"eq",  svg: svgPoly("12,8 88,8 50,62")},
-  {id:3,  kind:"eq",  svg: svgPoly("60,8 16,54 86,62")},
-  {id:4,  kind:"eq",  svg: svgPoly("50,14 22,58 78,58")},
-  {id:5,  kind:"eq",  svg: `<svg viewBox="0 0 100 70">
-      <circle cx="50" cy="35" r="26" fill="none"
-        stroke="currentColor" stroke-width="5" opacity=".5"/>
-      <polygon points="50,10 18,58 82,58"
-        fill="none" stroke="currentColor" stroke-width="8"/>
-    </svg>`},
-
-  {id:6,  kind:"iso", svg: svgPoly("50,10 8,60 92,60")},
-  {id:7,  kind:"iso", svg: svgPoly("50,8 30,62 70,62")},
-
-  {id:8,  kind:"other", svg: svgPoly("20,55 20,15 80,55")},
-  {id:9,  kind:"other", svg: svgPoly("20,58 80,60 55,10")},
-  {id:10, kind:"other", svg: svgPoly("50,10 16,60 90,56")},
-  {id:11, kind:"other", svg: svgPoly("15,55 92,60 35,10")},
-  {id:12, kind:"other", svg: svgPath("M20 58 Q50 8 80 58 Q50 50 20 58")},
-  {id:13, kind:"other", svg: svgPoly("25,15 75,15 75,65 25,65")},
-  {id:14, kind:"other", svg: svgPoly("18,20 82,20 82,60 18,60")},
-  {id:15, kind:"other", svg: svgPoly("25,60 70,60 85,18 40,18")},
-  {id:16, kind:"other", svg: svgPoly("50,10 80,35 50,60 20,35")},
-  {id:17, kind:"other", svg: svgPoly("25,60 75,60 65,18 35,18")},
-  {id:18, kind:"other", svg: svgPoly("50,10 80,28 70,60 30,60 20,28")},
-  {id:19, kind:"other", svg: svgPoly("50,10 75,22 75,48 50,60 25,48 25,22")},
-  {id:20, kind:"other", svg: svgCircle()},
-  {id:21, kind:"other", svg: svgPath("M25 60 L25 35 L50 15 L75 35 L75 60 Z")},
-  {id:22, kind:"other", svg: svgPath("M20 35 L60 10 L60 25 L85 25 L85 45 L60 45 L60 60 Z")},
-  {id:23, kind:"other", svg: svgPath("M50 8 L58 28 L80 28 L62 41 L69 62 L50 49 L31 62 L38 41 L20 28 L42 28 Z")},
-  {id:24, kind:"other", svg: svgPath("M20 60 L50 15 L80 60 M50 15 L50 60")}
+const MANIFEST_URLS = [
+  "./assets/cards/cards.json", // recommended
+  "./assets/cards.json",
+  "./cards.json"
 ];
 
-/* =========================
-   Level 1 – Logic (NEW)
-========================= */
+async function loadCardsManifest() {
+  let lastErr = null;
 
-function renderL1() {
-  const card = state.l1.order[state.l1.idx];
+  for (const url of MANIFEST_URLS) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        lastErr = new Error(`HTTP ${res.status} on ${url}`);
+        continue;
+      }
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) {
+        lastErr = new Error(`Invalid JSON array in ${url}`);
+        continue;
+      }
 
-  byId("l1Now").textContent   = state.l1.idx + 1;
-  byId("l1Total").textContent = state.l1.order.length;
-  byId("l1BigShape").innerHTML = card.svg;
+      // Validate minimal fields
+      const cleaned = data
+        .filter(x => x && x.id && x.kind && x.src)
+        .map(x => ({
+          id: String(x.id),
+          kindRaw: String(x.kind),
+          kindGame: toGameKind(String(x.kind)),
+          src: normalizeSrc(String(x.src))
+        }));
 
-  byId("l1CheckOne").disabled = !state.l1.selectedAns;
-  byId("l1Status").textContent = "اختر إجابة ثم اضغط «تحقّق».";
+      if (cleaned.length === 0) {
+        lastErr = new Error(`No valid items (id/kind/src) found in ${url}`);
+        continue;
+      }
 
-  renderL1Nums();
+      return cleaned;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+
+  throw lastErr || new Error("Failed to load cards.json");
 }
 
-function renderL1Nums(){
+/* =========================
+   Level 1 – UI (single card)
+========================= */
+
+function renderL1Nums() {
   const box = byId("l1Nums");
+  if (!box) return;
   box.innerHTML = "";
 
-  state.l1.order.forEach((card, i)=>{
+  state.l1.order.forEach((card, i) => {
     const b = document.createElement("button");
     b.className = "numBtn";
     b.textContent = card.id;
 
     if (i === state.l1.idx) b.classList.add("is-current");
-    if (state.l1.results[card.id] === "ok")  b.classList.add("is-ok");
-    if (state.l1.results[card.id] === "bad") b.classList.add("is-bad");
 
-    b.onclick = ()=>{
+    const res = state.l1.results[card.id];
+    if (res === "ok") b.classList.add("is-ok");
+    if (res === "bad") b.classList.add("is-bad");
+
+    b.addEventListener("click", () => {
       state.l1.idx = i;
       state.l1.selectedAns = null;
-      renderL1();
-    };
+      // remove selection UI
+      document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
+      byId("l1CheckOne").disabled = true;
+      renderL1One();
+    });
+
     box.appendChild(b);
   });
 }
 
-function checkL1(){
+function renderL1One() {
+  const big = byId("l1BigShape");
+  const status = byId("l1Status");
+  const now = byId("l1Now");
+  const total = byId("l1Total");
+
+  if (!big || !status || !now || !total) return;
+
+  if (state.l1.loading) {
+    status.textContent = "جارِ تحميل البطاقات…";
+    big.innerHTML = `<div class="muted">Loading…</div>`;
+    return;
+  }
+  if (state.l1.error) {
+    status.textContent = "تعذّر تحميل cards.json";
+    big.innerHTML = `<div class="muted">⚠ ${state.l1.error}</div>`;
+    return;
+  }
+
   const card = state.l1.order[state.l1.idx];
-  const correct = card.kind === state.l1.selectedAns;
+  now.textContent = String(state.l1.idx + 1);
+  total.textContent = String(state.l1.order.length);
 
-  state.l1.results[card.id] = correct ? "ok" : "bad";
-  byId("l1Status").textContent =
-    correct ? "✅ إجابة صحيحة" : "❌ إجابة غير صحيحة";
+  // display SVG via <img>
+  big.innerHTML = `
+    <img
+      src="${card.src}"
+      alt="بطاقة مثلث"
+      style="width:min(520px, 85%); height:auto; display:block;"
+      draggable="false"
+    />
+  `;
 
-  const okCount = Object.values(state.l1.results).filter(v=>v==="ok").length;
-  state.scores[1] = okCount;
-  state.done[1] = (state.grade===9 ? okCount>=18 : okCount>=16);
+  // score line
+  const doneCount = Object.keys(state.l1.results).length;
+  const okCount = Object.values(state.l1.results).filter(v => v === "ok").length;
+  const scoreEl = byId("l1ScoreOne");
+  if (scoreEl) scoreEl.textContent = `صحيح: ${okCount} / ${doneCount}`;
 
-  setTimeout(()=> nextL1(), 700);
+  status.textContent = "اختر إجابة ثم اضغط “تحقّق”.";
+  renderL1Nums();
+}
+
+function l1Prev() {
+  state.l1.idx = (state.l1.idx - 1 + state.l1.order.length) % state.l1.order.length;
+  state.l1.selectedAns = null;
+  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
+  byId("l1CheckOne").disabled = true;
+  renderL1One();
+}
+
+function l1Next() {
+  state.l1.idx = (state.l1.idx + 1) % state.l1.order.length;
+  state.l1.selectedAns = null;
+  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
+  byId("l1CheckOne").disabled = true;
+  renderL1One();
+}
+
+function l1Restart() {
+  state.l1.idx = 0;
+  state.l1.selectedAns = null;
+  state.l1.results = {};
+  state.scores[1] = null;
+  state.done[1] = false;
+
+  state.l1.order = shuffle(state.l1.cards);
+
+  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
+  byId("l1Msg").textContent = "";
+  byId("l1CheckOne").disabled = true;
+
+  renderL1One();
   setProgressUI();
   saveProgress();
 }
 
-function nextL1(){
-  state.l1.idx = (state.l1.idx + 1) % state.l1.order.length;
-  state.l1.selectedAns = null;
-  renderL1();
+function checkL1One() {
+  const card = state.l1.order[state.l1.idx];
+  const expected = card.kindGame; // "eq" | "iso" | "other"
+  const got = state.l1.selectedAns;
+
+  const ok = (expected === got);
+  state.l1.results[card.id] = ok ? "ok" : "bad";
+
+  const status = byId("l1Status");
+  status.textContent = ok
+    ? "✅ إجابة صحيحة"
+    : `❌ إجابة غير صحيحة — الصحيح: ${
+        expected === "eq" ? "متساوي الأضلاع" :
+        expected === "iso" ? "متساوي الساقين" : "غير ذلك"
+      }`;
+
+  // update pass condition
+  const okCount = Object.values(state.l1.results).filter(v => v === "ok").length;
+  state.scores[1] = okCount;
+  state.done[1] = (state.grade === 9) ? (okCount >= 18) : (okCount >= 16);
+
+  byId("l1Msg").textContent = state.done[1]
+    ? "✅ اجتزت المستوى البصري. يمكنك الانتقال للمستوى 2."
+    : "تابع… الهدف هو تحسين التمييز البصري بدون قياس.";
+
+  renderL1Nums();
+  setProgressUI();
+  saveProgress();
+
+  // auto next
+  setTimeout(() => {
+    l1Next();
+  }, 700);
 }
-function prevL1(){
-  state.l1.idx = (state.l1.idx - 1 + state.l1.order.length) % state.l1.order.length;
-  state.l1.selectedAns = null;
-  renderL1();
+
+/* =========================
+   Level 2 – Descriptive canvas (unchanged)
+========================= */
+
+const tri = {
+  canvas: null,
+  ctx: null,
+  w: 520,
+  h: 340,
+  A: {x:120, y:260},
+  B: {x:400, y:260},
+  C: {x:290, y:120},
+  drag: false,
+  show: false,
+};
+
+function dist(p,q){ return Math.hypot(p.x-q.x, p.y-q.y); }
+
+function angleAt(P, Q, R){ // angle at Q in triangle P-Q-R
+  const v1 = {x:P.x-Q.x, y:P.y-Q.y};
+  const v2 = {x:R.x-Q.x, y:R.y-Q.y};
+  const dot = v1.x*v2.x + v1.y*v2.y;
+  const n1 = Math.hypot(v1.x,v1.y);
+  const n2 = Math.hypot(v2.x,v2.y);
+  const c = clamp(dot/(n1*n2), -1, 1);
+  return Math.acos(c) * 180/Math.PI;
 }
-function restartL1(){
-  state.l1.order = shuffle(L1_CARDS);
-  state.l1.idx = 0;
-  state.l1.selectedAns = null;
-  state.l1.results = {};
-  state.done[1] = false;
-  state.scores[1] = null;
-  renderL1();
+
+function isEquilateral(A,B,C){
+  const ab = dist(A,B), bc = dist(B,C), ca = dist(C,A);
+  const avg = (ab+bc+ca)/3;
+  const maxDiff = Math.max(Math.abs(ab-bc), Math.abs(bc-ca), Math.abs(ca-ab));
+  const aA = angleAt(B,A,C), aB = angleAt(A,B,C), aC = angleAt(A,C,B);
+
+  // tolerance
+  const okSides = (maxDiff/avg) < 0.03;
+  const okAngs = Math.max(Math.abs(aA-60), Math.abs(aB-60), Math.abs(aC-60)) < 2.5;
+
+  return { ok: okSides && okAngs, ab, bc, ca, aA, aB, aC, okSides, okAngs };
+}
+
+function drawTriangle() {
+  const c = tri.ctx;
+  const {A,B,C} = tri;
+
+  c.clearRect(0,0,tri.w,tri.h);
+
+  c.lineWidth = 3;
+  c.strokeStyle = "#cbd5e1";
+  c.beginPath();
+  c.moveTo(A.x,A.y); c.lineTo(B.x,B.y); c.lineTo(C.x,C.y); c.closePath();
+  c.stroke();
+
+  const drawPt = (P, name)=>{
+    c.fillStyle = "#f59e0b";
+    c.beginPath(); c.arc(P.x,P.y,6,0,Math.PI*2); c.fill();
+    c.fillStyle = "#e2e8f0";
+    c.font = "bold 16px system-ui";
+    c.fillText(name, P.x+10, P.y-10);
+  };
+  drawPt(A,"A"); drawPt(B,"B"); drawPt(C,"C");
+
+  if (tri.show) {
+    const r = isEquilateral(A,B,C);
+    c.fillStyle = "#94a3b8";
+    c.font = "14px system-ui";
+    c.fillText(`AB≈${r.ab.toFixed(1)}  BC≈${r.bc.toFixed(1)}  CA≈${r.ca.toFixed(1)}`, 16, 24);
+    c.fillText(`∠A≈${r.aA.toFixed(1)}°  ∠B≈${r.aB.toFixed(1)}°  ∠C≈${r.aC.toFixed(1)}°`, 16, 44);
+  }
+}
+
+function attachL2() {
+  tri.canvas = byId("triCanvas");
+  tri.ctx = tri.canvas.getContext("2d");
+
+  const resize = ()=>{
+    const box = tri.canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+
+    tri.w = Math.max(360, Math.floor(box.width));
+    tri.h = 340;
+
+    tri.canvas.width = Math.floor(tri.w * dpr);
+    tri.canvas.height = Math.floor(tri.h * dpr);
+    tri.ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    tri.A = {x: Math.floor(tri.w*0.23), y: 260};
+    tri.B = {x: Math.floor(tri.w*0.77), y: 260};
+    if (!tri._initC) {
+      tri.C = {x: Math.floor(tri.w*0.55), y: 120};
+      tri._initC = true;
+    } else {
+      tri.C.x = clamp(tri.C.x, 40, tri.w-40);
+      tri.C.y = clamp(tri.C.y, 40, tri.h-40);
+    }
+    drawTriangle();
+  };
+  window.addEventListener("resize", resize);
+  resize();
+
+  const hitC = (x,y)=> Math.hypot(x-tri.C.x, y-tri.C.y) < 16;
+
+  tri.canvas.addEventListener("pointerdown",(e)=>{
+    const rect = tri.canvas.getBoundingClientRect();
+    const x = e.clientX-rect.left;
+    const y = e.clientY-rect.top;
+    if (hitC(x,y)) {
+      tri.drag = true;
+      tri.canvas.setPointerCapture(e.pointerId);
+    }
+  });
+  tri.canvas.addEventListener("pointermove",(e)=>{
+    if (!tri.drag) return;
+    const rect = tri.canvas.getBoundingClientRect();
+    tri.C.x = clamp(e.clientX-rect.left, 40, tri.w-40);
+    tri.C.y = clamp(e.clientY-rect.top, 40, tri.h-40);
+    drawTriangle();
+  });
+  tri.canvas.addEventListener("pointerup",()=>{ tri.drag = false; });
+}
+
+function checkL2() {
+  const r = isEquilateral(tri.A,tri.B,tri.C);
+  const msg = byId("l2Msg");
+  if (r.ok) {
+    state.l2.ok = true;
+    msg.textContent = "✅ ممتاز! هذا قريب جدًا من مثلث متساوي الأضلاع.";
+  } else {
+    state.l2.ok = false;
+    msg.textContent = `❗ ليس بعد. ${r.okSides ? "الأضلاع جيدة" : "قرّب الأضلاع للتساوي"}، و${r.okAngs ? "الزوايا جيدة" : "قرّب الزوايا إلى 60°"}.`;
+  }
+}
+
+function saveL2Answers() {
+  const a1 = byId("l2q1").value;
+  const a2 = byId("l2q2").value;
+  const a3 = byId("l2q3").value;
+
+  let score = 0;
+  if (a1==="a") score++;
+  if (a2==="a") score++;
+  if (a3==="a") score++;
+
+  const pass = (state.grade === 9) ? (score===3 && state.l2.ok) : (score>=2);
+
+  state.scores[2] = score;
+  state.done[2] = pass;
+
+  byId("l2Score").textContent = `النتيجة: ${score}/3 — ${pass ? "✅ اجتزت" : "❗ راجع الإجابات"}`;
+  byId("l2Done").textContent = pass ? "ممتاز. انتقل للاستدلال غير الرسمي." : "";
+
   setProgressUI();
   saveProgress();
 }
 
 /* =========================
-   Boot
+   Level 3 + Level 4
+   (if you already have them in your app.js, keep them below as-is)
+   If not, you can paste your existing Level 3/4 code here.
 ========================= */
 
-function init(){
+/* =========================
+   Boot
+========================= */
+async function init() {
   loadProgress();
 
-  /* Tabs */
+  // Tabs
   document.querySelectorAll(".tab").forEach(t=>{
-    t.onclick = ()=> setLevel(+t.dataset.level);
+    t.addEventListener("click", ()=> setLevel(+t.dataset.level));
   });
 
-  /* Grade */
-  byId("gradeSel").value = state.grade;
-  byId("gradeSel").onchange = e=>{
-    state.grade = +e.target.value;
+  // Grade
+  byId("gradeSel").value = String(state.grade);
+  byId("gradeSel").addEventListener("change", ()=>{
+    state.grade = +byId("gradeSel").value;
     saveProgress();
-  };
+  });
 
-  byId("resetBtn").onclick = ()=>{
+  // Reset
+  byId("resetBtn").addEventListener("click", ()=>{
     localStorage.removeItem(KEY);
     location.reload();
-  };
-
-  /* ===== Level 1 init ===== */
-  state.l1.order = shuffle(L1_CARDS);
-  renderL1();
-
-  document.querySelectorAll(".ansbtn").forEach(btn=>{
-    btn.onclick = ()=>{
-      state.l1.selectedAns = btn.dataset.ans;
-      document.querySelectorAll(".ansbtn").forEach(b=>b.classList.remove("is-selected"));
-      btn.classList.add("is-selected");
-      byId("l1CheckOne").disabled = false;
-    };
   });
 
-  byId("l1CheckOne").onclick = checkL1;
-  byId("l1Next").onclick = nextL1;
-  byId("l1Prev").onclick = prevL1;
-  byId("l1Restart").onclick = restartL1;
+  // -------- Level 1: load cards.json --------
+  try {
+    state.l1.loading = true;
+    renderL1One();
 
-  byId("to2").onclick = ()=> setLevel(2);
+    const cards = await loadCardsManifest();
+    state.l1.cards = cards;
+    state.l1.order = shuffle(cards);
+    state.l1.idx = 0;
+    state.l1.selectedAns = null;
+    state.l1.results = {};
+    state.l1.loading = false;
+    state.l1.error = null;
+
+    // Answer selection buttons
+    document.querySelectorAll(".ansbtn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        state.l1.selectedAns = btn.dataset.ans;
+        document.querySelectorAll(".ansbtn").forEach(b=>b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+        byId("l1CheckOne").disabled = false;
+      });
+    });
+
+    byId("l1CheckOne").addEventListener("click", checkL1One);
+    byId("l1Prev").addEventListener("click", l1Prev);
+    byId("l1Next").addEventListener("click", l1Next);
+    byId("l1Restart").addEventListener("click", l1Restart);
+
+    renderL1One();
+  } catch (e) {
+    state.l1.loading = false;
+    state.l1.error = e?.message || String(e);
+    renderL1One();
+  }
+
+  // Level 2
+  const to2 = byId("to2");
+  if (to2) to2.addEventListener("click", ()=> setLevel(2));
+
+  attachL2();
+  byId("showMeasures").addEventListener("click", ()=>{
+    tri.show = !tri.show;
+    drawTriangle();
+  });
+  byId("l2Check").addEventListener("click", checkL2);
+  byId("l2Reset").addEventListener("click", ()=>{
+    tri.C.x = Math.floor(tri.w*0.55);
+    tri.C.y = 120;
+    byId("l2Msg").textContent = "";
+    state.l2.ok = false;
+    drawTriangle();
+  });
+  byId("l2Save").addEventListener("click", saveL2Answers);
+
+  // NOTE:
+  // If you have Level 3/4 init hooks, keep them here (your existing code).
 
   setProgressUI();
 }
