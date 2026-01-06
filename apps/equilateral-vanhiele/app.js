@@ -104,9 +104,10 @@ function toGameKind(kind) {
    Level 1 – Load cards.json
 ========================= */
 const MANIFEST_URLS = [
-  "./assets/cards/cards.json" // recommended
-  
+  "./assets/cards/cards.json",
+  "/math-apps/apps/equilateral-vanhiele/assets/cards/cards.json"
 ];
+
 
 async function loadCardsManifest() {
   let lastErr = null;
