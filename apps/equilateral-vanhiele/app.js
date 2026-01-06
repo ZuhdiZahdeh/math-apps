@@ -122,6 +122,7 @@ async function loadCardsManifest() {
       const data = await res.json();
       if (!Array.isArray(data) || data.length === 0) {
         lastErr = new Error(`Invalid JSON array in ${url}`);
+           console.error("Manifest load failed:", url, res.status);
         continue;
       }
 
