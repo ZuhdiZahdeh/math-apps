@@ -1,12 +1,10 @@
 /* =========================
    Equilateral Triangle – Van Hiele (1–4)
-   ✅ Level 1: Visual classification (cards.json from ./assets/cards/)
-   ✅ Level 2: Descriptive measurement (drag C works immediately, centered overlay, symmetry axes, AB fixed)
-   ✅ Level 3: Informal reasoning (simple check)
-   ✅ Level 4: Formal reasoning (order steps + choose reason, with check)
+   ✅ L1: cards from ./assets/cards/cards.json
+   ✅ L2: drag C (works immediately), measurements centered, integers, SNAP, symmetry axes, AB slider + Auto
 ========================= */
 
-const KEY = "eq_vanhiele_progress_v2";
+const KEY = "eq_vanhiele_progress_v3";
 
 const byId = (id) => document.getElementById(id);
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -29,10 +27,8 @@ const state = {
 
   l2: { ok:false },
 
-  l3: { ok:false },
-
   l4: {
-    proofA: { order: [], reasons: {} }, // reasons: {stepId: reasonValue}
+    proofA: { order: [], reasons: {} },
     proofB: { order: [], reasons: {} },
   }
 };
@@ -46,7 +42,7 @@ function saveProgress() {
     done: state.done,
     scores: state.scores,
     l1: { idx: state.l1.idx, results: state.l1.results },
-    l4: { proofA: state.l4.proofA, proofB: state.l4.proofB },
+    l4: state.l4
   };
   localStorage.setItem(KEY, JSON.stringify(payload));
 }
@@ -61,7 +57,6 @@ function loadProgress() {
     if (p.grade) state.grade = +p.grade;
     if (p.done) state.done = { ...state.done, ...p.done };
     if (p.scores) state.scores = { ...state.scores, ...p.scores };
-
     if (p.l1?.results) state.l1.results = p.l1.results;
     if (typeof p.l1?.idx === "number") state.l1.idx = p.l1.idx;
 
@@ -71,7 +66,7 @@ function loadProgress() {
 }
 
 /* =========================
-   UI: progress + level switching
+   Progress + level switching
 ========================= */
 function setProgressUI() {
   const doneCount = [1,2,3,4].filter(k => state.done[k]).length;
@@ -81,7 +76,6 @@ function setProgressUI() {
   if (progText) progText.textContent = `${doneCount}/4`;
   if (barFill) barFill.style.width = `${(doneCount/4)*100}%`;
 
-  // next buttons gating
   const to3 = byId("to3");
   const to4 = byId("to4");
   if (to3) to3.disabled = !state.done[2];
@@ -100,7 +94,7 @@ function setLevel(level) {
     sec.classList.toggle("is-active", +sec.dataset.level === level);
   });
 
-  // ✅ مهم: عندما يظهر المستوى 2، أعد قياس الـCanvas (بدون Inspect)
+  // ✅ عند فتح المستوى 2: أعد قياس الـCanvas بعد ظهوره
   if (level === 2) {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -108,11 +102,6 @@ function setLevel(level) {
         else window.dispatchEvent(new Event("resize"));
       });
     });
-  }
-
-  // (اختياري) رسم داعم للمستوى 4 عند دخوله
-  if (level === 4) {
-    requestAnimationFrame(() => drawProofCanvas());
   }
 }
 
@@ -128,33 +117,27 @@ function shuffle(arr){
   return a;
 }
 
-// kind mapping: manifest -> game
 function normalizeKind(kind){
   const k = String(kind || "").toLowerCase().trim();
-  if (k === "eq" || k === "equilateral" || k === "متساوي الأضلاع") return "eq";
-  if (k === "iso" || k === "isosceles" || k === "متساوي الساقين") return "iso";
+  if (k === "eq" || k === "equilateral") return "eq";
+  if (k === "iso" || k === "isosceles") return "iso";
   return "other";
 }
 
-// src mapping to your fixed folder ./assets/cards/
 function normalizeSrc(src){
   if (!src) return "";
   const s = String(src).trim();
 
-  // already absolute or relative
   if (s.startsWith("http://") || s.startsWith("https://")) return s;
   if (s.startsWith("/")) return s;
   if (s.startsWith("./") || s.startsWith("../")) return s;
 
-  // if manifest gives full repo-like path:
-  // "apps/equilateral-vanhiele/assets/cards/eq_02.svg" -> "./assets/cards/eq_02.svg"
   const prefix = "apps/equilateral-vanhiele/assets/cards/";
   if (s.startsWith(prefix)) return "./assets/cards/" + s.slice(prefix.length);
 
-  // if manifest gives "assets/cards/eq_02.svg"
   if (s.startsWith("assets/cards/")) return "./" + s;
 
-  // otherwise treat as filename inside ./assets/cards/
+  // treat as filename inside ./assets/cards/
   return "./assets/cards/" + s;
 }
 
@@ -206,10 +189,7 @@ async function loadCardsManifest() {
 }
 
 /* =========================
-   Level 1: UI
-   HTML IDs:
-   l1BigShape l1Now l1Total l1Status
-   l1CheckOne l1Prev l1Next l1Restart l1ScoreOne l1Nums l1Msg to2
+   Level 1 UI
 ========================= */
 function renderL1Nums() {
   const box = byId("l1Nums");
@@ -327,7 +307,7 @@ function checkL1One() {
   const card = state.l1.order[state.l1.idx];
   if (!card) return;
 
-  const expected = card.kind; // "eq"|"iso"|"other"
+  const expected = card.kind;
   const got = state.l1.selectedAns;
 
   const ok = (expected === got);
@@ -346,7 +326,7 @@ function checkL1One() {
   const okCount = Object.values(state.l1.results).filter(v => v === "ok").length;
   state.scores[1] = okCount;
 
-  // شرط اجتياز بصري: الصف 9 أصعب (مثلاً 18/24)، الصف 8 (16/24)
+  // اجتياز بصري (24 بطاقة): الثامن أخف، التاسع أشد
   state.done[1] = (state.grade === 9) ? (okCount >= 18) : (okCount >= 16);
 
   const msg = byId("l1Msg");
@@ -360,18 +340,24 @@ function checkL1One() {
   setProgressUI();
   saveProgress();
 
-  // انتقال تلقائي لطيف
   setTimeout(() => l1Next(), 650);
 }
 
 /* =========================
-   Level 2 – Triangle canvas (FINAL)
-   ✅ AB fixed (always reachable for equilateral)
-   ✅ Uses real canvas size (reads CSS height)
-   ✅ Drag works immediately when entering level 2
-   ✅ Center overlay measurements
-   ✅ Symmetry axes appear when near-equilateral
+   Level 2 – FINAL
+   ✅ Integer display (Math.round)
+   ✅ Snap to equilateral when near
+   ✅ AB slider + Auto
 ========================= */
+
+const L2 = {
+  AB_USER: null,          // null => Auto
+  AB_AUTO_TARGET: 460,    // هدف مريح عند Auto (يُقص حسب الممكن)
+  SNAP_ENABLED: true
+};
+
+const abUI = { range:null, val:null, auto:null };
+
 const tri = {
   canvas: null,
   ctx: null,
@@ -388,7 +374,7 @@ const tri = {
 
 function dist(p,q){ return Math.hypot(p.x-q.x, p.y-q.y); }
 
-function angleAt(P, Q, R){ // angle at Q
+function angleAt(P, Q, R){
   const v1 = {x:P.x-Q.x, y:P.y-Q.y};
   const v2 = {x:R.x-Q.x, y:R.y-Q.y};
   const dot = v1.x*v2.x + v1.y*v2.y;
@@ -408,7 +394,7 @@ function eqMetrics(A,B,C){
   const aB = angleAt(A,B,C);
   const aC = angleAt(A,C,B);
 
-  const sideSpread = (maxSide - minSide) / avg; // 0 perfect
+  const sideSpread = (maxSide - minSide) / avg;
   const angSpread  = Math.max(Math.abs(aA-60), Math.abs(aB-60), Math.abs(aC-60));
 
   const okSides = sideSpread < 0.03;
@@ -422,7 +408,6 @@ function eqMetrics(A,B,C){
   return {
     ok: okSides && okAngs,
     ab, bc, ca, aA, aB, aC,
-    okSides, okAngs,
     near: nearSides && nearAngs,
     closeness
   };
@@ -469,7 +454,7 @@ function drawTriangle(){
   c.moveTo(A.x,A.y); c.lineTo(B.x,B.y); c.lineTo(C.x,C.y); c.closePath();
   c.stroke();
 
-  // symmetry axes when near
+  // symmetry axes when near + measures shown
   if (tri.show) {
     const r = eqMetrics(A,B,C);
     if (r.near) {
@@ -488,12 +473,12 @@ function drawTriangle(){
   };
   drawPt(A,"A"); drawPt(B,"B"); drawPt(C,"C");
 
-  // centered overlay measurements
+  // centered overlay measurements (✅ integers)
   if (tri.show) {
     const r = eqMetrics(A,B,C);
 
-    const line1 = `AB ≈ ${r.ab.toFixed(1)}    BC ≈ ${r.bc.toFixed(1)}    CA ≈ ${r.ca.toFixed(1)}`;
-    const line2 = `∠A ≈ ${r.aA.toFixed(1)}°    ∠B ≈ ${r.aB.toFixed(1)}°    ∠C ≈ ${r.aC.toFixed(1)}°`;
+    const line1 = `AB ≈ ${Math.round(r.ab)}    BC ≈ ${Math.round(r.bc)}    CA ≈ ${Math.round(r.ca)}`;
+    const line2 = `∠A ≈ ${Math.round(r.aA)}°    ∠B ≈ ${Math.round(r.aB)}°    ∠C ≈ ${Math.round(r.aC)}°`;
 
     c.save();
     c.font = "700 18px system-ui";
@@ -522,6 +507,29 @@ function drawTriangle(){
   }
 }
 
+function updateABControls(feasibleMax){
+  if (!abUI.range || !abUI.val) return;
+
+  const maxInt = Math.max(200, Math.floor(feasibleMax));
+  // حدّ أقصى ديناميكي حسب حجم اللوحة (مهم حتى لا تختار قيمة مستحيلة)
+  abUI.range.max = String(maxInt);
+
+  // إذا Auto
+  if (L2.AB_USER === null) {
+    abUI.val.textContent = "Auto";
+    return;
+  }
+
+  // clamp value إذا تجاوز
+  let v = +abUI.range.value;
+  if (v > maxInt) {
+    v = maxInt;
+    abUI.range.value = String(v);
+  }
+  L2.AB_USER = v;
+  abUI.val.textContent = String(v);
+}
+
 function attachL2(){
   tri.canvas = byId("triCanvas");
   tri.ctx = tri.canvas.getContext("2d");
@@ -541,7 +549,7 @@ function attachL2(){
     tri.canvas.height = Math.floor(tri.h * dpr);
     tri.ctx.setTransform(dpr,0,0,dpr,0,0);
 
-    // ✅ قيود هندسية تجعل متساوي الأضلاع ممكنًا دائمًا
+    // قيود هندسية لضمان إمكانيّة المتساوي الأضلاع
     const TOP = 24;
     const BOTTOM = 34;
     const SIDE = 70;
@@ -552,8 +560,23 @@ function attachL2(){
     // AB <= 2*hAvail/sqrt(3)
     const maxABfromHeight = (2 * hAvail) / Math.sqrt(3);
     const maxABfromWidth  = tri.w - 2 * SIDE;
-    const AB = Math.min(maxABfromWidth, maxABfromHeight);
+    const feasibleMax = Math.min(maxABfromWidth, maxABfromHeight);
 
+    // تحديث slider max ديناميكيًا
+    updateABControls(feasibleMax);
+
+    // اختيار AB (Auto أو يدوي)
+    let AB;
+    if (L2.AB_USER === null) {
+      AB = Math.min(feasibleMax, L2.AB_AUTO_TARGET);
+    } else {
+      AB = clamp(L2.AB_USER, 200, feasibleMax);
+      // إذا أصبح AB أقل/أكبر بسبب قيود الشاشة
+      if (abUI.range) abUI.range.value = String(Math.floor(AB));
+      if (abUI.val) abUI.val.textContent = String(Math.floor(AB));
+    }
+
+    // ضع القاعدة بالوسط
     const ax = Math.round((tri.w - AB) / 2);
     const bx = Math.round((tri.w + AB) / 2);
 
@@ -563,6 +586,7 @@ function attachL2(){
     const midX = Math.round((ax + bx) / 2);
     const eqHeight = (Math.sqrt(3) / 2) * AB;
 
+    // init C قريب من المتساوي الأضلاع
     if (!tri._initC) {
       tri.C = { x: midX, y: Math.round(baseY - eqHeight) };
       tri._initC = true;
@@ -600,6 +624,25 @@ function attachL2(){
     tri.C.x = clamp(e.clientX - rect.left, 40, tri.w - 40);
     tri.C.y = clamp(e.clientY - rect.top, TOP, baseY - 20);
 
+    // ✅ Snap ذكي لتسهيل الوصول (حتى بدون دقة الأعشار)
+    if (L2.SNAP_ENABLED) {
+      const r = eqMetrics(tri.A, tri.B, tri.C);
+      if (r.near) {
+        const A = tri.A, B = tri.B;
+        const AB = dist(A,B);
+        const midX = (A.x + B.x) / 2;
+        const eqH = (Math.sqrt(3)/2) * AB;
+
+        const targetX = midX;
+        const targetY = A.y - eqH;
+
+        // مزج تدريجي (لا يقفز)
+        const t = 0.25 + 0.55 * r.closeness; // 0.25..0.8
+        tri.C.x = tri.C.x*(1-t) + targetX*t;
+        tri.C.y = tri.C.y*(1-t) + targetY*t;
+      }
+    }
+
     drawTriangle();
   });
 
@@ -622,10 +665,7 @@ function checkL2(){
     msg.textContent = "✅ ممتاز! هذا قريب جدًا من مثلث متساوي الأضلاع.";
   } else {
     state.l2.ok = false;
-    msg.textContent =
-      `❗ ليس بعد. ` +
-      `${r.okSides ? "الأضلاع جيدة" : "قرّب الأضلاع للتساوي"}، ` +
-      `و${r.okAngs ? "الزوايا جيدة" : "قرّب الزوايا إلى 60°"}.`;
+    msg.textContent = "❗ ليس بعد. قرّب الأضلاع أكثر وقرّب الزوايا إلى 60° (Snap سيساعدك عند الاقتراب).";
   }
 }
 
@@ -653,7 +693,7 @@ function saveL2Answers(){
 }
 
 /* =========================
-   Level 3 – Informal reasoning (simple check)
+   Level 3 – check (كما هو في index)
 ========================= */
 function checkL3(){
   const v1 = byId("l3_1")?.value || "";
@@ -667,11 +707,10 @@ function checkL3(){
   if (v2 === "a") score++;
   if (v3 === "a") score++;
   if (v4 === "a") score++;
-  // نصّ تعليل بسيط: نطلب حد أدنى من كلمات
+
   const hasText = txt.split(/\s+/).filter(Boolean).length >= (state.grade===9 ? 10 : 6);
   if (hasText) score++;
 
-  // مجموع 5
   const pass = (state.grade === 9) ? (score >= 4) : (score >= 3);
 
   state.scores[3] = score;
@@ -688,8 +727,7 @@ function checkL3(){
 }
 
 /* =========================
-   Level 4 – Formal reasoning (order + reasons)
-   - We'll render two proofs with up/down ordering and reason dropdown.
+   Level 4 – proof ordering (كما في النسخة السابقة)
 ========================= */
 const REASONS = [
   { v:"given", t:"معطى" },
@@ -720,7 +758,6 @@ const PROOF_B_STEPS = [
 ];
 
 function initProofState(){
-  // initial order if empty
   if (!Array.isArray(state.l4.proofA.order) || state.l4.proofA.order.length === 0) {
     state.l4.proofA.order = shuffle(PROOF_A_STEPS.map(s => s.id));
     state.l4.proofA.reasons = {};
@@ -821,35 +858,28 @@ function renderProof(containerId, proofKey, stepsDef){
 function checkProof(proofKey, stepsDef, scoreElId){
   const st = state.l4[proofKey];
 
-  // check order
   let orderOk = true;
   for (let i=0;i<st.order.length;i++){
     const step = stepById(stepsDef, st.order[i]);
     if (!step || step.order !== (i+1)) { orderOk = false; break; }
   }
 
-  // check reasons
   let reasonsOkCount = 0;
   stepsDef.forEach(s=>{
     if ((st.reasons[s.id] || "") === s.reason) reasonsOkCount++;
   });
 
-  const totalReasons = stepsDef.length;
+  const total = stepsDef.length;
 
-  // grade 9 stricter
   const pass =
     (state.grade === 9)
-      ? (orderOk && reasonsOkCount >= totalReasons - 0)
-      : (reasonsOkCount >= Math.ceil(totalReasons*0.7));
-
-  const scoreTxt = orderOk
-    ? `ترتيب: ✅ | أسباب: ${reasonsOkCount}/${totalReasons}`
-    : `ترتيب: ❗ | أسباب: ${reasonsOkCount}/${totalReasons}`;
+      ? (orderOk && reasonsOkCount === total)
+      : (reasonsOkCount >= Math.ceil(total*0.7));
 
   const el = byId(scoreElId);
-  if (el) el.textContent = scoreTxt;
+  if (el) el.textContent = (orderOk ? "ترتيب: ✅" : "ترتيب: ❗") + ` | أسباب: ${reasonsOkCount}/${total}`;
 
-  return { pass, orderOk, reasonsOkCount, totalReasons };
+  return { pass, reasonsOkCount, total };
 }
 
 function finishL4(){
@@ -870,9 +900,6 @@ function finishL4(){
   saveProgress();
 }
 
-/* =========================
-   Proof canvas (simple supportive drawing)
-========================= */
 function drawProofCanvas(){
   const canvas = byId("proofCanvas");
   if (!canvas) return;
@@ -890,30 +917,24 @@ function drawProofCanvas(){
 
   ctx.clearRect(0,0,w,h);
 
-  // draw a neat equilateral triangle with midpoint M
   const A = { x: w*0.25, y: h*0.78 };
   const B = { x: w*0.75, y: h*0.78 };
   const AB = dist(A,B);
   const height = (Math.sqrt(3)/2)*AB;
   const C = { x:(A.x+B.x)/2, y: A.y - height };
+  const M = { x:(B.x+C.x)/2, y:(B.y+C.y)/2 };
 
-  const M = { x:(B.x+C.x)/2, y:(B.y+C.y)/2 }; // midpoint of BC (approx for picture)
-  const midBC = { x:(B.x+C.x)/2, y:(B.y+C.y)/2 };
-
-  // edges
   ctx.lineWidth = 3;
   ctx.strokeStyle = "#cbd5e1";
   ctx.beginPath();
   ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.lineTo(C.x,C.y); ctx.closePath();
   ctx.stroke();
 
-  // median AM
   ctx.strokeStyle = "#93c5fd";
   ctx.setLineDash([8,7]);
-  ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(midBC.x, midBC.y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(M.x, M.y); ctx.stroke();
   ctx.setLineDash([]);
 
-  // points
   const pt = (P, label)=>{
     ctx.fillStyle = "#f59e0b";
     ctx.beginPath(); ctx.arc(P.x,P.y,7,0,Math.PI*2); ctx.fill();
@@ -921,7 +942,7 @@ function drawProofCanvas(){
     ctx.font = "bold 16px system-ui";
     ctx.fillText(label, P.x+10, P.y-10);
   };
-  pt(A,"A"); pt(B,"B"); pt(C,"C"); pt(midBC,"M");
+  pt(A,"A"); pt(B,"B"); pt(C,"C"); pt(M,"M");
 }
 
 /* =========================
@@ -962,14 +983,10 @@ async function init(){
     const cards = await loadCardsManifest();
     state.l1.cards = cards;
     state.l1.order = shuffle(cards);
-
-    // keep idx within bounds
     state.l1.idx = clamp(state.l1.idx, 0, state.l1.order.length-1);
-
     state.l1.loading = false;
     state.l1.error = null;
 
-    // answer buttons
     document.querySelectorAll(".ansbtn").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         state.l1.selectedAns = btn.dataset.ans;
@@ -993,11 +1010,37 @@ async function init(){
     renderL1One();
   }
 
-  // go to level2 button
   byId("to2")?.addEventListener("click", ()=> setLevel(2));
 
   // ------- Level 2 -------
   attachL2();
+
+  // Slider hooks
+  abUI.range = byId("abRange");
+  abUI.val   = byId("abVal");
+  abUI.auto  = byId("abAuto");
+
+  if (abUI.range && abUI.val && abUI.auto) {
+    // start with slider value (manual)
+    L2.AB_USER = +abUI.range.value;
+    abUI.val.textContent = String(abUI.range.value);
+    tri._initC = false;
+    tri.resize();
+
+    abUI.range.addEventListener("input", ()=>{
+      L2.AB_USER = +abUI.range.value;
+      abUI.val.textContent = String(abUI.range.value);
+      tri._initC = false;
+      tri.resize();
+    });
+
+    abUI.auto.addEventListener("click", ()=>{
+      L2.AB_USER = null;           // Auto
+      abUI.val.textContent = "Auto";
+      tri._initC = false;
+      tri.resize();
+    });
+  }
 
   byId("showMeasures")?.addEventListener("click", ()=>{
     tri.show = !tri.show;
@@ -1007,10 +1050,8 @@ async function init(){
   byId("l2Check")?.addEventListener("click", checkL2);
 
   byId("l2Reset")?.addEventListener("click", ()=>{
-    // reset C to equilateral position based on current AB
     tri._initC = false;
-    tri.resize && tri.resize();
-
+    tri.resize();
     const msg = byId("l2Msg");
     if (msg) msg.textContent = "";
     state.l2.ok = false;
@@ -1018,26 +1059,23 @@ async function init(){
   });
 
   byId("l2Save")?.addEventListener("click", saveL2Answers);
-
-  // navigation
   byId("to3")?.addEventListener("click", ()=> setLevel(3));
-  byId("to4")?.addEventListener("click", ()=> setLevel(4));
 
   // ------- Level 3 -------
   byId("l3Check")?.addEventListener("click", checkL3);
+  byId("to4")?.addEventListener("click", ()=> setLevel(4));
 
   // ------- Level 4 -------
   initProofState();
   renderProof("proofA", "proofA", PROOF_A_STEPS);
   renderProof("proofB", "proofB", PROOF_B_STEPS);
 
-  byId("checkA")?.addEventListener("click", ()=>{
-    checkProof("proofA", PROOF_A_STEPS, "scoreA");
-  });
-  byId("checkB")?.addEventListener("click", ()=>{
-    checkProof("proofB", PROOF_B_STEPS, "scoreB");
-  });
+  byId("checkA")?.addEventListener("click", ()=> checkProof("proofA", PROOF_A_STEPS, "scoreA"));
+  byId("checkB")?.addEventListener("click", ()=> checkProof("proofB", PROOF_B_STEPS, "scoreB"));
   byId("finish")?.addEventListener("click", finishL4);
+
+  // canvas helper
+  requestAnimationFrame(()=> drawProofCanvas());
 
   setProgressUI();
 }
