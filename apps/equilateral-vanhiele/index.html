@@ -8,6 +8,12 @@
   <!-- نفس ثيم مختبر التطبيقات -->
   <link rel="stylesheet" href="../../css/main.css">
   <link rel="stylesheet" href="./style.css">
+
+  <!-- ✅ تلميحات تتبدّل تلقائيًا حسب الصف (مستوى 3) -->
+  <style>
+    body.grade-8 .g9-only { display: none !important; }
+    body.grade-9 .g8-only { display: none !important; }
+  </style>
 </head>
 
 <body>
@@ -186,42 +192,57 @@
       </div>
     </section>
 
-    <!-- المستوى 3 -->
+    <!-- ✅ المستوى 3 (مُعاد صياغته: مصنع + شارة مرور + استنتاج غير رسمي) -->
     <section class="panel level" data-level="3">
-      <h2>المستوى 3 (استدلال غير رسمي): لماذا؟ اربط الخاصية بالقاعدة</h2>
+      <h2>المستوى 3 (استدلال غير رسمي): من المصنع إلى شارة المرور — لماذا؟</h2>
+
       <p class="hint">
-        هنا نربط بين “تساوي الأضلاع” ونتائجها ونفسّر السبب بشكل منطقي (بدون كتابة برهان رسمي كامل).
+        هنا نربط بين <b>تساوي الأضلاع</b> ونتائجه في الواقع (مصنع/شارة مرور)، ونشرح السبب بشكل منطقي
+        <b>بدون كتابة برهان رسمي كامل</b>.
+        <span class="tag">لماذا؟</span>
+        <span class="g8-only">
+          — <b>تلميح للثامن:</b> استخدم فكرتين: (نفس القالب ⇒ نفس الطول) و(المثلث متساوي الأضلاع ⇒ كل زاوية 60°).
+        </span>
+        <span class="g9-only">
+          — <b>للتاسع:</b> اكتب تفسيرًا مختصرًا ومنطقيًا يربط السبب بالنتيجة.
+        </span>
       </p>
 
       <div class="qgrid">
         <div class="q">
-          <div class="qtitle">1) إذا كان AB = AC فماذا نستنتج عن الزوايا؟</div>
+          <div class="qtitle">1) في المصنع: تم قصّ القاعدة BC باستخدام <b>نفس قالب</b> قصّ الضلع AB. ماذا تستنتج؟</div>
           <select id="l3_1" class="ctl">
             <option value="">اختر…</option>
-            <option value="a">∠B = ∠C</option>
-            <option value="b">∠A = 90°</option>
-            <option value="c">AB ⟂ AC</option>
+            <option value="a">AB = BC</option>
+            <option value="b">AB = AC</option>
+            <option value="c">BC = AC</option>
           </select>
+          <div class="muted tiny g8-only">تلميح: القالب الواحد يعطي طولًا واحدًا.</div>
+          <div class="muted tiny g9-only">فكّر بمنطق “أداة واحدة ⇒ قياس واحد”.</div>
         </div>
 
         <div class="q">
-          <div class="qtitle">2) إذا كان AB = BC = CA فماذا عن الزوايا الثلاث؟</div>
+          <div class="qtitle">2) فحص الجودة أعطى: AB = AC. ومع استنتاجك في (1)، ما نوع المثلث ABC غالبًا؟</div>
           <select id="l3_2" class="ctl">
             <option value="">اختر…</option>
-            <option value="a">∠A = ∠B = ∠C</option>
-            <option value="b">∠A مختلفة دائمًا</option>
-            <option value="c">∠B = 90°</option>
+            <option value="a">مثلث متساوي الأضلاع</option>
+            <option value="b">مثلث متساوي الساقين فقط</option>
+            <option value="c">مثلث قائم الزاوية</option>
           </select>
+          <div class="muted tiny g8-only">تلميح: إذا كان AB يساوي AC وBC… فالأضلاع الثلاثة متساوية.</div>
+          <div class="muted tiny g9-only">اربط بين مساواتين للوصول لاستنتاج واحد.</div>
         </div>
 
         <div class="q">
-          <div class="qtitle">3) إذا كانت الزوايا الثلاث متساوية، فكم قياس كل زاوية؟</div>
+          <div class="qtitle">3) شارة المرور المتساوية الأضلاع: إذا تساوت الزوايا الثلاث، فكم قياس كل زاوية؟</div>
           <select id="l3_3" class="ctl">
             <option value="">اختر…</option>
             <option value="a">60°</option>
             <option value="b">45°</option>
             <option value="c">90°</option>
           </select>
+          <div class="muted tiny g8-only">تلميح: مجموع زوايا المثلث 180°، وإذا كانت متساوية نقسم 180 على 3.</div>
+          <div class="muted tiny g9-only">استخدم فكرة “المجموع 180°” بشكل سريع.</div>
         </div>
 
         <div class="q">
@@ -232,12 +253,21 @@
             <option value="b">لأن له 4 أضلاع</option>
             <option value="c">لأن فيه زاوية 90°</option>
           </select>
+          <div class="muted tiny g8-only">تلميح: 360° حول نقطة… كم مرة نحتاج 60°؟</div>
+          <div class="muted tiny g9-only">اربط الزاوية 60° بالدوران حول نقطة.</div>
         </div>
 
         <div class="q wide">
-          <div class="qtitle">5) اكتب “تعليلًا غير رسمي” من 2–3 جمل: لماذا تساوي الأضلاع يؤدي لتساوي الزوايا؟</div>
-          <textarea id="l3_txt" class="ctl" rows="4" placeholder="اكتب تعليلًا قصيرًا… (يقبل إجابة لفظية منطقية)"></textarea>
-          <div class="muted tiny">لن نقيّم الإملاء — فقط وضوح الفكرة.</div>
+          <div class="qtitle">5) اكتب تعليلًا غير رسمي (2–4 جمل): كيف يثبت “نفس القالب” تساوي الأطوال؟ وكيف يقود ذلك لشارة متساوية الأضلاع وزواياها 60°؟</div>
+          <textarea id="l3_txt" class="ctl" rows="4"
+            placeholder="اكتب تعليلًا واضحًا… (لن نقيّم الإملاء — فقط وضوح الفكرة)"></textarea>
+
+          <div class="muted tiny g8-only">
+            اكتب مثلًا: “نفس القالب ⇒ نفس الطول ⇒ AB=BC… ومع AB=AC تصبح الأضلاع الثلاثة متساوية… إذن الزوايا متساوية وكل واحدة 60°”.
+          </div>
+          <div class="muted tiny g9-only">
+            ركّز على ربط السبب بالنتيجة باختصار: (قالب ⇒ مساواة أطوال) ثم (تعريف المتساوي الأضلاع ⇒ نتائج على الزوايا).
+          </div>
         </div>
       </div>
 
@@ -300,6 +330,24 @@
   <footer class="wrap foot app-foot">
     <span class="muted">© مختبر الرياضيات — لعبة فان هيلي (المثلث متساوي الأضلاع)</span>
   </footer>
+
+  <!-- ✅ تطبيق تلميحات الصف تلقائيًا (الثامن أقوى / التاسع أخف) -->
+  <script>
+    (function () {
+      function applyGradeHints() {
+        var sel = document.getElementById("gradeSel");
+        var g = sel ? String(sel.value || "8") : "8";
+        document.body.classList.toggle("grade-8", g === "8");
+        document.body.classList.toggle("grade-9", g === "9");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        applyGradeHints();
+        var sel = document.getElementById("gradeSel");
+        if (sel) sel.addEventListener("change", applyGradeHints);
+      });
+    })();
+  </script>
 
   <script src="./app.js" defer></script>
 </body>
