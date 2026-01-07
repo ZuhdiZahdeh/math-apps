@@ -2,6 +2,7 @@
    Equilateral Triangle – Van Hiele (1–4)
    ✅ L1: cards from ./assets/cards/cards.json
    ✅ L2: drag C (works immediately), measurements centered, integers, SNAP, symmetry axes, AB slider + Auto
+   ✅ Sounds: Success/Fail (from ../audio/success & ../audio/fail)
 ========================= */
 
 const KEY = "eq_vanhiele_progress_v3";
@@ -32,6 +33,84 @@ const state = {
     proofB: { order: [], reasons: {} },
   }
 };
+
+/* =========================
+   ✅ Sounds (Success / Fail)
+   Location:
+   apps/equilateral-vanhiele/ (this file)
+   apps/audio/success/*.mp3
+   apps/audio/fail/*.mp3
+   So relative path is: ../audio/...
+========================= */
+const SOUND = {
+  enabled: true,
+  volume: 0.85,
+  primed: false,
+
+  success: [
+    "../audio/success/applause.mp3",
+    "../audio/success/clap.mp3",
+    "../audio/success/success_toolMatch_a.mp3",
+    "../audio/success/success_toolMatch_b.mp3",
+    "../audio/success/success_toolMatch_d.mp3",
+    "../audio/success/success_toolMatch_e.mp3"
+  ],
+
+  fail: [
+    "../audio/fail/fail-trombone-01.mp3",
+    "../audio/fail/fail-trombone-02.mp3",
+    "../audio/fail/fail-trombone-03.mp3",
+    "../audio/fail/fail_toolMatch_a.mp3",
+    "../audio/fail/fail_toolMatch_b.mp3",
+    "../audio/fail/fail_toolMatch_c.mp3"
+  ],
+
+  _cache: new Map(),
+};
+
+function primeSoundsOnce() {
+  if (SOUND.primed) return;
+  SOUND.primed = true;
+
+  // Preload (best effort)
+  [...SOUND.success, ...SOUND.fail].forEach((url) => {
+    try {
+      const a = new Audio(url);
+      a.preload = "auto";
+      a.volume = SOUND.volume;
+      SOUND._cache.set(url, a);
+      a.load();
+    } catch {}
+  });
+}
+
+// Prime on first user gesture (avoids autoplay restrictions)
+document.addEventListener("pointerdown", primeSoundsOnce, { once: true });
+document.addEventListener("keydown", primeSoundsOnce, { once: true });
+
+function playSound(url) {
+  if (!SOUND.enabled) return;
+  try {
+    const base = SOUND._cache.get(url) || new Audio(url);
+    base.volume = SOUND.volume;
+
+    // clone so multiple plays won't cut each other
+    const a = base.cloneNode(true);
+    a.volume = SOUND.volume;
+
+    a.play().catch(() => {});
+  } catch {}
+}
+
+function playRandomSound(list) {
+  if (!SOUND.enabled) return;
+  if (!Array.isArray(list) || list.length === 0) return;
+  const url = list[Math.floor(Math.random() * list.length)];
+  playSound(url);
+}
+
+function playSuccess() { playRandomSound(SOUND.success); }
+function playFail() { playRandomSound(SOUND.fail); }
 
 /* =========================
    Save / Load
@@ -311,6 +390,10 @@ function checkL1One() {
   const got = state.l1.selectedAns;
 
   const ok = (expected === got);
+
+  // ✅ Sound
+  if (ok) playSuccess(); else playFail();
+
   state.l1.results[card.id] = ok ? "ok" : "bad";
 
   const status = byId("l1Status");
@@ -663,9 +746,11 @@ function checkL2(){
   if (r.ok) {
     state.l2.ok = true;
     msg.textContent = "✅ ممتاز! هذا قريب جدًا من مثلث متساوي الأضلاع.";
+    playSuccess(); // ✅ Sound
   } else {
     state.l2.ok = false;
     msg.textContent = "❗ ليس بعد. قرّب الأضلاع أكثر وقرّب الزوايا إلى 60° (Snap سيساعدك عند الاقتراب).";
+    playFail(); // ✅ Sound
   }
 }
 
@@ -680,6 +765,9 @@ function saveL2Answers(){
   if (a3==="a") score++;
 
   const pass = (state.grade === 9) ? (score===3 && state.l2.ok) : (score>=2);
+
+  // ✅ Sound (on pass/fail)
+  if (pass) playSuccess(); else playFail();
 
   state.scores[2] = score;
   state.done[2] = pass;
@@ -712,6 +800,9 @@ function checkL3(){
   if (hasText) score++;
 
   const pass = (state.grade === 9) ? (score >= 4) : (score >= 3);
+
+  // ✅ Sound
+  if (pass) playSuccess(); else playFail();
 
   state.scores[3] = score;
   state.done[3] = pass;
@@ -887,6 +978,9 @@ function finishL4(){
   const b = checkProof("proofB", PROOF_B_STEPS, "scoreB");
 
   const pass = (state.grade === 9) ? (a.pass && b.pass) : (a.reasonsOkCount + b.reasonsOkCount >= 7);
+
+  // ✅ Sound
+  if (pass) playSuccess(); else playFail();
 
   state.done[4] = pass;
   state.scores[4] = a.reasonsOkCount + b.reasonsOkCount;
