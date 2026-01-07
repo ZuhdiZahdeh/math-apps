@@ -2,6 +2,8 @@
    Equilateral Triangle – Van Hiele (1–4)
    ✅ L1: cards from ./assets/cards/cards.json
    ✅ L2: drag C (works immediately), measurements centered, integers, SNAP, symmetry axes, AB slider + Auto
+   ✅ L3: Life scenarios (Factory template + Traffic sign + Tiling) + informal "why" explanation (no SSS)
+   ✅ L4: Formal proof ordering + reasons
    ✅ Sounds: Success/Fail (from ../audio/success & ../audio/fail)
 ========================= */
 
@@ -142,6 +144,15 @@ function loadProgress() {
     if (p.l4?.proofA) state.l4.proofA = p.l4.proofA;
     if (p.l4?.proofB) state.l4.proofB = p.l4.proofB;
   } catch {}
+}
+
+/* =========================
+   Grade hints (safe redundancy)
+   (index.html also toggles body classes; we do it here too)
+========================= */
+function applyGradeClass() {
+  document.body.classList.toggle("grade-8", state.grade === 8);
+  document.body.classList.toggle("grade-9", state.grade === 9);
 }
 
 /* =========================
@@ -594,16 +605,13 @@ function updateABControls(feasibleMax){
   if (!abUI.range || !abUI.val) return;
 
   const maxInt = Math.max(200, Math.floor(feasibleMax));
-  // حدّ أقصى ديناميكي حسب حجم اللوحة (مهم حتى لا تختار قيمة مستحيلة)
   abUI.range.max = String(maxInt);
 
-  // إذا Auto
   if (L2.AB_USER === null) {
     abUI.val.textContent = "Auto";
     return;
   }
 
-  // clamp value إذا تجاوز
   let v = +abUI.range.value;
   if (v > maxInt) {
     v = maxInt;
@@ -632,7 +640,6 @@ function attachL2(){
     tri.canvas.height = Math.floor(tri.h * dpr);
     tri.ctx.setTransform(dpr,0,0,dpr,0,0);
 
-    // قيود هندسية لضمان إمكانيّة المتساوي الأضلاع
     const TOP = 24;
     const BOTTOM = 34;
     const SIDE = 70;
@@ -640,26 +647,21 @@ function attachL2(){
     const baseY = tri.h - BOTTOM;
     const hAvail = baseY - TOP;
 
-    // AB <= 2*hAvail/sqrt(3)
     const maxABfromHeight = (2 * hAvail) / Math.sqrt(3);
     const maxABfromWidth  = tri.w - 2 * SIDE;
     const feasibleMax = Math.min(maxABfromWidth, maxABfromHeight);
 
-    // تحديث slider max ديناميكيًا
     updateABControls(feasibleMax);
 
-    // اختيار AB (Auto أو يدوي)
     let AB;
     if (L2.AB_USER === null) {
       AB = Math.min(feasibleMax, L2.AB_AUTO_TARGET);
     } else {
       AB = clamp(L2.AB_USER, 200, feasibleMax);
-      // إذا أصبح AB أقل/أكبر بسبب قيود الشاشة
       if (abUI.range) abUI.range.value = String(Math.floor(AB));
       if (abUI.val) abUI.val.textContent = String(Math.floor(AB));
     }
 
-    // ضع القاعدة بالوسط
     const ax = Math.round((tri.w - AB) / 2);
     const bx = Math.round((tri.w + AB) / 2);
 
@@ -669,7 +671,6 @@ function attachL2(){
     const midX = Math.round((ax + bx) / 2);
     const eqHeight = (Math.sqrt(3) / 2) * AB;
 
-    // init C قريب من المتساوي الأضلاع
     if (!tri._initC) {
       tri.C = { x: midX, y: Math.round(baseY - eqHeight) };
       tri._initC = true;
@@ -707,7 +708,6 @@ function attachL2(){
     tri.C.x = clamp(e.clientX - rect.left, 40, tri.w - 40);
     tri.C.y = clamp(e.clientY - rect.top, TOP, baseY - 20);
 
-    // ✅ Snap ذكي لتسهيل الوصول (حتى بدون دقة الأعشار)
     if (L2.SNAP_ENABLED) {
       const r = eqMetrics(tri.A, tri.B, tri.C);
       if (r.near) {
@@ -719,8 +719,7 @@ function attachL2(){
         const targetX = midX;
         const targetY = A.y - eqH;
 
-        // مزج تدريجي (لا يقفز)
-        const t = 0.25 + 0.55 * r.closeness; // 0.25..0.8
+        const t = 0.25 + 0.55 * r.closeness;
         tri.C.x = tri.C.x*(1-t) + targetX*t;
         tri.C.y = tri.C.y*(1-t) + targetY*t;
       }
@@ -729,13 +728,8 @@ function attachL2(){
     drawTriangle();
   });
 
-  tri.canvas.addEventListener("pointerup",()=>{
-    tri.drag = false;
-  });
-
-  tri.canvas.addEventListener("pointercancel",()=>{
-    tri.drag = false;
-  });
+  tri.canvas.addEventListener("pointerup",()=>{ tri.drag = false; });
+  tri.canvas.addEventListener("pointercancel",()=>{ tri.drag = false; });
 }
 
 function checkL2(){
@@ -746,11 +740,11 @@ function checkL2(){
   if (r.ok) {
     state.l2.ok = true;
     msg.textContent = "✅ ممتاز! هذا قريب جدًا من مثلث متساوي الأضلاع.";
-    playSuccess(); // ✅ Sound
+    playSuccess();
   } else {
     state.l2.ok = false;
     msg.textContent = "❗ ليس بعد. قرّب الأضلاع أكثر وقرّب الزوايا إلى 60° (Snap سيساعدك عند الاقتراب).";
-    playFail(); // ✅ Sound
+    playFail();
   }
 }
 
@@ -766,7 +760,6 @@ function saveL2Answers(){
 
   const pass = (state.grade === 9) ? (score===3 && state.l2.ok) : (score>=2);
 
-  // ✅ Sound (on pass/fail)
   if (pass) playSuccess(); else playFail();
 
   state.scores[2] = score;
@@ -781,27 +774,43 @@ function saveL2Answers(){
 }
 
 /* =========================
-   Level 3 – check (كما هو في index)
+   ✅ Level 3 – FINAL (Life scenarios + informal "why")
+   Questions in index.html:
+   l3_1: Factory template => AB = BC
+   l3_2: With AB = AC => Equilateral
+   l3_3: Angle of equilateral => 60°
+   l3_4: Tiling => 6×60=360
+   l3_txt: informal explanation (2–4 sentences)
 ========================= */
 function checkL3(){
   const v1 = byId("l3_1")?.value || "";
   const v2 = byId("l3_2")?.value || "";
   const v3 = byId("l3_3")?.value || "";
   const v4 = byId("l3_4")?.value || "";
-  const txt= (byId("l3_txt")?.value || "").trim();
+  const txt = (byId("l3_txt")?.value || "").trim();
 
   let score = 0;
-  if (v1 === "a") score++;
-  if (v2 === "a") score++;
-  if (v3 === "a") score++;
-  if (v4 === "a") score++;
+  const total = 5;
 
-  const hasText = txt.split(/\s+/).filter(Boolean).length >= (state.grade===9 ? 10 : 6);
-  if (hasText) score++;
+  const ok1 = (v1 === "a"); // AB = BC
+  const ok2 = (v2 === "a"); // equilateral
+  const ok3 = (v3 === "a"); // 60
+  const ok4 = (v4 === "a"); // 6×60=360
 
+  if (ok1) score++;
+  if (ok2) score++;
+  if (ok3) score++;
+  if (ok4) score++;
+
+  // Text: grade-based threshold (8: simpler / 9: richer)
+  const minWords = (state.grade === 9) ? 14 : 8;
+  const words = txt.split(/\s+/).filter(Boolean).length;
+  const okTxt = words >= minWords;
+  if (okTxt) score++;
+
+  // Passing thresholds: grade 9 stricter
   const pass = (state.grade === 9) ? (score >= 4) : (score >= 3);
 
-  // ✅ Sound
   if (pass) playSuccess(); else playFail();
 
   state.scores[3] = score;
@@ -809,16 +818,35 @@ function checkL3(){
 
   const out = byId("l3Score");
   const msg = byId("l3Msg");
-  if (out) out.textContent = `النتيجة: ${score}/5`;
-  if (msg) msg.textContent = pass
-    ? "✅ ممتاز. انتقل للمستوى 4."
-    : "❗ راجع إجاباتك وحاول كتابة تعليل أوضح.";
+
+  // Targeted feedback (informal, life-based)
+  const tips = [];
+  if (!ok1) tips.push("تذكّر: في المصنع “نفس القالب” ⇒ “نفس الطول” ⇒ AB = BC.");
+  if (!ok2) tips.push("إذا صار لدينا AB = AC ومع AB = BC فالأضلاع الثلاثة متساوية ⇒ متساوي الأضلاع.");
+  if (!ok3) tips.push("المثلث زواياه مجموعها 180°، وإذا كانت متساوية نقسم 180 على 3 ⇒ 60°.");
+  if (!ok4) tips.push("التبليط: حول نقطة نحتاج 360°، و60° تتكرر 6 مرات ⇒ 6×60=360.");
+  if (!okTxt) tips.push(`اكتب تعليلًا أطول قليلًا (على الأقل ${minWords} كلمة) واذكر سبب/نتيجة.`);
+
+  if (out) {
+    out.textContent = `النتيجة: ${score}/${total}` + (okTxt ? "" : ` — تعليل قصير.`);
+  }
+
+  if (msg) {
+    msg.textContent = pass
+      ? "✅ ممتاز! استنتاجات حياتية واضحة (قالب/شارة/تبليط). الآن أنت جاهز للمستوى 4 لكتابة الفكرة رسميًا."
+      : ("❗ لم يكتمل بعد. " + (tips[0] ? tips[0] : "حاول مرة أخرى مع ربط السبب بالنتيجة."));
+  }
+
+  // If not pass, we still show compact extra hints without إزعاج
+  if (!pass && tips.length > 1 && msg) {
+    msg.textContent += " " + tips.slice(1, 3).join(" ");
+  }
 
   setProgressUI();
 }
 
 /* =========================
-   Level 4 – proof ordering (كما في النسخة السابقة)
+   Level 4 – proof ordering
 ========================= */
 const REASONS = [
   { v:"given", t:"معطى" },
@@ -979,7 +1007,6 @@ function finishL4(){
 
   const pass = (state.grade === 9) ? (a.pass && b.pass) : (a.reasonsOkCount + b.reasonsOkCount >= 7);
 
-  // ✅ Sound
   if (pass) playSuccess(); else playFail();
 
   state.done[4] = pass;
@@ -1044,6 +1071,7 @@ function drawProofCanvas(){
 ========================= */
 async function init(){
   loadProgress();
+  applyGradeClass();
 
   // Tabs
   document.querySelectorAll(".tab").forEach(t=>{
@@ -1056,6 +1084,8 @@ async function init(){
     gradeSel.value = String(state.grade);
     gradeSel.addEventListener("change", ()=>{
       state.grade = +gradeSel.value;
+      applyGradeClass();
+      setProgressUI(); // مهم: يُحدّث شروط القفل/الفتح حسب الصف
       saveProgress();
     });
   }
