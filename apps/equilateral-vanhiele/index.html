@@ -125,6 +125,18 @@
             <button id="l2Reset" class="btn">إعادة نقطة C</button>
           </div>
 
+          <!-- ✅ Slider للتحكم بطول AB -->
+          <div class="row" style="gap:10px; justify-content:center; margin:10px 0 6px;">
+            <label class="lbl" for="abRange">طول AB:</label>
+            <input id="abRange" type="range" min="200" max="600" value="420" step="1"
+                   class="ctl" style="width:260px; min-width:260px;">
+            <span id="abVal" class="lbl">420</span>
+            <button id="abAuto" class="btn ghost" type="button">Auto</button>
+          </div>
+          <p class="muted tiny" style="text-align:center; margin:0 0 6px;">
+            تلميح: إذا اقتربت من المتساوي الأضلاع سيساعدك “Snap” للوصول بسرعة.
+          </p>
+
           <div id="l2Msg" class="muted"></div>
         </div>
 
