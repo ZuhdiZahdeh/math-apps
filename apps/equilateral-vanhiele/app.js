@@ -15,19 +15,22 @@ const state = {
   done: { 1:false, 2:false, 3:false, 4:false },
   scores: { 1:null, 2:null, 3:null, 4:null },
 
-  // Level 1 (manifest-driven)
+  // Level 1
   l1: {
+    cards: [],
     idx: 0,
-    order: [],          // shuffled cards array
-    selectedAns: null,  // "eq" | "iso" | "other"
-    results: {},        // { [cardId]: "ok"|"bad" }
-    cards: [],          // raw manifest cards
-    loading: true,
-    error: null,
+    selected: null,
+    // score is 1 card only for now
   },
 
-  // Level 2 state (kept)
-  l2: { show:false, ok:false },
+  // Level 2
+  l2: {
+    ok: false
+  },
+
+  // Level 3 + 4 placeholders
+  l3: {},
+  l4: {}
 };
 
 /* =========================
@@ -47,256 +50,171 @@ function loadProgress() {
     if (!raw) return;
     const p = JSON.parse(raw);
     if (!p) return;
-    state.grade = p.grade ?? state.grade;
-    state.done  = p.done  ?? state.done;
-    state.scores= p.scores?? state.scores;
-  } catch {}
+    if (p.grade) state.grade = p.grade;
+    if (p.done) state.done = {...state.done, ...p.done};
+    if (p.scores) state.scores = {...state.scores, ...p.scores};
+  } catch(e) {}
 }
 
-function setProgressUI() {
-  const doneCount = Object.values(state.done).filter(Boolean).length;
-  byId("progText").textContent = `${doneCount}/4`;
-  byId("barFill").style.width = `${(doneCount/4)*100}%`;
+/* =========================
+   Helpers
+========================= */
+function setGrade(g) {
+  state.grade = g;
+  byId("gradeLabel").textContent = `الصف: ${g}`;
+  saveProgress();
+  setProgressUI();
 }
 
 function setLevel(level) {
   state.level = level;
+
   document.querySelectorAll(".tab").forEach(t=>{
     t.classList.toggle("is-active", +t.dataset.level === level);
   });
   document.querySelectorAll(".level").forEach(sec=>{
     sec.classList.toggle("is-active", +sec.dataset.level === level);
   });
-}
 
-/* =========================
-   Helpers
-========================= */
-function shuffle(arr){
-  const a = [...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]] = [a[j],a[i]];
+  // ✅ مهم: عند فتح المستوى 2 أعد قياس الـCanvas بعد أن يصبح ظاهرًا
+  if (level === 2) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        try {
+          if (tri && typeof tri.resize === "function") tri.resize();
+          else window.dispatchEvent(new Event("resize"));
+        } catch (e) {
+          window.dispatchEvent(new Event("resize"));
+        }
+      });
+    });
   }
-  return a;
 }
 
-// Manifest src normalization:
-// - If src is "apps/equilateral-vanhiele/assets/cards/eq_01.svg" -> convert to "./assets/cards/eq_01.svg"
-// - If already relative -> keep
-function normalizeSrc(src) {
-  if (!src) return "";
-  const prefix = "apps/equilateral-vanhiele/";
-  if (src.startsWith(prefix)) return "./" + src.slice(prefix.length);
-  if (src.startsWith("/")) return src;         // absolute on same domain
-  if (src.startsWith("./") || src.startsWith("../")) return src;
-  return "./" + src;
-}
+function setProgressUI() {
+  // show small progress or status messages if exist
+  // Level 1
+  const l1Score = state.scores[1];
+  if (l1Score !== null) byId("l1Score").textContent = `النتيجة: ${l1Score}/1`;
 
-// Convert manifest kind -> game answer kind
-function toGameKind(kind) {
-  if (kind === "eq") return "eq";
-  if (kind === "iso") return "iso";
-  return "other"; // right / obtuse / any other
+  // Level 2
+  const l2Score = state.scores[2];
+  if (l2Score !== null) byId("l2Score").textContent = `النتيجة: ${l2Score}/3`;
+
+  // Buttons enable / labels
+  byId("tab1").classList.toggle("done", !!state.done[1]);
+  byId("tab2").classList.toggle("done", !!state.done[2]);
+  byId("tab3").classList.toggle("done", !!state.done[3]);
+  byId("tab4").classList.toggle("done", !!state.done[4]);
+
+  // show next buttons if present
+  const to2 = byId("to2");
+  if (to2) to2.disabled = !state.done[1];
+
+  const to3 = byId("to3");
+  if (to3) to3.disabled = !state.done[2];
+
+  const to4 = byId("to4");
+  if (to4) to4.disabled = !state.done[3];
+
+  saveProgress();
 }
 
 /* =========================
    Level 1 – Load cards.json
 ========================= */
-const MANIFEST_URLS = [
-  "./assets/cards/cards.json",
-  "/math-apps/apps/equilateral-vanhiele/assets/cards/cards.json"
-];
+async function loadCards() {
+  try {
+    const res = await fetch("./cards.json", {cache:"no-store"});
+    state.l1.cards = await res.json();
+  } catch(e) {
+    state.l1.cards = [];
+  }
+}
 
+function renderCard() {
+  const wrap = byId("cardWrap");
+  wrap.innerHTML = "";
 
-async function loadCardsManifest() {
-  let lastErr = null;
-
-  for (const url of MANIFEST_URLS) {
-    try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) {
-        lastErr = new Error(`HTTP ${res.status} on ${url}`);
-        continue;
-      }
-      const data = await res.json();
-      if (!Array.isArray(data) || data.length === 0) {
-        lastErr = new Error(`Invalid JSON array in ${url}`);
-           console.error("Manifest load failed:", url, res.status);
-        continue;
-      }
-
-      // Validate minimal fields
-      const cleaned = data
-        .filter(x => x && x.id && x.kind && x.src)
-        .map(x => ({
-          id: String(x.id),
-          kindRaw: String(x.kind),
-          kindGame: toGameKind(String(x.kind)),
-          src: normalizeSrc(String(x.src))
-        }));
-
-      if (cleaned.length === 0) {
-        lastErr = new Error(`No valid items (id/kind/src) found in ${url}`);
-        continue;
-      }
-
-      return cleaned;
-    } catch (e) {
-      lastErr = e;
-    }
+  const card = state.l1.cards[state.l1.idx];
+  if (!card) {
+    wrap.innerHTML = `<div class="muted">لا توجد بطاقات.</div>`;
+    return;
   }
 
-  throw lastErr || new Error("Failed to load cards.json");
+  // image svg (or png) shown
+  const img = document.createElement("img");
+  img.src = card.image;
+  img.alt = card.title || "card";
+  img.className = "card-img";
+  wrap.appendChild(img);
+
+  // prompt
+  byId("l1Prompt").textContent = card.prompt || "انظر للشكل فقط واختر نوعه.";
+  byId("l1Title").textContent = card.title || `بطاقة ${state.l1.idx+1}`;
+
+  // reset selection
+  state.l1.selected = null;
+  document.querySelectorAll('input[name="l1type"]').forEach(r=> r.checked = false);
+  byId("l1Msg").textContent = "";
+}
+
+function checkL1() {
+  const card = state.l1.cards[state.l1.idx];
+  if (!card) return;
+
+  const picked = state.l1.selected;
+  if (!picked) {
+    byId("l1Msg").textContent = "❗ اختر إجابة أولاً.";
+    return;
+  }
+
+  const ok = (picked === card.answer);
+  const score = ok ? 1 : 0;
+
+  state.scores[1] = score;
+  state.done[1] = ok;
+
+  byId("l1Msg").textContent = ok
+    ? "✅ صحيح! (بصريًا) لاحظ أننا لم نستخدم قياسًا."
+    : "❗ حاول ثانية. ركّز على شكل المثلث بصريًا فقط.";
+
+  byId("l1Done").textContent = ok
+    ? "ممتاز. يمكنك الانتقال للمستوى 2 (وصفي)."
+    : "";
+
+  setProgressUI();
 }
 
 /* =========================
    Level 1 – UI (single card)
 ========================= */
-
-function renderL1Nums() {
-  const box = byId("l1Nums");
-  if (!box) return;
-  box.innerHTML = "";
-
-  state.l1.order.forEach((card, i) => {
-    const b = document.createElement("button");
-    b.className = "numBtn";
-    b.textContent = card.id;
-
-    if (i === state.l1.idx) b.classList.add("is-current");
-
-    const res = state.l1.results[card.id];
-    if (res === "ok") b.classList.add("is-ok");
-    if (res === "bad") b.classList.add("is-bad");
-
-    b.addEventListener("click", () => {
-      state.l1.idx = i;
-      state.l1.selectedAns = null;
-      // remove selection UI
-      document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
-      byId("l1CheckOne").disabled = true;
-      renderL1One();
-    });
-
-    box.appendChild(b);
+function attachL1UI() {
+  byId("l1Prev").addEventListener("click", ()=>{
+    state.l1.idx = Math.max(0, state.l1.idx-1);
+    renderCard();
   });
-}
+  byId("l1Next").addEventListener("click", ()=>{
+    state.l1.idx = Math.min(state.l1.cards.length-1, state.l1.idx+1);
+    renderCard();
+  });
 
-function renderL1One() {
-  const big = byId("l1BigShape");
-  const status = byId("l1Status");
-  const now = byId("l1Now");
-  const total = byId("l1Total");
+  document.querySelectorAll('input[name="l1type"]').forEach(r=>{
+    r.addEventListener("change", ()=>{
+      state.l1.selected = r.value;
+    });
+  });
 
-  if (!big || !status || !now || !total) return;
-
-  if (state.l1.loading) {
-    status.textContent = "جارِ تحميل البطاقات…";
-    big.innerHTML = `<div class="muted">Loading…</div>`;
-    return;
-  }
-  if (state.l1.error) {
-    status.textContent = "تعذّر تحميل cards.json";
-    big.innerHTML = `<div class="muted">⚠ ${state.l1.error}</div>`;
-    return;
-  }
-
-  const card = state.l1.order[state.l1.idx];
-  now.textContent = String(state.l1.idx + 1);
-  total.textContent = String(state.l1.order.length);
-
-  // display SVG via <img>
-  big.innerHTML = `
-    <img
-      src="${card.src}"
-      alt="بطاقة مثلث"
-      style="width:min(520px, 85%); height:auto; display:block;"
-      draggable="false"
-    />
-  `;
-
-  // score line
-  const doneCount = Object.keys(state.l1.results).length;
-  const okCount = Object.values(state.l1.results).filter(v => v === "ok").length;
-  const scoreEl = byId("l1ScoreOne");
-  if (scoreEl) scoreEl.textContent = `صحيح: ${okCount} / ${doneCount}`;
-
-  status.textContent = "اختر إجابة ثم اضغط “تحقّق”.";
-  renderL1Nums();
-}
-
-function l1Prev() {
-  state.l1.idx = (state.l1.idx - 1 + state.l1.order.length) % state.l1.order.length;
-  state.l1.selectedAns = null;
-  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
-  byId("l1CheckOne").disabled = true;
-  renderL1One();
-}
-
-function l1Next() {
-  state.l1.idx = (state.l1.idx + 1) % state.l1.order.length;
-  state.l1.selectedAns = null;
-  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
-  byId("l1CheckOne").disabled = true;
-  renderL1One();
-}
-
-function l1Restart() {
-  state.l1.idx = 0;
-  state.l1.selectedAns = null;
-  state.l1.results = {};
-  state.scores[1] = null;
-  state.done[1] = false;
-
-  state.l1.order = shuffle(state.l1.cards);
-
-  document.querySelectorAll(".ansbtn").forEach(x => x.classList.remove("is-selected"));
-  byId("l1Msg").textContent = "";
-  byId("l1CheckOne").disabled = true;
-
-  renderL1One();
-  setProgressUI();
-  saveProgress();
-}
-
-function checkL1One() {
-  const card = state.l1.order[state.l1.idx];
-  const expected = card.kindGame; // "eq" | "iso" | "other"
-  const got = state.l1.selectedAns;
-
-  const ok = (expected === got);
-  state.l1.results[card.id] = ok ? "ok" : "bad";
-
-  const status = byId("l1Status");
-  status.textContent = ok
-    ? "✅ إجابة صحيحة"
-    : `❌ إجابة غير صحيحة — الصحيح: ${
-        expected === "eq" ? "متساوي الأضلاع" :
-        expected === "iso" ? "متساوي الساقين" : "غير ذلك"
-      }`;
-
-  // update pass condition
-  const okCount = Object.values(state.l1.results).filter(v => v === "ok").length;
-  state.scores[1] = okCount;
-  state.done[1] = (state.grade === 9) ? (okCount >= 18) : (okCount >= 16);
-
-  byId("l1Msg").textContent = state.done[1]
-    ? "✅ اجتزت المستوى البصري. يمكنك الانتقال للمستوى 2."
-    : "تابع… الهدف هو تحسين التمييز البصري بدون قياس.";
-
-  renderL1Nums();
-  setProgressUI();
-  saveProgress();
-
-  // auto next
-  setTimeout(() => {
-    l1Next();
-  }, 700);
+  byId("l1Check").addEventListener("click", checkL1);
 }
 
 /* =========================
-   Level 2 – Descriptive canvas (unchanged)
+   Level 2 – Descriptive canvas (fixed + improved)
+   ✅ Drag works immediately when entering Level 2
+   ✅ Bigger canvas area
+   ✅ Measurements centered and readable
+   ✅ Auto-centering (after drag / resize)
+   ✅ Show 3 symmetry axes when near-equilateral
 ========================= */
 
 const tri = {
@@ -304,36 +222,155 @@ const tri = {
   ctx: null,
   w: 520,
   h: 340,
+
+  // نقاط المثلث (تُعاد تهيئتها عند resize)
   A: {x:120, y:260},
   B: {x:400, y:260},
   C: {x:290, y:120},
+
   drag: false,
   show: false,
+
+  _initC: false,
+  resize: null,
 };
 
-function dist(p,q){ return Math.hypot(p.x-q.x, p.y-q.y); }
-
-function angleAt(P, Q, R){ // angle at Q in triangle P-Q-R
-  const v1 = {x:P.x-Q.x, y:P.y-Q.y};
-  const v2 = {x:R.x-Q.x, y:R.y-Q.y};
+// قياس زاوية عند النقطة P (الزاوية ∠APB)
+function angleAt(A, P, B) {
+  const v1 = {x: A.x - P.x, y: A.y - P.y};
+  const v2 = {x: B.x - P.x, y: B.y - P.y};
   const dot = v1.x*v2.x + v1.y*v2.y;
-  const n1 = Math.hypot(v1.x,v1.y);
-  const n2 = Math.hypot(v2.x,v2.y);
-  const c = clamp(dot/(n1*n2), -1, 1);
-  return Math.acos(c) * 180/Math.PI;
+  const m1 = Math.hypot(v1.x, v1.y);
+  const m2 = Math.hypot(v2.x, v2.y);
+  const cos = clamp(dot/(m1*m2), -1, 1);
+  return Math.acos(cos) * 180/Math.PI;
 }
 
-function isEquilateral(A,B,C){
-  const ab = dist(A,B), bc = dist(B,C), ca = dist(C,A);
+// يعيد قياسات التساوي + مؤشرات “القرب” من المتساوي الأضلاع
+function isEquilateral(A,B,C) {
+  const ab = Math.hypot(A.x-B.x, A.y-B.y);
+  const bc = Math.hypot(B.x-C.x, B.y-C.y);
+  const ca = Math.hypot(C.x-A.x, C.y-A.y);
+
   const avg = (ab+bc+ca)/3;
-  const maxDiff = Math.max(Math.abs(ab-bc), Math.abs(bc-ca), Math.abs(ca-ab));
-  const aA = angleAt(B,A,C), aB = angleAt(A,B,C), aC = angleAt(A,C,B);
+  const maxSide = Math.max(ab,bc,ca);
+  const minSide = Math.min(ab,bc,ca);
 
-  // tolerance
-  const okSides = (maxDiff/avg) < 0.03;
-  const okAngs = Math.max(Math.abs(aA-60), Math.abs(aB-60), Math.abs(aC-60)) < 2.5;
+  const aA = angleAt(B,A,C);
+  const aB = angleAt(A,B,C);
+  const aC = angleAt(A,C,B);
 
-  return { ok: okSides && okAngs, ab, bc, ca, aA, aB, aC, okSides, okAngs };
+  // مقدار تشتّت الأطوال (0 يعني تساوي تام)
+  const sideSpread = (maxSide - minSide) / avg;
+
+  // مقدار تشتّت الزوايا عن 60°
+  const angSpread = Math.max(Math.abs(aA-60), Math.abs(aB-60), Math.abs(aC-60));
+
+  // tolerance (قريب جدًا)
+  const okSides = sideSpread < 0.03;
+  const okAngs  = angSpread < 2.5;
+
+  // قرب “مريح” لإظهار محاور التماثل (أوسع قليلًا)
+  const nearSides = sideSpread < 0.08;
+  const nearAngs  = angSpread < 12;
+
+  // معامل قرب 0..1 (لجعل خطوط التماثل تظهر تدريجيًا)
+  const closeness = clamp(
+    1 - Math.max(sideSpread/0.08, angSpread/12),
+    0, 1
+  );
+
+  return {
+    ok: okSides && okAngs,
+    ab, bc, ca,
+    aA, aB, aC,
+    okSides, okAngs,
+    near: nearSides && nearAngs,
+    closeness,
+    sideSpread,
+    angSpread
+  };
+}
+
+function roundRect(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y,   x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x,   y+h, r);
+  ctx.arcTo(x,   y+h, x,   y,   r);
+  ctx.arcTo(x,   y,   x+w, y,   r);
+  ctx.closePath();
+}
+
+// مركز المثلث تلقائيًا (بعد السحب/الريسايز) بدون إزعاج السحب أثناء الحركة
+function centerTriangle(margin = 40) {
+  if (!tri.A || !tri.B || !tri.C) return;
+
+  const {A,B,C} = tri;
+
+  const centroid = {
+    x: (A.x + B.x + C.x) / 3,
+    y: (A.y + B.y + C.y) / 3
+  };
+
+  // مكان مريح بصريًا (قريب من الوسط مع مساحة للنص)
+  const target = {
+    x: tri.w / 2,
+    y: tri.h * 0.58
+  };
+
+  let dx = target.x - centroid.x;
+  let dy = target.y - centroid.y;
+
+  // طبّق الإزاحة
+  A.x += dx; A.y += dy;
+  B.x += dx; B.y += dy;
+  C.x += dx; C.y += dy;
+
+  // تأكد من بقاء المثلث داخل حدود آمنة
+  const minX = Math.min(A.x,B.x,C.x);
+  const maxX = Math.max(A.x,B.x,C.x);
+  const minY = Math.min(A.y,B.y,C.y);
+  const maxY = Math.max(A.y,B.y,C.y);
+
+  let fixX = 0, fixY = 0;
+
+  if (minX < margin) fixX = margin - minX;
+  if (maxX > tri.w - margin) fixX = (tri.w - margin) - maxX;
+
+  if (minY < margin) fixY = margin - minY;
+  if (maxY > tri.h - margin) fixY = (tri.h - margin) - maxY;
+
+  A.x += fixX; A.y += fixY;
+  B.x += fixX; B.y += fixY;
+  C.x += fixX; C.y += fixY;
+
+  // clamp نهائي
+  A.x = clamp(A.x, margin, tri.w-margin); A.y = clamp(A.y, margin, tri.h-margin);
+  B.x = clamp(B.x, margin, tri.w-margin); B.y = clamp(B.y, margin, tri.h-margin);
+  C.x = clamp(C.x, margin, tri.w-margin); C.y = clamp(C.y, margin, tri.h-margin);
+}
+
+// رسم محاور التماثل الثلاثة (عند الاقتراب من المتساوي الأضلاع)
+function drawSymmetryAxes(c, A, B, C, alpha) {
+  const mid = (P,Q)=>({x:(P.x+Q.x)/2, y:(P.y+Q.y)/2});
+
+  const mBC = mid(B,C);
+  const mCA = mid(C,A);
+  const mAB = mid(A,B);
+
+  c.save();
+  c.globalAlpha = alpha;
+  c.strokeStyle = "#93c5fd";   // أزرق فاتح
+  c.lineWidth = 2;
+  c.setLineDash([8, 7]);
+
+  c.beginPath(); c.moveTo(A.x,A.y); c.lineTo(mBC.x,mBC.y); c.stroke();
+  c.beginPath(); c.moveTo(B.x,B.y); c.lineTo(mCA.x,mCA.y); c.stroke();
+  c.beginPath(); c.moveTo(C.x,C.y); c.lineTo(mAB.x,mAB.y); c.stroke();
+
+  c.setLineDash([]);
+  c.restore();
 }
 
 function drawTriangle() {
@@ -342,27 +379,68 @@ function drawTriangle() {
 
   c.clearRect(0,0,tri.w,tri.h);
 
+  // ضلع المثلث
   c.lineWidth = 3;
   c.strokeStyle = "#cbd5e1";
   c.beginPath();
   c.moveTo(A.x,A.y); c.lineTo(B.x,B.y); c.lineTo(C.x,C.y); c.closePath();
   c.stroke();
 
+  // محاور التماثل عند الاقتراب
+  if (tri.show) {
+    const r = isEquilateral(A,B,C);
+    if (r.near) {
+      // alpha خفيف ويتزايد كلما اقتربنا من المتساوي الأضلاع
+      const alpha = 0.08 + (0.30 * r.closeness);
+      drawSymmetryAxes(c, A, B, C, alpha);
+    }
+  }
+
+  // نقاط A,B,C
   const drawPt = (P, name)=>{
     c.fillStyle = "#f59e0b";
-    c.beginPath(); c.arc(P.x,P.y,6,0,Math.PI*2); c.fill();
+    c.beginPath(); c.arc(P.x,P.y,8,0,Math.PI*2); c.fill();   // أكبر قليلًا
     c.fillStyle = "#e2e8f0";
     c.font = "bold 16px system-ui";
     c.fillText(name, P.x+10, P.y-10);
   };
   drawPt(A,"A"); drawPt(B,"B"); drawPt(C,"C");
 
+  // قياسات (مربع في منتصف الشاشة)
   if (tri.show) {
     const r = isEquilateral(A,B,C);
-    c.fillStyle = "#94a3b8";
-    c.font = "14px system-ui";
-    c.fillText(`AB≈${r.ab.toFixed(1)}  BC≈${r.bc.toFixed(1)}  CA≈${r.ca.toFixed(1)}`, 16, 24);
-    c.fillText(`∠A≈${r.aA.toFixed(1)}°  ∠B≈${r.aB.toFixed(1)}°  ∠C≈${r.aC.toFixed(1)}°`, 16, 44);
+
+    const line1 = `AB ≈ ${r.ab.toFixed(1)}    BC ≈ ${r.bc.toFixed(1)}    CA ≈ ${r.ca.toFixed(1)}`;
+    const line2 = `∠A ≈ ${r.aA.toFixed(1)}°    ∠B ≈ ${r.aB.toFixed(1)}°    ∠C ≈ ${r.aC.toFixed(1)}°`;
+
+    c.save();
+    c.font = "700 18px system-ui";
+    c.textAlign = "center";
+    c.textBaseline = "middle";
+
+    const padX = 18;
+    const w = Math.min(tri.w - 24, Math.max(c.measureText(line1).width, c.measureText(line2).width) + padX*2);
+    const h = 86;
+
+    const x = (tri.w - w) / 2;
+    const y = (tri.h - h) / 2;
+
+    // خلفية شبه شفافة
+    c.fillStyle = "rgba(15, 23, 42, 0.78)";
+    roundRect(c, x, y, w, h, 14);
+    c.fill();
+
+    // إطار خفيف
+    c.strokeStyle = "rgba(203, 213, 225, 0.25)";
+    c.lineWidth = 1;
+    c.stroke();
+
+    // النص
+    c.fillStyle = "#e2e8f0";
+    c.fillText(line1, tri.w/2, y + h*0.38);
+    c.fillText(line2, tri.w/2, y + h*0.72);
+
+    c.restore();
   }
 }
 
@@ -370,32 +448,58 @@ function attachL2() {
   tri.canvas = byId("triCanvas");
   tri.ctx = tri.canvas.getContext("2d");
 
+  // ✅ تكبير واضح + دعم السحب على اللمس
+  tri.canvas.style.height = "460px";
+  tri.canvas.style.touchAction = "none";
+
+  // محاولة جعل عمود الرسم أكبر (إن وجد نفس الهيكل)
+  const l2 = document.querySelector('.level[data-level="2"]');
+  const twocol = l2 ? l2.querySelector(".twocol") : null;
+  if (twocol) twocol.style.gridTemplateColumns = "1.7fr .3fr";
+
   const resize = ()=>{
     const box = tri.canvas.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
 
-    tri.w = Math.max(360, Math.floor(box.width));
-    tri.h = 340;
+    // إذا كان مخفيًا لحظة القياس (0) نعطي قيمًا مؤقتة
+    const cssW = Math.floor(box.width)  || 520;
+    const cssH = Math.floor(box.height) || 460;
+
+    tri.w = Math.max(360, cssW);
+    tri.h = Math.max(340, cssH);
 
     tri.canvas.width = Math.floor(tri.w * dpr);
     tri.canvas.height = Math.floor(tri.h * dpr);
     tri.ctx.setTransform(dpr,0,0,dpr,0,0);
 
-    tri.A = {x: Math.floor(tri.w*0.23), y: 260};
-    tri.B = {x: Math.floor(tri.w*0.77), y: 260};
+    const baseY = Math.floor(tri.h * 0.78);
+
+    // قاعدة المثلث AB
+    tri.A = {x: Math.floor(tri.w*0.22), y: baseY};
+    tri.B = {x: Math.floor(tri.w*0.78), y: baseY};
+
+    // نقطة C
     if (!tri._initC) {
-      tri.C = {x: Math.floor(tri.w*0.55), y: 120};
+      tri.C = {x: Math.floor(tri.w*0.55), y: Math.floor(tri.h*0.28)};
       tri._initC = true;
     } else {
       tri.C.x = clamp(tri.C.x, 40, tri.w-40);
       tri.C.y = clamp(tri.C.y, 40, tri.h-40);
     }
+
+    // ✅ توسيط بعد الريسايز (بدون سحب)
+    centerTriangle(40);
     drawTriangle();
   };
+
+  // ✅ نخزنها لنستدعيها عند دخول المستوى 2
+  tri.resize = resize;
+
   window.addEventListener("resize", resize);
   resize();
 
-  const hitC = (x,y)=> Math.hypot(x-tri.C.x, y-tri.C.y) < 16;
+  // ✅ تسهيل التقاط النقطة C
+  const hitC = (x,y)=> Math.hypot(x-tri.C.x, y-tri.C.y) < 26;
 
   tri.canvas.addEventListener("pointerdown",(e)=>{
     const rect = tri.canvas.getBoundingClientRect();
@@ -406,6 +510,7 @@ function attachL2() {
       tri.canvas.setPointerCapture(e.pointerId);
     }
   });
+
   tri.canvas.addEventListener("pointermove",(e)=>{
     if (!tri.drag) return;
     const rect = tri.canvas.getBoundingClientRect();
@@ -413,7 +518,17 @@ function attachL2() {
     tri.C.y = clamp(e.clientY-rect.top, 40, tri.h-40);
     drawTriangle();
   });
-  tri.canvas.addEventListener("pointerup",()=>{ tri.drag = false; });
+
+  tri.canvas.addEventListener("pointerup",()=>{
+    tri.drag = false;
+    // ✅ توسيط بعد انتهاء السحب (حتى يبقى الشكل مريحًا)
+    centerTriangle(40);
+    drawTriangle();
+  });
+
+  tri.canvas.addEventListener("pointercancel",()=>{
+    tri.drag = false;
+  });
 }
 
 function checkL2() {
@@ -438,6 +553,7 @@ function saveL2Answers() {
   if (a2==="a") score++;
   if (a3==="a") score++;
 
+  // في الصف التاسع: يجب إجابات كاملة + تحقق فعلي من القياسات
   const pass = (state.grade === 9) ? (score===3 && state.l2.ok) : (score>=2);
 
   state.scores[2] = score;
@@ -452,9 +568,11 @@ function saveL2Answers() {
 
 /* =========================
    Level 3 + Level 4
-   (if you already have them in your app.js, keep them below as-is)
-   If not, you can paste your existing Level 3/4 code here.
+   (keep your existing content)
 ========================= */
+
+// إذا كان عندك وظائف للمستوى 3 و 4 موجودة سابقًا، اتركها كما هي في هذا الملف.
+// (الملف الأصلي لديك فيه قسم Level 3 + Level 4. لا نغيره هنا.)
 
 /* =========================
    Boot
@@ -462,64 +580,27 @@ function saveL2Answers() {
 async function init() {
   loadProgress();
 
-  // Tabs
-  document.querySelectorAll(".tab").forEach(t=>{
-    t.addEventListener("click", ()=> setLevel(+t.dataset.level));
-  });
+  // grade buttons
+  byId("g8").addEventListener("click", ()=> setGrade(8));
+  byId("g9").addEventListener("click", ()=> setGrade(9));
+  byId("gradeLabel").textContent = `الصف: ${state.grade}`;
 
-  // Grade
-  byId("gradeSel").value = String(state.grade);
-  byId("gradeSel").addEventListener("change", ()=>{
-    state.grade = +byId("gradeSel").value;
-    saveProgress();
-  });
+  // tabs
+  byId("tab1").addEventListener("click", ()=> setLevel(1));
+  byId("tab2").addEventListener("click", ()=> setLevel(2));
+  byId("tab3").addEventListener("click", ()=> setLevel(3));
+  byId("tab4").addEventListener("click", ()=> setLevel(4));
 
-  // Reset
-  byId("resetBtn").addEventListener("click", ()=>{
-    localStorage.removeItem(KEY);
-    location.reload();
-  });
+  // Level 1
+  await loadCards();
+  attachL1UI();
+  renderCard();
 
-  // -------- Level 1: load cards.json --------
-  try {
-    state.l1.loading = true;
-    renderL1One();
-
-    const cards = await loadCardsManifest();
-    state.l1.cards = cards;
-    state.l1.order = shuffle(cards);
-    state.l1.idx = 0;
-    state.l1.selectedAns = null;
-    state.l1.results = {};
-    state.l1.loading = false;
-    state.l1.error = null;
-
-    // Answer selection buttons
-    document.querySelectorAll(".ansbtn").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        state.l1.selectedAns = btn.dataset.ans;
-        document.querySelectorAll(".ansbtn").forEach(b=>b.classList.remove("is-selected"));
-        btn.classList.add("is-selected");
-        byId("l1CheckOne").disabled = false;
-      });
-    });
-
-    byId("l1CheckOne").addEventListener("click", checkL1One);
-    byId("l1Prev").addEventListener("click", l1Prev);
-    byId("l1Next").addEventListener("click", l1Next);
-    byId("l1Restart").addEventListener("click", l1Restart);
-
-    renderL1One();
-  } catch (e) {
-    state.l1.loading = false;
-    state.l1.error = e?.message || String(e);
-    renderL1One();
-  }
-
-  // Level 2
+  // from level1 to level2
   const to2 = byId("to2");
   if (to2) to2.addEventListener("click", ()=> setLevel(2));
 
+  // Level 2
   attachL2();
   byId("showMeasures").addEventListener("click", ()=>{
     tri.show = !tri.show;
@@ -528,9 +609,10 @@ async function init() {
   byId("l2Check").addEventListener("click", checkL2);
   byId("l2Reset").addEventListener("click", ()=>{
     tri.C.x = Math.floor(tri.w*0.55);
-    tri.C.y = 120;
+    tri.C.y = Math.floor(tri.h * 0.28);
     byId("l2Msg").textContent = "";
     state.l2.ok = false;
+    centerTriangle(40);
     drawTriangle();
   });
   byId("l2Save").addEventListener("click", saveL2Answers);
