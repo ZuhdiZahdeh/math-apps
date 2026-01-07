@@ -264,6 +264,10 @@
   .twocol{ grid-template-columns:1fr; }
 }
 
+.canvasbox{
+  position: relative;
+}
+
 .canvasbox canvas{
   width:100%;
   max-width:100%;
@@ -357,10 +361,39 @@ textarea.ctl{
 .tiny{ font-size:.9rem; }
 
 .app-foot{ margin-top:18px; }
+
 /* عرض بطاقات المستوى البصري */
 .l1big img{
   width: min(520px, 85%);
   height: auto;
   display: block;
   user-select: none;
+}
+
+/* =========================================
+   ✅ تحسينات المستوى 2 (وصفي) — النسخة النهائية
+   - تكبير مساحة الرسم
+   - تكبير الـ Canvas (ارتفاع واضح)
+   - تحسين السحب (touch-action)
+========================================= */
+
+.level[data-level="2"] .twocol{
+  grid-template-columns: 1.7fr .3fr;
+  align-items: start;
+}
+
+.level[data-level="2"] .canvasbox canvas{
+  height: 460px;       /* تكبير اللوحة */
+  touch-action: none;  /* مهم لسحب النقطة C على اللمس */
+  cursor: grab;
+}
+
+.level[data-level="2"] .canvasbox canvas:active{
+  cursor: grabbing;
+}
+
+/* على الشاشات الأصغر نرجع لعمود واحد ونقلل ارتفاع الرسم قليلًا */
+@media (max-width: 980px){
+  .level[data-level="2"] .twocol{ grid-template-columns: 1fr; }
+  .level[data-level="2"] .canvasbox canvas{ height: 380px; }
 }
