@@ -124,5 +124,15 @@
   "path": "apps/pythagoras/pythagoras-lottery.html",
   "thumb": "images/thumbs/pythagoras-lottery-thumb.png",
   "desc": "لعبة قرعة لاختيار طالبة فائزة في مسابقة نظرية فيثاغورس مع عدٍّ تنازلي وتصفيق أمام الصف."
+},
+{
+  "id": "permutations-combinations-solutions",
+  "title": "حلول التباديل والتوافيق (391–397)",
+  "grades": [12],
+  "tags": ["تباديل", "توافيق", "احتمالات", "حلول"],
+  "path": "solutions-site/permutations-combinations/index.html",
+  "thumb": "images/thumbs/permutations-combinations.jpg",
+  "desc": "حلول مرتّبة وقابلة للطباعة مع أكثر من طريقة (ضرب/جمع/متمّم/كتلة/فجوات...)."
 }
+
 ]
