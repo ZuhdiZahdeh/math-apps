@@ -6,6 +6,9 @@
   --muted:#a7b4d6;
   --border:rgba(255,255,255,.12);
   --accent:#7dd3fc;
+
+  /* Font scale for solutions ONLY (used in .item-body) */
+  --font-scale: 1;
 }
 
 *{box-sizing:border-box}
@@ -33,7 +36,7 @@ body{
 .brand h1{margin:0;font-size:20px}
 .subtitle{margin:4px 0 0;color:var(--muted);font-size:13px}
 
-.actions{display:flex;gap:10px;align-items:center}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
 .layout{
   display:grid;
@@ -83,6 +86,36 @@ body{
 }
 .btn-secondary:hover{background:rgba(255,255,255,.10)}
 
+/* ===== Font controls (top bar) ===== */
+.btn-small{
+  padding:8px 10px;
+  border-radius:10px;
+  font-weight:700;
+  line-height:1;
+}
+
+.font-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.font-label{
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 44px;
+  text-align:center;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius: 10px;
+  padding: 7px 8px;
+}
+
+.font-range{
+  width: 140px;
+}
+
 .toc{
   padding:10px;
   display:flex;
@@ -118,12 +151,16 @@ body{
 .content-header{border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px}
 .meta{color:var(--muted);margin:6px 0 0}
 
+/* ===== Solutions area (scaled ONLY here) ===== */
 .item-body{
   line-height:1.9;
-  font-size:16px;
+  font-size: calc(16px * var(--font-scale));
 }
-.item-body h3{margin:18px 0 8px;font-size:18px}
-.item-body h4{margin:14px 0 6px;font-size:16px;color:var(--accent)}
+
+/* Use em so headings scale with .item-body */
+.item-body h3{margin:18px 0 8px;font-size:1.15em}
+.item-body h4{margin:14px 0 6px;font-size:1.05em;color:var(--accent)}
+
 .item-body .box{
   border:1px solid var(--border);
   background:rgba(255,255,255,.03);
