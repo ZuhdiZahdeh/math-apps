@@ -15,6 +15,27 @@
 
     <div class="actions">
       <input id="search" class="input" type="search" placeholder="ابحث: صفحة/سؤال/كلمة..." />
+
+      <!-- Font controls: affects ONLY .item-body via CSS variable --font-scale -->
+      <div class="font-controls" aria-label="التحكم بحجم الخط داخل الحل">
+        <button id="fontMinus" class="btn btn-small" title="تصغير الخط">A−</button>
+        <button id="fontReset" class="btn btn-small btn-secondary" title="إعادة الضبط">A</button>
+        <button id="fontPlus" class="btn btn-small" title="تكبير الخط">A+</button>
+
+        <span id="fontLabel" class="font-label" title="الحجم الحالي">100%</span>
+
+        <input
+          id="fontRange"
+          class="font-range"
+          type="range"
+          min="80"
+          max="160"
+          step="5"
+          value="100"
+          aria-label="شريط حجم الخط"
+        />
+      </div>
+
       <button id="btnPrint" class="btn">🖨️ طباعة</button>
     </div>
   </header>
@@ -55,4 +76,3 @@
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-
