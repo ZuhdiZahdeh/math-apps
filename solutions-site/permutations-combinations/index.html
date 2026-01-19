@@ -1,1 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>حلول التباديل والتوافيق | 391–397</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>حلول التباديل والتوافيق</h1>
+      <p class="subtitle">من سؤال 1 صفحة 391 إلى سؤال 10 صفحة 397</p>
+    </div>
+
+    <div class="actions">
+      <input id="search" class="input" type="search" placeholder="ابحث: صفحة/سؤال/كلمة..." />
+      <button id="btnPrint" class="btn">🖨️ طباعة</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="filters">
+          <label class="label">
+            من صفحة
+            <input id="pageFrom" class="input input-sm" type="number" min="1" placeholder="391" />
+          </label>
+          <label class="label">
+            إلى صفحة
+            <input id="pageTo" class="input input-sm" type="number" min="1" placeholder="397" />
+          </label>
+          <button id="btnApply" class="btn btn-secondary">تطبيق</button>
+        </div>
+      </div>
+
+      <nav id="toc" class="toc" aria-label="فهرس الأسئلة"></nav>
+    </aside>
+
+    <main class="content">
+      <div id="contentHeader" class="content-header">
+        <h2 id="itemTitle">اختر سؤالًا من الفهرس</h2>
+        <p id="itemMeta" class="meta"></p>
+      </div>
+
+      <article id="itemBody" class="item-body"></article>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <span>© ملف حلول قابل للطباعة — GitHub Pages</span>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
 
