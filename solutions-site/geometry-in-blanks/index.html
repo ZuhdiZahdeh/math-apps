@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>حلول أسئلة الفراغ (هندسة فراغية) | 1–29</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>حلول أسئلة الفراغ – هندسة فراغية</h1>
+      <p class="subtitle">من السؤال (1) حتى السؤال (29) — بنفس نمط صفحة الحلول القابلة للطباعة</p>
+    </div>
+
+    <div class="actions">
+      <input id="search" class="input" type="search" placeholder="ابحث: رقم سؤال/كلمة/شكل..." />
+
+      <!-- Font controls: affects ONLY .item-body via CSS variable --font-scale -->
+      <div class="font-controls" aria-label="التحكم بحجم الخط داخل الحل">
+        <button id="fontMinus" class="btn btn-small" title="تصغير الخط">A−</button>
+        <button id="fontReset" class="btn btn-small btn-secondary" title="إعادة الضبط">A</button>
+        <button id="fontPlus" class="btn btn-small" title="تكبير الخط">A+</button>
+
+        <span id="fontLabel" class="font-label" title="الحجم الحالي">100%</span>
+
+        <input
+          id="fontRange"
+          class="font-range"
+          type="range"
+          min="80"
+          max="160"
+          step="5"
+          value="100"
+          aria-label="شريط حجم الخط"
+        />
+      </div>
+
+      <button id="btnPrint" class="btn">🖨️ طباعة</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="filters">
+          <label class="label">
+            من صفحة (PDF)
+            <input id="pageFrom" class="input input-sm" type="number" min="1" placeholder="1" />
+          </label>
+          <label class="label">
+            إلى صفحة (PDF)
+            <input id="pageTo" class="input input-sm" type="number" min="1" placeholder="17" />
+          </label>
+          <button id="btnApply" class="btn btn-secondary">تطبيق</button>
+        </div>
+      </div>
+
+      <nav id="toc" class="toc" aria-label="فهرس الأسئلة"></nav>
+    </aside>
+
+    <main class="content">
+      <div id="contentHeader" class="content-header">
+        <h2 id="itemTitle">اختر سؤالًا من الفهرس</h2>
+        <p id="itemMeta" class="meta"></p>
+      </div>
+
+      <article id="itemBody" class="item-body"></article>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <span>© حلول أسئلة الفراغ — GitHub Pages</span>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
