@@ -2,112 +2,46 @@ const $ = (id) => document.getElementById(id);
 
 let DB = [];
 let filtered = [];
-let activeAnchor = null;
+let activeId = null;
 
 /* =========================
    Font scaling (solutions only)
+   - controlled via CSS variable: --font-scale
+   - persisted in localStorage
    ========================= */
-const FONT_KEY = "fib_font_scale";
-const FONT_MIN = 0.8;
-const FONT_MAX = 1.6;
-const FONT_STEP = 0.05;
+const FONT_KEY = "gb_font_scale"; // (geometry blanks)
+const FONT_MIN = 0.8;   // 80%
+const FONT_MAX = 1.6;   // 160%
+const FONT_STEP = 0.05; // 5%
 
-function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+function clamp(n, a, b){
+  return Math.max(a, Math.min(b, n));
+}
+
 function getSavedScale(){
   const raw = localStorage.getItem(FONT_KEY);
   const s = raw ? Number(raw) : 1;
   return clamp(Number.isFinite(s) ? s : 1, FONT_MIN, FONT_MAX);
 }
+
 function setFontScale(scale){
   const s = clamp(scale, FONT_MIN, FONT_MAX);
+
+  // Affects ONLY .item-body because CSS uses --font-scale there
   document.documentElement.style.setProperty("--font-scale", String(s));
   localStorage.setItem(FONT_KEY, String(s));
 
   const pct = Math.round(s * 100);
-  $("fontLabel") && ($("fontLabel").textContent = `${pct}%`);
-  $("fontRange") && ($("fontRange").value = String(pct));
-}
-function bumpFont(delta){ setFontScale(getSavedScale() + delta); }
 
-function initFontControls(){
-  setFontScale(getSavedScale());
+  const label = document.getElementById("fontLabel");
+  const range = document.getElementById("fontRange");
 
-  $("fontPlus")?.addEventListener("click", () => bumpFont(FONT_STEP));
-  $("fontMinus")?.addEventListener("click", () => bumpFont(-FONT_STEP));
-  $("fontReset")?.addEventListener("click", () => setFontScale(1));
-
-  $("fontRange")?.addEventListener("input", (e) => {
-    const pct = Number(e.target.value || 100);
-    setFontScale(pct / 100);
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if(!e.ctrlKey) return;
-    if(e.key === "=" || e.key === "+"){ e.preventDefault(); bumpFont(FONT_STEP); }
-    else if(e.key === "-"){ e.preventDefault(); bumpFont(-FONT_STEP); }
-    else if(e.key === "0"){ e.preventDefault(); setFontScale(1); }
-  });
+  if(label) label.textContent = `${pct}%`;
+  if(range) range.value = String(pct);
 }
 
-/* =========================
-   Anchors: p{page}-q{q}  (بدون padding)
-   + دعم الروابط القديمة p08-q14
-   ========================= */
-const ANCHOR_MAP = new Map();   // anchor -> item (first wins)
-const ITEM_CANON = new Map();   // item.id -> canonical anchor
-
-function normalizeQ(q){
-  const s = String(q ?? "").trim();
-  const n = Number(s);
-  return Number.isFinite(n) ? String(n) : s; // "01" -> "1"
-}
-function makeCanonicalAnchor(item){
-  const p = Number(item.page);
-  const q = normalizeQ(item.q);
-  if(Number.isFinite(p) && q) return `p${p}-q${q}`;
-  // fallback
-  return item.id || "";
-}
-function makePaddedAnchor(item){
-  const p = String(Number(item.page)).padStart(2, "0");
-  const q = normalizeQ(item.q);
-  return `p${p}-q${q}`;
-}
-
-function buildAnchorMaps(){
-  ANCHOR_MAP.clear();
-  ITEM_CANON.clear();
-
-  const seen = new Set();
-  for(const item of DB){
-    const canon = makeCanonicalAnchor(item);
-    const padded = makePaddedAnchor(item);
-    ITEM_CANON.set(item.id, canon);
-
-    // اربط أكثر من شكل لنفس السؤال
-    for(const key of [item.id, canon, padded]){
-      if(!key) continue;
-      if(!ANCHOR_MAP.has(key)) ANCHOR_MAP.set(key, item);
-      else {
-        // حماية من التكرار: نُبقي أول عنصر
-        // الأفضل تنظيف solutions.json لتجنب التكرار.
-        if(!seen.has(key)){
-          console.warn("Duplicate anchor/id detected:", key);
-          seen.add(key);
-        }
-      }
-    }
-  }
-}
-
-function resolveItemFromHash(hash){
-  const raw = (hash || "").replace("#","").trim();
-  if(!raw) return { item: null, anchor: null };
-
-  const item = ANCHOR_MAP.get(raw) || null;
-  // إن كان hash قديم (مثل p08-q14) نُحوّله للقانوني
-  const anchor = item ? (ITEM_CANON.get(item.id) || raw) : raw;
-  return { item, anchor };
+function bumpFont(delta){
+  setFontScale(getSavedScale() + delta);
 }
 
 /* ========================= */
@@ -119,45 +53,49 @@ function escapeHtml(str){
     .replaceAll("'","&#39;");
 }
 
+/* =========================
+   Hash normalize:
+   - supports old padded links like #p08-q14
+   - keeps the official ID style like #p8-q14
+   ========================= */
+function normalizeId(raw){
+  const id = String(raw || "").trim();
+  const m = id.match(/^p0*(\d+)-q0*(\d+)$/i);
+  if(m) return `p${Number(m[1])}-q${Number(m[2])}`;
+  return id;
+}
+
 function renderTOC(list){
   const toc = $("toc");
   toc.innerHTML = "";
 
   list.forEach(item => {
-    const anchor = makeCanonicalAnchor(item); // <-- نفس نمط #p391-q1
     const a = document.createElement("a");
-    a.href = `#${anchor}`;
-    a.dataset.anchor = anchor;
-
+    a.href = `#${item.id}`;
+    a.dataset.id = item.id;
     a.innerHTML = `
       <strong>${escapeHtml(item.title)}</strong>
-      <small>ص ${escapeHtml(item.page)} • س ${escapeHtml(item.q)}</small>
+      <small>صفحة ${item.page} • سؤال ${item.q}</small>
     `;
-
-    if(anchor === activeAnchor) a.classList.add("active");
+    if(item.id === activeId) a.classList.add("active");
     toc.appendChild(a);
   });
 }
 
-function renderItem(item, anchor){
-  activeAnchor = anchor || null;
+function renderItem(item){
+  activeId = item?.id || null;
 
+  $("itemTitle").textContent = item ? item.title : "اختر سؤالًا من الفهرس";
+  $("itemMeta").textContent = item ? `صفحة ${item.page} — سؤال ${item.q}` : "";
+
+  const body = $("itemBody");
   if(!item){
-    $("itemTitle").textContent = "اختر سؤالًا من الفهرس";
-    $("itemMeta").textContent = "";
-    $("itemBody").innerHTML = `<div class="box">اختر سؤالًا من القائمة اليسرى لعرض الحل.</div>`;
+    body.innerHTML = `<div class="box">اختر سؤالًا من القائمة اليسرى لعرض الحل.</div>`;
     renderTOC(filtered);
     return;
   }
 
-  $("itemTitle").textContent = item.title;
-  $("itemMeta").textContent = `صفحة ${item.page} — سؤال ${item.q}`;
-
-  // (اختياري) مثل صفحة التباديل/التوافيق: أظهر نص السؤال أعلى الحل
-  const questionBox = item.questionText
-    ? `<div class="box"><strong>نص السؤال:</strong><div style="margin-top:8px">${escapeHtml(item.questionText)}</div></div>`
-    : "";
-
+  // parts -> methods (مطابق لصفحة التباديل/التوافيق)
   const partsHtml = (item.parts || []).map(p => {
     const methodsHtml = (p.methods || []).map(m => `
       <div class="box">
@@ -174,92 +112,109 @@ function renderItem(item, anchor){
     `;
   }).join("");
 
-  $("itemBody").innerHTML = questionBox + partsHtml + `<div class="page-break"></div>`;
+  body.innerHTML = partsHtml + `<div class="page-break"></div>`;
+  renderTOC(filtered);
 
-  // تحديث الـ active في الفهرس
+  // Highlight active link
   [...document.querySelectorAll(".toc a")].forEach(x => {
-    x.classList.toggle("active", x.dataset.anchor === activeAnchor);
+    x.classList.toggle("active", x.dataset.id === activeId);
   });
-
-  // عنوان التبويب (اختياري، لكنه مفيد في المشاركة)
-  document.title = `حلول أسئلة الفراغ | ص${item.page}-س${item.q}`;
 }
 
-function applyFilters({ keepSelection = true } = {}){
+function applyFilters(){
   const q = $("search").value.trim().toLowerCase();
   const from = parseInt($("pageFrom").value || "0", 10);
   const to = parseInt($("pageTo").value || "0", 10);
 
   filtered = DB.filter(item => {
-    const blob = `${item.title} ${item.questionText || ""} ${item.page} ${item.q}`.toLowerCase();
-    const matchText = !q || blob.includes(q);
+    const matchText =
+      String(item.title || "").toLowerCase().includes(q) ||
+      String(item.page).includes(q) ||
+      String(item.q).includes(q);
+
     const matchFrom = from ? item.page >= from : true;
     const matchTo = to ? item.page <= to : true;
+
     return matchText && matchFrom && matchTo;
   });
 
   renderTOC(filtered);
 
-  if(!keepSelection){
-    // فقط عند الضغط على "تطبيق" مثلًا: لو لا يوجد اختيار، اعرض أول عنصر
-    const first = filtered[0] || null;
-    if(first){
-      const a = makeCanonicalAnchor(first);
-      location.hash = `#${a}`;
-    } else {
-      renderItem(null, null);
-    }
-    return;
-  }
+  // If current selection disappeared, show first
+  const selected = filtered.find(x => x.id === activeId) || filtered[0] || null;
+  if(selected) location.hash = `#${selected.id}`;
+  else renderItem(null);
+}
 
-  // إن كان السؤال الحالي ما زال ضمن الفلترة، لا تغيّر الـ hash أثناء الكتابة
-  const still = filtered.some(x => makeCanonicalAnchor(x) === activeAnchor);
-  if(!still){
-    const first = filtered[0] || null;
-    if(first){
-      const a = makeCanonicalAnchor(first);
-      renderItem(first, a); // عرض بدون تغيير الرابط أثناء البحث
-      // ويمكن تفعيل التالي إذا أردته يغيّر الرابط تلقائياً:
-      // location.hash = `#${a}`;
-    } else {
-      renderItem(null, null);
+function initFontControls(){
+  // Initialize from saved value
+  setFontScale(getSavedScale());
+
+  document.getElementById("fontPlus")?.addEventListener("click", () => bumpFont(FONT_STEP));
+  document.getElementById("fontMinus")?.addEventListener("click", () => bumpFont(-FONT_STEP));
+  document.getElementById("fontReset")?.addEventListener("click", () => setFontScale(1));
+
+  document.getElementById("fontRange")?.addEventListener("input", (e) => {
+    const pct = Number(e.target.value || 100);
+    setFontScale(pct / 100);
+  });
+
+  // Keyboard shortcuts (desktop):
+  // Ctrl +  => zoom in
+  // Ctrl -  => zoom out
+  // Ctrl 0  => reset
+  window.addEventListener("keydown", (e) => {
+    if(!e.ctrlKey) return;
+
+    if(e.key === "=" || e.key === "+"){
+      e.preventDefault();
+      bumpFont(FONT_STEP);
+    } else if(e.key === "-"){
+      e.preventDefault();
+      bumpFont(-FONT_STEP);
+    } else if(e.key === "0"){
+      e.preventDefault();
+      setFontScale(1);
     }
-  }
+  });
 }
 
 async function init(){
-  const res = await fetch("assets/data/solutions.json");
+  // ✅ مسار JSON لهيكلية geometry-in-blanks
+  const res = await fetch("data/solutions.json");
   DB = await res.json();
-
-  buildAnchorMaps();
   filtered = DB.slice();
 
-  $("btnApply")?.addEventListener("click", () => applyFilters({ keepSelection: false }));
-  $("search")?.addEventListener("input", () => applyFilters({ keepSelection: true }));
+  // Events
+  $("btnApply")?.addEventListener("click", applyFilters);
+  $("search")?.addEventListener("input", applyFilters);
   $("btnPrint")?.addEventListener("click", () => window.print());
 
+  // Font controls (solutions-only)
   initFontControls();
 
   window.addEventListener("hashchange", () => {
-    const { item, anchor } = resolveItemFromHash(location.hash);
-    renderItem(item || null, anchor || null);
-    renderTOC(filtered);
+    const raw = location.hash.replace("#","").trim();
+    const id = normalizeId(raw);
+
+    // لو دخل رابط قديم p08-q14 نحوله للرابط الرسمي p8-q14
+    if(raw && id && raw !== id){
+      location.hash = `#${id}`;
+      return;
+    }
+
+    const item = filtered.find(x => x.id === id) || DB.find(x => x.id === id);
+    renderItem(item || null);
   });
 
+  // First load
   renderTOC(filtered);
 
-  const { item, anchor } = resolveItemFromHash(location.hash);
-  if(item){
-    // لو الرابط كان p08-q14 سنحوّله للقانوني p8-q14
-    if(location.hash !== `#${anchor}`) location.hash = `#${anchor}`;
-    else renderItem(item, anchor);
-  } else if(DB.length){
-    const first = DB[0];
-    const a = makeCanonicalAnchor(first);
-    location.hash = `#${a}`;
-  } else {
-    renderItem(null, null);
-  }
+  const raw = location.hash.replace("#","").trim();
+  const id = normalizeId(raw);
+  const item = DB.find(x => x.id === id) || DB[0];
+
+  location.hash = `#${item.id}`;
 }
 
 init().catch(err => {
