@@ -108,12 +108,12 @@
     "desc": "لعبة تفاعلية لتحديد نوع المثلث (قائم، متساوي الأضلاع، متساوي الساقين، منفرج الزاوية)."
  },
   {
-    "id": "circle-measures",
-    "title": "قياسات الدائرة",
-    "grades": [7,8,9],
-    "tags": ["دائرة", "محيط", "مساحة"],
-    "path": "apps/circle-measures/index.html",
-    "thumb": "images/thumbs/placeholder.jpg",
+    "id": "geometry-in-blanks",
+    "title": "حلول اسئلة الهندسة الفراغية-المنشور",
+    "grades": [12],
+    "tags": ["المنشور", "الهرم الرباعي", "الهرم القائم"],
+    "path": "solutions-site/geometry-in-blanks/index.html",
+    "thumb": "images/thumbs/geometry-in-blanks.jpg",
     "desc": "ارتباط القطر/نصف القطر بالمحيط والمساحة بصريًا."
   },
 {
