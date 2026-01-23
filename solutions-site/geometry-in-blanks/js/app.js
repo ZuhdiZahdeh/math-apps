@@ -58,15 +58,88 @@ function escapeHtml(str){
     .replaceAll("'","&#39;");
 }
 
-/* ✅ المهم: نجعل الرابط دائمًا بصيغة p01-q1 (page padded) */
+/* ✅ نجعل الرابط دائمًا بصيغة p01-q1 (page padded) */
 function normalizeToPaddedId(raw){
   const id = String(raw || "").trim();
   const m = id.match(/^p0*(\d+)-q0*(\d+)$/i);
   if(!m) return id;
   const p = String(Number(m[1])).padStart(2, "0"); // p01..p17
-  const q = String(Number(m[2]));                 // q1..q29 (بدون padding)
+  const q = String(Number(m[2]));                 // q1..q29
   return `p${p}-q${q}`;
 }
+
+/* =========================
+   Figure helpers (cropped images)
+   Path note:
+   images/q01.png ... images/q29.png
+   ========================= */
+function qToPad2(q){
+  const n = Number(String(q ?? "").trim());
+  if(Number.isFinite(n)) return String(n).padStart(2, "0");
+  return null;
+}
+
+function getFigureSrc(item){
+  // 1) لو موجود داخل JSON (اختياري)
+  if(item?.figure?.src) return item.figure.src;
+
+  // 2) بناء تلقائي حسب رقم السؤال: images/q01.png
+  const qp = qToPad2(item?.q);
+  if(!qp) return null;
+  return `images/q${qp}.png`;
+}
+
+function getFigureAlt(item){
+  if(item?.figure?.alt) return item.figure.alt;
+  const qn = (Number(item?.q) ? Number(item.q) : item?.q);
+  return `شكل السؤال ${qn ?? ""}`.trim();
+}
+
+/* =========================
+   Modal (Zoom)
+   ========================= */
+function ensureFigureModal(){
+  if(document.getElementById("figModal")) return;
+
+  const modal = document.createElement("div");
+  modal.id = "figModal";
+  modal.className = "fig-modal";
+  modal.innerHTML = `
+    <div class="fig-modal-backdrop" data-close="1"></div>
+    <div class="fig-modal-card" role="dialog" aria-modal="true" aria-label="تكبير شكل السؤال">
+      <button class="fig-modal-close btn btn-secondary btn-small" type="button" data-close="1">إغلاق</button>
+      <img id="figModalImg" alt="">
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  modal.addEventListener("click", (e) => {
+    if(e.target?.dataset?.close) modal.classList.remove("open");
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") modal.classList.remove("open");
+  });
+
+  // Delegate open clicks (button or image)
+  document.addEventListener("click", (e) => {
+    const opener = e.target.closest(".fig-open, .figure-img");
+    if(!opener) return;
+
+    // image carries data-src too (we set it)
+    const src = opener.dataset.src;
+    if(!src) return;
+
+    const alt = opener.dataset.alt || "شكل السؤال";
+    const img = document.getElementById("figModalImg");
+    img.src = src;
+    img.alt = alt;
+
+    modal.classList.add("open");
+  });
+}
+
+/* ========================= */
 
 function renderTOC(list){
   const toc = $("toc");
@@ -74,7 +147,7 @@ function renderTOC(list){
 
   list.forEach(item => {
     const a = document.createElement("a");
-    a.href = `#${item.id}`;           // ✅ يعتمد على id كما هو في JSON
+    a.href = `#${item.id}`; // ✅ يعتمد على id كما هو في JSON
     a.dataset.id = item.id;
 
     a.innerHTML = `
@@ -100,6 +173,29 @@ function renderItem(item){
     return;
   }
 
+  // ===== Figure HTML =====
+  const figSrc = getFigureSrc(item);
+  const figAlt = getFigureAlt(item);
+
+  const figHtml = figSrc ? `
+    <div class="box figure-box">
+      <div class="figure-head">
+        <strong>شكل السؤال</strong>
+        <button class="btn btn-secondary btn-small fig-open" type="button"
+          data-src="${figSrc}"
+          data-alt="${escapeHtml(figAlt)}">تكبير</button>
+      </div>
+      <img class="figure-img"
+        src="${figSrc}"
+        alt="${escapeHtml(figAlt)}"
+        loading="lazy"
+        data-src="${figSrc}"
+        data-alt="${escapeHtml(figAlt)}"
+        onerror="this.closest('.figure-box')?.remove();">
+    </div>
+  ` : "";
+
+  // ===== Parts / Methods =====
   const partsHtml = (item.parts || []).map(p => {
     const methodsHtml = (p.methods || []).map(m => `
       <div class="box">
@@ -116,12 +212,18 @@ function renderItem(item){
     `;
   }).join("");
 
-  body.innerHTML = partsHtml + `<div class="page-break"></div>`;
-  renderTOC(filtered);
+  body.innerHTML = figHtml + partsHtml + `<div class="page-break"></div>`;
 
+  // Update TOC active state
+  renderTOC(filtered);
   [...document.querySelectorAll(".toc a")].forEach(x => {
     x.classList.toggle("active", x.dataset.id === activeId);
   });
+
+  // Optional: update tab title
+  try {
+    document.title = `حلول الفراغ | ص${item.page}-س${item.q}`;
+  } catch {}
 }
 
 function applyFilters(){
@@ -163,6 +265,7 @@ async function init(){
   $("btnPrint")?.addEventListener("click", () => window.print());
 
   initFontControls();
+  ensureFigureModal();
   renderTOC(filtered);
 
   window.addEventListener("hashchange", () => {
@@ -183,9 +286,15 @@ async function init(){
   // أول تحميل
   const raw = location.hash.replace("#","").trim();
   const padded = normalizeToPaddedId(raw);
-  const item = (padded && DB.find(x => x.id === padded)) || DB.find(x => x.id === raw) || DB[0];
+  const first = (padded && DB.find(x => x.id === padded)) || DB.find(x => x.id === raw) || DB[0];
 
-  location.hash = `#${item.id}`; // يضمن عرض أول سؤال دائمًا
+  // لو نفس الهاش موجود، اعرض مباشرة
+  const wantHash = `#${first.id}`;
+  if(location.hash !== wantHash){
+    location.hash = wantHash;
+  } else {
+    renderItem(first);
+  }
 }
 
 init().catch(err => {
