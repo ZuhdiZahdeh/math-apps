@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>أولويات العمليات الحسابية – مسائل حياتية</title>
 
-  <!-- أيقونة الموقع (من الجذر) -->
-  <link rel="icon" href="../../assets/favicon.ico">
+  <!-- أيقونة الموقع من الجذر -->
+  <link rel="icon" href="../assets/favicon.ico">
 
-  <!-- ثيم المختبر -->
-  <link rel="stylesheet" href="../../css/main.css">
-  <!-- تنسيقات خاصة بالتطبيق -->
-  <link rel="stylesheet" href="./style.css">
+  <!-- ثيم المختبر من الجذر -->
+  <link rel="stylesheet" href="../css/main.css">
+
+  <!-- تنسيق خاص بالتطبيق -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
   <header class="wrap">
     <div class="topbar">
-      <a class="back" href="../../index.html" aria-label="العودة لمختبر التطبيقات">← العودة لمختبر التطبيقات</a>
+      <!-- العودة لصفحة المختبر في الجذر -->
+      <a class="back" href="../index.html" aria-label="العودة لمختبر التطبيقات">← العودة لمختبر التطبيقات</a>
       <span class="chip">الصف 8–9</span>
     </div>
 
     <h1>أولويات العمليات الحسابية</h1>
-    <p class="sub">تطبيق تفاعلي بمسائل حياتية متدرجة: <b>سهل</b> ثم <b>متوسط</b> ثم <b>صعب</b> (مع أقواس وأسُس وعمليات متنوعة).</p>
+    <p class="sub">تدريب تفاعلي بمسائل حياتية متدرجة: <b>سهل</b> ثم <b>متوسط</b> ثم <b>صعب</b>.</p>
   </header>
 
   <main class="wrap">
@@ -30,12 +33,10 @@
       <ol class="priority">
         <li><b>الأقواس</b> ( ) ثم [ ] ثم { } وأي تجميع مثل خط الكسر.</li>
         <li><b>الأسس والجذور</b> (مثل 9² أو √49).</li>
-        <li><b>الضرب والقسمة</b> (بنفس القوة) — نتحرك حسب ترتيب الظهور <span class="ltr">(يسار → يمين)</span>.</li>
-        <li><b>الجمع والطرح</b> (بنفس القوة) — نتحرك حسب ترتيب الظهور <span class="ltr">(يسار → يمين)</span>.</li>
+        <li><b>الضرب والقسمة</b> — بنفس القوة: <span class="ltr">(يسار → يمين)</span>.</li>
+        <li><b>الجمع والطرح</b> — بنفس القوة: <span class="ltr">(يسار → يمين)</span>.</li>
       </ol>
-      <div class="note">
-        تذكير: الهدف ليس “حفظ ترتيب” فقط—بل فهم المعنى: الأقواس = <b>حزمة</b>، الأس = <b>قوة/تكرار</b>، الضرب = <b>لكل/معدل</b>، القسمة = <b>توزيع</b>.
-      </div>
+      <div class="note">تذكير: الأقواس = “حزمة”، الأس = “قوة/تكرار”، الضرب = “لكل/معدل”، القسمة = “توزيع”.</div>
     </section>
 
     <section class="panel controls">
@@ -59,13 +60,10 @@
   </main>
 
   <footer class="wrap foot2">
-    <span class="muted">نصيحة: اكتب التعبير أولًا (من القصة)، ثم طبّق سُلّم القوة خطوة خطوة.</span>
+    <span class="muted">اكتب التعبير أولًا من القصة، ثم طبّق سُلّم القوة.</span>
   </footer>
 
- <script type="module" src="js/app.js"></script>
-
-  <noscript>
-    <div class="wrap" style="color:#fca5a5">الرجاء تفعيل JavaScript لتعمل أنشطة التطبيق.</div>
-  </noscript>
+  <!-- مهم جدًا: module ليعمل import.meta.url و fetch للـ JSON -->
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>
