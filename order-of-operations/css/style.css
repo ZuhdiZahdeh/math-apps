@@ -1,18 +1,60 @@
-/* يعتمد على ثيم المختبر من ../../css/main.css */
+/* ===============================
+   Order of Operations — style.css
+   ===============================
+   يعتمد على ثيم المختبر من ../css/main.css
+   هذا الملف خاص بتطبيق: order-of-operations
+*/
+
+/* Fallback variables (إذا لم تُحمَّل main.css لأي سبب) */
+:root{
+  --bg:#0b1220;
+  --panel:#0f172a;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+
+  /* ألوان واضحة */
+  --cyan-1:#22d3ee;  /* أزرق سماوي */
+  --cyan-2:#0ea5e9;
+
+  --orange-1:#f59e0b; /* برتقالي */
+  --orange-2:#fbbf24;
+
+  --violet-1:#a78bfa; /* بنفسجي */
+  --violet-2:#7c3aed;
+
+  --green-1:#22c55e;  /* أخضر */
+  --green-2:#16a34a;
+
+  --red-1:#ef4444;    /* أحمر/تحذير */
+  --red-2:#f97316;    /* برتقالي مائل للأحمر */
+
+  --darkText:#06121a;
+}
 
 .topbar{
   display:flex; align-items:center; justify-content:space-between; gap:12px;
   margin-bottom:10px;
 }
+
 .back{
   display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:12px;
-  background:var(--panel); border:1px solid #1e293b;
+  padding:10px 14px;
+  border-radius:14px;
+  background:var(--panel);
+  border:1px solid #1e293b;
+  font-weight:700;
+  font-size:1.05rem;
 }
 .back:hover{ text-decoration:none; border-color:#334155; }
+
 .chip{
-  padding:6px 10px; border-radius:999px;
-  background:#172036; border:1px solid #22314a; color:#cbd5e1; font-size:.95rem;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#172036;
+  border:1px solid #22314a;
+  color:#cbd5e1;
+  font-size:1rem;
+  font-weight:700;
 }
 
 .panel{
@@ -23,9 +65,16 @@
   margin:12px 0;
 }
 
-.panel h2{ margin:0 0 10px; font-size:1.15rem; }
+/* تكبير الخط العام داخل التطبيق */
+.wrap{
+  font-size:18px; /* يمكنك جعلها 19 أو 20 */
+}
+
+.panel h2{ margin:0 0 10px; font-size:1.25rem; }
+
 .priority{ margin:0; padding:0 18px 0 0; }
-.priority li{ margin:8px 0; line-height:1.55; }
+.priority li{ margin:8px 0; line-height:1.65; }
+
 .note{
   margin-top:10px;
   padding:10px 12px;
@@ -34,6 +83,7 @@
   color:#cbd5e1;
   background:#0b1326;
 }
+
 .ltr{ direction:ltr; unicode-bidi:embed; }
 
 .controls{
@@ -43,36 +93,88 @@
 .levels{
   display:flex; gap:10px; flex-wrap:wrap;
 }
+
 .lvl{
   cursor:pointer;
-  padding:10px 12px;
-  border-radius:12px;
+  padding:10px 14px;
+  border-radius:14px;
   border:1px solid #1f2a3a;
   background:#0f172a;
   color:var(--text);
-  font-weight:600;
+  font-weight:800;
+  font-size:1.08rem;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.lvl:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 .lvl.active{
   border-color:#f59e0b;
   box-shadow:0 0 0 2px rgba(245,158,11,.12) inset;
 }
+
+/* تلوين “النشط” حسب المستوى (اختياري لطيف) */
+.lvl[data-level="easy"].active{ border-color: rgba(34,197,94,.8); }
+.lvl[data-level="medium"].active{ border-color: rgba(14,165,233,.8); }
+.lvl[data-level="hard"].active{ border-color: rgba(239,68,68,.8); }
+
 .nav{
   display:flex; align-items:center; gap:10px; flex-wrap:wrap;
 }
+
+/* أزرار التنقل */
 .btn{
   cursor:pointer;
-  padding:10px 14px;
-  border-radius:12px;
+  padding:12px 18px;
+  min-height:48px;
+  border-radius:14px;
   border:1px solid #1f2a3a;
   background:#0f172a;
   color:var(--text);
-  font-weight:600;
+  font-weight:800;
+  font-size:1.10rem;
+  letter-spacing:.2px;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease, opacity .12s ease;
 }
-.btn:disabled{ opacity:.55; cursor:not-allowed; }
+.btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* الحالة المعطّلة بشكل عام */
+.btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+/* زر السابق (يبقى داكنًا) */
+#prevBtn{
+  background:#0f172a;
+  border:1px solid #334155;
+  color:#e2e8f0;
+}
+
+/* زر التالي: أزرق سماوي واضح */
+#nextBtn{
+  background: linear-gradient(90deg, var(--cyan-1), var(--cyan-2));
+  border: 1px solid rgba(34,211,238,.65);
+  color: var(--darkText);
+  box-shadow: 0 10px 24px rgba(14,165,233,.18);
+}
+/* عندما يصبح Disabled: يبقى أزرق لكن باهت */
+#nextBtn:disabled{
+  opacity:.45;                 /* باهت */
+  filter: saturate(.55) brightness(1.05);
+  box-shadow:none;
+}
+
 .status{ flex:1; min-width:240px; }
+
 .bar{
   height:10px; border-radius:999px;
-  background:#0b1326; border:1px solid #22314a;
+  background:#0b1326;
+  border:1px solid #22314a;
   overflow:hidden;
 }
 .fill{
@@ -84,22 +186,28 @@
 .qhead{
   display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
 }
-.qhead h3{ margin:0; font-size:1.15rem; }
+.qhead h3{ margin:0; font-size:1.25rem; }
+
 .qmeta{
   display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
-  font-size:.9rem;
+  font-size:1rem;
 }
 .pill{
-  padding:4px 10px; border-radius:999px;
-  background:#172036; border:1px solid #22314a;
+  padding:5px 11px;
+  border-radius:999px;
+  background:#172036;
+  border:1px solid #22314a;
   color:#cbd5e1;
+  font-weight:700;
 }
 
 .story{
   margin:10px 0 0;
   color:#cbd5e1;
-  line-height:1.7;
+  line-height:1.75;
+  font-size:1.12rem;
 }
+
 .block{
   margin-top:12px;
   padding:12px;
@@ -107,51 +215,98 @@
   border:1px solid #22314a;
   background:#0b1326;
 }
-.block h4{ margin:0 0 8px; font-size:1rem; color:#e2e8f0; }
+.block h4{
+  margin:0 0 8px;
+  font-size:1.10rem;
+  color:#e2e8f0;
+  font-weight:800;
+}
 
 .choices{ display:flex; flex-direction:column; gap:8px; }
+
 .choice{
   display:flex; gap:10px; align-items:center;
-  padding:10px; border-radius:12px;
+  padding:12px;
+  border-radius:14px;
   border:1px solid #1f2a3a;
   background:#0f172a;
+  transition: border-color .12s ease, filter .12s ease;
 }
-.choice:hover{ border-color:#334155; }
+.choice:hover{ border-color:#334155; filter: brightness(1.03); }
+
 .choice input{ transform:scale(1.15); }
+
 .expr{
   font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size:1.02rem;
+  font-size:1.12rem;
   direction:ltr; unicode-bidi:embed;
   color:#fbbf24;
 }
+
 .answerRow{
   display:flex; gap:10px; flex-wrap:wrap; align-items:center;
 }
+
 .answerRow input{
-  min-width:220px;
-  padding:10px 12px;
-  border-radius:12px;
+  min-width:240px;
+  padding:12px 14px;
+  min-height:46px;
+  border-radius:14px;
   border:1px solid #1f2a3a;
   background:#0f172a;
   color:var(--text);
+  font-size:1.10rem;
 }
 
-.actions{
-  margin-top:10px;
-  display:flex; gap:10px; flex-wrap:wrap;
-}
+/* أزرار الإجراءات */
 .small{
-  padding:8px 12px;
-  border-radius:12px;
+  padding:10px 16px;
+  min-height:44px;
+  border-radius:14px;
   border:1px solid #1f2a3a;
   background:#0f172a;
   color:var(--text);
   cursor:pointer;
-  font-weight:600;
+  font-weight:800;
+  font-size:1.06rem;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease, opacity .12s ease;
 }
-.small.alt{
-  border-style:dashed;
+.small:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+.small.alt{ border-style:dashed; }
+
+/* زر تحقّق: برتقالي */
+#checkBtn{
+  background: linear-gradient(90deg, var(--orange-1), var(--orange-2));
+  border: 1px solid rgba(251,191,36,.7);
+  color: #1f2937;
+  box-shadow: 0 10px 24px rgba(245,158,11,.18);
 }
+
+/* زر تلميح: بنفسجي */
+#hintBtn{
+  background: linear-gradient(90deg, var(--violet-1), var(--violet-2));
+  border: 1px solid rgba(167,139,250,.7);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(124,58,237,.16);
+}
+
+/* زر حل خطوة بخطوة: أخضر */
+#stepsBtn{
+  background: linear-gradient(90deg, var(--green-1), var(--green-2));
+  border: 1px solid rgba(34,197,94,.7);
+  color: var(--darkText);
+  box-shadow: 0 10px 24px rgba(34,197,94,.14);
+}
+
+/* زر إعادة: أحمر/برتقالي */
+#resetBtn{
+  background: linear-gradient(90deg, var(--red-1), var(--red-2));
+  border: 1px solid rgba(239,68,68,.65);
+  color: #111827;
+  box-shadow: 0 10px 24px rgba(239,68,68,.14);
+}
+
+/* رسائل التغذية الراجعة */
 .feedback{
   margin-top:10px;
   padding:10px 12px;
@@ -159,22 +314,28 @@
   border:1px solid #22314a;
   background:#0b1326;
   color:#cbd5e1;
-  line-height:1.6;
+  line-height:1.7;
+  font-size:1.05rem;
 }
-.feedback.ok{
-  border-color:rgba(34,197,94,.35);
-}
-.feedback.bad{
-  border-color:rgba(239,68,68,.35);
-}
+.feedback.ok{ border-color:rgba(34,197,94,.35); }
+.feedback.bad{ border-color:rgba(239,68,68,.35); }
+
+/* حل خطوة بخطوة */
 .steps{
   margin-top:10px;
   padding:10px 12px;
   border-radius:14px;
   border:1px dashed #334155;
   background:#0b1326;
+  font-size:1.05rem;
 }
 .steps ul{ margin:6px 0 0; padding:0 18px 0 0; }
 .steps li{ margin:6px 0; color:#cbd5e1; }
+
+/* تحسينات تركيز (Accessibility) */
+.btn:focus-visible, .small:focus-visible, .lvl:focus-visible, .back:focus-visible, .answerRow input:focus-visible{
+  outline: 3px solid rgba(34,211,238,.35);
+  outline-offset: 3px;
+}
 
 .foot2{ padding-bottom:26px; }
