@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>أولويات العمليات الحسابية – مسائل حياتية</title>
+
+  <!-- أيقونة الموقع (من الجذر) -->
+  <link rel="icon" href="../../assets/favicon.ico">
+
+  <!-- ثيم المختبر -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <!-- تنسيقات خاصة بالتطبيق -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="wrap">
+    <div class="topbar">
+      <a class="back" href="../../index.html" aria-label="العودة لمختبر التطبيقات">← العودة لمختبر التطبيقات</a>
+      <span class="chip">الصف 8–9</span>
+    </div>
+
+    <h1>أولويات العمليات الحسابية</h1>
+    <p class="sub">تطبيق تفاعلي بمسائل حياتية متدرجة: <b>سهل</b> ثم <b>متوسط</b> ثم <b>صعب</b> (مع أقواس وأسُس وعمليات متنوعة).</p>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>سُلّم القوة (من الأقوى إلى الأضعف)</h2>
+      <ol class="priority">
+        <li><b>الأقواس</b> ( ) ثم [ ] ثم { } وأي تجميع مثل خط الكسر.</li>
+        <li><b>الأسس والجذور</b> (مثل 9² أو √49).</li>
+        <li><b>الضرب والقسمة</b> (بنفس القوة) — نتحرك حسب ترتيب الظهور <span class="ltr">(يسار → يمين)</span>.</li>
+        <li><b>الجمع والطرح</b> (بنفس القوة) — نتحرك حسب ترتيب الظهور <span class="ltr">(يسار → يمين)</span>.</li>
+      </ol>
+      <div class="note">
+        تذكير: الهدف ليس “حفظ ترتيب” فقط—بل فهم المعنى: الأقواس = <b>حزمة</b>، الأس = <b>قوة/تكرار</b>، الضرب = <b>لكل/معدل</b>، القسمة = <b>توزيع</b>.
+      </div>
+    </section>
+
+    <section class="panel controls">
+      <div class="levels" role="tablist" aria-label="مستويات التدريب">
+        <button class="lvl active" data-level="easy" role="tab" aria-selected="true">سهل (3)</button>
+        <button class="lvl" data-level="medium" role="tab" aria-selected="false">متوسط (6)</button>
+        <button class="lvl" data-level="hard" role="tab" aria-selected="false">صعب (3)</button>
+      </div>
+
+      <div class="nav">
+        <button id="prevBtn" class="btn">السابق</button>
+        <div class="status">
+          <div id="progressText" class="muted"></div>
+          <div class="bar"><div id="barFill" class="fill"></div></div>
+        </div>
+        <button id="nextBtn" class="btn">التالي</button>
+      </div>
+    </section>
+
+    <section id="qCard" class="panel qcard" aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap foot2">
+    <span class="muted">نصيحة: اكتب التعبير أولًا (من القصة)، ثم طبّق سُلّم القوة خطوة خطوة.</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+
+  <noscript>
+    <div class="wrap" style="color:#fca5a5">الرجاء تفعيل JavaScript لتعمل أنشطة التطبيق.</div>
+  </noscript>
+</body>
+</html>
