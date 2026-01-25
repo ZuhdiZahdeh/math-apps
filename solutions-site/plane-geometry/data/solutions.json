@@ -10,9 +10,7 @@
       "id": "q01",
       "number": 1,
       "title": "سؤال (1)",
-      "images": [
-        "images/q01.png"
-      ],
+     "images": ["images/q01.png", "images/q01-2.png", "images/q01-3.png"],
       "solution": [
         "✅ المعطى:",
         "• النقطة E منتصف الضلع AC ⇒ AE = EC.",
