@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>حلول الهندسة المستوية (س1–س37)</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__title">حلول الهندسة المستوية (س1–س37)</div>
+    <div class="topbar__hint">انقر على سؤال من القائمة لعرض الحل والصور</div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <div class="sidebar__title">الأسئلة</div>
+        <input id="searchInput" class="search" type="search" placeholder="بحث برقم السؤال أو كلمة..." />
+      </div>
+      <div id="questionsList" class="questions"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="questionTitle" class="content__title">اختر سؤالًا من القائمة</h1>
+          <div id="metaLine" class="meta"></div>
+        </div>
+
+        <div class="nav">
+          <button id="prevBtn" class="btn" type="button">السابق</button>
+          <button id="nextBtn" class="btn" type="button">التالي</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="card__title">الصور</div>
+        <div id="imageGallery" class="gallery"></div>
+        <div class="gallery__note">
+          لإضافة أكثر من صورة للسؤال: ضع ملفات مثل <span dir="ltr">q01-2.png</span> ثم أضفها داخل مصفوفة <span dir="ltr">images</span> في <span dir="ltr">solutions.json</span>.
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">الحل</div>
+        <pre id="solutionText" class="solution">
+اختر سؤالًا من القائمة اليسرى لعرض الحل.</pre>
+      </section>
+    </main>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imgModal" class="modal hidden" aria-hidden="true">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" type="button">✕</button>
+      <img id="modalImg" class="modal__img" alt="" />
+      <div id="modalCaption" class="modal__caption"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
 
