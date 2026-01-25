@@ -72,14 +72,14 @@
     "desc": "استكشاف y=mx+b وتغير الميل والتقاطع."
   },
   {
-    "id": "angle-sum-triangle",
-    "title": "مجموع زوايا المثلث",
-    "grades": [6,7],
-    "tags": ["زوايا", "هندسة"],
-    "path": "solutions-site/plane-geometry/index.html",
-    "thumb": "images/thumbs/plane-geometry.png",
-    "desc": "برهان قصّ/لصق بصري أن مجموع الزوايا = 180°."
-  },
+  "id": "plane-geometry-solutions",
+  "title": "حلول الهندسة المستوية (ص 222–227) – أسئلة 1–37",
+  "grades": [10, 11],
+  "tags": ["هندسة", "مثلثات", "أشكال رباعية", "براهين", "حلول"],
+  "path": "solutions-site/plane-geometry/index.html",
+  "thumb": "images/thumbs/plane-geometry.png",
+  "desc": "حلول محوسبة لأسئلة المراجعة في المثلثات والأشكال الرباعية (1–37) مع صور لكل سؤال وإثباتات خطوة بخطوة."
+},
   {
   "id": "balance-equations",
   "title": "ميزان المعادلة – حل المعادلات الخطية",
