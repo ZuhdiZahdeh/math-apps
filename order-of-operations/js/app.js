@@ -1,8 +1,68 @@
 let QUESTIONS = [];
 let LEVELS = [];
 
+// JSON الأسئلة
 const DATA_URL = new URL("../data/questions.json", import.meta.url);
 
+// ====== إعداد أصوات النجاح/الفشل ======
+// جذر الموقع (.. / .. من js/ للوصول إلى /math-apps/ )
+const ROOT_URL = new URL("../../", import.meta.url);
+
+// مسارات الصوت (كما عندك في المشروع)
+const SUCCESS_SFX_FILES = [
+  "apps/audio/success/applause.mp3",
+  "apps/audio/success/clap.mp3",
+  "apps/audio/success/success_toolMatch_a.mp3",
+  "apps/audio/success/success_toolMatch_b.mp3",
+  "apps/audio/success/success_toolMatch_d.mp3",
+  "apps/audio/success/success_toolMatch_e.mp3"
+];
+
+const FAIL_SFX_FILES = [
+  "apps/audio/fail/fail-trombone-01.mp3",
+  "apps/audio/fail/fail-trombone-02.mp3",
+  "apps/audio/fail/fail-trombone-03.mp3",
+  "apps/audio/fail/fail_toolMatch_a.mp3",
+  "apps/audio/fail/fail_toolMatch_b.mp3",
+  "apps/audio/fail/fail_toolMatch_c.mp3"
+];
+
+// تحويلها لروابط كاملة (مضمونة على GitHub Pages)
+const SUCCESS_SFX = SUCCESS_SFX_FILES.map(p => new URL(p, ROOT_URL).href);
+const FAIL_SFX = FAIL_SFX_FILES.map(p => new URL(p, ROOT_URL).href);
+
+// قناة صوت واحدة لتجنب تداخل الأصوات
+const SFX = {
+  enabled: true,
+  volume: 0.85,
+  channel: new Audio()
+};
+SFX.channel.preload = "auto";
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function playSfx(urls) {
+  if (!SFX.enabled) return;
+  if (!urls || !urls.length) return;
+
+  const url = pickRandom(urls);
+
+  try {
+    SFX.channel.pause();
+    SFX.channel.currentTime = 0;
+    SFX.channel.src = url;
+    SFX.channel.volume = SFX.volume;
+
+    const p = SFX.channel.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  } catch (e) {
+    // تجاهل أي خطأ (قيود المتصفح/أجهزة)
+  }
+}
+
+// ====== بقية التطبيق ======
 const $ = (id) => document.getElementById(id);
 
 const state = {
@@ -39,6 +99,7 @@ function parseNumber(input) {
     if (!isFinite(a) || !isFinite(b) || b === 0) return NaN;
     return a / b;
   }
+
   const n = parseFloat(s);
   return isFinite(n) ? n : NaN;
 }
@@ -184,6 +245,7 @@ function check(q) {
   const exprOk = (sel != null) && (q.correctExpr || []).includes(sel);
   const ansOk = isFinite(ans) && (Math.abs(ans - q.answer) <= tol);
 
+  // لا نشغّل صوت فشل على أخطاء إدخال/نسيان اختيار
   if (sel == null) {
     showFeedback("اختر تعبيرًا أولًا من القائمة.", false);
     return;
@@ -198,11 +260,11 @@ function check(q) {
     saveProgress();
 
     showFeedback(`✅ ممتاز! التعبير صحيح والناتج صحيح: <b>${q.answer}</b>`, true);
+    playSfx(SUCCESS_SFX);
 
     const pill = document.getElementById("solvedPill");
     if (pill) pill.textContent = "✅ تم الحل";
 
-    // تحديث التقدّم
     $("barFill").style.width = `${Math.round((solvedCount() / currentList().length) * 100)}%`;
     $("progressText").textContent =
       `مستوى ${getLevelLabel(state.level)}: ${state.idx + 1}/${currentList().length} — محلول: ${solvedCount()}/${currentList().length}`;
@@ -212,6 +274,7 @@ function check(q) {
     parts.push(ansOk ? "✅ الناتج صحيح." : `❌ الناتج غير صحيح. الصحيح هو <b>${q.answer}</b>.`);
     parts.push(`<span class="muted">نصيحة: ${q.hint}</span>`);
     showFeedback(parts.join("<br>"), false);
+    playSfx(FAIL_SFX);
   }
 }
 
