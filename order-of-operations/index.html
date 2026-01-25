@@ -18,13 +18,12 @@
 <body>
   <header class="wrap">
     <div class="topbar">
-      <!-- العودة لصفحة المختبر في الجذر -->
       <a class="back" href="../index.html" aria-label="العودة لمختبر التطبيقات">← العودة لمختبر التطبيقات</a>
       <span class="chip">الصف 8–9</span>
     </div>
 
     <h1>أولويات العمليات الحسابية</h1>
-    <p class="sub">تدريب تفاعلي بمسائل حياتية متدرجة: <b>سهل</b> ثم <b>متوسط</b> ثم <b>صعب</b>.</p>
+    <p class="sub">تدريب تفاعلي بمسائل حياتية متدرجة مع بنك أسئلة كبير + اختيار عشوائي بعدد تحدده من داخل الصفحة.</p>
   </header>
 
   <main class="wrap">
@@ -39,11 +38,51 @@
       <div class="note">تذكير: الأقواس = “حزمة”، الأس = “قوة/تكرار”، الضرب = “لكل/معدل”، القسمة = “توزيع”.</div>
     </section>
 
+    <!-- إعدادات اختيار عدد الأسئلة من البنك -->
+    <section class="panel" id="settingsPanel">
+      <h2>إعدادات عرض الأسئلة (اختيار عشوائي)</h2>
+
+      <div class="settingsGrid">
+        <div class="pickBox">
+          <label for="pickEasy">سهل</label>
+          <input id="pickEasy" type="number" inputmode="numeric" min="0" step="1" value="3">
+          <div class="muted smallnote" id="maxEasy">المتاح: —</div>
+        </div>
+
+        <div class="pickBox">
+          <label for="pickMedium">متوسط</label>
+          <input id="pickMedium" type="number" inputmode="numeric" min="0" step="1" value="6">
+          <div class="muted smallnote" id="maxMedium">المتاح: —</div>
+        </div>
+
+        <div class="pickBox">
+          <label for="pickHard">صعب</label>
+          <input id="pickHard" type="number" inputmode="numeric" min="0" step="1" value="3">
+          <div class="muted smallnote" id="maxHard">المتاح: —</div>
+        </div>
+      </div>
+
+      <div class="settingsActions">
+        <label class="toggle">
+          <input id="shuffleToggle" type="checkbox" checked>
+          اختيار عشوائي من بنك الأسئلة
+        </label>
+
+        <button id="applySettingsBtn" class="small">تطبيق</button>
+        <button id="reshuffleBtn" class="small alt">تجديد عشوائي</button>
+      </div>
+
+      <p class="muted smallnote">
+        ملاحظة: ضع <b>0</b> لإخفاء مستوى. يتم الاختيار من الملف
+        <code>order-of-operations/data/questions.json</code>.
+      </p>
+    </section>
+
     <section class="panel controls">
       <div class="levels" role="tablist" aria-label="مستويات التدريب">
-        <button class="lvl active" data-level="easy" role="tab" aria-selected="true">سهل (3)</button>
-        <button class="lvl" data-level="medium" role="tab" aria-selected="false">متوسط (6)</button>
-        <button class="lvl" data-level="hard" role="tab" aria-selected="false">صعب (3)</button>
+        <button class="lvl active" data-level="easy" role="tab" aria-selected="true">سهل</button>
+        <button class="lvl" data-level="medium" role="tab" aria-selected="false">متوسط</button>
+        <button class="lvl" data-level="hard" role="tab" aria-selected="false">صعب</button>
       </div>
 
       <div class="nav">
@@ -60,10 +99,9 @@
   </main>
 
   <footer class="wrap foot2">
-    <span class="muted">اكتب التعبير أولًا من القصة، ثم طبّق سُلّم القوة.</span>
+    <span class="muted">تلميح: غيّر الأعداد ثم اضغط “تطبيق” لاختيار مجموعة جديدة من الأسئلة.</span>
   </footer>
 
-  <!-- مهم جدًا: module ليعمل import.meta.url و fetch للـ JSON -->
   <script type="module" src="./js/app.js"></script>
 </body>
 </html>
