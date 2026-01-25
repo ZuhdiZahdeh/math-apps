@@ -339,3 +339,59 @@
 }
 
 .foot2{ padding-bottom:26px; }
+/* ===============================
+   إعدادات اختيار عدد الأسئلة
+   =============================== */
+.settingsGrid{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:flex-end;
+}
+
+.pickBox{
+  min-width:160px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.pickBox label{
+  font-weight:800;
+  color:var(--text);
+}
+
+.pickBox input{
+  padding:12px 14px;
+  min-height:46px;
+  border-radius:14px;
+  border:1px solid #1f2a3a;
+  background:#0f172a;
+  color:var(--text);
+  font-size:1.08rem;
+}
+
+.settingsActions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px dashed #334155;
+  background:#0b1326;
+}
+
+.smallnote{
+  font-size:0.98rem;
+  line-height:1.6;
+}
