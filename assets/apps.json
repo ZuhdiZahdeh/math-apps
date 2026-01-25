@@ -76,8 +76,8 @@
     "title": "مجموع زوايا المثلث",
     "grades": [6,7],
     "tags": ["زوايا", "هندسة"],
-    "path": "apps/angle-sum-triangle/index.html",
-    "thumb": "images/thumbs/placeholder.jpg",
+    "path": "solutions-site/plane-geometry/index.html",
+    "thumb": "images/thumbs/plane-geometry.png",
     "desc": "برهان قصّ/لصق بصري أن مجموع الزوايا = 180°."
   },
   {
