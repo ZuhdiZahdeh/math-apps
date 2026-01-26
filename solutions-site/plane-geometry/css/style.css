@@ -286,4 +286,87 @@ body{
   border-top:1px solid var(--border);
   background:#fff;
 }
+/* =========================
+   Solution (HTML) — Two Columns
+   ========================= */
 
+.solution-box{
+  margin:0;
+  line-height: 1.85;
+  font-size:14px;
+  color:#0f172a;
+}
+
+.solution-empty{
+  color: var(--muted);
+}
+
+.sol-h{
+  margin: 10px 0 6px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.sol-ul, .sol-ol{
+  margin: 0;
+  padding-inline-start: 22px;
+}
+
+.sol-ul li, .sol-ol li{
+  margin: 4px 0;
+}
+
+.sol-divider{
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+.sol-note{
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #f6f8ff;
+  border: 1px solid #e7ebff;
+  border-radius: 12px;
+  color: #1f2a44;
+}
+
+.sol-kv{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 950px){
+  .sol-kv{ grid-template-columns: 1fr; }
+}
+
+.methods-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 950px){
+  .methods-grid{ grid-template-columns: 1fr; }
+}
+
+.method-box{
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fcfcfc;
+}
+
+.method-title{
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.math{
+  font-weight: 800;
+  direction: ltr;
+  unicode-bidi: embed;
+}
