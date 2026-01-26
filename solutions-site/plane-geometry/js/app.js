@@ -7,7 +7,7 @@ const els = {
   title: document.getElementById("questionTitle"),
   meta: document.getElementById("metaLine"),
   gallery: document.getElementById("imageGallery"),
-  solution: document.getElementById("solutionText"),
+  solution: document.getElementById("solutionBox"),
   prev: document.getElementById("prevBtn"),
   next: document.getElementById("nextBtn"),
 
@@ -36,6 +36,24 @@ function normalizeArabic(s) {
     .replace(/ى/g, "ي")
     .replace(/\s+/g, " ");
 }
+
+function escapeHtml(str) {
+  return (str ?? "")
+    .toString()
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function getSolutionHtml(q) {
+  if (!q) return "";
+  if (Array.isArray(q.solutionHtml)) return q.solutionHtml.join("\n");
+  if (typeof q.solutionHtml === "string") return q.solutionHtml;
+  return "";
+}
+
 
 function setActive(id) {
   activeId = id;
@@ -116,8 +134,16 @@ function renderGallery(q) {
 function renderSolution(q) {
   els.title.textContent = q.title;
   els.meta.textContent = `المعرّف: ${q.id} — رقم السؤال: ${q.number}`;
-  const lines = Array.isArray(q.solution) ? q.solution : [];
-  els.solution.textContent = lines.join("\n");
+
+  // الحل: HTML (عمودين/طرق متعددة) إن وُجد، وإلا عرض نصي عادي
+  const html = getSolutionHtml(q).trim();
+  if (html) {
+    els.solution.innerHTML = html;
+  } else {
+    const lines = Array.isArray(q.solution) ? q.solution : [];
+    els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(lines.join("\n"))}</pre>`;
+  }
+
   renderGallery(q);
 
   setActive(q.id);
@@ -169,7 +195,7 @@ function applyFilter() {
       activeId = null;
       els.title.textContent = "لا توجد نتائج";
       els.meta.textContent = "";
-      els.solution.textContent = "جرّب كلمة بحث أخرى.";
+      els.solution.innerHTML = `<div class="solution-empty">جرّب كلمة بحث أخرى.</div>`;
       els.gallery.innerHTML = "";
       updateNavButtons();
     }
@@ -220,6 +246,6 @@ document.addEventListener("keydown", (e) => {
 
 init().catch((err) => {
   els.title.textContent = "خطأ في تحميل البيانات";
-  els.solution.textContent = String(err);
+  els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(String(err))}</pre>`;
 });
 
