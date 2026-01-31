@@ -422,6 +422,9 @@ body{
   padding: 40px 12px;
 }
 
+.th-modal.hidden{ display:none; }
+
+
 .th-backdrop{
   position: fixed; /* ✅ بدل absolute */
   inset: 0;
