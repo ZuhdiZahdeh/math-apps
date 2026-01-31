@@ -1,5 +1,227 @@
 /* حلول الهندسة المستوية — س1 إلى س37 */
 const DATA_URL = "./data/solutions.json";
+const THEOREMS_URL = "./data/theorems.json";
+
+/* =========================================================
+   Theorems UI — بطاقات نظريات/قوانين قابلة للنقر
+   يعتمد على: data/theorems.json (مع رسمة SVG داخل الملف)
+   ========================================================= */
+(() => {
+  const state = {
+    ready: false,
+    loading: null,
+    url: THEOREMS_URL,
+    byId: new Map(),
+    modal: null,
+    body: null,
+    wired: false
+  };
+
+  // خريطة مساعدة لتحويل نصوص شائعة إلى معرفات (IDs) داخل theorems.json
+  const TITLE_TO_ID = {
+    "نظرية القطعة المتوسطة في المثلث + عكسها": "midsegment_triangle_bundle",
+    "نظرية القطعة المتوسطة في المثلث والعكس": "midsegment_triangle_bundle",
+    "نظرية القطعة المتوسطة في المثلث (والعكس)": "midsegment_triangle_bundle",
+
+    "معيار متوازي الأضلاع: ضلعان متقابلان متوازيان ومتساويان": "parallelogram_test_opposite_parallel_equal",
+    "معيار متوازي الأضلاع": "parallelogram_test_opposite_parallel_equal",
+
+    "خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية": "parallelogram_property_opposite_sides_equal",
+    "خواص متوازي الأضلاع": "parallelogram_property_opposite_sides_equal"
+  };
+
+  function normalizeTitle(s) {
+    return (s || "")
+      .replace(/^[-•\s]+/, "")
+      .replace(/\s+/g, " ")
+      .replace(/[.،]\s*$/g, "")
+      .trim();
+  }
+
+  function ensureModal() {
+    if (state.modal) return;
+
+    const modal = document.createElement("div");
+    modal.id = "theoremModal";
+    modal.className = "th-modal hidden";
+    modal.setAttribute("aria-hidden", "true");
+    modal.innerHTML = `
+      <div class="th-backdrop" data-th-close="1"></div>
+      <div class="th-card" role="dialog" aria-modal="true" dir="rtl">
+        <div class="th-card-head">
+          <div class="th-card-title" id="thTitle"></div>
+          <button class="th-close" type="button" aria-label="إغلاق" data-th-close="1">×</button>
+        </div>
+        <div class="th-card-body" id="thBody"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    state.modal = modal;
+    state.body = modal.querySelector("#thBody");
+
+    modal.addEventListener("click", (e) => {
+      if (e.target && e.target.dataset && e.target.dataset.thClose === "1") close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && state.modal && !state.modal.classList.contains("hidden")) close();
+    });
+  }
+
+  function wireGlobalClicks() {
+    if (state.wired) return;
+    state.wired = true;
+
+    document.addEventListener("click", (e) => {
+      const el = e.target && e.target.closest ? e.target.closest("[data-theorem]") : null;
+      if (!el) return;
+      const id = el.dataset.theorem;
+      open(id);
+    });
+  }
+
+  async function init(opts = {}) {
+    if (state.ready) return true;
+    if (state.loading) return state.loading;
+
+    state.url = opts.url || state.url;
+
+    state.loading = (async () => {
+      try {
+        const res = await fetch(state.url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to load: ${state.url}`);
+        const json = await res.json();
+
+        (json.items || []).forEach((item) => {
+          if (item && item.id) state.byId.set(item.id, item);
+        });
+
+        ensureModal();
+        wireGlobalClicks();
+        state.ready = true;
+        return true;
+      } catch (err) {
+        console.warn("[TheoremsUI] init failed:", err);
+        return false;
+      }
+    })();
+
+    return state.loading;
+  }
+
+  function isReady() {
+    return state.ready;
+  }
+
+  function open(id) {
+    const item = state.byId.get(id);
+    if (!item || !state.modal) return;
+
+    state.modal.querySelector("#thTitle").textContent = item.title || "نظرية";
+    const parts = [];
+
+    if (Array.isArray(item.contentHtml)) parts.push(item.contentHtml.join(""));
+    if (item.diagram && item.diagram.svg) {
+      parts.push(`<div class="th-diagram">${item.diagram.svg}</div>`);
+    }
+
+    state.body.innerHTML = parts.join("");
+    state.modal.classList.remove("hidden");
+    state.modal.setAttribute("aria-hidden", "false");
+  }
+
+  function close() {
+    if (!state.modal) return;
+    state.modal.classList.add("hidden");
+    state.modal.setAttribute("aria-hidden", "true");
+    state.body.innerHTML = "";
+  }
+
+  // يحاول تحويل القائمة الموجودة داخل الحل (إن وُجدت) إلى روابط قابلة للنقر
+  function enhanceManualList(question, rootEl) {
+    if (!rootEl) return false;
+
+    const headings = Array.from(rootEl.querySelectorAll(".sol-h, h3, h4, strong"));
+    const h = headings.find((x) => /النظريات|القوانين/.test((x.textContent || "").trim()));
+    if (!h) return false;
+
+    // ابحث عن UL بعد العنوان
+    let ul = h.nextElementSibling;
+    while (ul && ul.tagName !== "UL") ul = ul.nextElementSibling;
+    if (!ul) return false;
+
+    const lis = Array.from(ul.querySelectorAll("li"));
+    if (!lis.length) return false;
+
+    const ids = Array.isArray(question?.theoremsUsed) ? question.theoremsUsed : [];
+
+    lis.forEach((li, i) => {
+      const raw = (li.textContent || "").trim();
+      const key = normalizeTitle(raw);
+
+      // أولوية: ids بحسب الترتيب، ثم خريطة العناوين
+      const id = ids[i] || TITLE_TO_ID[key] || TITLE_TO_ID[raw] || null;
+      if (!id) return;
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "theorem-link";
+      btn.dataset.theorem = id;
+      btn.textContent = raw;
+
+      li.innerHTML = "";
+      li.appendChild(btn);
+    });
+
+    return true;
+  }
+
+  // إذا لم توجد قائمة نظريات داخل الحل، نضيف قسمًا تلقائيًا من question.theoremsUsed
+  function renderAutoSection(question, rootEl) {
+    if (!rootEl) return;
+
+    const used = Array.isArray(question?.theoremsUsed) ? question.theoremsUsed : [];
+    if (!used.length) return;
+
+    // امسح أي قسم سابق تمت إضافته تلقائيًا
+    rootEl.querySelectorAll(".theorems-used").forEach((x) => x.remove());
+
+    const sec = document.createElement("div");
+    sec.className = "theorems-used";
+    sec.innerHTML = `
+      <div class="sol-h">✅ النظريات/القوانين المستخدمة</div>
+      <div class="theorem-chips"></div>
+    `;
+
+    const chips = sec.querySelector(".theorem-chips");
+    used.forEach((id) => {
+      const item = state.byId.get(id);
+      if (!item) return;
+
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "theorem-chip";
+      b.dataset.theorem = id;
+      b.textContent = item.title || id;
+
+      chips.appendChild(b);
+    });
+
+    rootEl.appendChild(sec);
+  }
+
+  function apply(question, rootEl) {
+    if (!state.ready || !rootEl) return;
+
+    const hasManual = enhanceManualList(question, rootEl);
+    if (!hasManual) renderAutoSection(question, rootEl);
+  }
+
+  window.TheoremsUI = { init, apply, open, close, isReady };
+})();
+
+
 
 const els = {
   list: document.getElementById("questionsList"),
@@ -52,6 +274,20 @@ function getSolutionHtml(q) {
   if (Array.isArray(q.solutionHtml)) return q.solutionHtml.join("\n");
   if (typeof q.solutionHtml === "string") return q.solutionHtml;
   return "";
+}
+
+
+function applyTheoremsUI(q) {
+  if (!window.TheoremsUI) return;
+
+  // نحمي من تطبيق متأخر على سؤال قديم
+  const id = q?.id;
+
+  window.TheoremsUI.init({ url: THEOREMS_URL }).then((ok) => {
+    if (!ok) return;
+    if (activeId !== id) return;
+    window.TheoremsUI.apply(q, els.solution);
+  });
 }
 
 
@@ -149,6 +385,9 @@ function renderSolution(q) {
   setActive(q.id);
   updateNavButtons();
   location.hash = q.id;
+
+  // تفعيل بطاقات النظريات/القوانين (إن وُجدت)
+  applyTheoremsUI(q);
 }
 
 function renderList() {
@@ -210,6 +449,9 @@ async function init() {
   const data = await res.json();
   allQuestions = Array.isArray(data.questions) ? data.questions : [];
   filtered = [...allQuestions];
+
+  // preloadTheoremsUI
+  if (window.TheoremsUI) window.TheoremsUI.init({ url: THEOREMS_URL });
 
   renderList();
 
