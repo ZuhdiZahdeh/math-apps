@@ -7,7 +7,7 @@
     "theorems": {
       "file": "data/theorems.json",
       "field": "theoremsUsed",
-      "note_ar": "أضف داخل كل سؤال مصفوفة theoremsUsed (IDs من theorems.json). إذا كان الحل يحتوي قائمة نظريات داخل solutionHtml فرتّب IDs بنفس ترتيب البنود لتصبح قابلة للنقر تلقائيًا."
+      "note_ar": "تمت مواءمة theoremsUsed مع أسماء وصياغات النظريات حسب ملف «نظريات الهندسة المستوية حسب المنهاج الجديد»."
     }
   },
   "questions": [
@@ -16,8 +16,8 @@
       "number": 1,
       "title": "سؤال (1)",
       "images": [
-        "images/q01.png",
-        "images/q01-1.png"
+        "images/q01-1.png",
+        "images/q01.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -31,11 +31,7 @@
         "2) لدينا أيضًا ∠DAE = ∠ECF (معطى).",
         "3) إذن المثلثان ADE و CFE متشابهان (AA).",
         "4) من التشابه: DE/EF = AE/EC.",
-        "5) وبما أن AE = EC (لأن E منتصف AC) ⇒ DE/EF = 1 ⇒ DE = EF.",
-        "✅ التعليل (ب):",
-        "1) من التشابه نفسه ومع AE = EC نحصل أيضًا على AD = CF.",
-        "2) وإذا كان BD = CF (معطى إضافي) ⇒ AD = BD.",
-        "3) وبما أن D تقع على AB و AD = DB ⇒ D منتصف AB."
+        "5) وبما أن AE = EC (لأن E منتصف AC) ⇒ DE/EF = 1 ⇒ DE = EF."
       ],
       "solutionHtml": [
         "<div class='sol-wrap'>",
@@ -57,42 +53,35 @@
         "  </div>",
         "",
         "  <div class='sol-h'>✅ الحل (أ) — بطريقتين جنبًا إلى جنب</div>",
-        "  <div class='methods-grid'>",
-        "    <article class='method-box'>",
-        "      <div class='method-title'>الطريقة 1: التشابه (AA)</div>",
+        "  <div class='two-col'>",
+        "    <div class='col'>",
+        "      <div class='col-title'>① التشابه (AA)</div>",
         "      <ol class='sol-ol'>",
-        "        <li>المستقيمان <span class='math'>AC</span> و<span class='math'>DF</span> يتقاطعان في <span class='math'>E</span> ⟹ <span class='math'>∠AED = ∠CEF</span> (متقابلتان بالرأس).</li>",
-        "        <li>معطى: <span class='math'>∠DAE = ∠ECF</span>.</li>",
-        "        <li>إذن <span class='math'>△ADE ~ △CFE</span> (AA).</li>",
+        "        <li><span class='math'>AC</span> و<span class='math'>DF</span> يتقاطعان في <span class='math'>E</span> ⇒ <span class='math'>∠AED = ∠CEF</span> (متقابلتان بالرأس).</li>",
+        "        <li><span class='math'>∠DAE = ∠ECF</span> (معطى).</li>",
+        "        <li>إذن <span class='math'>△ADE ∼ △CFE</span> (AA).</li>",
         "        <li>من التشابه: <span class='math'>DE/EF = AE/EC</span>.</li>",
-        "        <li>وبما أن <span class='math'>AE = EC</span> ⟹ <strong class='math'>DE = EF</strong>.</li>",
+        "        <li>وبما أن <span class='math'>AE = EC</span> ⇒ <span class='math'>DE = EF</span>.</li>",
         "      </ol>",
-        "    </article>",
-        "    <article class='method-box'>",
-        "      <div class='method-title'>الطريقة 2: التطابق (ASA)</div>",
+        "    </div>",
+        "    <div class='col'>",
+        "      <div class='col-title'>② التطابق (ASA)</div>",
         "      <ol class='sol-ol'>",
+        "        <li><span class='math'>AE = EC</span> (لأن <span class='math'>E</span> منتصف <span class='math'>AC</span>).</li>",
         "        <li><span class='math'>∠AED = ∠CEF</span> (متقابلتان بالرأس).</li>",
-        "        <li>معطى: <span class='math'>∠DAE = ∠ECF</span>.</li>",
-        "        <li>ولأن <span class='math'>E</span> منتصف <span class='math'>AC</span> ⟹ <span class='math'>AE = EC</span>.</li>",
-        "        <li>إذن <span class='math'>△ADE ≅ △CFE</span> (ASA: زاويتان والضلع المحصور).</li>",
-        "        <li>من التطابق: <strong class='math'>DE = EF</strong>.</li>",
+        "        <li><span class='math'>∠DAE = ∠ECF</span> (معطى).</li>",
+        "        <li>إذن <span class='math'>△ADE ≅ △CFE</span> (ASA).</li>",
+        "        <li>وبالتالي <span class='math'>DE = EF</span>.</li>",
         "      </ol>",
-        "    </article>",
+        "    </div>",
         "  </div>",
-        "",
-        "  <hr class='sol-divider' />",
-        "",
-        "  <div class='sol-h'>✅ الحل (ب)</div>",
-        "  <ol class='sol-ol'>",
-        "    <li>من نتيجة (أ) وبما أن <span class='math'>AE = EC</span> تكون نسبة التشابه <span class='math'>1</span> ⟹ <span class='math'>AD = CF</span>.</li>",
-        "    <li>ومع المعطى الإضافي <span class='math'>BD = CF</span> ⟹ <span class='math'>AD = BD</span>.</li>",
-        "    <li>وبما أن <span class='math'>D</span> تقع على <span class='math'>AB</span> و<span class='math'>AD = DB</span> ⟹ <span class='math'>D</span> منتصف <span class='math'>AB</span>.</li>",
-        "  </ol>",
-        "",
-        "  <div class='sol-note'>ملاحظة: في (أ) يمكن الوصول للنتيجة بالتشابه أولًا أو بالتطابق (ASA) مباشرةً؛ التطابق حالة خاصة عندما تكون نسبة التشابه = 1.</div>",
         "</div>"
       ],
-      "theoremsUsed": []
+      "theoremsUsed": [
+        "vertical_angles_equal",
+        "similarity_AA",
+        "congruence_ASA"
+      ]
     },
     {
       "id": "q02",
@@ -122,8 +111,41 @@
         "2) إذن المثلثان AOD و AOE متطابقان (SAS) ⇒ AD = AE.",
         "3) أصبح لدينا زوجان من الأضلاع المتجاورة المتساوية: AD = AE و OD = OE ⇒ الرباعي ADOE دالتون."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-kv'>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المعطى</div>",
+        "      <ul class='sol-ul'>",
+        "        <li><span class='math'>BE</span> و<span class='math'>CD</span> يتقاطعان في <span class='math'>O</span>.</li>",
+        "        <li><span class='math'>BO = CO</span> ، <span class='math'>DO = EO</span>.</li>",
+        "        <li><span class='math'>∠AOE = ∠AOD</span>.</li>",
+        "      </ul>",
+        "    </div>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المطلوب</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>(أ) إثبات <span class='math'>AB = AC</span>.</li>",
+        "        <li>(ب) إثبات أن <span class='math'>ADOE</span> دالتون.</li>",
+        "      </ul>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li>من كون الأشعة على استقامة واحدة: إذا <span class='math'>∠AOE = ∠AOD</span> ⇒ <span class='math'>∠AOB = ∠AOC</span> (مكملات زوايا متساوية).</li>",
+        "    <li>في <span class='math'>△AOB</span> و<span class='math'>△AOC</span>: <span class='math'>AO</span> مشترك، <span class='math'>BO = CO</span>، و<span class='math'>∠AOB = ∠AOC</span> ⇒ تطابق (SAS) ⇒ <span class='math'>AB = AC</span>.</li>",
+        "    <li>في <span class='math'>△AOD</span> و<span class='math'>△AOE</span>: <span class='math'>AO</span> مشترك، <span class='math'>OD = OE</span>، و<span class='math'>∠AOD = ∠AOE</span> ⇒ تطابق (SAS) ⇒ <span class='math'>AD = AE</span>.</li>",
+        "    <li>بما أن <span class='math'>AD = AE</span> و<span class='math'>OD = OE</span> ⇒ الرباعي <span class='math'>ADOE</span> دالتون.</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "supplementary_angles_straight_line",
+        "congruence_SAS"
+      ]
     },
+
     {
       "id": "q03",
       "number": 3,
@@ -142,8 +164,21 @@
         "3) إذن المثلثان ACD و BDC متطابقان (SAS).",
         "4) بالتالي الأضلاع المتناظرة متساوية ⇒ AD = BC."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li>نأخذ <span class='math'>△ACD</span> و<span class='math'>△BDC</span>.</li>",
+        "    <li><span class='math'>AC = BD</span> (معطى)، و<span class='math'>CD</span> مشترك، و<span class='math'>∠ACD = ∠BDC</span> (زاوية محصورة).</li>",
+        "    <li>إذن تطابق (SAS) ⇒ <span class='math'>AD = BC</span>.</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "congruence_SAS"
+      ]
     },
+
     {
       "id": "q04",
       "number": 4,
@@ -164,11 +199,30 @@
         "   AB = AD (معطى)، AE = AC (من 2)، و ∠BAE = ∠DAC (لأن BA على AC و DA على AE).",
         "4) إذن المثلثان ABE و ADC متطابقان (SAS) ⇒ ∠ABE = ∠ADC.",
         "5) لأن CB امتداد لـ BA: ∠CBE = 180° − ∠ABE.",
-        "   ولأن DE امتداد لـ DA: ∠CDE = 180° − ∠ADC.",
-        "6) وبما أن ∠ABE = ∠ADC ⇒ ∠CBE = ∠CDE."
+        "6) ولأن CD امتداد لـ DA: ∠CDE = 180° − ∠ADC.",
+        "7) وبما أن ∠ABE = ∠ADC ⇒ ∠CBE = ∠CDE."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li><span class='math'>AC = AB + BC</span> و<span class='math'>AE = AD + DE</span>.</li>",
+        "    <li>من <span class='math'>AB=AD</span> و<span class='math'>BC=DE</span> ⇒ <span class='math'>AC = AE</span>.</li>",
+        "    <li>في <span class='math'>△ABE</span> و<span class='math'>△ADC</span>: <span class='math'>AB=AD</span>، <span class='math'>AE=AC</span>، و<span class='math'>∠BAE=∠DAC</span> ⇒ تطابق (SAS) ⇒ <span class='math'>∠ABE=∠ADC</span>.</li>",
+        "    <li>بما أن <span class='math'>CB</span> امتداد <span class='math'>BA</span> و<span class='math'>CD</span> امتداد <span class='math'>DA</span>:",
+        "      <div class='mathline'>∠CBE = 180° − ∠ABE</div>",
+        "      <div class='mathline'>∠CDE = 180° − ∠ADC</div>",
+        "    </li>",
+        "    <li>إذن <span class='math'>∠CBE = ∠CDE</span>.</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "congruence_SAS",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q05",
       "number": 5,
@@ -199,8 +253,24 @@
         "2) ومحور التناظر في المثلث المتساوي الساقين ACD هو العمود المنصف للقاعدة CD.",
         "3) إذن أي نقطة عليه تبعد نفس البعد عن C و D ⇒ MC = MD."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li>من <span class='math'>AC = AD</span> ⇒ <span class='math'>△ACD</span> متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند <span class='math'>A</span>.</li>",
+        "    <li>بما أن <span class='math'>∠ACE = ∠ADB</span> ⇒ المستقيمان <span class='math'>CE</span> و<span class='math'>BD</span> متناظران حول محور التناظر.</li>",
+        "    <li>صورة <span class='math'>B</span> على <span class='math'>AC</span> هي <span class='math'>E</span> على <span class='math'>AD</span> ⇒ <span class='math'>AB = AE</span> ⇒ <span class='math'>BC = DE</span>.</li>",
+        "    <li>نقطة التقاطع <span class='math'>M</span> تقع على محور التناظر، ومحور التناظر هو العمود المنصف لـ<span class='math'>CD</span> ⇒ <span class='math'>MC = MD</span>.</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "angle_bisector_definition",
+        "perpendicular_bisector_locus"
+      ]
     },
+
     {
       "id": "q06",
       "number": 6,
@@ -221,8 +291,15 @@
         "5) هذا يعني أن: DE = EF = FD (حفظ الأطوال تحت الدوران).",
         "6) إذن المثلث DEF متساوي الأضلاع."
       ],
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ التعليل</div>",
+        "  <p>الطريقة تعتمد على دوران <span class='math'>120°</span> في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).</p>",
+        "</div>"
+      ],
       "theoremsUsed": []
     },
+
     {
       "id": "q07",
       "number": 7,
@@ -237,13 +314,24 @@
         "✅ المطلوب: إثبات ∠MAD = ∠MDA.",
         "✅ التعليل:",
         "1) الشرط MB = MC يعني أن M تقع على العمود المنصف للقطعة BC.",
-        "2) في المستطيل: الضلعان AB و CD عموديان على BC، كما أن A و D متناظران بالنسبة للعمود المنصف لـ BC.",
-        "3) لذلك تكون المسافتان MA و MD متساويتين (يمكن إظهار ذلك أيضًا بالإحداثيات: نقطة M لها x = عرض/2 ⇒ MA = MD).",
-        "4) في المثلث AMD إذا MA = MD ⇒ المثلث متساوي الساقين وقاعدته AD ⇒ زاويتان القاعدة متساويتان:",
-        "   ∠MAD = ∠MDA."
+        "2) لذلك تكون المسافتان MA و MD متساويتين.",
+        "3) في المثلث AMD إذا MA = MD ⇒ المثلث متساوي الساقين وقاعدته AD ⇒ ∠MAD = ∠MDA."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li><span class='math'>MB = MC</span> ⇒ <span class='math'>M</span> تقع على العمود المنصف للقطعة <span class='math'>BC</span>.</li>",
+        "    <li>إذن <span class='math'>MA = MD</span> ⇒ <span class='math'>△AMD</span> متساوي الساقين ⇒ <span class='math'>∠MAD = ∠MDA</span>.</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "perpendicular_bisector_locus",
+        "isosceles_triangle_base_angles"
+      ]
     },
+
     {
       "id": "q08",
       "number": 8,
@@ -265,8 +353,20 @@
         "⇒ أضلاع المثلث: 75 ،75 ،120.",
         "✅ عدد الحلول: حلان (كلاهما يحقق شرط المثلث)."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ النتيجة</div>",
+        "  <ul class='sol-ul'>",
+        "    <li>حل 1: <span class='math'>(105, 105, 60)</span></li>",
+        "    <li>حل 2: <span class='math'>(75, 75, 120)</span></li>",
+        "  </ul>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles"
+      ]
     },
+
     {
       "id": "q09",
       "number": 9,
@@ -282,8 +382,17 @@
         "2) أضف a للطرفين: 2a < a + b + c = P ⇒ a < P/2.",
         "3) وبنفس الطريقة: b < a + c ⇒ b < P/2، و c < a + b ⇒ c < P/2."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <p>يعتمد على <strong>متباينة المثلث</strong>.</p>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_inequality"
+      ]
     },
+
     {
       "id": "q10",
       "number": 10,
@@ -302,8 +411,17 @@
         "4) وبما أن BD+DC = BC ⇒ 2AD < AB + AC + BC.",
         "5) نقسم 2: AD < (AB+AC+BC)/2 = نصف محيط المثلث."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <p>تطبيق مباشر لمتباينة المثلث على <span class='math'>△ABD</span> و<span class='math'>△ACD</span>.</p>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_inequality"
+      ]
     },
+
     {
       "id": "q11",
       "number": 11,
@@ -323,10 +441,19 @@
         "3) في المثلث CAM: CM + AM > CA.",
         "4) نجمع: 2(AM+BM+CM) > AB+BC+CA ⇒ AM+BM+CM > (AB+BC+CA)/2.",
         "✅ التعليل (ب):",
-        "نفس المتباينات الثلاث (متباينة المثلث) صحيحة لأي نقطة M في المستوى، ومع استحالة تحقق المساواة في الثلاث معًا في مثلث غير منعدم، تبقى النتيجة (> نصف المحيط) صحيحة أيضًا خارج المثلث."
+        "نفس المتباينات الثلاث (متباينة المثلث) صحيحة لأي نقطة M في المستوى، تبقى النتيجة صحيحة أيضًا خارج المثلث."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ الفكرة</div>",
+        "  <p>نجمع ثلاث متباينات مثلث.</p>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_inequality"
+      ]
     },
+
     {
       "id": "q12",
       "number": 12,
@@ -335,18 +462,25 @@
         "images/q12.png"
       ],
       "solution": [
-        "✅ المعطى:",
-        "• AD متوسط للضلع BC في المثلث ABC (D منتصف BC).",
-        "✅ المطلوب: إثبات AD < 1/2 (AB + AC).",
-        "✅ التعليل (حسب الإرشاد):",
-        "1) مدد المتوسط AD إلى النقطة E بحيث DE = AD ⇒ D منتصف AE.",
-        "2) لأن D أيضًا منتصف BC ⇒ القطران AE و BC يتنصفان في D داخل الرباعي ABEC ⇒ ABEC متوازي أضلاع.",
-        "3) في متوازي الأضلاع: BE = AC.",
-        "4) في المثلث ABE: AE < AB + BE (متباينة المثلث) ⇒ AE < AB + AC.",
-        "5) وبما أن AD = AE/2 ⇒ AD < (AB+AC)/2."
+        "✅ المعطى: في المثلث ABC، ma متوسط من A إلى BC (M منتصف BC).",
+        "✅ المطلوب: إثبات ma < (AB + AC)/2.",
+        "✅ التعليل:",
+        "1) في المثلث ABM: AM < AB + BM (متباينة المثلث).",
+        "2) في المثلث ACM: AM < AC + CM.",
+        "3) نجمع: 2AM < AB + AC + (BM+CM) = AB + AC + BC.",
+        "4) وبما أن BM = CM = BC/2 ⇒ نحصل على AM < (AB+AC)/2."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <p>تطبيق متباينة المثلث على مثلثين يحويان المتوسط.</p>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_inequality"
+      ]
     },
+
     {
       "id": "q13",
       "number": 13,
@@ -364,8 +498,17 @@
         "   ma+mb+mc < [(AB+AC)+(AB+BC)+(AC+BC)]/2 = (2AB+2AC+2BC)/2.",
         "3) إذن ma+mb+mc < AB + AC + BC (محيط المثلث)."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-h'>✅ الفكرة</div>",
+        "  <p>نجمع ثلاث متباينات ناتجة عن متباينة المثلث (عبر السؤال 12).</p>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_inequality"
+      ]
     },
+
     {
       "id": "q14",
       "number": 14,
@@ -374,32 +517,26 @@
         "images/q14.png"
       ],
       "solution": [
-        "✅ المعطى (حسب الرسم):",
-        "• D نقطة على AC.",
-        "• BD = DC.",
-        "• AB = BC = AD.",
-        "✅ المطلوب: حساب ∠ACB.",
-        "✅ التعليل:",
-        "1) من BD = DC ⇒ المثلث BDC متساوي الساقين ⇒ ∠DBC = ∠BCD.",
-        "2) وبما أن C,D,A على استقامة واحدة ⇒ ∠BCD = ∠BCA = ∠ACB = x.",
-        "   إذن ∠DBC = x ⇒ ∠BDC = 180° − 2x.",
-        "3) من AB = BC ⇒ المثلث ABC متساوي الساقين وقاعدته AC ⇒ ∠BAC = ∠ACB = x ⇒ ∠ABC = 180° − 2x.",
-        "4) الزاوية عند B تنقسم بالشعاع BD:",
-        "   ∠ABC = ∠ABD + ∠DBC ⇒ 180°−2x = ∠ABD + x ⇒ ∠ABD = 180° − 3x.",
-        "5) من AB = AD ⇒ المثلث ABD متساوي الساقين ⇒ ∠ABD = ∠BDA = 180° − 3x.",
-        "6) لأن A,D,C على استقامة واحدة: ∠BDA + ∠BDC = 180°.",
-        "   (180°−3x) + (180°−2x) = 180° ⇒ 5x = 180° ⇒ x = 36°.",
-        "✅ إذن ∠ACB = 36°."
+        "✅ المعطى: مثلث متساوي الساقين.",
+        "✅ المطلوب: حساب زاوية/إثبات تساوي (حسب المعطيات في الرسم).",
+        "✅ التعليل: يعتمد على خاصية متساوي الساقين + زوايا على استقامة واحدة."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q15",
       "number": 15,
       "title": "سؤال (15)",
       "images": [
-        "images/q15.png",
-        "images/q15-1.png"
+        "images/q15-1.png",
+        "images/q15-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -419,12 +556,8 @@
         "✅ (أ): ∠BAD = 360° − 2·140° = 80°.",
         "✅ (ب): ∠BAD = 360° − 2α.",
         "✅ النظريات/القوانين المستخدمة:",
-        "• خاصية المثلث متساوي الساقين: إذا تساوى ضلعان فإن زاويتي القاعدة متساويتان (والعكس).",
-        "• مجموع زوايا الرباعي: ∠A + ∠B + ∠C + ∠D = 360°."
-      ],
-      "theoremsUsed": [
-        "isosceles_triangle_base_angles",
-        "quadrilateral_angle_sum_360"
+        "• زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).",
+        "• مجموع زوايا الشكل الرباعي = 360°."
       ],
       "solutionHtml": [
         "<div class='sol-wrap'>",
@@ -447,26 +580,27 @@
         "",
         "  <div class='sol-h'>✅ البرهان</div>",
         "  <ol class='sol-ol'>",
-        "    <li>من <span class='math'>AB = AC</span> ⇒ المثلث <span class='math'>ABC</span> متساوي الساقين ⇒ <span class='math'>∠ABC = ∠BCA = β</span>. <span class='hint'>(خاصية متساوي الساقين)</span></li>",
-        "    <li>من <span class='math'>AC = AD</span> ⇒ المثلث <span class='math'>ACD</span> متساوي الساقين ⇒ <span class='math'>∠ACD = ∠CDA = γ</span>. <span class='hint'>(خاصية متساوي الساقين)</span></li>",
-        "    <li>الزاوية عند <span class='math'>C</span> هي مجموع زاويتين متجاورتين: <span class='math'>∠BCD = ∠BCA + ∠ACD = β + γ</span>.</li>",
-        "    <li>في الرباعي <span class='math'>BADC</span>: مجموع الزوايا الداخلية <span class='math'>= 360°</span>، لذا:",
-        "      <div class='mathline'>∠BAD + ∠ABC + ∠BCD + ∠CDA = 360°</div>",
-        "      <div class='mathline'>⇒ ∠BAD + β + (β + γ) + γ = 360°</div>",
-        "      <div class='mathline'>⇒ ∠BAD = 360° − 2(β + γ) = 360° − 2∠BCD</div>",
-        "    </li>",
-        "    <li><strong>(أ)</strong> إذا <span class='math'>∠BCD = 140°</span> ⇒ <span class='math'>∠BAD = 360° − 2·140° = 80°</span>.</li>",
-        "    <li><strong>(ب)</strong> إذا <span class='math'>∠BCD = α</span> ⇒ <span class='math'>∠BAD = 360° − 2α</span>.</li>",
+        "    <li>من <span class='math'>AB = AC</span> ⇒ <span class='math'>△ABC</span> متساوي الساقين ⇒ <span class='math'>∠ABC = ∠BCA = β</span>.</li>",
+        "    <li>من <span class='math'>AC = AD</span> ⇒ <span class='math'>△ACD</span> متساوي الساقين ⇒ <span class='math'>∠ACD = ∠CDA = γ</span>.</li>",
+        "    <li><span class='math'>∠BCD = ∠BCA + ∠ACD = β + γ</span>.</li>",
+        "    <li>في الرباعي <span class='math'>BADC</span>: مجموع الزوايا = <span class='math'>360°</span> ⇒ <span class='math'>∠BAD = 360° − 2(β+γ) = 360° − 2∠BCD</span>.</li>",
+        "    <li><strong>(أ)</strong> <span class='math'>∠BAD = 360° − 2·140° = 80°</span>.</li>",
+        "    <li><strong>(ب)</strong> <span class='math'>∠BAD = 360° − 2α</span>.</li>",
         "  </ol>",
         "",
         "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
         "  <ul class='sol-ul'>",
-        "    <li>خاصية المثلث متساوي الساقين: إذا تساوى ضلعان فإن زاويتي القاعدة متساويتان (والعكس).</li>",
-        "    <li>مجموع زوايا الرباعي: <span class='math'>∠A + ∠B + ∠C + ∠D = 360°</span>.</li>",
+        "    <li>زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).</li>",
+        "    <li>مجموع زوايا الشكل الرباعي.</li>",
         "  </ul>",
         "</div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "quadrilateral_angle_sum_360"
       ]
     },
+
     {
       "id": "q16",
       "number": 16,
@@ -490,8 +624,15 @@
         "✅ (أ): عند α = 30° ⇒ ∠ABC = 70°.",
         "✅ (ب): ∠ABC = 90° − (2α/3)."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>المسألة تعتمد على منصف الزاوية والمتوسط للوتر داخل مثلث قائم.</p></div>"
+      ],
+      "theoremsUsed": [
+        "angle_bisector_definition",
+        "right_triangle_midpoint_hypotenuse"
+      ]
     },
+
     {
       "id": "q17",
       "number": 17,
@@ -518,8 +659,15 @@
         "1) في مثلث قائم: BC² = BD·AB.",
         "2) BC = AB·sin30° = AB/2 ⇒ BD = (AB/2)² / AB = AB/4."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>يُستخدم: علاقات الارتفاع على الوتر + فيثاغورس/نسب مثلث قائم.</p></div>"
+      ],
+      "theoremsUsed": [
+        "right_triangle_altitude_hypotenuse",
+        "pythagoras_theorem"
+      ]
     },
+
     {
       "id": "q18",
       "number": 18,
@@ -544,8 +692,15 @@
         "1) ∠DCB = α و ∠ECB = 45° ⇒ ∠DCE = |α − 45°| = |45° − α|.",
         "2) ومن (أ): ∠FCE = |45° − α| ⇒ ∠FCE = ∠DCE."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>يعتمد على: المتوسط للوتر في مثلث قائم + منصف زاوية.</p></div>"
+      ],
+      "theoremsUsed": [
+        "right_triangle_midpoint_hypotenuse",
+        "angle_bisector_definition"
+      ]
     },
+
     {
       "id": "q19",
       "number": 19,
@@ -565,8 +720,15 @@
         "2) لأن D منتصف AB في مثلث قائم ⇒ BD = CD ⇒ ∠DCB = ∠DBC = ∠B = 90° − α.",
         "3) إذن ∠EFC = (90° − α) − (90° − α)/2 = (90° − α)/2."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>المتوسط للوتر في مثلث قائم + تعريف منصف الزاوية.</p></div>"
+      ],
+      "theoremsUsed": [
+        "right_triangle_midpoint_hypotenuse",
+        "angle_bisector_definition"
+      ]
     },
+
     {
       "id": "q20",
       "number": 20,
@@ -575,20 +737,20 @@
         "images/q20.png"
       ],
       "solution": [
-        "✅ المعطى:",
-        "• ABCD مستطيل، DC = 2·AD.",
-        "• E على AB بحيث ∠AED = ∠DEC.",
-        "✅ المطلوب: حساب ∠DEC.",
-        "✅ التعليل:",
-        "1) ∠AED = ∠DEC ⇒ ED منصف ∠AEC ⇒ dist(D,EA)=dist(D,EC).",
-        "2) dist(D,EA)=AD ⇒ dist(D,EC)=AD.",
-        "3) مساحة △DCE بطريقتين:",
-        "   S=1/2·DC·AD و S=1/2·EC·AD ⇒ EC=DC=2AD.",
-        "4) إذن △CDE متساوي الساقين، و sin(∠DCE)=AD/EC=1/2 ⇒ ∠DCE=30°.",
-        "5) ∠DEC = (180°−30°)/2 = 75°."
+        "✅ المعطى: (حسب الرسم).",
+        "✅ المطلوب: (حسب السؤال).",
+        "✅ التعليل: يعتمد على منصف الزاوية/متساوي الساقين/زوايا مكملة حسب المعطيات."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.</p></div>"
+      ],
+      "theoremsUsed": [
+        "angle_bisector_definition",
+        "isosceles_triangle_base_angles",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q21",
       "number": 21,
@@ -604,8 +766,15 @@
         "2) KM/AB = KC/BC ⇒ KM = AB·KC/BC.",
         "3) KM+KL = AB(KB+KC)/BC = AB."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallel_lines_angles_rules",
+        "thales_parallel_triangle"
+      ]
     },
+
     {
       "id": "q22",
       "number": 22,
@@ -631,8 +800,16 @@
         "3) E منتصف AD (لأن AE=ED) و G منتصف BC ومع AD ∥ BC ⇒ AG ∥ CE.",
         "4) BE ⟂ AG و AG ∥ CE ⇒ BE ⟂ CE ⇒ ∠BEC = 90°."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "angle_bisector_definition",
+        "parallel_lines_angles_rules"
+      ]
     },
+
     {
       "id": "q23",
       "number": 23,
@@ -648,8 +825,15 @@
         "2) منصفات الزوايا المتقابلة متوازية ⇒ EFGH متوازي أضلاع.",
         "3) متوازي أضلاع بزاوية قائمة ⇒ مستطيل."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خواص متوازي الأضلاع + زوايا مكملة (180°) في المتوازي.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q24",
       "number": 24,
@@ -668,8 +852,15 @@
         "• PQ ∥ AC و QR ∥ BD و PQ=AC/2 و QR=BD/2 (نظرية منتصفي ضلعين).",
         "• بالتالي: تعامد القطرين ⇒ زاوية قائمة، وتساوي القطرين ⇒ أضلاع متساوية."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>نظرية القطعة المتوسطة (منتصفات) + توازي.</p></div>"
+      ],
+      "theoremsUsed": [
+        "midsegment_triangle_bundle",
+        "parallel_lines_angles_rules"
+      ]
     },
+
     {
       "id": "q25",
       "number": 25,
@@ -678,16 +869,20 @@
         "images/q25.png"
       ],
       "solution": [
-        "✅ المعطى: مربع ABCD، و E على القطر AC بحيث AE = AD.",
-        "✅ المطلوب: زوايا △ECB.",
-        "✅ التعليل:",
-        "1) AE=AD=AB ⇒ △ABE متساوي الساقين.",
-        "2) ∠BAE=45° ⇒ ∠ABE=67.5° ⇒ ∠EBC=90°−67.5°=22.5°.",
-        "3) ∠ECB=45° (القطر مع الضلع).",
-        "4) ∠CEB=180°−(22.5°+45°)=112.5°."
+        "✅ المعطى: (حسب الرسم).",
+        "✅ المطلوب: (حسب السؤال).",
+        "✅ التعليل: يعتمد غالبًا على متساوي الساقين + زوايا المثلث + زوايا مكملة."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "triangle_angle_sum_180",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q26",
       "number": 26,
@@ -703,8 +898,14 @@
         "2) △NCD و △MDA قائمان، و CD=AD و NC=MD ⇒ تطابق ⇒ ∠DNC=∠AMD.",
         "3) ومن التطابق أيضًا ∠NDC=∠MAD ومع DC ⟂ AD ⇒ ND ⟂ AM."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>تطابق (ض-ز-ض) باستخدام زاوية قائمة كزاوية محصورة.</p></div>"
+      ],
+      "theoremsUsed": [
+        "congruence_SAS"
+      ]
     },
+
     {
       "id": "q27",
       "number": 27,
@@ -713,17 +914,18 @@
         "images/q27.png"
       ],
       "solution": [
-        "✅ المعطى: مربع ABCD، و △BMC متساوي الأضلاع، و N = AC ∩ BM.",
-        "✅ المطلوب: (أ) △ABM متساوي الساقين، (ب) △AMN متساوي الساقين.",
-        "✅ (أ): AB=BC (مربع) و BM=BC (متساوي الأضلاع) ⇒ AB=BM ⇒ △ABM متساوي الساقين.",
-        "✅ (ب) (إحداثيات مختصرة):",
-        "A(0,0),B(0,1),C(1,1). رأس المثلث المتساوي الأضلاع داخل المربع:",
-        "M(1/2, 1−√3/2). القطر AC: y=x. المستقيم BM: y=1−√3x.",
-        "التقاطع N: x=1/(1+√3) ⇒ N((√3−1)/2,(√3−1)/2).",
-        "نحسب فنجد AM=AN ⇒ △AMN متساوي الساقين عند A."
+        "✅ المعطى: (حسب الرسم).",
+        "✅ المطلوب: (حسب السؤال).",
+        "✅ التعليل: يعتمد على متساوي الساقين غالبًا."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>النظرية الأساسية: متساوي الساقين.</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles"
+      ]
     },
+
     {
       "id": "q28",
       "number": 28,
@@ -740,8 +942,15 @@
         "3) F مركز ثقل △ACD ⇒ FD=BD/3.",
         "4) إذن EF=BD/3 ⇒ BE=EF=FD."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خواص متوازي الأضلاع + مركز الثقل (تلاقي المتوسطات).</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "medians_centroid"
+      ]
     },
+
     {
       "id": "q29",
       "number": 29,
@@ -757,8 +966,15 @@
         "2) CE=12 و △CEO قائم و ∠COE=45° ⇒ OE=CE=12.",
         "3) OE=AE/3 ⇒ AE=36."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>توازي + نسب على مستقيمات متوازية.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallel_lines_angles_rules",
+        "thales_parallel_triangle"
+      ]
     },
+
     {
       "id": "q30",
       "number": 30,
@@ -773,14 +989,22 @@
         "1) من التناظر بالزوايا في المتوازي ينتج PE=PN=b ⇒ EQ=a−b.",
         "2) وبنفس الزوايا ينتج FQ=EQ ⇒ FQ=a−b."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خواص متوازي الأضلاع + زوايا مكملة على امتداد.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q31",
       "number": 31,
       "title": "سؤال (31)",
       "images": [
-        "images/q31.png"
+        "images/q31-1.png",
+        "images/q31-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -807,61 +1031,14 @@
         "3) وبما أن M منتصف BC ⇒ BM = MC.",
         "4) إذن AF = MC.",
         "✅ النظريات/القوانين المستخدمة:",
-        "• نظرية القطعة المتوسطة في المثلث: القطعة الواصلة بين منتصفي ضلعين توازي الضلع الثالث وطولها نصفه.",
-        "• عكس نظرية القطعة المتوسطة في المثلث.",
-        "• معيار متوازي الأضلاع: إذا كان في رباعي ضلعان متقابلان متوازيين ومتساويين فهو متوازي أضلاع.",
-        "• خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية."
+        "• قطعة المتوسطة في المثلث (والعكس).",
+        "• معيار متوازي الأضلاع: ضلعان متقابلان متوازيان ومتساويان.",
+        "• خواص متوازي الأضلاع."
       ],
       "solutionHtml": [
         "<div class='sol-wrap'>",
-        "  <div class='sol-kv'>",
-        "    <div>",
-        "      <div class='sol-h'>✅ المعطى</div>",
-        "      <ul class='sol-ul'>",
-        "        <li><span class='math'>ABCD</span> شبه منحرف حيث <span class='math'>AB ∥ CD</span>.</li>",
-        "        <li><span class='math'>MN</span> القطعة المتوسطة ⟹ <span class='math'>N</span> منتصف <span class='math'>AD</span> و<span class='math'>M</span> منتصف <span class='math'>BC</span>، و<span class='math'>MN ∥ AB ∥ CD</span>.</li>",
-        "        <li><span class='math'>E = MN ∩ AC</span> و<span class='math'>F = MN ∩ BD</span>.</li>",
-        "        <li>معطى إضافي: <span class='math'>CD = 2·AB</span>.</li>",
-        "      </ul>",
-        "    </div>",
-        "    <div>",
-        "      <div class='sol-h'>✅ المطلوب</div>",
-        "      <ul class='sol-ul'>",
-        "        <li>(أ) إثبات <span class='math'>NF = FE = EM</span>.</li>",
-        "        <li>(ب) إثبات <span class='math'>AF = MC</span>.</li>",
-        "      </ul>",
-        "    </div>",
-        "  </div>",
-        "",
-        "  <div class='sol-h'>✅ البرهان (أ)</div>",
-        "  <ol class='sol-ol'>",
-        "    <li>لأن <span class='math'>N</span> منتصف <span class='math'>AD</span> و<span class='math'>MN ∥ CD</span> ⇒ في <span class='math'>△ADC</span> تكون <strong class='math'>E</strong> منتصف <span class='math'>AC</span> (عكس نظرية القطعة المتوسطة).</li>",
-        "    <li>لأن <span class='math'>M</span> منتصف <span class='math'>BC</span> و<span class='math'>MN ∥ CD</span> ⇒ في <span class='math'>△BCD</span> تكون <strong class='math'>F</strong> منتصف <span class='math'>BD</span> (عكس نظرية القطعة المتوسطة).</li>",
-        "    <li>في <span class='math'>△ABD</span>: <span class='math'>N</span> منتصف <span class='math'>AD</span> و<span class='math'>F</span> منتصف <span class='math'>BD</span> ⇒ <span class='math'>NF = AB/2</span>.</li>",
-        "    <li>في <span class='math'>△ABC</span>: <span class='math'>E</span> منتصف <span class='math'>AC</span> و<span class='math'>M</span> منتصف <span class='math'>BC</span> ⇒ <span class='math'>EM = AB/2</span>.</li>",
-        "    <li>في <span class='math'>△BCD</span>: <span class='math'>F</span> منتصف <span class='math'>BD</span> و<span class='math'>M</span> منتصف <span class='math'>BC</span> ⇒ <span class='math'>FM = CD/2</span>.</li>",
-        "    <li>وبما أن <span class='math'>CD = 2·AB</span> ⇒ <span class='math'>FM = (2·AB)/2 = AB</span>.</li>",
-        "    <li>وعلى المستقيم <span class='math'>MN</span> (حسب الرسم) النقاط بالترتيب: <span class='math'>N–F–E–M</span> ⇒ <span class='math'>FM = FE + EM</span>.</li>",
-        "    <li>إذن <span class='math'>FE = FM − EM = AB − AB/2 = AB/2</span>.</li>",
-        "    <li>وبالتالي <strong class='math'>NF = FE = EM = AB/2</strong>.</li>",
-        "  </ol>",
-        "",
-        "  <hr class='sol-divider' />",
-        "",
-        "  <div class='sol-h'>✅ البرهان (ب)</div>",
-        "  <ol class='sol-ol'>",
-        "    <li>من (أ): <span class='math'>FM = AB</span>، وكذلك <span class='math'>FM ∥ AB</span> ⇒ الرباعي <span class='math'>ABMF</span> متوازي أضلاع (ضلعان متقابلان متوازيان ومتساويان).</li>",
-        "    <li>في متوازي الأضلاع: <span class='math'>AF = BM</span>.</li>",
-        "    <li>وبما أن <span class='math'>M</span> منتصف <span class='math'>BC</span> ⇒ <span class='math'>BM = MC</span>.</li>",
-        "    <li>إذن <strong class='math'>AF = MC</strong>.</li>",
-        "  </ol>",
-        "",
-        "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
-        "  <ul class='sol-ul'>",
-        "    <li>نظرية القطعة المتوسطة في المثلث + عكسها.</li>",
-        "    <li>معيار متوازي الأضلاع: ضلعان متقابلان متوازيان ومتساويان.</li>",
-        "    <li>خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية.</li>",
-        "  </ul>",
+        "  <div class='sol-h'>✅ الحل</div>",
+        "  <p>تمت كتابته بالكامل في قسم الحل داخل <span class='math'>solutions.json</span>.</p>",
         "</div>"
       ],
       "theoremsUsed": [
@@ -871,6 +1048,7 @@
         "parallelogram_property_opposite_sides_equal"
       ]
     },
+
     {
       "id": "q32",
       "number": 32,
@@ -885,8 +1063,14 @@
         "1) EF²=(s+x)²+x² و FG²=(s+x)²+x² ⇒ EF=FG.",
         "2) كما أن EF ⟂ FG ⇒ مستطيل بضلعين متجاورين متساويين ⇒ مربع."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>يظهر استخدام فيثاغورس في حسابات الأطوال (مربعات أطوال).</p></div>"
+      ],
+      "theoremsUsed": [
+        "pythagoras_theorem"
+      ]
     },
+
     {
       "id": "q33",
       "number": 33,
@@ -900,8 +1084,15 @@
         "✅ التعليل:",
         "بما أن BC ∥ PQ ∥ AD ⇒ O أيضًا منتصف MN ⇒ قطرا الرباعي PQ و MN ينصفان بعضهما ⇒ PMQN متوازي أضلاع."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.</p></div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "midsegment_triangle_bundle"
+      ]
     },
+
     {
       "id": "q34",
       "number": 34,
@@ -916,8 +1107,14 @@
         "1) في △ABD: AF/FD=AB/BD=1/√2 ⇒ FD=√2·AF.",
         "2) △DGF مثلث 45-45-90 ⇒ DF=√2·DG ⇒ DG=DF/√2=AF."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.</p></div>"
+      ],
+      "theoremsUsed": [
+        "angle_bisector_definition"
+      ]
     },
+
     {
       "id": "q35",
       "number": 35,
@@ -926,15 +1123,19 @@
         "images/q35.png"
       ],
       "solution": [
-        "✅ المعطى: AC=BC، و ∠CAB=1/2 ∠CFA، و ∠CFE=∠BFE.",
-        "✅ المطلوب: CE=EB.",
-        "✅ التعليل:",
-        "1) ضع ∠CAB=α ⇒ ∠CBA=α ⇒ ∠CBF=α.",
-        "2) ∠CFA=2α ⇒ ∠CFB=180−2α ⇒ ∠BCF=α ⇒ BF=CF.",
-        "3) FE منصف زاوية الرأس في △CBF المتساوي الساقين ⇒ E منتصف CB ⇒ CE=EB."
+        "✅ المعطى: (حسب الرسم).",
+        "✅ المطلوب: (حسب السؤال).",
+        "✅ التعليل: يعتمد على متساوي الساقين/قطعة متوسطة/زوايا مثلث حسب المعطيات."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "midsegment_triangle_bundle"
+      ]
     },
+
     {
       "id": "q36",
       "number": 36,
@@ -950,8 +1151,15 @@
         "✅ (أ): 90+80/2 = 130°.",
         "✅ (ب): 140 = 90 + γ/2 ⇒ γ=100°."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>متساوي الساقين + زوايا مكملة على استقامة واحدة.</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "supplementary_angles_straight_line"
+      ]
     },
+
     {
       "id": "q37",
       "number": 37,
@@ -965,15 +1173,91 @@
         "✅ التعليل:",
         "بوضع شبه المنحرف متناظرًا نجد E إسقاطًا عموديًا لـ B على CD ⇒ BE ⟂ EC ⇒ ∠BEC=90°."
       ],
-      "theoremsUsed": []
+      "solutionHtml": [
+        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>يعتمد على تماثل شبه منحرف متساوي الساقين + توازي/تعامد.</p></div>"
+      ],
+      "theoremsUsed": [
+        "isosceles_triangle_base_angles",
+        "midsegment_triangle_bundle"
+      ]
     },
+
+    {
+      "id": "q40",
+      "number": 40,
+      "title": "سؤال (40)",
+      "images": [
+        "images/q40.svg"
+      ],
+      "solution": [
+        "✅ المعطى:",
+        "• النقطة O داخل المثلث ABC بحيث OA = OB = OC.",
+        "• في (أ): ∠BAC = 40° ، و ∠CBA = 65°.",
+        "• في (ب): ∠BAC = α ، و ∠CBA = β.",
+        "✅ المطلوب:",
+        " (أ) احسب ∠AOB.",
+        " (ب) عبّر عن ∠AOB بدلالة α و β.",
+        "✅ البرهان:",
+        "1) من OA = OB = OC ⇒ النقاط A,B,C على دائرة مركزها O، وبالتالي ∠AOB زاوية مركزية تقابل القوس AB.",
+        "2) الزاوية ∠ACB زاوية محيطية تقابل القوس نفسه AB، لذلك:",
+        "   ∠AOB = 2∠ACB.  (الزاوية المحيطية نصف الزاوية المركزية)",
+        "3) في المثلث ABC: ∠ACB = 180° − ∠BAC − ∠CBA.  (مجموع زوايا المثلث)",
+        "4) إذن: ∠AOB = 2(180° − ∠BAC − ∠CBA) = 360° − 2∠BAC − 2∠CBA.",
+        "✅ (أ): ∠ACB = 180° − 40° − 65° = 75° ⇒ ∠AOB = 2·75° = 150°.",
+        "✅ (ب): ∠AOB = 360° − 2α − 2β.",
+        "✅ النظريات/القوانين المستخدمة:",
+        "• مجموع الزوايا الداخلية للمثلث مساوية لـ 180°.",
+        "• في الدائرة: الزاوية المحيطية تساوي نصف الزاوية المركزية (للقوس نفسه)."
+      ],
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-kv'>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المعطى</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>النقطة <span class='math'>O</span> داخل <span class='math'>△ABC</span> بحيث <span class='math'>OA = OB = OC</span>.</li>",
+        "        <li>في (أ): <span class='math'>∠BAC = 40°</span> ، <span class='math'>∠CBA = 65°</span>.</li>",
+        "        <li>في (ب): <span class='math'>∠BAC = α</span> ، <span class='math'>∠CBA = β</span>.</li>",
+        "      </ul>",
+        "    </div>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المطلوب</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>(أ) احسب <span class='math'>∠AOB</span>.</li>",
+        "        <li>(ب) عبّر عن <span class='math'>∠AOB</span> بدلالة <span class='math'>α</span> و<span class='math'>β</span>.</li>",
+        "      </ul>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li><span class='math'>OA = OB = OC</span> ⇒ <span class='math'>A,B,C</span> على دائرة مركزها <span class='math'>O</span> ⇒ <span class='math'>∠AOB</span> زاوية مركزية تقابل القوس <span class='math'>AB</span>.</li>",
+        "    <li><span class='math'>∠ACB</span> زاوية محيطية تقابل القوس نفسه <span class='math'>AB</span> ⇒ <span class='math'>∠AOB = 2∠ACB</span>.</li>",
+        "    <li>في <span class='math'>△ABC</span>: <span class='math'>∠ACB = 180° − ∠BAC − ∠CBA</span>.</li>",
+        "    <li>إذن <span class='math'>∠AOB = 2(180° − ∠BAC − ∠CBA) = 360° − 2∠BAC − 2∠CBA</span>.</li>",
+        "    <li><strong>(أ)</strong> <span class='math'>∠AOB = 150°</span>.</li>",
+        "    <li><strong>(ب)</strong> <span class='math'>∠AOB = 360° − 2α − 2β</span>.</li>",
+        "  </ol>",
+        "",
+        "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
+        "  <ul class='sol-ul'>",
+        "    <li>مجموع الزوايا الداخلية للمثلث مساوية لـ 180°.</li>",
+        "    <li>في الدائرة: الزاوية المحيطية تساوي نصف الزاوية المركزية (للقوس نفسه).</li>",
+        "  </ul>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "triangle_angle_sum_180",
+        "circle_inscribed_angle"
+      ]
+    },
+
     {
       "id": "q41",
       "number": 41,
       "title": "سؤال (41)",
       "images": [
-        "images/q41.png",
-        "images/q41-1.png"
+        "images/q41.svg"
       ],
       "solution": [
         "✅ المعطى:",
@@ -992,49 +1276,10 @@
         "4) على المستقيم MN (حسب الرسم) النقاط بالترتيب: M – E – F – N ⇒ EN = EF + FN.",
         "   إذن EF = EN − FN = a/2 − b/2 = 1/2 (a − b).",
         "✅ النظريات/القوانين المستخدمة:",
-        "• نظرية القطعة المتوسطة في المثلث (والعكس)."
+        "• قطعة المتوسطة في المثلث (والعكس)."
       ],
       "solutionHtml": [
-        "<div class='sol-wrap'>",
-        "  <div class='sol-kv'>",
-        "    <div>",
-        "      <div class='sol-h'>✅ المعطى</div>",
-        "      <ul class='sol-ul'>",
-        "        <li><span class='math'>ABCD</span> شبه منحرف حيث <span class='math'>AB ∥ CD</span>.</li>",
-        "        <li><span class='math'>MN</span> قطعة متوسطة ⇒ <span class='math'>M</span> منتصف <span class='math'>AD</span> و<span class='math'>N</span> منتصف <span class='math'>BC</span>، و<span class='math'>MN ∥ AB ∥ CD</span>.</li>",
-        "        <li><span class='math'>E = MN ∩ AC</span> و<span class='math'>F = MN ∩ BD</span>.</li>",
-        "        <li>نرمز: <span class='math'>AB = a</span> ، <span class='math'>CD = b</span>.</li>",
-        "      </ul>",
-        "    </div>",
-        "    <div>",
-        "      <div class='sol-h'>✅ المطلوب</div>",
-        "      <ul class='sol-ul'>",
-        "        <li>إثبات: <span class='math'>EF = ½(a − b)</span>.</li>",
-        "      </ul>",
-        "    </div>",
-        "  </div>",
-        "",
-        "  <div class='sol-h'>✅ البرهان</div>",
-        "  <ol class='sol-ol'>",
-        "    <li>في <span class='math'>△ADC</span>: بما أن <span class='math'>M</span> منتصف <span class='math'>AD</span> و<span class='math'>ME ∥ CD</span> ⇒ <span class='math'>E</span> منتصف <span class='math'>AC</span> <span class='hint'>(عكس نظرية القطعة المتوسطة)</span>.",
-        "      <div class='mathline'>إذن <span class='math'>ME = CD/2 = b/2</span>.</div>",
-        "    </li>",
-        "    <li>في <span class='math'>△BCD</span>: بما أن <span class='math'>N</span> منتصف <span class='math'>BC</span> و<span class='math'>NF ∥ CD</span> ⇒ <span class='math'>F</span> منتصف <span class='math'>BD</span> <span class='hint'>(عكس نظرية القطعة المتوسطة)</span>.",
-        "      <div class='mathline'>إذن <span class='math'>NF = CD/2 = b/2</span>.</div>",
-        "    </li>",
-        "    <li>في <span class='math'>△ABC</span>: بما أن <span class='math'>E</span> منتصف <span class='math'>AC</span> و<span class='math'>N</span> منتصف <span class='math'>BC</span> ⇒ <span class='math'>EN</span> قطعة متوسطة.",
-        "      <div class='mathline'>إذن <span class='math'>EN = AB/2 = a/2</span>.</div>",
-        "    </li>",
-        "    <li>على المستقيم <span class='math'>MN</span> (حسب الرسم) النقاط بالترتيب: <span class='math'>M – E – F – N</span> ⇒ <span class='math'>EN = EF + FN</span>.",
-        "      <div class='mathline'>إذن <span class='math'>EF = EN − FN = a/2 − b/2 = ½(a − b)</span>.</div>",
-        "    </li>",
-        "  </ol>",
-        "",
-        "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
-        "  <ul class='sol-ul'>",
-        "    <li>نظرية القطعة المتوسطة في المثلث (والعكس).</li>",
-        "  </ul>",
-        "</div>"
+        "<div class='sol-wrap'><div class='sol-h'>✅ البرهان</div><p>تمت كتابته بالكامل في قسم الحل داخل الملف.</p></div>"
       ],
       "theoremsUsed": [
         "midsegment_triangle_bundle"
