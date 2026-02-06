@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": 5,
+    "version": 6,
     "generatedAt": "2026-02-06",
     "rtl": true
   },
@@ -20,9 +20,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزوايا المتجاورة تكمل 180'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='40' y1='160' x2='300' y2='160'/><line class='l' x1='170' y1='160' x2='170' y2='70'/><circle cx='170' cy='160' r='4' fill='#1d4ed8'/><text class='p' x='178' y='165'>O</text><path class='a' d='M170 145 A24 24 0 0 0 146 160'/><path class='a' d='M170 145 A24 24 0 0 1 194 160'/><text class='p' x='20' y='30'>∠1 + ∠2 = 180°</text></svg>"
       },
-      "tags": ["زوايا", "180", "استقامة"]
+      "tags": [
+        "زوايا",
+        "180",
+        "استقامة"
+      ]
     },
-
     {
       "id": "vertical_angles_equal",
       "title": "الزوايا المتقابلة بالرأس متساوية",
@@ -38,9 +41,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='زوايا متقابلة بالرأس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='60' y1='60' x2='300' y2='200'/><line class='l' x1='300' y1='60' x2='60' y2='200'/><circle cx='180' cy='130' r='4' fill='#1d4ed8'/><text class='p' x='188' y='135'>O</text><path class='a' d='M190 118 A25 25 0 0 1 210 138'/><path class='a' d='M170 142 A25 25 0 0 1 150 122'/><text class='p' x='20' y='30'>∠1 = ∠2</text></svg>"
       },
-      "tags": ["زوايا", "تقاطع", "متقابلة بالرأس"]
+      "tags": [
+        "زوايا",
+        "تقاطع",
+        "متقابلة بالرأس"
+      ]
     },
-
     {
       "id": "isosceles_triangle_base_angles",
       "title": "زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس)",
@@ -59,9 +65,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متساوي الساقين'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='k' x1='120' y1='125' x2='132' y2='113'/><line class='k' x1='208' y1='113' x2='220' y2='125'/><path class='a' d='M85 175 A28 28 0 0 0 112 155'/><path class='a' d='M228 155 A28 28 0 0 0 255 175'/><text class='p' x='105' y='150'>∠B = ∠C</text></svg>"
       },
-      "tags": ["مثلث", "متساوي الساقين", "زوايا القاعدة"]
+      "tags": [
+        "مثلث",
+        "متساوي الساقين",
+        "زوايا القاعدة"
+      ]
     },
-
     {
       "id": "triangle_inequality",
       "title": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
@@ -81,9 +90,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متباينة المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><text class='p' x='20' y='30'>AB + AC > BC</text></svg>"
       },
-      "tags": ["مثلث", "متباينة", "أطوال"]
+      "tags": [
+        "مثلث",
+        "متباينة",
+        "أطوال"
+      ]
     },
-
     {
       "id": "triangle_angle_sum_180",
       "title": "مجموع الزوايا الداخلية للمثلث مساوية لـ 180°",
@@ -99,9 +111,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مجموع زوايا المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><text class='p' x='162' y='30'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><path class='a' d='M158 60 A28 28 0 0 1 182 60'/><path class='a' d='M85 175 A26 26 0 0 0 105 160'/><path class='a' d='M255 160 A26 26 0 0 0 275 175'/><text class='p' x='85' y='130'>∠A+∠B+∠C=180°</text></svg>"
       },
-      "tags": ["مثلث", "زوايا", "180"]
+      "tags": [
+        "مثلث",
+        "زوايا",
+        "180"
+      ]
     },
-
     {
       "id": "triangle_exterior_angle",
       "title": "الزاوية الخارجية في المثلث",
@@ -117,9 +132,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزاوية الخارجية'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.x{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 55 L260 190 Z'/><line class='l' x1='260' y1='190' x2='310' y2='190'/><text class='p' x='162' y='40'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='268' y='210'>C</text><path class='x' d='M255 175 A25 25 0 0 0 280 160'/><text class='p' x='85' y='130'>∠الخارجية = ∠A + ∠B</text></svg>"
       },
-      "tags": ["مثلث", "زاوية خارجية"]
+      "tags": [
+        "مثلث",
+        "زاوية خارجية"
+      ]
     },
-
     {
       "id": "midsegment_triangle_bundle",
       "title": "قطعة المتوسطة في المثلث (والعكس)",
@@ -138,9 +155,13 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='قطعة متوسطة'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.m{stroke:#0ea5e9;stroke-width:4;stroke-linecap:round}.pt{fill:#0ea5e9}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><text class='p' x='162' y='30'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><circle class='pt' cx='120' cy='118' r='4'/><text class='p' x='102' y='113'>D</text><circle class='pt' cx='230' cy='118' r='4'/><text class='p' x='236' y='113'>E</text><line class='m' x1='120' y1='118' x2='230' y2='118'/><text class='p' x='130' y='150'>DE ∥ BC</text><text class='p' x='125' y='170'>DE = ½ BC</text></svg>"
       },
-      "tags": ["مثلث", "قطعة متوسطة", "منتصف", "توازي"]
+      "tags": [
+        "مثلث",
+        "قطعة متوسطة",
+        "منتصف",
+        "توازي"
+      ]
     },
-
     {
       "id": "congruence_SAS",
       "title": "تطابق مثلثين (ض-ز-ض)",
@@ -154,9 +175,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ض-ز-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><line class='k' x1='90' y1='150' x2='102' y2='138'/><line class='k' x1='260' y1='160' x2='272' y2='148'/><text class='p' x='20' y='30'>ض-ز-ض</text></svg>"
       },
-      "tags": ["تطابق", "مثلث", "ض-ز-ض"]
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ض-ز-ض"
+      ]
     },
-
     {
       "id": "congruence_ASA",
       "title": "تطابق مثلثين (ز-ض-ز)",
@@ -170,9 +194,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ز-ض-ز'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><path class='a' d='M78 175 A18 18 0 0 0 95 160'/><path class='a' d='M205 160 A18 18 0 0 0 222 175'/><text class='p' x='20' y='30'>ز-ض-ز</text></svg>"
       },
-      "tags": ["تطابق", "مثلث", "ز-ض-ز"]
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ز-ض-ز"
+      ]
     },
-
     {
       "id": "congruence_SSS",
       "title": "تطابق مثلثين (ض-ض-ض)",
@@ -186,9 +213,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ض-ض-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><line class='k' x1='110' y1='120' x2='120' y2='110'/><line class='k' x1='270' y1='140' x2='280' y2='130'/><text class='p' x='20' y='30'>ض-ض-ض</text></svg>"
       },
-      "tags": ["تطابق", "مثلث", "ض-ض-ض"]
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ض-ض-ض"
+      ]
     },
-
     {
       "id": "congruence_RHS",
       "title": "تطابق مثلثين قائمين (وتر وضلع)",
@@ -202,27 +232,50 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='وتر وضلع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M80 190 L80 80 L230 190 Z'/><path class='r' d='M80 178 L95 178 L95 190'/><text class='p' x='20' y='30'>وتر + ضلع قائم</text></svg>"
       },
-      "tags": ["تطابق", "مثلث قائم", "وتر وضلع"]
+      "tags": [
+        "تطابق",
+        "مثلث قائم",
+        "وتر وضلع"
+      ]
     },
-
     {
       "id": "parallel_lines_angles_rules",
       "title": "زوايا القاطع مع مستقيمين متوازيين (والعكس)",
-      "short": "المتناظرة والمتبادلة الداخلية متساوية، والداخلية على نفس الجهة مجموعها 180° + عكسها لإثبات التوازي.",
+      "short": "عند توازي مستقيمين وقطع قاطع: المتناظرة والمتبادلة الداخلية والخارجية متساوية، والمتحالفة مجموعها 180°. وبالعكس يمكن إثبات التوازي.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>نتائج عند توازي مستقيمين</div>",
-        "<ul><li>الزوايا المتناظرة متساوية.</li><li>الزوايا المتبادلة الداخلية متساوية.</li><li>الزوايا الداخلية على نفس الجهة مجموعها 180°.</li></ul>",
-        "<div class='th-title'>عكس النتائج (لإثبات التوازي)</div>",
-        "<ul><li>إذا تساوت زاويتان متناظرتان ⇒ المستقيمان متوازيان.</li><li>إذا تساوت زاويتان متبادلتان داخليًا ⇒ المستقيمان متوازيان.</li><li>إذا كان مجموع زاويتين على نفس الجهة = 180° ⇒ المستقيمان متوازيان.</li></ul>",
+        "<div class='th-title'>عند توازي مستقيمين وقاطع</div>",
+        "<ul>",
+        "<li><strong>زوايا متناظرة</strong> ⟹ متطابقتان (متساويتان).</li>",
+        "<li><strong>زوايا متبادلة داخليًا</strong> ⟹ متطابقتان.</li>",
+        "<li><strong>زوايا متبادلة خارجيًا</strong> ⟹ متطابقتان.</li>",
+        "<li><strong>زوايا متحالفة داخليًا</strong> ⟹ متكاملتان (مجموعهما <span class='math'>180°</span>).</li>",
+        "<li><strong>زوايا متحالفة خارجيًا</strong> ⟹ متكاملتان (مجموعهما <span class='math'>180°</span>).</li>",
+        "</ul>",
+        "<div class='th-title'>العكس (لإثبات التوازي)</div>",
+        "<ul>",
+        "<li>إذا تساوت زاويتان <strong>متناظرتان</strong> ⇒ المستقيمان متوازيان.</li>",
+        "<li>إذا تساوت زاويتان <strong>متبادلتان داخليًا</strong> ⇒ المستقيمان متوازيان.</li>",
+        "<li>إذا كان مجموع زاويتين <strong>على نفس جهة القاطع</strong> = <span class='math'>180°</span> ⇒ المستقيمان متوازيان.</li>",
+        "</ul>",
+        "<div class='th-title'>توضيح بالصور</div>",
+        "<div class='th-diagram'>",
+        "  <img src='images/theorems/parallel-angles-types.png' alt='أنواع الزوايا والعلاقات بين القياسات في حال التوازي' />",
+        "</div>",
+        "<div class='th-diagram'>",
+        "  <img src='images/theorems/parallel-angles-example.png' alt='مثال عددي (70° و110°) مع مستقيمين متوازيين وقاطع' />",
+        "</div>",
         "</div>"
       ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='قاطع ومتوازيان'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}</style><line class='l' x1='50' y1='70' x2='300' y2='70'/><line class='l' x1='50' y1='170' x2='300' y2='170'/><line class='l' x1='110' y1='20' x2='240' y2='220'/><text class='p' x='20' y='74'>l₁</text><text class='p' x='20' y='174'>l₂</text><text class='p' x='20' y='30'>l₁ ∥ l₂</text></svg>"
-      },
-      "tags": ["توازي", "قاطع", "زوايا"]
+      "diagram": {},
+      "tags": [
+        "توازي",
+        "قاطع",
+        "زوايا متناظرة",
+        "زوايا متبادلة",
+        "زوايا متحالفة"
+      ]
     },
-
     {
       "id": "parallelogram_property_opposite_sides_equal",
       "title": "خواص متوازي الأضلاع",
@@ -236,9 +289,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='خواص متوازي الأضلاع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round}</style><path class='l' d='M85 60 L245 60 L300 170 L140 170 Z'/><line class='d' x1='85' y1='60' x2='300' y2='170'/><line class='d' x1='245' y1='60' x2='140' y2='170'/><text class='p' x='20' y='212'>AB=CD ، AD=BC</text></svg>"
       },
-      "tags": ["متوازي الأضلاع", "خواص"]
+      "tags": [
+        "متوازي الأضلاع",
+        "خواص"
+      ]
     },
-
     {
       "id": "parallelogram_test_opposite_parallel_equal",
       "title": "معيار متوازي الأضلاع (ضلعان متقابلان متوازيان ومتساويان)",
@@ -254,9 +309,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='معيار متوازي الأضلاع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M85 60 L245 60 L300 170 L140 170 Z'/><line class='k' x1='140' y1='50' x2='155' y2='50'/><line class='k' x1='170' y1='50' x2='185' y2='50'/><line class='k' x1='190' y1='180' x2='205' y2='180'/><line class='k' x1='220' y1='180' x2='235' y2='180'/><text class='p' x='20' y='212'>AB ∥ CD و AB=CD</text></svg>"
       },
-      "tags": ["متوازي الأضلاع", "معيار"]
+      "tags": [
+        "متوازي الأضلاع",
+        "معيار"
+      ]
     },
-
     {
       "id": "quadrilateral_angle_sum_360",
       "title": "مجموع زوايا الشكل الرباعي",
@@ -272,9 +329,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مجموع زوايا رباعي'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M90 70 L240 50 L290 160 L130 180 Z'/><path class='a' d='M95 80 A22 22 0 0 1 122 70'/><path class='a' d='M232 60 A22 22 0 0 1 255 80'/><path class='a' d='M275 150 A22 22 0 0 1 260 170'/><path class='a' d='M140 170 A22 22 0 0 1 120 155'/><text class='p' x='30' y='220'>= 360°</text></svg>"
       },
-      "tags": ["رباعي", "زوايا", "360"]
+      "tags": [
+        "رباعي",
+        "زوايا",
+        "360"
+      ]
     },
-
     {
       "id": "pythagoras_theorem",
       "title": "نظرية فيثاغورس",
@@ -290,9 +350,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='فيثاغورس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M80 180 L80 70 L250 180 Z'/><path class='r' d='M80 168 L95 168 L95 180'/><text class='p' x='95' y='35'>a² + b² = c²</text></svg>"
       },
-      "tags": ["فيثاغورس", "مثلث قائم"]
+      "tags": [
+        "فيثاغورس",
+        "مثلث قائم"
+      ]
     },
-
     {
       "id": "pythagoras_converse",
       "title": "نظرية فيثاغورس العكسية",
@@ -306,9 +368,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='عكس فيثاغورس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M80 180 L80 70 L250 180 Z'/><text class='p' x='20' y='30'>a² + b² = c² ⇒ قائم</text></svg>"
       },
-      "tags": ["فيثاغورس", "عكس", "مثلث قائم"]
+      "tags": [
+        "فيثاغورس",
+        "عكس",
+        "مثلث قائم"
+      ]
     },
-
     {
       "id": "right_triangle_midpoint_hypotenuse",
       "title": "في مثلث قائم الزاوية، المتوسط للوتر يساوي نصف الوتر (والعكس)",
@@ -327,9 +392,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متوسط للوتر'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}.m{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7}</style><path class='l' d='M80 190 L80 70 L270 190 Z'/><path class='r' d='M80 178 L95 178 L95 190'/><circle cx='175' cy='190' r='4' fill='#0ea5e9'/><text class='p' x='183' y='210'>M</text><line class='m' x1='80' y1='70' x2='175' y2='190'/><text class='p' x='20' y='30'>CM = ½ AB</text></svg>"
       },
-      "tags": ["مثلث قائم", "متوسط", "وتر"]
+      "tags": [
+        "مثلث قائم",
+        "متوسط",
+        "وتر"
+      ]
     },
-
     {
       "id": "right_triangle_altitude_hypotenuse",
       "title": "علاقات الارتفاع على الوتر في مثلث قائم",
@@ -349,9 +417,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الارتفاع على الوتر'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.h{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L270 190 L70 70 Z'/><path class='r' d='M70 178 L85 178 L85 190'/><line class='h' x1='70' y1='70' x2='70' y2='190'/><text class='p' x='20' y='30'>BC² = AB·BD</text></svg>"
       },
-      "tags": ["مثلث قائم", "وتر", "إسقاط"]
+      "tags": [
+        "مثلث قائم",
+        "وتر",
+        "إسقاط"
+      ]
     },
-
     {
       "id": "angle_bisector_definition",
       "title": "تعريف منصف الزاوية",
@@ -367,9 +438,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='منصف الزاوية'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.b{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><circle cx='90' cy='170' r='4' fill='#1d4ed8'/><text class='p' x='78' y='192'>A</text><line class='l' x1='90' y1='170' x2='300' y2='170'/><line class='l' x1='90' y1='170' x2='240' y2='70'/><line class='b' x1='90' y1='170' x2='230' y2='130'/><text class='p' x='20' y='30'>∠1 = ∠2</text></svg>"
       },
-      "tags": ["زوايا", "منصف", "تعريف"]
+      "tags": [
+        "زوايا",
+        "منصف",
+        "تعريف"
+      ]
     },
-
     {
       "id": "angle_bisector_theorem",
       "title": "منصف الزاوية الداخلية في مثلث (نظرية النسبة)",
@@ -386,9 +460,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='منصف الزاوية في مثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.b{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='b' x1='170' y1='50' x2='190' y2='190'/><text class='p' x='200' y='210'>D</text><text class='p' x='20' y='30'>BD/DC = AB/AC</text></svg>"
       },
-      "tags": ["منصف الزاوية", "نسب", "مثلث"]
+      "tags": [
+        "منصف الزاوية",
+        "نسب",
+        "مثلث"
+      ]
     },
-
     {
       "id": "perpendicular_bisector_locus",
       "title": "العمود المنصف (محل هندسي)",
@@ -404,9 +481,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='العمود المنصف'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round}</style><line class='l' x1='70' y1='150' x2='270' y2='150'/><circle cx='70' cy='150' r='4' fill='#1d4ed8'/><text class='p' x='55' y='173'>A</text><circle cx='270' cy='150' r='4' fill='#1d4ed8'/><text class='p' x='276' y='173'>B</text><line class='d' x1='170' y1='40' x2='170' y2='210'/><circle cx='170' cy='90' r='4' fill='#0ea5e9'/><text class='p' x='178' y='93'>P</text><text class='p' x='20' y='30'>PA = PB</text></svg>"
       },
-      "tags": ["محل هندسي", "عمود منصف"]
+      "tags": [
+        "محل هندسي",
+        "عمود منصف"
+      ]
     },
-
     {
       "id": "medians_centroid",
       "title": "تلاقي المتوسطات (مركز الثقل)",
@@ -420,9 +499,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مركز الثقل'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><line class='m' x1='170' y1='45' x2='170' y2='190'/><line class='m' x1='70' y1='190' x2='230' y2='118'/><line class='m' x1='290' y1='190' x2='110' y2='118'/><circle cx='170' cy='118' r='5' fill='#0ea5e9'/><text class='p' x='178' y='122'>G</text><text class='p' x='20' y='30'>AG:GM = 2:1</text></svg>"
       },
-      "tags": ["متوسط", "مركز الثقل"]
+      "tags": [
+        "متوسط",
+        "مركز الثقل"
+      ]
     },
-
     {
       "id": "intercept_theorem_parallel_lines",
       "title": "نظرية اليج",
@@ -440,9 +521,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='نظرية اليج'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><line class='l' x1='90' y1='200' x2='170' y2='40'/><line class='l' x1='170' y1='40' x2='290' y2='200'/><line class='m' x1='120' y1='140' x2='255' y2='140'/><text class='p' x='20' y='30'>AD/DB = AE/EC</text></svg>"
       },
-      "tags": ["اليج", "نسب", "توازي"]
+      "tags": [
+        "اليج",
+        "نسب",
+        "توازي"
+      ]
     },
-
     {
       "id": "thales_parallel_triangle",
       "title": "نظرية اليج الموسعة",
@@ -458,9 +542,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='اليج الموسعة'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path d='M70 190 L170 50 L290 190 Z' fill='none' stroke='#111827' stroke-width='3' stroke-linejoin='round'/><line class='m' x1='105' y1='140' x2='250' y2='140'/><text class='p' x='20' y='30'>AD/AB = AE/AC = DE/BC</text></svg>"
       },
-      "tags": ["اليج الموسعة", "نسب", "تشابه"]
+      "tags": [
+        "اليج الموسعة",
+        "نسب",
+        "تشابه"
+      ]
     },
-
     {
       "id": "similarity_SAS",
       "title": "نظرية التشابه (ض-ز-ض)",
@@ -474,9 +561,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ض-ز-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ض-ز-ض</text></svg>"
       },
-      "tags": ["تشابه", "مثلث", "ض-ز-ض"]
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ض-ز-ض"
+      ]
     },
-
     {
       "id": "similarity_AA",
       "title": "نظرية التشابه (ز-ز)",
@@ -490,9 +580,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ز-ز'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ز-ز</text></svg>"
       },
-      "tags": ["تشابه", "مثلث", "ز-ز"]
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ز-ز"
+      ]
     },
-
     {
       "id": "similarity_SSS",
       "title": "نظرية التشابه (ض-ض-ض)",
@@ -506,9 +599,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ض-ض-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ض-ض-ض</text></svg>"
       },
-      "tags": ["تشابه", "مثلث", "ض-ض-ض"]
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ض-ض-ض"
+      ]
     },
-
     {
       "id": "circle_inscribed_angle",
       "title": "في الدائرة: الزاوية المحيطية تساوي نصف الزاوية المركزية",
@@ -524,9 +620,12 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='محيطية ومركزية'><style>.p{fill:#111827;font:14px Arial}.c{stroke:#111827;stroke-width:3;fill:none}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><circle class='c' cx='170' cy='120' r='80'/><circle cx='170' cy='120' r='4' fill='#1d4ed8'/><text class='p' x='160' y='112'>O</text><circle cx='110' cy='160' r='4' fill='#0ea5e9'/><text class='p' x='96' y='182'>A</text><circle cx='230' cy='160' r='4' fill='#0ea5e9'/><text class='p' x='234' y='182'>B</text><circle cx='170' cy='40' r='4' fill='#0ea5e9'/><text class='p' x='176' y='36'>C</text><line class='l' x1='170' y1='40' x2='110' y2='160'/><line class='l' x1='170' y1='40' x2='230' y2='160'/><line class='m' x1='170' y1='120' x2='110' y2='160'/><line class='m' x1='170' y1='120' x2='230' y2='160'/><text class='p' x='20' y='212'>∠محيطية = ½ ∠مركزية</text></svg>"
       },
-      "tags": ["دائرة", "محيطية", "مركزية"]
+      "tags": [
+        "دائرة",
+        "محيطية",
+        "مركزية"
+      ]
     },
-
     {
       "id": "circle_tangent_radius_perpendicular",
       "title": "في الدائرة: المماس يعامد نصف القطر في نقطة التماس (والعكس)",
@@ -542,7 +641,11 @@
       "diagram": {
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مماس ونصف قطر'><style>.p{fill:#111827;font:14px Arial}.c{stroke:#111827;stroke-width:3;fill:none}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><circle class='c' cx='150' cy='120' r='70'/><circle cx='150' cy='120' r='4' fill='#1d4ed8'/><text class='p' x='140' y='112'>O</text><circle cx='220' cy='120' r='4' fill='#0ea5e9'/><text class='p' x='226' y='124'>T</text><line class='m' x1='150' y1='120' x2='220' y2='120'/><line class='l' x1='220' y1='50' x2='220' y2='190'/><text class='p' x='20' y='212'>OT ⟂ t</text></svg>"
       },
-      "tags": ["دائرة", "مماس", "عمودي"]
+      "tags": [
+        "دائرة",
+        "مماس",
+        "عمودي"
+      ]
     }
   ]
 }
