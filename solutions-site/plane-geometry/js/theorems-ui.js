@@ -92,6 +92,7 @@
 
     state.modal.querySelector("#thTitle").textContent = item.title || "نظرية";
     const bodyParts = [];
+    document.body.classList.add("th-no-scroll");
 
     // محتوى نصي
     if (Array.isArray(item.contentHtml)) bodyParts.push(item.contentHtml.join(""));
@@ -111,6 +112,7 @@
   function close() {
     if (!state.modal) return;
     state.modal.classList.add("hidden");
+    document.body.classList.remove("th-no-scroll");
   }
 
   // يبحث عن قسم "✅ النظريات/القوانين المستخدمة" داخل الحل ويحوّل البنود إلى روابط
