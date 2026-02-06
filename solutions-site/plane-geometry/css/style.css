@@ -508,3 +508,4 @@ body{
   height: auto;
   display: block;
 }
+body.th-no-scroll { overflow: hidden; }
