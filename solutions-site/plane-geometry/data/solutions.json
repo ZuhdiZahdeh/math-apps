@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "حلول الهندسة المستوية",
-    "range": "سؤال 1 (ص 222) – سؤال 41 (ص 227)",
+    "range": "سؤال 1 (ص 222) – سؤال 43 (ص 228)",
     "language": "ar",
     "generatedAt": "2026-02-06",
     "theorems": {
@@ -145,7 +145,6 @@
         "congruence_SAS"
       ]
     },
-
     {
       "id": "q03",
       "number": 3,
@@ -178,7 +177,6 @@
         "congruence_SAS"
       ]
     },
-
     {
       "id": "q04",
       "number": 4,
@@ -222,7 +220,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q05",
       "number": 5,
@@ -270,7 +267,6 @@
         "perpendicular_bisector_locus"
       ]
     },
-
     {
       "id": "q06",
       "number": 6,
@@ -299,7 +295,6 @@
       ],
       "theoremsUsed": []
     },
-
     {
       "id": "q07",
       "number": 7,
@@ -331,7 +326,6 @@
         "isosceles_triangle_base_angles"
       ]
     },
-
     {
       "id": "q08",
       "number": 8,
@@ -366,7 +360,6 @@
         "isosceles_triangle_base_angles"
       ]
     },
-
     {
       "id": "q09",
       "number": 9,
@@ -392,7 +385,6 @@
         "triangle_inequality"
       ]
     },
-
     {
       "id": "q10",
       "number": 10,
@@ -421,7 +413,6 @@
         "triangle_inequality"
       ]
     },
-
     {
       "id": "q11",
       "number": 11,
@@ -453,7 +444,6 @@
         "triangle_inequality"
       ]
     },
-
     {
       "id": "q12",
       "number": 12,
@@ -480,7 +470,6 @@
         "triangle_inequality"
       ]
     },
-
     {
       "id": "q13",
       "number": 13,
@@ -508,7 +497,6 @@
         "triangle_inequality"
       ]
     },
-
     {
       "id": "q14",
       "number": 14,
@@ -529,7 +517,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q15",
       "number": 15,
@@ -600,7 +587,6 @@
         "quadrilateral_angle_sum_360"
       ]
     },
-
     {
       "id": "q16",
       "number": 16,
@@ -632,7 +618,6 @@
         "right_triangle_midpoint_hypotenuse"
       ]
     },
-
     {
       "id": "q17",
       "number": 17,
@@ -667,7 +652,6 @@
         "pythagoras_theorem"
       ]
     },
-
     {
       "id": "q18",
       "number": 18,
@@ -700,7 +684,6 @@
         "angle_bisector_definition"
       ]
     },
-
     {
       "id": "q19",
       "number": 19,
@@ -728,7 +711,6 @@
         "angle_bisector_definition"
       ]
     },
-
     {
       "id": "q20",
       "number": 20,
@@ -750,7 +732,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q21",
       "number": 21,
@@ -774,7 +755,6 @@
         "thales_parallel_triangle"
       ]
     },
-
     {
       "id": "q22",
       "number": 22,
@@ -809,7 +789,6 @@
         "parallel_lines_angles_rules"
       ]
     },
-
     {
       "id": "q23",
       "number": 23,
@@ -833,7 +812,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q24",
       "number": 24,
@@ -860,7 +838,6 @@
         "parallel_lines_angles_rules"
       ]
     },
-
     {
       "id": "q25",
       "number": 25,
@@ -882,7 +859,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q26",
       "number": 26,
@@ -905,7 +881,6 @@
         "congruence_SAS"
       ]
     },
-
     {
       "id": "q27",
       "number": 27,
@@ -925,7 +900,6 @@
         "isosceles_triangle_base_angles"
       ]
     },
-
     {
       "id": "q28",
       "number": 28,
@@ -950,7 +924,6 @@
         "medians_centroid"
       ]
     },
-
     {
       "id": "q29",
       "number": 29,
@@ -974,7 +947,6 @@
         "thales_parallel_triangle"
       ]
     },
-
     {
       "id": "q30",
       "number": 30,
@@ -997,7 +969,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q31",
       "number": 31,
@@ -1048,7 +1019,6 @@
         "parallelogram_property_opposite_sides_equal"
       ]
     },
-
     {
       "id": "q32",
       "number": 32,
@@ -1070,7 +1040,6 @@
         "pythagoras_theorem"
       ]
     },
-
     {
       "id": "q33",
       "number": 33,
@@ -1092,7 +1061,6 @@
         "midsegment_triangle_bundle"
       ]
     },
-
     {
       "id": "q34",
       "number": 34,
@@ -1114,7 +1082,6 @@
         "angle_bisector_definition"
       ]
     },
-
     {
       "id": "q35",
       "number": 35,
@@ -1135,7 +1102,6 @@
         "midsegment_triangle_bundle"
       ]
     },
-
     {
       "id": "q36",
       "number": 36,
@@ -1159,7 +1125,6 @@
         "supplementary_angles_straight_line"
       ]
     },
-
     {
       "id": "q37",
       "number": 37,
@@ -1181,7 +1146,6 @@
         "midsegment_triangle_bundle"
       ]
     },
-
     {
       "id": "q40",
       "number": 40,
@@ -1256,27 +1220,10 @@
       "number": 41,
       "title": "سؤال (41)",
       "images": [
-        "images/q41.png","images/q41-1.png","images/q41-2.png",
+        "images/q41.png",
+        "images/q41-1.png",
+        "images/q41-2.png",
         "images/q41-3.png"
-      ],
-      "solution": [
-        "✅ المعطى:",
-        "• ABCD شبه منحرف حيث AB ∥ CD.",
-        "• MN قطعة متوسطة في شبه المنحرف ⇒ M منتصف AD و N منتصف BC و MN ∥ AB ∥ CD.",
-        "• E = MN ∩ AC ، و F = MN ∩ BD.",
-        "• نرمز: AB = a ، CD = b.",
-        "✅ المطلوب:",
-        "• إثبات: EF = 1/2 (a − b).",
-        "✅ البرهان:",
-        "1) في △ADC: بما أن M منتصف AD و ME ∥ CD ⇒ E منتصف AC (عكس نظرية القطعة المتوسطة).",
-        "   إذن ME قطعة متوسطة في △ADC ⇒ ME = CD/2 = b/2.",
-        "2) في △BCD: بما أن N منتصف BC و NF ∥ CD ⇒ F منتصف BD (عكس نظرية القطعة المتوسطة).",
-        "   إذن NF قطعة متوسطة في △BCD ⇒ NF = CD/2 = b/2.",
-        "3) في △ABC: بما أن E منتصف AC و N منتصف BC ⇒ EN قطعة متوسطة ⇒ EN = AB/2 = a/2.",
-        "4) على المستقيم MN (حسب الرسم) النقاط بالترتيب: M – E – F – N ⇒ EN = EF + FN.",
-        "   إذن EF = EN − FN = a/2 − b/2 = 1/2 (a − b).",
-        "✅ النظريات/القوانين المستخدمة:",
-        "• قطعة المتوسطة في المثلث (والعكس)."
       ],
       "solution": [
         "✅ المعطى:",
@@ -1342,8 +1289,8 @@
       "theoremsUsed": [
         "midsegment_triangle_bundle"
       ]
-    }
-        {
+    },
+    {
       "id": "q43",
       "number": 43,
       "title": "سؤال (43)",
