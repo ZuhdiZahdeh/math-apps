@@ -1,4 +1,4 @@
-/* حلول الهندسة المستوية — س1 إلى س37 */
+/* حلول الهندسة المستوية — س1 إلى س41 */
 const DATA_URL = "./data/solutions.json";
 const THEOREMS_URL = "./data/theorems.json";
 
@@ -182,7 +182,6 @@ const THEOREMS_URL = "./data/theorems.json";
     if (!rootEl) return;
 
     const used = Array.isArray(question?.theoremsUsed) ? question.theoremsUsed : [];
-    if (!used.length) return;
 
     // امسح أي قسم سابق تمت إضافته تلقائيًا
     rootEl.querySelectorAll(".theorems-used").forEach((x) => x.remove());
@@ -192,34 +191,31 @@ const THEOREMS_URL = "./data/theorems.json";
     sec.innerHTML = `
       <div class="sol-h">✅ النظريات/القوانين المستخدمة</div>
       <div class="theorem-chips"></div>
+      <div class="theorem-empty"></div>
     `;
 
     const chips = sec.querySelector(".theorem-chips");
-    used.forEach((id) => {
-      const item = state.byId.get(id);
-      if (!item) return;
+    const empty = sec.querySelector(".theorem-empty");
 
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "theorem-chip";
-      b.dataset.theorem = id;
-      b.textContent = item.title || id;
-
-      chips.appendChild(b);
-    });
+    if (!used.length) {
+      sec.classList.add("theorems-used--empty");
+      empty.textContent = "لم تُحدَّد نظريات/قوانين لهذا السؤال بعد.";
+    } else {
+      empty.remove();
+      used.forEach((id) => {
+        const item = state.byId.get(id);
+        if (!item) return;
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "theorem-chip";
+        b.dataset.theorem = id;
+        b.textContent = item.title;
+        chips.appendChild(b);
+      });
+    }
 
     rootEl.appendChild(sec);
-  }
-
-  function apply(question, rootEl) {
-    if (!state.ready || !rootEl) return;
-
-    const hasManual = enhanceManualList(question, rootEl);
-    if (!hasManual) renderAutoSection(question, rootEl);
-  }
-
-  window.TheoremsUI = { init, apply, open, close, isReady };
-})();
+  })();
 
 
 
