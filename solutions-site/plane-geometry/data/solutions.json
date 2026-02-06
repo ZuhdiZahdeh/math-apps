@@ -1343,5 +1343,86 @@
         "midsegment_triangle_bundle"
       ]
     }
+        {
+      "id": "q43",
+      "number": 43,
+      "title": "سؤال (43)",
+      "images": [
+        "images/q43.svg",
+        "images/q43.png"
+      ],
+      "solution": [
+        "✅ المعطى:",
+        "• في المثلث ABC، القطعة AE موازية لمنصف الزاوية ∠B.",
+        "• والقطعة AF موازية لمنصف الزاوية ∠C.",
+        "• النقاط E ، B ، C ، F على استقامة واحدة (حسب الرسم).",
+        "✅ المطلوب:",
+        "• برهن أن: EF = AB + BC + AC (أي EF تساوي محيط المثلث ABC).",
+        "✅ البرهان:",
+        "1) لتكن BX منصف الزاوية ∠ABC. بما أن AE ∥ BX ⇒",
+        "   ∠EAB = ∠ABX و ∠AEB = ∠XBC (زوايا متناظرة لأن EB على BC).",
+        "   وبما أن BX منصف ⇒ ∠ABX = ∠XBC ⇒ ∠EAB = ∠AEB.",
+        "   إذن △ABE متساوي الساقين ⇒ AB = BE.",
+        "2) لتكن CY منصف الزاوية ∠ACB. بما أن AF ∥ CY ⇒",
+        "   ∠CAF = ∠ACY و ∠AFC = ∠YCB (زوايا متناظرة لأن CF على CB).",
+        "   وبما أن CY منصف ⇒ ∠ACY = ∠YCB ⇒ ∠CAF = ∠AFC.",
+        "   إذن △ACF متساوي الساقين ⇒ AC = CF.",
+        "3) وعلى المستقيم E–B–C–F: EF = EB + BC + CF.",
+        "   بالتعويض من (1) و(2): EF = AB + BC + AC.",
+        "✅ النظريات/القوانين المستخدمة:",
+        "• تعريف منصف الزاوية: يقسم الزاوية إلى زاويتين متساويتين.",
+        "• زوايا القاطع مع مستقيمين متوازيين (زوايا متناظرة/متبادلة متساوية).",
+        "• زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).",
+        "• تجزئة القطعة على استقامة واحدة: EF = EB + BC + CF."
+      ],
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-kv'>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المعطى</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>في <span class='math'>△ABC</span>، <span class='math'>AE</span> موازية لمنصف الزاوية <span class='math'>∠B</span>.</li>",
+        "        <li><span class='math'>AF</span> موازية لمنصف الزاوية <span class='math'>∠C</span>.</li>",
+        "        <li>النقاط <span class='math'>E,B,C,F</span> على استقامة واحدة.</li>",
+        "      </ul>",
+        "    </div>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المطلوب</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>برهن أن <span class='math'>EF = AB + BC + AC</span> (أي <span class='math'>EF</span> يساوي محيط <span class='math'>△ABC</span>).</li>",
+        "      </ul>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ البرهان</div>",
+        "  <ol class='sol-ol'>",
+        "    <li>لتكن <span class='math'>BX</span> منصف الزاوية <span class='math'>∠ABC</span>. بما أن <span class='math'>AE ∥ BX</span> ⇒",
+        "      <div class='mathline'>∠EAB = ∠ABX</div>",
+        "      <div class='mathline'>∠AEB = ∠XBC</div>",
+        "      وبما أن <span class='math'>BX</span> منصف ⇒ <span class='math'>∠ABX = ∠XBC</span> ⇒ <span class='math'>∠EAB = ∠AEB</span>.</li>",
+        "    <li>إذن <span class='math'>△ABE</span> متساوي الساقين ⇒ <span class='math'>AB = BE</span>.</li>",
+        "    <li>لتكن <span class='math'>CY</span> منصف الزاوية <span class='math'>∠ACB</span>. بما أن <span class='math'>AF ∥ CY</span> ⇒",
+        "      <div class='mathline'>∠CAF = ∠ACY</div>",
+        "      <div class='mathline'>∠AFC = ∠YCB</div>",
+        "      وبما أن <span class='math'>CY</span> منصف ⇒ <span class='math'>∠ACY = ∠YCB</span> ⇒ <span class='math'>∠CAF = ∠AFC</span>.</li>",
+        "    <li>إذن <span class='math'>△ACF</span> متساوي الساقين ⇒ <span class='math'>AC = CF</span>.</li>",
+        "    <li>على المستقيم <span class='math'>E–B–C–F</span>: <span class='math'>EF = EB + BC + CF</span>.",
+        "      وبالتعويض: <span class='math'>EF = AB + BC + AC</span>.</li>",
+        "  </ol>",
+        "",
+        "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
+        "  <ul class='sol-ul'>",
+        "    <li>تعريف منصف الزاوية.</li>",
+        "    <li>زوايا القاطع مع مستقيمين متوازيين.</li>",
+        "    <li>زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).</li>",
+        "  </ul>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "angle_bisector_definition",
+        "parallel_lines_angles_rules",
+        "isosceles_triangle_base_angles"
+      ]
+    }
   ]
 }
