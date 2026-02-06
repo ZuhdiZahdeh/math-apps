@@ -509,3 +509,14 @@ body{
   display: block;
 }
 body.th-no-scroll { overflow: hidden; }
+
+
+/* ===== Theorems UI (empty state) ===== */
+.theorem-empty{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.theorems-used--empty .theorem-chips{
+  display: none;
+}
