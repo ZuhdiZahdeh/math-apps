@@ -12,6 +12,8 @@
   const TITLE_TO_ID = {
     "نظرية القطعة المتوسطة في المثلث + عكسها": "midsegment_triangle_bundle",
     "نظرية القطعة المتوسطة في المثلث + عكسها.": "midsegment_triangle_bundle",
+    "نظرية القطعة المتوسطة في المثلث (والعكس)": "midsegment_triangle_bundle",
+    "نظرية القطعة المتوسطة في المثلث (والعكس).": "midsegment_triangle_bundle",
     "معيار متوازي الأضلاع: ضلعان متقابلان متوازيان ومتساويان": "parallelogram_test_opposite_parallel_equal",
     "معيار متوازي الأضلاع: ضلعان متقابلان متوازيان ومتساويان.": "parallelogram_test_opposite_parallel_equal",
     "خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية": "parallelogram_property_opposite_sides_equal",
@@ -151,41 +153,40 @@
 
   // إذا لم يوجد قسم نظريات داخل الحل، نضيفه تلقائيًا من theoremsUsed
   function renderAutoSection(question, rootEl) {
-    const used = Array.isArray(question?.theoremsUsed) ? question.theoremsUsed : [];
-    if (!used.length) return;
+    if (!rootEl) return;
 
-    // امسح أي قسم سابق تمت إضافته
-    rootEl.querySelectorAll(".theorems-used").forEach(x => x.remove());
+    const used = Array.isArray(question?.theoremsUsed) ? question.theoremsUsed : [];
+
+    // امسح أي قسم سابق تمت إضافته تلقائيًا
+    rootEl.querySelectorAll(".theorems-used").forEach((x) => x.remove());
 
     const sec = document.createElement("div");
     sec.className = "theorems-used";
-    sec.innerHTML = `<div class="sol-h">✅ النظريات/القوانين المستخدمة</div><div class="theorem-chips"></div>`;
+    sec.innerHTML = `
+      <div class="sol-h">✅ النظريات/القوانين المستخدمة</div>
+      <div class="theorem-chips"></div>
+      <div class="theorem-empty"></div>
+    `;
 
     const chips = sec.querySelector(".theorem-chips");
-    used.forEach(id => {
-      const item = state.byId.get(id);
-      if (!item) return;
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "theorem-chip";
-      b.dataset.theorem = id;
-      b.textContent = item.title;
-      chips.appendChild(b);
-    });
+    const empty = sec.querySelector(".theorem-empty");
+
+    if (!used.length) {
+      sec.classList.add("theorems-used--empty");
+      empty.textContent = "لم تُحدَّد نظريات/قوانين لهذا السؤال بعد.";
+    } else {
+      empty.remove();
+      used.forEach((id) => {
+        const item = state.byId.get(id);
+        if (!item) return;
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "theorem-chip";
+        b.dataset.theorem = id;
+        b.textContent = item.title;
+        chips.appendChild(b);
+      });
+    }
 
     rootEl.appendChild(sec);
-  }
-
-  // تُستدعى بعد عرض الحل
-  function apply(question, rootEl) {
-    if (!state.ready || !rootEl) return;
-
-    // 1) حاول تفعيل القائمة الموجودة داخل الحل (إن وُجدت)
-    const hasManual = enhanceManualList(question, rootEl);
-
-    // 2) إن لم توجد، أضف قسمًا تلقائيًا من theoremsUsed
-    if (!hasManual) renderAutoSection(question, rootEl);
-  }
-
-  window.TheoremsUI = { init, apply, open, close };
-})();
+  })();
