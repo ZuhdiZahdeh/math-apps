@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": 3,
+    "version": 4,
     "generatedAt": "2026-02-07",
     "rtl": true
   },
@@ -610,7 +610,7 @@
     {
       "id": "right_triangle_midpoint_hypotenuse",
       "title": "في مثلث قائم الزاوية، المتوسط للوتر يساوي نصف الوتر (والعكس)",
-      "short": "في مثلث قائم: المتوسط للوتر = نصف الوتر. والعكس: إذا المتوسط للوتر = نصف الوتر فالمثلث قائم.",
+      "short": "النظرية + العكس: CM = ½ AB ⇔ المثلث قائم عند الرأس المقابل.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
@@ -618,8 +618,10 @@
         "<div class='th-title'>التعبير الرمزي</div>",
         "<p>إذا كان <span class='math'>△ABC</span> قائمًا عند <span class='math'>C</span> و<span class='math'>M</span> منتصف الوتر <span class='math'>AB</span> فإن:</p>",
         "<ul><li><span class='math'>CM = ½ AB</span></li></ul>",
-        "<div class='th-title'>العكس</div>",
-        "<p>إذا تحقق في مثلث أن متوسط ضلع يساوي نصفه، فإن المثلث قائم وهذا الضلع وتر.</p>",
+        "<div class='th-title'>نص النظرية (العكسية)</div>",
+        "<p>إذا كان طول المتوسط النازل من أحد رؤوس مثلث إلى الضلع المقابل له يساوي نصف طول هذا الضلع، فإن المثلث قائم الزاوية في ذلك الرأس.</p>",
+        "<div class='th-title'>التعبير الرمزي للعكس</div>",
+        "<p>إذا كانت <span class='math'>M</span> منتصف <span class='math'>AB</span> و <span class='math'>CM = ½ AB</span> ⇒ <span class='math'>∠C = 90°</span> (ويكون <span class='math'>AB</span> وترًا).</p>",
         "</div>"
       ],
       "diagram": {
