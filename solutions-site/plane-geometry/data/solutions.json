@@ -1125,27 +1125,91 @@
         "supplementary_angles_straight_line"
       ]
     },
-    {
-      "id": "q37",
-      "number": 37,
-      "title": "سؤال (37)",
-      "images": [
-        "images/q37.png"
-      ],
-      "solution": [
-        "✅ المعطى: شبه منحرف متساوي الساقين AB ∥ CD و AD=BC، و MN قطعة متوسطة، ومن M نرسم ME ∥ AD وتقطع CD في E.",
-        "✅ المطلوب: إثبات ∠BEC=90°.",
-        "✅ التعليل:",
-        "بوضع شبه المنحرف متناظرًا نجد E إسقاطًا عموديًا لـ B على CD ⇒ BE ⟂ EC ⇒ ∠BEC=90°."
-      ],
-      "solutionHtml": [
-        "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>يعتمد على تماثل شبه منحرف متساوي الساقين + توازي/تعامد.</p></div>"
-      ],
-      "theoremsUsed": [
-        "isosceles_triangle_base_angles",
-        "midsegment_triangle_bundle"
-      ]
-    },
+{
+  "id": "q37",
+  "number": 37,
+  "title": "سؤال (37)",
+  "images": ["images/q37.png"],
+  "solution": [
+    "✅ المعطى:",
+    "• ABCD شبه منحرف متساوي الساقين: AB ∥ CD ، و AD = BC.",
+    "• MN قطعة متوسطة في شبه المنحرف ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD.",
+    "• من النقطة M نرسم ME ∥ AD وتقطع القاعدة CD في النقطة E.",
+    "✅ المطلوب:",
+    "• إثبات ∠BEC = 90°.",
+    "✅ البرهان (طريقة الزوايا):",
+    "1) لأن ND على AD و ME ∥ AD ⇒ ND ∥ ME.",
+    "   ولأن DE على CD و MN ∥ CD ⇒ DE ∥ MN.",
+    "   إذن الرباعي NDEM متوازي أضلاع ⇒ ME = ND.  (خواص متوازي الأضلاع)",
+    "2) N منتصف AD ⇒ ND = AD/2 ، و M منتصف BC ⇒ BM = BC/2.",
+    "   وبما أن AD = BC ⇒ ND = BM ⇒ من (1): ME = BM.",
+    "   إذن △BME متساوي الساقين ⇒ ∠BEM = ∠MBE.  (متساوي الساقين)",
+    "3) لنرمز θ = ∠BCD. في شبه منحرف متساوي الساقين: ∠CDA = ∠BCD = θ.",
+    "4) ∠BME هي الزاوية بين BM (على BC) و ME (∥ AD):",
+    "   ∠BME = ∠(BC,CD) + ∠(CD,AD) = ∠BCD + ∠CDA = θ + θ = 2θ.",
+    "5) في △BME: ∠MBE + ∠BEM + ∠BME = 180°.",
+    "   وبما أن ∠MBE = ∠BEM ⇒ 2∠BEM + 2θ = 180° ⇒ ∠BEM = 90° − θ.",
+    "6) عند E: ∠MEC = ∠(ME,EC) = ∠(AD,CD) = ∠CDA = θ (لأن ME ∥ AD و EC على CD).",
+    "7) إذن ∠BEC = ∠BEM + ∠MEC = (90° − θ) + θ = 90°.",
+    "✅ النظريات/القوانين المستخدمة:",
+    "• زوايا القاطع مع مستقيمين متوازيين (والعكس).",
+    "• خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية.",
+    "• زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).",
+    "• مجموع الزوايا الداخلية للمثلث = 180°.",
+    "• في شبه المنحرف المتساوي الساقين: الزوايا المجاورة لكل قاعدة متساوية."
+  ],
+  "solutionHtml": [
+    "<div class='sol-wrap'>",
+    "  <div class='sol-kv'>",
+    "    <div>",
+    "      <div class='sol-h'>✅ المعطى</div>",
+    "      <ul class='sol-ul'>",
+    "        <li><span class='math'>AB ∥ CD</span> و <span class='math'>AD = BC</span> (شبه منحرف متساوي الساقين).</li>",
+    "        <li><span class='math'>MN</span> قطعة متوسطة ⇒ <span class='math'>N</span> منتصف <span class='math'>AD</span> و <span class='math'>M</span> منتصف <span class='math'>BC</span> و <span class='math'>MN ∥ AB ∥ CD</span>.</li>",
+    "        <li>من <span class='math'>M</span> نرسم <span class='math'>ME ∥ AD</span> وتقطع <span class='math'>CD</span> في <span class='math'>E</span>.</li>",
+    "      </ul>",
+    "    </div>",
+    "    <div>",
+    "      <div class='sol-h'>✅ المطلوب</div>",
+    "      <ul class='sol-ul'>",
+    "        <li>إثبات <span class='math'>∠BEC = 90°</span>.</li>",
+    "      </ul>",
+    "    </div>",
+    "  </div>",
+    "",
+    "  <div class='sol-h'>✅ البرهان (بالزوايا)</div>",
+    "  <ol class='sol-ol'>",
+    "    <li>بما أن <span class='math'>ND</span> على <span class='math'>AD</span> و <span class='math'>ME ∥ AD</span> ⇒ <span class='math'>ND ∥ ME</span>،",
+    "        وبما أن <span class='math'>DE</span> على <span class='math'>CD</span> و <span class='math'>MN ∥ CD</span> ⇒ <span class='math'>DE ∥ MN</span>.",
+    "        إذن الرباعي <span class='math'>NDEM</span> متوازي أضلاع ⇒ <span class='math'>ME = ND</span>.</li>",
+    "    <li><span class='math'>ND = AD/2</span> (لأن <span class='math'>N</span> منتصف <span class='math'>AD</span>) و <span class='math'>BM = BC/2</span> (لأن <span class='math'>M</span> منتصف <span class='math'>BC</span>).",
+    "        ومع <span class='math'>AD = BC</span> ⇒ <span class='math'>ND = BM</span> ⇒ <span class='math'>ME = BM</span> ⇒ <span class='math'>△BME</span> متساوي الساقين ⇒ <span class='math'>∠BEM = ∠MBE</span>.</li>",
+    "    <li>لنرمز <span class='math'>θ = ∠BCD</span>. في شبه منحرف متساوي الساقين: <span class='math'>∠CDA = ∠BCD = θ</span>.</li>",
+    "    <li><span class='math'>∠BME</span> هي الزاوية بين <span class='math'>BC</span> و <span class='math'>AD</span>:",
+    "        <div class='mathline'>∠BME = ∠(BC,CD) + ∠(CD,AD) = ∠BCD + ∠CDA = θ + θ = 2θ</div></li>",
+    "    <li>في <span class='math'>△BME</span>: <span class='math'>2∠BEM + 2θ = 180°</span> ⇒ <span class='math'>∠BEM = 90° − θ</span>.</li>",
+    "    <li>عند <span class='math'>E</span>: <span class='math'>∠MEC = ∠(ME,EC) = ∠(AD,CD) = ∠CDA = θ</span> (لأن <span class='math'>ME ∥ AD</span> و <span class='math'>EC</span> على <span class='math'>CD</span>).</li>",
+    "    <li>إذن <span class='math'>∠BEC = ∠BEM + ∠MEC = (90° − θ) + θ = 90°</span>.</li>",
+    "  </ol>",
+    "",
+    "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
+    "  <ul class='sol-ul'>",
+    "    <li>زوايا القاطع مع مستقيمين متوازيين (والعكس).</li>",
+    "    <li>خواص متوازي الأضلاع: الأضلاع المتقابلة متساوية.</li>",
+    "    <li>زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس).</li>",
+    "    <li>مجموع الزوايا الداخلية للمثلث = 180°.</li>",
+    "    <li>في شبه المنحرف المتساوي الساقين: الزوايا المجاورة لكل قاعدة متساوية.</li>",
+    "  </ul>",
+    "</div>"
+  ],
+  "theoremsUsed": [
+    "parallel_lines_angles_rules",
+    "parallelogram_property_opposite_sides_equal",
+    "isosceles_triangle_base_angles",
+    "triangle_angle_sum_180",
+    "isosceles_trapezoid_base_angles"
+  ]
+},
     {
       "id": "q40",
       "number": 40,
