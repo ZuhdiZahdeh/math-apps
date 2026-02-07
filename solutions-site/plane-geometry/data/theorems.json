@@ -1,99 +1,84 @@
 {
   "meta": {
-    "version": 6,
-    "generatedAt": "2026-02-06",
+    "version": 3,
+    "generatedAt": "2026-02-07",
     "rtl": true
   },
   "items": [
     {
-      "id": "supplementary_angles_straight_line",
-      "title": "الزوايا المتجاورة تكمل بعضها لـ 180°",
-      "short": "إذا كانت زاويتان متجاورتان على استقامة واحدة فمجموعهما 180°.",
+      "id": "midsegment_triangle_bundle",
+      "title": "قطعة المتوسطة في المثلث (والعكس)",
+      "short": "قطعة المتوسطة تصل وسط ضلعين، توازي الضلع الثالث وتساوي نصفه. والعكس صحيح.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
-        "<p>الزوايا المتجاورة على استقامة واحدة تكمل بعضها لـ <strong>180°</strong>.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>∠1 + ∠2 = 180°</span></li></ul>",
+        "<p>في أي مثلث، القطعة المستقيمة الواصلة بين <strong>منتصفي ضلعين</strong>:</p>",
+        "<ul><li>توازي الضلع الثالث.</li><li>طولها يساوي نصف طول الضلع الثالث.</li></ul>",
+        "<div class='th-title'>التعبير الرياضي</div>",
+        "<p>في المثلث <span class='math'>ABC</span>، إذا كانت <span class='math'>D</span> منتصف <span class='math'>AB</span> و<span class='math'>E</span> منتصف <span class='math'>AC</span>، فإن:</p>",
+        "<ul><li><span class='math'>DE ∥ BC</span></li><li><span class='math'>DE = ½ BC</span></li></ul>",
+        "<div class='th-title'>عكس النظرية</div>",
+        "<p>إذا كانت <span class='math'>D</span> منتصف أحد أضلاع المثلث ورُسم من <span class='math'>D</span> مستقيم يوازي ضلعًا ثانيًا، فإنه يقطع الضلع الثالث في <strong>منتصفه</strong>.</p>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزوايا المتجاورة تكمل 180'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='40' y1='160' x2='300' y2='160'/><line class='l' x1='170' y1='160' x2='170' y2='70'/><circle cx='170' cy='160' r='4' fill='#1d4ed8'/><text class='p' x='178' y='165'>O</text><path class='a' d='M170 145 A24 24 0 0 0 146 160'/><path class='a' d='M170 145 A24 24 0 0 1 194 160'/><text class='p' x='20' y='30'>∠1 + ∠2 = 180°</text></svg>"
-      },
-      "tags": [
-        "زوايا",
-        "180",
-        "استقامة"
-      ]
-    },
-    {
-      "id": "vertical_angles_equal",
-      "title": "الزوايا المتقابلة بالرأس متساوية",
-      "short": "عند تقاطع مستقيمين: الزاويتان المتقابلتان بالرأس متساويتان.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>إذا تقاطع مستقيمان، فإن كل زاويتين <strong>متقابلتين بالرأس</strong> تكونان متساويتين.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>∠1 = ∠2</span></li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='زوايا متقابلة بالرأس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='60' y1='60' x2='300' y2='200'/><line class='l' x1='300' y1='60' x2='60' y2='200'/><circle cx='180' cy='130' r='4' fill='#1d4ed8'/><text class='p' x='188' y='135'>O</text><path class='a' d='M190 118 A25 25 0 0 1 210 138'/><path class='a' d='M170 142 A25 25 0 0 1 150 122'/><text class='p' x='20' y='30'>∠1 = ∠2</text></svg>"
-      },
-      "tags": [
-        "زوايا",
-        "تقاطع",
-        "متقابلة بالرأس"
-      ]
-    },
-    {
-      "id": "isosceles_triangle_base_angles",
-      "title": "زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس)",
-      "short": "زوايا القاعدة في المتساوي الساقين متساوية. والعكس: إذا تساوت زاويتان في مثلث فهو متساوي الساقين.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>زوايا القاعدة في المثلث المتساوي الساقين متساوية.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<p>في <span class='math'>△ABC</span> إذا <span class='math'>AB = AC</span> فإن:</p>",
-        "<ul><li><span class='math'>∠ABC = ∠BCA</span></li></ul>",
-        "<div class='th-title'>العكس</div>",
-        "<p>إذا كان في مثلث زاويتان متساويتان، فإن المثلث متساوي الساقين (والضلعان المقابلان لهما متساويان).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متساوي الساقين'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='k' x1='120' y1='125' x2='132' y2='113'/><line class='k' x1='208' y1='113' x2='220' y2='125'/><path class='a' d='M85 175 A28 28 0 0 0 112 155'/><path class='a' d='M228 155 A28 28 0 0 0 255 175'/><text class='p' x='105' y='150'>∠B = ∠C</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية القطعة المتوسطة في المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:4;stroke-linecap:round;}\n    .pt{fill:#0ea5e9;}\n    .v{fill:#1d4ed8;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <circle class=\"v\" cx=\"170\" cy=\"45\" r=\"4\"/><text class=\"p\" x=\"162\" y=\"30\">A</text>\n  <circle class=\"v\" cx=\"70\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"52\" y=\"210\">B</text>\n  <circle class=\"v\" cx=\"290\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"298\" y=\"210\">C</text>\n\n  <circle class=\"pt\" cx=\"120\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"102\" y=\"113\">D</text>\n  <circle class=\"pt\" cx=\"230\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"236\" y=\"113\">E</text>\n\n  <line class=\"m\" x1=\"120\" y1=\"118\" x2=\"230\" y2=\"118\"/>\n  <text class=\"p\" x=\"140\" y=\"142\">DE ∥ BC</text>\n  <text class=\"p\" x=\"132\" y=\"162\">DE = ½ BC</text>\n</svg>"
       },
       "tags": [
         "مثلث",
-        "متساوي الساقين",
-        "زوايا القاعدة"
+        "قطعة متوسطة",
+        "منتصف",
+        "توازي"
       ]
     },
     {
-      "id": "triangle_inequality",
-      "title": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
-      "short": "في أي مثلث: مجموع طولي أي ضلعين أكبر من طول الضلع الثالث.",
+      "id": "parallelogram_test_opposite_parallel_equal",
+      "title": "معيار متوازي الأضلاع",
+      "short": "إذا كان في رباعي ضلعان متقابلان متوازيين ومتساويين فهو متوازي أضلاع.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>مجموع أي ضلعين في المثلث أكبر من الضلع الثالث.</p>",
+        "<div class='th-title'>نص المعيار</div>",
+        "<p>إذا كان في رباعي ضلعان متقابلان <strong>متوازيين</strong> و<strong>متساويين في الطول</strong>، فإن الرباعي <strong>متوازي أضلاع</strong>.</p>",
         "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>في الرباعي <span class='math'>ABCD</span>:</p>",
+        "<ul><li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AB = CD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"معيار متوازي الأضلاع\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M85 60 L245 60 L300 170 L140 170 Z\"/>\n  <text class=\"p\" x=\"72\" y=\"52\">A</text><text class=\"p\" x=\"250\" y=\"52\">B</text>\n  <text class=\"p\" x=\"306\" y=\"182\">C</text><text class=\"p\" x=\"126\" y=\"182\">D</text>\n\n  <!-- parallel marks AB and CD -->\n  <line class=\"k\" x1=\"135\" y1=\"50\" x2=\"150\" y2=\"50\"/><line class=\"k\" x1=\"170\" y1=\"50\" x2=\"185\" y2=\"50\"/>\n  <line class=\"k\" x1=\"185\" y1=\"180\" x2=\"200\" y2=\"180\"/><line class=\"k\" x1=\"220\" y1=\"180\" x2=\"235\" y2=\"180\"/>\n\n  <!-- equal mark AB and CD -->\n  <line class=\"k\" x1=\"165\" y1=\"63\" x2=\"165\" y2=\"78\"/>\n  <line class=\"k\" x1=\"220\" y1=\"155\" x2=\"220\" y2=\"170\"/>\n\n  <text class=\"p\" x=\"20\" y=\"212\">إذا كان AB ∥ CD و AB = CD ⇒ ABCD متوازي أضلاع</text>\n</svg>"
+      },
+      "tags": [
+        "رباعي",
+        "متوازي أضلاع",
+        "توازي",
+        "تساوي"
+      ]
+    },
+    {
+      "id": "parallelogram_property_opposite_sides_equal",
+      "title": "خواص متوازي الأضلاع",
+      "short": "في متوازي الأضلاع: الأضلاع المتقابلة متساوية (ومتوازية).",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>خواص أساسية</div>",
         "<ul>",
-        "<li><span class='math'>AB + AC > BC</span></li>",
-        "<li><span class='math'>AB + BC > AC</span></li>",
-        "<li><span class='math'>AC + BC > AB</span></li>",
+        "<li>الأضلاع المتقابلة متوازية.</li>",
+        "<li>الأضلاع المتقابلة متساوية في الطول.</li>",
+        "<li>القطران ينصفان بعضهما.</li>",
         "</ul>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع فإن:</p>",
+        "<ul><li><span class='math'>AB = CD</span> و<span class='math'>AD = BC</span>.</li></ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متباينة المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><text class='p' x='20' y='30'>AB + AC > BC</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"خواص متوازي الأضلاع\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M85 60 L245 60 L300 170 L140 170 Z\"/>\n  <line class=\"d\" x1=\"85\" y1=\"60\" x2=\"300\" y2=\"170\"/>\n  <line class=\"d\" x1=\"245\" y1=\"60\" x2=\"140\" y2=\"170\"/>\n\n  <text class=\"p\" x=\"72\" y=\"52\">A</text><text class=\"p\" x=\"250\" y=\"52\">B</text>\n  <text class=\"p\" x=\"306\" y=\"182\">C</text><text class=\"p\" x=\"126\" y=\"182\">D</text>\n\n  <text class=\"p\" x=\"20\" y=\"212\">AB = CD ، AD = BC  (وأيضًا القطران ينصفان بعضهما)</text>\n</svg>"
       },
       "tags": [
-        "مثلث",
-        "متباينة",
-        "أطوال"
+        "متوازي أضلاع",
+        "خواص",
+        "أضلاع متقابلة",
+        "قطران"
       ]
     },
     {
@@ -102,14 +87,15 @@
       "short": "في أي مثلث: مجموع الزوايا الداخلية يساوي 180°.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>مجموع الزوايا الداخلية للمثلث مساوية لـ <strong>180°</strong>.</p>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>في أي مثلث، مجموع قياسات الزوايا الداخلية يساوي <strong>180°</strong>.</p>",
         "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>في <span class='math'>△ABC</span>:</p>",
         "<ul><li><span class='math'>∠A + ∠B + ∠C = 180°</span></li></ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مجموع زوايا المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><text class='p' x='162' y='30'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><path class='a' d='M158 60 A28 28 0 0 1 182 60'/><path class='a' d='M85 175 A26 26 0 0 0 105 160'/><path class='a' d='M255 160 A26 26 0 0 0 275 175'/><text class='p' x='85' y='130'>∠A+∠B+∠C=180°</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"مجموع زوايا المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .a{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <text class=\"p\" x=\"162\" y=\"30\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"298\" y=\"210\">C</text>\n  <path class=\"a\" d=\"M158 60 A30 30 0 0 1 182 60\"/>\n  <path class=\"a\" d=\"M85 175 A30 30 0 0 0 105 160\"/>\n  <path class=\"a\" d=\"M255 160 A30 30 0 0 0 275 175\"/>\n  <text class=\"p\" x=\"92\" y=\"130\">∠A + ∠B + ∠C = 180°</text>\n</svg>"
       },
       "tags": [
         "مثلث",
@@ -120,122 +106,22 @@
     {
       "id": "triangle_exterior_angle",
       "title": "الزاوية الخارجية في المثلث",
-      "short": "الزاوية الخارجية مساوية لمجموع الزاويتين الداخليتين ما عدا الزاوية المجاورة لها.",
+      "short": "الزاوية الخارجية في المثلث مساوية لمجموع الزاويتين الداخليتين ما عدا الزاوية المجاورة لها.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
-        "<p>الزاوية الخارجية في المثلث مساوية لمجموع الزاويتين الداخليتين ما عدا الزاوية المجاورة لها.</p>",
+        "<p>إذا مددنا ضلعًا من أضلاع المثلث، فإن الزاوية الخارجية المتكوّنة تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.</p>",
         "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>∠الخارجية = ∠(الداخلية البعيدة 1) + ∠(الداخلية البعيدة 2)</span></li></ul>",
+        "<p>في <span class='math'>△ABC</span> إذا مددنا <span class='math'>BC</span> بعد النقطة <span class='math'>C</span>، فإن:</p>",
+        "<ul><li><span class='math'>∠(الخارجية عند C) = ∠A + ∠B</span></li></ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزاوية الخارجية'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.x{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 55 L260 190 Z'/><line class='l' x1='260' y1='190' x2='310' y2='190'/><text class='p' x='162' y='40'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='268' y='210'>C</text><path class='x' d='M255 175 A25 25 0 0 0 280 160'/><text class='p' x='85' y='130'>∠الخارجية = ∠A + ∠B</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"الزاوية الخارجية في المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .x{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 55 L260 190 Z\"/>\n  <!-- extend BC -->\n  <line class=\"l\" x1=\"260\" y1=\"190\" x2=\"310\" y2=\"190\"/>\n  <text class=\"p\" x=\"162\" y=\"40\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"268\" y=\"210\">C</text>\n  <path class=\"x\" d=\"M255 175 A25 25 0 0 0 280 160\"/>\n  <text class=\"p\" x=\"180\" y=\"130\">∠الخارجية عند C = ∠A + ∠B</text>\n</svg>"
       },
       "tags": [
         "مثلث",
         "زاوية خارجية"
-      ]
-    },
-    {
-      "id": "midsegment_triangle_bundle",
-      "title": "قطعة المتوسطة في المثلث (والعكس)",
-      "short": "تصل وسط ضلعين، توازي الثالث وتساوي نصفه + العكس.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>قطعة المتوسطة في المثلث: القطعة التي تصل وسط ضلعين في المثلث، توازي الضلع الثالث وتساوي نصفه.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<p>في <span class='math'>△ABC</span> إذا كانت <span class='math'>D</span> منتصف <span class='math'>AB</span> و<span class='math'>E</span> منتصف <span class='math'>AC</span>:</p>",
-        "<ul><li><span class='math'>DE ∥ BC</span></li><li><span class='math'>DE = ½ BC</span></li></ul>",
-        "<div class='th-title'>العكس (صورتان شائعتان)</div>",
-        "<ul><li>القطعة التي تنصف ضلعًا وتوازي ضلعًا ثانيًا ⇒ تنصف الضلع الثالث.</li><li>القطعة التي توازي ضلعًا ثالثًا وتساوي نصفه ⇒ هي قطعة متوسطة.</li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='قطعة متوسطة'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.m{stroke:#0ea5e9;stroke-width:4;stroke-linecap:round}.pt{fill:#0ea5e9}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><text class='p' x='162' y='30'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><circle class='pt' cx='120' cy='118' r='4'/><text class='p' x='102' y='113'>D</text><circle class='pt' cx='230' cy='118' r='4'/><text class='p' x='236' y='113'>E</text><line class='m' x1='120' y1='118' x2='230' y2='118'/><text class='p' x='130' y='150'>DE ∥ BC</text><text class='p' x='125' y='170'>DE = ½ BC</text></svg>"
-      },
-      "tags": [
-        "مثلث",
-        "قطعة متوسطة",
-        "منتصف",
-        "توازي"
-      ]
-    },
-    {
-      "id": "congruence_SAS",
-      "title": "تطابق مثلثين (ض-ز-ض)",
-      "short": "يتطابق المثلثان إذا تساويا بضلعين والزاوية المحصورة بينهما.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتطابق المثلثان إذا تساويا <strong>بضلعين</strong> والزاوية <strong>المحصورة</strong> بينهما (ض-ز-ض).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ض-ز-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><line class='k' x1='90' y1='150' x2='102' y2='138'/><line class='k' x1='260' y1='160' x2='272' y2='148'/><text class='p' x='20' y='30'>ض-ز-ض</text></svg>"
-      },
-      "tags": [
-        "تطابق",
-        "مثلث",
-        "ض-ز-ض"
-      ]
-    },
-    {
-      "id": "congruence_ASA",
-      "title": "تطابق مثلثين (ز-ض-ز)",
-      "short": "يتطابق المثلثان إذا تساويا بضلع والزاويتين المجاورتين له.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتطابق المثلثان إذا تساويا <strong>بضلع</strong> والزاويتين <strong>المجاورتين له</strong> (ز-ض-ز).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ز-ض-ز'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><path class='a' d='M78 175 A18 18 0 0 0 95 160'/><path class='a' d='M205 160 A18 18 0 0 0 222 175'/><text class='p' x='20' y='30'>ز-ض-ز</text></svg>"
-      },
-      "tags": [
-        "تطابق",
-        "مثلث",
-        "ز-ض-ز"
-      ]
-    },
-    {
-      "id": "congruence_SSS",
-      "title": "تطابق مثلثين (ض-ض-ض)",
-      "short": "يتطابق المثلثان إذا تساويا بالأضلاع الثلاثة.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتطابق المثلثان إذا تساويا <strong>بالأضلاع الثلاثة</strong> (ض-ض-ض).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تطابق ض-ض-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M60 190 L140 70 L220 190 Z'/><path class='l' d='M240 190 L285 110 L330 190 Z'/><line class='k' x1='110' y1='120' x2='120' y2='110'/><line class='k' x1='270' y1='140' x2='280' y2='130'/><text class='p' x='20' y='30'>ض-ض-ض</text></svg>"
-      },
-      "tags": [
-        "تطابق",
-        "مثلث",
-        "ض-ض-ض"
-      ]
-    },
-    {
-      "id": "congruence_RHS",
-      "title": "تطابق مثلثين قائمين (وتر وضلع)",
-      "short": "في مثلثين قائمين: إذا تساوى الوتر وأحد الضلعين القائمين ⇒ تطابق.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص القاعدة</div>",
-        "<p>في مثلثين قائمين، إذا تساوى الوتر وتساوى أحد الضلعين القائمين، فإن المثلثين متطابقان.</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='وتر وضلع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M80 190 L80 80 L230 190 Z'/><path class='r' d='M80 178 L95 178 L95 190'/><text class='p' x='20' y='30'>وتر + ضلع قائم</text></svg>"
-      },
-      "tags": [
-        "تطابق",
-        "مثلث قائم",
-        "وتر وضلع"
       ]
     },
     {
@@ -277,41 +163,427 @@
       ]
     },
     {
-      "id": "parallelogram_property_opposite_sides_equal",
-      "title": "خواص متوازي الأضلاع",
-      "short": "في متوازي الأضلاع: الأضلاع المتقابلة متساوية، الزوايا المتقابلة متساوية، والأقطار ينصف أحدها الآخر.",
+      "id": "pythagoras_theorem",
+      "title": "نظرية فيثاغورس",
+      "short": "في مثلث قائم: مجموع مربعي الضلعين القائمين يساوي مربع الوتر.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>خواص متوازي الأضلاع</div>",
-        "<ul><li>كل ضلعين متقابلين متساويين.</li><li>كل زاويتين متقابلتين متساويتين.</li><li>أقطاره ينصف أحدهما الآخر.</li></ul>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>في المثلث القائم الزاوية، إذا كان الوتر طوله <span class='math'>c</span> والضلعان القائمان <span class='math'>a</span> و<span class='math'>b</span> فإن:</p>",
+        "<div class='th-title'>التعبير الرياضي</div>",
+        "<ul><li><span class='math'>a² + b² = c²</span></li></ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='خواص متوازي الأضلاع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round}</style><path class='l' d='M85 60 L245 60 L300 170 L140 170 Z'/><line class='d' x1='85' y1='60' x2='300' y2='170'/><line class='d' x1='245' y1='60' x2='140' y2='170'/><text class='p' x='20' y='212'>AB=CD ، AD=BC</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية فيثاغورس\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .r{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M80 180 L80 70 L250 180 Z\"/>\n  <!-- right angle marker -->\n  <path class=\"r\" d=\"M80 170 L95 170 L95 180\"/>\n  <text class=\"p\" x=\"62\" y=\"200\">A</text>\n  <text class=\"p\" x=\"66\" y=\"60\">B</text>\n  <text class=\"p\" x=\"258\" y=\"200\">C</text>\n  <text class=\"p\" x=\"135\" y=\"125\">c</text>\n  <text class=\"p\" x=\"55\" y=\"125\">a</text>\n  <text class=\"p\" x=\"160\" y=\"195\">b</text>\n  <text class=\"p\" x=\"95\" y=\"30\">في مثلث قائم: a² + b² = c²</text>\n</svg>"
       },
       "tags": [
-        "متوازي الأضلاع",
-        "خواص"
+        "مثلث قائم",
+        "فيثاغورس",
+        "أطوال"
       ]
     },
     {
-      "id": "parallelogram_test_opposite_parallel_equal",
-      "title": "معيار متوازي الأضلاع (ضلعان متقابلان متوازيان ومتساويان)",
-      "short": "إذا كان في رباعي ضلعان متقابلان متوازيان ومتساويان ⇒ الرباعي متوازي أضلاع.",
+      "id": "pythagoras_converse",
+      "title": "عكس نظرية فيثاغورس",
+      "short": "إذا تحقق a² + b² = c² في مثلث، فالزاوية المقابلة لـ c قائمة.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>نص المعيار</div>",
-        "<p>شكل رباعي الذي فيه ضلعين متقابلين <strong>متوازيين</strong> و<strong>متساويين</strong> هو متوازي أضلاع.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>AB ∥ CD</span> و <span class='math'>AB = CD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع</li></ul>",
+        "<div class='th-title'>نص العكس</div>",
+        "<p>إذا كان في مثلث أطوال الأضلاع تحقق:</p>",
+        "<ul><li><span class='math'>a² + b² = c²</span></li></ul>",
+        "<p>فإن الزاوية المقابلة للضلع <span class='math'>c</span> تكون <strong>قائمة</strong>.</p>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='معيار متوازي الأضلاع'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M85 60 L245 60 L300 170 L140 170 Z'/><line class='k' x1='140' y1='50' x2='155' y2='50'/><line class='k' x1='170' y1='50' x2='185' y2='50'/><line class='k' x1='190' y1='180' x2='205' y2='180'/><line class='k' x1='220' y1='180' x2='235' y2='180'/><text class='p' x='20' y='212'>AB ∥ CD و AB=CD</text></svg>"
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية فيثاغورس\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .r{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M80 180 L80 70 L250 180 Z\"/>\n  <!-- right angle marker -->\n  <path class=\"r\" d=\"M80 170 L95 170 L95 180\"/>\n  <text class=\"p\" x=\"62\" y=\"200\">A</text>\n  <text class=\"p\" x=\"66\" y=\"60\">B</text>\n  <text class=\"p\" x=\"258\" y=\"200\">C</text>\n  <text class=\"p\" x=\"135\" y=\"125\">c</text>\n  <text class=\"p\" x=\"55\" y=\"125\">a</text>\n  <text class=\"p\" x=\"160\" y=\"195\">b</text>\n  <text class=\"p\" x=\"95\" y=\"30\">في مثلث قائم: a² + b² = c²</text>\n</svg>"
       },
       "tags": [
-        "متوازي الأضلاع",
-        "معيار"
+        "مثلث",
+        "عكس فيثاغورس",
+        "قائم"
+      ]
+    },
+    {
+      "id": "similarity_AA",
+      "title": "نظرية التشابه (ز-ز)",
+      "short": "يتشابه المثلثان إذا تساوت زاويتان متناظرتان.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التشابه (AA)</div>",
+        "<p>إذا كانت زاويتان في مثلث تساويان زاويتين متناظرتين في مثلث آخر، فإن المثلثين <strong>متشابهان</strong>.</p>",
+        "<div class='th-title'>نتائج التشابه</div>",
+        "<ul><li>الزوايا المتناظرة متساوية.</li><li>الأضلاع المتناظرة متناسبة.</li></ul>",
+        "<p class='math'>AB/A'B' = AC/A'C' = BC/B'C'</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تشابه مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L140 70 L210 190 Z\"/>\n  <path class=\"l\" d=\"M220 190 L255 110 L290 190 Z\"/>\n  <text class=\"p\" x=\"132\" y=\"58\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"218\" y=\"210\">C</text>\n  <text class=\"p\" x=\"247\" y=\"98\">A'</text><text class=\"p\" x=\"212\" y=\"210\">B'</text><text class=\"p\" x=\"296\" y=\"210\">C'</text>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت زاويتان ⇒ تشابه (AA)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">النِّسب: AB/A'B' = AC/A'C' = BC/B'C'</text>\n</svg>"
+      },
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ز-ز"
+      ]
+    },
+    {
+      "id": "similarity_SSS",
+      "title": "نظرية التشابه (ض-ض-ض)",
+      "short": "يتشابه المثلثان إذا تناسبت جميع أضلاعهما على التناظر.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التشابه (SSS)</div>",
+        "<p>إذا تحقق:</p>",
+        "<ul><li><span class='math'>AB/A'B' = AC/A'C' = BC/B'C'</span></li></ul>",
+        "<p>فإن <span class='math'>△ABC ∼ △A'B'C'</span>.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تشابه مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L140 70 L210 190 Z\"/>\n  <path class=\"l\" d=\"M220 190 L255 110 L290 190 Z\"/>\n  <text class=\"p\" x=\"132\" y=\"58\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"218\" y=\"210\">C</text>\n  <text class=\"p\" x=\"247\" y=\"98\">A'</text><text class=\"p\" x=\"212\" y=\"210\">B'</text><text class=\"p\" x=\"296\" y=\"210\">C'</text>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت زاويتان ⇒ تشابه (AA)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">النِّسب: AB/A'B' = AC/A'C' = BC/B'C'</text>\n</svg>"
+      },
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ض-ض-ض"
+      ]
+    },
+    {
+      "id": "similarity_SAS",
+      "title": "نظرية التشابه (ض-ز-ض)",
+      "short": "يتشابه المثلثان إذا تساوت زاوية وكانت الأضلاع المحيطة بها متناسبة على التناظر.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التشابه (SAS)</div>",
+        "<p>إذا كان:</p>",
+        "<ul>",
+        "<li><span class='math'>AB/A'B' = AC/A'C'</span></li>",
+        "<li>و<span class='math'>∠A = ∠A'</span> (زاوية محصورة)</li>",
+        "</ul>",
+        "<p>فإن المثلثين متشابهان.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تشابه مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L140 70 L210 190 Z\"/>\n  <path class=\"l\" d=\"M220 190 L255 110 L290 190 Z\"/>\n  <text class=\"p\" x=\"132\" y=\"58\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"218\" y=\"210\">C</text>\n  <text class=\"p\" x=\"247\" y=\"98\">A'</text><text class=\"p\" x=\"212\" y=\"210\">B'</text><text class=\"p\" x=\"296\" y=\"210\">C'</text>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت زاويتان ⇒ تشابه (AA)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">النِّسب: AB/A'B' = AC/A'C' = BC/B'C'</text>\n</svg>"
+      },
+      "tags": [
+        "تشابه",
+        "مثلث",
+        "ض-ز-ض"
+      ]
+    },
+    {
+      "id": "congruence_SSS",
+      "title": "تطابق مثلثين (ض-ض-ض)",
+      "short": "يتطابق المثلثان إذا تساويا بالأضلاع الثلاثة.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التطابق (SSS)</div>",
+        "<p>إذا كان في مثلثين:</p>",
+        "<ul><li>الأضلاع الثلاثة المتناظرة متساوية في الطول.</li></ul>",
+        "<p>فإن المثلثين <strong>متطابقان</strong>، وبالتالي الزوايا المتناظرة متساوية.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تطابق مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M60 190 L140 70 L220 190 Z\"/>\n  <path class=\"l\" d=\"M240 190 L280 110 L320 190 Z\"/>\n  <!-- ticks show equal sides -->\n  <line class=\"k\" x1=\"95\" y1=\"130\" x2=\"105\" y2=\"120\"/>\n  <line class=\"k\" x1=\"265\" y1=\"150\" x2=\"275\" y2=\"140\"/>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت الأضلاع الثلاثة ⇒ تطابق (SSS)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">نتيجة: الزوايا المتناظرة متساوية</text>\n</svg>"
+      },
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ض-ض-ض"
+      ]
+    },
+    {
+      "id": "congruence_SAS",
+      "title": "تطابق مثلثين (ض-ز-ض)",
+      "short": "يتطابق المثلثان إذا تساويا بضلعين والزاوية المحصورة بينهما.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التطابق (SAS)</div>",
+        "<p>إذا تساوى ضلعان متناظران في مثلثين، وتساوت الزاوية <strong>المحصورة</strong> بينهما، فإن المثلثين متطابقان.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تطابق مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M60 190 L140 70 L220 190 Z\"/>\n  <path class=\"l\" d=\"M240 190 L280 110 L320 190 Z\"/>\n  <!-- ticks show equal sides -->\n  <line class=\"k\" x1=\"95\" y1=\"130\" x2=\"105\" y2=\"120\"/>\n  <line class=\"k\" x1=\"265\" y1=\"150\" x2=\"275\" y2=\"140\"/>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت الأضلاع الثلاثة ⇒ تطابق (SSS)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">نتيجة: الزوايا المتناظرة متساوية</text>\n</svg>"
+      },
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ض-ز-ض"
+      ]
+    },
+    {
+      "id": "congruence_ASA",
+      "title": "تطابق مثلثين (ز-ض-ز)",
+      "short": "يتطابق المثلثان إذا تساويا بضلع والزاويتين المجاورتين له.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التطابق (ASA)</div>",
+        "<p>إذا تساوت زاويتان متناظرتان في مثلثين، وتساوى الضلع <strong>المحصور</strong> بينهما، فإن المثلثين متطابقان.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"تطابق مثلثين\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M60 190 L140 70 L220 190 Z\"/>\n  <path class=\"l\" d=\"M240 190 L280 110 L320 190 Z\"/>\n  <!-- ticks show equal sides -->\n  <line class=\"k\" x1=\"95\" y1=\"130\" x2=\"105\" y2=\"120\"/>\n  <line class=\"k\" x1=\"265\" y1=\"150\" x2=\"275\" y2=\"140\"/>\n  <text class=\"p\" x=\"40\" y=\"30\">إذا تساوت الأضلاع الثلاثة ⇒ تطابق (SSS)</text>\n  <text class=\"p\" x=\"40\" y=\"48\">نتيجة: الزوايا المتناظرة متساوية</text>\n</svg>"
+      },
+      "tags": [
+        "تطابق",
+        "مثلث",
+        "ز-ض-ز"
+      ]
+    },
+    {
+      "id": "congruence_RHS",
+      "title": "تطابق مثلثين قائمين (وتر وضلع)",
+      "short": "في مثلثين قائمين: إذا تساوى الوتر وضلع قائم ⇒ تطابق.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>شرط التطابق في المثلث القائم (RHS)</div>",
+        "<p>إذا كان لدينا مثلثان قائمان، وتساوى <strong>الوتر</strong> في كليهما وتساوى أحد <strong>الضلعين القائمين</strong>، فإن المثلثين متطابقان.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية فيثاغورس\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .r{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M80 180 L80 70 L250 180 Z\"/>\n  <!-- right angle marker -->\n  <path class=\"r\" d=\"M80 170 L95 170 L95 180\"/>\n  <text class=\"p\" x=\"62\" y=\"200\">A</text>\n  <text class=\"p\" x=\"66\" y=\"60\">B</text>\n  <text class=\"p\" x=\"258\" y=\"200\">C</text>\n  <text class=\"p\" x=\"135\" y=\"125\">c</text>\n  <text class=\"p\" x=\"55\" y=\"125\">a</text>\n  <text class=\"p\" x=\"160\" y=\"195\">b</text>\n  <text class=\"p\" x=\"95\" y=\"30\">في مثلث قائم: a² + b² = c²</text>\n</svg>"
+      },
+      "tags": [
+        "تطابق",
+        "مثلث قائم",
+        "وتر وضلع"
+      ]
+    },
+    {
+      "id": "angle_bisector_theorem",
+      "title": "منصف الزاوية الداخلية في مثلث (نظرية النسبة)",
+      "short": "منصف الزاوية الداخلية في مثلث يقسم الضلع المقابل حسب النسبة بين الضلعين الحاضرين للزاوية.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>في المثلث <span class='math'>ABC</span> إذا كان <span class='math'>AD</span> منصفًا للزاوية <span class='math'>∠A</span> (حيث <span class='math'>D</span> على <span class='math'>BC</span>)، فإن:</p>",
+        "<div class='th-title'>التعبير الرياضي</div>",
+        "<ul><li><span class='math'>BD/DC = AB/AC</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية منصف الزاوية\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .b{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M80 190 L170 55 L290 190 Z\"/>\n  <line class=\"b\" x1=\"170\" y1=\"55\" x2=\"185\" y2=\"190\"/>\n  <text class=\"p\" x=\"162\" y=\"40\">A</text><text class=\"p\" x=\"62\" y=\"210\">B</text><text class=\"p\" x=\"298\" y=\"210\">C</text>\n  <text class=\"p\" x=\"190\" y=\"210\">D</text>\n  <text class=\"p\" x=\"20\" y=\"30\">إذا AD منصف ∠A ⇒ BD/DC = AB/AC</text>\n</svg>"
+      },
+      "tags": [
+        "منصف الزاوية",
+        "نسب",
+        "مثلث"
+      ]
+    },
+    {
+      "id": "perpendicular_bisector_locus",
+      "title": "العمود المنصف (محل هندسي)",
+      "short": "كل نقطة على العمود المنصف لقطعة تكون متساوية البعد عن طرفيها (والعكس).",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>العمود المنصف للقطعة <span class='math'>AB</span> هو محلّ جميع النقاط التي تبعد مسافة متساوية عن <span class='math'>A</span> و<span class='math'>B</span>.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<ul><li>إذا كانت <span class='math'>P</span> على العمود المنصف ⇒ <span class='math'>PA = PB</span>.</li>",
+        "<li>وإذا تحقق <span class='math'>PA = PB</span> ⇒ <span class='math'>P</span> تقع على العمود المنصف.</li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"العمود المنصف محل هندسي\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round;}\n    .c{stroke:#0ea5e9;stroke-width:2;fill:none;}\n  </style>\n  <line class=\"l\" x1=\"70\" y1=\"150\" x2=\"270\" y2=\"150\"/>\n  <circle cx=\"70\" cy=\"150\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"55\" y=\"173\">A</text>\n  <circle cx=\"270\" cy=\"150\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"276\" y=\"173\">B</text>\n  <circle cx=\"170\" cy=\"150\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"160\" y=\"173\">M</text>\n  <line class=\"d\" x1=\"170\" y1=\"40\" x2=\"170\" y2=\"210\"/>\n  <circle cx=\"170\" cy=\"80\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"178\" y=\"83\">P</text>\n  <!-- equal distance arcs -->\n  <path class=\"c\" d=\"M170 80 A92 92 0 0 1 70 150\"/>\n  <path class=\"c\" d=\"M170 80 A92 92 0 0 0 270 150\"/>\n  <text class=\"p\" x=\"20\" y=\"30\">أي نقطة P على العمود المنصف ⇒ PA = PB</text>\n</svg>"
+      },
+      "tags": [
+        "عمود منصف",
+        "محل هندسي",
+        "تساوي مسافات"
+      ]
+    },
+    {
+      "id": "medians_centroid",
+      "title": "تلاقي المتوسطات (مركز الثقل)",
+      "short": "المتوسطات تتلاقى في نقطة واحدة تقسم كل متوسط بنسبة 2:1 من جهة الرأس.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>متوسطات المثلث تتلاقى في نقطة واحدة <strong>G</strong> (مركز الثقل).</p>",
+        "<p>وتقسم كل متوسط بنسبة <span class='math'>2:1</span> بحيث الجزء الأقرب للرأس أطول.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>إذا كان <span class='math'>M</span> منتصف <span class='math'>BC</span> فإن:</p>",
+        "<ul><li><span class='math'>AG:GM = 2:1</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نقطة تلاقي المتوسطات\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n    .pt{fill:#0ea5e9;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <circle cx=\"170\" cy=\"45\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"162\" y=\"30\">A</text>\n  <circle cx=\"70\" cy=\"190\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"52\" y=\"210\">B</text>\n  <circle cx=\"290\" cy=\"190\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"298\" y=\"210\">C</text>\n\n  <!-- midpoints -->\n  <circle class=\"pt\" cx=\"180\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"186\" y=\"113\">M</text>\n  <circle class=\"pt\" cx=\"120\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"102\" y=\"113\">N</text>\n  <circle class=\"pt\" cx=\"170\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"160\" y=\"212\">P</text>\n\n  <!-- medians -->\n  <line class=\"m\" x1=\"170\" y1=\"45\" x2=\"170\" y2=\"190\"/>\n  <line class=\"m\" x1=\"70\" y1=\"190\" x2=\"180\" y2=\"118\"/>\n  <line class=\"m\" x1=\"290\" y1=\"190\" x2=\"120\" y2=\"118\"/>\n\n  <!-- centroid -->\n  <circle cx=\"170\" cy=\"118\" r=\"5\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"178\" y=\"122\">G</text>\n\n  <text class=\"p\" x=\"20\" y=\"30\">المتوسطات تتلاقى في G وتُقسم بنسبة 2:1</text>\n</svg>"
+      },
+      "tags": [
+        "متوسط",
+        "مركز ثقل",
+        "نسبة 2:1"
+      ]
+    },
+    {
+      "id": "thales_parallel_triangle",
+      "title": "نظرية اليج الموسعة",
+      "short": "المستقيم الموازي لضلع في مثلث يحدد مثلثًا آخر تكون أضلاعه متناسبة مع أضلاع المثلث المعطى.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>في المثلث <span class='math'>ABC</span> إذا كان <span class='math'>DE ∥ BC</span> حيث <span class='math'>D</span> على <span class='math'>AB</span> و<span class='math'>E</span> على <span class='math'>AC</span>، فإن:</p>",
+        "<ul><li>المثلثان <span class='math'>△ADE</span> و<span class='math'>△ABC</span> متشابهان.</li></ul>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<p class='math'>AD/AB = AE/AC = DE/BC</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية طاليس (مستقيم موازٍ)\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <line class=\"l\" x1=\"70\" y1=\"190\" x2=\"170\" y2=\"50\"/>\n  <line class=\"l\" x1=\"170\" y1=\"50\" x2=\"290\" y2=\"190\"/>\n  <line class=\"l\" x1=\"70\" y1=\"190\" x2=\"290\" y2=\"190\"/>\n  <!-- parallel line -->\n  <line class=\"m\" x1=\"105\" y1=\"140\" x2=\"250\" y2=\"140\"/>\n  <text class=\"p\" x=\"162\" y=\"40\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"298\" y=\"210\">C</text>\n  <text class=\"p\" x=\"20\" y=\"30\">إذا DE ∥ BC في △ABC ⇒ AD/AB = AE/AC = DE/BC</text>\n</svg>"
+      },
+      "tags": [
+        "اليج الموسعة",
+        "نسب",
+        "تشابه"
+      ]
+    },
+    {
+      "id": "intercept_theorem_parallel_lines",
+      "title": "نظرية اليج",
+      "short": "المستقيمان المتوازيان اللذان يقطعان ساقي زاوية يحددان قطعًا متناسبة (والعكس).",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>إذا قطع مستقيمان متوازيان ضلعي زاوية (أو ضلعي مثلث)، فإن القطع الناتجة على الضلعين تكون <strong>متناسبة</strong>.</p>",
+        "<div class='th-title'>صيغة شائعة</div>",
+        "<p>إذا كان <span class='math'>DE ∥ BC</span> في <span class='math'>△ABC</span> فإن:</p>",
+        "<p class='math'>AD/DB = AE/EC</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية النسبة (موازٍ يقطع ضلعي زاوية)\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <line class=\"l\" x1=\"90\" y1=\"200\" x2=\"170\" y2=\"40\"/>\n  <line class=\"l\" x1=\"170\" y1=\"40\" x2=\"290\" y2=\"200\"/>\n  <line class=\"m\" x1=\"120\" y1=\"140\" x2=\"255\" y2=\"140\"/>\n  <text class=\"p\" x=\"162\" y=\"28\">O</text>\n  <text class=\"p\" x=\"80\" y=\"220\">A</text>\n  <text class=\"p\" x=\"296\" y=\"220\">B</text>\n  <text class=\"p\" x=\"20\" y=\"30\">إذا خطان متوازيان يقطعان ضلعي زاوية ⇒ النِّسب متساوية</text>\n</svg>"
+      },
+      "tags": [
+        "اليج",
+        "نسب",
+        "توازي"
+      ]
+    },
+    {
+      "id": "circle_inscribed_angle",
+      "title": "في الدائرة: الزاوية المحيطية تساوي نصف الزاوية المركزية",
+      "short": "في الدائرة، الزاوية المحيطية تساوي نصف الزاوية المركزية المرتكزة على نفس القوس.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>في دائرة مركزها <span class='math'>O</span>، الزاوية المحيطية <span class='math'>∠ACB</span> القائمة على القوس <span class='math'>AB</span> تساوي نصف الزاوية المركزية <span class='math'>∠AOB</span> على القوس نفسه.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<ul><li><span class='math'>∠ACB = ½ ∠AOB</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"الزاوية المحيطية\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .c{stroke:#111827;stroke-width:3;fill:none;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <circle class=\"c\" cx=\"170\" cy=\"120\" r=\"80\"/>\n  <circle cx=\"170\" cy=\"120\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"160\" y=\"112\">O</text>\n  <circle cx=\"110\" cy=\"160\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"96\" y=\"182\">A</text>\n  <circle cx=\"230\" cy=\"160\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"234\" y=\"182\">B</text>\n  <circle cx=\"170\" cy=\"40\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"176\" y=\"36\">C</text>\n  <line class=\"l\" x1=\"170\" y1=\"40\" x2=\"110\" y2=\"160\"/>\n  <line class=\"l\" x1=\"170\" y1=\"40\" x2=\"230\" y2=\"160\"/>\n  <line class=\"m\" x1=\"170\" y1=\"120\" x2=\"110\" y2=\"160\"/>\n  <line class=\"m\" x1=\"170\" y1=\"120\" x2=\"230\" y2=\"160\"/>\n  <text class=\"p\" x=\"20\" y=\"212\">∠ACB (محيطية) = ½ ∠AOB (مركزية)</text>\n</svg>"
+      },
+      "tags": [
+        "دائرة",
+        "محيطية",
+        "مركزية"
+      ]
+    },
+    {
+      "id": "circle_tangent_radius_perpendicular",
+      "title": "في الدائرة: المماس يعامد نصف القطر في نقطة التماس (والعكس)",
+      "short": "المماس للدائرة عمودي على نصف القطر عند نقطة التماس، والعكس صحيح.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>إذا كان <span class='math'>t</span> مماسًا للدائرة عند النقطة <span class='math'>T</span>، فإن <span class='math'>OT ⟂ t</span> حيث <span class='math'>O</span> مركز الدائرة.</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"المماس ونصف القطر\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .c{stroke:#111827;stroke-width:3;fill:none;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <circle class=\"c\" cx=\"150\" cy=\"120\" r=\"70\"/>\n  <circle cx=\"150\" cy=\"120\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"140\" y=\"112\">O</text>\n  <circle cx=\"220\" cy=\"120\" r=\"4\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"226\" y=\"124\">T</text>\n  <line class=\"m\" x1=\"150\" y1=\"120\" x2=\"220\" y2=\"120\"/>\n  <line class=\"l\" x1=\"220\" y1=\"50\" x2=\"220\" y2=\"190\"/>\n  <text class=\"p\" x=\"20\" y=\"212\">المماس عند T عمودي على نصف القطر OT</text>\n</svg>"
+      },
+      "tags": [
+        "دائرة",
+        "مماس",
+        "عمودي"
+      ]
+    },
+    {
+      "id": "supplementary_angles_straight_line",
+      "title": "الزوايا المتجاورة تكمل بعضها لـ 180°",
+      "short": "الزوايا المتجاورة على استقامة واحدة مجموعهما 180°.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>الزوايا المتجاورة تكمل بعضها لـ <strong>180°</strong>.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<ul><li><span class='math'>∠1 + ∠2 = 180°</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزوايا المتجاورة تكمل 180'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='40' y1='160' x2='300' y2='160'/><line class='l' x1='170' y1='160' x2='170' y2='70'/><circle cx='170' cy='160' r='4' fill='#1d4ed8'/><text class='p' x='178' y='165'>O</text><path class='a' d='M170 145 A24 24 0 0 0 146 160'/><path class='a' d='M170 145 A24 24 0 0 1 194 160'/><text class='p' x='20' y='30'>∠1 + ∠2 = 180°</text></svg>"
+      },
+      "tags": [
+        "زوايا",
+        "180",
+        "استقامة"
+      ]
+    },
+    {
+      "id": "vertical_angles_equal",
+      "title": "الزوايا المتقابلة بالرأس متساوية",
+      "short": "عند تقاطع مستقيمين: الزوايا المتقابلة بالرأس متساوية.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>الزوايا المتقابلة بالرأس متساوية.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<ul><li><span class='math'>∠1 = ∠2</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزوايا المتقابلة بالرأس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='60' y1='60' x2='300' y2='200'/><line class='l' x1='300' y1='60' x2='60' y2='200'/><circle cx='180' cy='130' r='4' fill='#1d4ed8'/><text class='p' x='188' y='135'>O</text><path class='a' d='M190 118 A25 25 0 0 1 210 138'/><path class='a' d='M170 142 A25 25 0 0 1 150 122'/><text class='p' x='20' y='30'>∠1 = ∠2</text></svg>"
+      },
+      "tags": [
+        "زوايا",
+        "تقاطع",
+        "متقابلة بالرأس"
+      ]
+    },
+    {
+      "id": "isosceles_triangle_base_angles",
+      "title": "زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس)",
+      "short": "زوايا القاعدة في المتساوي الساقين متساوية. والعكس: إذا تساوت زاويتان في مثلث فهو متساوي الساقين.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>زوايا القاعدة في المثلث المتساوي الساقين متساوية.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>في <span class='math'>△ABC</span> إذا <span class='math'>AB = AC</span> فإن:</p>",
+        "<ul><li><span class='math'>∠ABC = ∠BCA</span></li></ul>",
+        "<div class='th-title'>العكس</div>",
+        "<p>إذا كان في مثلث زاويتان متساويتان، فإن المثلث متساوي الساقين (والضلعان المقابلان لهما متساويان).</p>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متساوي الساقين'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='k' x1='120' y1='125' x2='132' y2='113'/><line class='k' x1='208' y1='113' x2='220' y2='125'/><path class='a' d='M85 175 A28 28 0 0 0 112 155'/><path class='a' d='M228 155 A28 28 0 0 0 255 175'/><text class='p' x='105' y='150'>∠B = ∠C</text></svg>"
+      },
+      "tags": [
+        "مثلث",
+        "متساوي الساقين",
+        "زوايا القاعدة"
+      ]
+    },
+    {
+      "id": "triangle_inequality",
+      "title": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
+      "short": "في أي مثلث: مجموع طولي أي ضلعين أكبر من طول الضلع الثالث.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص النظرية</div>",
+        "<p>مجموع أي ضلعين في المثلث أكبر من الضلع الثالث.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<ul><li><span class='math'>AB + AC > BC</span></li><li><span class='math'>AB + BC > AC</span></li><li><span class='math'>AC + BC > AB</span></li></ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متباينة المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><text class='p' x='20' y='30'>AB + AC > BC</text></svg>"
+      },
+      "tags": [
+        "مثلث",
+        "متباينة",
+        "أطوال"
       ]
     },
     {
@@ -333,45 +605,6 @@
         "رباعي",
         "زوايا",
         "360"
-      ]
-    },
-    {
-      "id": "pythagoras_theorem",
-      "title": "نظرية فيثاغورس",
-      "short": "في مثلث قائم الزاوية: مجموع مربعي الضلعين القائمين يساوي تربيع الوتر.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>في مثلث قائم الزاوية، مجموع مربعي الضلعين القائمين يساوي تربيع الوتر.</p>",
-        "<div class='th-title'>التعبير الرياضي</div>",
-        "<ul><li><span class='math'>a² + b² = c²</span></li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='فيثاغورس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M80 180 L80 70 L250 180 Z'/><path class='r' d='M80 168 L95 168 L95 180'/><text class='p' x='95' y='35'>a² + b² = c²</text></svg>"
-      },
-      "tags": [
-        "فيثاغورس",
-        "مثلث قائم"
-      ]
-    },
-    {
-      "id": "pythagoras_converse",
-      "title": "نظرية فيثاغورس العكسية",
-      "short": "المثلث الذي فيه مجموع مربعي ضلعين يساوي تربيع الضلع الثالث هو مثلث قائم الزاوية.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>إذا تحقق في مثلث أن <span class='math'>a² + b² = c²</span> فإن المثلث قائم الزاوية والضلع <span class='math'>c</span> هو الوتر.</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='عكس فيثاغورس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M80 180 L80 70 L250 180 Z'/><text class='p' x='20' y='30'>a² + b² = c² ⇒ قائم</text></svg>"
-      },
-      "tags": [
-        "فيثاغورس",
-        "عكس",
-        "مثلث قائم"
       ]
     },
     {
@@ -401,17 +634,13 @@
     {
       "id": "right_triangle_altitude_hypotenuse",
       "title": "علاقات الارتفاع على الوتر في مثلث قائم",
-      "short": "الارتفاع على الوتر في مثلث قائم يعطي علاقات إسقاطات (مثل: BC² = AB·BD).",
+      "short": "في مثلث قائم: علاقات إسقاطات مهمة مثل BC² = AB·BD.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص القاعدة</div>",
         "<p>في مثلث قائم الزاوية، إذا رُسم الارتفاع من القائمة على الوتر وقسم الوتر إلى إسقاطين، تظهر علاقات إسقاطات مهمة.</p>",
         "<div class='th-title'>صيغ شائعة</div>",
-        "<ul>",
-        "<li><span class='math'>BC² = AB · BD</span></li>",
-        "<li><span class='math'>AC² = AB · AD</span></li>",
-        "<li><span class='math'>الارتفاع على الوتر هو معدل هندسي لظلَّي العمودين على الوتر</span></li>",
-        "</ul>",
+        "<ul><li><span class='math'>BC² = AB · BD</span></li><li><span class='math'>AC² = AB · AD</span></li></ul>",
         "</div>"
       ],
       "diagram": {
@@ -445,206 +674,25 @@
       ]
     },
     {
-      "id": "angle_bisector_theorem",
-      "title": "منصف الزاوية الداخلية في مثلث (نظرية النسبة)",
-      "short": "منصف الزاوية الداخلية يقسم الضلع المقابل حسب النسبة بين الضلعين الحاضرين للزاوية.",
+      "id": "isosceles_trapezoid_base_angles",
+      "title": "في شبه المنحرف المتساوي الساقين: الزوايا المجاورة لكل قاعدة متساوية",
+      "short": "إذا كان AB ∥ CD و AD = BC ⇒ ∠A = ∠B و ∠D = ∠C.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
-        "<p>منصف الزاوية الداخلية في مثلث يقسم الضلع المقابل للزاوية حسب النسبة بين الضلعين الحاضرين للزاوية.</p>",
+        "<p>في شبه المنحرف المتساوي الساقين تكون الزوايا المجاورة لكل قاعدة متساوية.</p>",
         "<div class='th-title'>التعبير الرمزي</div>",
-        "<p>في <span class='math'>△ABC</span> إذا كان <span class='math'>AD</span> منصف <span class='math'>∠A</span> فإن:</p>",
-        "<ul><li><span class='math'>BD/DC = AB/AC</span></li></ul>",
+        "<p>إذا كان <span class='math'>AB ∥ CD</span> و <span class='math'>AD = BC</span> فإن:</p>",
+        "<ul><li><span class='math'>∠A = ∠B</span> و <span class='math'>∠D = ∠C</span></li></ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='منصف الزاوية في مثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.b{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='b' x1='170' y1='50' x2='190' y2='190'/><text class='p' x='200' y='210'>D</text><text class='p' x='20' y='30'>BD/DC = AB/AC</text></svg>"
+        "svg": "<svg viewBox='0 0 360 220' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='شبه منحرف متساوي الساقين'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 170 L290 170 L240 70 L120 70 Z'/><text class='p' x='112' y='62'>A</text><text class='p' x='245' y='62'>B</text><text class='p' x='296' y='185'>C</text><text class='p' x='56' y='185'>D</text><line class='k' x1='95' y1='120' x2='110' y2='105'/><line class='k' x1='265' y1='120' x2='250' y2='105'/><path class='a' d='M118 78 A18 18 0 0 1 138 70'/><path class='a' d='M222 70 A18 18 0 0 1 242 78'/><path class='a' d='M80 160 A18 18 0 0 0 95 170'/><path class='a' d='M265 170 A18 18 0 0 0 280 160'/><text class='p' x='20' y='30'>∠A=∠B ، ∠D=∠C</text></svg>"
       },
       "tags": [
-        "منصف الزاوية",
-        "نسب",
-        "مثلث"
-      ]
-    },
-    {
-      "id": "perpendicular_bisector_locus",
-      "title": "العمود المنصف (محل هندسي)",
-      "short": "كل نقطة على العمود المنصف لقطعة تبعد مسافة متساوية عن طرفيها (والعكس).",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص القاعدة</div>",
-        "<p>العمود المنصف للقطعة <span class='math'>AB</span> هو محل جميع النقاط التي تبعد مسافة متساوية عن <span class='math'>A</span> و<span class='math'>B</span>.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>PA = PB</span> ⇔ <span class='math'>P</span> على العمود المنصف</li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='العمود المنصف'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round}</style><line class='l' x1='70' y1='150' x2='270' y2='150'/><circle cx='70' cy='150' r='4' fill='#1d4ed8'/><text class='p' x='55' y='173'>A</text><circle cx='270' cy='150' r='4' fill='#1d4ed8'/><text class='p' x='276' y='173'>B</text><line class='d' x1='170' y1='40' x2='170' y2='210'/><circle cx='170' cy='90' r='4' fill='#0ea5e9'/><text class='p' x='178' y='93'>P</text><text class='p' x='20' y='30'>PA = PB</text></svg>"
-      },
-      "tags": [
-        "محل هندسي",
-        "عمود منصف"
-      ]
-    },
-    {
-      "id": "medians_centroid",
-      "title": "تلاقي المتوسطات (مركز الثقل)",
-      "short": "متوسطات المثلث تتلاقى في نقطة واحدة وتقسم كل متوسط بنسبة 2:1.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص القاعدة</div>",
-        "<p>متوسطات المثلث تتلاقى في نقطة واحدة (مركز الثقل)، وتُقسم كل متوسط بنسبة <span class='math'>2:1</span> من جهة الرأس.</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مركز الثقل'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path class='l' d='M70 190 L170 45 L290 190 Z'/><line class='m' x1='170' y1='45' x2='170' y2='190'/><line class='m' x1='70' y1='190' x2='230' y2='118'/><line class='m' x1='290' y1='190' x2='110' y2='118'/><circle cx='170' cy='118' r='5' fill='#0ea5e9'/><text class='p' x='178' y='122'>G</text><text class='p' x='20' y='30'>AG:GM = 2:1</text></svg>"
-      },
-      "tags": [
-        "متوسط",
-        "مركز الثقل"
-      ]
-    },
-    {
-      "id": "intercept_theorem_parallel_lines",
-      "title": "نظرية اليج",
-      "short": "المستقيمان المتوازيان اللذان يقطعان ساقي زاوية يحددان قطعًا متناسبة (والعكس).",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>المستقيمان المتوازيان واللذان يقطعان ساقي زاوية ما، يحددان على الساقين قطعًا متناسبة.</p>",
-        "<div class='th-title'>صيغة شائعة في مثلث</div>",
-        "<ul><li><span class='math'>إذا DE ∥ BC ⇒ AD/DB = AE/EC</span></li></ul>",
-        "<div class='th-title'>عكس</div>",
-        "<p>إذا قطع مستقيمان ساقي زاوية وأنتجا قطعًا متناسبة ⇒ المستقيمان متوازيان.</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='نظرية اليج'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><line class='l' x1='90' y1='200' x2='170' y2='40'/><line class='l' x1='170' y1='40' x2='290' y2='200'/><line class='m' x1='120' y1='140' x2='255' y2='140'/><text class='p' x='20' y='30'>AD/DB = AE/EC</text></svg>"
-      },
-      "tags": [
-        "اليج",
-        "نسب",
-        "توازي"
-      ]
-    },
-    {
-      "id": "thales_parallel_triangle",
-      "title": "نظرية اليج الموسعة",
-      "short": "المستقيم الموازي لضلع في مثلث يحدد مثلثًا آخر تكون أضلاعه متناسبة مع أضلاع المثلث المعطى.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>المستقيم الموازي لضلع في مثلث يحدد مثلثًا آخر، بحيث تكون أضلاعه متناسبة مع أضلاع المثلث المعطى.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>إذا DE ∥ BC ⇒ AD/AB = AE/AC = DE/BC</span></li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='اليج الموسعة'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><path d='M70 190 L170 50 L290 190 Z' fill='none' stroke='#111827' stroke-width='3' stroke-linejoin='round'/><line class='m' x1='105' y1='140' x2='250' y2='140'/><text class='p' x='20' y='30'>AD/AB = AE/AC = DE/BC</text></svg>"
-      },
-      "tags": [
-        "اليج الموسعة",
-        "نسب",
-        "تشابه"
-      ]
-    },
-    {
-      "id": "similarity_SAS",
-      "title": "نظرية التشابه (ض-ز-ض)",
-      "short": "يتشابه المثلثان إذا تساوت زاوية وكانت الأضلاع المحيطة بها متناسبة على التناظر.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتشابه المثلثان إذا تساوت زاوية من أحدهما مع زاوية من الآخر وكانت الأضلاع المحيطة بالزاويتين المتساويتين متناسبة على التناظر (ض-ز-ض).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ض-ز-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ض-ز-ض</text></svg>"
-      },
-      "tags": [
-        "تشابه",
-        "مثلث",
-        "ض-ز-ض"
-      ]
-    },
-    {
-      "id": "similarity_AA",
-      "title": "نظرية التشابه (ز-ز)",
-      "short": "يتشابه المثلثان إذا تساوت زاويتان متناظرتان.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتشابه المثلثان إذا تساوت زوايا المثلث الأول مع زوايا المثلث الثاني على التناظر (يكفي تساوي زاويتين) (ز-ز).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ز-ز'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ز-ز</text></svg>"
-      },
-      "tags": [
-        "تشابه",
-        "مثلث",
-        "ز-ز"
-      ]
-    },
-    {
-      "id": "similarity_SSS",
-      "title": "نظرية التشابه (ض-ض-ض)",
-      "short": "يتشابه المثلثان إذا تناسبت جميع أضلاعهما على التناظر.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>يتشابه المثلثان إذا تناسبت جميع أضلاع المثلث الأول مع الأضلاع المناظرة لها في المثلث الثاني (ض-ض-ض).</p>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='تشابه ض-ض-ض'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L140 70 L210 190 Z'/><path class='l' d='M230 190 L260 120 L290 190 Z'/><text class='p' x='20' y='30'>تشابه ض-ض-ض</text></svg>"
-      },
-      "tags": [
-        "تشابه",
-        "مثلث",
-        "ض-ض-ض"
-      ]
-    },
-    {
-      "id": "circle_inscribed_angle",
-      "title": "في الدائرة: الزاوية المحيطية تساوي نصف الزاوية المركزية",
-      "short": "الزاوية المحيطية نصف الزاوية المركزية المرتكزة على نفس القوس.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<p>في الدائرة، الزاوية المحيطية تساوي نصف الزاوية المركزية المرتكزة على نفس القوس.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>∠المحيطية = ½ ∠المركزية</span></li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='محيطية ومركزية'><style>.p{fill:#111827;font:14px Arial}.c{stroke:#111827;stroke-width:3;fill:none}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><circle class='c' cx='170' cy='120' r='80'/><circle cx='170' cy='120' r='4' fill='#1d4ed8'/><text class='p' x='160' y='112'>O</text><circle cx='110' cy='160' r='4' fill='#0ea5e9'/><text class='p' x='96' y='182'>A</text><circle cx='230' cy='160' r='4' fill='#0ea5e9'/><text class='p' x='234' y='182'>B</text><circle cx='170' cy='40' r='4' fill='#0ea5e9'/><text class='p' x='176' y='36'>C</text><line class='l' x1='170' y1='40' x2='110' y2='160'/><line class='l' x1='170' y1='40' x2='230' y2='160'/><line class='m' x1='170' y1='120' x2='110' y2='160'/><line class='m' x1='170' y1='120' x2='230' y2='160'/><text class='p' x='20' y='212'>∠محيطية = ½ ∠مركزية</text></svg>"
-      },
-      "tags": [
-        "دائرة",
-        "محيطية",
-        "مركزية"
-      ]
-    },
-    {
-      "id": "circle_tangent_radius_perpendicular",
-      "title": "في الدائرة: المماس يعامد نصف القطر في نقطة التماس (والعكس)",
-      "short": "المماس عمودي على نصف القطر عند التماس، والعكس صحيح.",
-      "contentHtml": [
-        "<div class='th-section'>",
-        "<div class='th-title'>نص النظرية</div>",
-        "<ul><li>في الدائرة، المماس يعامد نصف قطر الدائرة في نقطة التماس.</li><li>المستقيم الذي يعامد نصف قطر الدائرة عند نقطة على الدائرة يكون مماسًا.</li></ul>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>OT ⟂ t</span></li></ul>",
-        "</div>"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='مماس ونصف قطر'><style>.p{fill:#111827;font:14px Arial}.c{stroke:#111827;stroke-width:3;fill:none}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}</style><circle class='c' cx='150' cy='120' r='70'/><circle cx='150' cy='120' r='4' fill='#1d4ed8'/><text class='p' x='140' y='112'>O</text><circle cx='220' cy='120' r='4' fill='#0ea5e9'/><text class='p' x='226' y='124'>T</text><line class='m' x1='150' y1='120' x2='220' y2='120'/><line class='l' x1='220' y1='50' x2='220' y2='190'/><text class='p' x='20' y='212'>OT ⟂ t</text></svg>"
-      },
-      "tags": [
-        "دائرة",
-        "مماس",
-        "عمودي"
+        "شبه منحرف",
+        "متساوي الساقين",
+        "زوايا القاعدة"
       ]
     }
   ]
