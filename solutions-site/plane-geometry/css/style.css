@@ -8,6 +8,7 @@
   --accent-2:#1d4ed8;
   --shadow: 0 10px 25px rgba(0,0,0,.06);
   --radius: 14px;
+  --thumb-h: 220px; /* ارتفاع موحّد لصور المعرض */
 }
 
 *{ box-sizing:border-box; }
@@ -208,7 +209,9 @@ body{
 
 .gallery__item img{
   width:100%;
-  height:auto;
+  height: var(--thumb-h);
+  object-fit: contain; /* يحافظ على الصورة كاملة */
+  background: #f8fafc; /* فراغات لطيفة عند اختلاف الأبعاد */
   display:block;
 }
 
