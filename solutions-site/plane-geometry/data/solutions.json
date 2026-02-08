@@ -17,7 +17,8 @@
       "title": "سؤال (1)",
       "images": [
         "images/q01-1.png",
-        "images/q01.png"
+        "images/q01.png",
+        "images/q02.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -522,6 +523,7 @@
       "number": 15,
       "title": "سؤال (15)",
       "images": [
+        "images/q15.png",
         "images/q15-1.png",
         "images/q15-2.png"
       ],
@@ -905,7 +907,8 @@
       "number": 28,
       "title": "سؤال (28)",
       "images": [
-        "images/q28.png"
+        "images/q28.png",
+        "images/q28-1.png"
       ],
       "solution": [
         "✅ المعطى:",
