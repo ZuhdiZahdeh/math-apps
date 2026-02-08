@@ -741,20 +741,31 @@
     {
       "id": "isosceles_triangle_base_angles",
       "title": "زوايا القاعدة في المثلث المتساوي الساقين متساوية (والعكس)",
-      "short": "زوايا القاعدة في المتساوي الساقين متساوية. والعكس: إذا تساوت زاويتان في مثلث فهو متساوي الساقين.",
+      "short": "في مثلث متساوي الساقين: تساوي الساقين ⇔ تساوي زاويتي القاعدة.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
-        "<p>زوايا القاعدة في المثلث المتساوي الساقين متساوية.</p>",
+        "<p>في المثلث متساوي الساقين، تكون الزاويتان المقابلتان للساقين المتساويين <strong>متطابقتين</strong>.</p>",
+        "<div class='th-title'>عكس النظرية</div>",
+        "<p>إذا تساوت زاويتان في مثلث، فإن الضلعين المقابلين لهما متساويان، وبالتالي يكون المثلث <strong>متساوي الساقين</strong>.</p>",
+        "<div class='th-title'>الأهمية</div>",
+        "<p>هذا العكس مفيد جداً في المسائل البرهانية؛ فإذا استطعت إثبات أن زوايا القاعدة متساوية، يمكنك فوراً استنتاج أن المثلث <strong>متساوي الساقين</strong>.</p>",
+        "<div class='th-title'>ملخص الخصائص</div>",
+        "<p>في أي مثلث متساوي الساقين، هناك علاقة ارتباط شرطي بين الأضلاع والزوايا:</p>",
+        "<ul>",
+        "<li><strong>النتيجة:</strong> تساوي الضلعين يؤدي حتماً لتساوي زاويتي القاعدة.</li>",
+        "</ul>",
         "<div class='th-title'>التعبير الرمزي</div>",
-        "<p>في <span class='math'>△ABC</span> إذا <span class='math'>AB = AC</span> فإن:</p>",
-        "<ul><li><span class='math'>∠ABC = ∠BCA</span></li></ul>",
-        "<div class='th-title'>العكس</div>",
-        "<p>إذا كان في مثلث زاويتان متساويتان، فإن المثلث متساوي الساقين (والضلعان المقابلان لهما متساويان).</p>",
+        "<p>في <span class='math'>△ABC</span>:</p>",
+        "<ul>",
+        "<li>إذا <span class='math'>AB = AC</span> ⇒ <span class='math'>∠ABC = ∠BCA</span> (أي <span class='math'>∠B = ∠C</span>).</li>",
+        "<li><strong>العكس:</strong> إذا <span class='math'>∠ABC = ∠BCA</span> ⇒ <span class='math'>AB = AC</span>.</li>",
+        "</ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متساوي الساقين'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><line class='k' x1='120' y1='125' x2='132' y2='113'/><line class='k' x1='208' y1='113' x2='220' y2='125'/><path class='a' d='M85 175 A28 28 0 0 0 112 155'/><path class='a' d='M228 155 A28 28 0 0 0 255 175'/><text class='p' x='105' y='150'>∠B = ∠C</text></svg>"
+        "image": "images/theorems/isosceles triangle.png",
+        "alt": "مثلث متساوي الساقين ABC حيث AB = AC وزاويتا القاعدة عند B و C متساويتان."
       },
       "tags": [
         "مثلث",
