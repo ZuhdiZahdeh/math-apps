@@ -395,19 +395,24 @@
     {
       "id": "medians_centroid",
       "title": "تلاقي المتوسطات (مركز الثقل)",
-      "short": "المتوسطات تتلاقى في نقطة واحدة تقسم كل متوسط بنسبة 2:1 من جهة الرأس.",
+      "short": "المتوسطات تتلاقى في نقطة واحدة M (مركز الثقل) وتُقسم كل متوسط بنسبة 2:1 من جهة الرأس.",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص القاعدة</div>",
-        "<p>متوسطات المثلث تتلاقى في نقطة واحدة <strong>G</strong> (مركز الثقل).</p>",
-        "<p>وتقسم كل متوسط بنسبة <span class='math'>2:1</span> بحيث الجزء الأقرب للرأس أطول.</p>",
+        "<p>في المثلث <span class='math'>ABC</span> تتلاقى <strong>المتوسطات الثلاثة</strong> في نقطة واحدة <strong>M</strong> تُسمّى <strong>مركز الثقل</strong>.</p>",
+        "<p>إذا كانت <span class='math'>E</span> منتصف <span class='math'>AB</span>، و<span class='math'>F</span> منتصف <span class='math'>AC</span>، و<span class='math'>G</span> منتصف <span class='math'>BC</span>، فإن المتوسطات <span class='math'>CE</span> و<span class='math'>BF</span> و<span class='math'>AG</span> تتلاقى جميعًا في <span class='math'>M</span>.</p>",
+        "<p>وتقسم النقطة <span class='math'>M</span> كل متوسط بنسبة <span class='math'>2:1</span> بحيث الجزء الأقرب للرأس أطول.</p>",
         "<div class='th-title'>التعبير الرمزي</div>",
-        "<p>إذا كان <span class='math'>M</span> منتصف <span class='math'>BC</span> فإن:</p>",
-        "<ul><li><span class='math'>AG:GM = 2:1</span></li></ul>",
+        "<ul>",
+        "<li><span class='math'>AM:MG = 2:1</span></li>",
+        "<li><span class='math'>BM:MF = 2:1</span></li>",
+        "<li><span class='math'>CM:ME = 2:1</span></li>",
+        "</ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نقطة تلاقي المتوسطات\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n    .pt{fill:#0ea5e9;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <circle cx=\"170\" cy=\"45\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"162\" y=\"30\">A</text>\n  <circle cx=\"70\" cy=\"190\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"52\" y=\"210\">B</text>\n  <circle cx=\"290\" cy=\"190\" r=\"4\" fill=\"#1d4ed8\"/><text class=\"p\" x=\"298\" y=\"210\">C</text>\n\n  <!-- midpoints -->\n  <circle class=\"pt\" cx=\"180\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"186\" y=\"113\">M</text>\n  <circle class=\"pt\" cx=\"120\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"102\" y=\"113\">N</text>\n  <circle class=\"pt\" cx=\"170\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"160\" y=\"212\">P</text>\n\n  <!-- medians -->\n  <line class=\"m\" x1=\"170\" y1=\"45\" x2=\"170\" y2=\"190\"/>\n  <line class=\"m\" x1=\"70\" y1=\"190\" x2=\"180\" y2=\"118\"/>\n  <line class=\"m\" x1=\"290\" y1=\"190\" x2=\"120\" y2=\"118\"/>\n\n  <!-- centroid -->\n  <circle cx=\"170\" cy=\"118\" r=\"5\" fill=\"#0ea5e9\"/><text class=\"p\" x=\"178\" y=\"122\">G</text>\n\n  <text class=\"p\" x=\"20\" y=\"30\">المتوسطات تتلاقى في G وتُقسم بنسبة 2:1</text>\n</svg>"
+        "image": "images/theorems/centroid-of-triangle.png",
+        "alt": "تلاقي المتوسطات في المثلث ABC عند النقطة M (مركز الثقل)"
       },
       "tags": [
         "متوسط",
