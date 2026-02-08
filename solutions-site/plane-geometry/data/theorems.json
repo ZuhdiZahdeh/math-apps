@@ -33,25 +33,49 @@
     },
     {
       "id": "parallelogram_test_opposite_parallel_equal",
-      "title": "معيار متوازي الأضلاع",
-      "short": "إذا كان في رباعي ضلعان متقابلان متوازيين ومتساويين فهو متوازي أضلاع.",
+      "title": "فرضية: الشكل متوازي الأضلاع",
+      "short": "نفترض أن الرباعي ABCD متوازي أضلاع، ويمكن إثبات ذلك بعدة حالات أشهرها: ضلعان متقابلان متوازيان ومتساويان.",
       "contentHtml": [
         "<div class='th-section'>",
-        "<div class='th-title'>نص المعيار</div>",
-        "<p>إذا كان في رباعي ضلعان متقابلان <strong>متوازيين</strong> و<strong>متساويين في الطول</strong>، فإن الرباعي <strong>متوازي أضلاع</strong>.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
+        "<div class='th-title'>نص الفرضية</div>",
+        "<p>نفترض أن الشكل الرباعي <span class='math'>ABCD</span> هو <strong>متوازي أضلاع</strong>.</p>",
+        "<div class='th-title'>توضيح</div>",
+        "<p>إذا توازى وتساوى ضلعان متقابلان في شكل رباعي، كان هذا الشكل <strong>متوازي أضلاع</strong>.</p>",
+        "<div class='th-title'>شرح الفرضية بشكل مبسط</div>",
+        "<p>لكي نطبق هذه القاعدة، نحتاج لتوفر شرطين في نفس الضلعين:</p>",
+        "<ul>",
+        "<li><strong>التوازي:</strong> أن يكون الضلعان متوازيين (لا يلتقيان أبداً).</li>",
+        "<li><strong>التساوي:</strong> أن يكون لهما نفس الطول تماماً.</li>",
+        "</ul>",
+        "<div class='th-title'>حالات أخرى لإثبات أن الشكل متوازي أضلاع</div>",
+        "<p>إذا لم يتوفر لديك ضلعان <em>متوازيان ومتساويان معاً</em>، يمكنك الاعتماد على حالات أخرى:</p>",
+        "<ul>",
+        "<li><strong>كل ضلعين متقابلين متوازيين</strong>: (تعريف متوازي الأضلاع).</li>",
+        "<li><strong>كل ضلعين متقابلين متساويين في الطول</strong>.</li>",
+        "<li><strong>القطران ينصف كل منهما الآخر</strong>: (نقطة تقاطع القطرين هي منتصف كل قطر).</li>",
+        "<li><strong>كل زاويتين متقابلتين متساويتان في القياس</strong>.</li>",
+        "</ul>",
+        "<div class='th-title'>التعبير الرمزي (أمثلة)</div>",
         "<p>في الرباعي <span class='math'>ABCD</span>:</p>",
-        "<ul><li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AB = CD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li></ul>",
+        "<ul>",
+        "<li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AB = CD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li>",
+        "<li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AD ∥ BC</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li>",
+        "<li>إذا تقاطع القطران في <span class='math'>O</span> وكان <span class='math'>AO = OC</span> و<span class='math'>BO = OD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li>",
+        "</ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"معيار متوازي الأضلاع\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .k{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M85 60 L245 60 L300 170 L140 170 Z\"/>\n  <text class=\"p\" x=\"72\" y=\"52\">A</text><text class=\"p\" x=\"250\" y=\"52\">B</text>\n  <text class=\"p\" x=\"306\" y=\"182\">C</text><text class=\"p\" x=\"126\" y=\"182\">D</text>\n\n  <!-- parallel marks AB and CD -->\n  <line class=\"k\" x1=\"135\" y1=\"50\" x2=\"150\" y2=\"50\"/><line class=\"k\" x1=\"170\" y1=\"50\" x2=\"185\" y2=\"50\"/>\n  <line class=\"k\" x1=\"185\" y1=\"180\" x2=\"200\" y2=\"180\"/><line class=\"k\" x1=\"220\" y1=\"180\" x2=\"235\" y2=\"180\"/>\n\n  <!-- equal mark AB and CD -->\n  <line class=\"k\" x1=\"165\" y1=\"63\" x2=\"165\" y2=\"78\"/>\n  <line class=\"k\" x1=\"220\" y1=\"155\" x2=\"220\" y2=\"170\"/>\n\n  <text class=\"p\" x=\"20\" y=\"212\">إذا كان AB ∥ CD و AB = CD ⇒ ABCD متوازي أضلاع</text>\n</svg>"
+        "image": "images/theorems/parallelogram.png",
+        "alt": "شكل رباعي ABCD متوازي أضلاع"
       },
       "tags": [
-        "رباعي",
-        "متوازي أضلاع",
+        "فرضية",
+        "معايير",
+        "تساوي",
+        "تعريف",
         "توازي",
-        "تساوي"
+        "رباعي",
+        "متوازي أضلاع"
       ]
     },
     {
@@ -528,17 +552,22 @@
     {
       "id": "vertical_angles_equal",
       "title": "الزوايا المتقابلة بالرأس متساوية",
-      "short": "عند تقاطع مستقيمين: الزوايا المتقابلة بالرأس متساوية.",
+      "short": "عند تقاطع مستقيمين في النقطة M: الزوايا المتقابلة بالرأس متساوية (α = β و γ = δ).",
       "contentHtml": [
         "<div class='th-section'>",
         "<div class='th-title'>نص النظرية</div>",
-        "<p>الزوايا المتقابلة بالرأس متساوية.</p>",
-        "<div class='th-title'>التعبير الرمزي</div>",
-        "<ul><li><span class='math'>∠1 = ∠2</span></li></ul>",
+        "<p>عند تقاطع مستقيمين في النقطة <span class='math'>M</span>، فإن كل زاويتين <strong>متقابلتين بالرأس</strong> تكونان متساويتين.</p>",
+        "<div class='th-title'>التعبير الرمزي (حسب رموز الرسم)</div>",
+        "<p>إذا تقاطع المستقيمان <span class='math'>AB</span> و<span class='math'>CD</span> في النقطة <span class='math'>M</span>، فإن:</p>",
+        "<ul>",
+        "<li><span class='math'>α = β</span>  (أي <span class='math'>∠AMC = ∠DMB</span>)</li>",
+        "<li><span class='math'>γ = δ</span>  (أي <span class='math'>∠AMD = ∠CMB</span>)</li>",
+        "</ul>",
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='الزوايا المتقابلة بالرأس'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;stroke-linecap:round}.a{stroke:#0ea5e9;stroke-width:3;fill:none}</style><line class='l' x1='60' y1='60' x2='300' y2='200'/><line class='l' x1='300' y1='60' x2='60' y2='200'/><circle cx='180' cy='130' r='4' fill='#1d4ed8'/><text class='p' x='188' y='135'>O</text><path class='a' d='M190 118 A25 25 0 0 1 210 138'/><path class='a' d='M170 142 A25 25 0 0 1 150 122'/><text class='p' x='20' y='30'>∠1 = ∠2</text></svg>"
+        "image": "images/theorems/Vertically opposite angles.png",
+        "alt": "الزوايا المتقابلة بالرأس عند تقاطع المستقيمين AB و CD في النقطة M: α = β و γ = δ"
       },
       "tags": [
         "زوايا",
