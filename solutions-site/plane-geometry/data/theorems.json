@@ -119,7 +119,8 @@
         "</div>"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"مجموع زوايا المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .a{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <text class=\"p\" x=\"162\" y=\"30\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"298\" y=\"210\">C</text>\n  <path class=\"a\" d=\"M158 60 A30 30 0 0 1 182 60\"/>\n  <path class=\"a\" d=\"M85 175 A30 30 0 0 0 105 160\"/>\n  <path class=\"a\" d=\"M255 160 A30 30 0 0 0 275 175\"/>\n  <text class=\"p\" x=\"92\" y=\"130\">∠A + ∠B + ∠C = 180°</text>\n</svg>"
+        "image": "images/theorems/sum-interior-angles-180.png",
+        "alt": "مجموع الزوايا الداخلية للمثلث يساوي 180°"
       },
       "tags": [
         "مثلث",
