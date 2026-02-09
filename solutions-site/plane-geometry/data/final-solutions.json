@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "حلول الواجب النهائي — الهندسة المستوية",
+    "range": "سؤال (8)",
+    "language": "ar",
+    "generatedAt": "2026-02-09",
+    "theorems": {
+      "file": "data/theorems.json",
+      "field": "theoremsUsed",
+      "note_ar": "تمت مواءمة theoremsUsed مع أسماء وصياغات النظريات حسب ملف «نظريات الهندسة المستوية حسب المنهاج الجديد»."
+    },
+    "note": "ملف مستقل لأسئلة الواجب/النهائي. يُحمَّل بنفس واجهة موقع الحلول."
+  },
+  "questions": [
+    {
+      "id": "qf-8",
+      "number": 8,
+      "title": "واجب نهائي — سؤال (8)",
+      "images": [
+        "images/qf-8.png"
+      ],
+      "solution": [
+        "✅ المعطى:",
+        "• ABCD متوازي أضلاع، والقطران AC و BD يتقاطعان في O.",
+        "• النقطة E تقع على امتداد الضلع AD.",
+        "• DE ⟂ BE.",
+        "✅ المطلوب:",
+        "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
+        "✅ الطريقة (1) — منتصف الوتر في مثلث قائم:",
+        "1) من DE ⟂ BE ⇒ ∠DEB = 90° ⇒ المثلث DBE قائم عند E (والوتر هو DB).",
+        "2) في متوازي الأضلاع: القطران ينصفان بعضهما ⇒ O منتصف BD ⇒ OD = OB.",
+        "3) في مثلث قائم: منتصف الوتر يبعد مسافة متساوية عن طرفي الوتر ⇒ OE = OD.",
+        "4) إذن DO = OE ⇒ المثلث DOE متساوي الساقين.",
+        "✅ الطريقة (2) — طاليس (دائرة قطرها BD):",
+        "1) بما أن ∠DEB = 90° ⇒ النقاط D,B,E تقع على دائرة قطرها DB (طاليس).",
+        "2) مركز هذه الدائرة هو منتصف DB أي النقطة O.",
+        "3) إذن OD و OE نصفا قطر في الدائرة نفسها ⇒ OD = OE.",
+        "4) وبالتالي المثلث DOE متساوي الساقين."
+      ],
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-kv'>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المعطى</div>",
+        "      <ul class='sol-ul'>",
+        "        <li><span class='math'>ABCD</span> متوازي أضلاع، والقطران <span class='math'>AC</span> و<span class='math'>BD</span> يتقاطعان في <span class='math'>O</span>.</li>",
+        "        <li><span class='math'>E</span> على امتداد <span class='math'>AD</span>.</li>",
+        "        <li><span class='math'>DE ⟂ BE</span>.</li>",
+        "      </ul>",
+        "    </div>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المطلوب</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>إثبات أن <span class='math'>△DOE</span> متساوي الساقين (أي <span class='math'>DO = OE</span>).</li>",
+        "      </ul>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ الحل — طريقتان (لتثبيت الفكرة)</div>",
+        "  <div class='two-col'>",
+        "    <div class='col'>",
+        "      <div class='col-title'>① منتصف الوتر في مثلث قائم</div>",
+        "      <ol class='sol-ol'>",
+        "        <li>من <span class='math'>DE ⟂ BE</span> ⇒ <span class='math'>∠DEB = 90°</span> ⇒ <span class='math'>△DBE</span> قائم عند <span class='math'>E</span> والوتر هو <span class='math'>DB</span>.</li>",
+        "        <li>في متوازي الأضلاع: القطران ينصفان بعضهما ⇒ <span class='math'>O</span> منتصف <span class='math'>BD</span> ⇒ <span class='math'>OD = OB</span>.</li>",
+        "        <li>في مثلث قائم: <strong>منتصف الوتر</strong> يبعد المسافة نفسها عن طرفي الوتر ⇒ <span class='math'>OE = OD</span>.</li>",
+        "        <li>إذن <span class='math'>DO = OE</span> ⇒ <span class='math'>△DOE</span> متساوي الساقين.</li>",
+        "      </ol>",
+        "    </div>",
+        "    <div class='col'>",
+        "      <div class='col-title'>② طاليس (دائرة قطرها BD)</div>",
+        "      <ol class='sol-ol'>",
+        "        <li>من <span class='math'>∠DEB = 90°</span> ⇒ النقاط <span class='math'>D,B,E</span> تقع على دائرة قطرها <span class='math'>DB</span> (طاليس).</li>",
+        "        <li>مركز هذه الدائرة هو منتصف <span class='math'>DB</span> أي النقطة <span class='math'>O</span>.</li>",
+        "        <li>إذن <span class='math'>OD</span> و<span class='math'>OE</span> نصفا قطر في الدائرة نفسها ⇒ <span class='math'>OD = OE</span>.</li>",
+        "        <li>وبالتالي <span class='math'>△DOE</span> متساوي الساقين.</li>",
+        "      </ol>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
+        "  <ul class='sol-ul'>",
+        "    <li>في متوازي الأضلاع: القطران ينصفان بعضهما.</li>",
+        "    <li>في مثلث قائم: منتصف الوتر يبعد مسافة متساوية عن رؤوس المثلث (أو: متوسط الوتر = نصف الوتر).</li>",
+        "    <li>(اختياري) نظرية طاليس: الزاوية المحيطية القائمة تقابل قطرًا.</li>",
+        "  </ul>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "parallelogram_property_opposite_sides_equal",
+        "right_triangle_midpoint_hypotenuse"
+      ]
+    }
+  ]
+}
