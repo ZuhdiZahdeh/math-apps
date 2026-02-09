@@ -15,7 +15,15 @@
   <div class="layout">
     <aside class="sidebar">
       <div class="sidebar__head">
-        <div class="sidebar__title">الأسئلة</div>
+        <div class="sidebar__title">
+          <span>الأسئلة</span>
+          <span id="datasetBadge" class="badge">الكتاب</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="مصدر الأسئلة">
+          <button id="tabBook" class="tab is-active" type="button" role="tab" aria-selected="true" data-dataset="book">أسئلة الكتاب</button>
+          <button id="tabFinal" class="tab" type="button" role="tab" aria-selected="false" data-dataset="final">الأسئلة النهائية</button>
+        </div>
         <input id="searchInput" class="search" type="search" placeholder="بحث برقم السؤال أو كلمة..." />
       </div>
       <div id="questionsList" class="questions"></div>
