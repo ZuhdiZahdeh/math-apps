@@ -1,5 +1,5 @@
 /* حلول الهندسة المستوية — س1 إلى س41 */
-const DATA_URL = "./data/solutions.json";
+const DATASETS = { book: "./data/solutions.json", final: "./data/final-solutions.json" };
 const THEOREMS_URL = "./data/theorems.json";
 
 const els = {
@@ -17,11 +17,18 @@ const els = {
   modalCap: document.getElementById("modalCaption"),
   modalClose: document.getElementById("modalClose"),
   modalBackdrop: document.getElementById("modalBackdrop"),
+
+  tabBook: document.getElementById("tabBook"),
+  tabFinal: document.getElementById("tabFinal"),
+  datasetBadge: document.getElementById("datasetBadge"),
 };
 
 let allQuestions = [];
 let filtered = [];
 let activeId = null;
+
+let currentDataset = "book";
+let dataCache = { book: null, final: null };
 
 function pad2(n) {
   return String(n).padStart(2, "0");
@@ -197,6 +204,7 @@ function applyFilter() {
   const q = normalizeArabic(els.search.value);
   if (!q) {
     filtered = [...allQuestions];
+  activeId = null;
   } else {
     filtered = allQuestions.filter((item) => {
       const hay = normalizeArabic(`${item.id} ${item.title} ${item.number}`);
@@ -223,18 +231,57 @@ function applyFilter() {
   }
 }
 
-async function init() {
-  const res = await fetch(DATA_URL, { cache: "no-store" });
-  const data = await res.json();
-  allQuestions = Array.isArray(data.questions) ? data.questions : [];
-  filtered = [...allQuestions];
+function getHashId() {
+  return (location.hash || "").replace("#", "").trim();
+}
 
-  // preloadTheoremsUI
-  if (window.TheoremsUI) window.TheoremsUI.init({ url: THEOREMS_URL });
+function inferDatasetFromHash(hashId) {
+  if (!hashId) return "book";
+  if (hashId.startsWith("qf-")) return "final";
+  return "book";
+}
+
+function setTabsUI(name) {
+  currentDataset = name;
+
+  const isBook = name === "book";
+  if (els.tabBook) {
+    els.tabBook.classList.toggle("is-active", isBook);
+    els.tabBook.setAttribute("aria-selected", isBook ? "true" : "false");
+  }
+  if (els.tabFinal) {
+    els.tabFinal.classList.toggle("is-active", !isBook);
+    els.tabFinal.setAttribute("aria-selected", !isBook ? "true" : "false");
+  }
+  if (els.datasetBadge) {
+    els.datasetBadge.textContent = isBook ? "الكتاب" : "Final";
+  }
+}
+
+async function loadDataset(name) {
+  if (dataCache[name]) return dataCache[name];
+
+  const url = DATASETS[name] || DATASETS.book;
+  const res = await fetch(url, { cache: "no-store" });
+  const data = await res.json();
+  const questions = Array.isArray(data.questions) ? data.questions : [];
+
+  dataCache[name] = questions;
+  return questions;
+}
+
+async function switchDataset(name, { openHash = true } = {}) {
+  setTabsUI(name);
+
+  // تفريغ البحث عند تبديل المصدر لتفادي اختفاء القائمة
+  if (els.search) els.search.value = "";
+
+  allQuestions = await loadDataset(name);
+  filtered = [...allQuestions];
 
   renderList();
 
-  const hashId = (location.hash || "").replace("#", "").trim();
+  const hashId = openHash ? getHashId() : "";
   if (hashId) {
     const q = allQuestions.find((x) => x.id === hashId);
     if (q) {
@@ -243,10 +290,23 @@ async function init() {
     }
   }
 
-  // افتراضيًا افتح السؤال الأول
+  // افتراضيًا افتح أول سؤال في هذا المصدر
   if (filtered.length) renderSolution(filtered[0]);
 }
 
+async function init() {
+  // preloadTheoremsUI (مشترك بين التبويبين)
+  if (window.TheoremsUI) window.TheoremsUI.init({ url: THEOREMS_URL });
+
+  const hashId = getHashId();
+  const initialDataset = inferDatasetFromHash(hashId);
+
+  // listeners للتبويبات
+  if (els.tabBook) els.tabBook.addEventListener("click", () => switchDataset("book", { openHash: false }));
+  if (els.tabFinal) els.tabFinal.addEventListener("click", () => switchDataset("final", { openHash: false }));
+
+  await switchDataset(initialDataset, { openHash: true });
+}
 els.search.addEventListener("input", applyFilter);
 
 els.prev.addEventListener("click", () => {
