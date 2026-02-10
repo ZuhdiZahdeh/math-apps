@@ -89,7 +89,70 @@
       "theoremsUsed": [
         "parallelogram_property_opposite_sides_equal",
         "right_triangle_midpoint_hypotenuse"
-      ]
-    }
+      ],
+      {
+  "id": "qf-9",
+  "number": 9,
+  "title": "واجب نهائي — سؤال (9)",
+  "images": [
+    "images/qf-9.png"
+  ],
+  "solution": [
+    "✅ المعطى:",
+    "• ABCD متوازي أضلاع.",
+    "• CE و DE منصفا زاويتي C و D على الترتيب.",
+    "• F نقطة على DC، و EF ∥ AD.",
+    "✅ المطلوب:",
+    "إثبات أن DF = FC (أي أن F منتصف DC).",
+    "✅ الحل (فكرة واحدة واضحة):",
+    "1) في متوازي الأضلاع: AD ∥ BC و AB ∥ DC. وبما أن EF ∥ AD ⇒ EF ∥ BC.",
+    "2) لأن DE منصف ∠CDA ⇒ ∠CDE = ∠EDA. وبما أن F على DC ⇒ ∠FDE = ∠CDE، وبما أن EF ∥ AD ⇒ ∠DEF = ∠EDA. إذن ∠FDE = ∠DEF ⇒ DF = EF (مثلث DEF متساوي الساقين).",
+    "3) لأن CE منصف ∠BCD ⇒ ∠BCE = ∠ECD. وبما أن EF ∥ BC ⇒ ∠CEF = ∠BCE، وبما أن F على DC ⇒ ∠FCE = ∠ECD. إذن ∠CEF = ∠FCE ⇒ EF = FC (مثلث CEF متساوي الساقين).",
+    "4) من DF = EF و EF = FC ⇒ DF = FC ⇒ F منتصف DC ✅"
+  ],
+  "solutionHtml": [
+    "<div class='sol-wrap'>",
+    "  <div class='sol-kv'>",
+    "    <div>",
+    "      <div class='sol-h'>✅ المعطى</div>",
+    "      <ul class='sol-ul'>",
+    "        <li><span class='math'>ABCD</span> متوازي أضلاع.</li>",
+    "        <li><span class='math'>CE</span> و <span class='math'>DE</span> منصفا زاويتي <span class='math'>C</span> و <span class='math'>D</span> على الترتيب.</li>",
+    "        <li><span class='math'>F</span> نقطة على <span class='math'>DC</span>، و <span class='math'>EF ∥ AD</span>.</li>",
+    "      </ul>",
+    "    </div>",
+    "    <div>",
+    "      <div class='sol-h'>✅ المطلوب</div>",
+    "      <ul class='sol-ul'>",
+    "        <li>إثبات أن <span class='math'>DF = FC</span> (أي أن <span class='math'>F</span> منتصف <span class='math'>DC</span>).</li>",
+    "      </ul>",
+    "    </div>",
+    "  </div>",
+    "",
+    "  <div class='sol-h'>✅ الحل — طريقة واضحة (منصفات + متوازيات)</div>",
+    "  <ol class='sol-ol'>",
+    "    <li>في متوازي الأضلاع: <span class='math'>AD ∥ BC</span> و <span class='math'>AB ∥ DC</span>. وبما أن <span class='math'>EF ∥ AD</span> ⇒ <span class='math'>EF ∥ BC</span>.</li>",
+    "    <li><strong>إثبات</strong> <span class='math'>DF = EF</span>: لأن <span class='math'>DE</span> منصف <span class='math'>∠CDA</span> ⇒ <span class='math'>∠CDE = ∠EDA</span>. وبما أن <span class='math'>F</span> على <span class='math'>DC</span> ⇒ <span class='math'>∠FDE = ∠CDE</span>. وبما أن <span class='math'>EF ∥ AD</span> ⇒ <span class='math'>∠DEF = ∠EDA</span>. إذن <span class='math'>∠FDE = ∠DEF</span> ⇒ <span class='math'>DF = EF</span> (مثلث <span class='math'>DEF</span> متساوي الساقين).</li>",
+    "    <li><strong>إثبات</strong> <span class='math'>EF = FC</span>: لأن <span class='math'>CE</span> منصف <span class='math'>∠BCD</span> ⇒ <span class='math'>∠BCE = ∠ECD</span>. وبما أن <span class='math'>EF ∥ BC</span> ⇒ <span class='math'>∠CEF = ∠BCE</span>. وبما أن <span class='math'>F</span> على <span class='math'>DC</span> ⇒ <span class='math'>∠FCE = ∠ECD</span>. إذن <span class='math'>∠CEF = ∠FCE</span> ⇒ <span class='math'>EF = FC</span> (مثلث <span class='math'>CEF</span> متساوي الساقين).</li>",
+    "    <li>من <span class='math'>DF = EF</span> و <span class='math'>EF = FC</span> ⇒ <span class='math'>DF = FC</span> ⇒ <strong>النقطة <span class='math'>F</span> منتصف <span class='math'>DC</span></strong> ✅</li>",
+    "  </ol>",
+    "",
+    "  <div class='sol-h'>✅ النظريات/القوانين المستخدمة</div>",
+    "  <ul class='sol-ul'>",
+    "    <li>في متوازي الأضلاع: الأضلاع المتقابلة متوازية (ومتساوية).</li>",
+    "    <li>تعريف منصف الزاوية: يقسم الزاوية إلى زاويتين متساويتين.</li>",
+    "    <li>قواعد الزوايا الناتجة عن مستقيمين متوازيين.</li>",
+    "    <li>في المثلث: تساوي زاويتين ⇔ تساوي الضلعين المقابلين لهما (نظرية متساوي الساقين والعكس).</li>",
+    "  </ul>",
+    "</div>"
+  ],
+  "theoremsUsed": [
+    "parallelogram_property_opposite_sides_equal",
+    "angle_bisector_definition",
+    "parallel_lines_angles_rules",
+    "isosceles_triangle_base_angles"
   ]
+}
+}
+]
 }
