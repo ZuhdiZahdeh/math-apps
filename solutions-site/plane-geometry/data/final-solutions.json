@@ -17,7 +17,7 @@
       "number": 5,
       "title": "واجب نهائي — سؤال (5)",
       "images": [
-        "images/qf-5.png"
+        "images/qf5.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -86,7 +86,7 @@
       "number": 6,
       "title": "واجب نهائي — سؤال (6)",
       "images": [
-        "images/qf-6.png"
+        "images/qf6.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -154,7 +154,7 @@
       "number": 7,
       "title": "واجب نهائي — سؤال (7)",
       "images": [
-        "images/qf-7.png"
+        "images/qf7.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -230,9 +230,9 @@
       "number": 8,
       "title": "واجب نهائي — سؤال (8)",
       "images": [
-        "images/qf-8.png",
-        "images/qf-8-1.png",
-        "images/qf-8-2.png"
+        "images/qf8.png",
+        "images/qf8-1.png",
+        "images/qf8-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -311,7 +311,7 @@
       "number": 9,
       "title": "واجب نهائي — سؤال (9)",
       "images": [
-        "images/qf-9.png"
+        "images/qf9.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -374,7 +374,7 @@
       "number": 10,
       "title": "واجب نهائي — سؤال (10)",
       "images": [
-        "images/qf-10.png"
+        "images/qf10.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -464,11 +464,11 @@
       ]
     },
     {
-      "id": "qf-11",
+      "id": "qf11",
       "number": 11,
       "title": "واجب نهائي — سؤال (11)",
       "images": [
-        "images/qf-11.png"
+        "images/qf11.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -567,7 +567,7 @@
       "number": 14,
       "title": "واجب نهائي — سؤال (14)",
       "images": [
-        "images/qf-14.png"
+        "images/qf14.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -640,7 +640,8 @@
       "number": 15,
       "title": "واجب نهائي — سؤال (15)",
       "images": [
-        "images/qf-15.png"
+        "images/qf15.png",
+        "images/qf15-1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -753,7 +754,7 @@
   "number": 16,
   "title": "واجب نهائي — سؤال (16)",
   "images": [
-    "images/qf-16.png"
+    "images/qf16.png"
   ],
   "solution": [
     "✅ المعطى:",
