@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 5,
-    "generatedAt": "2026-02-07",
+    "generatedAt": "2026-02-16",
     "rtl": true
   },
   "items": [
@@ -103,6 +103,43 @@
         "خواص",
         "أضلاع متقابلة",
         "قطران"
+      ]
+    },
+    {
+      "id": "parallelogram_adjacent_sides_equal_rhombus",
+      "title": "قاعدة: متوازي أضلاع + تساوي ضلعين متجاورين ⇒ معيّن",
+      "short": "إذا كان الرباعي متوازي أضلاع، وتساوى ضلعان متجاوران فيه، فإن جميع أضلاعه تصبح متساوية، وبالتالي يكون معيّنًا.",
+      "contentHtml": [
+        "<div class='th-section'>",
+        "<div class='th-title'>نص القاعدة</div>",
+        "<p>إذا كان لدينا رباعي <span class='math'>ABCD</span> <strong>متوازي أضلاع</strong>، وتساوى <strong>ضلعان متجاوران</strong> فيه، فإن الرباعي يكون <strong>مُعيَّنًا</strong>.</p>",
+        "<div class='th-title'>شرح بسيط</div>",
+        "<p>في متوازي الأضلاع تكون <strong>الأضلاع المتقابلة متساوية</strong> دائمًا. فإذا أثبتنا أن ضلعين <strong>متجاورين</strong> متساويان، فهذا يجبر الأضلاع الأربعة كلها أن تكون متساوية، وعندها يصبح الشكل <strong>مُعيَّنًا</strong>.</p>",
+        "<div class='th-title'>لماذا القاعدة صحيحة؟ (فكرة سريعة)</div>",
+        "<p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع فإن <span class='math'>AB = CD</span> و <span class='math'>BC = AD</span>. فإذا كان أيضًا <span class='math'>AB = BC</span> (ضلعان متجاوران)، نستنتج:</p>",
+        "<ul>",
+        "<li><span class='math'>AB = BC</span> (معطى).</li>",
+        "<li><span class='math'>AB = CD</span> (خواص متوازي الأضلاع).</li>",
+        "<li><span class='math'>BC = AD</span> (خواص متوازي الأضلاع).</li>",
+        "</ul>",
+        "<p>ومنها: <span class='math'>AB = BC = CD = AD</span> ⇒ جميع الأضلاع متساوية ⇒ <span class='math'>ABCD</span> مُعيَّن.</p>",
+        "<div class='th-title'>التعبير الرمزي</div>",
+        "<p>في الرباعي <span class='math'>ABCD</span>:</p>",
+        "<ul>",
+        "<li>إذا كان <span class='math'>ABCD</span> متوازي أضلاع و <span class='math'>AB = BC</span> ⇒ <span class='math'>ABCD</span> مُعيَّن.</li>",
+        "<li>(وبنفس الفكرة) إذا كان متوازي أضلاع و <span class='math'>AB = AD</span> ⇒ مُعيَّن.</li>",
+        "</ul>",
+        "</div>"
+      ],
+      "diagram": {
+        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"متوازي أضلاع وفيه ضلعان متجاوران متساويان\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .h{stroke:#0ea5e9;stroke-width:5;fill:none;stroke-linecap:round;}\n  </style>\n  <!-- parallelogram ABCD -->\n  <path class=\"l\" d=\"M85 60 L245 60 L300 170 L140 170 Z\"/>\n  <!-- highlight two adjacent equal sides AB and BC -->\n  <line class=\"h\" x1=\"85\" y1=\"60\" x2=\"245\" y2=\"60\"/>\n  <line class=\"h\" x1=\"245\" y1=\"60\" x2=\"300\" y2=\"170\"/>\n  <text class=\"p\" x=\"72\" y=\"52\">A</text>\n  <text class=\"p\" x=\"250\" y=\"52\">B</text>\n  <text class=\"p\" x=\"306\" y=\"182\">C</text>\n  <text class=\"p\" x=\"126\" y=\"182\">D</text>\n  <text class=\"p\" x=\"20\" y=\"212\">إذا ABCD متوازي أضلاع و AB = BC ⇒ ABCD مُعيَّن</text>\n</svg>"
+      },
+      "tags": [
+        "متوازي أضلاع",
+        "معيّن",
+        "معايير",
+        "تساوي",
+        "أضلاع متجاورة"
       ]
     },
     {
