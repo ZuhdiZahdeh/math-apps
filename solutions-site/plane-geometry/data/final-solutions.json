@@ -16,7 +16,9 @@
   "id": "qf-3",
   "number": 3,
   "title": "واجب نهائي — سؤال (3) صفحة 4",
-  "images": [],
+  "images": [
+    "images/qf-3.png"
+  ],
   "solution": [
     "✅ المعطى:",
     "• ABCD متوازي أضلاع.",
@@ -126,7 +128,7 @@
   "number": 4,
   "title": "واجب نهائي — سؤال (4)",
   "images": [
-    "images/qf4.png"
+    "images/qf-4.png"
   ],
   "solution": [
     "✅ المعطى:",
@@ -255,7 +257,7 @@
       "number": 5,
       "title": "واجب نهائي — سؤال (5)",
       "images": [
-        "images/qf5.png"
+        "images/qf-5.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -324,7 +326,7 @@
       "number": 6,
       "title": "واجب نهائي — سؤال (6)",
       "images": [
-        "images/qf6.png"
+        "images/qf-6.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -392,7 +394,7 @@
       "number": 7,
       "title": "واجب نهائي — سؤال (7)",
       "images": [
-        "images/qf7.png"
+        "images/qf-7.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -468,9 +470,9 @@
       "number": 8,
       "title": "واجب نهائي — سؤال (8)",
       "images": [
-        "images/qf8.png",
-        "images/qf8-1.png",
-        "images/qf8-2.png"
+        "images/qf-8.png",
+        "images/qf-8-1.png",
+        "images/qf-8-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -549,7 +551,7 @@
       "number": 9,
       "title": "واجب نهائي — سؤال (9)",
       "images": [
-        "images/qf9.png"
+        "images/qf-9.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -612,7 +614,7 @@
       "number": 10,
       "title": "واجب نهائي — سؤال (10)",
       "images": [
-        "images/qf10.png"
+        "images/qf-10.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -707,7 +709,7 @@
       "number": 11,
       "title": "واجب نهائي — سؤال (11)",
       "images": [
-        "images/qf11.png"
+        "images/qf-11.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -806,7 +808,7 @@
       "number": 14,
       "title": "واجب نهائي — سؤال (14)",
       "images": [
-        "images/qf14.png"
+        "images/qf-14.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -879,8 +881,8 @@
       "number": 15,
       "title": "واجب نهائي — سؤال (15)",
       "images": [
-        "images/qf15.png",
-        "images/qf15-1.png"
+        "images/qf-15.png",
+        "images/qf-15-1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -992,7 +994,7 @@
       "number": 16,
       "title": "واجب نهائي — سؤال (16)",
       "images": [
-        "images/qf16.png"
+        "images/qf-16.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1114,7 +1116,7 @@
       "number": 17,
       "title": "واجب نهائي — سؤال (17)",
       "images": [
-        "images/qf17.png"
+        "images/qf-17.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1221,7 +1223,7 @@
       "number": 20,
       "title": "واجب نهائي — سؤال (20)",
       "images": [
-        "images/qf20.png"
+        "images/qf-20.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1322,7 +1324,9 @@
   "id": "qf-21",
   "number": 21,
   "title": "واجب نهائي — سؤال (21)",
-  "images": [],
+  "images": [
+    "images/qf-21.png"
+  ],
   "solution": [
     "✅ المعطى:",
     "• ABCD مربع.",
