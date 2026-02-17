@@ -253,11 +253,11 @@
   ]
 },   
 {
-      "id": "qf-5",
+      "id": "qf-5-p1",
       "number": 5,
-      "title": "واجب نهائي — سؤال (5)",
+      "title": "واجب نهائي — سؤال (5) - صفحة 1",
       "images": [
-        "images/qf-5.png"
+        "images/qf-5-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -322,11 +322,11 @@
       ]
     },
     {
-      "id": "qf-6",
+      "id": "qf-6-p1",
       "number": 6,
-      "title": "واجب نهائي — سؤال (6)",
+      "title": "واجب نهائي — سؤال (6) - صفحة 1",
       "images": [
-        "images/qf-6.png"
+        "images/qf-6-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -390,11 +390,11 @@
       ]
     },
     {
-      "id": "qf-7",
+      "id": "qf-7-p1",
       "number": 7,
-      "title": "واجب نهائي — سؤال (7)",
+      "title": "واجب نهائي — سؤال (7) - صفحة 1",
       "images": [
-        "images/qf-7.png"
+        "images/qf-7-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -466,13 +466,13 @@
       ]
     },
     {
-      "id": "qf-8",
+      "id": "qf-8-p1",
       "number": 8,
-      "title": "واجب نهائي — سؤال (8)",
+      "title": "واجب نهائي — سؤال (8) - صفحة 1",
       "images": [
-        "images/qf-8.png",
-        "images/qf-8-1.png",
-        "images/qf-8-2.png"
+        "images/qf-8-p1.png",
+        "images/qf-8-1-p1.png",
+        "images/qf-8-2-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -547,11 +547,11 @@
       ]
     },
     {
-      "id": "qf-9",
+      "id": "qf-9-p1",
       "number": 9,
-      "title": "واجب نهائي — سؤال (9)",
+      "title": "واجب نهائي — سؤال (9) - صفحة 1",
       "images": [
-        "images/qf-9.png"
+        "images/qf-9-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1321,11 +1321,11 @@
       ]
     },
 {
-  "id": "qf-21",
+  "id": "qf-21-p3",
   "number": 21,
-  "title": "واجب نهائي — سؤال (21)",
+  "title": "واجب نهائي — سؤال (21) - صفحة 3",
   "images": [
-    "images/qf-21.png"
+    "images/qf-21-p3.png"
   ],
   "solution": [
     "✅ المعطى:",
