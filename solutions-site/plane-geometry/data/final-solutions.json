@@ -595,6 +595,73 @@
         "pythagoras_theorem"
       ]
     },
+     {
+      "id": "ws-7",
+      "number": 7,
+      "title": "تمارين — سؤال (7) (مثلث ABC) — قطعة أواسط DE وزاوية قائمة عند F",
+      "images": [
+        "images/ws-7.png"
+      ],
+      "solution": [
+        "✅ المعطى:",
+        "• في المثلث ABC القطعة DE هي قطعة أواسط (قطعة متوسطة).",
+        "  ⇒ D منتصف AB و E منتصف BC، وبالتالي DE ∥ AC.",
+        "• النقطة F تقع على DE.",
+        "• ∠AFB = 90°.",
+        "",
+        "✅ المطلوب:",
+        "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
+        "",
+        "✅ التعليل:",
+        "1) بما أن ∠AFB = 90° ⇒ المثلث AFB قائم عند F.",
+        "2) وبما أن D منتصف AB ⇒ D هو منتصف الوتر AB في المثلث القائم AFB.",
+        "   ⇒ DF = DA = DB (منتصف الوتر في مثلث قائم يبعد مسافة متساوية عن رؤوس المثلث).",
+        "3) خصوصًا: DA = DF ⇒ المثلث ADF متساوي الساقين.",
+        "   ⇒ ∠DAF = ∠AFD (زاويتا القاعدة في مثلث متساوي الساقين متساويتان).",
+        "4) لأن A,D,B على استقامة واحدة ⇒ ∠DAF = ∠BAF.",
+        "5) ولأن D,F,E على استقامة واحدة و DE ∥ AC ⇒ DF ∥ AC.",
+        "   ⇒ ∠AFD = ∠FAC (زوايا متناظرة/متبادلة داخليًا بسبب التوازي).",
+        "6) من (3)(4)(5): ∠BAF = ∠FAC.",
+        "   إذن AF منصف للزاوية ∠A ✅"
+      ],
+      "solutionHtml": [
+        "<div class='sol-wrap'>",
+        "  <div class='sol-kv'>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المعطى</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>في المثلث <span class='math'>ABC</span> القطعة <span class='math'>DE</span> قطعة أواسط ⇒ <span class='math'>D</span> منتصف <span class='math'>AB</span> و <span class='math'>E</span> منتصف <span class='math'>BC</span> ⇒ <span class='math'>DE ∥ AC</span>.</li>",
+        "        <li><span class='math'>F</span> تقع على <span class='math'>DE</span>.</li>",
+        "        <li><span class='math'>∠AFB = 90°</span>.</li>",
+        "      </ul>",
+        "    </div>",
+        "    <div>",
+        "      <div class='sol-h'>✅ المطلوب</div>",
+        "      <ul class='sol-ul'>",
+        "        <li>إثبات أن <span class='math'>AF</span> منصف للزاوية عند <span class='math'>A</span> (أي <span class='math'>∠BAF = ∠FAC</span>).</li>",
+        "      </ul>",
+        "    </div>",
+        "  </div>",
+        "",
+        "  <div class='sol-h'>✅ الحل — خطوة بخطوة</div>",
+        "  <ol class='sol-ol'>",
+        "    <li>من <span class='math'>∠AFB = 90°</span> ⇒ المثلث <span class='math'>△AFB</span> قائم عند <span class='math'>F</span>.</li>",
+        "    <li>وبما أن <span class='math'>D</span> منتصف <span class='math'>AB</span> ⇒ <span class='math'>D</span> منتصف الوتر <span class='math'>AB</span> في <span class='math'>△AFB</span>.",
+        "      <br>⇒ <span class='math'>DF = DA = DB</span> (منتصف الوتر في مثلث قائم يبعد مسافة متساوية عن رؤوس المثلث).</li>",
+        "    <li>إذن <span class='math'>DA = DF</span> ⇒ <span class='math'>△ADF</span> متساوي الساقين ⇒ <span class='math'>∠DAF = ∠AFD</span>.</li>",
+        "    <li>ولأن <span class='math'>A,D,B</span> على استقامة واحدة ⇒ <span class='math'>∠DAF = ∠BAF</span>.</li>",
+        "    <li>ولأن <span class='math'>D,F,E</span> على استقامة واحدة و <span class='math'>DE ∥ AC</span> ⇒ <span class='math'>DF ∥ AC</span> ⇒ <span class='math'>∠AFD = ∠FAC</span>.</li>",
+        "    <li>إذن <span class='math'>∠BAF = ∠FAC</span> ⇒ <span class='math'>AF</span> منصف للزاوية <span class='math'>∠A</span> ✅</li>",
+        "  </ol>",
+        "</div>"
+      ],
+      "theoremsUsed": [
+        "midsegment_triangle_bundle",
+        "right_triangle_midpoint_hypotenuse",
+        "isosceles_triangle_base_angles",
+        "parallel_lines_angles_rules"
+      ]
+    },
     {
       "id": "qf-8-p1",
       "number": 8,
