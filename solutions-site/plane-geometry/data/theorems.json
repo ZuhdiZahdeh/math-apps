@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 5,
-    "generatedAt": "2026-02-16",
+    "generatedAt": "2026-02-20",
     "rtl": true
   },
   "items": [
@@ -868,6 +868,10 @@
         "<p>إذا كان طول المتوسط النازل من أحد رؤوس مثلث إلى الضلع المقابل له يساوي نصف طول هذا الضلع، فإن المثلث قائم الزاوية في ذلك الرأس.</p>",
         "<div class='th-title'>التعبير الرمزي للعكس</div>",
         "<p>إذا كانت <span class='math'>M</span> منتصف <span class='math'>AB</span> و <span class='math'>CM = ½ AB</span> ⇒ <span class='math'>∠C = 90°</span> (ويكون <span class='math'>AB</span> وترًا).</p>",
+        "<div class='th-title'>صورة توضيحية</div>",
+        "<div class='th-diagram'>",
+        "  <img src='solutions-site/plane-geometry/images/theorems/right_triangle_midpoint_hypotenuse.png' alt='متوسط الوتر في مثلث قائم' />",
+        "</div>",
         "</div>"
       ],
       "diagram": {
