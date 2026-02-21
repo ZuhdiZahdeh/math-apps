@@ -920,8 +920,13 @@
         "إثبات أن DF = FC (أي أن F منتصف DC).",
         "✅ الحل (فكرة واحدة واضحة):",
         "1) في متوازي الأضلاع: AD ∥ BC و AB ∥ DC. وبما أن EF ∥ AD ⇒ EF ∥ BC.",
-        "2) لأن DE منصف ∠CDA ⇒ ∠CDE = ∠EDA. وبما أن F على DC ⇒ ∠FDE = ∠CDE، وبما أن EF ∥ AD ⇒ ∠DEF = ∠EDA. إذن ∠FDE = ∠DEF ⇒ DF = EF (مثلث DEF متساوي الساقين).",
-        "3) لأن CE منصف ∠BCD ⇒ ∠BCE = ∠ECD. وبما أن EF ∥ BC ⇒ ∠CEF = ∠BCE، وبما أن F على DC ⇒ ∠FCE = ∠ECD. إذن ∠CEF = ∠FCE ⇒ EF = FC (مثلث CEF متساوي الساقين).",
+        "وبما أن EF ∥ AD ⇒ EF ∥ BC.",
+        "2) لأن DE منصف ∠CDA ⇒ ∠CDE = ∠EDA. ",
+        "وبما أن F على DC ⇒ ∠FDE = ∠CDE، وبما أن EF ∥ AD ⇒ ∠DEF = ∠EDA. ",
+        "إذن ∠FDE = ∠DEF ⇒ DF = EF (مثلث DEF متساوي الساقين).",
+        "3) لأن CE منصف ∠BCD ⇒ ∠BCE = ∠ECD.",
+        "وبما أن EF ∥ BC ⇒ ∠CEF = ∠BCE، وبما أن F على DC ⇒ ∠FCE = ∠ECD.",
+        "إذن ∠CEF = ∠FCE ⇒ EF = FC (مثلث CEF متساوي الساقين).",
         "4) من DF = EF و EF = FC ⇒ DF = FC ⇒ F منتصف DC ✅"
       ],
       "solutionHtml": [
