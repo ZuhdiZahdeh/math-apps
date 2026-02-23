@@ -304,6 +304,12 @@ body{
   color:#0f172a;
 }
 
+/* إظهار \n داخل نص الحل عند تحويل النقطة إلى سطر جديد */
+#solutionBox p,
+#solutionBox li{
+  white-space: pre-line;
+}
+
 .solution-empty{
   color: var(--muted);
 }
