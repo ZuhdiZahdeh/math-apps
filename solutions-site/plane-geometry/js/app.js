@@ -55,9 +55,30 @@ function escapeHtml(str) {
     .replace(/'/g, "&#39;");
 }
 
+function dotToNewline(str) {
+  // نحول ". " (نقطة + مسافة/مسافات) إلى ".\n" لقراءة أوضح خصوصًا عند خلط العربية مع الإنجليزية
+  return (str ?? "").toString().replace(/\.\s+/g, ".\n");
+}
+
+function applyDotLineBreaks(rootEl) {
+  if (!rootEl) return;
+
+  const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, null, false);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    const t = node.nodeValue;
+
+    // تجاهل العقد التي لا تحتوي نقطة أصلًا (تحسين بسيط للأداء)
+    if (!t || !t.includes(".")) continue;
+
+    const replaced = dotToNewline(t);
+    if (replaced !== t) node.nodeValue = replaced;
+  }
+}
+
 function getSolutionHtml(q) {
   if (!q) return "";
-  if (Array.isArray(q.solutionHtml)) return q.solutionHtml.join("\n");
+  if (Array.isArray(q.solutionHtml)) return q.solutionHtml.join("");
   if (typeof q.solutionHtml === "string") return q.solutionHtml;
   return "";
 }
@@ -162,9 +183,14 @@ function renderSolution(q) {
   if (html) {
     els.solution.innerHTML = html;
   } else {
-    const lines = Array.isArray(q.solution) ? q.solution : [];
+    const lines = Array.isArray(q.solution)
+      ? q.solution
+      : (typeof q.solution === "string" ? [q.solution] : []);
     els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(lines.join("\n"))}</pre>`;
   }
+
+  // تحسين القراءة: نزول سطر بعد كل نقطة داخل الحل
+  applyDotLineBreaks(els.solution);
 
   renderGallery(q);
 
