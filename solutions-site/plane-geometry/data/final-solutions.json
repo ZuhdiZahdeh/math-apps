@@ -91,7 +91,7 @@
         "    <li>إثبات أن الرباعي <span class='math'>DFEG</span> شبه منحرف متساوي الساقين.</li>",
         "  </ul>",
         "",
-        "  <div class='th-title'>✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران)</div>",
+        "  <div class='th-title'>✅ التعليل (حل واحد فقط)</div>",
         "  <ol>",
         "    <li>بما أن <span class='math'>ABCD</span> متوازي أضلاع ⇒ <span class='math'>AD ∥ BC</span> و <span class='math'>AB ∥ DC</span> وكذلك <span class='math'>AD = BC</span> و <span class='math'>AB = DC</span> (خواص متوازي الأضلاع).</li>",
         "    <li>لتكن <span class='math'>O</span> نقطة تقاطع القطرين <span class='math'>AC</span> و <span class='math'>BD</span>.</li>",
