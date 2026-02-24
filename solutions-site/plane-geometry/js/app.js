@@ -2,6 +2,221 @@
 const DATASETS = { book: "./data/solutions.json", final: "./data/final-solutions.json" };
 const THEOREMS_URL = "./data/theorems.json";
 
+
+/* =========================
+   Theorems UI (Clickable Cards)
+   - يولّد شريحة/أزرار للنظريات أسفل الحل اعتمادًا على q.theoremsUsed
+   - عند الضغط يظهر كرت/بطاقة فيها تفاصيل النظرية + الرسوم/الصور
+   ========================= */
+(function () {
+  if (window.TheoremsUI) return; // لا نعيد تعريفها إذا كانت موجودة من ملف آخر
+
+  const state = {
+    url: null,
+    loaded: false,
+    loading: null,
+    map: new Map(), // id -> theorem
+    modal: null,
+    titleEl: null,
+    bodyEl: null,
+  };
+
+  function escapeHtmlLocal(str) {
+    return (str ?? "")
+      .toString()
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function getTheoremHtml(th) {
+    if (!th) return "";
+    if (Array.isArray(th.contentHtml)) return th.contentHtml.join("");
+    if (typeof th.contentHtml === "string") return th.contentHtml;
+
+    // fallback بسيط (إن لم يوجد contentHtml)
+    let html = "<div class='th-section'>";
+    if (th.title) html += `<div class='th-title'>${escapeHtmlLocal(th.title)}</div>`;
+    if (th.short) html += `<p>${escapeHtmlLocal(th.short)}</p>`;
+
+    if (th.diagram) {
+      html += "<div class='th-title'>شكل/رسم</div><div class='th-diagram'>";
+      if (th.diagram.svg) html += th.diagram.svg;
+      if (th.diagram.img) html += `<img src='${escapeHtmlLocal(th.diagram.img)}' alt='' />`;
+      html += "</div>";
+    }
+    html += "</div>";
+    return html;
+  }
+
+  function ensureModal() {
+    if (state.modal) return;
+
+    const modal = document.createElement("div");
+    modal.className = "th-modal hidden";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+
+    modal.innerHTML = `
+      <div class="th-backdrop" data-th-close="1"></div>
+      <div class="th-card" role="document">
+        <div class="th-card-head">
+          <div class="th-card-title"></div>
+          <button type="button" class="th-close" aria-label="إغلاق" data-th-close="1">×</button>
+        </div>
+        <div class="th-card-body"></div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    state.modal = modal;
+    state.titleEl = modal.querySelector(".th-card-title");
+    state.bodyEl = modal.querySelector(".th-card-body");
+
+    // إغلاق
+    modal.querySelectorAll("[data-th-close='1']").forEach((el) => el.addEventListener("click", closeModal));
+
+    // Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && state.modal && !state.modal.classList.contains("hidden")) closeModal();
+    });
+  }
+
+  function openModal(theoremId) {
+    ensureModal();
+
+    const th = state.map.get(theoremId);
+
+    state.titleEl.textContent = th?.title || theoremId;
+    state.bodyEl.innerHTML = th
+      ? getTheoremHtml(th)
+      : `<div class="th-section"><p>لم يتم العثور على بيانات لهذه النظرية: <code>${escapeHtmlLocal(theoremId)}</code></p></div>`;
+
+    state.modal.classList.remove("hidden");
+    document.body.classList.add("th-no-scroll");
+  }
+
+  function closeModal() {
+    if (!state.modal) return;
+    state.modal.classList.add("hidden");
+    document.body.classList.remove("th-no-scroll");
+    if (state.bodyEl) state.bodyEl.innerHTML = "";
+  }
+
+  async function loadTheorems(url) {
+    if (!url) return false;
+
+    // نفس الملف وتم تحميله سابقًا
+    if (state.loaded && state.url === url) return true;
+
+    // تحميل جارٍ
+    if (state.loading) return state.loading;
+
+    state.url = url;
+    state.loading = fetch(url, { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data) => {
+        const items = Array.isArray(data?.items)
+          ? data.items
+          : (Array.isArray(data?.theorems) ? data.theorems : []);
+
+        state.map = new Map();
+        items.forEach((it) => {
+          if (it && it.id) state.map.set(it.id, it);
+        });
+
+        state.loaded = true;
+        return true;
+      })
+      .catch((err) => {
+        console.warn("TheoremsUI: failed to load theorems.json", err);
+        state.loaded = false;
+        return false;
+      })
+      .finally(() => {
+        state.loading = null;
+      });
+
+    return state.loading;
+  }
+
+  function removeManualTheoremsSection(container) {
+    // إذا كان الحل يحتوي قسمًا يدويًا بعنوان: ✅ النظريات/القوانين المستخدمة
+    // قد يأتي أحيانًا كـ .sol-h أو .th-title حسب تنسيق الحل
+    const headers = Array.from(container.querySelectorAll(".sol-h, .th-title"));
+
+    headers
+      .filter((el) => ((el.textContent || "").includes("النظريات/القوانين المستخدمة")))
+      .forEach((h) => {
+        const next = h.nextElementSibling;
+        if (next && next.tagName === "UL") next.remove();
+        h.remove();
+      });
+  }
+
+  function apply(q, container) {
+    if (!container) return;
+
+    // أزل أي قسم مولّد سابقًا (عند الانتقال بين الأسئلة)
+    container.querySelectorAll(".theorems-used[data-auto='1']").forEach((el) => el.remove());
+
+    // أزل القسم اليدوي (إن وُجد) حتى لا يظهر مرتين
+    removeManualTheoremsSection(container);
+
+    const idsRaw = Array.isArray(q?.theoremsUsed) ? q.theoremsUsed : [];
+    const ids = Array.from(new Set(idsRaw.filter(Boolean)));
+
+    const wrap = document.createElement("div");
+    wrap.className = "theorems-used";
+    wrap.dataset.auto = "1";
+
+    const title = document.createElement("div");
+    title.className = "th-title";
+    title.textContent = "✅ النظريات/القوانين المستخدمة";
+
+    const chips = document.createElement("div");
+    chips.className = "theorem-chips";
+
+    wrap.appendChild(title);
+    wrap.appendChild(chips);
+
+    if (!ids.length) {
+      wrap.classList.add("theorems-used--empty");
+      const empty = document.createElement("div");
+      empty.className = "theorem-empty";
+      empty.textContent = "لا توجد نظريات موثقة لهذا الحل.";
+      wrap.appendChild(empty);
+      container.appendChild(wrap);
+      return;
+    }
+
+    ids.forEach((id) => {
+      const th = state.map.get(id);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "theorem-chip";
+      btn.textContent = th?.title || id;
+      btn.addEventListener("click", () => openModal(id));
+
+      chips.appendChild(btn);
+    });
+
+    container.appendChild(wrap);
+  }
+
+  window.TheoremsUI = {
+    init: ({ url } = {}) => loadTheorems(url),
+    apply,
+    open: openModal,
+    close: closeModal,
+  };
+})();
+
+
 const els = {
   list: document.getElementById("questionsList"),
   search: document.getElementById("searchInput"),
