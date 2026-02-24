@@ -870,11 +870,12 @@
         "<p>إذا كانت <span class='math'>M</span> منتصف <span class='math'>AB</span> و <span class='math'>CM = ½ AB</span> ⇒ <span class='math'>∠C = 90°</span> (ويكون <span class='math'>AB</span> وترًا).</p>",
         "<div class='th-title'>صورة توضيحية</div>",
         "<div class='th-diagram'>",
-        "  <img src='solutions-site/plane-geometry/images/theorems/right_triangle_midpoint_hypotenuse.png' alt='متوسط الوتر في مثلث قائم' />",
+        "  <img src='images/theorems/right_triangle_midpoint_hypotenuse.png' alt='متوسط الوتر في مثلث قائم' />",
         "</div>",
         "</div>"
       ],
-      "diagram": {
+        "diagram": {
+        "alt": "حالات تطابق المثلثات مع حالة المثلث القائم (RHS)"
         "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متوسط للوتر'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.r{stroke:#0ea5e9;stroke-width:3;fill:none}.m{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7}</style><path class='l' d='M80 190 L80 70 L270 190 Z'/><path class='r' d='M80 178 L95 178 L95 190'/><circle cx='175' cy='190' r='4' fill='#0ea5e9'/><text class='p' x='183' y='210'>M</text><line class='m' x1='80' y1='70' x2='175' y2='190'/><text class='p' x='20' y='30'>CM = ½ AB</text></svg>"
       },
       "tags": [
