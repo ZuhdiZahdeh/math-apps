@@ -1,0 +1,58 @@
+{
+  "id": "cosine_rule",
+  "title": "قانون جيب التمام",
+  "short": "في مثلث: c² = a² + b² − 2ab cos(γ) للزاوية المحصورة.",
+  "contentHtml": [
+    "<div class='th-section'>",
+    "<div class='th-title'>نص القانون</div>",
+    "<p>في أي مثلث إذا كانت الزاوية المحصورة بين الضلعين <span class='math'>a</span> و<span class='math'>b</span> هي <span class='math'>γ</span>، فإن:</p>",
+    "<div class='th-title'>التعبير الرياضي</div>",
+    "<ul><li><span class='math'>c² = a² + b² − 2ab cos(γ)</span></li></ul>",
+    "<p>وبالتبادل:</p>",
+    "<ul><li><span class='math'>cos(γ) = (a² + b² − c²)/(2ab)</span></li></ul>",
+    "</div>"
+  ],
+  "tags": ["مثلث", "جيب التمام", "قانون"]
+}
+,
+{
+  "id": "triangle_area_ab_sinC",
+  "title": "مساحة مثلث بضلعين والزاوية المحصورة",
+  "short": "S = 1/2 · a · b · sin(γ).",
+  "contentHtml": [
+    "<div class='th-section'>",
+    "<div class='th-title'>القانون</div>",
+    "<ul><li><span class='math'>S = ½ · a · b · sin(γ)</span></li></ul>",
+    "<p>حيث <span class='math'>γ</span> هي الزاوية المحصورة بين الضلعين <span class='math'>a</span> و<span class='math'>b</span>.</p>",
+    "</div>"
+  ],
+  "tags": ["مساحة", "مثلث", "جيب"]
+}
+,
+{
+  "id": "sin2_cos2_identity",
+  "title": "هوية: sin²θ + cos²θ = 1",
+  "short": "هوية أساسية في المثلثات: sin²θ + cos²θ = 1.",
+  "contentHtml": [
+    "<div class='th-section'>",
+    "<div class='th-title'>الهوية</div>",
+    "<ul><li><span class='math'>sin²(θ) + cos²(θ) = 1</span></li></ul>",
+    "</div>"
+  ],
+  "tags": ["هوية", "مثلثات", "sin", "cos"]
+}
+,
+{
+  "id": "line_angle_with_plane_projection",
+  "title": "زاوية مستقيم مع مستوى = زاويته مع إسقاطه",
+  "short": "زاوية المستقيم مع المستوى تساوي زاويته مع إسقاطه العمودي على هذا المستوى.",
+  "contentHtml": [
+    "<div class='th-section'>",
+    "<div class='th-title'>الفكرة</div>",
+    "<p>إذا كان مستقيم <span class='math'>ℓ</span> يقطع مستوى <span class='math'>Π</span>، فإن زاوية <span class='math'>ℓ</span> مع <span class='math'>Π</span> تُحسب كزاوية <span class='math'>ℓ</span> مع إسقاطه على <span class='math'>Π</span>.</p>",
+    "<div class='th-title'>كيف نطبّق؟</div>",
+    "<ul><li>أسقط نقطة من المستقيم عموديًا على المستوى.</li><li>كوّن مثلثًا قائمًا بين المستقيم وإسقاطه والعمود.</li></ul>",
+    "</div>"
+  ],
+  "tags": ["فراغ", "إسقاط", "زاوية", "مستوى"]
+}
