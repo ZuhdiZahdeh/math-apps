@@ -5,6 +5,76 @@ let filtered = [];
 let activeId = null;
 
 /* =========================
+   Theorems (clickable chips)
+   ========================= */
+let THEOREMS = null;
+
+async function loadTheorems(){
+  // الأفضل: يوجد نسخة داخل geometry-in-blanks/data/theorems.json
+  // fallback: محاولة الوصول لملف مساق المستوي إن كان المسار يعمل في نفس الاستضافة
+  const tries = [
+    "data/theorems.json",
+    "../plane-geometry/data/theorems.json"
+  ];
+  for(const url of tries){
+    try{
+      const res = await fetch(url, { cache: "no-store" });
+      if(res.ok) return await res.json();
+    }catch(_){}
+  }
+  return null;
+}
+
+function getTheoremById(id){
+  if(!THEOREMS?.items) return null;
+  return THEOREMS.items.find(x => x.id === id) || null;
+}
+
+function ensureTheoremModal(){
+  if(document.getElementById("thModal")) return;
+
+  const modal = document.createElement("div");
+  modal.id = "thModal";
+  modal.className = "th-modal hidden";
+  modal.innerHTML = `
+    <div class="th-backdrop" data-close="1"></div>
+    <div class="th-card" role="dialog" aria-modal="true" aria-label="نظرية">
+      <div class="th-card-head">
+        <div id="thTitle" class="th-card-title"></div>
+        <button class="th-close" type="button" data-close="1">×</button>
+      </div>
+      <div id="thBody" class="th-card-body"></div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  modal.addEventListener("click", (e) => {
+    if(e.target?.dataset?.close) modal.classList.add("hidden");
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") modal.classList.add("hidden");
+  });
+}
+
+function openTheorem(id){
+  const th = getTheoremById(id);
+  if(!th){
+    // إذا لم نجد النظرية، نظهر على الأقل الـ id
+    const t = document.getElementById("thTitle");
+    const b = document.getElementById("thBody");
+    if(t) t.textContent = id;
+    if(b) b.innerHTML = `<div class="th-section"><p>لم يتم العثور على النظرية بالمعرّف: <code>${escapeHtml(id)}</code></p></div>`;
+    document.getElementById("thModal")?.classList.remove("hidden");
+    return;
+  }
+
+  document.getElementById("thTitle").textContent = th.title || id;
+  document.getElementById("thBody").innerHTML = (th.contentHtml || []).join("");
+  document.getElementById("thModal").classList.remove("hidden");
+}
+
+/* =========================
    Font scaling (solutions only)
    ========================= */
 const FONT_KEY = "gb_font_scale";
@@ -63,8 +133,8 @@ function normalizeToPaddedId(raw){
   const id = String(raw || "").trim();
   const m = id.match(/^p0*(\d+)-q0*(\d+)$/i);
   if(!m) return id;
-  const p = String(Number(m[1])).padStart(2, "0"); // p01..p17
-  const q = String(Number(m[2]));                 // q1..q29
+  const p = String(Number(m[1])).padStart(2, "0"); // p01..p99
+  const q = String(Number(m[2]));                 // q1..q99
   return `p${p}-q${q}`;
 }
 
@@ -96,7 +166,7 @@ function getFigureAlt(item){
 }
 
 /* =========================
-   Modal (Zoom)
+   Modal (Zoom) for Figures
    ========================= */
 function ensureFigureModal(){
   if(document.getElementById("figModal")) return;
@@ -126,7 +196,6 @@ function ensureFigureModal(){
     const opener = e.target.closest(".fig-open, .figure-img");
     if(!opener) return;
 
-    // image carries data-src too (we set it)
     const src = opener.dataset.src;
     if(!src) return;
 
@@ -195,15 +264,45 @@ function renderItem(item){
     </div>
   ` : "";
 
+  // ===== Optional: Givens / Question text =====
+  const givensHtml = (item.givens && Array.isArray(item.givens) && item.givens.length)
+    ? `
+      <div class="box">
+        <h3 style="margin-top:0">المعطيات</h3>
+        ${(item.givens || []).map(g => `<div>• ${escapeHtml(g)}</div>`).join("")}
+      </div>
+    ` : "";
+
+  const questionTextHtml = item.questionText
+    ? `<div class="box"><h3 style="margin-top:0">نص السؤال</h3><div>${escapeHtml(item.questionText)}</div></div>`
+    : "";
+
   // ===== Parts / Methods =====
   const partsHtml = (item.parts || []).map(p => {
-    const methodsHtml = (p.methods || []).map(m => `
-      <div class="box">
-        <h4>${escapeHtml(m.name)}</h4>
-        ${(m.steps || []).map(s => `<div>• ${escapeHtml(s)}</div>`).join("")}
-        ${m.result ? `<div style="margin-top:10px"><strong>النتيجة:</strong> <code>${escapeHtml(m.result)}</code></div>` : ""}
-      </div>
-    `).join("");
+    const methodsHtml = (p.methods || []).map(m => {
+      const thIds = (m.theoremsUsed || []).filter(Boolean);
+      const chips = thIds.length ? `
+        <div class="theorems-used">
+          <div><strong>النظريات/القوانين المستخدمة</strong></div>
+          <div class="theorem-chips">
+            ${thIds.map(tid => {
+              const t = getTheoremById(tid);
+              const label = t?.title || tid;
+              return `<button class="theorem-chip" type="button" data-th="${escapeHtml(tid)}">${escapeHtml(label)}</button>`;
+            }).join("")}
+          </div>
+        </div>
+      ` : "";
+
+      return `
+        <div class="box">
+          <h4>${escapeHtml(m.name)}</h4>
+          ${(m.steps || []).map(s => `<div>• ${escapeHtml(s)}</div>`).join("")}
+          ${m.result ? `<div style="margin-top:10px"><strong>النتيجة:</strong> <code>${escapeHtml(m.result)}</code></div>` : ""}
+          ${chips}
+        </div>
+      `;
+    }).join("");
 
     return `
       <h3>${escapeHtml(p.label)}</h3>
@@ -212,7 +311,7 @@ function renderItem(item){
     `;
   }).join("");
 
-  body.innerHTML = figHtml + partsHtml + `<div class="page-break"></div>`;
+  body.innerHTML = figHtml + questionTextHtml + givensHtml + partsHtml + `<div class="page-break"></div>`;
 
   // Update TOC active state
   renderTOC(filtered);
@@ -232,7 +331,7 @@ function applyFilters(){
   const to   = parseInt($("pageTo")?.value   || "0", 10);
 
   filtered = DB.filter(item => {
-    const blob = `${item.title || ""} ${item.questionText || ""} ${item.page} ${item.q}`.toLowerCase();
+    const blob = `${item.title || ""} ${item.questionText || ""} ${(item.givens || []).join(" ")} ${item.page} ${item.q}`.toLowerCase();
     const matchText = !q || blob.includes(q);
     const matchFrom = from ? item.page >= from : true;
     const matchTo   = to   ? item.page <= to   : true;
@@ -250,7 +349,7 @@ async function loadJsonSmart(){
   // جرّب data/ ثم fallback إلى assets/data/ (احتياط)
   const tries = ["data/solutions.json", "assets/data/solutions.json"];
   for(const url of tries){
-    const res = await fetch(url);
+    const res = await fetch(url, { cache: "no-store" });
     if(res.ok) return await res.json();
   }
   throw new Error("solutions.json not found in data/ or assets/data/");
@@ -266,6 +365,19 @@ async function init(){
 
   initFontControls();
   ensureFigureModal();
+
+  // Theorems
+  THEOREMS = await loadTheorems();
+  ensureTheoremModal();
+
+  // Delegate theorem chip clicks
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".theorem-chip");
+    if(!btn) return;
+    const id = btn.dataset.th;
+    if(id) openTheorem(id);
+  });
+
   renderTOC(filtered);
 
   window.addEventListener("hashchange", () => {
