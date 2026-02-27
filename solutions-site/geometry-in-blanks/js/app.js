@@ -57,21 +57,67 @@ function ensureTheoremModal(){
   });
 }
 
+/* --- Helpers for theorem diagrams (SVG / image) --- */
+function renderTheoremDiagram(th){
+  const d = th?.diagram;
+  if(!d) return "";
+
+  // إذا الـ contentHtml بالفعل يحتوي th-diagram فلا نكرر
+  const contentJoined = (th.contentHtml || []).join("");
+  const alreadyHasDiagramBlock = contentJoined.includes("th-diagram");
+  if(alreadyHasDiagramBlock) return "";
+
+  // SVG
+  if(d.svg){
+    return `<div class="th-diagram">${d.svg}</div>`;
+  }
+
+  // Image
+  if(d.image){
+    const alt = d.alt || th.title || "شكل توضيحي";
+    return `
+      <div class="th-diagram">
+        <img src="${escapeHtml(d.image)}" alt="${escapeHtml(alt)}" />
+      </div>
+    `;
+  }
+
+  return "";
+}
+
 function openTheorem(id){
   const th = getTheoremById(id);
+
+  const t = document.getElementById("thTitle");
+  const b = document.getElementById("thBody");
+  const modal = document.getElementById("thModal");
+  if(!t || !b || !modal) return;
+
   if(!th){
-    // إذا لم نجد النظرية، نظهر على الأقل الـ id
-    const t = document.getElementById("thTitle");
-    const b = document.getElementById("thBody");
-    if(t) t.textContent = id;
-    if(b) b.innerHTML = `<div class="th-section"><p>لم يتم العثور على النظرية بالمعرّف: <code>${escapeHtml(id)}</code></p></div>`;
-    document.getElementById("thModal")?.classList.remove("hidden");
+    t.textContent = id;
+    b.innerHTML = `<div class="th-section"><p>لم يتم العثور على النظرية بالمعرّف: <code>${escapeHtml(id)}</code></p></div>`;
+    modal.classList.remove("hidden");
     return;
   }
 
-  document.getElementById("thTitle").textContent = th.title || id;
-  document.getElementById("thBody").innerHTML = (th.contentHtml || []).join("");
-  document.getElementById("thModal").classList.remove("hidden");
+  t.textContent = th.title || id;
+
+  const shortHtml = th.short
+    ? `<div class="th-short">${escapeHtml(th.short)}</div>`
+    : "";
+
+  const contentHtml = (th.contentHtml || []).join("");
+  const diagramHtml = renderTheoremDiagram(th);
+
+  b.innerHTML = `
+    <div class="th-wrap">
+      ${shortHtml}
+      ${contentHtml}
+      ${diagramHtml}
+    </div>
+  `;
+
+  modal.classList.remove("hidden");
 }
 
 /* =========================
