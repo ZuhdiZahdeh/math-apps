@@ -16,7 +16,10 @@
               "المثلث ADD′ قائم: AD=a وDD′=AA′=3a",
               "إذن AD′ = √(a²+(3a)²) = a√10"
             ],
-            "result": "AC = a√2 ، AD′ = a√10"
+            "result": "AC = a√2 ، AD′ = a√10",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -31,7 +34,8 @@
               "المستطيلان متطابقان لأن AD=CD=a وDD′=CC′=3a وزواياهما قائمة",
               "إذن قطراهما متساويان ⇒ CD′ = AD′"
             ],
-            "result": "CD′ = AD′"
+            "result": "CD′ = AD′",
+            "theorems": []
           }
         ]
       },
@@ -46,7 +50,11 @@
               "cos = (10a²+10a²−2a²)/(2·10a²)=18/20=0.9",
               "∠AD′C = arccos(0.9)"
             ],
-            "result": "∠AD′C ≈ 25.84°"
+            "result": "∠AD′C ≈ 25.84°",
+            "theorems": [
+              "cosine_rule",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -61,7 +69,10 @@
               "المساحة = 1/2 · AC · D′E",
               "من الحساب ينتج: المساحة = (√19/2) a² ≈ 2.179 a²"
             ],
-            "result": "مساحة △AD′C = (√19/2)a² ≈ 2.179a²"
+            "result": "مساحة △AD′C = (√19/2)a² ≈ 2.179a²",
+            "theorems": [
+              "triangle_area_base_height"
+            ]
           }
         ]
       },
@@ -77,7 +88,11 @@
               "tan(θ)=D′D/DE = 3a ÷ (a/√2)=3√2",
               "θ=arctan(3√2)"
             ],
-            "result": "الزاوية ≈ 76.74°"
+            "result": "الزاوية ≈ 76.74°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -105,7 +120,8 @@
               "BD قطر القاعدة ⇒ BD = a√2",
               "الأضلاع الثلاثة متساوية ⇒ المثلث متساوي الأضلاع"
             ],
-            "result": "△A′BD متساوي الأضلاع"
+            "result": "△A′BD متساوي الأضلاع",
+            "theorems": []
           }
         ]
       },
@@ -120,7 +136,11 @@
               "A′A=a و AM=a/√2",
               "tan θ = A′A / AM = a ÷ (a/√2)=√2"
             ],
-            "result": "θ ≈ 54.736°"
+            "result": "θ ≈ 54.736°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -134,7 +154,10 @@
               "المساحة = (s²√3)/4 = (2a²√3)/4 = (a²√3)/2",
               "ضع (a²√3)/2 = 8√3 ⇒ a²/2=8 ⇒ a=4"
             ],
-            "result": "a = 4"
+            "result": "a = 4",
+            "theorems": [
+              "equilateral_triangle_area"
+            ]
           }
         ]
       },
@@ -151,7 +174,10 @@
               "مساحة القاعدة △A′BD = 8√3 ≈ 13.86",
               "المجموع ≈ 8+8+8+13.86"
             ],
-            "result": "≈ 37.86"
+            "result": "≈ 37.86",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -176,7 +202,10 @@
             "steps": [
               "AC = √(a²+a²)=a√2"
             ],
-            "result": "AC = a√2"
+            "result": "AC = a√2",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -190,7 +219,11 @@
               "الارتفاع = a",
               "tan θ = a/(a√2)=1/√2"
             ],
-            "result": "θ ≈ 35.264°"
+            "result": "θ ≈ 35.264°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -202,7 +235,10 @@
             "steps": [
               "AC′ = √(a²+a²+a²)=a√3"
             ],
-            "result": "AC′ = a√3"
+            "result": "AC′ = a√3",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -216,7 +252,11 @@
               "cos φ = 1/3",
               "φ = arccos(1/3)"
             ],
-            "result": "φ ≈ 70.529°"
+            "result": "φ ≈ 70.529°",
+            "theorems": [
+              "dot_product_angle_between_vectors",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -229,7 +269,8 @@
               "A(0,0,0)، B(a,0,0)، O(a/2,a/2,a/2)",
               "المساحة = (√2/4) a²"
             ],
-            "result": "مساحة △AOB = (√2/4)a² ≈ 0.354a²"
+            "result": "مساحة △AOB = (√2/4)a² ≈ 0.354a²",
+            "theorems": []
           }
         ]
       },
@@ -241,7 +282,8 @@
             "steps": [
               "(√2/4)a² = 4√2 ⇒ a²/4=4 ⇒ a=4"
             ],
-            "result": "a = 4"
+            "result": "a = 4",
+            "theorems": []
           }
         ]
       }
@@ -267,7 +309,11 @@
               "الزاوية بين AD′ والقاعدة = 60°",
               "الارتفاع = AD′·sin60 = 12·(√3/2)=6√3"
             ],
-            "result": "الارتفاع = 6√3"
+            "result": "الارتفاع = 6√3",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -281,7 +327,10 @@
               "AB·BC = 432/(6√3)=72/√3=24√3",
               "من الحل في الورقة: AB=4√3 و AD=6"
             ],
-            "result": "AB = 4√3 ، AD = 6"
+            "result": "AB = 4√3 ، AD = 6",
+            "theorems": [
+              "prism_volume"
+            ]
           }
         ]
       },
@@ -295,7 +344,10 @@
               "F منتصف AD ⇒ AF=3",
               "BF = √(AB²+AF²)=√((4√3)²+3²)=√(48+9)=√57"
             ],
-            "result": "BF = √57"
+            "result": "BF = √57",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -308,7 +360,10 @@
               "نأخذ EB وخط إسقاطه على القاعدة",
               "باستخدام معطيات السؤال ينتج قياس الزاوية كما في الحل"
             ],
-            "result": "≈ 34.53°"
+            "result": "≈ 34.53°",
+            "theorems": [
+              "line_angle_with_plane_projection"
+            ]
           }
         ]
       }
@@ -333,7 +388,10 @@
             "steps": [
               "AC=√(AB²+BC²)=√((√3a)²+a²)=√(3a²+a²)=2a"
             ],
-            "result": "AC = 2a"
+            "result": "AC = 2a",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -347,7 +405,11 @@
               "الارتفاع CC′=1.5a",
               "tan θ=1.5a/(2a)=0.75"
             ],
-            "result": "θ ≈ 36.87°"
+            "result": "θ ≈ 36.87°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -361,7 +423,11 @@
               "الغلاف = 2(√3a+a)·1.5a = 3a²(√3+1)",
               "ضع 3a²(√3+1)=108(√3+1) ⇒ a²=36 ⇒ a=6"
             ],
-            "result": "a = 6"
+            "result": "a = 6",
+            "theorems": [
+              "prism_lateral_area",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -376,7 +442,10 @@
               "V=(1/3)·√3a²·0.75a = 0.25√3 a³",
               "عند a=6 ⇒ V=54√3 ≈ 93.53"
             ],
-            "result": "V = 54√3 ≈ 93.53"
+            "result": "V = 54√3 ≈ 93.53",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       },
@@ -389,7 +458,10 @@
               "(1) حجم الهرم OABCD أكبر من حجم الهرم OAA′D′D ⇒ غير صحيح",
               "(2) الزاوية بين AC ومستوى الوجه DD′C′C هي 30° ⇒ صحيح"
             ],
-            "result": "(1) غير صحيح، (2) صحيح"
+            "result": "(1) غير صحيح، (2) صحيح",
+            "theorems": [
+              "line_angle_with_plane_projection"
+            ]
           }
         ]
       }
@@ -417,7 +489,10 @@
               "المعطى: √(2s²+h²)=√3·s√2 ⇒ 2s²+h²=6s² ⇒ h=2s",
               "tan θ = h/(s√2)=2s/(s√2)=√2 ⇒ θ≈54.735°"
             ],
-            "result": "θ ≈ 54.735°"
+            "result": "θ ≈ 54.735°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -430,7 +505,8 @@
               "AC=s√2 وارتفاع المستطيل = h=2s",
               "المساحة = AC·h = (s√2)(2s)=2s²√2=128√2 ⇒ s²=64 ⇒ s=8"
             ],
-            "result": "طول ضلع القاعدة = 8"
+            "result": "طول ضلع القاعدة = 8",
+            "theorems": []
           }
         ]
       },
@@ -442,7 +518,8 @@
             "steps": [
               "قطر الصندوق = s√6 = 8√6"
             ],
-            "result": "قطر الصندوق = 8√6"
+            "result": "قطر الصندوق = 8√6",
+            "theorems": []
           }
         ]
       },
@@ -457,7 +534,10 @@
               "مساحة وجه واحد = 1/2·8·l = 16√5",
               "الغلاف = 4·16√5 = 64√5 ≈ 143.1"
             ],
-            "result": "64√5 ≈ 143.1"
+            "result": "64√5 ≈ 143.1",
+            "theorems": [
+              "triangle_area_base_height"
+            ]
           }
         ]
       }
@@ -484,7 +564,10 @@
               "M مركز القاعدة ⇒ MC=AC/2=6.5",
               "tan52° = h/6.5 ⇒ h ≈ 8.32"
             ],
-            "result": "h ≈ 8.32"
+            "result": "h ≈ 8.32",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -498,7 +581,10 @@
               "= 2(60 + 12h + 5h) = 120 + 34h",
               "عند h≈8.32 ⇒ ≈ 402.867"
             ],
-            "result": "≈ 402.867"
+            "result": "≈ 402.867",
+            "theorems": [
+              "rectangular_prism_surface_area"
+            ]
           }
         ]
       },
@@ -513,7 +599,12 @@
               "من الشرط AP=1.6 MP ينتج MP≈5.204",
               "tan θ = MP/AM ⇒ θ≈38.68°"
             ],
-            "result": "≈ 38.68°"
+            "result": "≈ 38.68°",
+            "theorems": [
+              "coordinate_geometry_distance",
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -527,7 +618,10 @@
               "ارتفاع الهرم = MP≈5.204",
               "V=(1/3)·60·5.204 ≈ 104.083"
             ],
-            "result": "≈ 104.083"
+            "result": "≈ 104.083",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       }
@@ -554,7 +648,10 @@
               "ومعطى h=قطر القاعدة ⇒ h/OC=2",
               "θ=arctan(2)"
             ],
-            "result": "≈ 63.43°"
+            "result": "≈ 63.43°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -567,7 +664,8 @@
               "بعد استنتاج أبعاد الصندوق من OC′",
               "نحسب مساحة المثلث المطلوب"
             ],
-            "result": "25√5"
+            "result": "25√5",
+            "theorems": []
           }
         ]
       },
@@ -580,7 +678,10 @@
               "المحيط × الارتفاع مع أبعاد القاعدة الناتجة",
               "النتيجة كما في الحل"
             ],
-            "result": "200√2"
+            "result": "200√2",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -592,7 +693,10 @@
             "steps": [
               "النتيجة المباشرة كما في الحل"
             ],
-            "result": "2.5√10"
+            "result": "2.5√10",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -604,7 +708,11 @@
             "steps": [
               "نحسب طول الإسقاط والارتفاع ثم tan"
             ],
-            "result": "≈ 51.67°"
+            "result": "≈ 51.67°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -633,7 +741,11 @@
               "في مثلث متساوي الأضلاع: الارتفاع = (√3/2)·(ضلع)",
               "بعد الربط ينتج التعبير النهائي"
             ],
-            "result": "طول ضلع القاعدة = (2h)/(√3·tan α)"
+            "result": "طول ضلع القاعدة = (2h)/(√3·tan α)",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -645,7 +757,10 @@
             "steps": [
               "نعوّض α=30° ونستخرج زاوية القطر مع القاعدة"
             ],
-            "result": "≈ 26.56°"
+            "result": "≈ 26.56°",
+            "theorems": [
+              "line_angle_with_plane_projection"
+            ]
           }
         ]
       }
@@ -672,7 +787,10 @@
               "الارتفاع = 2a ⇒ V = a³",
               "لكن α يقيّد العلاقة الهندسية للقطر ⇒ ينتج التعبير النهائي كما في الحل"
             ],
-            "result": "V = (a^3 √(1−tan^2 α)) / (2 tan α)"
+            "result": "V = (a^3 √(1−tan^2 α)) / (2 tan α)",
+            "theorems": [
+              "prism_volume"
+            ]
           }
         ]
       },
@@ -684,7 +802,8 @@
             "steps": [
               "من الهندسة المكانية للعلاقة بين القطر والوجه نحصل على α"
             ],
-            "result": "α ≈ 24.09°"
+            "result": "α ≈ 24.09°",
+            "theorems": []
           }
         ]
       },
@@ -696,7 +815,11 @@
             "steps": [
               "نأخذ إسقاط AC′ على القاعدة ثم نستخدم tan"
             ],
-            "result": "≈ 54.73°"
+            "result": "≈ 54.73°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -723,7 +846,10 @@
               "ثم نحدد ارتفاع المنشور من زاوية القطر 65°",
               "المساحة النهائية كما في الحل"
             ],
-            "result": "≈ 127.46"
+            "result": "≈ 127.46",
+            "theorems": [
+              "line_angle_with_plane_projection"
+            ]
           }
         ]
       },
@@ -735,7 +861,10 @@
             "steps": [
               "نحدد اتجاه الارتفاع في الوجه ثم نأخذ زاويته مع القاعدة"
             ],
-            "result": "≈ 67.44°"
+            "result": "≈ 67.44°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -761,7 +890,10 @@
               "D منتصف CB و AD متوسط/ارتفاع في مثلث متساوي الساقين",
               "باستخدام الزاوية 40° نحسب CB"
             ],
-            "result": "CB ≈ 8.73"
+            "result": "CB ≈ 8.73",
+            "theorems": [
+              "isosceles_triangle_median_properties"
+            ]
           }
         ]
       },
@@ -775,7 +907,10 @@
               "والحواف الجانبية متساوية ⇒ A′B وA′C متماثلتان بالنسبة للقاعدة",
               "إذن CA′ = BA′ ⇒ △CA′B متساوي الساقين"
             ],
-            "result": "△CA′B متساوي الساقين"
+            "result": "△CA′B متساوي الساقين",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -787,7 +922,11 @@
             "steps": [
               "نأخذ إسقاط A′ على القاعدة ونحسب tan"
             ],
-            "result": "≈ 49.07°"
+            "result": "≈ 49.07°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -800,7 +939,10 @@
               "من مساحة △CA′B نستخرج ارتفاع المنشور",
               "ثم نضرب بمساحة القاعدة"
             ],
-            "result": "≈ 725.354"
+            "result": "≈ 725.354",
+            "theorems": [
+              "prism_volume"
+            ]
           }
         ]
       }
@@ -825,7 +967,11 @@
             "steps": [
               "قطر الوجه BB′C′C إسقاطه على القاعدة هو BC"
             ],
-            "result": "≈ 63.43°"
+            "result": "≈ 63.43°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -837,7 +983,10 @@
             "steps": [
               "نحدد أطوال AC′ وBC′ ثم قانون جيب التمام"
             ],
-            "result": "≈ 24.09°"
+            "result": "≈ 24.09°",
+            "theorems": [
+              "cosine_rule"
+            ]
           }
         ]
       },
@@ -849,7 +998,11 @@
             "steps": [
               "نعتمد على أطوال الضلعين والزاوية المحصورة"
             ],
-            "result": "8√5"
+            "result": "8√5",
+            "theorems": [
+              "right_triangle_trigonometry",
+              "triangle_area_ab_sinC"
+            ]
           }
         ]
       },
@@ -861,7 +1014,10 @@
             "steps": [
               "نحسب المسافة بين A′ و D عبر مركبات (أفقية + ارتفاع)"
             ],
-            "result": "√84"
+            "result": "√84",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       }
@@ -887,7 +1043,10 @@
               "△ABD قائم عند A ومتساوي الساقين ⇒ AB=AD=3",
               "BD = √(AB² + AD²) = √(3²+3²)=3√2"
             ],
-            "result": "BD = 3√2"
+            "result": "BD = 3√2",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -902,7 +1061,8 @@
               "المستطيلان متطابقان لأن AB=AD وAA′ مشترك وزواياهما قائمة",
               "إذن قطراهما متساويان ⇒ A′B = A′D"
             ],
-            "result": "A′D = A′B"
+            "result": "A′D = A′B",
+            "theorems": []
           }
         ]
       },
@@ -918,7 +1078,14 @@
               "المسافة من A′ إلى BD: A′H = √(AA′² + AH²) ⇒ AA′ = √(10² − (3/√2)²)=√(95.5)",
               "الزاوية المطلوبة هي زاوية (A′H) مع القاعدة، وفي △AA′H: sinθ = AA′/A′H"
             ],
-            "result": "θ ≈ 77.75°"
+            "result": "θ ≈ 77.75°",
+            "theorems": [
+              "distance_point_line",
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry",
+              "triangle_area_ab_sinC",
+              "triangle_area_base_height"
+            ]
           }
         ]
       },
@@ -932,7 +1099,11 @@
               "ارتفاع المنشور AA′ ≈ √95.5 ≈ 9.77",
               "V = 4.5 × 9.77"
             ],
-            "result": "V ≈ 43.97"
+            "result": "V ≈ 43.97",
+            "theorems": [
+              "prism_volume",
+              "triangle_area_base_height"
+            ]
           }
         ]
       }
@@ -961,7 +1132,13 @@
               "مساحة القاعدة = (1/2)·BC·AD = (1/2)·14·10 = 70",
               "ارتفاع المنشور h = 1190 / 70"
             ],
-            "result": "ارتفاع المنشور = 17"
+            "result": "ارتفاع المنشور = 17",
+            "theorems": [
+              "isosceles_triangle_median_properties",
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry",
+              "triangle_area_base_height"
+            ]
           }
         ]
       },
@@ -975,7 +1152,11 @@
               "في △ABD: AB = BD / sin35° ≈ 7/sin35° ≈ 12.20",
               "tanθ = h / AB = 17 / 12.20"
             ],
-            "result": "θ ≈ 54.33°"
+            "result": "θ ≈ 54.33°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -990,7 +1171,11 @@
               "AD′ = √(AD² + AA′²) = √(10²+17²)=√389",
               "cos(∠AD′A′) = (AD′² + D′A′² − AA′²)/(2·AD′·D′A′) = 10/√389"
             ],
-            "result": "∠AD′A′ ≈ 59.53°"
+            "result": "∠AD′A′ ≈ 59.53°",
+            "theorems": [
+              "cosine_rule",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1016,7 +1201,8 @@
               "في متساوي الأضلاع: CD = (√3/2)·(ضلع)",
               "إذن ضلع القاعدة = 2a/√3"
             ],
-            "result": "ضلع القاعدة = 2a/√3"
+            "result": "ضلع القاعدة = 2a/√3",
+            "theorems": []
           }
         ]
       },
@@ -1031,7 +1217,11 @@
               "tan68° = ارتفاع المنشور / AD",
               "ارتفاع المنشور = (a/√3)·tan68°"
             ],
-            "result": "ارتفاع المنشور ≈ 1.43a"
+            "result": "ارتفاع المنشور ≈ 1.43a",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1045,7 +1235,11 @@
               "الغلاف = (2a√3)·((a/√3)tan68°)=2a²tan68°",
               "2a²tan68° = 713 ⇒ a² = 713/(2tan68°) ⇒ a=12"
             ],
-            "result": "a = 12"
+            "result": "a = 12",
+            "theorems": [
+              "prism_lateral_area",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1060,7 +1254,12 @@
               "cos(∠BA′C) = (A′B² + A′C² − BC²)/(2·A′B·A′C)",
               "بعد التعويض العددي نحصل على الزاوية"
             ],
-            "result": "∠BA′C ≈ 36.585°"
+            "result": "∠BA′C ≈ 36.585°",
+            "theorems": [
+              "cosine_rule",
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1088,7 +1287,11 @@
               "OF = نصف ضلع المربع = a/2 ، و SO = a (لأن الارتفاع = ضلع القاعدة)",
               "tanθ = SO/OF = a/(a/2)=2"
             ],
-            "result": "θ ≈ 63.43°"
+            "result": "θ ≈ 63.43°",
+            "theorems": [
+              "isosceles_triangle_median_properties",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1102,7 +1305,11 @@
               "SC = √(SO² + OC²) = √(a² + a²/2)=a√(3/2)",
               "في مثلث متساوي الساقين CSB: cos∠CSB = (2SC² − BC²)/(2SC²) = 2/3"
             ],
-            "result": "∠CSB ≈ 48.2°"
+            "result": "∠CSB ≈ 48.2°",
+            "theorems": [
+              "cosine_rule",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1118,7 +1325,10 @@
               "SO = a = 15 ، وSO ⟂ DB لأن DB في القاعدة ويمر من O",
               "مساحة △SDB = (1/2)·DB·SO"
             ],
-            "result": "مساحة △SDB ≈ 159.1 سم²"
+            "result": "مساحة △SDB ≈ 159.1 سم²",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       }
@@ -1147,7 +1357,10 @@
               "SA² = SO² + AO² = 2AO² ⇒ AO = 13/√2",
               "AC = 2AO = 13√2"
             ],
-            "result": "AC = 13√2 ≈ 18.38"
+            "result": "AC = 13√2 ≈ 18.38",
+            "theorems": [
+              "line_angle_with_plane_projection"
+            ]
           }
         ]
       },
@@ -1160,7 +1373,11 @@
               "AB = AC·cos50° ، BC = AC·sin50°",
               "مساحة القاعدة = AB·BC"
             ],
-            "result": "مساحة القاعدة ≈ 166.43 سم²"
+            "result": "مساحة القاعدة ≈ 166.43 سم²",
+            "theorems": [
+              "right_triangle_trigonometry",
+              "triangle_area_ab_sinC"
+            ]
           }
         ]
       },
@@ -1174,7 +1391,10 @@
               "المسافة من O إلى BC = AB/2",
               "مساحة △SBC = (1/2)·BC·الارتفاع المائل"
             ],
-            "result": "مساحة الوجه SBC ≈ 76.95 سم²"
+            "result": "مساحة الوجه SBC ≈ 76.95 سم²",
+            "theorems": [
+              "triangle_area_base_height"
+            ]
           }
         ]
       }
@@ -1202,7 +1422,10 @@
               "360 = (1/3)·(d²/2)·(1.25d) = (5/24)d³",
               "d³ = 1728 ⇒ d = 12"
             ],
-            "result": "قطر القاعدة = 12"
+            "result": "قطر القاعدة = 12",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       },
@@ -1216,7 +1439,10 @@
               "SO = 1.25d = 15",
               "tanθ = 15/6 = 2.5"
             ],
-            "result": "θ ≈ 68.198°"
+            "result": "θ ≈ 68.198°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1230,7 +1456,12 @@
               "SA = √(SO²+AO²) = √(15²+6²)=√261",
               "في △SAB: cos(زاوية القاعدة) = s/(2SA)"
             ],
-            "result": "زاوية القاعدة ≈ 74.77°"
+            "result": "زاوية القاعدة ≈ 74.77°",
+            "theorems": [
+              "cosine_rule",
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1258,7 +1489,10 @@
               "AM = d/2 = a√2/2 = a/√2",
               "tanθ = (a√2)/(a/√2)=2"
             ],
-            "result": "θ ≈ 63.435°"
+            "result": "θ ≈ 63.435°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1272,7 +1506,10 @@
               "EM = a√2",
               "tanφ = (a√2)/(a/2)=2√2"
             ],
-            "result": "φ ≈ 70.529°"
+            "result": "φ ≈ 70.529°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1287,7 +1524,10 @@
               "الغلاف = 4·(3a²/4)=3a²",
               "3a² = 36.75 ⇒ a² = 12.25 ⇒ a = 3.5"
             ],
-            "result": "a = 3.5"
+            "result": "a = 3.5",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1312,7 +1552,10 @@
             "steps": [
               "AC = √((12a)²+(9a)²)=√(144a²+81a²)=15a"
             ],
-            "result": "AC = 15a"
+            "result": "AC = 15a",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -1328,7 +1571,11 @@
               "∠(SE مع القاعدة)=∠SEO ⇒ tan80° = SO/EO",
               "SO = 4.5a·tan80°"
             ],
-            "result": "SO ≈ 25.52a"
+            "result": "SO ≈ 25.52a",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1343,7 +1590,11 @@
               "مساحة △ABC = (1/2)·AB·BC = (1/2)·12a·9a = 54a²",
               "حجم هرم SABC: V = (1/3)·مساحة △ABC·SO"
             ],
-            "result": "V ≈ 1564.8"
+            "result": "V ≈ 1564.8",
+            "theorems": [
+              "pyramid_volume",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1371,7 +1622,10 @@
               "2·arctan(a/AB)=42° ⇒ arctan(a/AB)=21° ⇒ a/AB=tan21°",
               "AB = a/tan21°"
             ],
-            "result": "AB ≈ 2.605a"
+            "result": "AB ≈ 2.605a",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1386,7 +1640,11 @@
               "SA = √(SO² + (AC/2)²) لأن O منتصف AC وSO=AB",
               "ثم نطبق قانون جيب التمام لإيجاد ∠ASC"
             ],
-            "result": "∠ASC ≈ 61.83°"
+            "result": "∠ASC ≈ 61.83°",
+            "theorems": [
+              "cosine_rule",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1400,7 +1658,10 @@
               "SO=AB",
               "tanθ = SO/AO"
             ],
-            "result": "θ ≈ 56.33°"
+            "result": "θ ≈ 56.33°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1414,7 +1675,11 @@
               "نعوّض SA بدلالة a (من الأجزاء السابقة) و∠ASC≈61.83°",
               "نحل المعادلة فنحصل على a"
             ],
-            "result": "a ≈ 2.098"
+            "result": "a ≈ 2.098",
+            "theorems": [
+              "right_triangle_trigonometry",
+              "triangle_area_ab_sinC"
+            ]
           }
         ]
       },
@@ -1427,7 +1692,8 @@
               "E منتصف SO ⇒ ارتفاع الهرم الجديد = SO/2",
               "إذن حجم الهرم الجديد = نصف حجم الهرم الأصلي"
             ],
-            "result": "V(EABCD) ≈ 10.44"
+            "result": "V(EABCD) ≈ 10.44",
+            "theorems": []
           }
         ]
       }
@@ -1453,7 +1719,10 @@
               "مساحة القاعدة = 9×5 = 45",
               "180 = (1/3)·45·SO ⇒ SO = 12"
             ],
-            "result": "SO = 12"
+            "result": "SO = 12",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       },
@@ -1467,7 +1736,10 @@
               "AO = AC/2 = √106 / 2",
               "tanθ = 12 / (√106/2)"
             ],
-            "result": "θ ≈ 66.78°"
+            "result": "θ ≈ 66.78°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1480,7 +1752,8 @@
               "AO = √106/2",
               "SA = √(12² + (√106/2)²)"
             ],
-            "result": "SA ≈ 13.057"
+            "result": "SA ≈ 13.057",
+            "theorems": []
           }
         ]
       },
@@ -1495,7 +1768,11 @@
               "E منتصف SC ⇒ E((9+4.5)/2,(5+2.5)/2,(0+12)/2)=(6.75,3.75,6)",
               "F إسقاط E على القطر AC (EF ⟂ AC) ⇒ نحسب المسافة من E إلى المستقيم AC"
             ],
-            "result": "EF = 6"
+            "result": "EF = 6",
+            "theorems": [
+              "coordinate_geometry_distance",
+              "distance_point_line"
+            ]
           }
         ]
       },
@@ -1510,7 +1787,11 @@
               "الارتفاع = 6",
               "tanφ = 6 / AE₀"
             ],
-            "result": "φ ≈ 37.84°"
+            "result": "φ ≈ 37.84°",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1538,7 +1819,10 @@
               "SM² = SO² + OM² ⇒ 16² = SO² + 8²",
               "SO = √(256−64)=√192=8√3"
             ],
-            "result": "SO = 8√3"
+            "result": "SO = 8√3",
+            "theorems": [
+              "isosceles_triangle_median_properties"
+            ]
           }
         ]
       },
@@ -1552,7 +1836,10 @@
               "OM = 8",
               "tanθ = (4√3)/8 = √3/2"
             ],
-            "result": "θ ≈ 40.89°"
+            "result": "θ ≈ 40.89°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1567,7 +1854,12 @@
               "نستنتج BC ≈ 14.64",
               "حجم PABCD = (1/3)·(AB·BC)·PO = (1/3)·(16·BC)·(4√3)"
             ],
-            "result": "V(PABCD) ≈ 539.01"
+            "result": "V(PABCD) ≈ 539.01",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "pyramid_volume",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1580,7 +1872,8 @@
               "حجم المكعب = حجم الهرم PABCD = 539.01",
               "طول حرف المكعب = ∛539.01"
             ],
-            "result": "طول الحرف ≈ 8.13"
+            "result": "طول الحرف ≈ 8.13",
+            "theorems": []
           }
         ]
       }
@@ -1590,69 +1883,82 @@
       "alt": "شكل السؤال 24"
     }
   },
-{
-  "id": "p15-q25",
-  "page": 15,
-  "q": "25",
-  "title": "هرم رباعي: صيغة الحجم بدلالة k وارتفاع على القطر AC",
-  "questionText": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
-  "parts": [
-    {
-      "label": "أ) عبّر بدلالة k عن حجم الهرم",
-      "methods": [
-        {
-          "name": "نموذج الحل كما في ورقة الأسئلة",
-          "steps": [
-            "نحوّل المعطيات إلى علاقات أطوال داخل المقطع المناسب",
-            "نستخرج ارتفاع الهرم بدلالة k ثم نطبق V=(1/3)·مساحة القاعدة·الارتفاع",
-            "نقرّب القيمة العددية حسب المطلوب"
-          ],
-          "result": "V = 0.036 k^3"
-        },
-        {
-          "name": "طريقة ثانية: استخدام h_AC ثم قانون حجم الهرم (تحقق عددي)",
-          "steps": [
-            "نستخدم النتيجة من الجزء (ب) بطريقة مختلفة:  h_AC = (√7/4)k ≈ 0.661k.",
-            "قانون حجم الهرم:  V = (1/3) · (مساحة القاعدة) · h_AC.",
-            "من علاقات القاعدة في السؤال (بعد تحويل المعطيات إلى أطوال داخل القاعدة) نحصل على:  مساحة القاعدة ≈ 0.1634 k².",
-            "نعوّض:  V ≈ (1/3) · (0.1634 k²) · (0.661 k) ≈ 0.036 k³."
-          ],
-          "result": "V = 0.036 k^3"
-        }
-      ]
-    },
-    {
-      "label": "ب) عبّر بدلالة k عن h_AC",
-      "methods": [
-        {
-          "name": "ارتفاع على القطر AC (إسقاط + مثلث قائم)",
-          "steps": [
-            "نحدد إسقاط الارتفاع على القاعدة بالنسبة للقطر AC",
-            "نطبّق فيثاغورس للحصول على h_AC بدلالة k",
-            "نقرّب القيمة العددية حسب المطلوب"
-          ],
-          "result": "h_AC = 0.661 k"
-        },
-        {
-          "name": "طريقة ثانية: مسافة نقطة عن مستقيم داخل المثلث (S مع القطر AC)",
-          "steps": [
-            "ليكن H قدم العمود من S على القطر AC، إذن h_AC = SH و SH ⟂ AC.",
-            "في المقطع الذي يحوي S وAC يكون المثلث SAH قائمًا عند H.",
-            "من علاقات الأطوال الناتجة عن المعطيات: SA = k ، و AH = (3/4)k.",
-            "بتطبيق فيثاغورس في △SAH:  SH = √(SA² − AH²) = √(k² − (3k/4)²).",
-            "SH = √(k² − 9k²/16) = √(7k²/16) = (√7/4)k.",
-            "تقريبًا: (√7/4) ≈ 0.661 ⇒ h_AC ≈ 0.661k."
-          ],
-          "result": "h_AC = (√7/4)k ≈ 0.661k"
-        }
-      ]
+  {
+    "id": "p15-q25",
+    "page": 15,
+    "q": "25",
+    "title": "هرم رباعي: صيغة الحجم بدلالة k وارتفاع على القطر AC",
+    "questionText": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
+    "parts": [
+      {
+        "label": "أ) عبّر بدلالة k عن حجم الهرم",
+        "methods": [
+          {
+            "name": "نموذج الحل كما في ورقة الأسئلة",
+            "steps": [
+              "نحوّل المعطيات إلى علاقات أطوال داخل المقطع المناسب",
+              "نستخرج ارتفاع الهرم بدلالة k ثم نطبق V=(1/3)·مساحة القاعدة·الارتفاع",
+              "نقرّب القيمة العددية حسب المطلوب"
+            ],
+            "result": "V = 0.036 k^3",
+            "theorems": [
+              "pyramid_volume"
+            ]
+          },
+          {
+            "name": "طريقة ثانية: استخدام h_AC ثم قانون حجم الهرم (تحقق عددي)",
+            "steps": [
+              "نستخدم النتيجة من الجزء (ب) بطريقة مختلفة:  h_AC = (√7/4)k ≈ 0.661k.",
+              "قانون حجم الهرم:  V = (1/3) · (مساحة القاعدة) · h_AC.",
+              "من علاقات القاعدة في السؤال (بعد تحويل المعطيات إلى أطوال داخل القاعدة) نحصل على:  مساحة القاعدة ≈ 0.1634 k².",
+              "نعوّض:  V ≈ (1/3) · (0.1634 k²) · (0.661 k) ≈ 0.036 k³."
+            ],
+            "result": "V = 0.036 k^3",
+            "theorems": [
+              "pyramid_volume"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ب) عبّر بدلالة k عن h_AC",
+        "methods": [
+          {
+            "name": "ارتفاع على القطر AC (إسقاط + مثلث قائم)",
+            "steps": [
+              "نحدد إسقاط الارتفاع على القاعدة بالنسبة للقطر AC",
+              "نطبّق فيثاغورس للحصول على h_AC بدلالة k",
+              "نقرّب القيمة العددية حسب المطلوب"
+            ],
+            "result": "h_AC = 0.661 k",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
+          },
+          {
+            "name": "طريقة ثانية: مسافة نقطة عن مستقيم داخل المثلث (S مع القطر AC)",
+            "steps": [
+              "ليكن H قدم العمود من S على القطر AC، إذن h_AC = SH و SH ⟂ AC.",
+              "في المقطع الذي يحوي S وAC يكون المثلث SAH قائمًا عند H.",
+              "من علاقات الأطوال الناتجة عن المعطيات: SA = k ، و AH = (3/4)k.",
+              "بتطبيق فيثاغورس في △SAH:  SH = √(SA² − AH²) = √(k² − (3k/4)²).",
+              "SH = √(k² − 9k²/16) = √(7k²/16) = (√7/4)k.",
+              "تقريبًا: (√7/4) ≈ 0.661 ⇒ h_AC ≈ 0.661k."
+            ],
+            "result": "h_AC = (√7/4)k ≈ 0.661k",
+            "theorems": [
+              "distance_point_line",
+              "pythagoras_theorem"
+            ]
+          }
+        ]
+      }
+    ],
+    "figure": {
+      "src": "images/q25.png",
+      "alt": "شكل السؤال 25"
     }
-  ],
-  "figure": {
-    "src": "images/q25.png",
-    "alt": "شكل السؤال 25"
-  }
-},
+  },
   {
     "id": "p15-q26",
     "page": 15,
@@ -1669,7 +1975,8 @@
               "ضلع القاعدة s=AB=2a",
               "AD = (√3/2)·s = (√3/2)·(2a)=a√3"
             ],
-            "result": "AD = a√3 (≈ 1.73a)"
+            "result": "AD = a√3 (≈ 1.73a)",
+            "theorems": []
           }
         ]
       },
@@ -1683,7 +1990,10 @@
               "V = (1/3)·مساحة القاعدة·SO = (1/3)·(√3 a²)·SO",
               "نساويها بـ √3 a³ ⇒ SO = 3a"
             ],
-            "result": "SO = 3a"
+            "result": "SO = 3a",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       },
@@ -1696,7 +2006,10 @@
               "في متساوي الأضلاع: AO = (2/3)AD = (2/3)(a√3)=2a√3/3",
               "tanθ = SO/AO = (3a)/(2a√3/3)=3√3/2"
             ],
-            "result": "θ ≈ 68.95°"
+            "result": "θ ≈ 68.95°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1723,7 +2036,12 @@
               "في مثلث قائم: مركز الدائرة المحيطة هو منتصف الوتر ⇒ O منتصف BC ⇒ OB=7.5",
               "في △SOB: tan30° = SO/OB ⇒ SO = 7.5·tan30° = 7.5/√3 = 5√3/2"
             ],
-            "result": "SO ≈ 4.33"
+            "result": "SO ≈ 4.33",
+            "theorems": [
+              "pythagoras_theorem",
+              "right_triangle_midpoint_hypotenuse",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1736,7 +2054,10 @@
               "مساحة القاعدة △ABC = (1/2)·9·12 = 54",
               "V = (1/3)·54·(5√3/2) = 45√3"
             ],
-            "result": "V ≈ 77.94"
+            "result": "V ≈ 77.94",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       },
@@ -1750,7 +2071,10 @@
               "OE=2·EM ⇒ OE=(2/3)OM=4",
               "tanθ = SO/OE = (5√3/2)/4 = 5√3/8"
             ],
-            "result": "θ ≈ 47.27°"
+            "result": "θ ≈ 47.27°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1763,7 +2087,8 @@
               "OM=6 وOE=4 ⇒ EM=2",
               "مساحة △SEM = (1/2)·2·SO = SO"
             ],
-            "result": "مساحة △SEM ≈ 4.33"
+            "result": "مساحة △SEM ≈ 4.33",
+            "theorems": []
           }
         ]
       }
@@ -1789,7 +2114,8 @@
               "من المحيط: ضلع المثلث s = 6a/3 = 2a",
               "CD = (√3/2)·s = (√3/2)·2a = a√3"
             ],
-            "result": "CD = a√3"
+            "result": "CD = a√3",
+            "theorems": []
           }
         ]
       },
@@ -1802,7 +2128,8 @@
               "في متساوي الأضلاع: O على الارتفاع و CO = (2/3)CD",
               "4√3 = (2/3)(a√3) ⇒ 4 = 2a/3 ⇒ a=6"
             ],
-            "result": "a = 6"
+            "result": "a = 6",
+            "theorems": []
           }
         ]
       },
@@ -1815,7 +2142,10 @@
               "عند a=6: CO = 4√3",
               "cos50° = CO/SC ⇒ SC = CO/cos50°"
             ],
-            "result": "SC ≈ 10.78"
+            "result": "SC ≈ 10.78",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1831,7 +2161,10 @@
               "الارتفاع المائل للوجه إلى منتصف ضلع القاعدة: SK = √(SO² + OK²)",
               "مساحة وجه واحد = (1/2)·s·SK ، والغلاف = 3×مساحة الوجه"
             ],
-            "result": "مساحة الغلاف ≈ 161.2"
+            "result": "مساحة الغلاف ≈ 161.2",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       }
@@ -1858,7 +2191,11 @@
               "∠DAB = 50° (لأن D على SA وزاوية قاعدة الوجه 50°)",
               "cos50° = AD/AB ⇒ AB = 10/cos50°"
             ],
-            "result": "AB ≈ 15.56"
+            "result": "AB ≈ 15.56",
+            "theorems": [
+              "line_angle_with_plane_projection",
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1871,7 +2208,11 @@
               "في الوجه SAB: زاويتا القاعدة 50° و50° ⇒ ∠ASB=80°",
               "AB/ sin80° = SA/ sin50° ⇒ SA = AB·sin50°/sin80°"
             ],
-            "result": "SA ≈ 12.10"
+            "result": "SA ≈ 12.10",
+            "theorems": [
+              "right_triangle_trigonometry",
+              "sine_rule"
+            ]
           }
         ]
       },
@@ -1884,7 +2225,10 @@
               "في متساوي الأضلاع: AO = (√3/3)·AB",
               "cosθ = AO/SA"
             ],
-            "result": "θ ≈ 42.085°"
+            "result": "θ ≈ 42.085°",
+            "theorems": [
+              "right_triangle_trigonometry"
+            ]
           }
         ]
       },
@@ -1897,7 +2241,10 @@
               "△SAO قائم عند O",
               "SO = √(SA² − AO²)"
             ],
-            "result": "SO ≈ 8.11"
+            "result": "SO ≈ 8.11",
+            "theorems": [
+              "pythagoras_theorem"
+            ]
           }
         ]
       },
@@ -1910,7 +2257,10 @@
               "مساحة القاعدة (متساوي الأضلاع) = (√3/4)·AB²",
               "V = (1/3)·(√3/4·AB²)·SO"
             ],
-            "result": "V ≈ 283.42"
+            "result": "V ≈ 283.42",
+            "theorems": [
+              "pyramid_volume"
+            ]
           }
         ]
       }
