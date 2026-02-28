@@ -109,11 +109,31 @@ function openTheorem(id){
   const contentHtml = (th.contentHtml || []).join("");
   const diagramHtml = renderTheoremDiagram(th);
 
+  // ✅ ربط عكسي: أين استُخدمت هذه النظرية؟
+  // (يتطلب أن يكون theorems.json يحتوي usedIn / usedInCount)
+  const usedIn = Array.isArray(th.usedIn) ? th.usedIn : [];
+  const usedInHtml = usedIn.length ? `
+    <div class="th-section">
+      <div class="th-title">تُستخدم في</div>
+      <ul class="th-used-in">
+        ${usedIn.map(qid => {
+          const q = (DB || []).find(x => x.id === qid);
+          const label = q
+            ? `ص${q.page} • س${q.q} — ${q.title}`
+            : qid;
+          // data-close لإغلاق النافذة عند الانتقال
+          return `<li><a href="#${escapeHtml(qid)}" data-close="1">${escapeHtml(label)}</a></li>`;
+        }).join("")}
+      </ul>
+    </div>
+  ` : "";
+
   b.innerHTML = `
     <div class="th-wrap">
       ${shortHtml}
       ${contentHtml}
       ${diagramHtml}
+      ${usedInHtml}
     </div>
   `;
 
@@ -326,7 +346,10 @@ function renderItem(item){
   // ===== Parts / Methods =====
   const partsHtml = (item.parts || []).map(p => {
     const methodsHtml = (p.methods || []).map(m => {
-      const thIds = (m.theoremsUsed || []).filter(Boolean);
+      // ✅ دعم أكثر من اسم للحقل (توافق مع نسخ مختلفة من ملف solutions.json)
+      // - theoremsUsed: الاسم الذي كانت تستخدمه نسخة قديمة من الواجهة
+      // - theorems: الاسم الموجود في ملف البيانات الحالي
+      const thIds = (m.theoremsUsed || m.theorems || []).filter(Boolean);
       const chips = thIds.length ? `
         <div class="theorems-used">
           <div><strong>النظريات/القوانين المستخدمة</strong></div>
