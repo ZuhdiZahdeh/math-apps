@@ -14,7 +14,7 @@ async function loadTheorems(){
   // fallback: محاولة الوصول لملف مساق المستوي إن كان المسار يعمل في نفس الاستضافة
   const tries = [
     "data/theorems.json",
-    "../plane-geometry/data/theorems.json"
+    "../geometry-in-blanks/data/theorems.json"
   ];
   for(const url of tries){
     try{
