@@ -12,8 +12,8 @@ let THEOREMS = null;
 async function loadTheorems(){
   // الأفضل: يوجد نسخة داخل geometry-in-blanks/data/theorems.json
   // fallback: محاولة الوصول لملف مساق المستوي إن كان المسار يعمل في نفس الاستضافة
-  const tries = [
-    "data/theorems.json",
+   const tries = [
+    "./data/theorems.json",
     "../geometry-in-blanks/data/theorems.json"
   ];
   for(const url of tries){
