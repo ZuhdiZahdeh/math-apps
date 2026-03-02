@@ -1063,7 +1063,11 @@
         "p11-q19",
         "p13-q22"
       ],
-      "usedInCount": 7
+      "usedInCount": 7,
+      "diagram": {
+        "image": "images/theorems/law_sines_and_law_cosines.png",
+        "alt": "قانون الجيوب وقانون جيب التمام"
+      }
     },
     {
       "id": "triangle_area_ab_sinC",
@@ -1472,7 +1476,10 @@
         "<ul><li>زاويتين وضلعًا (ASA/AAS)، أو</li><li>زاوية وضلعين مع ضلع مقابل لزاوية معلومة (SSA).</li></ul>",
         "</div>"
       ],
-      "diagram": {},
+      "diagram": {
+        "image": "images/theorems/law_sines_and_law_cosines.png",
+        "alt": "قانون الجيوب وقانون جيب التمام"
+      },
       "tags": [
         "مثلث",
         "قانون",
