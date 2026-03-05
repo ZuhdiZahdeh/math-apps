@@ -722,54 +722,30 @@
       "alt": "شكل السؤال 8"
     }
   },
-  {
-    "id": "p06-q9",
-    "page": 6,
-    "q": "9",
-    "title": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع",
-    "questionText": "منشور قائم ABCA′B′C′ قاعدتاه مثلثان متساويا الأضلاع. A′E ارتفاع على BC في △A′BC. الزاوية بين A′E ومستوى القاعدة ABC هي α. ارتفاع المنشور h.",
-    "parts": [
-      {
-        "label": "أ) عبّر بدلالة h وα عن طول ضلع قاعدة المنشور",
-        "methods": [
-          {
-            "name": "تحليل الارتفاع A′E إلى مركبتين",
-            "steps": [
-              "A′E يميل على القاعدة بزاوية α",
-              "مركبته العمودية = h",
-              "إذن tan α = h / (إسقاط A′E على القاعدة)",
-              "في مثلث متساوي الأضلاع: الارتفاع = (√3/2)·(ضلع)",
-              "بعد الربط ينتج التعبير النهائي"
-            ],
-            "result": "طول ضلع القاعدة = (2h)/(√3·tan α)",
-            "theorems": [
-              "line_angle_with_plane_projection",
-              "right_triangle_trigonometry"
-            ]
-          }
-        ]
-      },
-      {
-        "label": "ب) إذا كان α=30° جد الزاوية بين A′C والمستوى ABC",
-        "methods": [
-          {
-            "name": "تعويض في العلاقة الناتجة",
-            "steps": [
-              "نعوّض α=30° ونستخرج زاوية القطر مع القاعدة"
-            ],
-            "result": "≈ 26.56°",
-            "theorems": [
-              "line_angle_with_plane_projection"
-            ]
-          }
-        ]
-      }
-    ],
-    "figure": {
-      "src": "images/q09.png",
-      "alt": "شكل السؤال 9"
-    }
-  },
+{
+  "id": "p06-q9",
+  "title": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع",
+  "solution": [
+    "المعطى: منشور قائم ABCA′B′C′، القاعدة △ABC متساوي الأضلاع طول ضلعه a، وارتفاع المنشور AA′=h. النقطة E على BC بحيث A′E ⟂ BC في △A′BC، والزاوية بين A′E ومستوى القاعدة (ABC) هي α.",
+    "",
+    "أ) لإيجاد a بدلالة h و α:",
+    "1) زاوية المستقيم مع المستوى تساوي زاويته مع إسقاطه على المستوى؛ إسقاط A′E على مستوى (ABC) هو AE لأن A′ يسقط على A و E على القاعدة.",
+    "2) في المثلث القائم AEA′ (قائم عند A): tan(α) = AA′/AE = h/AE ⇒ AE = h / tan(α).",
+    "3) بما أن A′E ⟂ BC و AA′ ⟂ (ABC) وبالتالي AA′ ⟂ BC، إذن من A′E = AE + AA′ نستنتج AE ⟂ BC. أي AE هو ارتفاع المثلث المتساوي الأضلاع △ABC على الضلع BC.",
+    "4) في مثلث متساوي الأضلاع: الارتفاع AE = (√3/2) a ⇒ (√3/2)a = h / tan(α) ⇒ a = 2h / (√3 tan(α)).",
+    "",
+    "ب) إذا α = 30°:",
+    "1) من (أ): a = 2h/(√3 tan30°) = 2h.",
+    "2) زاوية المستقيم A′C مع مستوى (ABC) هي زاويته مع إسقاطه AC. في المثلث القائم AA′C: tan(β) = AA′/AC = h/a = h/(2h) = 1/2.",
+    "3) إذن β = arctan(1/2) ≈ 26.56°."
+  ],
+  "solutionHtml": "<div class='box'>\n  <h3>المعطيات</h3>\n  <div>منشور قائم <span class='math'>ABCA′B′C′</span>، القاعدة <span class='math'>△ABC</span> متساوي الأضلاع طول ضلعه <span class='math'>a</span>، وارتفاع المنشور <span class='math'>AA′=h</span>.</div>\n  <div><span class='math'>A′E</span> ارتفاع على <span class='math'>BC</span> في <span class='math'>△A′BC</span>، والزاوية بين <span class='math'>A′E</span> ومستوى القاعدة <span class='math'>(ABC)</span> هي <span class='math'>α</span>.</div>\n</div>\n\n<h3>أ) إيجاد ضلع القاعدة a بدلالة h و α</h3>\n<div class='box'>\n  <ol>\n    <li><strong>زاوية مستقيم مع مستوى:</strong> زاوية <span class='math'>A′E</span> مع مستوى <span class='math'>(ABC)</span> تساوي زاويته مع إسقاطه على المستوى. إسقاط <span class='math'>A′E</span> على القاعدة هو <span class='math'>AE</span> ⇒ <span class='math'>∠(A′E,(ABC)) = ∠A′EA = α</span>.</li>\n    <li>في المثلث القائم <span class='math'>AEA′</span> (قائم عند <span class='math'>A</span>):\n      <div class='math'>tan(α) = AA′/AE = h/AE ⇒ AE = h/tan(α)</div>\n    </li>\n    <li>لأن <span class='math'>A′E ⟂ BC</span> و <span class='math'>AA′ ⟂ (ABC)</span> ⇒ <span class='math'>AA′ ⟂ BC</span>، ومع <span class='math'>A′E = AE + AA′</span> نستنتج <span class='math'>AE ⟂ BC</span>؛ أي <span class='math'>AE</span> هو ارتفاع مثلث القاعدة المتساوي الأضلاع على <span class='math'>BC</span>.</li>\n    <li>في مثلث متساوي الأضلاع: <span class='math'>AE = (√3/2)a</span>. بالتعويض:\n      <div class='math'>(√3/2)a = h/tan(α) ⇒ a = 2h/(√3 tan(α))</div>\n    </li>\n  </ol>\n  <div><strong>النتيجة:</strong> <span class='math'>a = \\dfrac{2h}{\\sqrt{3}\\,tan(α)}</span></div>\n</div>\n\n<h3>ب) إذا α = 30° أوجد زاوية A′C مع مستوى (ABC)</h3>\n<div class='box'>\n  <ol>\n    <li>من (أ): <span class='math'>a = 2h/(√3 tan30°) = 2h</span>.</li>\n    <li>زاوية <span class='math'>A′C</span> مع القاعدة هي زاويته مع إسقاطه <span class='math'>AC</span>. في المثلث القائم <span class='math'>AA′C</span>:\n      <div class='math'>tan(β) = AA′/AC = h/a = 1/2</div>\n    </li>\n    <li><span class='math'>β = arctan(1/2) ≈ 26.56°</span>.</li>\n  </ol>\n  <div><strong>النتيجة:</strong> <span class='math'>β ≈ 26.56°</span></div>\n</div>",
+  "theoremsUsed": [
+    "line_angle_with_plane_projection",
+    "right_triangle_trigonometry",
+    "pythagoras_theorem"
+  ]
+},
   {
     "id": "p06-q10",
     "page": 6,
