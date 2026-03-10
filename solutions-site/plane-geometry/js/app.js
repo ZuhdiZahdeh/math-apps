@@ -176,7 +176,7 @@ function renderGallery(q) {
 
 function renderSolution(q) {
   els.title.textContent = q.title;
-  els.meta.textContent = `المعرّف: ${q.id} — رقم السؤال: ${q.number}`;
+  // els.meta.textContent = `المعرّف: ${q.id} — رقم السؤال: ${q.number}`;
 
   // الحل: HTML (عمودين/طرق متعددة) إن وُجد، وإلا عرض نصي عادي
   const html = getSolutionHtml(q).trim();
