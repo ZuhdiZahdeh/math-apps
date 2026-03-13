@@ -1,0 +1,2700 @@
+{
+  "meta": {
+    "title": "مرجع النظريات الهندسية",
+    "subtitle": "مرجع منظّم للنظريات الأساسية في الهندسة المستوية مع تصنيف حسب المجال والصنف.",
+    "sourceFile": "geometry_theorems_classified.csv",
+    "referenceFile": "משפטים בגיאומטריה.pdf",
+    "totalTheorems": 104,
+    "totalDomains": 6,
+    "totalCategories": 24,
+    "generatedDate": "2026-03-13"
+  },
+  "domains": [
+    {
+      "id": "domain-01-angles-lines",
+      "name": "زوايا وخطوط",
+      "count": 6,
+      "categoryIds": [
+        "cat-01",
+        "cat-05"
+      ]
+    },
+    {
+      "id": "domain-02-triangle",
+      "name": "مثلث",
+      "count": 44,
+      "categoryIds": [
+        "cat-02",
+        "cat-03",
+        "cat-10",
+        "cat-11",
+        "cat-12",
+        "cat-14",
+        "cat-15",
+        "cat-20",
+        "cat-21",
+        "cat-22"
+      ]
+    },
+    {
+      "id": "domain-03-quadrilateral",
+      "name": "شكل رباعي",
+      "count": 22,
+      "categoryIds": [
+        "cat-04",
+        "cat-06",
+        "cat-07",
+        "cat-08",
+        "cat-09",
+        "cat-16",
+        "cat-17"
+      ]
+    },
+    {
+      "id": "domain-04-locus",
+      "name": "موضع هندسي",
+      "count": 2,
+      "categoryIds": [
+        "cat-13"
+      ]
+    },
+    {
+      "id": "domain-05-polygon",
+      "name": "مضلع",
+      "count": 3,
+      "categoryIds": [
+        "cat-18",
+        "cat-24"
+      ]
+    },
+    {
+      "id": "domain-06-circle",
+      "name": "دائرة",
+      "count": 27,
+      "categoryIds": [
+        "cat-19",
+        "cat-23"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-01",
+      "name": "زوايا / مستقيمات",
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "count": 2,
+      "theoremIds": [
+        "th001",
+        "th002"
+      ]
+    },
+    {
+      "id": "cat-02",
+      "name": "مثلث",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 14,
+      "theoremIds": [
+        "th003",
+        "th004",
+        "th005",
+        "th006",
+        "th007",
+        "th008",
+        "th009",
+        "th010",
+        "th011",
+        "th012",
+        "th013",
+        "th014",
+        "th015",
+        "th016"
+      ]
+    },
+    {
+      "id": "cat-03",
+      "name": "مثلث - تطابق",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 4,
+      "theoremIds": [
+        "th017",
+        "th018",
+        "th019",
+        "th020"
+      ]
+    },
+    {
+      "id": "cat-04",
+      "name": "شكل رباعي - دالتون",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 1,
+      "theoremIds": [
+        "th021"
+      ]
+    },
+    {
+      "id": "cat-05",
+      "name": "مستقيمات متوازية / قاطع",
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "count": 4,
+      "theoremIds": [
+        "th022",
+        "th023",
+        "th024",
+        "th025"
+      ]
+    },
+    {
+      "id": "cat-06",
+      "name": "شكل رباعي - متوازي أضلاع",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 7,
+      "theoremIds": [
+        "th026",
+        "th027",
+        "th028",
+        "th029",
+        "th030",
+        "th031",
+        "th032"
+      ]
+    },
+    {
+      "id": "cat-07",
+      "name": "شكل رباعي - معين",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 4,
+      "theoremIds": [
+        "th033",
+        "th034",
+        "th035",
+        "th036"
+      ]
+    },
+    {
+      "id": "cat-08",
+      "name": "شكل رباعي - مستطيل",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 2,
+      "theoremIds": [
+        "th037",
+        "th038"
+      ]
+    },
+    {
+      "id": "cat-09",
+      "name": "شكل رباعي - شبه منحرف",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 6,
+      "theoremIds": [
+        "th039",
+        "th040",
+        "th041",
+        "th042",
+        "th043",
+        "th044"
+      ]
+    },
+    {
+      "id": "cat-10",
+      "name": "مثلث - متوسطات",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 2,
+      "theoremIds": [
+        "th045",
+        "th046"
+      ]
+    },
+    {
+      "id": "cat-11",
+      "name": "مثلث - منصف زاوية / موضع هندسي",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 2,
+      "theoremIds": [
+        "th047",
+        "th048"
+      ]
+    },
+    {
+      "id": "cat-12",
+      "name": "مثلث - دائرة محصورة",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 2,
+      "theoremIds": [
+        "th049",
+        "th050"
+      ]
+    },
+    {
+      "id": "cat-13",
+      "name": "قطعة / موضع هندسي",
+      "domainId": "domain-04-locus",
+      "domain": "موضع هندسي",
+      "count": 2,
+      "theoremIds": [
+        "th051",
+        "th052"
+      ]
+    },
+    {
+      "id": "cat-14",
+      "name": "مثلث - دائرة محيطة",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 2,
+      "theoremIds": [
+        "th053",
+        "th054"
+      ]
+    },
+    {
+      "id": "cat-15",
+      "name": "مثلث - ارتفاعات",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 1,
+      "theoremIds": [
+        "th055"
+      ]
+    },
+    {
+      "id": "cat-16",
+      "name": "شكل رباعي - دائري",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 1,
+      "theoremIds": [
+        "th056"
+      ]
+    },
+    {
+      "id": "cat-17",
+      "name": "شكل رباعي - مماسي",
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "count": 1,
+      "theoremIds": [
+        "th057"
+      ]
+    },
+    {
+      "id": "cat-18",
+      "name": "مضلع منتظم",
+      "domainId": "domain-05-polygon",
+      "domain": "مضلع",
+      "count": 2,
+      "theoremIds": [
+        "th058",
+        "th059"
+      ]
+    },
+    {
+      "id": "cat-19",
+      "name": "دائرة",
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "count": 24,
+      "theoremIds": [
+        "th060",
+        "th061",
+        "th062",
+        "th063",
+        "th064",
+        "th065",
+        "th066",
+        "th067",
+        "th068",
+        "th069",
+        "th070",
+        "th071",
+        "th072",
+        "th073",
+        "th074",
+        "th075",
+        "th076",
+        "th077",
+        "th078",
+        "th079",
+        "th080",
+        "th081",
+        "th082",
+        "th083"
+      ]
+    },
+    {
+      "id": "cat-20",
+      "name": "مثلث قائم",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 8,
+      "theoremIds": [
+        "th084",
+        "th085",
+        "th086",
+        "th087",
+        "th088",
+        "th089",
+        "th102",
+        "th103"
+      ]
+    },
+    {
+      "id": "cat-21",
+      "name": "مثلث - تناسب",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 5,
+      "theoremIds": [
+        "th090",
+        "th091",
+        "th092",
+        "th093",
+        "th094"
+      ]
+    },
+    {
+      "id": "cat-22",
+      "name": "مثلث - تشابه",
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "count": 4,
+      "theoremIds": [
+        "th095",
+        "th096",
+        "th097",
+        "th098"
+      ]
+    },
+    {
+      "id": "cat-23",
+      "name": "دائرة - قوة نقطة",
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "count": 3,
+      "theoremIds": [
+        "th099",
+        "th100",
+        "th101"
+      ]
+    },
+    {
+      "id": "cat-24",
+      "name": "مضلع",
+      "domainId": "domain-05-polygon",
+      "domain": "مضلع",
+      "count": 1,
+      "theoremIds": [
+        "th104"
+      ]
+    }
+  ],
+  "theorems": [
+    {
+      "id": "th001",
+      "number": 1,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-01",
+      "category": "زوايا / مستقيمات",
+      "name": {
+        "ar": "نظرية الزاويتين المتجاورتين",
+        "en": "Linear Pair Theorem",
+        "he": "משפט הזוויות הצמודות"
+      },
+      "statement": {
+        "ar": "مجموع كل زاويتين متجاورتين هو 180°."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th002",
+      "number": 2,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-01",
+      "category": "زوايا / مستقيمات",
+      "name": {
+        "ar": "نظرية الزوايا المتقابلة بالرأس",
+        "en": "Vertical Angles Theorem",
+        "he": "משפט זוויות קודקודיות"
+      },
+      "statement": {
+        "ar": "الزوايا المتقابلة بالرأس متساوية."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th003",
+      "number": 3,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية تساوي الزوايا المقابلة للأضلاع المتساوية",
+        "en": "Equal Sides Subtend Equal Angles",
+        "he": "צלעות שוות נשענות על זוויות שוות"
+      },
+      "statement": {
+        "ar": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th004",
+      "number": 4,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية زاويتي قاعدة المثلث المتساوي الساقين",
+        "en": "Isosceles Triangle Base Angles Theorem",
+        "he": "משפט זוויות הבסיס במשולש שווה שוקיים"
+      },
+      "statement": {
+        "ar": "في المثلث المتساوي الساقين زاويتا القاعدة متساويتان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th005",
+      "number": 5,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية عدم مساواة المثلث",
+        "en": "Triangle Inequality Theorem",
+        "he": "משפט אי-שוויון המשולש"
+      },
+      "statement": {
+        "ar": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th006",
+      "number": 6,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "خاصية منصف زاوية الرأس في المثلث المتساوي الساقين",
+        "en": "Isosceles Triangle Vertex Bisector-Median-Altitude Theorem",
+        "he": "תכונת חוצה זווית הראש במשולש שווה שוקיים"
+      },
+      "statement": {
+        "ar": "في المثلث المتساوي الساقين يتحد منصف زاوية الرأس مع المستقيم المتوسط للقاعدة ومع الارتفاع على القاعدة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th007",
+      "number": 7,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "العكس: منصف الزاوية والارتفاع",
+        "en": "Converse Isosceles Triangle Theorem (Bisector-Altitude)",
+        "he": "המשפט ההפוך: חוצה זווית וגובה"
+      },
+      "statement": {
+        "ar": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th008",
+      "number": 8,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "العكس: منصف الزاوية والمتوسط",
+        "en": "Converse Isosceles Triangle Theorem (Bisector-Median)",
+        "he": "המשפט ההפוך: חוצה זווית ותיכון"
+      },
+      "statement": {
+        "ar": "إذا كان في مثلث منصف زاوية هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th009",
+      "number": 9,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "العكس: الارتفاع والمتوسط",
+        "en": "Converse Isosceles Triangle Theorem (Altitude-Median)",
+        "he": "המשפט ההפוך: גובה ותיכון"
+      },
+      "statement": {
+        "ar": "إذا كان في مثلث ارتفاع هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th010",
+      "number": 10,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "مقابلة الضلع الأكبر",
+        "en": "Greater Side Opposite Greater Angle",
+        "he": "מול הצלע הגדולה הזווית הגדולה"
+      },
+      "statement": {
+        "ar": "في المثلث (ليس متساوي الأضلاع) مقابل الضلع الأكبر تقع الزاوية الأكبر."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th011",
+      "number": 11,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "مقابلة الزاوية الأكبر",
+        "en": "Greater Angle Opposite Greater Side",
+        "he": "מול הזווית הגדולה הצלע הגדולה"
+      },
+      "statement": {
+        "ar": "في المثلث (ليس متساوي الزوايا) مقابل الزاوية الأكبر يقع الضلع الأكبر."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th012",
+      "number": 12,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية مجموع زوايا المثلث",
+        "en": "Triangle Angle Sum Theorem",
+        "he": "משפט סכום זוויות במשולש"
+      },
+      "statement": {
+        "ar": "مجموع زوايا المثلث هو 180°."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th013",
+      "number": 13,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية الزاوية الخارجية للمثلث",
+        "en": "Exterior Angle Theorem",
+        "he": "משפט הזווית החיצונית במשולש"
+      },
+      "statement": {
+        "ar": "الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th014",
+      "number": 14,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "نظرية القطعة المتوسطة في المثلث",
+        "en": "Triangle Midsegment Theorem",
+        "he": "משפט הקטע האמצעי במשולש"
+      },
+      "statement": {
+        "ar": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th015",
+      "number": 15,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "عكس القطعة المتوسطة في المثلث",
+        "en": "Converse Midsegment Theorem",
+        "he": "המשפט ההפוך של הקטע האמצעי במשולש"
+      },
+      "statement": {
+        "ar": "المستقيم الذي ينصف أحد أضلاع المثلث ويوازي الضلع الثاني ينصف الضلع الثالث."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th016",
+      "number": 16,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-02",
+      "category": "مثلث",
+      "name": {
+        "ar": "تمييز القطعة المتوسطة في المثلث",
+        "en": "Midsegment Identification Theorem",
+        "he": "אפיון הקטע האמצעי במשולש"
+      },
+      "statement": {
+        "ar": "القطعة التي يقع طرفاها على ضلعين في مثلث وتوازي الضلع الثالث وتساوي نصفه هي قطعة متوسطة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th017",
+      "number": 17,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-03",
+      "category": "مثلث - تطابق",
+      "name": {
+        "ar": "تطابق ضلع-زاوية-ضلع",
+        "en": "SAS Congruence",
+        "he": "חפיפת צלע-זווית-צלע"
+      },
+      "statement": {
+        "ar": "نظرية التطابق ض.ز.ض."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th018",
+      "number": 18,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-03",
+      "category": "مثلث - تطابق",
+      "name": {
+        "ar": "تطابق زاوية-ضلع-زاوية",
+        "en": "ASA Congruence",
+        "he": "חפיפת זווית-צלע-זווית"
+      },
+      "statement": {
+        "ar": "نظرية التطابق ز.ض.ز."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th019",
+      "number": 19,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-03",
+      "category": "مثلث - تطابق",
+      "name": {
+        "ar": "تطابق ضلع-ضلع-ضلع",
+        "en": "SSS Congruence",
+        "he": "חפיפת צלע-צלע-צלע"
+      },
+      "statement": {
+        "ar": "نظرية التطابق ض.ض.ض."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th020",
+      "number": 20,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-03",
+      "category": "مثلث - تطابق",
+      "name": {
+        "ar": "التطابق الرابع: ضلعان وزاوية مقابلة للضلع الأكبر",
+        "en": "Fourth Congruence Theorem (SSA with Larger Opposite Side)",
+        "he": "משפט החפיפה הרביעי: שתי צלעות וזווית מול הצלע הגדולה"
+      },
+      "statement": {
+        "ar": "نظرية التطابق الرابعة: ضلعان والزاوية التي تقع مقابل الضلع الأكبر من بينهما."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th021",
+      "number": 21,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-04",
+      "category": "شكل رباعي - دالتون",
+      "name": {
+        "ar": "خاصية القطر الرئيسي في الدالتون",
+        "en": "Kite Main Diagonal Theorem",
+        "he": "תכונת האלכסון הראשי בדלתון"
+      },
+      "statement": {
+        "ar": "القطر الرئيسي في الدالتون ينصف زاويتي الرأس وينصف القطر الثانوي ويعامده."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th022",
+      "number": 22,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-05",
+      "category": "مستقيمات متوازية / قاطع",
+      "name": {
+        "ar": "عكس الزاويتين المتناظرتين",
+        "en": "Corresponding Angles Converse",
+        "he": "המשפט ההפוך של זוויות מתאימות"
+      },
+      "statement": {
+        "ar": "مستقيمان يقطعهما مستقيم ثالث: إذا كان هنالك زاويتان متناظرتان متساويتان فإن المستقيمين متوازيان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th023",
+      "number": 23,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-05",
+      "category": "مستقيمات متوازية / قاطع",
+      "name": {
+        "ar": "عكس الزاويتين المتبادلتين",
+        "en": "Alternate Interior Angles Converse",
+        "he": "המשפט ההפוך של זוויות מתחלפות"
+      },
+      "statement": {
+        "ar": "مستقيمان يقطعهما مستقيم ثالث: إذا كان هنالك زاويتان متبادلتان متساويتان فإن المستقيمين متوازيان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th024",
+      "number": 24,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-05",
+      "category": "مستقيمات متوازية / قاطع",
+      "name": {
+        "ar": "عكس الزاويتين الأحاديتين",
+        "en": "Same-Side Interior Angles Converse",
+        "he": "המשפט ההפוך של זוויות חד-צדדיות"
+      },
+      "statement": {
+        "ar": "مستقيمان يقطعهما مستقيم ثالث: إذا كان هنالك زاويتان أحاديتا الجانب مجموعهما 180° فإن المستقيمين متوازيان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th025",
+      "number": 25,
+      "domainId": "domain-01-angles-lines",
+      "domain": "زوايا وخطوط",
+      "categoryId": "cat-05",
+      "category": "مستقيمات متوازية / قاطع",
+      "name": {
+        "ar": "خواص مستقيمين متوازيين يقطعهما قاطع",
+        "en": "Properties of Parallel Lines with a Transversal",
+        "he": "תכונות של ישרים מקבילים הנחתכים בידי חותך"
+      },
+      "statement": {
+        "ar": "إذا كان هنالك مستقيمان متوازيان ويقطعهما مستقيم ثالث فإن: أ. كل زاويتين متناظرتين متساويتان. ب. كل زاويتين متبادلتين متساويتان. ج. مجموع كل زوج من الزوايا الأحادية الجانب هو 180°."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th026",
+      "number": 26,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "زوايا متوازي الأضلاع",
+        "en": "Opposite Angles of a Parallelogram",
+        "he": "זוויות במקבילית"
+      },
+      "statement": {
+        "ar": "في متوازي الأضلاع كل زاويتين متقابلتين متساويتان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th027",
+      "number": 27,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "أضلاع متوازي الأضلاع",
+        "en": "Opposite Sides of a Parallelogram",
+        "he": "צלעות במקבילית"
+      },
+      "statement": {
+        "ar": "في متوازي الأضلاع كل ضلعين متقابلين متساويان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th028",
+      "number": 28,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "أقطار متوازي الأضلاع",
+        "en": "Parallelogram Diagonals Bisect Each Other",
+        "he": "אלכסוני מקבילית"
+      },
+      "statement": {
+        "ar": "في متوازي الأضلاع القطران ينصف كل منهما الآخر."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th029",
+      "number": 29,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "عكس زوايا متوازي الأضلاع",
+        "en": "Converse of Parallelogram Opposite Angles Theorem",
+        "he": "המשפט ההפוך של זוויות במקבילית"
+      },
+      "statement": {
+        "ar": "الشكل الرباعي الذي فيه كل زاويتين متقابلتين متساويتان هو متوازي أضلاع."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th030",
+      "number": 30,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "عكس أضلاع متوازي الأضلاع",
+        "en": "Converse of Parallelogram Opposite Sides Theorem",
+        "he": "המשפט ההפוך של צלעות במקבילית"
+      },
+      "statement": {
+        "ar": "الشكل الرباعي الذي فيه كل ضلعين متقابلين متساويان هو متوازي أضلاع."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th031",
+      "number": 31,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "شرط ضلعين متقابلين متوازيين ومتساويين",
+        "en": "One Pair Opposite Sides Parallel and Equal Criterion",
+        "he": "תנאי: שתי צלעות נגדיות מקבילות ושוות"
+      },
+      "statement": {
+        "ar": "الشكل الرباعي الذي فيه زوج من الأضلاع المتقابلة متوازيان ومتساويان هو متوازي أضلاع."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th032",
+      "number": 32,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-06",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "name": {
+        "ar": "عكس أقطار متوازي الأضلاع",
+        "en": "Converse of Parallelogram Diagonals Theorem",
+        "he": "המשפט ההפוך של אלכסוני מקבילית"
+      },
+      "statement": {
+        "ar": "الشكل الرباعي الذي ينصف قطراه كلٌّ منهما الآخر هو متوازي أضلاع."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th033",
+      "number": 33,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-07",
+      "category": "شكل رباعي - معين",
+      "name": {
+        "ar": "أقطار المعين تنصف الزوايا",
+        "en": "Rhombus Diagonals Bisect Angles",
+        "he": "אלכסוני מעוין חוצים את הזוויות"
+      },
+      "statement": {
+        "ar": "في المعين ينصف قطراه زواياه."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th034",
+      "number": 34,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-07",
+      "category": "شكل رباعي - معين",
+      "name": {
+        "ar": "شرط القطر المنصف لزاوية في متوازي الأضلاع",
+        "en": "Angle-Bisecting Diagonal Criterion for a Rhombus",
+        "he": "תנאי: אלכסון החוצה זווית במקבילית"
+      },
+      "statement": {
+        "ar": "متوازي الأضلاع والذي فيه قطر ينصف زاوية هو معين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th035",
+      "number": 35,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-07",
+      "category": "شكل رباعي - معين",
+      "name": {
+        "ar": "تعامد قطري المعين",
+        "en": "Rhombus Diagonals Are Perpendicular",
+        "he": "אלכסוני מעוין מאונכים זה לזה"
+      },
+      "statement": {
+        "ar": "في المعين القطران متعامدان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th036",
+      "number": 36,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-07",
+      "category": "شكل رباعي - معين",
+      "name": {
+        "ar": "عكس تعامد قطري المعين",
+        "en": "Perpendicular Diagonals Criterion for a Rhombus",
+        "he": "המשפט ההפוך של אלכסוני מעוין מאונכים"
+      },
+      "statement": {
+        "ar": "متوازي الأضلاع الذي قطراه متعامدان هو معين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th037",
+      "number": 37,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-08",
+      "category": "شكل رباعي - مستطيل",
+      "name": {
+        "ar": "تساوي قطري المستطيل",
+        "en": "Rectangle Diagonals Are Equal",
+        "he": "אלכסוני מלבן שווים"
+      },
+      "statement": {
+        "ar": "قطرا المستطيل متساويان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th038",
+      "number": 38,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-08",
+      "category": "شكل رباعي - مستطيل",
+      "name": {
+        "ar": "عكس تساوي قطري المستطيل",
+        "en": "Equal Diagonals Criterion for a Rectangle",
+        "he": "המשפט ההפוך של אלכסוני מלבן שווים"
+      },
+      "statement": {
+        "ar": "متوازي الأضلاع الذي قطراه متساويان هو مستطيل."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th039",
+      "number": 39,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "زوايا شبه المنحرف متساوي الساقين",
+        "en": "Isosceles Trapezoid Base Angles Theorem",
+        "he": "זוויות בטרפז שווה שוקיים"
+      },
+      "statement": {
+        "ar": "في شبه منحرف متساوي الساقين الزاويتان بجانب كل قاعدة متساويتان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th040",
+      "number": 40,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "عكس زوايا شبه المنحرف متساوي الساقين",
+        "en": "Converse Isosceles Trapezoid Base Angles Theorem",
+        "he": "המשפט ההפוך של זוויות בטרפז שווה שוקיים"
+      },
+      "statement": {
+        "ar": "شبه منحرف والذي فيه زاويتان متساويتان بجانب نفس القاعدة هو متساوي الساقين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th041",
+      "number": 41,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "أقطار شبه المنحرف متساوي الساقين",
+        "en": "Isosceles Trapezoid Diagonals Theorem",
+        "he": "אלכסוני טרפז שווה שוקיים"
+      },
+      "statement": {
+        "ar": "في شبه منحرف متساوي الساقين القطران متساويان."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th042",
+      "number": 42,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "عكس أقطار شبه المنحرف متساوي الساقين",
+        "en": "Converse Isosceles Trapezoid Diagonals Theorem",
+        "he": "המשפט ההפוך של אלכסוני טרפז שווה שוקיים"
+      },
+      "statement": {
+        "ar": "شبه منحرف والذي قطراه متساويان هو شبه منحرف متساوي الساقين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th043",
+      "number": 43,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "القطعة المتوسطة في شبه المنحرف",
+        "en": "Trapezoid Midsegment Theorem",
+        "he": "הקטע האמצעי בטרפז"
+      },
+      "statement": {
+        "ar": "القطعة المتوسطة في شبه المنحرف توازي القاعدتين وتساوي نصف مجموعهما."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th044",
+      "number": 44,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-09",
+      "category": "شكل رباعي - شبه منحرف",
+      "name": {
+        "ar": "عكس القطعة الموازية للقاعدتين في شبه المنحرف",
+        "en": "Converse Trapezoid Leg-Midpoint Theorem",
+        "he": "המשפט ההפוך של קטע מקביל לבסיסי הטרפז"
+      },
+      "statement": {
+        "ar": "المستقيم الذي ينصف إحدى الساقين في شبه منحرف ويوازي القاعدتين ينصف الساق الثانية."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th045",
+      "number": 45,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-10",
+      "category": "مثلث - متوسطات",
+      "name": {
+        "ar": "تلاقي المتوسطات",
+        "en": "Medians Concurrency Theorem",
+        "he": "מפגש התיכונים"
+      },
+      "statement": {
+        "ar": "المستقيمات المتوسطة الثلاثة في المثلث تتقاطع في نقطة واحدة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th046",
+      "number": 46,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-10",
+      "category": "مثلث - متوسطات",
+      "name": {
+        "ar": "نسبة مركز الثقل",
+        "en": "Centroid Ratio Theorem",
+        "he": "יחס מרכז הכובד"
+      },
+      "statement": {
+        "ar": "نقطة تقاطع المستقيمات المتوسطة في المثلث تقسم كل مستقيم متوسط بنسبة 2:1 (الجزء القريب إلى الرأس ضعف الجزء الآخر)."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th047",
+      "number": 47,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-11",
+      "category": "مثلث - منصف زاوية / موضع هندسي",
+      "name": {
+        "ar": "الموضع الهندسي لمنصف الزاوية",
+        "en": "Angle Bisector Locus Theorem",
+        "he": "המקום הגאומטרי של חוצה זווית"
+      },
+      "statement": {
+        "ar": "كل نقطة تقع على منصف زاوية تبعد بعدين متساويين عن ساقي الزاوية."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th048",
+      "number": 48,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-11",
+      "category": "مثلث - منصف زاوية / موضع هندسي",
+      "name": {
+        "ar": "عكس موضع منصف الزاوية",
+        "en": "Converse Angle Bisector Locus Theorem",
+        "he": "המשפט ההפוך של מקום חוצה הזווית"
+      },
+      "statement": {
+        "ar": "إذا وُجدت نقطة وكان بعدها عن ساقي الزاوية متساويين فإنها تقع على منصف الزاوية."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th049",
+      "number": 49,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-12",
+      "category": "مثلث - دائرة محصورة",
+      "name": {
+        "ar": "مركز الدائرة المحصورة",
+        "en": "Incenter Theorem",
+        "he": "מרכז המעגל החסום"
+      },
+      "statement": {
+        "ar": "منصفات الزوايا الثلاثة في مثلث تلتقي في نقطة واحدة هي مركز الدائرة المحصورة في المثلث."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th050",
+      "number": 50,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-12",
+      "category": "مثلث - دائرة محصورة",
+      "name": {
+        "ar": "وجود دائرة محصورة في كل مثلث",
+        "en": "Incircle Existence Theorem",
+        "he": "קיום מעגל חסום בכל משולש"
+      },
+      "statement": {
+        "ar": "في كل مثلث يمكن حصر دائرة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th051",
+      "number": 51,
+      "domainId": "domain-04-locus",
+      "domain": "موضع هندسي",
+      "categoryId": "cat-13",
+      "category": "قطعة / موضع هندسي",
+      "name": {
+        "ar": "الموضع الهندسي للعمود المتوسط",
+        "en": "Perpendicular Bisector Locus Theorem",
+        "he": "המקום הגאומטרי של האנך האמצעי"
+      },
+      "statement": {
+        "ar": "كل نقطة تقع على العمود المتوسط لقطعة معينة تبعد بعدين متساويين عن طرفي القطعة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th052",
+      "number": 52,
+      "domainId": "domain-04-locus",
+      "domain": "موضع هندسي",
+      "categoryId": "cat-13",
+      "category": "قطعة / موضع هندسي",
+      "name": {
+        "ar": "عكس موضع العمود المتوسط",
+        "en": "Converse Perpendicular Bisector Locus Theorem",
+        "he": "המשפט ההפוך של מקום האנך האמצעי"
+      },
+      "statement": {
+        "ar": "كل نقطة تقع على بعدين متساويين عن طرفي قطعة معينة تقع على العمود المتوسط للقطعة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th053",
+      "number": 53,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-14",
+      "category": "مثلث - دائرة محيطة",
+      "name": {
+        "ar": "وجود دائرة محيطة بكل مثلث",
+        "en": "Circumcircle Existence Theorem",
+        "he": "קיום מעגל חוסם בכל משולש"
+      },
+      "statement": {
+        "ar": "كل مثلث يمكن حصره داخل دائرة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th054",
+      "number": 54,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-14",
+      "category": "مثلث - دائرة محيطة",
+      "name": {
+        "ar": "مركز الدائرة المحيطة",
+        "en": "Circumcenter Theorem",
+        "he": "מרכז המעגל החוסם"
+      },
+      "statement": {
+        "ar": "الأعمدة المتوسطة الثلاثة في مثلث تتقاطع في نقطة واحدة هي مركز الدائرة المحاصرة للمثلث."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th055",
+      "number": 55,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-15",
+      "category": "مثلث - ارتفاعات",
+      "name": {
+        "ar": "تلاقي الارتفاعات",
+        "en": "Orthocenter Theorem",
+        "he": "מפגש הגבהים"
+      },
+      "statement": {
+        "ar": "تتقاطع الارتفاعات الثلاثة في مثلث في نقطة واحدة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th056",
+      "number": 56,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-16",
+      "category": "شكل رباعي - دائري",
+      "name": {
+        "ar": "شرط الرباعي الدائري",
+        "en": "Cyclic Quadrilateral Criterion",
+        "he": "תנאי למרובע חסום במעגל"
+      },
+      "statement": {
+        "ar": "يمكن حصر شكل رباعي داخل دائرة إذا وفقط إذا كان مجموع زاويتين متقابلتين فيه 180°."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th057",
+      "number": 57,
+      "domainId": "domain-03-quadrilateral",
+      "domain": "شكل رباعي",
+      "categoryId": "cat-17",
+      "category": "شكل رباعي - مماسي",
+      "name": {
+        "ar": "شرط الرباعي المماسي",
+        "en": "Tangential Quadrilateral Criterion",
+        "he": "תנאי למרובע חוסם מעגל"
+      },
+      "statement": {
+        "ar": "شكل رباعي محدب يمكن حصر دائرة داخله إذا وفقط إذا كان مجموع ضلعين متقابلين يساوي مجموع الضلعين المتقابلين الآخرين."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th058",
+      "number": 58,
+      "domainId": "domain-05-polygon",
+      "domain": "مضلع",
+      "categoryId": "cat-18",
+      "category": "مضلع منتظم",
+      "name": {
+        "ar": "المضلع المنتظم الدائري",
+        "en": "Regular Polygon Circumcircle Theorem",
+        "he": "מצולע משוכלל חסום במעגל"
+      },
+      "statement": {
+        "ar": "كل مضلع منتظم يمكن حصره داخل دائرة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th059",
+      "number": 59,
+      "domainId": "domain-05-polygon",
+      "domain": "مضلع",
+      "categoryId": "cat-18",
+      "category": "مضلع منتظم",
+      "name": {
+        "ar": "المضلع المنتظم المماسي",
+        "en": "Regular Polygon Incircle Theorem",
+        "he": "מצולע משוכלל חוסם מעגל"
+      },
+      "statement": {
+        "ar": "داخل كل مضلع منتظم يمكن حصر دائرة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th060",
+      "number": 60,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "دائرة واحدة تمر بثلاث نقاط",
+        "en": "Unique Circle Through Three Noncollinear Points",
+        "he": "מעגל אחד עובר דרך שלוש נקודות"
+      },
+      "statement": {
+        "ar": "عبر كل ثلاث نقاط لا تقع على مستقيم واحد تمر دائرة واحدة ووحيدة."
+      },
+      "source": {
+        "page": 1,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th061",
+      "number": 61,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي الزاويتين المركزيتين وتساوي القوسين",
+        "en": "Equal Central Angles and Equal Arcs",
+        "he": "זוויות מרכזיות שוות נשענות על קשתות שוות"
+      },
+      "statement": {
+        "ar": "زاويتان مركزيتان في الدائرة متساويتان إذا وفقط إذا كان القوسان الملائمان لهما متساويين."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th062",
+      "number": 62,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي الزاويتين المركزيتين وتساوي الوترين",
+        "en": "Equal Central Angles and Equal Chords",
+        "he": "זוויות מרכזיות שוות נשענות על מיתרים שווים"
+      },
+      "statement": {
+        "ar": "زاويتان مركزيتان في الدائرة متساويتان إذا وفقط إذا كان الوتران الملائمان لهما متساويين."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th063",
+      "number": 63,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي الوترين وتساوي القوسين",
+        "en": "Equal Chords and Equal Arcs",
+        "he": "מיתרים שווים נשענים על קשתות שוות"
+      },
+      "statement": {
+        "ar": "وتران في الدائرة هما متساويان إذا وفقط إذا كان القوسان الملائمان لهما متساويين."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th064",
+      "number": 64,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "أوتار متساوية وأبعاد متساوية عن المركز",
+        "en": "Equal Chords Are Equidistant from the Center",
+        "he": "מיתרים שווים מרוחקים במידה שווה מן המרכז"
+      },
+      "statement": {
+        "ar": "أوتار متساوية تقع على أبعاد متساوية عن مركز الدائرة."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th065",
+      "number": 65,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "عكس الأوتار المتساوية المتباعدة بالتساوي",
+        "en": "Equidistant Chords Are Equal",
+        "he": "המשפט ההפוך של מיתרים שווים המרוחקים במידה שווה"
+      },
+      "statement": {
+        "ar": "الأوتار في الدائرة التي تبعد أبعادًا متساوية عن مركزها متساوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th066",
+      "number": 66,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "الأقرب إلى المركز أطول",
+        "en": "The Closer Chord Is Longer",
+        "he": "הקרוב יותר למרכז ארוך יותר"
+      },
+      "statement": {
+        "ar": "إذا كان بعد وتر عن مركز الدائرة أصغر من بعد وتر ثانٍ فإن الوتر الأول أطول من الوتر الثاني."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th067",
+      "number": 67,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "العمود من المركز على الوتر",
+        "en": "Perpendicular from the Center to a Chord",
+        "he": "אנך מן המרכז למיתר"
+      },
+      "statement": {
+        "ar": "العمود النازل من مركز الدائرة على الوتر ينصف الوتر وينصف الزاوية المركزية الملائمة للوتر وينصف القوس الملائم للوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th068",
+      "number": 68,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "منتصف الوتر والمركز",
+        "en": "Midpoint of Chord Theorem",
+        "he": "אמצע המיתר והמרכז"
+      },
+      "statement": {
+        "ar": "القطعة الواصلة بين مركز الدائرة ومنتصف الوتر تُعامد الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th069",
+      "number": 69,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "نظرية الزاوية المحيطية",
+        "en": "Inscribed Angle Theorem",
+        "he": "משפט הזווית ההיקפית"
+      },
+      "statement": {
+        "ar": "في الدائرة، الزاوية المحيطية تساوي نصف الزاوية المركزية المرتكزة على نفس القوس."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th070",
+      "number": 70,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي الزوايا المحيطية",
+        "en": "Equal Inscribed Angles Intercept Equal Arcs",
+        "he": "זוויות היקפיות שוות"
+      },
+      "statement": {
+        "ar": "في الدائرة، لزوايا محيطية متساوية تلائم أقواس متساوية وأوتار متساوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th071",
+      "number": 71,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي الأقواس والزوايا المحيطية",
+        "en": "Equal Arcs Subtend Equal Inscribed Angles",
+        "he": "קשתות שוות נשענות על זוויות היקפיות שוות"
+      },
+      "statement": {
+        "ar": "في الدائرة، لأقواس متساوية تلائم زوايا محيطية متساوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th072",
+      "number": 72,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "زوايا محيطية على نفس الوتر",
+        "en": "Inscribed Angles on the Same Chord",
+        "he": "זוויות היקפיות הנשענות על אותו מיתר"
+      },
+      "statement": {
+        "ar": "كل الزوايا المحيطية التي ترتكز على الوتر في دائرة من نفس جهة الوتر متساوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th073",
+      "number": 73,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "زاوية في نصف دائرة",
+        "en": "Angle in a Semicircle Theorem",
+        "he": "זווית הנשענת על קוטר"
+      },
+      "statement": {
+        "ar": "الزاوية المحيطية التي ترتكز على قطر هي زاوية قائمة (90°)."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th074",
+      "number": 74,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "عكس زاوية نصف الدائرة",
+        "en": "Converse Angle in a Semicircle Theorem",
+        "he": "המשפט ההפוך של זווית הנשענת על קוטר"
+      },
+      "statement": {
+        "ar": "الزاوية المحيطية التي مقدارها 90° ترتكز على قطر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th075",
+      "number": 75,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "الزاوية الداخلية في الدائرة",
+        "en": "Interior Angle of Two Chords Theorem",
+        "he": "הזווית הפנימית במעגל"
+      },
+      "statement": {
+        "ar": "الزاوية الداخلية في الدائرة تساوي نصف مجموع القوسين المحصورين بين ساقي الزاوية وامتداديهما."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th076",
+      "number": 76,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "الزاوية الخارجية في الدائرة",
+        "en": "Exterior Angle of Two Secants Theorem",
+        "he": "הזווית החיצונית במעגל"
+      },
+      "statement": {
+        "ar": "الزاوية الخارجية في الدائرة تساوي نصف الفرق بين القوسين المحصورين بين ساقي الزاوية وامتداديهما."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th077",
+      "number": 77,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "المماس ونصف القطر",
+        "en": "Radius-Tangent Perpendicular Theorem",
+        "he": "המשיק והרדיוס"
+      },
+      "statement": {
+        "ar": "المماس للدائرة يعامد نصف القطر في نقطة التماس."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th078",
+      "number": 78,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "عكس المماس ونصف القطر",
+        "en": "Converse Tangent-Radius Theorem",
+        "he": "המשפט ההפוך של המשיק והרדיוס"
+      },
+      "statement": {
+        "ar": "المستقيم الذي يعامد نصف القطر في طرفه هو مماس للدائرة."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th079",
+      "number": 79,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "نظرية الزاوية بين المماس والوتر",
+        "en": "Tangent-Chord Angle Theorem",
+        "he": "משפט הזווית שבין משיק למיתר"
+      },
+      "statement": {
+        "ar": "الزاوية بين المماس والوتر تساوي الزاوية المحيطية المرتكزة على الوتر من الجهة الثانية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th080",
+      "number": 80,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "تساوي المماسين من نقطة خارجية",
+        "en": "Equal Tangents from an External Point",
+        "he": "שוויון המשיקים מנקודה חיצונית"
+      },
+      "statement": {
+        "ar": "المماسان للدائرة الخارجان من نفس النقطة متساويان."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th081",
+      "number": 81,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "منصف زاوية المماسين",
+        "en": "Angle Bisector of Two Tangents",
+        "he": "חוצה הזווית בין שני משיקים"
+      },
+      "statement": {
+        "ar": "القطعة الواصلة بين مركز الدائرة والنقطة التي يخرج منها مماسان للدائرة تنصف الزاوية بين المماسين."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th082",
+      "number": 82,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "القطعة المركزية والوتر المشترك",
+        "en": "Line of Centers and Common Chord Theorem",
+        "he": "הקטע המחבר בין המרכזים והמיתר המשותף"
+      },
+      "statement": {
+        "ar": "القطعة المركزية لدائرتين متقاطعتين تنصف الوتر المشترك وتعامده."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th083",
+      "number": 83,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-19",
+      "category": "دائرة",
+      "name": {
+        "ar": "نقطة تماس دائرتين متماستين",
+        "en": "Tangency Point of Two Tangent Circles",
+        "he": "נקודת ההשקה של שני מעגלים משיקים"
+      },
+      "statement": {
+        "ar": "نقطة التماس بين دائرتين متماستين تقع على القطعة المركزية أو على امتدادها."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th084",
+      "number": 84,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "نظرية فيثاغورس",
+        "en": "Pythagorean Theorem",
+        "he": "משפט פיתגורס"
+      },
+      "statement": {
+        "ar": "نظرية فيثاغورس: في مثلث قائم الزاوية، مجموع مربعي الضلعين القائمين يساوي مربع الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th085",
+      "number": 85,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "نظرية فيثاغورس العكسية",
+        "en": "Converse Pythagorean Theorem",
+        "he": "המשפט ההפוך של משפט פיתגורס"
+      },
+      "statement": {
+        "ar": "نظرية فيثاغورس العكسية: المثلث الذي فيه مجموع مربعي ضلعين يساوي مربع الضلع الثالث هو مثلث قائم الزاوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th086",
+      "number": 86,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "المتوسط إلى الوتر",
+        "en": "Median to the Hypotenuse Theorem",
+        "he": "התיכון ליתר"
+      },
+      "statement": {
+        "ar": "في مثلث قائم الزاوية، المستقيم المتوسط للوتر يساوي نصف الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th087",
+      "number": 87,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "عكس المتوسط إلى الوتر",
+        "en": "Converse Median to the Hypotenuse Theorem",
+        "he": "המשפט ההפוך של התיכון ליתר"
+      },
+      "statement": {
+        "ar": "المثلث الذي فيه مستقيم متوسط يساوي نصف الضلع الذي ينصفه هو مثلث قائم الزاوية."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th088",
+      "number": 88,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "نظرية 30° في المثلث القائم",
+        "en": "30° Right Triangle Theorem",
+        "he": "משפט 30° במשולש ישר זווית"
+      },
+      "statement": {
+        "ar": "إذا كان في مثلث قائم الزاوية زاوية حادة مقدارها 30° فإن الضلع القائم الذي يقابلها يساوي نصف الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th089",
+      "number": 89,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "عكس نظرية 30° في المثلث القائم",
+        "en": "Converse 30° Right Triangle Theorem",
+        "he": "המשפט ההפוך של משפט 30° במשולש ישר זווית"
+      },
+      "statement": {
+        "ar": "إذا كان في مثلث قائم الزاوية ضلع قائم يساوي نصف الوتر فإن مقدار الزاوية المقابلة لهذا الضلع القائم هو 30°."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th090",
+      "number": 90,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-21",
+      "category": "مثلث - تناسب",
+      "name": {
+        "ar": "نظرية طاليس",
+        "en": "Thales' Proportionality Theorem",
+        "he": "משפט תאלס"
+      },
+      "statement": {
+        "ar": "نظرية طاليس: إذا قطع مستقيمان متوازيان ساقي زاوية فإنهما يحددان على الساقين قطعًا متناسبة."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th091",
+      "number": 91,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-21",
+      "category": "مثلث - تناسب",
+      "name": {
+        "ar": "نظرية طاليس الموسعة",
+        "en": "Extended Thales Theorem",
+        "he": "משפט תאלס המורחב"
+      },
+      "statement": {
+        "ar": "نظرية طاليس الموسعة: المستقيم الموازي لأحد الأضلاع في مثلث يقطع الضلعين الآخرين أو امتداديهما بقطع متناسبة."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th092",
+      "number": 92,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-21",
+      "category": "مثلث - تناسب",
+      "name": {
+        "ar": "نظرية طاليس العكسية",
+        "en": "Converse Thales Theorem",
+        "he": "המשפט ההפוך של משפט תאלס"
+      },
+      "statement": {
+        "ar": "نظرية طاليس العكسية: المستقيمان اللذان يقطعان ساقي زاوية ويحددان على الساقين أربع قطع متناسبة هما مستقيمان متوازيان."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th093",
+      "number": 93,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-21",
+      "category": "مثلث - تناسب",
+      "name": {
+        "ar": "نظرية منصف الزاوية الداخلية",
+        "en": "Angle Bisector Theorem",
+        "he": "משפט חוצה הזווית הפנימית"
+      },
+      "statement": {
+        "ar": "منصف الزاوية الداخلية في مثلث يقسم الضلع المقابل للزاوية إلى قطعتين بحيث أن النسبة بينهما تساوي النسبة بين الضلعين المحاصرين للزاوية بالتلاؤم."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th094",
+      "number": 94,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-21",
+      "category": "مثلث - تناسب",
+      "name": {
+        "ar": "عكس نظرية منصف الزاوية",
+        "en": "Converse Angle Bisector Theorem",
+        "he": "המשפט ההפוך של משפט חוצה הזווית"
+      },
+      "statement": {
+        "ar": "المستقيم الذي يمر عبر رأس مثلث ويقسم الضلع المقابل لهذا الرأس تقسيمًا داخليًا كالنسبة بين الضلعين الآخرين (بالتلاؤم) ينصف زاوية المثلث التي يمر عبر رأسها."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th095",
+      "number": 95,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-22",
+      "category": "مثلث - تشابه",
+      "name": {
+        "ar": "تشابه ضلع-زاوية-ضلع",
+        "en": "SAS Similarity",
+        "he": "דמיון צלע-זווית-צלע"
+      },
+      "statement": {
+        "ar": "نظرية التشابه ض.ز.ض."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th096",
+      "number": 96,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-22",
+      "category": "مثلث - تشابه",
+      "name": {
+        "ar": "تشابه زاوية-زاوية",
+        "en": "AA Similarity",
+        "he": "דמיון זווית-זווית"
+      },
+      "statement": {
+        "ar": "نظرية التشابه ز.ز."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th097",
+      "number": 97,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-22",
+      "category": "مثلث - تشابه",
+      "name": {
+        "ar": "تشابه ضلع-ضلع-ضلع",
+        "en": "SSS Similarity",
+        "he": "דמיון צלע-צלע-צלע"
+      },
+      "statement": {
+        "ar": "نظرية التشابه ض.ض.ض."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th098",
+      "number": 98,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-22",
+      "category": "مثلث - تشابه",
+      "name": {
+        "ar": "نسب العناصر المناظرة في المثلثات المتشابهة",
+        "en": "Ratios in Similar Triangles",
+        "he": "יחסי האיברים המתאימים במשולשים דומים"
+      },
+      "statement": {
+        "ar": "في المثلثات المتشابهة: أ. النسبة بين الارتفاعات بالتلاؤم تساوي نسبة التشابه. ب. النسبة بين منصفات الزوايا بالتلاؤم تساوي نسبة التشابه. ج. النسبة بين المستقيمات المتوسطة بالتلاؤم تساوي نسبة التشابه. د. النسبة بين المحيطات بالتلاؤم تساوي نسبة التشابه. هـ. النسبة بين أنصاف أقطار الدوائر المحاصرة بالتلاؤم تساوي نسبة التشابه. و. النسبة بين أنصاف أقطار الدوائر المحصورة بالتلاؤم تساوي نسبة التشابه. ز. النسبة بين المساحات بالتلاؤم تساوي مربع نسبة التشابه."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th099",
+      "number": 99,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-23",
+      "category": "دائرة - قوة نقطة",
+      "name": {
+        "ar": "نظرية الوترين المتقاطعين",
+        "en": "Intersecting Chords Theorem",
+        "he": "משפט המיתרים הנחתכים"
+      },
+      "statement": {
+        "ar": "إذا تقاطع وتران في دائرة كان حاصل ضرب قطعتي الوتر الأول يساوي حاصل ضرب قطعتي الوتر الثاني."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th100",
+      "number": 100,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-23",
+      "category": "دائرة - قوة نقطة",
+      "name": {
+        "ar": "نظرية القاطعين من نقطة خارجية",
+        "en": "Secant-Secant Power Theorem",
+        "he": "משפט שני החותכים מנקודה חיצונית"
+      },
+      "statement": {
+        "ar": "إذا خرج من نقطة خارج دائرة قاطعان للدائرة، فإن حاصل ضرب القاطع الأول بجزئه الخارجي يساوي حاصل ضرب القاطع الثاني بجزئه الخارجي."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th101",
+      "number": 101,
+      "domainId": "domain-06-circle",
+      "domain": "دائرة",
+      "categoryId": "cat-23",
+      "category": "دائرة - قوة نقطة",
+      "name": {
+        "ar": "نظرية القاطع والمماس",
+        "en": "Tangent-Secant Power Theorem",
+        "he": "משפט החותך והמשיק"
+      },
+      "statement": {
+        "ar": "إذا خرج من نقطة خارج دائرة قاطع وماس للدائرة، فإن حاصل ضرب القاطع بجزئه الخارجي يساوي مربع المماس."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th102",
+      "number": 102,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "المعدل الهندسي للضلع القائم",
+        "en": "Leg Geometric Mean Theorem",
+        "he": "הממוצע ההנדסי של ניצב"
+      },
+      "statement": {
+        "ar": "في مثلث قائم الزاوية، الضلع القائم هو المعدل الهندسي للوتر ومسقط هذا الضلع القائم على الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th103",
+      "number": 103,
+      "domainId": "domain-02-triangle",
+      "domain": "مثلث",
+      "categoryId": "cat-20",
+      "category": "مثلث قائم",
+      "name": {
+        "ar": "المعدل الهندسي لارتفاع الوتر",
+        "en": "Altitude Geometric Mean Theorem",
+        "he": "הממוצע ההנדסי של הגובה ליתר"
+      },
+      "statement": {
+        "ar": "الارتفاع على الوتر في مثلث قائم الزاوية هو المعدل الهندسي لمسقطي الضلعين القائمين على الوتر."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    },
+    {
+      "id": "th104",
+      "number": 104,
+      "domainId": "domain-05-polygon",
+      "domain": "مضلع",
+      "categoryId": "cat-24",
+      "category": "مضلع",
+      "name": {
+        "ar": "مجموع الزوايا الداخلية في المضلع المحدب",
+        "en": "Interior Angle Sum of a Convex Polygon",
+        "he": "סכום הזוויות הפנימיות במצולע קמור"
+      },
+      "statement": {
+        "ar": "مجموع الزوايا الداخلية في مضلع محدب هو (n-2) × 180°."
+      },
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "images": [],
+      "questions": []
+    }
+  ],
+  "featuredTheoremIds": [
+    "th084",
+    "th090",
+    "th069",
+    "th099",
+    "th056",
+    "th093"
+  ]
+}
