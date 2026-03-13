@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مرجع النظريات الهندسية | مختبر تطبيقات الرياضيات</title>
+  <meta name="description" content="مرجع منظّم للنظريات الهندسية الأساسية مع تصنيف حسب المجال والصنف، وصفحات تفصيلية لكل نظرية، وأمثلة تدريبية مرتبطة.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <a class="back-link" href="../../index.html">← العودة إلى مختبر تطبيقات الرياضيات</a>
+      <div class="hero-head">
+        <div>
+          <p class="eyebrow">مرجع هندسي منظم</p>
+          <h1>مرجع النظريات الهندسية</h1>
+          <p class="sub">صفحة ملخّص منظّمة حسب المجال والصنف، مع بطاقات تفصيلية لكل نظرية، وأمثلة تدريبية قابلة للتصفّح.</p>
+        </div>
+        <a class="home-link" id="homeLink" href="./index.html">العودة إلى الملخّص</a>
+      </div>
+
+      <div class="toolbar" role="search">
+        <label class="search-field">
+          <span>ابحث عن نظرية أو صنف</span>
+          <input id="searchInput" type="search" placeholder="مثال: فيثاغورس، تشابه، زاوية محيطية..." autocomplete="off" />
+        </label>
+
+        <label class="select-field">
+          <span>المجال الرئيسي</span>
+          <select id="domainFilter" aria-label="تصفية حسب المجال الرئيسي">
+            <option value="all">كل المجالات</option>
+          </select>
+        </label>
+
+        <div class="toolbar-note" id="toolbarNote" aria-live="polite"></div>
+      </div>
+
+      <div class="hero-stats" id="heroStats" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <nav class="wrap breadcrumbs" id="breadcrumbs" aria-label="مسار التنقل"></nav>
+
+  <main class="wrap" id="view" aria-live="polite">
+    <section class="panel loading">
+      <div class="loading-dot"></div>
+      <p>جاري تحميل مرجع النظريات...</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer-note">
+    <p>صُمِّم هذا المرجع ليعمل كفهرس سريع + صفحة تفصيلية + أمثلة تدريبية. عند إضافة صور أو أسئلة فعلية إلى ملف البيانات ستظهر تلقائيًا هنا.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
