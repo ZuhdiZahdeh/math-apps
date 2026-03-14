@@ -642,3 +642,17 @@ h1{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
+
+
+.btn.secondary{
+  background:transparent;
+}
+.question-detail .hint{
+  margin-top:14px;
+}
+.question-detail .gallery .figure-card img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  background:#0b1220;
+}
