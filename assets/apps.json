@@ -47,17 +47,9 @@
    {
     "id": "geometry-theorems-reference",
     "title": "مرجع النظريات الهندسية",
-    "grades": [
-      8,
-      9
-    ],
-    "tags": [
-      "هندسة",
-      "نظريات",
-      "مرجع",
-      "براهين"
-    ],
-    "path": "apps/geometry-theorems/index.html",
+    "grades": [8,9],
+    "tags": ["هندسة","نظريات","مرجع","براهين"],
+    "path": "geometry-theorems/index.html",
     "thumb": "images/thumbs/geometry-theorems.svg",
     "desc": "مرجع منظّم للنظريات الهندسية حسب المجال والصنف، مع بطاقات تفصيلية وأمثلة وأسئلة تدريبية مرتبطة."
   },
