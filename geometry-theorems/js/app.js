@@ -385,27 +385,27 @@ const SPECIFIC_QUESTIONS = {
 const RESOURCE_RULES = [
   {
     title: 'شرح نظرية فيثاغورس – الصف الثامن',
-    path: '../pythagoras/pythagoras.html',
+    path: '../apps/pythagoras/pythagoras.html',
     test: (theorem) => [84, 85, 86, 87, 88, 89, 102, 103].includes(theorem.number)
   },
   {
     title: 'قرعة مسابقة نظرية فيثاغورس',
-    path: '../pythagoras/pythagoras-lottery.html',
+    path: '../apps/pythagoras/pythagoras-lottery.html',
     test: (theorem) => theorem.number === 84 || theorem.number === 85
   },
   {
     title: 'المثلث متساوي الأضلاع – لعبة فان هيلي (1–4)',
-    path: '../equilateral-vanhiele/index.html',
+    path: '../apps/equilateral-vanhiele/index.html',
     test: (theorem) => [3, 4, 6, 7, 8, 9].includes(theorem.number)
   },
   {
     title: 'أنواع المثلثات – لعبة تصنيف',
-    path: '../triangle-types/triangle-quiz.html',
+    path: '../apps/triangle-types/triangle-quiz.html',
     test: (theorem) => theorem.domain === 'مثلث'
   },
   {
     title: 'حلول الهندسة المستوية (أسئلة 1–68)',
-    path: '../../solutions-site/plane-geometry/index.html',
+    path: '../solutions-site/plane-geometry/index.html',
     test: (theorem) => ['مثلث', 'شكل رباعي', 'دائرة'].includes(theorem.domain) && theorem.number >= 17
   }
 ];
@@ -586,11 +586,17 @@ function genericQuestions(theorem) {
 function getQuestionsForTheorem(theorem) {
   const explicit = Array.isArray(theorem.questions) ? theorem.questions : [];
   const normalizedExplicit = explicit.map((q, index) => ({
+    ...q,
     id: q.id || `${theorem.id}-explicit-${index + 1}`,
     title: q.title || `سؤال ${index + 1}`,
     level: q.level || 'سؤال مرتبط',
     statement: q.statement || '',
     hint: q.hint || '',
+    sourceSite: q.sourceSite || '',
+    sourceLabel: q.sourceLabel || '',
+    externalHref: q.externalHref || '',
+    externalText: q.externalText || '',
+    images: Array.isArray(q.images) ? q.images : [],
     generated: false
   }));
 
@@ -711,7 +717,7 @@ function renderTheoremCard(theorem) {
       </div>
       <p>${escapeHtml(excerpt(theorem.statement.ar, 135))}</p>
       <div class="foot">
-        <span class="badge accent">صفحة المرجع: ${theorem.source.page}</span>
+        <span class="badge accent">مرجع: ${theorem.source.page}</span>
         <span class="link-row">فتح البطاقة ←</span>
       </div>
     </a>
@@ -1037,7 +1043,7 @@ function renderTheoremPage(theoremId) {
           <span class="badge accent">رقم النظرية: ${theorem.number}</span>
           <span class="badge">المجال: ${escapeHtml(theorem.domain)}</span>
           <span class="badge sky">الصنف: ${escapeHtml(theorem.category)}</span>
-          <span class="badge ok">صفحة المرجع: ${theorem.source.page}</span>
+          <span class="badge ok">مرجع: ${theorem.source.page}</span>
         </div>
 
         <div class="name-stack">
@@ -1086,7 +1092,7 @@ function renderTheoremPage(theoremId) {
 
         <div class="side-card">
           <h3>معلومة مرجعية</h3>
-          <p>المصدر المرجعي لهذه النظرية هو صفحة <strong>${theorem.source.page}</strong> من ملف النظريات الأساس في الهندسة المستوية.</p>
+          <p>مرجع هذه النظرية: <strong>${theorem.source.page}</strong>${theorem.source.referenceFile ? ` — ${escapeHtml(theorem.source.referenceFile)}` : ''}.</p>
         </div>
 
         ${resources.length ? `
@@ -1126,13 +1132,15 @@ function renderTheoremPage(theoremId) {
           <article class="question-card">
             <div class="badges">
               <span class="badge">${escapeHtml(question.level)}</span>
+              ${question.sourceLabel ? `<span class="badge sky">${escapeHtml(question.sourceLabel)}</span>` : ''}
               ${question.generated ? '<span class="badge accent">مثال مولّد</span>' : '<span class="badge ok">سؤال مرتبط</span>'}
             </div>
             <h3>${escapeHtml(question.title)}</h3>
             <p>${escapeHtml(excerpt(question.statement, 170))}</p>
-            ${question.hint ? `<div class="hint"><strong>تلميح:</strong> ${escapeHtml(question.hint)}</div>` : ''}
+            ${question.hint ? `<div class="hint"><strong>ملاحظة:</strong> ${escapeHtml(question.hint)}</div>` : ''}
             <div class="card-actions">
               <a class="btn small" href="${makeHref({ theoremId: theorem.id, questionKey: question.id })}">فتح بطاقة السؤال</a>
+              ${question.externalHref ? `<a class="btn small secondary" href="${escapeHtml(question.externalHref)}">فتح السؤال الأصلي</a>` : ''}
             </div>
           </article>
         `).join('')}
@@ -1157,21 +1165,41 @@ function renderQuestionPage(theoremId, questionKey) {
 
   const relatedQuestions = questions.filter(item => item.id !== question.id).slice(0, 3);
 
+  const previewGallery = Array.isArray(question.images) && question.images.length ? `
+    <section class="panel">
+      <div class="section-top">
+        <div class="intro">
+          <h2>معاينة صور السؤال</h2>
+          <p>هذه معاينة سريعة لبعض صور السؤال من موقع الحلول المرتبط.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        ${question.images.map((src, idx) => `
+          <figure class="figure-card">
+            <img src="${escapeHtml(src)}" alt="صورة ${idx + 1} مرتبطة بالسؤال" loading="lazy">
+          </figure>
+        `).join('')}
+      </div>
+    </section>
+  ` : '';
+
   els.view.innerHTML = `
     <section class="panel question-detail">
       <div class="section-top">
         <div class="intro">
           <h2>${escapeHtml(question.title)}</h2>
-          <p>بطاقة سؤال مرتبطة بالنظرية «${escapeHtml(theorem.name.ar)}» ويمكن استخدامها كمثال تطبيقي أو كنقطة بداية لبناء سؤال صفّي.</p>
+          <p>بطاقة سؤال مرتبطة بالنظرية «${escapeHtml(theorem.name.ar)}». يمكنك قراءة الفكرة هنا، ثم فتح السؤال الأصلي لرؤية الصور والحل الكامل.</p>
         </div>
         <div class="actions">
           <a class="btn secondary" href="${makeHref({ theoremId: theorem.id, questionKey: '' })}">العودة إلى بطاقة النظرية</a>
+          ${question.externalHref ? `<a class="btn" href="${escapeHtml(question.externalHref)}">فتح السؤال الأصلي</a>` : ''}
         </div>
       </div>
 
       <div class="badges">
         <span class="badge">${escapeHtml(question.level)}</span>
         <span class="badge sky">${escapeHtml(theorem.category)}</span>
+        ${question.sourceLabel ? `<span class="badge sky">${escapeHtml(question.sourceLabel)}</span>` : ''}
         ${question.generated ? '<span class="badge accent">مثال مولّد</span>' : '<span class="badge ok">سؤال مربوط</span>'}
       </div>
 
@@ -1179,8 +1207,10 @@ function renderQuestionPage(theoremId, questionKey) {
         <p>${escapeHtml(question.statement)}</p>
       </div>
 
-      ${question.hint ? `<div class="hint"><strong>تلميح:</strong> ${escapeHtml(question.hint)}</div>` : ''}
+      ${question.hint ? `<div class="hint"><strong>ملاحظة:</strong> ${escapeHtml(question.hint)}</div>` : ''}
     </section>
+
+    ${previewGallery}
 
     <section class="panel">
       <div class="section-top">
@@ -1207,12 +1237,14 @@ function renderQuestionPage(theoremId, questionKey) {
             <article class="question-card">
               <div class="badges">
                 <span class="badge">${escapeHtml(item.level)}</span>
+                ${item.sourceLabel ? `<span class="badge sky">${escapeHtml(item.sourceLabel)}</span>` : ''}
                 ${item.generated ? '<span class="badge accent">مثال مولّد</span>' : '<span class="badge ok">سؤال مربوط</span>'}
               </div>
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(excerpt(item.statement, 150))}</p>
               <div class="card-actions">
                 <a class="btn small" href="${makeHref({ theoremId: theorem.id, questionKey: item.id })}">فتح البطاقة</a>
+                ${item.externalHref ? `<a class="btn small secondary" href="${escapeHtml(item.externalHref)}">فتح السؤال الأصلي</a>` : ''}
               </div>
             </article>
           `).join('')}
