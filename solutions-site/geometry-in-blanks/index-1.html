@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>هندسة الفراغ | حلول مرتبة بنفس القالب</title>
+  <meta name="description" content="واجهة هندسة الفراغ بنفس هوية وتصميم صفحة الهندسة المستوية، مع صور الأسئلة، بطاقات الحل، والنظريات المرتبطة." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__content">
+      <div class="topbar__eyebrow">منصة مراجعة هندسية</div>
+      <div class="topbar__title">هندسة الفراغ</div>
+      <div class="topbar__hint">نفس القالب البصري لصفحة الهندسة المستوية، لكن بمحتوى هندسة الفراغ: بحث أوضح، قائمة أسئلة مرتبة، صور أكبر، وبطاقات نظريات أسهل في القراءة.</div>
+    </div>
+
+    <div class="topbar__actions" aria-hidden="true">
+      <span class="hero-chip">نفس الألوان والهوية</span>
+      <span class="hero-chip hero-chip--soft">وضوح + راحة للعين</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <div class="sidebar__title">
+          <span>أسئلة هندسة الفراغ</span>
+          <span id="listBadge" class="badge">29 سؤال</span>
+        </div>
+
+        <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه أو النظرية..." />
+
+        <div class="control-grid">
+          <label class="control-field">
+            <span>من صفحة PDF</span>
+            <input id="pageFrom" class="input input-sm" type="number" min="1" placeholder="1" />
+          </label>
+          <label class="control-field">
+            <span>إلى صفحة PDF</span>
+            <input id="pageTo" class="input input-sm" type="number" min="1" placeholder="17" />
+          </label>
+        </div>
+
+        <div class="toolbar">
+          <button id="btnApply" class="btn btn--soft btn--sm" type="button">تطبيق</button>
+          <button id="btnPrint" class="btn btn--sm" type="button">طباعة</button>
+        </div>
+
+        <div class="font-panel">
+          <div class="font-panel__label">حجم الخط داخل الحل</div>
+          <div class="font-controls">
+            <button id="fontMinus" class="btn btn--soft btn--tiny" type="button" title="تصغير الخط">A−</button>
+            <button id="fontReset" class="btn btn--soft btn--tiny" type="button" title="إعادة الضبط">A</button>
+            <button id="fontPlus" class="btn btn--soft btn--tiny" type="button" title="تكبير الخط">A+</button>
+            <span id="fontLabel" class="font-value">100%</span>
+          </div>
+          <input id="fontRange" class="font-range" type="range" min="80" max="160" step="5" value="100" aria-label="شريط حجم الخط" />
+        </div>
+      </div>
+
+      <div id="questionsList" class="questions"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="questionTitle" class="content__title">اختر سؤالًا من القائمة</h1>
+          <div id="metaLine" class="meta"></div>
+        </div>
+
+        <div class="nav">
+          <button id="prevBtn" class="btn btn--soft" type="button">السابق</button>
+          <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
+        </div>
+      </div>
+
+      <div class="page-note">انقر على أي نظرية داخل الحل لفتح بطاقة توضيحية مختصرة، مع الأسئلة الأخرى من نفس الصفحة التي استعملتها.</div>
+
+      <section class="card">
+        <div class="card__title">الصور المرافقة</div>
+        <div id="imageGallery" class="gallery"></div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">الحل خطوة بخطوة</div>
+        <div id="solutionBox" class="solution-box">
+          <div class="solution-empty">اختر سؤالًا من القائمة اليسرى لعرض الحل.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="imgModal" class="modal hidden" aria-hidden="true">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" type="button" aria-label="إغلاق">✕</button>
+      <img id="modalImg" class="modal__img" alt="" />
+      <div id="modalCaption" class="modal__caption"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
