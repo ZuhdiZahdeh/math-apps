@@ -1176,7 +1176,11 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+      "images": [        {
+          "src": "images/triangle-inequality.png",
+          "alt": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
+          "caption": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث."
+        }],
       "questions": [
         {
           "id": "plane-q10",
