@@ -3,13 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>حلول الهندسة المستوية (س1–س41)</title>
+  <title>حلول الهندسة المستوية | الكتاب + النهائي</title>
+  <meta name="description" content="واجهة حديثة ومريحة للعين لعرض حلول الهندسة المستوية مع الصور والنظريات المرتبطة." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar__title">حلول الهندسة المستوية (س1–س41)</div>
-    <div class="topbar__hint">انقر على سؤال من القائمة لعرض الحل والصور</div>
+    <div class="topbar__content">
+      <div class="topbar__eyebrow">منصة مراجعة هندسية</div>
+      <div class="topbar__title">حلول الهندسة المستوية</div>
+      <div class="topbar__hint">تصميم أكثر هدوءًا ووضوحًا للطلاب، مع بحث أسرع، تنقّل أوضح، وبطاقات نظريات أسهل في القراءة.</div>
+    </div>
+
+    <div class="topbar__actions" aria-hidden="true">
+      <span class="hero-chip">ألوان تعليمية حديثة</span>
+      <span class="hero-chip hero-chip--soft">راحة بصرية + وضوح</span>
+    </div>
   </header>
 
   <div class="layout">
@@ -24,8 +33,10 @@
           <button id="tabBook" class="tab is-active" type="button" role="tab" aria-selected="true" data-dataset="book">أسئلة الكتاب</button>
           <button id="tabFinal" class="tab" type="button" role="tab" aria-selected="false" data-dataset="final">الأسئلة النهائية</button>
         </div>
-        <input id="searchInput" class="search" type="search" placeholder="بحث برقم السؤال أو كلمة..." />
+
+        <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه..." />
       </div>
+
       <div id="questionsList" class="questions"></div>
     </aside>
 
@@ -43,15 +54,12 @@
       </div>
 
       <section class="card">
-        <div class="card__title">الصور</div>
+        <div class="card__title">الصور المرافقة</div>
         <div id="imageGallery" class="gallery"></div>
-        <!--<div class="gallery__note">
-          لإضافة أكثر من صورة للسؤال: ضع ملفات مثل <span dir="ltr">q01-2.png</span> ثم أضفها داخل مصفوفة <span dir="ltr">images</span> في <span dir="ltr">solutions.json</span>.
-        </div> -->
       </section>
 
       <section class="card">
-        <div class="card__title">الحل</div>
+        <div class="card__title">الحل خطوة بخطوة</div>
         <div id="solutionBox" class="solution-box">
           <div class="solution-empty">اختر سؤالًا من القائمة اليسرى لعرض الحل.</div>
         </div>
@@ -59,15 +67,15 @@
     </main>
   </div>
 
-  <!-- Image Modal -->
   <div id="imgModal" class="modal hidden" aria-hidden="true">
     <div class="modal__backdrop" id="modalBackdrop"></div>
     <div class="modal__panel" role="dialog" aria-modal="true">
-      <button class="modal__close" id="modalClose" type="button">✕</button>
+      <button class="modal__close" id="modalClose" type="button" aria-label="إغلاق">✕</button>
       <img id="modalImg" class="modal__img" alt="" />
       <div id="modalCaption" class="modal__caption"></div>
     </div>
   </div>
+
   <script src="js/theorems-ui.js"></script>
   <script src="js/app.js"></script>
 </body>
