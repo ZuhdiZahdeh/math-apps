@@ -9415,7 +9415,7 @@
       },
       "images": [
         {
-         "src": "images/area-of-triangle.png",
+         "src": "images/area-of-equilateral-triangle.png",
           "alt": "مساحة المثلث المتساوي الأضلاع",
           "caption": "إذا كان طول الضلع s فإن المساحة = (√3 / 4) × s²."
         }
