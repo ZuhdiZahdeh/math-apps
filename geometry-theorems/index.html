@@ -1,58 +1,77 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مرجع النظريات الهندسية | مختبر تطبيقات الرياضيات</title>
-  <meta name="description" content="مرجع منظّم للنظريات الهندسية الأساسية مع تصنيف حسب المجال والصنف، وصفحات تفصيلية لكل نظرية، وأمثلة تدريبية مرتبطة.">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مرجع النظريات الهندسية | الهوية الموحدة</title>
+  <meta name="description" content="مرجع النظريات الهندسية بنفس هوية صفحة الهندسة المستوية، مع قائمة نظريات جانبية، تصفية حسب المجال، وبطاقات تفصيلية للنظريات والأسئلة المرتبطة." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <a class="back-link" href="../index.html">← العودة إلى مختبر تطبيقات الرياضيات</a>
-      <div class="hero-head">
-        <div>
-          <p class="eyebrow">مرجع هندسي منظم</p>
-          <h1>مرجع النظريات الهندسية</h1>
-          <p class="sub">صفحة ملخّص منظّمة حسب المجال والصنف، مع بطاقات تفصيلية لكل نظرية، وأمثلة تدريبية قابلة للتصفّح.</p>
-        </div>
-        <a class="home-link" id="homeLink" href="./index.html">العودة إلى الملخّص</a>
-      </div>
+  <header class="topbar">
+    <div class="topbar__content">
+      <div class="topbar__eyebrow">منصة مراجعة هندسية</div>
+      <div class="topbar__title">مرجع النظريات الهندسية</div>
+      <div class="topbar__hint">هوية موحّدة مع صفحة الهندسة المستوية: ألوان مريحة، قائمة جانبية أوضح، وبطاقات نظرية أكثر تنظيمًا مع الحفاظ على المجالات والأصناف والمحتوى الكامل.</div>
+    </div>
 
-      <div class="toolbar" role="search">
-        <label class="search-field">
-          <span>ابحث عن نظرية أو صنف</span>
-          <input id="searchInput" type="search" placeholder="مثال: فيثاغورس، تشابه، زاوية محيطية..." autocomplete="off" />
-        </label>
-
-        <label class="select-field">
-          <span>المجال الرئيسي</span>
-          <select id="domainFilter" aria-label="تصفية حسب المجال الرئيسي">
-            <option value="all">كل المجالات</option>
-          </select>
-        </label>
-
-        <div class="toolbar-note" id="toolbarNote" aria-live="polite"></div>
-      </div>
-
-      <div class="hero-stats" id="heroStats" aria-live="polite"></div>
+    <div class="topbar__actions">
+      <span class="hero-chip">هوية تعليمية موحّدة</span>
+      <span class="hero-chip hero-chip--soft">مجالات + أصناف + بطاقات</span>
+      <a id="homeLink" class="hero-chip hero-chip--link" href="./index.html">العودة إلى الملخّص</a>
     </div>
   </header>
 
-  <nav class="wrap breadcrumbs" id="breadcrumbs" aria-label="مسار التنقل"></nav>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <div class="sidebar__title">
+          <span>قائمة النظريات</span>
+          <span id="theoremCountBadge" class="badge">0</span>
+        </div>
 
-  <main class="wrap" id="view" aria-live="polite">
-    <section class="panel loading">
-      <div class="loading-dot"></div>
-      <p>جاري تحميل مرجع النظريات...</p>
-    </section>
-  </main>
+        <p class="sidebar__sub">ابحث باسم النظرية أو رقمها، ثم صفِّ حسب المجال لعرض المرجع بالطريقة المناسبة.</p>
 
-  <footer class="wrap footer-note">
-    <p>يعمل هذا المرجع كفهرس ذكي وصفحة تفصيلية مدعومة بأمثلة تطبيقية. تم تفعيل الربط المباشر للنظريات مع بنك أسئلة «الهندسة المستوية» و «هندسة الفراغ»، مما يتيح للمتعلم الوصول الفوري للحلول المتخصصة.</p>
-  </footer>
+        <div class="filters">
+          <input id="searchInput" class="search" type="search" placeholder="ابحث عن نظرية أو رقم..." autocomplete="off" />
+          <select id="domainFilter" class="search search--select" aria-label="تصفية حسب المجال">
+            <option value="all">كل المجالات</option>
+          </select>
+        </div>
 
-  <script type="module" src="js/app.js"></script>
+        <div id="toolbarNote" class="sidebar__note" aria-live="polite"></div>
+      </div>
+
+      <div id="theoremsList" class="questions" aria-label="قائمة النظريات"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="pageTitle" class="content__title">مرجع النظريات الهندسية</h1>
+          <div id="metaLine" class="meta"></div>
+        </div>
+
+        <div class="nav">
+          <button id="summaryBtn" class="btn" type="button">الملخّص</button>
+          <button id="prevBtn" class="btn" type="button">السابق</button>
+          <button id="nextBtn" class="btn" type="button">التالي</button>
+        </div>
+      </div>
+
+      <nav id="breadcrumbs" class="breadcrumbs-inline" aria-label="مسار التنقل"></nav>
+
+      <div id="heroStats" class="stats-row" aria-live="polite"></div>
+
+      <div id="view" class="view-stack" aria-live="polite">
+        <section class="panel loading">
+          <div class="loading-dot"></div>
+          <p>جاري تحميل مرجع النظريات...</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
