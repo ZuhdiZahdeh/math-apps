@@ -494,7 +494,7 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+       "images": ["images/angle-relationships.png"],
       "questions": [
         {
           "id": "plane-q14",
@@ -696,7 +696,7 @@
       },
       "images": [
         {
-          "src": "images/Vertically opposite angles.png",
+          "src": "images/angle-relationships.png",
           "alt": "رسم يوضح الزوايا المتقابلة بالرأس",
           "caption": "شكل توضيحي للزوايا المتقابلة بالرأس."
         }
@@ -2824,7 +2824,7 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+      "images": ["images/angles-between-two-parallel-lines.png"],
       "questions": []
     },
     {
@@ -2846,7 +2846,7 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+      "images": ["images/alternate-interior-angles-converse.png"],
       "questions": []
     },
     {
@@ -2868,7 +2868,7 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+      "images": ["images/alternate-interior-angles-converse.png"],
       "questions": []
     },
     {
@@ -2892,7 +2892,7 @@
       },
       "images": [
         {
-          "src": "images/parallel-angles-types.png",
+          "src": "images/properties-of-parallel-lines-with-transversal.png",
           "alt": "أنواع الزوايا مع مستقيمين متوازيين",
           "caption": "أنواع الزوايا الناتجة عن قاطع مع مستقيمين متوازيين."
         },
