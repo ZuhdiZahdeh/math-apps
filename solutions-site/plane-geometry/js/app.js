@@ -1,4 +1,4 @@
-/* حلول الهندسة المستوية — س1 إلى س41 */
+/* حلول الهندسة المستوية — واجهة محسّنة */
 const DATASETS = { book: "./data/solutions.json", final: "./data/final-solutions.json" };
 const THEOREMS_URL = "./data/theorems.json";
 
@@ -26,7 +26,6 @@ const els = {
 let allQuestions = [];
 let filtered = [];
 let activeId = null;
-
 let currentDataset = "book";
 let dataCache = { book: null, final: null };
 
@@ -56,23 +55,18 @@ function escapeHtml(str) {
 }
 
 function dotToNewline(str) {
-  // نحول ". " (نقطة + مسافة/مسافات) إلى ".\n" لقراءة أوضح خصوصًا عند خلط العربية مع الإنجليزية
   return (str ?? "").toString().replace(/\.\s+/g, ".\n");
 }
 
 function applyDotLineBreaks(rootEl) {
   if (!rootEl) return;
-
   const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, null, false);
   while (walker.nextNode()) {
     const node = walker.currentNode;
-    const t = node.nodeValue;
-
-    // تجاهل العقد التي لا تحتوي نقطة أصلًا (تحسين بسيط للأداء)
-    if (!t || !t.includes(".")) continue;
-
-    const replaced = dotToNewline(t);
-    if (replaced !== t) node.nodeValue = replaced;
+    const text = node.nodeValue;
+    if (!text || !text.includes(".")) continue;
+    const replaced = dotToNewline(text);
+    if (replaced !== text) node.nodeValue = replaced;
   }
 }
 
@@ -83,11 +77,8 @@ function getSolutionHtml(q) {
   return "";
 }
 
-
 function applyTheoremsUI(q) {
   if (!window.TheoremsUI) return;
-
-  // نحمي من تطبيق متأخر على سؤال قديم
   const id = q?.id;
 
   window.TheoremsUI.init({ url: THEOREMS_URL }).then((ok) => {
@@ -96,7 +87,6 @@ function applyTheoremsUI(q) {
     window.TheoremsUI.apply(q, els.solution);
   });
 }
-
 
 function setActive(id) {
   activeId = id;
@@ -129,17 +119,21 @@ function closeModal() {
   els.modalImg.src = "";
 }
 
+function getDatasetLabel(name = currentDataset) {
+  return name === "book" ? "أسئلة الكتاب" : "الأسئلة النهائية";
+}
+
 function renderGallery(q) {
   els.gallery.innerHTML = "";
-
   const imgs = Array.isArray(q.images) ? q.images : [];
+
   if (!imgs.length) {
-    els.gallery.innerHTML = `<div class="meta">لا توجد صور لهذا السؤال.</div>`;
+    els.gallery.innerHTML = `<div class="gallery__empty">لا توجد صور لهذا السؤال.</div>`;
     return;
   }
 
   imgs.forEach((src, i) => {
-    const cap = `صورة ${i + 1} — ${q.title} (${q.id})`;
+    const cap = `صورة ${i + 1} — ${q.title}`;
     const item = document.createElement("div");
     item.className = "gallery__item";
     item.tabIndex = 0;
@@ -149,11 +143,10 @@ function renderGallery(q) {
     img.src = src;
     img.alt = cap;
 
-    // إذا كانت صورة غير موجودة، نخفيها بدل ما نتركها مكسورة
     img.onerror = () => {
       item.remove();
       if (!els.gallery.children.length) {
-        els.gallery.innerHTML = `<div class="meta">لم يتم العثور على صور (تأكد من أسماء الملفات داخل images/).</div>`;
+        els.gallery.innerHTML = `<div class="gallery__empty">لم يتم العثور على الصور داخل المسار الحالي. تأكد من مجلد <span dir="ltr">images/</span>.</div>`;
       }
     };
 
@@ -174,11 +167,33 @@ function renderGallery(q) {
   });
 }
 
+function renderMeta(q) {
+  const datasetLabel = getDatasetLabel();
+  const theoremCount = Array.isArray(q?.theoremsUsed)
+    ? q.theoremsUsed.filter(Boolean).length
+    : 0;
+  const currentIndex = findIndexById(filtered, q.id);
+
+  const parts = [
+    `<span class="meta-chip">${datasetLabel}</span>`,
+    `<span>السؤال ${escapeHtml(String(q.number))}</span>`,
+  ];
+
+  if (currentIndex >= 0) {
+    parts.push(`<span>${currentIndex + 1} من ${filtered.length}</span>`);
+  }
+
+  if (theoremCount) {
+    parts.push(`<span>مرتبط بـ ${theoremCount} نظرية</span>`);
+  }
+
+  els.meta.innerHTML = parts.join('<span class="meta-dot">•</span>');
+}
+
 function renderSolution(q) {
   els.title.textContent = q.title;
-  // els.meta.textContent = `المعرّف: ${q.id} — رقم السؤال: ${q.number}`;
+  renderMeta(q);
 
-  // الحل: HTML (عمودين/طرق متعددة) إن وُجد، وإلا عرض نصي عادي
   const html = getSolutionHtml(q).trim();
   if (html) {
     els.solution.innerHTML = html;
@@ -189,21 +204,17 @@ function renderSolution(q) {
     els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(lines.join("\n"))}</pre>`;
   }
 
-  // تحسين القراءة: نزول سطر بعد كل نقطة داخل الحل
   applyDotLineBreaks(els.solution);
-
   renderGallery(q);
-
   setActive(q.id);
   updateNavButtons();
   location.hash = q.id;
-
-  // تفعيل بطاقات النظريات/القوانين (إن وُجدت)
   applyTheoremsUI(q);
 }
 
 function renderList() {
   els.list.innerHTML = "";
+
   filtered.forEach((q) => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -220,17 +231,25 @@ function renderList() {
 
     btn.appendChild(title);
     btn.appendChild(num);
-
     btn.addEventListener("click", () => renderSolution(q));
     els.list.appendChild(btn);
   });
 }
 
+function renderEmptySearchState() {
+  activeId = null;
+  els.title.textContent = "لا توجد نتائج مطابقة";
+  els.meta.textContent = "";
+  els.solution.innerHTML = `<div class="empty-state">جرّب كلمة بحث أخرى أو امسح البحث لعرض كل الأسئلة.</div>`;
+  els.gallery.innerHTML = "";
+  updateNavButtons();
+}
+
 function applyFilter() {
   const q = normalizeArabic(els.search.value);
+
   if (!q) {
     filtered = [...allQuestions];
-  activeId = null;
   } else {
     filtered = allQuestions.filter((item) => {
       const hay = normalizeArabic(`${item.id} ${item.title} ${item.number}`);
@@ -240,17 +259,13 @@ function applyFilter() {
 
   renderList();
 
-  // إذا السؤال الحالي اختفى بسبب الفلترة، افتح أول نتيجة
+  if (!filtered.length) {
+    renderEmptySearchState();
+    return;
+  }
+
   if (!filtered.some((x) => x.id === activeId)) {
-    if (filtered.length) renderSolution(filtered[0]);
-    else {
-      activeId = null;
-      els.title.textContent = "لا توجد نتائج";
-      els.meta.textContent = "";
-      els.solution.innerHTML = `<div class="solution-empty">جرّب كلمة بحث أخرى.</div>`;
-      els.gallery.innerHTML = "";
-      updateNavButtons();
-    }
+    renderSolution(filtered[0]);
   } else {
     setActive(activeId);
     updateNavButtons();
@@ -269,8 +284,8 @@ function inferDatasetFromHash(hashId) {
 
 function setTabsUI(name) {
   currentDataset = name;
-
   const isBook = name === "book";
+
   if (els.tabBook) {
     els.tabBook.classList.toggle("is-active", isBook);
     els.tabBook.setAttribute("aria-selected", isBook ? "true" : "false");
@@ -280,7 +295,7 @@ function setTabsUI(name) {
     els.tabFinal.setAttribute("aria-selected", !isBook ? "true" : "false");
   }
   if (els.datasetBadge) {
-    els.datasetBadge.textContent = isBook ? "الكتاب" : "Final";
+    els.datasetBadge.textContent = isBook ? "الكتاب" : "النهائي";
   }
 }
 
@@ -298,8 +313,6 @@ async function loadDataset(name) {
 
 async function switchDataset(name, { openHash = true } = {}) {
   setTabsUI(name);
-
-  // تفريغ البحث عند تبديل المصدر لتفادي اختفاء القائمة
   if (els.search) els.search.value = "";
 
   allQuestions = await loadDataset(name);
@@ -316,43 +329,60 @@ async function switchDataset(name, { openHash = true } = {}) {
     }
   }
 
-  // افتراضيًا افتح أول سؤال في هذا المصدر
-  if (filtered.length) renderSolution(filtered[0]);
+  if (filtered.length) {
+    renderSolution(filtered[0]);
+  } else {
+    renderEmptySearchState();
+  }
 }
 
 async function init() {
-  // preloadTheoremsUI (مشترك بين التبويبين)
   if (window.TheoremsUI) window.TheoremsUI.init({ url: THEOREMS_URL });
 
   const hashId = getHashId();
   const initialDataset = inferDatasetFromHash(hashId);
 
-  // listeners للتبويبات
   if (els.tabBook) els.tabBook.addEventListener("click", () => switchDataset("book", { openHash: false }));
   if (els.tabFinal) els.tabFinal.addEventListener("click", () => switchDataset("final", { openHash: false }));
 
   await switchDataset(initialDataset, { openHash: true });
 }
+
 els.search.addEventListener("input", applyFilter);
 
 els.prev.addEventListener("click", () => {
   const idx = findIndexById(filtered, activeId);
   if (idx > 0) renderSolution(filtered[idx - 1]);
 });
+
 els.next.addEventListener("click", () => {
   const idx = findIndexById(filtered, activeId);
   if (idx >= 0 && idx < filtered.length - 1) renderSolution(filtered[idx + 1]);
 });
 
-// Modal events
 els.modalClose.addEventListener("click", closeModal);
 els.modalBackdrop.addEventListener("click", closeModal);
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !els.modal.classList.contains("hidden")) closeModal();
 });
 
-init().catch((err) => {
-  els.title.textContent = "خطأ في تحميل البيانات";
-  els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(String(err))}</pre>`;
+window.addEventListener("hashchange", async () => {
+  const hashId = getHashId();
+  if (!hashId) return;
+
+  const wantedDataset = inferDatasetFromHash(hashId);
+  if (wantedDataset !== currentDataset) {
+    await switchDataset(wantedDataset, { openHash: true });
+    return;
+  }
+
+  const q = allQuestions.find((item) => item.id === hashId);
+  if (q) renderSolution(q);
 });
 
+init().catch((err) => {
+  els.title.textContent = "حدث خطأ أثناء تحميل البيانات";
+  els.meta.textContent = "";
+  els.solution.innerHTML = `<pre class="solution solution-pre">${escapeHtml(String(err))}</pre>`;
+});
