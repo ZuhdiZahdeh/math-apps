@@ -1379,7 +1379,13 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "images": [],
+      "images": [
+        {
+          "src": "images/converse-isosceles-triangle.png",
+          "alt": "خواص المثلث المتساوي الساقين",
+          "caption": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين."
+        }
+      ],
       "questions": []
     },
     {
