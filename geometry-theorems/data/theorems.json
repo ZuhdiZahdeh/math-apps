@@ -494,7 +494,13 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-       "images": ["images/angle-relationships.png"],
+       "images": [
+        {
+          "src": "images/angle-relationships.png",
+          "alt": "رسم يوضح الزاويتين المتجاورتين",
+          "caption": "شكل توضيحي للزاويتين المتجاورتين."
+        }
+      ],
       "questions": [
         {
           "id": "plane-q14",
