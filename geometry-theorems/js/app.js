@@ -7,7 +7,8 @@ const DOMAIN_ICONS = {
   'شكل رباعي': '▱',
   'موضع هندسي': '⌖',
   'مضلع': '⬠',
-  'دائرة': '◯'
+  'دائرة': '◯',
+  'هندسة فراغية': '⬡'
 };
 
 const SPECIFIC_QUESTIONS = {
@@ -426,7 +427,14 @@ const els = {
   heroStats: document.getElementById('heroStats'),
   breadcrumbs: document.getElementById('breadcrumbs'),
   view: document.getElementById('view'),
-  homeLink: document.getElementById('homeLink')
+  homeLink: document.getElementById('homeLink'),
+  theoremsList: document.getElementById('theoremsList'),
+  theoremCountBadge: document.getElementById('theoremCountBadge'),
+  pageTitle: document.getElementById('pageTitle'),
+  metaLine: document.getElementById('metaLine'),
+  prevBtn: document.getElementById('prevBtn'),
+  nextBtn: document.getElementById('nextBtn'),
+  summaryBtn: document.getElementById('summaryBtn')
 };
 
 function escapeHtml(value) {
@@ -629,36 +637,222 @@ function getQuestionsForTheorem(theorem) {
   });
 }
 
+function padLabel(value, size = 3) {
+  return String(value).padStart(size, '0');
+}
+
+function getFilteredTheorems(viewState = getViewState()) {
+  return sortByNumber(filterTheorems({
+    q: viewState.q,
+    domainFilter: viewState.domainFilter
+  }));
+}
+
+function getActiveTheoremId(viewState = getViewState()) {
+  if (viewState.theoremId) return viewState.theoremId;
+  return '';
+}
+
+function buildMeta(parts = []) {
+  return parts
+    .filter(Boolean)
+    .map((part, index) => index === 0
+      ? `<span class="meta-chip">${escapeHtml(part)}</span>`
+      : `<span>${escapeHtml(part)}</span>`)
+    .join('<span class="meta-dot">•</span>');
+}
+
 function updateToolbarState() {
   const viewState = getViewState();
-  els.searchInput.value = viewState.q;
-  els.domainFilter.value = viewState.domainFilter;
-  els.homeLink.href = makeHref({ categoryId: '', theoremId: '', questionKey: '' });
+  if (els.searchInput) els.searchInput.value = viewState.q;
+  if (els.domainFilter) els.domainFilter.value = viewState.domainFilter;
+  if (els.homeLink) els.homeLink.href = makeHref({ categoryId: '', theoremId: '', questionKey: '' });
 
-  const filtered = filterTheorems({ q: viewState.q, domainFilter: viewState.domainFilter });
+  const filtered = getFilteredTheorems(viewState);
   const domainName = viewState.domainFilter === 'all'
     ? 'كل المجالات'
     : byId(state.maps.domain, viewState.domainFilter)?.name || 'مجال محدد';
 
-  els.toolbarNote.textContent = viewState.q
-    ? `عدد النظريات المطابقة الآن: ${filtered.length}. يمكنك فتح النظرية مباشرة أو متابعة التصفح حسب الصنف.`
-    : viewState.domainFilter !== 'all'
-      ? `يعرض المرجع الآن المجال: ${domainName}.`
-      : 'ابدأ من الصنف، أو ابحث مباشرة باسم النظرية بالعربية أو الإنجليزية أو العبرية.';
+  if (els.toolbarNote) {
+    els.toolbarNote.textContent = viewState.q
+      ? `النتائج الحالية: ${filtered.length} نظرية مطابقة. اختر نظرية من القائمة أو تابع التصفح حسب الصنف.`
+      : viewState.domainFilter !== 'all'
+        ? `يعرض المرجع الآن المجال: ${domainName}. يمكنك اختيار أي نظرية من القائمة الجانبية أو النزول إلى الأصناف.`
+        : 'ابدأ من قائمة النظريات، أو ابحث مباشرة باسم النظرية بالعربية أو الإنجليزية أو العبرية.';
+  }
 
-  const stats = [
-    { value: state.data.meta.totalTheorems, label: 'إجمالي النظريات' },
-    { value: state.data.meta.totalCategories, label: 'عدد الأصناف' },
-    { value: state.data.meta.totalDomains, label: 'عدد المجالات' },
-    { value: filtered.length, label: 'المعروض حاليًا' }
-  ];
+  if (els.heroStats) {
+    const stats = [
+      { value: state.data.meta.totalTheorems, label: 'إجمالي النظريات' },
+      { value: state.data.meta.totalCategories, label: 'عدد الأصناف' },
+      { value: state.data.meta.totalDomains, label: 'عدد المجالات' },
+      { value: filtered.length, label: 'المعروض حاليًا' }
+    ];
 
-  els.heroStats.innerHTML = stats.map(stat => `
-    <div class="stat-card">
-      <strong>${escapeHtml(stat.value)}</strong>
-      <span>${escapeHtml(stat.label)}</span>
-    </div>
+    els.heroStats.innerHTML = stats.map(stat => `
+      <div class="stat-card">
+        <strong>${escapeHtml(stat.value)}</strong>
+        <span>${escapeHtml(stat.label)}</span>
+      </div>
+    `).join('');
+  }
+
+  if (els.theoremCountBadge) {
+    els.theoremCountBadge.textContent = `${filtered.length}`;
+  }
+}
+
+function renderSidebarList() {
+  if (!els.theoremsList) return;
+
+  const viewState = getViewState();
+  const filtered = getFilteredTheorems(viewState);
+  const activeTheoremId = getActiveTheoremId(viewState);
+
+  if (!filtered.length) {
+    els.theoremsList.innerHTML = `
+      <div class="empty-state empty-state--compact">
+        <h3>لا توجد نظريات مطابقة</h3>
+        <p>جرّب عبارة بحث أخرى أو أزل التصفية الحالية.</p>
+      </div>
+    `;
+    return;
+  }
+
+  els.theoremsList.innerHTML = filtered.map(theorem => `
+    <a
+      class="qbtn qbtn--theorem ${activeTheoremId === theorem.id ? 'active' : ''}"
+      href="${makeHref({ categoryId: '', theoremId: theorem.id, questionKey: '' })}"
+      data-theorem-id="${escapeHtml(theorem.id)}"
+      aria-current="${activeTheoremId === theorem.id ? 'page' : 'false'}"
+    >
+      <div class="qbtn__labels">
+        <div class="qbtn__title">${escapeHtml(theorem.name.ar)}</div>
+        <div class="qbtn__meta">${escapeHtml(theorem.category)} <span>•</span> ${escapeHtml(theorem.domain)}</div>
+      </div>
+      <div class="qbtn__num">T${padLabel(theorem.number)}</div>
+    </a>
   `).join('');
+}
+
+function getAdjacentTheorems(viewState = getViewState()) {
+  const filtered = getFilteredTheorems(viewState);
+  const activeTheoremId = getActiveTheoremId(viewState);
+  const index = filtered.findIndex(item => item.id === activeTheoremId);
+
+  return {
+    filtered,
+    index,
+    prev: index > 0 ? filtered[index - 1] : null,
+    next: index >= 0 && index < filtered.length - 1 ? filtered[index + 1] : null
+  };
+}
+
+function updateNavButtons() {
+  const { prev, next } = getAdjacentTheorems();
+  if (els.prevBtn) els.prevBtn.disabled = !prev;
+  if (els.nextBtn) els.nextBtn.disabled = !next;
+}
+
+function navigateTo(href, mode = 'push') {
+  pushHref(href, mode);
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToSummary() {
+  navigateTo(makeHref({ categoryId: '', theoremId: '', questionKey: '' }), 'push');
+}
+
+function goToAdjacent(direction) {
+  const { prev, next } = getAdjacentTheorems();
+  const target = direction === 'prev' ? prev : next;
+  if (!target) return;
+  navigateTo(makeHref({ categoryId: '', theoremId: target.id, questionKey: '' }), 'push');
+}
+
+function syncPageChrome() {
+  const viewState = getViewState();
+  const filtered = getFilteredTheorems(viewState);
+  const domain = viewState.domainFilter !== 'all' ? byId(state.maps.domain, viewState.domainFilter) : null;
+
+  if (els.summaryBtn) {
+    els.summaryBtn.disabled = !viewState.categoryId && !viewState.theoremId && !viewState.questionKey;
+  }
+
+  if (!els.pageTitle || !els.metaLine) {
+    updateNavButtons();
+    return;
+  }
+
+  if (viewState.questionKey && viewState.theoremId) {
+    const theorem = byId(state.maps.theorem, viewState.theoremId);
+    const question = theorem ? getQuestionsForTheorem(theorem).find(item => item.id === viewState.questionKey) : null;
+    els.pageTitle.textContent = question?.title || 'بطاقة سؤال مرتبطة';
+    els.metaLine.innerHTML = buildMeta([
+      theorem ? `النظرية ${theorem.number}` : '',
+      theorem?.name?.ar || '',
+      theorem?.category || '',
+      question?.level || ''
+    ]);
+    updateNavButtons();
+    return;
+  }
+
+  if (viewState.theoremId) {
+    const theorem = byId(state.maps.theorem, viewState.theoremId);
+    const questionCount = theorem ? getQuestionsForTheorem(theorem).length : 0;
+    els.pageTitle.textContent = theorem?.name?.ar || 'بطاقة نظرية';
+    els.metaLine.innerHTML = buildMeta([
+      theorem ? `النظرية ${theorem.number}` : '',
+      theorem?.domain || '',
+      theorem?.category || '',
+      theorem ? `${questionCount} بطاقات تطبيقية` : ''
+    ]);
+    updateNavButtons();
+    return;
+  }
+
+  if (viewState.categoryId) {
+    const category = byId(state.maps.category, viewState.categoryId);
+    const domainForCategory = category ? byId(state.maps.domain, category.domainId) : null;
+    const count = category
+      ? filtered.filter(item => item.categoryId === category.id).length
+      : 0;
+
+    els.pageTitle.textContent = category?.name || 'صنف نظري';
+    els.metaLine.innerHTML = buildMeta([
+      domainForCategory?.name || '',
+      category ? `${count} نظرية معروضة` : '',
+      viewState.q ? 'نتائج مفلترة' : 'تصفح حسب الصنف'
+    ]);
+    updateNavButtons();
+    return;
+  }
+
+  els.pageTitle.textContent = state.data?.meta?.title || 'مرجع النظريات الهندسية';
+  els.metaLine.innerHTML = buildMeta([
+    domain?.name || 'كل المجالات',
+    viewState.q ? `${filtered.length} نتيجة بحث` : 'تصفح المجالات والأصناف',
+    `${state.data?.meta?.totalTheorems || 0} نظرية`
+  ]);
+  updateNavButtons();
+}
+
+function bindInternalNavigation() {
+  document.addEventListener('click', (event) => {
+    const anchor = event.target.closest('a[href]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+
+    const isInternal = href === './index.html' || href === 'index.html' || href.startsWith('?');
+    if (!isInternal) return;
+
+    event.preventDefault();
+    navigateTo(href, 'push');
+  });
 }
 
 function renderBreadcrumbs() {
@@ -1264,22 +1458,27 @@ function renderNotFound(message) {
 
 function render() {
   updateToolbarState();
+  renderSidebarList();
   renderBreadcrumbs();
 
   const viewState = getViewState();
   if (viewState.questionKey && viewState.theoremId) {
     renderQuestionPage(viewState.theoremId, viewState.questionKey);
+    syncPageChrome();
     return;
   }
   if (viewState.theoremId) {
     renderTheoremPage(viewState.theoremId);
+    syncPageChrome();
     return;
   }
   if (viewState.categoryId) {
     renderCategoryPage(viewState.categoryId);
+    syncPageChrome();
     return;
   }
   renderSummaryPage();
+  syncPageChrome();
 }
 
 function onSearchInput() {
@@ -1324,8 +1523,13 @@ async function init() {
     buildMaps();
     populateDomainFilter();
 
-    els.searchInput.addEventListener('input', onSearchInput);
-    els.domainFilter.addEventListener('change', onDomainFilterChange);
+    els.searchInput?.addEventListener('input', onSearchInput);
+    els.domainFilter?.addEventListener('change', onDomainFilterChange);
+    els.prevBtn?.addEventListener('click', () => goToAdjacent('prev'));
+    els.nextBtn?.addEventListener('click', () => goToAdjacent('next'));
+    els.summaryBtn?.addEventListener('click', goToSummary);
+
+    bindInternalNavigation();
     window.addEventListener('popstate', render);
 
     render();
