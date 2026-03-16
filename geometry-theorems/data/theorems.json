@@ -9550,7 +9550,7 @@
       },
       "images": [
         {
-          "src": ""src": "images/laws-of-sines-and-cosines.png",
+          "src": "images/laws-of-sines-and-cosines.png",
           "alt": "قانون الجيوب",
           "caption": "في أي مثلث: a/sin(A) = b/sin(B) = c/sin(C)."
         }
