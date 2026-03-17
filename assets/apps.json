@@ -9,11 +9,11 @@
     "desc": "تجربة بصرية لمجموع 1..n عبر تكوين مستطيل n×(n+1) ثم أخذ نصفه."
   },
   {
-    "id": "factors-lcm",
-    "title": "العوامل و القواسم و LCM",
+    "id": "geometry",
+    "title": "الصفحة الموحدة لاسئلة الهندسة",
     "grades": [5,6],
     "tags": ["عدد", "قواسم", "مضاعفات"],
-    "path": "apps/factors-lcm/index.html",
+    "path": "geometry/index.html",
     "thumb": "images/thumbs/placeholder.jpg",
     "desc": "استكشاف العوامل والمضاعفات و القاسم والمضاعف المشترك الأصغر."
   },
