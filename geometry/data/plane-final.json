@@ -15,9 +15,9 @@
       "title": "واجب نهائي — سؤال (3) صفحة 3",
       "summary": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
       "images": [
-        "images/qf-3-p3.png",
-        "images/qf-3-1-p3.png",
-        "images/qf-3-2-p3.png"
+        "images/questions/plane/qf-3-p3.png",
+        "images/questions/plane/qf-3-1-p3.png",
+        "images/questions/plane/qf-3-2-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -138,9 +138,9 @@
       "title": "واجب نهائي — سؤال (4) صفحة 3",
       "summary": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
       "images": [
-        "images/qf-4-p3.png",
-        "images/qf-4-1-p3.png",
-        "images/qf-4-2-p3.png"
+        "images/questions/plane/qf-4-p3.png",
+        "images/questions/plane/qf-4-1-p3.png",
+        "images/questions/plane/qf-4-2-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -280,7 +280,7 @@
       "title": "واجب نهائي — سؤال (5) - صفحة 1",
       "summary": "✅ المعطى ABCD مستطيل، والقطران يتقاطعان في O . E نقطة على DC بحيث: CE = CO و DE = OE . ✅ المطلوب احسب الزاوية الحادّة بين قطري المستطيل. ✅ الحل — خطوة بخطوة بدون تعقيد ليكن DC=a و AD=b ، وضع DE=x ⇒ CE=a-x . لأن المستطيل ",
       "images": [
-        "images/qf-5-p1.png"
+        "images/questions/plane/qf-5-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -356,8 +356,8 @@
       "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
       "summary": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
       "images": [
-        "images/qf-5-p3.png",
-        "images/qf-5-1-p3.png"
+        "images/questions/plane/qf-5-p3.png",
+        "images/questions/plane/qf-5-1-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -455,10 +455,10 @@
       "title": "واجب نهائي — سؤال (6) - صفحة 1",
       "summary": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
       "images": [
-        "images/qf-6-p1.png",
-        "images/qf-6-1-p1.png",
-        "images/qf-6-2-p1.png",
-        "images/qf-6-3-p1.png"
+        "images/questions/plane/qf-6-p1.png",
+        "images/questions/plane/qf-6-1-p1.png",
+        "images/questions/plane/qf-6-2-p1.png",
+        "images/questions/plane/qf-6-3-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -571,7 +571,7 @@
       "title": "واجب نهائي — سؤال (6) - صفحة 3",
       "summary": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
       "images": [
-        "images/qf-6-p3.png"
+        "images/questions/plane/qf-6-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -715,7 +715,7 @@
       "title": "واجب نهائي — سؤال (7) - صفحة 1",
       "summary": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
       "images": [
-        "images/qf-7-p1.png"
+        "images/questions/plane/qf-7-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -861,7 +861,7 @@
       "title": "واجب نهائي — سؤال (7) - صفحة 4",
       "summary": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
       "images": [
-        "images/qf-7-p4.png"
+        "images/questions/plane/qf-7-p4.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -937,9 +937,9 @@
       "title": "واجب نهائي — سؤال (8) - صفحة 1",
       "summary": "✅ المعطى ABCD متوازي أضلاع، والقطران AC و BD يتقاطعان في O . E على امتداد AD . DE ⟂ BE . ✅ المطلوب إثبات أن △DOE متساوي الساقين (أي DO = OE ). ✅ الحل — طريقتان (لتثبيت الفكرة) ① منتصف الوتر في مثلث قائم من DE ⟂ BE ⇒ ∠DEB",
       "images": [
-        "images/qf-8-p1.png",
-        "images/qf-8-1-p1.png",
-        "images/qf-8-2-p1.png"
+        "images/questions/plane/qf-8-p1.png",
+        "images/questions/plane/qf-8-1-p1.png",
+        "images/questions/plane/qf-8-2-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1025,7 +1025,7 @@
       "title": "واجب نهائي — سؤال (8) - صفحة 4",
       "summary": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
       "images": [
-        "images/qf-8-p4.png"
+        "images/questions/plane/qf-8-p4.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1105,7 +1105,7 @@
       "title": "واجب نهائي — سؤال (9) - صفحة 1",
       "summary": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
       "images": [
-        "images/qf-9-p1.png"
+        "images/questions/plane/qf-9-p1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1182,8 +1182,8 @@
       "title": "واجب نهائي — سؤال (10) صفحة 2",
       "summary": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
       "images": [
-        "images/qf-10-p2.png",
-        "images/qf-10-1-p2.png"
+        "images/questions/plane/qf-10-p2.png",
+        "images/questions/plane/qf-10-1-p2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1288,9 +1288,9 @@
       "title": "واجب نهائي — سؤال (11) صفحة 2",
       "summary": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
       "images": [
-        "images/qf-11-p2.png",
-        "images/qf-11-1-p2.png",
-        "images/qf-11-2-p2.png"
+        "images/questions/plane/qf-11-p2.png",
+        "images/questions/plane/qf-11-1-p2.png",
+        "images/questions/plane/qf-11-2-p2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1398,7 +1398,7 @@
       "title": "واجب نهائي — سؤال (14) صفحة 1",
       "summary": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
       "images": [
-        "images/qf-14.png"
+        "images/questions/plane/qf-14.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1478,8 +1478,8 @@
       "title": "واجب نهائي — سؤال (15) صفحة 2",
       "summary": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
       "images": [
-        "images/qf-15.png",
-        "images/qf-15-1.png"
+        "images/questions/plane/qf-15.png",
+        "images/questions/plane/qf-15-1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1600,7 +1600,7 @@
       "title": "واجب نهائي — سؤال (16) صفحة 2",
       "summary": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
       "images": [
-        "images/qf-16-p2.png"
+        "images/questions/plane/qf-16-p2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1734,7 +1734,7 @@
       "title": "واجب نهائي — سؤال (17) صفحة 2",
       "summary": "✅ المعطى ABCD مربع. MNBK مربع. ✅ المطلوب إثبات أن KC = AN . إثبات أن KC ⟂ AN . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) من تعريف المربع : في المربع ABCD : AB = BC و AB ⟂ BC . في المر",
       "images": [
-        "images/qf-17-p2.png"
+        "images/questions/plane/qf-17-p2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1848,8 +1848,8 @@
       "title": "واجب نهائي — سؤال (20) صفحة 3",
       "summary": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
       "images": [
-        "images/qf-20-p3.png",
-        "images/qf-20-1-p3.png"
+        "images/questions/plane/qf-20-p3.png",
+        "images/questions/plane/qf-20-1-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1958,7 +1958,7 @@
       "title": "واجب نهائي — سؤال (21) - صفحة 3",
       "summary": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
       "images": [
-        "images/qf-21-p3.png"
+        "images/questions/plane/qf-21-p3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -2031,7 +2031,7 @@
       "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
       "summary": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
       "images": [
-        "images/qf-28-p5.png"
+        "images/questions/plane/qf-28-p5.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -2107,7 +2107,7 @@
       "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
       "summary": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
       "images": [
-        "images/qf-29-p5.png"
+        "images/questions/plane/qf-29-p5.png"
       ],
       "solution": [
         "✅ المعطى:",

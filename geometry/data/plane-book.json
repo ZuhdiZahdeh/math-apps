@@ -15,9 +15,9 @@
       "title": "سؤال (1)",
       "summary": "✅ المعطى E منتصف AC ⟹ AE = EC . ∠ECF = ∠DAE . ✅ المطلوب (أ) إثبات DE = EF . (ب) إذا كان BD = CF فاثبت أن D منتصف AB . ✅ الحل (أ) — بطريقتين جنبًا إلى جنب ① التشابه (AA) AC و DF يتقاطعان في E ⇒ ∠AED = ∠CEF (متقابلتان بالر",
       "images": [
-        "images/q01-1.png",
-        "images/q01.png",
-        "images/q02.png"
+        "images/questions/plane/q01-1.png",
+        "images/questions/plane/q01.png",
+        "images/questions/plane/q02.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -96,7 +96,7 @@
       "title": "سؤال (2)",
       "summary": "✅ المعطى BE و CD يتقاطعان في O . BO = CO ، DO = EO . ∠AOE = ∠AOD . ✅ المطلوب (أ) إثبات AB = AC . (ب) إثبات أن ADOE دالتون. ✅ البرهان من كون الأشعة على استقامة واحدة: إذا ∠AOE = ∠AOD ⇒ ∠AOB = ∠AOC (مكملات زوايا متساوية). ",
       "images": [
-        "images/q02.png"
+        "images/questions/plane/q02.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -165,7 +165,7 @@
       "title": "سؤال (3)",
       "summary": "✅ البرهان نأخذ △ACD و △BDC . AC = BD (معطى)، و CD مشترك، و ∠ACD = ∠BDC (زاوية محصورة). إذن تطابق (SAS) ⇒ AD = BC .",
       "images": [
-        "images/q03.png"
+        "images/questions/plane/q03.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -203,7 +203,7 @@
       "title": "سؤال (4)",
       "summary": "✅ البرهان AC = AB + BC و AE = AD + DE . من AB=AD و BC=DE ⇒ AC = AE . في △ABE و △ADC : AB=AD ، AE=AC ، و ∠BAE=∠DAC ⇒ تطابق (SAS) ⇒ ∠ABE=∠ADC . بما أن CB امتداد BA و CD امتداد DA : ∠CBE = 180° − ∠ABE ∠CDE = 180° − ∠ADC إذن",
       "images": [
-        "images/q04.png"
+        "images/questions/plane/q04.png"
       ],
       "solution": [
         "✅ المعطى (حسب الرسم):",
@@ -253,7 +253,7 @@
       "title": "سؤال (5)",
       "summary": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
       "images": [
-        "images/q05.png"
+        "images/questions/plane/q05.png"
       ],
       "solution": [
         "✅ المعطى (حسب الرسم):",
@@ -308,7 +308,7 @@
       "title": "سؤال (6)",
       "summary": "✅ التعليل الطريقة تعتمد على دوران 120° في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).",
       "images": [
-        "images/q06.png"
+        "images/questions/plane/q06.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -340,7 +340,7 @@
       "title": "سؤال (7)",
       "summary": "✅ البرهان MB = MC ⇒ M تقع على العمود المنصف للقطعة BC . إذن MA = MD ⇒ △AMD متساوي الساقين ⇒ ∠MAD = ∠MDA .",
       "images": [
-        "images/q07.png"
+        "images/questions/plane/q07.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -378,7 +378,7 @@
       "title": "سؤال (8)",
       "summary": "✅ النتيجة حل 1: (105, 105, 60) حل 2: (75, 75, 120)",
       "images": [
-        "images/q08.png"
+        "images/questions/plane/q08.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -418,7 +418,7 @@
       "title": "سؤال (9)",
       "summary": "✅ البرهان يعتمد على متباينة المثلث .",
       "images": [
-        "images/q09.png"
+        "images/questions/plane/q09.png"
       ],
       "solution": [
         "✅ المعطى: مثلث أطوال أضلاعه a,b,c ومحيطه P = a+b+c.",
@@ -449,7 +449,7 @@
       "title": "سؤال (10)",
       "summary": "✅ البرهان تطبيق مباشر لمتباينة المثلث على △ABD و △ACD .",
       "images": [
-        "images/q10.png"
+        "images/questions/plane/q10.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -483,7 +483,7 @@
       "title": "سؤال (11)",
       "summary": "✅ الفكرة نجمع ثلاث متباينات مثلث.",
       "images": [
-        "images/q11.png"
+        "images/questions/plane/q11.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -520,7 +520,7 @@
       "title": "سؤال (12)",
       "summary": "✅ البرهان تطبيق متباينة المثلث على مثلثين يحويان المتوسط.",
       "images": [
-        "images/q12.png"
+        "images/questions/plane/q12.png"
       ],
       "solution": [
         "✅ المعطى: في المثلث ABC، ma متوسط من A إلى BC (M منتصف BC).",
@@ -552,7 +552,7 @@
       "title": "سؤال (13)",
       "summary": "✅ الفكرة نجمع ثلاث متباينات ناتجة عن متباينة المثلث (عبر السؤال 12).",
       "images": [
-        "images/q13.png"
+        "images/questions/plane/q13.png"
       ],
       "solution": [
         "✅ المعطى: في المثلث ABC متوسطاته الثلاثة ma, mb, mc.",
@@ -585,7 +585,7 @@
       "title": "سؤال (14)",
       "summary": "✅ ملاحظة يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.",
       "images": [
-        "images/q14.png"
+        "images/questions/plane/q14.png"
       ],
       "solution": [
         "✅ المعطى: مثلث متساوي الساقين.",
@@ -612,9 +612,9 @@
       "title": "سؤال (15)",
       "summary": "✅ المعطى AB = AC = AD . الزاوية ∠BCD معطاة (إما 140° أو α ). ✅ المطلوب (أ) إذا ∠BCD = 140° احسب ∠BAD . (ب) إذا ∠BCD = α عبّر عن ∠BAD بدلالة α . ✅ البرهان من AB = AC ⇒ △ABC متساوي الساقين ⇒ ∠ABC = ∠BCA = β . من AC = AD ⇒ ",
       "images": [
-        "images/q15.png",
-        "images/q15-1.png",
-        "images/q15-2.png"
+        "images/questions/plane/q15.png",
+        "images/questions/plane/q15-1.png",
+        "images/questions/plane/q15-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -690,7 +690,7 @@
       "title": "سؤال (16)",
       "summary": "✅ التعليل المسألة تعتمد على منصف الزاوية والمتوسط للوتر داخل مثلث قائم.",
       "images": [
-        "images/q16.png"
+        "images/questions/plane/q16.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -728,7 +728,7 @@
       "title": "سؤال (17)",
       "summary": "✅ التعليل يُستخدم: علاقات الارتفاع على الوتر + فيثاغورس/نسب مثلث قائم.",
       "images": [
-        "images/q17.png"
+        "images/questions/plane/q17.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -769,7 +769,7 @@
       "title": "سؤال (18)",
       "summary": "✅ التعليل يعتمد على: المتوسط للوتر في مثلث قائم + منصف زاوية.",
       "images": [
-        "images/q18.png"
+        "images/questions/plane/q18.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -808,7 +808,7 @@
       "title": "سؤال (19)",
       "summary": "✅ التعليل المتوسط للوتر في مثلث قائم + تعريف منصف الزاوية.",
       "images": [
-        "images/q19.png"
+        "images/questions/plane/q19.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -842,7 +842,7 @@
       "title": "سؤال (20)",
       "summary": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
       "images": [
-        "images/q20.png"
+        "images/questions/plane/q20.png"
       ],
       "solution": [
         "✅ المعطى: (حسب الرسم).",
@@ -871,7 +871,7 @@
       "title": "سؤال (21)",
       "summary": "✅ التعليل تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.",
       "images": [
-        "images/q21.png"
+        "images/questions/plane/q21.png"
       ],
       "solution": [
         "✅ المعطى: AB=AC، و KL ∥ AC، و KM ∥ AB.",
@@ -901,7 +901,7 @@
       "title": "سؤال (22)",
       "summary": "✅ التعليل خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.",
       "images": [
-        "images/q22.png"
+        "images/questions/plane/q22.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -943,7 +943,7 @@
       "title": "سؤال (23)",
       "summary": "✅ التعليل خواص متوازي الأضلاع + زوايا مكملة (180°) في المتوازي.",
       "images": [
-        "images/q23.png"
+        "images/questions/plane/q23.png"
       ],
       "solution": [
         "✅ المعطى: ABCD متوازي أضلاع، ومنصفات الزوايا تشكل الرباعي EFGH.",
@@ -973,7 +973,7 @@
       "title": "سؤال (24)",
       "summary": "✅ التعليل نظرية القطعة المتوسطة (منتصفات) + توازي.",
       "images": [
-        "images/q24.png"
+        "images/questions/plane/q24.png"
       ],
       "solution": [
         "✅ المعطى: P,Q,R,S منتصفات أضلاع ABCD.",
@@ -1006,7 +1006,7 @@
       "title": "سؤال (25)",
       "summary": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
       "images": [
-        "images/q25.png"
+        "images/questions/plane/q25.png"
       ],
       "solution": [
         "✅ المعطى: (حسب الرسم).",
@@ -1035,7 +1035,7 @@
       "title": "سؤال (26)",
       "summary": "✅ التعليل تطابق (ض-ز-ض) باستخدام زاوية قائمة كزاوية محصورة.",
       "images": [
-        "images/q26.png"
+        "images/questions/plane/q26.png"
       ],
       "solution": [
         "✅ المعطى: مربع ABCD، N على BC و M على CD و CM = BN.",
@@ -1063,7 +1063,7 @@
       "title": "سؤال (27)",
       "summary": "✅ ملاحظة النظرية الأساسية: متساوي الساقين.",
       "images": [
-        "images/q27.png"
+        "images/questions/plane/q27.png"
       ],
       "solution": [
         "✅ المعطى: (حسب الرسم).",
@@ -1088,8 +1088,8 @@
       "title": "سؤال (28)",
       "summary": "✅ المعطى في متوازي الأضلاع ABCD : M منتصف BC و N منتصف DC . E = AM ∩ BD و F = AN ∩ BD . ✅ المطلوب إثبات BE = EF = FD . ✅ البرهان لتكن O = AC ∩ BD . بما أن ABCD متوازي أضلاع ⇒ القطران ينصف كلٌ منهما الآخر ⇒ O منتصف BD و م",
       "images": [
-        "images/q28.png",
-        "images/q28-1.png"
+        "images/questions/plane/q28.png",
+        "images/questions/plane/q28-1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1166,7 +1166,7 @@
       "title": "سؤال (29)",
       "summary": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
       "images": [
-        "images/q29.png"
+        "images/questions/plane/q29.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1272,7 +1272,7 @@
       "title": "سؤال (30)",
       "summary": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
       "images": [
-        "images/q30.png"
+        "images/questions/plane/q30.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1357,8 +1357,8 @@
       "title": "سؤال (31)",
       "summary": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
       "images": [
-        "images/q31-1.png",
-        "images/q31-2.png"
+        "images/questions/plane/q31-1.png",
+        "images/questions/plane/q31-2.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1414,7 +1414,7 @@
       "title": "سؤال (32)",
       "summary": "✅ التعليل يظهر استخدام فيثاغورس في حسابات الأطوال (مربعات أطوال).",
       "images": [
-        "images/q32.png"
+        "images/questions/plane/q32.png"
       ],
       "solution": [
         "✅ المعطى: ABCD مربع، و AE=BF=CG=DH، والرباعي الخارجي EFGH.",
@@ -1441,7 +1441,7 @@
       "title": "سؤال (33)",
       "summary": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
       "images": [
-        "images/q33.png"
+        "images/questions/plane/q33.png"
       ],
       "solution": [
         "✅ المعطى: شبه منحرف AD ∥ BC، و PQ قطعة متوسطة، و O منتصف PQ، و M على BC و MO يقطع AD في N.",
@@ -1469,7 +1469,7 @@
       "title": "سؤال (34)",
       "summary": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
       "images": [
-        "images/q34.png"
+        "images/questions/plane/q34.png"
       ],
       "solution": [
         "✅ المعطى: مربع ABCD، BD قطر، BF منصف ∠ABD، و FG ⟂ BD، و G على BD.",
@@ -1496,7 +1496,7 @@
       "title": "سؤال (35)",
       "summary": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
       "images": [
-        "images/q35.png"
+        "images/questions/plane/q35.png"
       ],
       "solution": [
         "✅ المعطى: (حسب الرسم).",
@@ -1523,7 +1523,7 @@
       "title": "سؤال (36)",
       "summary": "✅ التعليل متساوي الساقين + زوايا مكملة على استقامة واحدة.",
       "images": [
-        "images/q36.png"
+        "images/questions/plane/q36.png"
       ],
       "solution": [
         "✅ المعطى: E–B–A–D على استقامة، و AC=AD و BC=BE.",
@@ -1553,11 +1553,11 @@
       "title": "سؤال (37)",
       "summary": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
       "images": [
-        "images/q37.png",
-        "images/q37-1.png",
-        "images/q37-2.png",
-        "images/q37-3.png",
-        "images/q37-4.png"
+        "images/questions/plane/q37.png",
+        "images/questions/plane/q37-1.png",
+        "images/questions/plane/q37-2.png",
+        "images/questions/plane/q37-3.png",
+        "images/questions/plane/q37-4.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1668,10 +1668,10 @@
       "title": "سؤال (38)",
       "summary": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
       "images": [
-        "images/q38.png",
-        "images/q38-1.png",
-        "images/q38-2.png",
-        "images/q38-3.png"
+        "images/questions/plane/q38.png",
+        "images/questions/plane/q38-1.png",
+        "images/questions/plane/q38-2.png",
+        "images/questions/plane/q38-3.png"
       ],
       "solution": [],
       "solutionHtml": [
@@ -1764,8 +1764,8 @@
       "title": "سؤال (40)",
       "summary": "✅ المعطى النقطة O داخل △ABC بحيث OA = OB = OC . في (أ): ∠BAC = 40° ، ∠CBA = 65° . في (ب): ∠BAC = α ، ∠CBA = β . ✅ المطلوب (أ) احسب ∠AOB . (ب) عبّر عن ∠AOB بدلالة α و β . ✅ البرهان OA = OB = OC ⇒ A,B,C على دائرة مركزها O ",
       "images": [
-        "images/q40.png",
-        "images/q40-1.png"
+        "images/questions/plane/q40.png",
+        "images/questions/plane/q40-1.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1841,10 +1841,10 @@
       "title": "سؤال (41)",
       "summary": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
       "images": [
-        "images/q41.png",
-        "images/q41-1.png",
-        "images/q41-2.png",
-        "images/q41-3.png"
+        "images/questions/plane/q41.png",
+        "images/questions/plane/q41-1.png",
+        "images/questions/plane/q41-2.png",
+        "images/questions/plane/q41-3.png"
       ],
       "solution": [
         "✅ المعطى:",
@@ -1922,8 +1922,8 @@
       "title": "سؤال (43)",
       "summary": "✅ المعطى في △ABC ، AE موازية لمنصف الزاوية ∠B . AF موازية لمنصف الزاوية ∠C . النقاط E,B,C,F على استقامة واحدة. ✅ المطلوب برهن أن EF = AB + BC + AC (أي EF يساوي محيط △ABC ). ✅ البرهان لتكن BM منصف الزاوية ∠ABC . بما أن AE",
       "images": [
-        "images/q43.svg",
-        "images/q43.png"
+        "images/questions/plane/q43.svg",
+        "images/questions/plane/q43.png"
       ],
       "solution": [
         "✅ المعطى:",

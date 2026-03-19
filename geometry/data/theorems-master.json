@@ -193,7 +193,7 @@
       },
       "images": [
         {
-          "src": "images/angle-relationships.png",
+          "src": "images/theorems/th001-th002_angle-relationships-summary.png",
           "alt": "رسم يوضح الزاويتين المتجاورتين",
           "caption": "شكل توضيحي للزاويتين المتجاورتين."
         }
@@ -213,7 +213,7 @@
           "statement": "✅ المعطى BE و CD يتقاطعان في O . BO = CO ، DO = EO . ∠AOE = ∠AOD . ✅ المطلوب (أ) إثبات AB = AC . (ب) إثبات أن ADOE دالتون. ✅ البرهان من كون الأشعة على استقامة واحدة: إذا ∠AOE = ∠AOD ⇒ ∠AOB = ∠AOC (مكملات زوايا متساوية). ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q02.png"
+            "images/questions/plane/q02.png"
           ]
         },
         {
@@ -226,7 +226,7 @@
           "statement": "✅ البرهان AC = AB + BC و AE = AD + DE . من AB=AD و BC=DE ⇒ AC = AE . في △ABE و △ADC : AB=AD ، AE=AC ، و ∠BAE=∠DAC ⇒ تطابق (SAS) ⇒ ∠ABE=∠ADC . بما أن CB امتداد BA و CD امتداد DA : ∠CBE = 180° − ∠ABE ∠CDE = 180° − ∠ADC إذن",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q04.png"
+            "images/questions/plane/q04.png"
           ]
         },
         {
@@ -239,7 +239,7 @@
           "statement": "✅ ملاحظة يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q14.png"
+            "images/questions/plane/q14.png"
           ]
         },
         {
@@ -252,7 +252,7 @@
           "statement": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q20.png"
+            "images/questions/plane/q20.png"
           ]
         },
         {
@@ -265,7 +265,7 @@
           "statement": "✅ التعليل خواص متوازي الأضلاع + زوايا مكملة (180°) في المتوازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q23.png"
+            "images/questions/plane/q23.png"
           ]
         },
         {
@@ -278,7 +278,7 @@
           "statement": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q25.png"
+            "images/questions/plane/q25.png"
           ]
         },
         {
@@ -291,7 +291,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -304,7 +304,7 @@
           "statement": "✅ التعليل متساوي الساقين + زوايا مكملة على استقامة واحدة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q36.png"
+            "images/questions/plane/q36.png"
           ]
         },
         {
@@ -317,7 +317,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -330,8 +330,8 @@
           "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-15.png",
-            "images/qf-15-1.png"
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
           ]
         },
         {
@@ -344,7 +344,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         }
       ],
@@ -380,12 +380,12 @@
         "زوايا / مستقيمات"
       ],
       "diagram": {
-        "image": "images/theorems/Vertically opposite angles.png",
+        "image": "images/theorems/th001-th002_angle-relationships-summary.png",
         "alt": "الزوايا المتقابلة بالرأس عند تقاطع المستقيمين AB و CD في النقطة M: α = β و γ = δ"
       },
       "images": [
         {
-          "src": "images/angle-relationships.png",
+          "src": "images/theorems/th001-th002_angle-relationships-summary.png",
           "alt": "رسم يوضح الزوايا المتقابلة بالرأس",
           "caption": "شكل توضيحي للزوايا المتقابلة بالرأس."
         }
@@ -405,9 +405,9 @@
           "statement": "✅ المعطى E منتصف AC ⟹ AE = EC . ∠ECF = ∠DAE . ✅ المطلوب (أ) إثبات DE = EF . (ب) إذا كان BD = CF فاثبت أن D منتصف AB . ✅ الحل (أ) — بطريقتين جنبًا إلى جنب ① التشابه (AA) AC و DF يتقاطعان في E ⇒ ∠AED = ∠CEF (متقابلتان بالر",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q01-1.png",
-            "images/q01.png",
-            "images/q02.png"
+            "images/questions/plane/q01-1.png",
+            "images/questions/plane/q01.png",
+            "images/questions/plane/q02.png"
           ]
         },
         {
@@ -420,9 +420,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -435,7 +435,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         }
       ],
@@ -497,12 +497,12 @@
         "زوايا القاعدة"
       ],
       "diagram": {
-        "image": "images/theorems/isosceles triangle.png",
+        "image": "images/theorems/isosceles%20triangle.png",
         "alt": "مثلث متساوي الساقين ABC حيث AB = AC وزاويتا القاعدة عند B و C متساويتان."
       },
       "images": [
         {
-          "src": "images/isosceles triangle.png",
+          "src": "images/theorems/isosceles%20triangle.png",
           "alt": "رسم لمثلث متساوي الساقين",
           "caption": "شكل يوضح المثلث متساوي الساقين وتساوي زاويتي القاعدة."
         }
@@ -522,7 +522,7 @@
           "statement": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q05.png"
+            "images/questions/plane/q05.png"
           ]
         },
         {
@@ -535,7 +535,7 @@
           "statement": "✅ البرهان MB = MC ⇒ M تقع على العمود المنصف للقطعة BC . إذن MA = MD ⇒ △AMD متساوي الساقين ⇒ ∠MAD = ∠MDA .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q07.png"
+            "images/questions/plane/q07.png"
           ]
         },
         {
@@ -548,7 +548,7 @@
           "statement": "✅ النتيجة حل 1: (105, 105, 60) حل 2: (75, 75, 120)",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q08.png"
+            "images/questions/plane/q08.png"
           ]
         },
         {
@@ -561,7 +561,7 @@
           "statement": "✅ ملاحظة يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q14.png"
+            "images/questions/plane/q14.png"
           ]
         },
         {
@@ -574,9 +574,9 @@
           "statement": "✅ المعطى AB = AC = AD . الزاوية ∠BCD معطاة (إما 140° أو α ). ✅ المطلوب (أ) إذا ∠BCD = 140° احسب ∠BAD . (ب) إذا ∠BCD = α عبّر عن ∠BAD بدلالة α . ✅ البرهان من AB = AC ⇒ △ABC متساوي الساقين ⇒ ∠ABC = ∠BCA = β . من AC = AD ⇒ ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q15.png",
-            "images/q15-1.png",
-            "images/q15-2.png"
+            "images/questions/plane/q15.png",
+            "images/questions/plane/q15-1.png",
+            "images/questions/plane/q15-2.png"
           ]
         },
         {
@@ -589,7 +589,7 @@
           "statement": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q20.png"
+            "images/questions/plane/q20.png"
           ]
         },
         {
@@ -602,7 +602,7 @@
           "statement": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q25.png"
+            "images/questions/plane/q25.png"
           ]
         },
         {
@@ -615,7 +615,7 @@
           "statement": "✅ ملاحظة النظرية الأساسية: متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q27.png"
+            "images/questions/plane/q27.png"
           ]
         },
         {
@@ -628,7 +628,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -641,7 +641,7 @@
           "statement": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q30.png"
+            "images/questions/plane/q30.png"
           ]
         },
         {
@@ -654,7 +654,7 @@
           "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q35.png"
+            "images/questions/plane/q35.png"
           ]
         },
         {
@@ -667,7 +667,7 @@
           "statement": "✅ التعليل متساوي الساقين + زوايا مكملة على استقامة واحدة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q36.png"
+            "images/questions/plane/q36.png"
           ]
         },
         {
@@ -680,11 +680,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -697,10 +697,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -713,8 +713,8 @@
           "statement": "✅ المعطى في △ABC ، AE موازية لمنصف الزاوية ∠B . AF موازية لمنصف الزاوية ∠C . النقاط E,B,C,F على استقامة واحدة. ✅ المطلوب برهن أن EF = AB + BC + AC (أي EF يساوي محيط △ABC ). ✅ البرهان لتكن BM منصف الزاوية ∠ABC . بما أن AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q43.svg",
-            "images/q43.png"
+            "images/questions/plane/q43.svg",
+            "images/questions/plane/q43.png"
           ]
         },
         {
@@ -727,7 +727,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -740,7 +740,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -753,7 +753,7 @@
           "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -766,7 +766,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         },
         {
@@ -779,9 +779,9 @@
           "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-11-p2.png",
-            "images/qf-11-1-p2.png",
-            "images/qf-11-2-p2.png"
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
           ]
         },
         {
@@ -794,8 +794,8 @@
           "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-15.png",
-            "images/qf-15-1.png"
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
           ]
         },
         {
@@ -808,7 +808,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         }
       ],
@@ -849,7 +849,7 @@
       },
       "images": [
         {
-          "src": "images/triangle-inequality.png",
+          "src": "images/theorems/triangle-inequality.png",
           "alt": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
           "caption": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث."
         }
@@ -869,7 +869,7 @@
           "statement": "✅ البرهان يعتمد على متباينة المثلث .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q09.png"
+            "images/questions/plane/q09.png"
           ]
         },
         {
@@ -882,7 +882,7 @@
           "statement": "✅ البرهان تطبيق مباشر لمتباينة المثلث على △ABD و △ACD .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q10.png"
+            "images/questions/plane/q10.png"
           ]
         },
         {
@@ -895,7 +895,7 @@
           "statement": "✅ الفكرة نجمع ثلاث متباينات مثلث.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q11.png"
+            "images/questions/plane/q11.png"
           ]
         },
         {
@@ -908,7 +908,7 @@
           "statement": "✅ البرهان تطبيق متباينة المثلث على مثلثين يحويان المتوسط.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q12.png"
+            "images/questions/plane/q12.png"
           ]
         },
         {
@@ -921,7 +921,7 @@
           "statement": "✅ الفكرة نجمع ثلاث متباينات ناتجة عن متباينة المثلث (عبر السؤال 12).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q13.png"
+            "images/questions/plane/q13.png"
           ]
         }
       ],
@@ -953,12 +953,12 @@
         "خواص"
       ],
       "diagram": {
-        "image": "../../geometry-theorems/images/isosceles%20triangle.png",
+        "image": "images/theorems/isosceles%20triangle.png",
         "alt": "خواص المثلث المتساوي الساقين"
       },
       "images": [
         {
-          "src": "images/isosceles%20triangle.png",
+          "src": "images/theorems/isosceles%20triangle.png",
           "alt": "خواص المثلث المتساوي الساقين",
           "caption": "المتوسط النازل من الرأس إلى القاعدة في المثلث المتساوي الساقين هو أيضًا ارتفاع ومنصف زاوية ومنصف للقاعدة."
         }
@@ -978,7 +978,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q12.png"
+            "images/questions/space/q12.png"
           ]
         },
         {
@@ -991,7 +991,7 @@
           "statement": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q15.png"
+            "images/questions/space/q15.png"
           ]
         },
         {
@@ -1004,7 +1004,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q17.png"
+            "images/questions/space/q17.png"
           ]
         },
         {
@@ -1017,7 +1017,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q24.png"
+            "images/questions/space/q24.png"
           ]
         }
       ],
@@ -1047,7 +1047,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/converse-isosceles-triangle.png",
+          "src": "images/theorems/converse-isosceles-triangle.png",
           "alt": "خواص المثلث المتساوي الساقين",
           "caption": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين."
         }
@@ -1210,7 +1210,7 @@
       },
       "images": [
         {
-          "src": "images/sum-interior-angles-180.png",
+          "src": "images/theorems/sum-interior-angles-180.png",
           "alt": "رسم يوضح مجموع زوايا المثلث",
           "caption": "توضيح أن مجموع زوايا المثلث يساوي 180°."
         }
@@ -1230,7 +1230,7 @@
           "statement": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q25.png"
+            "images/questions/plane/q25.png"
           ]
         },
         {
@@ -1243,7 +1243,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -1256,11 +1256,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -1273,10 +1273,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -1289,8 +1289,8 @@
           "statement": "✅ المعطى النقطة O داخل △ABC بحيث OA = OB = OC . في (أ): ∠BAC = 40° ، ∠CBA = 65° . في (ب): ∠BAC = α ، ∠CBA = β . ✅ المطلوب (أ) احسب ∠AOB . (ب) عبّر عن ∠AOB بدلالة α و β . ✅ البرهان OA = OB = OC ⇒ A,B,C على دائرة مركزها O ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q40.png",
-            "images/q40-1.png"
+            "images/questions/plane/q40.png",
+            "images/questions/plane/q40-1.png"
           ]
         },
         {
@@ -1303,7 +1303,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -1316,9 +1316,9 @@
           "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-11-p2.png",
-            "images/qf-11-1-p2.png",
-            "images/qf-11-2-p2.png"
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
           ]
         },
         {
@@ -1331,8 +1331,8 @@
           "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-15.png",
-            "images/qf-15-1.png"
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
           ]
         },
         {
@@ -1345,7 +1345,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         }
       ],
@@ -1410,7 +1410,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/Similar-Triangles-Rules.png",
+          "src": "images/theorems/Similar-Triangles-Rules.png",
           "alt": "قواعد التشابه أو القطعة المتوسطة",
           "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
         }
@@ -1430,7 +1430,7 @@
           "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -1443,7 +1443,7 @@
           "statement": "أثبت أن O هي نقطة تقاطع متوسطات المثلث DEF. 2) إثبات أن D,M,A على استقامة واحدة:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-29-p5.png"
+            "images/questions/plane/qf-29-p5.png"
           ]
         },
         {
@@ -1456,8 +1456,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -1470,7 +1470,7 @@
           "statement": "(أ) PQRS متوازي أضلاع. (ب) إذا AC ⟂ BD → PQRS مستطيل.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q24.png"
+            "images/questions/plane/q24.png"
           ]
         },
         {
@@ -1483,7 +1483,7 @@
           "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -1496,8 +1496,8 @@
           "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -1510,7 +1510,7 @@
           "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -1523,7 +1523,7 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q35.png"
+            "images/questions/plane/q35.png"
           ]
         },
         {
@@ -1536,9 +1536,9 @@
           "statement": "إثبات: EF = 1/2 (a − b).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q41.png",
-            "images/q41-1.png",
-            "images/q41-2.png"
+            "images/questions/plane/q41.png",
+            "images/questions/plane/q41-1.png",
+            "images/questions/plane/q41-2.png"
           ]
         },
         {
@@ -1551,9 +1551,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -1566,7 +1566,7 @@
           "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -1579,7 +1579,7 @@
           "statement": "أثبت أن AO متوسط في المثلث AEF على الضلع EF (أي EO = OF).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p4.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         }
       ],
@@ -1609,7 +1609,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/Similar-Triangles-Rules.png",
+          "src": "images/theorems/Similar-Triangles-Rules.png",
           "alt": "قواعد التشابه أو القطعة المتوسطة",
           "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
         }
@@ -1629,7 +1629,7 @@
           "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -1642,7 +1642,7 @@
           "statement": "أثبت أن O هي نقطة تقاطع متوسطات المثلث DEF. 2) إثبات أن D,M,A على استقامة واحدة:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-29-p5.png"
+            "images/questions/plane/qf-29-p5.png"
           ]
         },
         {
@@ -1655,8 +1655,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -1669,7 +1669,7 @@
           "statement": "(أ) PQRS متوازي أضلاع. (ب) إذا AC ⟂ BD → PQRS مستطيل.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q24.png"
+            "images/questions/plane/q24.png"
           ]
         },
         {
@@ -1682,7 +1682,7 @@
           "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -1695,8 +1695,8 @@
           "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -1709,7 +1709,7 @@
           "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -1722,7 +1722,7 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q35.png"
+            "images/questions/plane/q35.png"
           ]
         },
         {
@@ -1735,9 +1735,9 @@
           "statement": "إثبات: EF = 1/2 (a − b).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q41.png",
-            "images/q41-1.png",
-            "images/q41-2.png"
+            "images/questions/plane/q41.png",
+            "images/questions/plane/q41-1.png",
+            "images/questions/plane/q41-2.png"
           ]
         },
         {
@@ -1750,9 +1750,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -1765,7 +1765,7 @@
           "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -1778,7 +1778,7 @@
           "statement": "أثبت أن AO متوسط في المثلث AEF على الضلع EF (أي EO = OF).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p4.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         }
       ],
@@ -1848,7 +1848,7 @@
       },
       "images": [
         {
-          "src": "images/congruent-triangles.png",
+          "src": "images/theorems/congruent-triangles.png",
           "alt": "رسم يوضح تطابق المثلثات",
           "caption": "صورة تلخص بعض معايير تطابق المثلثات."
         }
@@ -1868,7 +1868,7 @@
           "statement": "✅ المعطى BE و CD يتقاطعان في O . BO = CO ، DO = EO . ∠AOE = ∠AOD . ✅ المطلوب (أ) إثبات AB = AC . (ب) إثبات أن ADOE دالتون. ✅ البرهان من كون الأشعة على استقامة واحدة: إذا ∠AOE = ∠AOD ⇒ ∠AOB = ∠AOC (مكملات زوايا متساوية). ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q02.png"
+            "images/questions/plane/q02.png"
           ]
         },
         {
@@ -1881,7 +1881,7 @@
           "statement": "✅ البرهان نأخذ △ACD و △BDC . AC = BD (معطى)، و CD مشترك، و ∠ACD = ∠BDC (زاوية محصورة). إذن تطابق (SAS) ⇒ AD = BC .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q03.png"
+            "images/questions/plane/q03.png"
           ]
         },
         {
@@ -1894,7 +1894,7 @@
           "statement": "✅ البرهان AC = AB + BC و AE = AD + DE . من AB=AD و BC=DE ⇒ AC = AE . في △ABE و △ADC : AB=AD ، AE=AC ، و ∠BAE=∠DAC ⇒ تطابق (SAS) ⇒ ∠ABE=∠ADC . بما أن CB امتداد BA و CD امتداد DA : ∠CBE = 180° − ∠ABE ∠CDE = 180° − ∠ADC إذن",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q04.png"
+            "images/questions/plane/q04.png"
           ]
         },
         {
@@ -1907,7 +1907,7 @@
           "statement": "✅ التعليل تطابق (ض-ز-ض) باستخدام زاوية قائمة كزاوية محصورة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q26.png"
+            "images/questions/plane/q26.png"
           ]
         },
         {
@@ -1920,9 +1920,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -1935,7 +1935,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -1948,7 +1948,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -1961,8 +1961,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10-p2.png",
-            "images/qf-10-1-p2.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         },
         {
@@ -1975,9 +1975,9 @@
           "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-11-p2.png",
-            "images/qf-11-1-p2.png",
-            "images/qf-11-2-p2.png"
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
           ]
         },
         {
@@ -1990,8 +1990,8 @@
           "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-15.png",
-            "images/qf-15-1.png"
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
           ]
         },
         {
@@ -2004,7 +2004,7 @@
           "statement": "✅ المعطى ABCD مربع. MNBK مربع. ✅ المطلوب إثبات أن KC = AN . إثبات أن KC ⟂ AN . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) من تعريف المربع : في المربع ABCD : AB = BC و AB ⟂ BC . في المر",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-17-p2.png"
+            "images/questions/plane/qf-17-p2.png"
           ]
         }
       ],
@@ -2043,7 +2043,7 @@
       },
       "images": [
         {
-          "src": "images/congruent-triangles.png",
+          "src": "images/theorems/congruent-triangles.png",
           "alt": "رسم يوضح تطابق المثلثات",
           "caption": "صورة تلخص بعض معايير تطابق المثلثات."
         }
@@ -2063,9 +2063,9 @@
           "statement": "✅ المعطى E منتصف AC ⟹ AE = EC . ∠ECF = ∠DAE . ✅ المطلوب (أ) إثبات DE = EF . (ب) إذا كان BD = CF فاثبت أن D منتصف AB . ✅ الحل (أ) — بطريقتين جنبًا إلى جنب ① التشابه (AA) AC و DF يتقاطعان في E ⇒ ∠AED = ∠CEF (متقابلتان بالر",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q01-1.png",
-            "images/q01.png",
-            "images/q02.png"
+            "images/questions/plane/q01-1.png",
+            "images/questions/plane/q01.png",
+            "images/questions/plane/q02.png"
           ]
         },
         {
@@ -2078,9 +2078,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -2093,9 +2093,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -2108,7 +2108,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         }
       ],
@@ -2147,7 +2147,7 @@
       },
       "images": [
         {
-          "src": "images/congruent-triangles.png",
+          "src": "images/theorems/congruent-triangles.png",
           "alt": "رسم يوضح تطابق المثلثات",
           "caption": "صورة تلخص بعض معايير تطابق المثلثات."
         }
@@ -2167,7 +2167,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -2180,7 +2180,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -2193,9 +2193,9 @@
           "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-11-p2.png",
-            "images/qf-11-1-p2.png",
-            "images/qf-11-2-p2.png"
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
           ]
         }
       ],
@@ -2287,7 +2287,7 @@
       ],
       "diagram": null,
       "images": [
-        "images/angles-between-two-parallel-lines.png"
+        "images/theorems/angles-between-two-parallel-lines.png"
       ],
       "source": {
         "page": 1,
@@ -2320,7 +2320,7 @@
       ],
       "diagram": null,
       "images": [
-        "images/alternate-interior-angles-converse.png"
+        "images/theorems/alternate-interior-angles-converse.png"
       ],
       "source": {
         "page": 1,
@@ -2353,7 +2353,7 @@
       ],
       "diagram": null,
       "images": [
-        "images/alternate-interior-angles-converse.png"
+        "images/theorems/alternate-interior-angles-converse.png"
       ],
       "source": {
         "page": 1,
@@ -2394,12 +2394,12 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/properties-of-parallel-lines-with-transversal.png",
+          "src": "images/theorems/properties-of-parallel-lines-with-transversal.png",
           "alt": "أنواع الزوايا مع مستقيمين متوازيين",
           "caption": "أنواع الزوايا الناتجة عن قاطع مع مستقيمين متوازيين."
         },
         {
-          "src": "images/parallel-angles-example.png",
+          "src": "images/theorems/parallel-angles-example.png",
           "alt": "مثال على زوايا المستقيمين المتوازيين",
           "caption": "مثال عددي أو شكلي على الزوايا الناتجة عن قاطع مع مستقيمين متوازيين."
         }
@@ -2419,7 +2419,7 @@
           "statement": "✅ التعليل تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q21.png"
+            "images/questions/plane/q21.png"
           ]
         },
         {
@@ -2432,7 +2432,7 @@
           "statement": "✅ التعليل خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q22.png"
+            "images/questions/plane/q22.png"
           ]
         },
         {
@@ -2445,7 +2445,7 @@
           "statement": "✅ التعليل نظرية القطعة المتوسطة (منتصفات) + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q24.png"
+            "images/questions/plane/q24.png"
           ]
         },
         {
@@ -2458,7 +2458,7 @@
           "statement": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q30.png"
+            "images/questions/plane/q30.png"
           ]
         },
         {
@@ -2471,11 +2471,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -2488,10 +2488,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -2504,8 +2504,8 @@
           "statement": "✅ المعطى في △ABC ، AE موازية لمنصف الزاوية ∠B . AF موازية لمنصف الزاوية ∠C . النقاط E,B,C,F على استقامة واحدة. ✅ المطلوب برهن أن EF = AB + BC + AC (أي EF يساوي محيط △ABC ). ✅ البرهان لتكن BM منصف الزاوية ∠ABC . بما أن AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q43.svg",
-            "images/q43.png"
+            "images/questions/plane/q43.svg",
+            "images/questions/plane/q43.png"
           ]
         },
         {
@@ -2518,9 +2518,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -2533,9 +2533,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -2548,7 +2548,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -2561,7 +2561,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -2574,7 +2574,7 @@
           "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -2587,7 +2587,7 @@
           "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p4.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         },
         {
@@ -2600,7 +2600,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         },
         {
@@ -2613,7 +2613,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         },
         {
@@ -2626,7 +2626,7 @@
           "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -2639,7 +2639,7 @@
           "statement": "(أ) إثبات KE + EF + FN = BD. (ب) إثبات KE = EL.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p1.png"
+            "images/questions/plane/qf-6-p1.png"
           ]
         }
       ],
@@ -2705,7 +2705,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/parallelogram.png",
+          "src": "images/theorems/parallelogram.png",
           "alt": "رسم لمتوازي أضلاع",
           "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
         }
@@ -2725,8 +2725,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -2739,7 +2739,7 @@
           "statement": "ABCD متوازي أضلاع، BC = 2·AB. BE منصف الزاوية ∠ABC، و E على AD.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q22.png"
+            "images/questions/plane/q22.png"
           ]
         },
         {
@@ -2752,7 +2752,7 @@
           "statement": "1) ∠A+∠B=180° → ∠EFG = ∠A/2 + ∠B/2 = 90°. 2) منصفات الزوايا المتقابلة متوازية → EFGH متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q23.png"
+            "images/questions/plane/q23.png"
           ]
         },
         {
@@ -2765,8 +2765,8 @@
           "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -2779,7 +2779,7 @@
           "statement": "PQMN متوازي أضلاع. E نقطة على الضلع PQ بحيث ∠PNE = ∠ENM.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q30.png"
+            "images/questions/plane/q30.png"
           ]
         },
         {
@@ -2792,8 +2792,8 @@
           "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -2806,7 +2806,7 @@
           "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -2819,9 +2819,9 @@
           "statement": "إثبات ∠BEC = 90°.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png"
           ]
         },
         {
@@ -2834,9 +2834,9 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png"
           ]
         },
         {
@@ -2849,7 +2849,7 @@
           "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10.png"
+            "images/questions/plane/qf-10.png"
           ]
         },
         {
@@ -2862,7 +2862,7 @@
           "statement": "ABCD متوازي أضلاع. K على AB، L على BC، M على CD، N على AD.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-14.png"
+            "images/questions/plane/qf-14.png"
           ]
         },
         {
@@ -2875,8 +2875,8 @@
           "statement": "أثبت أن الرباعي EFGD متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-20-p3.png",
-            "images/qf-20-1-p3.png"
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         },
         {
@@ -2889,7 +2889,7 @@
           "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -2902,9 +2902,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -2917,7 +2917,7 @@
           "statement": "احسب الزاوية الحادّة بين قطري المستطيل.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p1.png"
+            "images/questions/plane/qf-5-p1.png"
           ]
         },
         {
@@ -2930,9 +2930,9 @@
           "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         },
         {
@@ -2945,7 +2945,7 @@
           "statement": "إثبات أن DF = FC (أي أن F منتصف DC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         }
       ],
@@ -2976,7 +2976,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/parallelogram.png",
+          "src": "images/theorems/parallelogram.png",
           "alt": "رسم لمتوازي أضلاع",
           "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
         }
@@ -2996,8 +2996,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -3010,7 +3010,7 @@
           "statement": "ABCD متوازي أضلاع، BC = 2·AB. BE منصف الزاوية ∠ABC، و E على AD.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q22.png"
+            "images/questions/plane/q22.png"
           ]
         },
         {
@@ -3023,7 +3023,7 @@
           "statement": "1) ∠A+∠B=180° → ∠EFG = ∠A/2 + ∠B/2 = 90°. 2) منصفات الزوايا المتقابلة متوازية → EFGH متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q23.png"
+            "images/questions/plane/q23.png"
           ]
         },
         {
@@ -3036,8 +3036,8 @@
           "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -3050,7 +3050,7 @@
           "statement": "PQMN متوازي أضلاع. E نقطة على الضلع PQ بحيث ∠PNE = ∠ENM.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q30.png"
+            "images/questions/plane/q30.png"
           ]
         },
         {
@@ -3063,8 +3063,8 @@
           "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -3077,7 +3077,7 @@
           "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -3090,9 +3090,9 @@
           "statement": "إثبات ∠BEC = 90°.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png"
           ]
         },
         {
@@ -3105,9 +3105,9 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png"
           ]
         },
         {
@@ -3120,7 +3120,7 @@
           "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10.png"
+            "images/questions/plane/qf-10.png"
           ]
         },
         {
@@ -3133,7 +3133,7 @@
           "statement": "ABCD متوازي أضلاع. K على AB، L على BC، M على CD، N على AD.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-14.png"
+            "images/questions/plane/qf-14.png"
           ]
         },
         {
@@ -3146,8 +3146,8 @@
           "statement": "أثبت أن الرباعي EFGD متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-20-p3.png",
-            "images/qf-20-1-p3.png"
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         },
         {
@@ -3160,7 +3160,7 @@
           "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -3173,9 +3173,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -3188,7 +3188,7 @@
           "statement": "احسب الزاوية الحادّة بين قطري المستطيل.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p1.png"
+            "images/questions/plane/qf-5-p1.png"
           ]
         },
         {
@@ -3201,9 +3201,9 @@
           "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         },
         {
@@ -3216,7 +3216,7 @@
           "statement": "إثبات أن DF = FC (أي أن F منتصف DC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         }
       ],
@@ -3321,7 +3321,7 @@
       },
       "images": [
         {
-          "src": "images/parallelogram.png",
+          "src": "images/theorems/parallelogram.png",
           "alt": "رسم لمتوازي أضلاع",
           "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
         }
@@ -3341,8 +3341,8 @@
           "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -3355,10 +3355,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -3371,8 +3371,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -3385,7 +3385,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         },
         {
@@ -3398,7 +3398,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-14.png"
+            "images/questions/plane/qf-14.png"
           ]
         },
         {
@@ -3411,8 +3411,8 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-20-p3.png",
-            "images/qf-20-1-p3.png"
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         }
       ],
@@ -3612,10 +3612,10 @@
           "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p1.png",
-            "images/qf-6-1-p1.png",
-            "images/qf-6-2-p1.png",
-            "images/qf-6-3-p1.png"
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
           ]
         }
       ],
@@ -3686,7 +3686,7 @@
       },
       "images": [
         {
-          "src": "images/properties-of-isosceles-trapezium.png",
+          "src": "images/theorems/properties-of-isosceles-trapezium.png",
           "alt": "رسم لشبه منحرف متساوي الساقين",
           "caption": "شكل يوضح خواص شبه المنحرف متساوي الساقين."
         }
@@ -3706,11 +3706,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -3723,9 +3723,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -3738,7 +3738,7 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p3.png"
+            "images/questions/plane/qf-6-p3.png"
           ]
         }
       ],
@@ -3928,7 +3928,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/centroid-of-triangle.png",
+          "src": "images/theorems/centroid-of-triangle.png",
           "alt": "مركز ثقل المثلث",
           "caption": "شكل يوضح المتوسطات وتلاقيها في مركز الثقل."
         }
@@ -3948,8 +3948,8 @@
           "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -3962,7 +3962,7 @@
           "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         }
       ],
@@ -3993,7 +3993,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/centroid-of-triangle.png",
+          "src": "images/theorems/centroid-of-triangle.png",
           "alt": "مركز ثقل المثلث",
           "caption": "شكل يوضح المتوسطات وتلاقيها في مركز الثقل."
         }
@@ -4013,8 +4013,8 @@
           "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -4027,7 +4027,7 @@
           "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         }
       ],
@@ -4182,7 +4182,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -4202,8 +4202,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -4216,7 +4216,7 @@
           "statement": "(أ) إثبات BC = DE. (ب) إثبات MC = MD.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q05.png"
+            "images/questions/plane/q05.png"
           ]
         },
         {
@@ -4229,7 +4229,7 @@
           "statement": "ABCD مستطيل. النقطة M داخل المستطيل وتبعد بعدين متساويين عن B و C: MB = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q07.png"
+            "images/questions/plane/q07.png"
           ]
         },
         {
@@ -4242,7 +4242,7 @@
           "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10.png"
+            "images/questions/plane/qf-10.png"
           ]
         }
       ],
@@ -4273,7 +4273,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -4293,8 +4293,8 @@
           "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -4307,7 +4307,7 @@
           "statement": "(أ) إثبات BC = DE. (ب) إثبات MC = MD.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q05.png"
+            "images/questions/plane/q05.png"
           ]
         },
         {
@@ -4320,7 +4320,7 @@
           "statement": "ABCD مستطيل. النقطة M داخل المستطيل وتبعد بعدين متساويين عن B و C: MB = MC.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q07.png"
+            "images/questions/plane/q07.png"
           ]
         },
         {
@@ -4333,7 +4333,7 @@
           "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10.png"
+            "images/questions/plane/qf-10.png"
           ]
         }
       ],
@@ -4870,8 +4870,8 @@
           "statement": "✅ المعطى النقطة O داخل △ABC بحيث OA = OB = OC . في (أ): ∠BAC = 40° ، ∠CBA = 65° . في (ب): ∠BAC = α ، ∠CBA = β . ✅ المطلوب (أ) احسب ∠AOB . (ب) عبّر عن ∠AOB بدلالة α و β . ✅ البرهان OA = OB = OC ⇒ A,B,C على دائرة مركزها O ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q40.png",
-            "images/q40-1.png"
+            "images/questions/plane/q40.png",
+            "images/questions/plane/q40-1.png"
           ]
         }
       ],
@@ -5342,7 +5342,7 @@
       },
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -5362,7 +5362,7 @@
           "statement": "✅ التعليل يُستخدم: علاقات الارتفاع على الوتر + فيثاغورس/نسب مثلث قائم.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q17.png"
+            "images/questions/plane/q17.png"
           ]
         },
         {
@@ -5375,7 +5375,7 @@
           "statement": "✅ التعليل يظهر استخدام فيثاغورس في حسابات الأطوال (مربعات أطوال).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q32.png"
+            "images/questions/plane/q32.png"
           ]
         },
         {
@@ -5388,7 +5388,7 @@
           "statement": "✅ المعطى ABCD مستطيل، والقطران يتقاطعان في O . E نقطة على DC بحيث: CE = CO و DE = OE . ✅ المطلوب احسب الزاوية الحادّة بين قطري المستطيل. ✅ الحل — خطوة بخطوة بدون تعقيد ليكن DC=a و AD=b ، وضع DE=x ⇒ CE=a-x . لأن المستطيل ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p1.png"
+            "images/questions/plane/qf-5-p1.png"
           ]
         },
         {
@@ -5401,10 +5401,10 @@
           "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p1.png",
-            "images/qf-6-1-p1.png",
-            "images/qf-6-2-p1.png",
-            "images/qf-6-3-p1.png"
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
           ]
         },
         {
@@ -5417,7 +5417,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -5430,8 +5430,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10-p2.png",
-            "images/qf-10-1-p2.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         },
         {
@@ -5444,7 +5444,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         },
         {
@@ -5457,7 +5457,7 @@
           "statement": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q01.png"
+            "images/questions/space/q01.png"
           ]
         },
         {
@@ -5470,7 +5470,7 @@
           "statement": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q03.png"
+            "images/questions/space/q03.png"
           ]
         },
         {
@@ -5483,7 +5483,7 @@
           "statement": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q04.png"
+            "images/questions/space/q04.png"
           ]
         },
         {
@@ -5496,7 +5496,7 @@
           "statement": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q05.png"
+            "images/questions/space/q05.png"
           ]
         },
         {
@@ -5509,7 +5509,7 @@
           "statement": "قطرا القاعدة يلتقيان في O. الارتفاع يساوي قطر القاعدة. معطى OC′=√125. M منتصف A′D′ و P منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q08.png"
+            "images/questions/space/q08.png"
           ]
         },
         {
@@ -5522,7 +5522,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q13.png"
+            "images/questions/space/q13.png"
           ]
         },
         {
@@ -5535,7 +5535,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -5548,7 +5548,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q21.png"
+            "images/questions/space/q21.png"
           ]
         },
         {
@@ -5561,7 +5561,7 @@
           "statement": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q25.png"
+            "images/questions/space/q25.png"
           ]
         },
         {
@@ -5574,7 +5574,7 @@
           "statement": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q27.png"
+            "images/questions/space/q27.png"
           ]
         },
         {
@@ -5587,7 +5587,7 @@
           "statement": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q29.png"
+            "images/questions/space/q29.png"
           ]
         },
         {
@@ -5668,7 +5668,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -5688,7 +5688,7 @@
           "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -5701,7 +5701,7 @@
           "statement": "(أ) إذا ∠DOC = 30° احسب ∠ABC. (ب) إذا ∠DOC = α عبّر عن ∠ABC بدلالة α.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q16.png"
+            "images/questions/plane/q16.png"
           ]
         },
         {
@@ -5714,7 +5714,7 @@
           "statement": "(أ) عبّر عن ∠ECF بدلالة α. (ب) برهن أن ∠FCE = ∠DCE.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q18.png"
+            "images/questions/plane/q18.png"
           ]
         },
         {
@@ -5727,7 +5727,7 @@
           "statement": "مثلث ABC قائم عند C: ∠ACB = 90°. CD متوسط للوتر AB (D منتصف AB).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q19.png"
+            "images/questions/plane/q19.png"
           ]
         },
         {
@@ -5740,9 +5740,9 @@
           "statement": "إثبات ∠BEC = 90°.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png"
           ]
         },
         {
@@ -5755,9 +5755,9 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png"
           ]
         },
         {
@@ -5770,7 +5770,7 @@
           "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -5783,9 +5783,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -5798,7 +5798,7 @@
           "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -5811,9 +5811,9 @@
           "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         }
       ],
@@ -5844,7 +5844,7 @@
       "diagram": null,
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -5864,7 +5864,7 @@
           "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -5877,7 +5877,7 @@
           "statement": "(أ) إذا ∠DOC = 30° احسب ∠ABC. (ب) إذا ∠DOC = α عبّر عن ∠ABC بدلالة α.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q16.png"
+            "images/questions/plane/q16.png"
           ]
         },
         {
@@ -5890,7 +5890,7 @@
           "statement": "(أ) عبّر عن ∠ECF بدلالة α. (ب) برهن أن ∠FCE = ∠DCE.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q18.png"
+            "images/questions/plane/q18.png"
           ]
         },
         {
@@ -5903,7 +5903,7 @@
           "statement": "مثلث ABC قائم عند C: ∠ACB = 90°. CD متوسط للوتر AB (D منتصف AB).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q19.png"
+            "images/questions/plane/q19.png"
           ]
         },
         {
@@ -5916,9 +5916,9 @@
           "statement": "إثبات ∠BEC = 90°.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png"
           ]
         },
         {
@@ -5931,9 +5931,9 @@
           "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png"
           ]
         },
         {
@@ -5946,7 +5946,7 @@
           "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -5959,9 +5959,9 @@
           "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -5974,7 +5974,7 @@
           "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -5987,9 +5987,9 @@
           "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         }
       ],
@@ -6034,7 +6034,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         }
       ],
@@ -6117,10 +6117,10 @@
           "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p1.png",
-            "images/qf-6-1-p1.png",
-            "images/qf-6-2-p1.png",
-            "images/qf-6-3-p1.png"
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
           ]
         }
       ],
@@ -6175,7 +6175,7 @@
           "statement": "✅ التعليل تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q21.png"
+            "images/questions/plane/q21.png"
           ]
         },
         {
@@ -6188,7 +6188,7 @@
           "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         }
       ],
@@ -6376,7 +6376,7 @@
       },
       "images": [
         {
-          "src": "images/Similar-Triangles-Rules.png",
+          "src": "images/theorems/Similar-Triangles-Rules.png",
           "alt": "قواعد التشابه أو القطعة المتوسطة",
           "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
         }
@@ -6396,9 +6396,9 @@
           "statement": "✅ المعطى E منتصف AC ⟹ AE = EC . ∠ECF = ∠DAE . ✅ المطلوب (أ) إثبات DE = EF . (ب) إذا كان BD = CF فاثبت أن D منتصف AB . ✅ الحل (أ) — بطريقتين جنبًا إلى جنب ① التشابه (AA) AC و DF يتقاطعان في E ⇒ ∠AED = ∠CEF (متقابلتان بالر",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q01-1.png",
-            "images/q01.png",
-            "images/q02.png"
+            "images/questions/plane/q01-1.png",
+            "images/questions/plane/q01.png",
+            "images/questions/plane/q02.png"
           ]
         },
         {
@@ -6411,9 +6411,9 @@
           "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين بحيث AB ∥ DC و AD = BC . قطراه AC و BD يتقاطعان في النقطة O . EF تمر بالنقطة O وموازية للقاعدتين ⇒ EF ∥ AB (وبالتالي EF ∥ DC ). ✅ المطلوب (أ) إثبات ∠1O = ∠2O . (ب) إثبات EO = FO . ✅",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-4-p3.png",
-            "images/qf-4-1-p3.png",
-            "images/qf-4-2-p3.png"
+            "images/questions/plane/qf-4-p3.png",
+            "images/questions/plane/qf-4-1-p3.png",
+            "images/questions/plane/qf-4-2-p3.png"
           ]
         },
         {
@@ -6426,7 +6426,7 @@
           "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p4.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         },
         {
@@ -6439,7 +6439,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         },
         {
@@ -6452,7 +6452,7 @@
           "statement": "✅ المعطى ABCD مربع. MNBK مربع. ✅ المطلوب إثبات أن KC = AN . إثبات أن KC ⟂ AN . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) من تعريف المربع : في المربع ABCD : AB = BC و AB ⟂ BC . في المر",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-17-p2.png"
+            "images/questions/plane/qf-17-p2.png"
           ]
         },
         {
@@ -6465,7 +6465,7 @@
           "statement": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-29-p5.png"
+            "images/questions/plane/qf-29-p5.png"
           ]
         }
       ],
@@ -6674,7 +6674,7 @@
           "statement": "(أ) إيجاد الزاويتين الحادتين في المثلث ABC. (ب) إثبات BD = 1/4 AB.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q17.png"
+            "images/questions/plane/q17.png"
           ]
         }
       ],
@@ -6719,7 +6719,7 @@
           "statement": "(أ) إيجاد الزاويتين الحادتين في المثلث ABC. (ب) إثبات BD = 1/4 AB.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q17.png"
+            "images/questions/plane/q17.png"
           ]
         }
       ],
@@ -6785,7 +6785,7 @@
       },
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -6805,7 +6805,7 @@
           "statement": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q05.png"
+            "images/questions/plane/q05.png"
           ]
         },
         {
@@ -6818,7 +6818,7 @@
           "statement": "✅ البرهان MB = MC ⇒ M تقع على العمود المنصف للقطعة BC . إذن MA = MD ⇒ △AMD متساوي الساقين ⇒ ∠MAD = ∠MDA .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q07.png"
+            "images/questions/plane/q07.png"
           ]
         },
         {
@@ -6831,8 +6831,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -6845,8 +6845,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10-p2.png",
-            "images/qf-10-1-p2.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         }
       ],
@@ -6885,7 +6885,7 @@
       },
       "images": [
         {
-          "src": "images/congruent-triangles.png",
+          "src": "images/theorems/congruent-triangles.png",
           "alt": "رسم يوضح تطابق المثلثات",
           "caption": "صورة تلخص بعض معايير تطابق المثلثات."
         }
@@ -6905,7 +6905,7 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-16-p2.png"
+            "images/questions/plane/qf-16-p2.png"
           ]
         }
       ],
@@ -6955,7 +6955,7 @@
           "statement": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q05.png"
+            "images/questions/plane/q05.png"
           ]
         },
         {
@@ -6968,7 +6968,7 @@
           "statement": "✅ التعليل المسألة تعتمد على منصف الزاوية والمتوسط للوتر داخل مثلث قائم.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q16.png"
+            "images/questions/plane/q16.png"
           ]
         },
         {
@@ -6981,7 +6981,7 @@
           "statement": "✅ التعليل يعتمد على: المتوسط للوتر في مثلث قائم + منصف زاوية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q18.png"
+            "images/questions/plane/q18.png"
           ]
         },
         {
@@ -6994,7 +6994,7 @@
           "statement": "✅ التعليل المتوسط للوتر في مثلث قائم + تعريف منصف الزاوية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q19.png"
+            "images/questions/plane/q19.png"
           ]
         },
         {
@@ -7007,7 +7007,7 @@
           "statement": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q20.png"
+            "images/questions/plane/q20.png"
           ]
         },
         {
@@ -7020,7 +7020,7 @@
           "statement": "✅ التعليل خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q22.png"
+            "images/questions/plane/q22.png"
           ]
         },
         {
@@ -7033,7 +7033,7 @@
           "statement": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q34.png"
+            "images/questions/plane/q34.png"
           ]
         },
         {
@@ -7046,8 +7046,8 @@
           "statement": "✅ المعطى في △ABC ، AE موازية لمنصف الزاوية ∠B . AF موازية لمنصف الزاوية ∠C . النقاط E,B,C,F على استقامة واحدة. ✅ المطلوب برهن أن EF = AB + BC + AC (أي EF يساوي محيط △ABC ). ✅ البرهان لتكن BM منصف الزاوية ∠ABC . بما أن AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q43.svg",
-            "images/q43.png"
+            "images/questions/plane/q43.svg",
+            "images/questions/plane/q43.png"
           ]
         },
         {
@@ -7060,7 +7060,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         }
       ],
@@ -7097,7 +7097,7 @@
       },
       "images": [
         {
-          "src": "images/centroid-of-triangle.png",
+          "src": "images/theorems/centroid-of-triangle.png",
           "alt": "مركز ثقل المثلث",
           "caption": "شكل يوضح المتوسطات وتلاقيها في مركز الثقل."
         }
@@ -7117,8 +7117,8 @@
           "statement": "✅ المعطى في متوازي الأضلاع ABCD : M منتصف BC و N منتصف DC . E = AM ∩ BD و F = AN ∩ BD . ✅ المطلوب إثبات BE = EF = FD . ✅ البرهان لتكن O = AC ∩ BD . بما أن ABCD متوازي أضلاع ⇒ القطران ينصف كلٌ منهما الآخر ⇒ O منتصف BD و م",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -7131,7 +7131,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         }
       ],
@@ -7168,7 +7168,7 @@
       },
       "images": [
         {
-          "src": "images/parallelogram.png",
+          "src": "images/theorems/parallelogram.png",
           "alt": "رسم لمتوازي أضلاع",
           "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
         }
@@ -7188,7 +7188,7 @@
           "statement": "✅ التعليل خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q22.png"
+            "images/questions/plane/q22.png"
           ]
         },
         {
@@ -7201,7 +7201,7 @@
           "statement": "✅ التعليل خواص متوازي الأضلاع + زوايا مكملة (180°) في المتوازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q23.png"
+            "images/questions/plane/q23.png"
           ]
         },
         {
@@ -7214,8 +7214,8 @@
           "statement": "✅ المعطى في متوازي الأضلاع ABCD : M منتصف BC و N منتصف DC . E = AM ∩ BD و F = AN ∩ BD . ✅ المطلوب إثبات BE = EF = FD . ✅ البرهان لتكن O = AC ∩ BD . بما أن ABCD متوازي أضلاع ⇒ القطران ينصف كلٌ منهما الآخر ⇒ O منتصف BD و م",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q28.png",
-            "images/q28-1.png"
+            "images/questions/plane/q28.png",
+            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -7228,7 +7228,7 @@
           "statement": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q30.png"
+            "images/questions/plane/q30.png"
           ]
         },
         {
@@ -7241,8 +7241,8 @@
           "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -7255,7 +7255,7 @@
           "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -7268,11 +7268,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -7285,10 +7285,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -7301,9 +7301,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -7316,7 +7316,7 @@
           "statement": "✅ المعطى ABCD مستطيل، والقطران يتقاطعان في O . E نقطة على DC بحيث: CE = CO و DE = OE . ✅ المطلوب احسب الزاوية الحادّة بين قطري المستطيل. ✅ الحل — خطوة بخطوة بدون تعقيد ليكن DC=a و AD=b ، وضع DE=x ⇒ CE=a-x . لأن المستطيل ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p1.png"
+            "images/questions/plane/qf-5-p1.png"
           ]
         },
         {
@@ -7329,8 +7329,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -7343,10 +7343,10 @@
           "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-6-p1.png",
-            "images/qf-6-1-p1.png",
-            "images/qf-6-2-p1.png",
-            "images/qf-6-3-p1.png"
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
           ]
         },
         {
@@ -7359,7 +7359,7 @@
           "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p1.png"
+            "images/questions/plane/qf-7-p1.png"
           ]
         },
         {
@@ -7372,9 +7372,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع، والقطران AC و BD يتقاطعان في O . E على امتداد AD . DE ⟂ BE . ✅ المطلوب إثبات أن △DOE متساوي الساقين (أي DO = OE ). ✅ الحل — طريقتان (لتثبيت الفكرة) ① منتصف الوتر في مثلث قائم من DE ⟂ BE ⇒ ∠DEB",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         },
         {
@@ -7387,7 +7387,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-9-p1.png"
+            "images/questions/plane/qf-9-p1.png"
           ]
         },
         {
@@ -7400,8 +7400,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10-p2.png",
-            "images/qf-10-1-p2.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         },
         {
@@ -7414,7 +7414,7 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-14.png"
+            "images/questions/plane/qf-14.png"
           ]
         },
         {
@@ -7427,8 +7427,8 @@
           "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-20-p3.png",
-            "images/qf-20-1-p3.png"
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         },
         {
@@ -7441,7 +7441,7 @@
           "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         }
       ],
@@ -7490,7 +7490,7 @@
           "statement": "✅ التعليل يُستخدم: علاقات الارتفاع على الوتر + فيثاغورس/نسب مثلث قائم.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q17.png"
+            "images/questions/plane/q17.png"
           ]
         }
       ],
@@ -7528,7 +7528,7 @@
       },
       "images": [
         {
-          "src": "images/right_triangle_midpoint_hypotenuse.png",
+          "src": "images/theorems/right_triangle_midpoint_hypotenuse.png",
           "alt": "علاقات في مثلث قائم",
           "caption": "شكل يوضح المتوسط إلى الوتر أو علاقات المثلث القائم."
         }
@@ -7548,7 +7548,7 @@
           "statement": "✅ التعليل المسألة تعتمد على منصف الزاوية والمتوسط للوتر داخل مثلث قائم.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q16.png"
+            "images/questions/plane/q16.png"
           ]
         },
         {
@@ -7561,7 +7561,7 @@
           "statement": "✅ التعليل يعتمد على: المتوسط للوتر في مثلث قائم + منصف زاوية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q18.png"
+            "images/questions/plane/q18.png"
           ]
         },
         {
@@ -7574,7 +7574,7 @@
           "statement": "✅ التعليل المتوسط للوتر في مثلث قائم + تعريف منصف الزاوية.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q19.png"
+            "images/questions/plane/q19.png"
           ]
         },
         {
@@ -7587,11 +7587,11 @@
           "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q37.png",
-            "images/q37-1.png",
-            "images/q37-2.png",
-            "images/q37-3.png",
-            "images/q37-4.png"
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -7604,10 +7604,10 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q38.png",
-            "images/q38-1.png",
-            "images/q38-2.png",
-            "images/q38-3.png"
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
@@ -7620,9 +7620,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -7635,7 +7635,7 @@
           "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -7648,9 +7648,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع، والقطران AC و BD يتقاطعان في O . E على امتداد AD . DE ⟂ BE . ✅ المطلوب إثبات أن △DOE متساوي الساقين (أي DO = OE ). ✅ الحل — طريقتان (لتثبيت الفكرة) ① منتصف الوتر في مثلث قائم من DE ⟂ BE ⇒ ∠DEB",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p1.png",
-            "images/qf-8-1-p1.png",
-            "images/qf-8-2-p1.png"
+            "images/questions/plane/qf-8-p1.png",
+            "images/questions/plane/qf-8-1-p1.png",
+            "images/questions/plane/qf-8-2-p1.png"
           ]
         },
         {
@@ -7663,7 +7663,7 @@
           "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-21-p3.png"
+            "images/questions/plane/qf-21-p3.png"
           ]
         },
         {
@@ -7676,7 +7676,7 @@
           "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -7689,7 +7689,7 @@
           "statement": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q27.png"
+            "images/questions/space/q27.png"
           ]
         }
       ],
@@ -7727,7 +7727,7 @@
       },
       "images": [
         {
-          "src": "images/parallelogram.png",
+          "src": "images/theorems/parallelogram.png",
           "alt": "رسم لمتوازي أضلاع",
           "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
         }
@@ -7747,8 +7747,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-10-p2.png",
-            "images/qf-10-1-p2.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         }
       ],
@@ -7798,9 +7798,9 @@
           "statement": "✅ المعطى AB = AC = AD . الزاوية ∠BCD معطاة (إما 140° أو α ). ✅ المطلوب (أ) إذا ∠BCD = 140° احسب ∠BAD . (ب) إذا ∠BCD = α عبّر عن ∠BAD بدلالة α . ✅ البرهان من AB = AC ⇒ △ABC متساوي الساقين ⇒ ∠ABC = ∠BCA = β . من AC = AD ⇒ ",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q15.png",
-            "images/q15-1.png",
-            "images/q15-2.png"
+            "images/questions/plane/q15.png",
+            "images/questions/plane/q15-1.png",
+            "images/questions/plane/q15-2.png"
           ]
         }
       ],
@@ -7835,7 +7835,7 @@
       },
       "images": [
         {
-          "src": "images/Similar-Triangles-Rules.png",
+          "src": "images/theorems/Similar-Triangles-Rules.png",
           "alt": "قواعد التشابه أو القطعة المتوسطة",
           "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
         }
@@ -7855,7 +7855,7 @@
           "statement": "✅ التعليل نظرية القطعة المتوسطة (منتصفات) + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q24.png"
+            "images/questions/plane/q24.png"
           ]
         },
         {
@@ -7868,7 +7868,7 @@
           "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q29.png"
+            "images/questions/plane/q29.png"
           ]
         },
         {
@@ -7881,8 +7881,8 @@
           "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q31-1.png",
-            "images/q31-2.png"
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
           ]
         },
         {
@@ -7895,7 +7895,7 @@
           "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q33.png"
+            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -7908,7 +7908,7 @@
           "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q35.png"
+            "images/questions/plane/q35.png"
           ]
         },
         {
@@ -7921,10 +7921,10 @@
           "statement": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
-            "images/q41.png",
-            "images/q41-1.png",
-            "images/q41-2.png",
-            "images/q41-3.png"
+            "images/questions/plane/q41.png",
+            "images/questions/plane/q41-1.png",
+            "images/questions/plane/q41-2.png",
+            "images/questions/plane/q41-3.png"
           ]
         },
         {
@@ -7937,9 +7937,9 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-3-p3.png",
-            "images/qf-3-1-p3.png",
-            "images/qf-3-2-p3.png"
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -7952,8 +7952,8 @@
           "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-5-p3.png",
-            "images/qf-5-1-p3.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         },
         {
@@ -7966,7 +7966,7 @@
           "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-7-p4.png"
+            "images/questions/plane/qf-7-p4.png"
           ]
         },
         {
@@ -7979,7 +7979,7 @@
           "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-8-p4.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         },
         {
@@ -7992,7 +7992,7 @@
           "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-28-p5.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         },
         {
@@ -8005,7 +8005,7 @@
           "statement": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/qf-29-p5.png"
+            "images/questions/plane/qf-29-p5.png"
           ]
         }
       ],
@@ -8038,7 +8038,7 @@
       },
       "images": [
         {
-          "src": "images/angle-of-line-with-plane.png",
+          "src": "images/theorems/angle-of-line-with-plane.png",
           "alt": "زاوية مستقيم مع مستوى",
           "caption": "زاوية المستقيم مع المستوى هي الزاوية بين المستقيم وإسقاطه العمودي على ذلك المستوى."
         }
@@ -8058,7 +8058,7 @@
           "statement": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q01.png"
+            "images/questions/space/q01.png"
           ]
         },
         {
@@ -8071,7 +8071,7 @@
           "statement": "ABCDA′B′C′D′ مكعّب ضلعُه a. فسّر لماذا △A′BD متساوي الأضلاع، احسب زوايا ومساحة سطح هرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q02.png"
+            "images/questions/space/q02.png"
           ]
         },
         {
@@ -8084,7 +8084,7 @@
           "statement": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q03.png"
+            "images/questions/space/q03.png"
           ]
         },
         {
@@ -8097,7 +8097,7 @@
           "statement": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q04.png"
+            "images/questions/space/q04.png"
           ]
         },
         {
@@ -8110,7 +8110,7 @@
           "statement": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q05.png"
+            "images/questions/space/q05.png"
           ]
         },
         {
@@ -8123,7 +8123,7 @@
           "statement": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q07.png"
+            "images/questions/space/q07.png"
           ]
         },
         {
@@ -8136,7 +8136,7 @@
           "statement": "قطرا القاعدة يلتقيان في O. الارتفاع يساوي قطر القاعدة. معطى OC′=√125. M منتصف A′D′ و P منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q08.png"
+            "images/questions/space/q08.png"
           ]
         },
         {
@@ -8149,7 +8149,7 @@
           "statement": "قاعدة المنشور △ABC قائم ومتساوي الساقين: AB=BC=a و∠ABC=90°. الزاوية بين القطر AC′ والوجه الجانبي BCC′B′ هي α. وارتفاع المنشور = 2a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q10.png"
+            "images/questions/space/q10.png"
           ]
         },
         {
@@ -8162,7 +8162,7 @@
           "statement": "المنشور القائم ABCA′B′C′. القاعدة مثلث متساوي الساقين (AB=AC). زاوية الرأس 54° وطول القاعدة 7 سم. الزاوية بين القطر A′C وقاعدة المنشور 65°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q11.png"
+            "images/questions/space/q11.png"
           ]
         },
         {
@@ -8175,7 +8175,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q12.png"
+            "images/questions/space/q12.png"
           ]
         },
         {
@@ -8188,7 +8188,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q13.png"
+            "images/questions/space/q13.png"
           ]
         },
         {
@@ -8201,7 +8201,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -8214,7 +8214,7 @@
           "statement": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q15.png"
+            "images/questions/space/q15.png"
           ]
         },
         {
@@ -8227,7 +8227,7 @@
           "statement": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q16.png"
+            "images/questions/space/q16.png"
           ]
         },
         {
@@ -8240,7 +8240,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q18.png"
+            "images/questions/space/q18.png"
           ]
         },
         {
@@ -8253,7 +8253,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q19.png"
+            "images/questions/space/q19.png"
           ]
         },
         {
@@ -8266,7 +8266,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q21.png"
+            "images/questions/space/q21.png"
           ]
         },
         {
@@ -8279,7 +8279,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q23.png"
+            "images/questions/space/q23.png"
           ]
         },
         {
@@ -8292,7 +8292,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q24.png"
+            "images/questions/space/q24.png"
           ]
         },
         {
@@ -8305,7 +8305,7 @@
           "statement": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q29.png"
+            "images/questions/space/q29.png"
           ]
         },
         {
@@ -8349,7 +8349,7 @@
       },
       "images": [
         {
-          "src": "images/distance-Point-from-line.png",
+          "src": "images/theorems/distance-Point-from-line.png",
           "alt": "المسافة من نقطة إلى مستقيم",
           "caption": "المسافة من نقطة إلى مستقيم هي طول العمود النازل من النقطة على المستقيم."
         }
@@ -8369,7 +8369,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -8382,7 +8382,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q23.png"
+            "images/questions/space/q23.png"
           ]
         },
         {
@@ -8395,7 +8395,7 @@
           "statement": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q25.png"
+            "images/questions/space/q25.png"
           ]
         }
       ],
@@ -8428,7 +8428,7 @@
       },
       "images": [
         {
-          "src": "images/distance-between-two-points-in-coordinates.png",
+          "src": "images/theorems/distance-between-two-points-in-coordinates.png",
           "alt": "المسافة بين نقطتين في الإحداثيات",
           "caption": "المسافة بين (x₁,y₁) و(x₂,y₂) هي √((x₂−x₁)² + (y₂−y₁)²)."
         }
@@ -8448,7 +8448,7 @@
           "statement": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q07.png"
+            "images/questions/space/q07.png"
           ]
         },
         {
@@ -8461,7 +8461,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q23.png"
+            "images/questions/space/q23.png"
           ]
         }
       ],
@@ -8494,7 +8494,7 @@
       },
       "images": [
         {
-          "src": "images/angle-between-two-vectors-using-dot-product.png",
+          "src": "images/theorems/angle-between-two-vectors-using-dot-product.png",
           "alt": "الزاوية بين متجهين بالجداء النقطي",
           "caption": "u·v = |u||v| cos θ، ومنها نحسب الزاوية بين القطرين أو بين أي مستقيمين ممثلين بمتجهين."
         }
@@ -8514,7 +8514,7 @@
           "statement": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q03.png"
+            "images/questions/space/q03.png"
           ]
         }
       ],
@@ -8547,7 +8547,7 @@
       },
       "images": [
         {
-          "src": "images/trigonometric-ratios-in-right-triangles.png",
+          "src": "images/theorems/trigonometric-ratios-in-right-triangles.png",
           "alt": "النِّسَب المثلثية في المثلث القائم",
           "caption": "في المثلث القائم: sin θ = المقابل/الوتر، cos θ = المجاور/الوتر، tan θ = المقابل/المجاور."
         }
@@ -8567,7 +8567,7 @@
           "statement": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q01.png"
+            "images/questions/space/q01.png"
           ]
         },
         {
@@ -8580,7 +8580,7 @@
           "statement": "ABCDA′B′C′D′ مكعّب ضلعُه a. فسّر لماذا △A′BD متساوي الأضلاع، احسب زوايا ومساحة سطح هرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q02.png"
+            "images/questions/space/q02.png"
           ]
         },
         {
@@ -8593,7 +8593,7 @@
           "statement": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q03.png"
+            "images/questions/space/q03.png"
           ]
         },
         {
@@ -8606,7 +8606,7 @@
           "statement": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q04.png"
+            "images/questions/space/q04.png"
           ]
         },
         {
@@ -8619,7 +8619,7 @@
           "statement": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q05.png"
+            "images/questions/space/q05.png"
           ]
         },
         {
@@ -8632,7 +8632,7 @@
           "statement": "صندوق قاعدته مربّع. معطى أن قطر الصندوق يساوي √3 ضعف قطر القاعدة. ومساحة المستطيل ACC′A′ = 128√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q06.png"
+            "images/questions/space/q06.png"
           ]
         },
         {
@@ -8645,7 +8645,7 @@
           "statement": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q07.png"
+            "images/questions/space/q07.png"
           ]
         },
         {
@@ -8658,7 +8658,7 @@
           "statement": "قطرا القاعدة يلتقيان في O. الارتفاع يساوي قطر القاعدة. معطى OC′=√125. M منتصف A′D′ و P منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q08.png"
+            "images/questions/space/q08.png"
           ]
         },
         {
@@ -8671,7 +8671,7 @@
           "statement": "قاعدة المنشور △ABC قائم ومتساوي الساقين: AB=BC=a و∠ABC=90°. الزاوية بين القطر AC′ والوجه الجانبي BCC′B′ هي α. وارتفاع المنشور = 2a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q10.png"
+            "images/questions/space/q10.png"
           ]
         },
         {
@@ -8684,7 +8684,7 @@
           "statement": "المنشور القائم ABCA′B′C′. القاعدة مثلث متساوي الساقين (AB=AC). زاوية الرأس 54° وطول القاعدة 7 سم. الزاوية بين القطر A′C وقاعدة المنشور 65°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q11.png"
+            "images/questions/space/q11.png"
           ]
         },
         {
@@ -8697,7 +8697,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q12.png"
+            "images/questions/space/q12.png"
           ]
         },
         {
@@ -8710,7 +8710,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q13.png"
+            "images/questions/space/q13.png"
           ]
         },
         {
@@ -8723,7 +8723,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -8736,7 +8736,7 @@
           "statement": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q15.png"
+            "images/questions/space/q15.png"
           ]
         },
         {
@@ -8749,7 +8749,7 @@
           "statement": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q16.png"
+            "images/questions/space/q16.png"
           ]
         },
         {
@@ -8762,7 +8762,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q17.png"
+            "images/questions/space/q17.png"
           ]
         },
         {
@@ -8775,7 +8775,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q18.png"
+            "images/questions/space/q18.png"
           ]
         },
         {
@@ -8788,7 +8788,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q19.png"
+            "images/questions/space/q19.png"
           ]
         },
         {
@@ -8801,7 +8801,7 @@
           "statement": "هرم قائم ABCDE قاعدته مربّع. EM ارتفاع الهرم وطوله يساوي قطر القاعدة. AB=a. EK ارتفاع في وجه جانبي. معطى مساحة الغلاف 36.75 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q20.png"
+            "images/questions/space/q20.png"
           ]
         },
         {
@@ -8814,7 +8814,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q21.png"
+            "images/questions/space/q21.png"
           ]
         },
         {
@@ -8827,7 +8827,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. الزاوية الحادة بين قطري المستطيل 42°. AB>BC وSO=AB. نرمز BC=a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q22.png"
+            "images/questions/space/q22.png"
           ]
         },
         {
@@ -8840,7 +8840,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q23.png"
+            "images/questions/space/q23.png"
           ]
         },
         {
@@ -8853,7 +8853,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q24.png"
+            "images/questions/space/q24.png"
           ]
         },
         {
@@ -8866,7 +8866,7 @@
           "statement": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. AB=2a. AD ارتفاع على BC. حجم الهرم V=√3 a^3. المطلوب: AD، SO، وزاوية بين الضلع الجانبي والقاعدة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q26.png"
+            "images/questions/space/q26.png"
           ]
         },
         {
@@ -8879,7 +8879,7 @@
           "statement": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q27.png"
+            "images/questions/space/q27.png"
           ]
         },
         {
@@ -8892,7 +8892,7 @@
           "statement": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB. محيط △ABC = 6a. ومعطى CO = 4√3. إذا كانت زاوية الضلع الجانبي مع القاعدة 50° أوجد طول ضلع جانبي ومساحة الغلاف.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q28.png"
+            "images/questions/space/q28.png"
           ]
         },
         {
@@ -8905,7 +8905,7 @@
           "statement": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q29.png"
+            "images/questions/space/q29.png"
           ]
         },
         {
@@ -8949,7 +8949,7 @@
       },
       "images": [
         {
-          "src": "images/laws-of-sines-and-cosines.png",
+          "src": "images/theorems/laws-of-sines-and-cosines.png",
           "alt": "قانون جيب التمام",
           "caption": "في أي مثلث: c² = a² + b² − 2ab cos(C)."
         }
@@ -8969,7 +8969,7 @@
           "statement": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q01.png"
+            "images/questions/space/q01.png"
           ]
         },
         {
@@ -8982,7 +8982,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q13.png"
+            "images/questions/space/q13.png"
           ]
         },
         {
@@ -8995,7 +8995,7 @@
           "statement": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q15.png"
+            "images/questions/space/q15.png"
           ]
         },
         {
@@ -9008,7 +9008,7 @@
           "statement": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q16.png"
+            "images/questions/space/q16.png"
           ]
         },
         {
@@ -9021,7 +9021,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q17.png"
+            "images/questions/space/q17.png"
           ]
         },
         {
@@ -9034,7 +9034,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q19.png"
+            "images/questions/space/q19.png"
           ]
         },
         {
@@ -9047,7 +9047,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. الزاوية الحادة بين قطري المستطيل 42°. AB>BC وSO=AB. نرمز BC=a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q22.png"
+            "images/questions/space/q22.png"
           ]
         }
       ],
@@ -9080,7 +9080,7 @@
       },
       "images": [
         {
-          "src": "images/laws-of-sines-and-cosines.png",
+          "src": "images/theorems/laws-of-sines-and-cosines.png",
           "alt": "قانون الجيوب",
           "caption": "في أي مثلث: a/sin(A) = b/sin(B) = c/sin(C)."
         }
@@ -9100,7 +9100,7 @@
           "statement": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q29.png"
+            "images/questions/space/q29.png"
           ]
         }
       ],
@@ -9133,7 +9133,7 @@
       },
       "images": [
         {
-          "src": "images/area-of-triangle.png",
+          "src": "images/theorems/area-of-triangle.png",
           "alt": "مساحة المثلث بالقاعدة والارتفاع",
           "caption": "مساحة المثلث = نصف القاعدة × الارتفاع العمودي عليها."
         }
@@ -9153,7 +9153,7 @@
           "statement": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q01.png"
+            "images/questions/space/q01.png"
           ]
         },
         {
@@ -9166,7 +9166,7 @@
           "statement": "صندوق قاعدته مربّع. معطى أن قطر الصندوق يساوي √3 ضعف قطر القاعدة. ومساحة المستطيل ACC′A′ = 128√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q06.png"
+            "images/questions/space/q06.png"
           ]
         },
         {
@@ -9179,7 +9179,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -9192,7 +9192,7 @@
           "statement": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q15.png"
+            "images/questions/space/q15.png"
           ]
         },
         {
@@ -9205,7 +9205,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q18.png"
+            "images/questions/space/q18.png"
           ]
         }
       ],
@@ -9238,7 +9238,7 @@
       },
       "images": [
         {
-          "src": "images/area-of-triangle.png",
+          "src": "images/theorems/area-of-triangle.png",
           "alt": "مساحة المثلث باستعمال ضلعين والزاوية المحصورة",
           "caption": "مساحة المثلث = ½ × a × b × sin(C)."
         }
@@ -9258,7 +9258,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q13.png"
+            "images/questions/space/q13.png"
           ]
         },
         {
@@ -9271,7 +9271,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         },
         {
@@ -9284,7 +9284,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q18.png"
+            "images/questions/space/q18.png"
           ]
         },
         {
@@ -9297,7 +9297,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. الزاوية الحادة بين قطري المستطيل 42°. AB>BC وSO=AB. نرمز BC=a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q22.png"
+            "images/questions/space/q22.png"
           ]
         }
       ],
@@ -9330,7 +9330,7 @@
       },
       "images": [
         {
-          "src": "images/area-of-equilateral-triangle.png",
+          "src": "images/theorems/area-of-equilateral-triangle.png",
           "alt": "مساحة المثلث المتساوي الأضلاع",
           "caption": "إذا كان طول الضلع s فإن المساحة = (√3 / 4) × s²."
         }
@@ -9350,7 +9350,7 @@
           "statement": "ABCDA′B′C′D′ مكعّب ضلعُه a. فسّر لماذا △A′BD متساوي الأضلاع، احسب زوايا ومساحة سطح هرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q02.png"
+            "images/questions/space/q02.png"
           ]
         }
       ],
@@ -9403,7 +9403,7 @@
           "statement": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q04.png"
+            "images/questions/space/q04.png"
           ]
         },
         {
@@ -9416,7 +9416,7 @@
           "statement": "قاعدة المنشور △ABC قائم ومتساوي الساقين: AB=BC=a و∠ABC=90°. الزاوية بين القطر AC′ والوجه الجانبي BCC′B′ هي α. وارتفاع المنشور = 2a.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q10.png"
+            "images/questions/space/q10.png"
           ]
         },
         {
@@ -9429,7 +9429,7 @@
           "statement": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q12.png"
+            "images/questions/space/q12.png"
           ]
         },
         {
@@ -9442,7 +9442,7 @@
           "statement": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q14.png"
+            "images/questions/space/q14.png"
           ]
         }
       ],
@@ -9495,7 +9495,7 @@
           "statement": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q05.png"
+            "images/questions/space/q05.png"
           ]
         },
         {
@@ -9508,7 +9508,7 @@
           "statement": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q16.png"
+            "images/questions/space/q16.png"
           ]
         }
       ],
@@ -9561,7 +9561,7 @@
           "statement": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q05.png"
+            "images/questions/space/q05.png"
           ]
         },
         {
@@ -9574,7 +9574,7 @@
           "statement": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q07.png"
+            "images/questions/space/q07.png"
           ]
         },
         {
@@ -9587,7 +9587,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q17.png"
+            "images/questions/space/q17.png"
           ]
         },
         {
@@ -9600,7 +9600,7 @@
           "statement": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q19.png"
+            "images/questions/space/q19.png"
           ]
         },
         {
@@ -9613,7 +9613,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q21.png"
+            "images/questions/space/q21.png"
           ]
         },
         {
@@ -9626,7 +9626,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q23.png"
+            "images/questions/space/q23.png"
           ]
         },
         {
@@ -9639,7 +9639,7 @@
           "statement": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q24.png"
+            "images/questions/space/q24.png"
           ]
         },
         {
@@ -9652,7 +9652,7 @@
           "statement": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q25.png"
+            "images/questions/space/q25.png"
           ]
         },
         {
@@ -9665,7 +9665,7 @@
           "statement": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. AB=2a. AD ارتفاع على BC. حجم الهرم V=√3 a^3. المطلوب: AD، SO، وزاوية بين الضلع الجانبي والقاعدة.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q26.png"
+            "images/questions/space/q26.png"
           ]
         },
         {
@@ -9678,7 +9678,7 @@
           "statement": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q27.png"
+            "images/questions/space/q27.png"
           ]
         },
         {
@@ -9691,7 +9691,7 @@
           "statement": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q29.png"
+            "images/questions/space/q29.png"
           ]
         }
       ],
@@ -9744,7 +9744,7 @@
           "statement": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
           "sourceLabel": "هندسة الفراغ",
           "images": [
-            "images/q07.png"
+            "images/questions/space/q07.png"
           ]
         }
       ],

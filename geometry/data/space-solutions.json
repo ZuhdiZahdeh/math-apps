@@ -130,11 +130,11 @@
         }
       ],
       "figure": {
-        "src": "images/q01.png",
+        "src": "images/questions/space/q01.png",
         "alt": "شكل السؤال 1"
       },
       "images": [
-        "images/q01.png"
+        "images/questions/space/q01.png"
       ],
       "theoremIds": [
         "th084",
@@ -252,11 +252,11 @@
         }
       ],
       "figure": {
-        "src": "images/q02.png",
+        "src": "images/questions/space/q02.png",
         "alt": "شكل السؤال 2"
       },
       "images": [
-        "images/q02.png"
+        "images/questions/space/q02.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -398,11 +398,11 @@
         }
       ],
       "figure": {
-        "src": "images/q03.png",
+        "src": "images/questions/space/q03.png",
         "alt": "شكل السؤال 3"
       },
       "images": [
-        "images/q03.png"
+        "images/questions/space/q03.png"
       ],
       "theoremIds": [
         "th084",
@@ -515,11 +515,11 @@
         }
       ],
       "figure": {
-        "src": "images/q04.png",
+        "src": "images/questions/space/q04.png",
         "alt": "شكل السؤال 4"
       },
       "images": [
-        "images/q04.png"
+        "images/questions/space/q04.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -655,11 +655,11 @@
         }
       ],
       "figure": {
-        "src": "images/q05.png",
+        "src": "images/questions/space/q05.png",
         "alt": "شكل السؤال 5"
       },
       "images": [
-        "images/q05.png"
+        "images/questions/space/q05.png"
       ],
       "theoremIds": [
         "th084",
@@ -765,11 +765,11 @@
         }
       ],
       "figure": {
-        "src": "images/q06.png",
+        "src": "images/questions/space/q06.png",
         "alt": "شكل السؤال 6"
       },
       "images": [
-        "images/q06.png"
+        "images/questions/space/q06.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry",
@@ -883,11 +883,11 @@
         }
       ],
       "figure": {
-        "src": "images/q07.png",
+        "src": "images/questions/space/q07.png",
         "alt": "شكل السؤال 7"
       },
       "images": [
-        "images/q07.png"
+        "images/questions/space/q07.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry",
@@ -1015,11 +1015,11 @@
         }
       ],
       "figure": {
-        "src": "images/q08.png",
+        "src": "images/questions/space/q08.png",
         "alt": "شكل السؤال 8"
       },
       "images": [
-        "images/q08.png"
+        "images/questions/space/q08.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry",
@@ -1120,11 +1120,11 @@
         }
       ],
       "figure": {
-        "src": "images/q10.png",
+        "src": "images/questions/space/q10.png",
         "alt": "شكل السؤال 10"
       },
       "images": [
-        "images/q10.png"
+        "images/questions/space/q10.png"
       ],
       "theoremIds": [
         "prism_volume",
@@ -1191,11 +1191,11 @@
         }
       ],
       "figure": {
-        "src": "images/q11.png",
+        "src": "images/questions/space/q11.png",
         "alt": "شكل السؤال 11"
       },
       "images": [
-        "images/q11.png"
+        "images/questions/space/q11.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -1302,11 +1302,11 @@
         }
       ],
       "figure": {
-        "src": "images/q12.png",
+        "src": "images/questions/space/q12.png",
         "alt": "شكل السؤال 12"
       },
       "images": [
-        "images/q12.png"
+        "images/questions/space/q12.png"
       ],
       "theoremIds": [
         "th006",
@@ -1415,11 +1415,11 @@
         }
       ],
       "figure": {
-        "src": "images/q13.png",
+        "src": "images/questions/space/q13.png",
         "alt": "شكل السؤال 13"
       },
       "images": [
-        "images/q13.png"
+        "images/questions/space/q13.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -1542,11 +1542,11 @@
         }
       ],
       "figure": {
-        "src": "images/q14.png",
+        "src": "images/questions/space/q14.png",
         "alt": "شكل السؤال 14"
       },
       "images": [
-        "images/q14.png"
+        "images/questions/space/q14.png"
       ],
       "theoremIds": [
         "th084",
@@ -1657,11 +1657,11 @@
         }
       ],
       "figure": {
-        "src": "images/q15.png",
+        "src": "images/questions/space/q15.png",
         "alt": "شكل السؤال 15"
       },
       "images": [
-        "images/q15.png"
+        "images/questions/space/q15.png"
       ],
       "theoremIds": [
         "th006",
@@ -1781,11 +1781,11 @@
         }
       ],
       "figure": {
-        "src": "images/q16.png",
+        "src": "images/questions/space/q16.png",
         "alt": "شكل السؤال 16"
       },
       "images": [
-        "images/q16.png"
+        "images/questions/space/q16.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -1884,11 +1884,11 @@
         }
       ],
       "figure": {
-        "src": "images/q17.png",
+        "src": "images/questions/space/q17.png",
         "alt": "شكل السؤال 17"
       },
       "images": [
-        "images/q17.png"
+        "images/questions/space/q17.png"
       ],
       "theoremIds": [
         "th006",
@@ -1983,11 +1983,11 @@
         }
       ],
       "figure": {
-        "src": "images/q18.png",
+        "src": "images/questions/space/q18.png",
         "alt": "شكل السؤال 18"
       },
       "images": [
-        "images/q18.png"
+        "images/questions/space/q18.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
@@ -2084,11 +2084,11 @@
         }
       ],
       "figure": {
-        "src": "images/q19.png",
+        "src": "images/questions/space/q19.png",
         "alt": "شكل السؤال 19"
       },
       "images": [
-        "images/q19.png"
+        "images/questions/space/q19.png"
       ],
       "theoremIds": [
         "pyramid_volume",
@@ -2182,11 +2182,11 @@
         }
       ],
       "figure": {
-        "src": "images/q20.png",
+        "src": "images/questions/space/q20.png",
         "alt": "شكل السؤال 20"
       },
       "images": [
-        "images/q20.png"
+        "images/questions/space/q20.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry"
@@ -2277,11 +2277,11 @@
         }
       ],
       "figure": {
-        "src": "images/q21.png",
+        "src": "images/questions/space/q21.png",
         "alt": "شكل السؤال 21"
       },
       "images": [
-        "images/q21.png"
+        "images/questions/space/q21.png"
       ],
       "theoremIds": [
         "th084",
@@ -2416,11 +2416,11 @@
         }
       ],
       "figure": {
-        "src": "images/q22.png",
+        "src": "images/questions/space/q22.png",
         "alt": "شكل السؤال 22"
       },
       "images": [
-        "images/q22.png"
+        "images/questions/space/q22.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry",
@@ -2552,11 +2552,11 @@
         }
       ],
       "figure": {
-        "src": "images/q23.png",
+        "src": "images/questions/space/q23.png",
         "alt": "شكل السؤال 23"
       },
       "images": [
-        "images/q23.png"
+        "images/questions/space/q23.png"
       ],
       "theoremIds": [
         "pyramid_volume",
@@ -2672,11 +2672,11 @@
         }
       ],
       "figure": {
-        "src": "images/q24.png",
+        "src": "images/questions/space/q24.png",
         "alt": "شكل السؤال 24"
       },
       "images": [
-        "images/q24.png"
+        "images/questions/space/q24.png"
       ],
       "theoremIds": [
         "th006",
@@ -2783,11 +2783,11 @@
         }
       ],
       "figure": {
-        "src": "images/q25.png",
+        "src": "images/questions/space/q25.png",
         "alt": "شكل السؤال 25"
       },
       "images": [
-        "images/q25.png"
+        "images/questions/space/q25.png"
       ],
       "theoremIds": [
         "pyramid_volume",
@@ -2871,11 +2871,11 @@
         }
       ],
       "figure": {
-        "src": "images/q26.png",
+        "src": "images/questions/space/q26.png",
         "alt": "شكل السؤال 26"
       },
       "images": [
-        "images/q26.png"
+        "images/questions/space/q26.png"
       ],
       "theoremIds": [
         "pyramid_volume",
@@ -2982,11 +2982,11 @@
         }
       ],
       "figure": {
-        "src": "images/q27.png",
+        "src": "images/questions/space/q27.png",
         "alt": "شكل السؤال 27"
       },
       "images": [
-        "images/q27.png"
+        "images/questions/space/q27.png"
       ],
       "theoremIds": [
         "th084",
@@ -3090,11 +3090,11 @@
         }
       ],
       "figure": {
-        "src": "images/q28.png",
+        "src": "images/questions/space/q28.png",
         "alt": "شكل السؤال 28"
       },
       "images": [
-        "images/q28.png"
+        "images/questions/space/q28.png"
       ],
       "theoremIds": [
         "right_triangle_trigonometry"
@@ -3222,11 +3222,11 @@
         }
       ],
       "figure": {
-        "src": "images/q29.png",
+        "src": "images/questions/space/q29.png",
         "alt": "شكل السؤال 29"
       },
       "images": [
-        "images/q29.png"
+        "images/questions/space/q29.png"
       ],
       "theoremIds": [
         "line_angle_with_plane_projection",
