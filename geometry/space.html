@@ -1,14 +1,128 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Space</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>هندسة الفراغ | geometry للطالب والمعلم</title>
+  <meta name="description" content="صفحة هندسة الفراغ في منصة geometry تعرض أسئلة مصنفة وحلولًا واضحة وصورًا تشرح المجسمات والعلاقات الفراغية، مع ربط مباشر بالنظريات لخدمة الطالب والمعلم." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-<button id="sidebarToggle">☰</button>
-<div id="sidebar"></div>
-<main id="content"></main>
-<script type="module" src="js/space.js"></script>
+<body class="has-sidebar-page">
+  <header class="topbar topbar--with-sidebar">
+    <button id="sidebarToggle" class="sidebar-toggle" type="button" aria-controls="pageSidebar" aria-expanded="true" aria-label="طي الفهرس">
+      <span class="sidebar-toggle__bars" aria-hidden="true">
+        <span class="sidebar-toggle__bar"></span>
+        <span class="sidebar-toggle__bar"></span>
+        <span class="sidebar-toggle__bar"></span>
+      </span>
+      <span class="sidebar-toggle__text">طي الفهرس</span>
+    </button>
+    <div class="topbar__content">
+      <div class="topbar__eyebrow">منصة هندسية تعليمية موحّدة</div>
+      <div class="topbar__title">هندسة الفراغ</div>
+      <div class="topbar__hint">صفحة تركّز على توضيح المجسّمات والعلاقات الفراغية بصريًا، وتربط كل سؤال بالحل خطوة بخطوة وبالنظرية المناسبة، ليقترب الفهم من الطالب ويسهل الشرح على المعلم.</div>
+    </div>
+    <nav class="topbar__nav" aria-label="أقسام الموقع">
+      <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link is-active" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
+    </nav>
+  </header>
+
+  <div class="layout layout--sidebar-shell">
+    <aside id="pageSidebar" class="sidebar" aria-label="قائمة أسئلة هندسة الفراغ">
+      <div class="sidebar__head">
+        <div class="sidebar__title">
+          <span class="sidebar__title-text">أسئلة هندسة الفراغ</span>
+          <div class="sidebar__title-actions">
+            <span id="listBadge" class="badge">0 سؤال</span>
+            <button id="sidebarClose" class="sidebar__close" type="button" aria-label="إغلاق القائمة">✕</button>
+          </div>
+        </div>
+
+        <details class="sidebar-section" data-section-key="search" open>
+          <summary>البحث والتصفية</summary>
+          <div class="sidebar-section__body">
+            <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه أو النظرية المرتبطة..." />
+
+            <div class="control-grid">
+              <label class="control-field">
+                <span>من صفحة الملف</span>
+                <input id="pageFrom" class="input input-sm" type="number" min="1" placeholder="1" />
+              </label>
+              <label class="control-field">
+                <span>إلى صفحة الملف</span>
+                <input id="pageTo" class="input input-sm" type="number" min="1" placeholder="17" />
+              </label>
+            </div>
+
+            <div class="toolbar">
+              <button id="btnApply" class="btn btn--soft btn--sm" type="button">تحديث العرض</button>
+              <button id="btnPrint" class="btn btn--sm" type="button">طباعة</button>
+            </div>
+          </div>
+        </details>
+
+        <details class="sidebar-section" data-section-key="display">
+          <summary>إعدادات العرض</summary>
+          <div class="sidebar-section__body">
+            <div class="font-panel">
+              <div class="font-panel__label">حجم الخط داخل الشرح</div>
+              <div class="font-controls">
+                <button id="fontMinus" class="btn btn--soft btn--tiny" type="button" title="تصغير الخط">A−</button>
+                <button id="fontReset" class="btn btn--soft btn--tiny" type="button" title="إعادة الضبط">A</button>
+                <button id="fontPlus" class="btn btn--soft btn--tiny" type="button" title="تكبير الخط">A+</button>
+                <span id="fontLabel" class="font-value">100%</span>
+              </div>
+              <input id="fontRange" class="font-range" type="range" min="80" max="160" step="5" value="100" aria-label="شريط حجم الخط" />
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <details class="sidebar-section sidebar-section--list" data-section-key="list" open>
+        <summary>قائمة الأسئلة</summary>
+        <div class="sidebar-section__body sidebar-section__body--scroll">
+          <div id="questionsList" class="questions"></div>
+        </div>
+      </details>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="questionTitle" class="content__title">ابدأ باختيار سؤال من القائمة</h1>
+          <div id="metaLine" class="meta"></div>
+        </div>
+        <div class="nav">
+          <button id="prevBtn" class="btn btn--soft" type="button">السابق</button>
+          <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
+        </div>
+      </div>
+
+      <div class="page-note">تركّز هذه الصفحة على تصحيح التخيّل الفراغي لدى الطالب عبر صور واضحة وشرح متدرّج، مع ربط مباشر بالنظريات التي تفسّر العلاقات الهندسية داخل المجسّمات.</div>
+
+      <section class="card">
+        <div class="card__title">كيف تخدم هذه الصفحة الطالب والمعلم؟</div>
+        <div class="source-note">
+          <p><strong>للطالب:</strong> تتحول الفكرة الفراغية هنا من شكل يصعب تخيله إلى خطوات مرئية يسهل فهمها، فتقودك الصور والشرح إلى بناء تصور هندسي أدق وأكثر ثباتًا.</p>
+          <p><strong>للمعلم:</strong> توفر الصفحة محتوى منظمًا يسهّل عرض المجسّمات والعلاقات بينها، مع حلول جاهزة للشرح وروابط نظرية تدعم تقديم الفكرة داخل الحصة أو أثناء المراجعة.</p>
+          <p><strong>في الفهرسة والربط:</strong> يمكن الوصول إلى الأسئلة وفق البحث أو نطاق الصفحات أو النظرية المرتبطة، مما يجعل التنقل بين السؤال والشرح والنظرية سريعًا وواضحًا.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">الصور التوضيحية للمجسّمات</div>
+        <div id="imageGallery" class="gallery"></div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">الحل المبسّط خطوة بخطوة</div>
+        <div id="solutionBox" class="solution-box">
+          <div class="solution-empty">اختر سؤالًا من القائمة لتظهر لك خطوات الحل والصور والنظريات المرتبطة به.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/space.js"></script>
 </body>
 </html>
