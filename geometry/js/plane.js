@@ -1,4 +1,4 @@
-import { byId, escapeHtml, normalizeArabic, pad2, fetchJson, openImageModal, shorten } from "./utils.js";
+import { byId, escapeHtml, normalizeArabic, pad2, fetchJson, openImageModal, shorten, initResponsiveSidebar } from "./utils.js";
 import { loadTheorems, getTheoremLabel, renderTheoremChips, bindTheoremClicks } from "./theorems-store.js";
 
 const DATASETS = {
@@ -140,6 +140,7 @@ function renderList() {
     btn.type = "button";
     btn.className = "qbtn";
     btn.dataset.id = q.id;
+    btn.title = q.title;
     btn.innerHTML = `
       <div class="qbtn__text">
         <div class="qbtn__title">${escapeHtml(q.title)}</div>
@@ -242,6 +243,7 @@ async function init() {
   await loadTheorems();
   bindTheoremClicks(document, { contextDomain: "plane" });
   bindEvents();
+  initResponsiveSidebar({ pageKey: "plane", focusTargetId: "searchInput" });
 
   const hash = parseHash();
   const initialDataset = hash.dataset || "book";

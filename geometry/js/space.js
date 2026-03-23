@@ -1,4 +1,4 @@
-import { byId, escapeHtml, normalizeArabic, pad2, fetchJson, openImageModal, clamp } from "./utils.js";
+import { byId, escapeHtml, normalizeArabic, pad2, fetchJson, openImageModal, clamp, initResponsiveSidebar } from "./utils.js";
 import { loadTheorems, getTheoremLabel, renderTheoremChips, bindTheoremClicks } from "./theorems-store.js";
 
 const DATA_URL = "./data/space-solutions.json";
@@ -213,6 +213,7 @@ function renderList() {
     btn.type = "button";
     btn.className = "qbtn";
     btn.dataset.id = item.id;
+    btn.title = item.title;
     btn.innerHTML = `
       <div class="qbtn__text">
         <div class="qbtn__title">${escapeHtml(item.title)}</div>
@@ -287,6 +288,7 @@ async function init() {
   bindTheoremClicks(document, { contextDomain: "space" });
   bindFontControls();
   bindEvents();
+  initResponsiveSidebar({ pageKey: "space", focusTargetId: "searchInput" });
 
   const data = await fetchJson(DATA_URL);
   db = data.questions || [];

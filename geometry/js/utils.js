@@ -97,3 +97,141 @@ export function shorten(text, max = 200) {
   const raw = String(text ?? "").trim();
   return raw.length > max ? `${raw.slice(0, max - 1)}…` : raw;
 }
+
+
+export function initResponsiveSidebar({
+  pageKey = "shared",
+  mobileMaxWidth = 980,
+  sidebarId = "pageSidebar",
+  toggleId = "sidebarToggle",
+  closeId = "sidebarClose",
+  selectionSelector = ".qbtn",
+  focusTargetId = null,
+} = {}) {
+  const sidebar = byId(sidebarId);
+  const toggle = byId(toggleId);
+  if (!sidebar || !toggle) {
+    return {
+      isMobile: () => false,
+      open: () => {},
+      close: () => {},
+      sync: () => {},
+    };
+  }
+
+  const closeBtn = byId(closeId);
+  const focusTarget = focusTargetId ? byId(focusTargetId) : sidebar.querySelector("input, select, button, [tabindex]");
+  const storageKey = `geometry_${pageKey}_sidebar_collapsed`;
+  const mql = window.matchMedia(`(max-width: ${mobileMaxWidth}px)`);
+
+  const backdrop = document.createElement("button");
+  backdrop.type = "button";
+  backdrop.className = "sidebar-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  backdrop.tabIndex = -1;
+  document.body.appendChild(backdrop);
+
+  const listSection = sidebar.querySelector(".sidebar-section--list");
+  let collapsed = localStorage.getItem(storageKey) === "1";
+
+  function isMobile() {
+    return mql.matches;
+  }
+
+  function ensureListOpenForRail() {
+    if (listSection) listSection.open = true;
+  }
+
+  function updateToggleUI() {
+    const opened = document.body.classList.contains("sidebar-open");
+    const label = isMobile()
+      ? (opened ? "إغلاق القائمة" : "فتح القائمة")
+      : (collapsed ? "إظهار الفهرس" : "طي الفهرس");
+
+    toggle.setAttribute("aria-label", label);
+    toggle.setAttribute("title", label);
+    toggle.setAttribute("aria-expanded", String(isMobile() ? opened : !collapsed));
+
+    const text = toggle.querySelector(".sidebar-toggle__text");
+    if (text) text.textContent = isMobile() ? "القائمة" : (collapsed ? "إظهار الفهرس" : "طي الفهرس");
+  }
+
+  function openSidebar() {
+    if (!isMobile()) return;
+    document.body.classList.add("sidebar-open");
+    sidebar.setAttribute("aria-hidden", "false");
+    if (focusTarget) {
+      window.setTimeout(() => {
+        try {
+          focusTarget.focus({ preventScroll: true });
+        } catch {
+          focusTarget.focus();
+        }
+      }, 40);
+    }
+    updateToggleUI();
+  }
+
+  function closeSidebar() {
+    document.body.classList.remove("sidebar-open");
+    if (isMobile()) sidebar.setAttribute("aria-hidden", "true");
+    updateToggleUI();
+  }
+
+  function sync() {
+    if (isMobile()) {
+      document.body.classList.remove("sidebar-collapsed");
+      sidebar.setAttribute("aria-hidden", document.body.classList.contains("sidebar-open") ? "false" : "true");
+    } else {
+      document.body.classList.remove("sidebar-open");
+      document.body.classList.toggle("sidebar-collapsed", collapsed);
+      sidebar.setAttribute("aria-hidden", "false");
+      if (collapsed) ensureListOpenForRail();
+    }
+    updateToggleUI();
+  }
+
+  function toggleSidebar() {
+    if (isMobile()) {
+      if (document.body.classList.contains("sidebar-open")) closeSidebar();
+      else openSidebar();
+      return;
+    }
+
+    collapsed = !collapsed;
+    localStorage.setItem(storageKey, collapsed ? "1" : "0");
+    if (collapsed) ensureListOpenForRail();
+    sync();
+  }
+
+  toggle.addEventListener("click", toggleSidebar);
+  backdrop.addEventListener("click", closeSidebar);
+  closeBtn?.addEventListener("click", closeSidebar);
+
+  sidebar.addEventListener("click", (e) => {
+    if (isMobile() && e.target.closest(selectionSelector)) {
+      closeSidebar();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.classList.contains("sidebar-open")) {
+      closeSidebar();
+    }
+  });
+
+  if (typeof mql.addEventListener === "function") {
+    mql.addEventListener("change", sync);
+  } else if (typeof mql.addListener === "function") {
+    mql.addListener(sync);
+  }
+
+  sync();
+
+  return {
+    isMobile,
+    open: openSidebar,
+    close: closeSidebar,
+    sync,
+  };
+}

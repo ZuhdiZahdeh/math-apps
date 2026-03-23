@@ -1,4 +1,4 @@
-import { byId, escapeHtml, normalizeArabic, shorten, openImageModal } from "./utils.js";
+import { byId, escapeHtml, normalizeArabic, shorten, openImageModal, initResponsiveSidebar } from "./utils.js";
 import { loadTheorems, getAllTheorems, getTheorem, renderTheoremBodyHtml } from "./theorems-store.js";
 
 const els = {
@@ -123,6 +123,7 @@ function renderList() {
     btn.type = "button";
     btn.className = "qbtn thbtn";
     btn.dataset.id = theorem.id;
+    btn.title = theorem.title;
     btn.innerHTML = `
       <div class="thbtn__content">
         <div class="qbtn__title">${escapeHtml(theorem.title)}</div>
@@ -378,6 +379,7 @@ async function init() {
   await loadTheorems();
   allTheorems = getAllTheorems();
   bindEvents();
+  initResponsiveSidebar({ pageKey: "theorems", focusTargetId: "searchInput" });
 
   const hash = parseHash();
   const startDomain = hash.domain || "plane";
