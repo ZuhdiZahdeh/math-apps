@@ -4,7 +4,17 @@
     "dataset": "final",
     "count": 21,
     "range": "سؤال (5، 6، 7، 8، 9، 10، 14)",
-    "language": "ar"
+    "language": "ar",
+    "groupingConfig": {
+      "version": 1,
+      "purpose": "Accordion-ready optional grouping metadata",
+      "primaryField": "grouping.accordionPrimary",
+      "secondaryField": "grouping.accordionSecondary",
+      "notes": [
+        "تم اعتماد الصفحة كتصنيف ثانوي كلما أمكن استخراجها من العنوان أو المعرف.",
+        "إذا لم تُذكر الصفحة صراحةً يبقى السؤال ضمن مجموعة عامة للأسئلة النهائية."
+      ]
+    }
   },
   "questions": [
     {
@@ -128,7 +138,27 @@
         "congruence_ASA",
         "midsegment_triangle_bundle",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 3",
+        "page": 3,
+        "sortOrder": 303,
+        "searchTokens": [
+          "final",
+          "qf-3",
+          "سؤال 3",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-4",
@@ -270,7 +300,27 @@
         "vertical_angles_equal",
         "similarity_AA",
         "congruence_ASA"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 4",
+        "page": 3,
+        "sortOrder": 304,
+        "searchTokens": [
+          "final",
+          "qf-4",
+          "سؤال 4",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-5-p1",
@@ -346,7 +396,27 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 5",
+        "page": 1,
+        "sortOrder": 105,
+        "searchTokens": [
+          "final",
+          "qf-5-p1",
+          "سؤال 5",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-5-p3",
@@ -445,7 +515,27 @@
         "parallelogram_test_opposite_parallel_equal",
         "perpendicular_bisector_locus",
         "midsegment_triangle_bundle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 5",
+        "page": 3,
+        "sortOrder": 305,
+        "searchTokens": [
+          "final",
+          "qf-5-p3",
+          "سؤال 5",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-6-p1",
@@ -561,7 +651,27 @@
         "th037",
         "th090",
         "th084"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 6",
+        "page": 1,
+        "sortOrder": 106,
+        "searchTokens": [
+          "final",
+          "qf-6-p1",
+          "سؤال 6",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-6-p3",
@@ -705,7 +815,27 @@
         "isosceles_triangle_base_angles",
         "congruence_SSS",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 6",
+        "page": 3,
+        "sortOrder": 306,
+        "searchTokens": [
+          "final",
+          "qf-6-p3",
+          "سؤال 6",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-7-p1",
@@ -851,7 +981,27 @@
         "th025",
         "th088",
         "th084"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 7",
+        "page": 1,
+        "sortOrder": 107,
+        "searchTokens": [
+          "final",
+          "qf-7-p1",
+          "سؤال 7",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-7-p4",
@@ -927,7 +1077,27 @@
         "right_triangle_midpoint_hypotenuse",
         "isosceles_triangle_base_angles",
         "parallel_lines_angles_rules"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-4",
+        "sectionLabel": "الصفحة 4",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 4",
+        "accordionTertiary": "سؤال 7",
+        "page": 4,
+        "sortOrder": 407,
+        "searchTokens": [
+          "final",
+          "qf-7-p4",
+          "سؤال 7",
+          "صفحة 4",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-8-p1",
@@ -1015,7 +1185,27 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 8",
+        "page": 1,
+        "sortOrder": 108,
+        "searchTokens": [
+          "final",
+          "qf-8-p1",
+          "سؤال 8",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-8-p4",
@@ -1095,7 +1285,27 @@
         "midsegment_triangle_bundle",
         "parallel_lines_angles_rules",
         "similarity_AA"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-4",
+        "sectionLabel": "الصفحة 4",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 4",
+        "accordionTertiary": "سؤال 8",
+        "page": 4,
+        "sortOrder": 408,
+        "searchTokens": [
+          "final",
+          "qf-8-p4",
+          "سؤال 8",
+          "صفحة 4",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-9-p1",
@@ -1172,7 +1382,27 @@
         "angle_bisector_definition",
         "parallel_lines_angles_rules",
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 9",
+        "page": 1,
+        "sortOrder": 109,
+        "searchTokens": [
+          "final",
+          "qf-9-p1",
+          "سؤال 9",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-10",
@@ -1278,7 +1508,27 @@
         "congruence_SAS",
         "pythagoras_theorem",
         "parallelogram_adjacent_sides_equal_rhombus"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 10",
+        "page": 2,
+        "sortOrder": 210,
+        "searchTokens": [
+          "final",
+          "qf-10",
+          "سؤال 10",
+          "صفحة 2",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf11",
@@ -1388,7 +1638,27 @@
         "triangle_angle_sum_180",
         "congruence_SSS",
         "congruence_SAS"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 11",
+        "page": 2,
+        "sortOrder": 211,
+        "searchTokens": [
+          "final",
+          "qf11",
+          "سؤال 11",
+          "صفحة 2",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-14",
@@ -1468,7 +1738,27 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "parallelogram_test_opposite_parallel_equal"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 14",
+        "page": 1,
+        "sortOrder": 114,
+        "searchTokens": [
+          "final",
+          "qf-14",
+          "سؤال 14",
+          "صفحة 1",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-15",
@@ -1590,7 +1880,27 @@
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 15",
+        "page": 2,
+        "sortOrder": 215,
+        "searchTokens": [
+          "final",
+          "qf-15",
+          "سؤال 15",
+          "صفحة 2",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-16",
@@ -1724,7 +2034,27 @@
         "supplementary_angles_straight_line",
         "congruence_RHS",
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 16",
+        "page": 2,
+        "sortOrder": 216,
+        "searchTokens": [
+          "final",
+          "qf-16",
+          "سؤال 16",
+          "صفحة 2",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-17",
@@ -1838,7 +2168,27 @@
       "legacyTheoremIds": [
         "congruence_SAS",
         "similarity_AA"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 17",
+        "page": 2,
+        "sortOrder": 217,
+        "searchTokens": [
+          "final",
+          "qf-17",
+          "سؤال 17",
+          "صفحة 2",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-20",
@@ -1948,7 +2298,27 @@
       "legacyTheoremIds": [
         "parallelogram_test_opposite_parallel_equal",
         "parallelogram_property_opposite_sides_equal"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 20",
+        "page": 3,
+        "sortOrder": 320,
+        "searchTokens": [
+          "final",
+          "qf-20",
+          "سؤال 20",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-21-p3",
@@ -2021,7 +2391,27 @@
         "right_triangle_midpoint_hypotenuse",
         "parallelogram_property_opposite_sides_equal",
         "parallel_lines_angles_rules"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 21",
+        "page": 3,
+        "sortOrder": 321,
+        "searchTokens": [
+          "final",
+          "qf-21-p3",
+          "سؤال 21",
+          "صفحة 3",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-28-p5",
@@ -2097,7 +2487,27 @@
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-5",
+        "sectionLabel": "الصفحة 5",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 5",
+        "accordionTertiary": "سؤال 28",
+        "page": 5,
+        "sortOrder": 528,
+        "searchTokens": [
+          "final",
+          "qf-28-p5",
+          "سؤال 28",
+          "صفحة 5",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "qf-29-p5",
@@ -2193,7 +2603,27 @@
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "similarity_AA"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "final",
+        "datasetLabel": "الأسئلة النهائية",
+        "sectionKey": "final-page-5",
+        "sectionLabel": "الصفحة 5",
+        "accordionPrimary": "الأسئلة النهائية",
+        "accordionSecondary": "الصفحة 5",
+        "accordionTertiary": "سؤال 29",
+        "page": 5,
+        "sortOrder": 529,
+        "searchTokens": [
+          "final",
+          "qf-29-p5",
+          "سؤال 29",
+          "صفحة 5",
+          "هندسة مستوية"
+        ]
+      }
     }
   ]
 }
