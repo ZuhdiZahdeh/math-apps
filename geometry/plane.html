@@ -1,80 +1,14 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>الهندسة المستوية | geometry للطالب والمعلم</title>
-  <meta name="description" content="صفحة الهندسة المستوية في منصة geometry تعرض أسئلة مصنفة وحلولًا واضحة مدعومة بالصور والنظريات، بما يخدم الطالب في الفهم والمعلم في الشرح." />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<title>Plane</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar__content">
-      <div class="topbar__eyebrow">منصة هندسية تعليمية موحّدة</div>
-      <div class="topbar__title">الهندسة المستوية</div>
-      <div class="topbar__hint">صفحة تجمع أسئلة الهندسة المستوية في فهرسة واضحة، مع حلول مبسطة وصور توضيحية وبطاقات نظريات تساعد الطالب على الفهم، وتمنح المعلم مادة مرتبة للشرح والمراجعة.</div>
-    </div>
-    <nav class="topbar__nav" aria-label="أقسام الموقع">
-      <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link is-active" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
-    </nav>
-  </header>
-
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="sidebar__head">
-        <div class="sidebar__title">
-          <span>أسئلة الهندسة المستوية</span>
-          <span id="datasetBadge" class="badge">أسئلة الكتاب</span>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="مصدر الأسئلة">
-          <button id="tabBook" class="tab is-active" type="button" role="tab" aria-selected="true">أسئلة الكتاب</button>
-          <button id="tabFinal" class="tab" type="button" role="tab" aria-selected="false">الأسئلة النهائية</button>
-        </div>
-
-        <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه أو النظرية المرتبطة..." />
-      </div>
-
-      <div id="questionsList" class="questions"></div>
-    </aside>
-
-    <main class="content">
-      <div class="content__head">
-        <div>
-          <h1 id="questionTitle" class="content__title">ابدأ باختيار سؤال من القائمة</h1>
-          <div id="metaLine" class="meta"></div>
-        </div>
-        <div class="nav">
-          <button id="prevBtn" class="btn btn--soft" type="button">السابق</button>
-          <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
-        </div>
-      </div>
-
-      <div class="page-note">تعرض هذه الصفحة أسئلة الهندسة المستوية بطريقة منظمة، بحيث يمكن للطالب أو المعلم الانتقال بسهولة من السؤال إلى خطوات الحل، ثم إلى الصور التوضيحية والنظرية المرتبطة بالفكرة نفسها.</div>
-
-      <section class="card">
-        <div class="card__title">ما الذي يميّز هذه الصفحة؟</div>
-        <div class="source-note">
-          <p><strong>للطالب:</strong> تساعدك الصفحة على فهم السؤال بصورته الصحيحة، ثم متابعة الحل خطوة بخطوة بأسلوب واضح يثبّت الفكرة ويقودك إلى النظرية المناسبة.</p>
-          <p><strong>للمعلم:</strong> تمنحك الصفحة عرضًا مرتبًا للأسئلة والحلول والنظريات، بحيث يسهل الانتقال بينها أثناء الشرح أو المراجعة أو بناء أنشطة صفية مركزة.</p>
-          <p><strong>في الفهرسة والربط:</strong> يتم تنظيم الأسئلة بصورة تسهّل الوصول إليها، مع ربط مباشر بالنظريات المستخدمة في الحل، حتى يبدأ التعلم من السؤال أو من النظرية بالسهولة نفسها.</p>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">الصور والرسوم التوضيحية</div>
-        <div id="imageGallery" class="gallery"></div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">الحل الواضح خطوة بخطوة</div>
-        <div id="solutionBox" class="solution-box">
-          <div class="solution-empty">اختر سؤالًا من القائمة اليسرى لتظهر لك خطوات الحل والصور والنظريات المرتبطة به.</div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script type="module" src="js/plane.js"></script>
+<button id="sidebarToggle">☰</button>
+<div id="sidebar"></div>
+<main id="content"></main>
+<script type="module" src="js/plane.js"></script>
 </body>
 </html>

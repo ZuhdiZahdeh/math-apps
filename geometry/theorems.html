@@ -1,123 +1,14 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>مرجع النظريات الهندسية | geometry للطالب والمعلم</title>
-  <meta name="description" content="مرجع النظريات الهندسية في منصة geometry يعرض نظريات الهندسة المستوية وهندسة الفراغ في بطاقات واضحة مدعومة بالنص والصور والروابط إلى الأسئلة المرتبطة." />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<title>Theorems</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar__content">
-      <div class="topbar__eyebrow">منصة هندسية تعليمية موحّدة</div>
-      <div class="topbar__title">مرجع النظريات الهندسية</div>
-      <div class="topbar__hint">مرجع يربط النظريات بأسئلة الهندسة المستوية وهندسة الفراغ، ويعرضها في بطاقات واضحة مدعومة بالنص والصور والروابط التعليمية، ليخدم الطالب في الفهم والمعلم في الشرح والتخطيط.</div>
-    </div>
-    <nav class="topbar__nav" aria-label="أقسام الموقع">
-      <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link is-active" href="theorems.html">مرجع النظريات</a>
-    </nav>
-  </header>
-
-  <div class="layout layout--theorems">
-    <aside class="sidebar">
-      <div class="sidebar__head">
-        <div class="sidebar__title">
-          <span>فهرس النظريات</span>
-          <span id="domainBadge" class="badge">المستوية</span>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="نوع المرجع">
-          <button id="tabPlane" class="tab is-active" type="button" role="tab" aria-selected="true">الهندسة المستوية</button>
-          <button id="tabSpace" class="tab" type="button" role="tab" aria-selected="false">هندسة الفراغ</button>
-        </div>
-
-        <input id="searchInput" class="search" type="search" placeholder="ابحث باسم النظرية أو المجال أو الصنف أو الوسوم..." />
-
-        <div class="filter-grid">
-          <label class="filter-label">
-            <span>المجال الهندسي</span>
-            <select id="fieldFilter" class="filter-select">
-              <option value="">كل المجالات</option>
-            </select>
-          </label>
-
-          <label class="filter-label">
-            <span>التصنيف</span>
-            <select id="categoryFilter" class="filter-select">
-              <option value="">كل التصنيفات</option>
-            </select>
-          </label>
-        </div>
-
-        <div class="toolbar-row">
-          <button id="clearFiltersBtn" class="btn btn--soft" type="button">إعادة الضبط</button>
-        </div>
-
-        <div id="statsRow" class="stats-row"></div>
-      </div>
-
-      <div id="theoremsList" class="questions"></div>
-    </aside>
-
-    <main class="content">
-      <div class="content__head">
-        <div>
-          <h1 id="theoremTitle" class="content__title">ابدأ باختيار نظرية من الفهرس</h1>
-          <div id="metaLine" class="meta"></div>
-        </div>
-        <div class="nav">
-          <button id="prevBtn" class="btn btn--soft" type="button">السابق</button>
-          <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
-        </div>
-      </div>
-
-      <div class="page-note">يمكنك في هذا المرجع أن تبدأ من النظرية أو من السؤال؛ فكل بطاقة هنا تربط نص النظرية بصورها التوضيحية وبالأسئلة التي تعتمد عليها في الهندسة المستوية أو هندسة الفراغ.</div>
-
-      <section class="card">
-        <div class="card__title">لماذا هذا المرجع مهم للطالب والمعلم؟</div>
-        <div class="source-note">
-          <p><strong>للطالب:</strong> تقرأ نص النظرية بصورة واضحة، وتشاهد الشكل الداعم لها، ثم تنتقل مباشرة إلى الأسئلة التي توظفها، فيترسخ الفهم بدل الحفظ المجرد.</p>
-          <p><strong>للمعلم:</strong> يقدّم المرجع مادة منظمة يمكن استخدامها في التمهيد أو الشرح أو المراجعة، مع إمكانية الانتقال السريع من النظرية إلى تطبيقاتها في الأسئلة.</p>
-          <p><strong>في الفهرسة والربط:</strong> تُفهرس النظريات حسب الفرع الهندسي والمجال والتصنيف والوسوم، مع روابط مباشرة للأسئلة المرتبطة بها، ليكون الوصول إلى الفكرة وتطبيقها أكثر سرعة ووضوحًا.</p>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">بطاقة نظرية سريعة</div>
-        <div class="overview-grid">
-          <div id="summaryBox" class="overview-panel">
-            <div class="empty-state">اختر نظرية من القائمة لعرض ملخصها ومجالها وتصنيفها ووسومها وروابطها التعليمية.</div>
-          </div>
-          <div id="diagramBox" class="overview-panel overview-panel--diagram">
-            <div class="diagram-empty">سيظهر الشكل التوضيحي هنا عند توفر صورة داعمة داخل بيانات النظرية.</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">نص النظرية والشرح التوضيحي</div>
-        <div id="theoremBody" class="solution-box theory-body">
-          <div class="solution-empty">اختر نظرية من القائمة الجانبية لعرض نصها وشرحها بصورة واضحة.</div>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">الأسئلة المرتبطة بهذه النظرية</div>
-        <div id="linkedQuestionsBox" class="related-wrap">
-          <div class="solution-empty">ستظهر هنا الأسئلة التي توظف هذه النظرية في الهندسة المستوية أو هندسة الفراغ.</div>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="card__title">نظريات تعزّز الفهم</div>
-        <div id="relatedBox" class="related-wrap">
-          <div class="solution-empty">ستظهر هنا النظريات القريبة أو المكملة بعد اختيار نظرية.</div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script type="module" src="js/theorems.js"></script>
+<button id="sidebarToggle">☰</button>
+<div id="sidebar"></div>
+<main id="content"></main>
+<script type="module" src="js/theorems.js"></script>
 </body>
 </html>
