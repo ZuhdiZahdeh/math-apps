@@ -3,7 +3,17 @@
     "title": "هندسة الفراغ",
     "dataset": "space",
     "count": 29,
-    "language": "ar"
+    "language": "ar",
+    "groupingConfig": {
+      "version": 1,
+      "purpose": "Accordion-ready optional grouping metadata",
+      "primaryField": "grouping.accordionPrimary",
+      "secondaryField": "grouping.accordionSecondary",
+      "notes": [
+        "تم اعتماد رقم الصفحة كتصنيف ثانوي رئيسي لأنه متوفر صراحة في بيانات هندسة الفراغ.",
+        "إذا غاب رقم الصفحة في بعض العناصر فستُصنف ضمن مجموعة عامة."
+      ]
+    }
   },
   "questions": [
     {
@@ -149,7 +159,27 @@
         "right_triangle_trigonometry",
         "triangle_area_base_height",
         "line_angle_with_plane_projection"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 1",
+        "page": 1,
+        "sortOrder": 101,
+        "searchTokens": [
+          "space",
+          "p01-q1",
+          "صفحة 1",
+          "سؤال 1",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p01-q2",
@@ -267,7 +297,27 @@
         "line_angle_with_plane_projection",
         "right_triangle_trigonometry",
         "equilateral_triangle_area"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-1",
+        "sectionLabel": "الصفحة 1",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 1",
+        "accordionTertiary": "سؤال 2",
+        "page": 1,
+        "sortOrder": 102,
+        "searchTokens": [
+          "space",
+          "p01-q2",
+          "صفحة 1",
+          "سؤال 2",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p02-q3",
@@ -415,7 +465,27 @@
         "line_angle_with_plane_projection",
         "right_triangle_trigonometry",
         "dot_product_angle_between_vectors"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-2",
+        "sectionLabel": "الصفحة 2",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 2",
+        "accordionTertiary": "سؤال 3",
+        "page": 2,
+        "sortOrder": 203,
+        "searchTokens": [
+          "space",
+          "p02-q3",
+          "صفحة 2",
+          "سؤال 3",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p03-q4",
@@ -532,7 +602,27 @@
         "right_triangle_trigonometry",
         "prism_volume",
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 4",
+        "page": 3,
+        "sortOrder": 304,
+        "searchTokens": [
+          "space",
+          "p03-q4",
+          "صفحة 3",
+          "سؤال 4",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p03-q5",
@@ -674,7 +764,27 @@
         "right_triangle_trigonometry",
         "prism_lateral_area",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-3",
+        "sectionLabel": "الصفحة 3",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 3",
+        "accordionTertiary": "سؤال 5",
+        "page": 3,
+        "sortOrder": 305,
+        "searchTokens": [
+          "space",
+          "p03-q5",
+          "صفحة 3",
+          "سؤال 5",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p04-q6",
@@ -778,7 +888,27 @@
       "legacyTheoremIds": [
         "right_triangle_trigonometry",
         "triangle_area_base_height"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-4",
+        "sectionLabel": "الصفحة 4",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 4",
+        "accordionTertiary": "سؤال 6",
+        "page": 4,
+        "sortOrder": 406,
+        "searchTokens": [
+          "space",
+          "p04-q6",
+          "صفحة 4",
+          "سؤال 6",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p05-q7",
@@ -902,7 +1032,27 @@
         "coordinate_geometry_distance",
         "line_angle_with_plane_projection",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-5",
+        "sectionLabel": "الصفحة 5",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 5",
+        "accordionTertiary": "سؤال 7",
+        "page": 5,
+        "sortOrder": 507,
+        "searchTokens": [
+          "space",
+          "p05-q7",
+          "صفحة 5",
+          "سؤال 7",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p05-q8",
@@ -1030,7 +1180,27 @@
         "right_triangle_trigonometry",
         "pythagoras_theorem",
         "line_angle_with_plane_projection"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-5",
+        "sectionLabel": "الصفحة 5",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 5",
+        "accordionTertiary": "سؤال 8",
+        "page": 5,
+        "sortOrder": 508,
+        "searchTokens": [
+          "space",
+          "p05-q8",
+          "صفحة 5",
+          "سؤال 8",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p06-q9",
@@ -1047,7 +1217,27 @@
       "figure": {},
       "images": [],
       "theoremIds": [],
-      "legacyTheoremIds": []
+      "legacyTheoremIds": [],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-general",
+        "sectionLabel": "أسئلة غير مصنفة بصفحة",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "غير مصنفة بصفحة",
+        "accordionTertiary": "سؤال 9",
+        "page": null,
+        "sortOrder": 9909,
+        "searchTokens": [
+          "space",
+          "p06-q9",
+          "غير مصنف",
+          "سؤال 9",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p06-q10",
@@ -1135,7 +1325,27 @@
         "prism_volume",
         "line_angle_with_plane_projection",
         "right_triangle_trigonometry"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-6",
+        "sectionLabel": "الصفحة 6",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 6",
+        "accordionTertiary": "سؤال 10",
+        "page": 6,
+        "sortOrder": 610,
+        "searchTokens": [
+          "space",
+          "p06-q10",
+          "صفحة 6",
+          "سؤال 10",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p07-q11",
@@ -1204,7 +1414,27 @@
       "legacyTheoremIds": [
         "line_angle_with_plane_projection",
         "right_triangle_trigonometry"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-7",
+        "sectionLabel": "الصفحة 7",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 7",
+        "accordionTertiary": "سؤال 11",
+        "page": 7,
+        "sortOrder": 711,
+        "searchTokens": [
+          "space",
+          "p07-q11",
+          "صفحة 7",
+          "سؤال 11",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p07-q12",
@@ -1319,7 +1549,27 @@
         "right_triangle_trigonometry",
         "line_angle_with_plane_projection",
         "prism_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-7",
+        "sectionLabel": "الصفحة 7",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 7",
+        "accordionTertiary": "سؤال 12",
+        "page": 7,
+        "sortOrder": 712,
+        "searchTokens": [
+          "space",
+          "p07-q12",
+          "صفحة 7",
+          "سؤال 12",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p08-q13",
@@ -1434,7 +1684,27 @@
         "cosine_rule",
         "triangle_area_ab_sinC",
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-8",
+        "sectionLabel": "الصفحة 8",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 8",
+        "accordionTertiary": "سؤال 13",
+        "page": 8,
+        "sortOrder": 813,
+        "searchTokens": [
+          "space",
+          "p08-q13",
+          "صفحة 8",
+          "سؤال 13",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p08-q14",
@@ -1565,7 +1835,27 @@
         "triangle_area_ab_sinC",
         "triangle_area_base_height",
         "prism_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-8",
+        "sectionLabel": "الصفحة 8",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 8",
+        "accordionTertiary": "سؤال 14",
+        "page": 8,
+        "sortOrder": 814,
+        "searchTokens": [
+          "space",
+          "p08-q14",
+          "صفحة 8",
+          "سؤال 14",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p09-q15",
@@ -1676,7 +1966,27 @@
         "right_triangle_trigonometry",
         "triangle_area_base_height",
         "cosine_rule"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-9",
+        "sectionLabel": "الصفحة 9",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 9",
+        "accordionTertiary": "سؤال 15",
+        "page": 9,
+        "sortOrder": 915,
+        "searchTokens": [
+          "space",
+          "p09-q15",
+          "صفحة 9",
+          "سؤال 15",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p09-q16",
@@ -1798,7 +2108,27 @@
         "right_triangle_trigonometry",
         "prism_lateral_area",
         "cosine_rule"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-9",
+        "sectionLabel": "الصفحة 9",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 9",
+        "accordionTertiary": "سؤال 16",
+        "page": 9,
+        "sortOrder": 916,
+        "searchTokens": [
+          "space",
+          "p09-q16",
+          "صفحة 9",
+          "سؤال 16",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p10-q17",
@@ -1901,7 +2231,27 @@
         "right_triangle_trigonometry",
         "cosine_rule",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-10",
+        "sectionLabel": "الصفحة 10",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 10",
+        "accordionTertiary": "سؤال 17",
+        "page": 10,
+        "sortOrder": 1017,
+        "searchTokens": [
+          "space",
+          "p10-q17",
+          "صفحة 10",
+          "سؤال 17",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p10-q18",
@@ -2000,7 +2350,27 @@
         "right_triangle_trigonometry",
         "triangle_area_ab_sinC",
         "triangle_area_base_height"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-10",
+        "sectionLabel": "الصفحة 10",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 10",
+        "accordionTertiary": "سؤال 18",
+        "page": 10,
+        "sortOrder": 1018,
+        "searchTokens": [
+          "space",
+          "p10-q18",
+          "صفحة 10",
+          "سؤال 18",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p11-q19",
@@ -2101,7 +2471,27 @@
         "right_triangle_trigonometry",
         "cosine_rule",
         "line_angle_with_plane_projection"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-11",
+        "sectionLabel": "الصفحة 11",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 11",
+        "accordionTertiary": "سؤال 19",
+        "page": 11,
+        "sortOrder": 1119,
+        "searchTokens": [
+          "space",
+          "p11-q19",
+          "صفحة 11",
+          "سؤال 19",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p11-q20",
@@ -2193,7 +2583,27 @@
       ],
       "legacyTheoremIds": [
         "right_triangle_trigonometry"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-11",
+        "sectionLabel": "الصفحة 11",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 11",
+        "accordionTertiary": "سؤال 20",
+        "page": 11,
+        "sortOrder": 1120,
+        "searchTokens": [
+          "space",
+          "p11-q20",
+          "صفحة 11",
+          "سؤال 20",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p12-q21",
@@ -2294,7 +2704,27 @@
         "line_angle_with_plane_projection",
         "right_triangle_trigonometry",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-12",
+        "sectionLabel": "الصفحة 12",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 12",
+        "accordionTertiary": "سؤال 21",
+        "page": 12,
+        "sortOrder": 1221,
+        "searchTokens": [
+          "space",
+          "p12-q21",
+          "صفحة 12",
+          "سؤال 21",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p13-q22",
@@ -2431,7 +2861,27 @@
         "right_triangle_trigonometry",
         "cosine_rule",
         "triangle_area_ab_sinC"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-13",
+        "sectionLabel": "الصفحة 13",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 13",
+        "accordionTertiary": "سؤال 22",
+        "page": 13,
+        "sortOrder": 1322,
+        "searchTokens": [
+          "space",
+          "p13-q22",
+          "صفحة 13",
+          "سؤال 22",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p13-q23",
@@ -2571,7 +3021,27 @@
         "coordinate_geometry_distance",
         "distance_point_line",
         "line_angle_with_plane_projection"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-13",
+        "sectionLabel": "الصفحة 13",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 13",
+        "accordionTertiary": "سؤال 23",
+        "page": 13,
+        "sortOrder": 1323,
+        "searchTokens": [
+          "space",
+          "p13-q23",
+          "صفحة 13",
+          "سؤال 23",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p14-q24",
@@ -2689,7 +3159,27 @@
         "right_triangle_trigonometry",
         "line_angle_with_plane_projection",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-14",
+        "sectionLabel": "الصفحة 14",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 14",
+        "accordionTertiary": "سؤال 24",
+        "page": 14,
+        "sortOrder": 1424,
+        "searchTokens": [
+          "space",
+          "p14-q24",
+          "صفحة 14",
+          "سؤال 24",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p15-q25",
@@ -2798,7 +3288,27 @@
         "pyramid_volume",
         "pythagoras_theorem",
         "distance_point_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-15",
+        "sectionLabel": "الصفحة 15",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 15",
+        "accordionTertiary": "سؤال 25",
+        "page": 15,
+        "sortOrder": 1525,
+        "searchTokens": [
+          "space",
+          "p15-q25",
+          "صفحة 15",
+          "سؤال 25",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p15-q26",
@@ -2884,7 +3394,27 @@
       "legacyTheoremIds": [
         "pyramid_volume",
         "right_triangle_trigonometry"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-15",
+        "sectionLabel": "الصفحة 15",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 15",
+        "accordionTertiary": "سؤال 26",
+        "page": 15,
+        "sortOrder": 1526,
+        "searchTokens": [
+          "space",
+          "p15-q26",
+          "صفحة 15",
+          "سؤال 26",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p16-q27",
@@ -2999,7 +3529,27 @@
         "right_triangle_midpoint_hypotenuse",
         "right_triangle_trigonometry",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-16",
+        "sectionLabel": "الصفحة 16",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 16",
+        "accordionTertiary": "سؤال 27",
+        "page": 16,
+        "sortOrder": 1627,
+        "searchTokens": [
+          "space",
+          "p16-q27",
+          "صفحة 16",
+          "سؤال 27",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p16-q28",
@@ -3101,7 +3651,27 @@
       ],
       "legacyTheoremIds": [
         "right_triangle_trigonometry"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-16",
+        "sectionLabel": "الصفحة 16",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 16",
+        "accordionTertiary": "سؤال 28",
+        "page": 16,
+        "sortOrder": 1628,
+        "searchTokens": [
+          "space",
+          "p16-q28",
+          "صفحة 16",
+          "سؤال 28",
+          "هندسة الفراغ"
+        ]
+      }
     },
     {
       "id": "p17-q29",
@@ -3241,7 +3811,27 @@
         "sine_rule",
         "pythagoras_theorem",
         "pyramid_volume"
-      ]
+      ],
+      "grouping": {
+        "domain": "space",
+        "domainLabel": "الهندسة الفراغية",
+        "dataset": "space",
+        "datasetLabel": "هندسة الفراغ",
+        "sectionKey": "space-page-17",
+        "sectionLabel": "الصفحة 17",
+        "accordionPrimary": "هندسة الفراغ",
+        "accordionSecondary": "الصفحة 17",
+        "accordionTertiary": "سؤال 29",
+        "page": 17,
+        "sortOrder": 1729,
+        "searchTokens": [
+          "space",
+          "p17-q29",
+          "صفحة 17",
+          "سؤال 29",
+          "هندسة الفراغ"
+        ]
+      }
     }
   ]
 }

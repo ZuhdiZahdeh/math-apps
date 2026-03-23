@@ -4,7 +4,17 @@
     "dataset": "book",
     "count": 41,
     "range": "سؤال 1 (ص 222) – سؤال 43 (ص 228)",
-    "language": "ar"
+    "language": "ar",
+    "groupingConfig": {
+      "version": 1,
+      "purpose": "Accordion-ready optional grouping metadata",
+      "primaryField": "grouping.accordionPrimary",
+      "secondaryField": "grouping.accordionSecondary",
+      "notes": [
+        "أسئلة الكتاب لا تحتوي رقم صفحة صريحًا داخل جميع العناصر، لذلك تم اعتماد تجميع مرن حسب نطاقات الأرقام.",
+        "يمكن لاحقًا استبدال accordionSecondary بتجميع أدق حسب الصفحة أو الوحدة عند توفرها."
+      ]
+    }
   },
   "questions": [
     {
@@ -86,7 +96,26 @@
         "vertical_angles_equal",
         "similarity_AA",
         "congruence_ASA"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 1",
+        "sortOrder": 1,
+        "searchTokens": [
+          "book",
+          "q01",
+          "سؤال 1",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q02",
@@ -155,7 +184,26 @@
       "legacyTheoremIds": [
         "supplementary_angles_straight_line",
         "congruence_SAS"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 2",
+        "sortOrder": 2,
+        "searchTokens": [
+          "book",
+          "q02",
+          "سؤال 2",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q03",
@@ -193,7 +241,26 @@
       ],
       "legacyTheoremIds": [
         "congruence_SAS"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 3",
+        "sortOrder": 3,
+        "searchTokens": [
+          "book",
+          "q03",
+          "سؤال 3",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q04",
@@ -243,7 +310,26 @@
       "legacyTheoremIds": [
         "congruence_SAS",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 4",
+        "sortOrder": 4,
+        "searchTokens": [
+          "book",
+          "q04",
+          "سؤال 4",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q05",
@@ -298,7 +384,26 @@
         "isosceles_triangle_base_angles",
         "angle_bisector_definition",
         "perpendicular_bisector_locus"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 5",
+        "sortOrder": 5,
+        "searchTokens": [
+          "book",
+          "q05",
+          "سؤال 5",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q06",
@@ -330,7 +435,26 @@
         "</div>"
       ],
       "theoremIds": [],
-      "legacyTheoremIds": []
+      "legacyTheoremIds": [],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 6",
+        "sortOrder": 6,
+        "searchTokens": [
+          "book",
+          "q06",
+          "سؤال 6",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q07",
@@ -368,7 +492,26 @@
       "legacyTheoremIds": [
         "perpendicular_bisector_locus",
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 7",
+        "sortOrder": 7,
+        "searchTokens": [
+          "book",
+          "q07",
+          "سؤال 7",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q08",
@@ -408,7 +551,26 @@
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 8",
+        "sortOrder": 8,
+        "searchTokens": [
+          "book",
+          "q08",
+          "سؤال 8",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q09",
@@ -439,7 +601,26 @@
       ],
       "legacyTheoremIds": [
         "triangle_inequality"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 9",
+        "sortOrder": 9,
+        "searchTokens": [
+          "book",
+          "q09",
+          "سؤال 9",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q10",
@@ -473,7 +654,26 @@
       ],
       "legacyTheoremIds": [
         "triangle_inequality"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-01-10",
+        "sectionLabel": "أسئلة الكتاب (1–10)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 1–10",
+        "accordionTertiary": "سؤال 10",
+        "sortOrder": 10,
+        "searchTokens": [
+          "book",
+          "q10",
+          "سؤال 10",
+          "1-10",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q11",
@@ -510,7 +710,26 @@
       ],
       "legacyTheoremIds": [
         "triangle_inequality"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 11",
+        "sortOrder": 11,
+        "searchTokens": [
+          "book",
+          "q11",
+          "سؤال 11",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q12",
@@ -542,7 +761,26 @@
       ],
       "legacyTheoremIds": [
         "triangle_inequality"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 12",
+        "sortOrder": 12,
+        "searchTokens": [
+          "book",
+          "q12",
+          "سؤال 12",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q13",
@@ -575,7 +813,26 @@
       ],
       "legacyTheoremIds": [
         "triangle_inequality"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 13",
+        "sortOrder": 13,
+        "searchTokens": [
+          "book",
+          "q13",
+          "سؤال 13",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q14",
@@ -602,7 +859,26 @@
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 14",
+        "sortOrder": 14,
+        "searchTokens": [
+          "book",
+          "q14",
+          "سؤال 14",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q15",
@@ -680,7 +956,26 @@
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "quadrilateral_angle_sum_360"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 15",
+        "sortOrder": 15,
+        "searchTokens": [
+          "book",
+          "q15",
+          "سؤال 15",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q16",
@@ -718,7 +1013,26 @@
       "legacyTheoremIds": [
         "angle_bisector_definition",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 16",
+        "sortOrder": 16,
+        "searchTokens": [
+          "book",
+          "q16",
+          "سؤال 16",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q17",
@@ -759,7 +1073,26 @@
       "legacyTheoremIds": [
         "right_triangle_altitude_hypotenuse",
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 17",
+        "sortOrder": 17,
+        "searchTokens": [
+          "book",
+          "q17",
+          "سؤال 17",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q18",
@@ -798,7 +1131,26 @@
       "legacyTheoremIds": [
         "right_triangle_midpoint_hypotenuse",
         "angle_bisector_definition"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 18",
+        "sortOrder": 18,
+        "searchTokens": [
+          "book",
+          "q18",
+          "سؤال 18",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q19",
@@ -832,7 +1184,26 @@
       "legacyTheoremIds": [
         "right_triangle_midpoint_hypotenuse",
         "angle_bisector_definition"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 19",
+        "sortOrder": 19,
+        "searchTokens": [
+          "book",
+          "q19",
+          "سؤال 19",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q20",
@@ -861,7 +1232,26 @@
         "angle_bisector_definition",
         "isosceles_triangle_base_angles",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-11-20",
+        "sectionLabel": "أسئلة الكتاب (11–20)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 11–20",
+        "accordionTertiary": "سؤال 20",
+        "sortOrder": 20,
+        "searchTokens": [
+          "book",
+          "q20",
+          "سؤال 20",
+          "11-20",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q21",
@@ -891,7 +1281,26 @@
       "legacyTheoremIds": [
         "parallel_lines_angles_rules",
         "thales_parallel_triangle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 21",
+        "sortOrder": 21,
+        "searchTokens": [
+          "book",
+          "q21",
+          "سؤال 21",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q22",
@@ -933,7 +1342,26 @@
         "parallelogram_property_opposite_sides_equal",
         "angle_bisector_definition",
         "parallel_lines_angles_rules"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 22",
+        "sortOrder": 22,
+        "searchTokens": [
+          "book",
+          "q22",
+          "سؤال 22",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q23",
@@ -963,7 +1391,26 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 23",
+        "sortOrder": 23,
+        "searchTokens": [
+          "book",
+          "q23",
+          "سؤال 23",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q24",
@@ -996,7 +1443,26 @@
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "parallel_lines_angles_rules"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 24",
+        "sortOrder": 24,
+        "searchTokens": [
+          "book",
+          "q24",
+          "سؤال 24",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q25",
@@ -1025,7 +1491,26 @@
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 25",
+        "sortOrder": 25,
+        "searchTokens": [
+          "book",
+          "q25",
+          "سؤال 25",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q26",
@@ -1053,7 +1538,26 @@
       ],
       "legacyTheoremIds": [
         "congruence_SAS"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 26",
+        "sortOrder": 26,
+        "searchTokens": [
+          "book",
+          "q26",
+          "سؤال 26",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q27",
@@ -1078,7 +1582,26 @@
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 27",
+        "sortOrder": 27,
+        "searchTokens": [
+          "book",
+          "q27",
+          "سؤال 27",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q28",
@@ -1156,7 +1679,26 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "medians_centroid"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 28",
+        "sortOrder": 28,
+        "searchTokens": [
+          "book",
+          "q28",
+          "سؤال 28",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q29",
@@ -1262,7 +1804,26 @@
         "triangle_angle_sum_180",
         "isosceles_triangle_base_angles",
         "medians_centroid"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 29",
+        "sortOrder": 29,
+        "searchTokens": [
+          "book",
+          "q29",
+          "سؤال 29",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q30",
@@ -1347,7 +1908,26 @@
         "parallelogram_property_opposite_sides_equal",
         "parallel_lines_angles_rules",
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-21-30",
+        "sectionLabel": "أسئلة الكتاب (21–30)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 21–30",
+        "accordionTertiary": "سؤال 30",
+        "sortOrder": 30,
+        "searchTokens": [
+          "book",
+          "q30",
+          "سؤال 30",
+          "21-30",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q31",
@@ -1404,7 +1984,26 @@
         "midsegment_triangle_bundle",
         "parallelogram_test_opposite_parallel_equal",
         "parallelogram_property_opposite_sides_equal"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 31",
+        "sortOrder": 31,
+        "searchTokens": [
+          "book",
+          "q31",
+          "سؤال 31",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q32",
@@ -1431,7 +2030,26 @@
       ],
       "legacyTheoremIds": [
         "pythagoras_theorem"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 32",
+        "sortOrder": 32,
+        "searchTokens": [
+          "book",
+          "q32",
+          "سؤال 32",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q33",
@@ -1459,7 +2077,26 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "midsegment_triangle_bundle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 33",
+        "sortOrder": 33,
+        "searchTokens": [
+          "book",
+          "q33",
+          "سؤال 33",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q34",
@@ -1486,7 +2123,26 @@
       ],
       "legacyTheoremIds": [
         "angle_bisector_definition"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 34",
+        "sortOrder": 34,
+        "searchTokens": [
+          "book",
+          "q34",
+          "سؤال 34",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q35",
@@ -1513,7 +2169,26 @@
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "midsegment_triangle_bundle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 35",
+        "sortOrder": 35,
+        "searchTokens": [
+          "book",
+          "q35",
+          "سؤال 35",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q36",
@@ -1543,7 +2218,26 @@
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "supplementary_angles_straight_line"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 36",
+        "sortOrder": 36,
+        "searchTokens": [
+          "book",
+          "q36",
+          "سؤال 36",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q37",
@@ -1658,7 +2352,26 @@
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 37",
+        "sortOrder": 37,
+        "searchTokens": [
+          "book",
+          "q37",
+          "سؤال 37",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q38",
@@ -1754,7 +2467,26 @@
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
         "right_triangle_midpoint_hypotenuse"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 38",
+        "sortOrder": 38,
+        "searchTokens": [
+          "book",
+          "q38",
+          "سؤال 38",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q40",
@@ -1831,7 +2563,26 @@
       "legacyTheoremIds": [
         "triangle_angle_sum_180",
         "circle_inscribed_angle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-31-40",
+        "sectionLabel": "أسئلة الكتاب (31–40)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 31–40",
+        "accordionTertiary": "سؤال 40",
+        "sortOrder": 40,
+        "searchTokens": [
+          "book",
+          "q40",
+          "سؤال 40",
+          "31-40",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q41",
@@ -1912,7 +2663,26 @@
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-41-41",
+        "sectionLabel": "أسئلة الكتاب (41–41)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 41–41",
+        "accordionTertiary": "سؤال 41",
+        "sortOrder": 41,
+        "searchTokens": [
+          "book",
+          "q41",
+          "سؤال 41",
+          "41-41",
+          "هندسة مستوية"
+        ]
+      }
     },
     {
       "id": "q43",
@@ -2001,7 +2771,26 @@
         "angle_bisector_definition",
         "parallel_lines_angles_rules",
         "isosceles_triangle_base_angles"
-      ]
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "dataset": "book",
+        "datasetLabel": "أسئلة الكتاب",
+        "sectionKey": "book-41-41",
+        "sectionLabel": "أسئلة الكتاب (41–41)",
+        "accordionPrimary": "أسئلة الكتاب",
+        "accordionSecondary": "المجموعة 41–41",
+        "accordionTertiary": "سؤال 43",
+        "sortOrder": 43,
+        "searchTokens": [
+          "book",
+          "q43",
+          "سؤال 43",
+          "41-41",
+          "هندسة مستوية"
+        ]
+      }
     }
   ]
 }
