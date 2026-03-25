@@ -42,6 +42,38 @@
           <summary>البحث والتصفية</summary>
           <div class="sidebar-section__body">
             <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه أو النظرية المرتبطة..." />
+
+            <div class="control-grid">
+              <label class="control-field">
+                <span>من صفحة الملف</span>
+                <input id="pageFrom" class="input input-sm" type="number" min="1" placeholder="1" />
+              </label>
+              <label class="control-field">
+                <span>إلى صفحة الملف</span>
+                <input id="pageTo" class="input input-sm" type="number" min="1" placeholder="17" />
+              </label>
+            </div>
+
+            <div class="toolbar">
+              <button id="btnApply" class="btn btn--soft btn--sm" type="button">تحديث العرض</button>
+              <button id="btnPrint" class="btn btn--sm" type="button">طباعة</button>
+            </div>
+          </div>
+        </details>
+
+        <details class="sidebar-section" data-section-key="display">
+          <summary>إعدادات العرض</summary>
+          <div class="sidebar-section__body">
+            <div class="font-panel">
+              <div class="font-panel__label">حجم الخط داخل الشرح</div>
+              <div class="font-controls">
+                <button id="fontMinus" class="btn btn--soft btn--tiny" type="button" title="تصغير الخط">A−</button>
+                <button id="fontReset" class="btn btn--soft btn--tiny" type="button" title="إعادة الضبط">A</button>
+                <button id="fontPlus" class="btn btn--soft btn--tiny" type="button" title="تكبير الخط">A+</button>
+                <span id="fontLabel" class="font-value">100%</span>
+              </div>
+              <input id="fontRange" class="font-range" type="range" min="80" max="160" step="5" value="100" aria-label="شريط حجم الخط" />
+            </div>
           </div>
         </details>
       </div>
@@ -65,6 +97,17 @@
           <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
         </div>
       </div>
+
+      <div class="page-note">تركّز هذه الصفحة على تصحيح التخيّل الفراغي لدى الطالب عبر صور واضحة وشرح متدرّج، مع ربط مباشر بالنظريات التي تفسّر العلاقات الهندسية داخل المجسّمات.</div>
+
+      <section class="card">
+        <div class="card__title">كيف تخدم هذه الصفحة الطالب والمعلم؟</div>
+        <div class="source-note">
+          <p><strong>للطالب:</strong> تتحول الفكرة الفراغية هنا من شكل يصعب تخيله إلى خطوات مرئية يسهل فهمها، فتقودك الصور والشرح إلى بناء تصور هندسي أدق وأكثر ثباتًا.</p>
+          <p><strong>للمعلم:</strong> توفر الصفحة محتوى منظمًا يسهّل عرض المجسّمات والعلاقات بينها، مع حلول جاهزة للشرح وروابط نظرية تدعم تقديم الفكرة داخل الحصة أو أثناء المراجعة.</p>
+          <p><strong>في الفهرسة والربط:</strong> يمكن الوصول إلى الأسئلة وفق البحث أو نطاق الصفحات أو النظرية المرتبطة، مما يجعل التنقل بين السؤال والشرح والنظرية سريعًا وواضحًا.</p>
+        </div>
+      </section>
 
       <section class="card">
         <div class="card__title">الصور التوضيحية للمجسّمات</div>
