@@ -1750,13 +1750,13 @@ body.sidebar-open .sidebar-toggle__bar:nth-child(3){
 .sidebar-acc__items{
   display:grid;
   gap:10px;
-  max-block-size:min(46vh, 420px);
-  overflow-y:auto;
-  overscroll-behavior:contain;
-  scrollbar-gutter:stable;
-  scrollbar-width:thin;
-  scrollbar-color:#d4deea transparent;
-  padding-inline-end:6px;
+  max-block-size:none;
+  overflow:visible;
+  overscroll-behavior:auto;
+  scrollbar-gutter:auto;
+  scrollbar-width:auto;
+  scrollbar-color:auto;
+  padding-inline-end:0;
 }
 .sidebar-acc__items::-webkit-scrollbar{
   width:10px;
@@ -1915,7 +1915,7 @@ body.sidebar-collapsed .sidebar-toggle{
 
 @media (max-width: 980px){
   .sidebar-acc__items{
-    max-block-size:min(52vh, 360px);
+    max-block-size:none;
   }
 
   .topbar--with-sidebar{
