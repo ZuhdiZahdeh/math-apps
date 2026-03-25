@@ -55,6 +55,18 @@ function currentListStateKey() {
   return LIST_STATE_KEYS[currentDataset];
 }
 
+function getQuestionSortOrder(q) {
+  return getGrouping(q, { sortOrder: q.number || 999999 }).sortOrder;
+}
+
+function sortQuestions(items = []) {
+  return [...items].sort((a, b) => {
+    const diff = getQuestionSortOrder(a) - getQuestionSortOrder(b);
+    if (diff !== 0) return diff;
+    return String(a.id || "").localeCompare(String(b.id || ""), "ar");
+  });
+}
+
 function syncListAccordions() {
   restoreOpenDetailKeys(els.list, currentListStateKey(), {
     selector: ".sidebar-acc[data-acc-key]",
@@ -66,7 +78,7 @@ function syncListAccordions() {
 async function loadDataset(key) {
   if (cache[key]) return cache[key];
   const data = await fetchJson(DATASETS[key]);
-  cache[key] = data.questions || [];
+  cache[key] = sortQuestions(data.questions || []);
   return cache[key];
 }
 
@@ -300,9 +312,11 @@ function renderEmptyState() {
 
 function applyFilter(preferredId = null) {
   const query = normalizeArabic(els.search.value);
-  filtered = !query
+  const source = !query
     ? [...allQuestions]
     : allQuestions.filter((q) => getSearchBlob(q).includes(query));
+
+  filtered = sortQuestions(source);
 
   renderList();
 
