@@ -231,6 +231,8 @@ button{ -webkit-tap-highlight-color: transparent; }
 
 .questions{
   overflow:auto;
+  overscroll-behavior:auto;
+  scrollbar-gutter:stable;
   padding:12px;
 }
 .questions::-webkit-scrollbar,
@@ -1750,13 +1752,16 @@ body.sidebar-open .sidebar-toggle__bar:nth-child(3){
 .sidebar-acc__items{
   display:grid;
   gap:10px;
-  max-block-size:none;
-  overflow:visible;
+  max-block-size:min(46vh, 420px);
+  min-block-size:0;
+  overflow-y:auto;
+  overflow-x:hidden;
   overscroll-behavior:auto;
-  scrollbar-gutter:auto;
-  scrollbar-width:auto;
-  scrollbar-color:auto;
-  padding-inline-end:0;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-gutter:stable;
+  scrollbar-width:thin;
+  scrollbar-color:#d4deea transparent;
+  padding-inline-end:6px;
 }
 .sidebar-acc__items::-webkit-scrollbar{
   width:10px;
@@ -1915,7 +1920,7 @@ body.sidebar-collapsed .sidebar-toggle{
 
 @media (max-width: 980px){
   .sidebar-acc__items{
-    max-block-size:none;
+    max-block-size:min(52vh, 360px);
   }
 
   .topbar--with-sidebar{
