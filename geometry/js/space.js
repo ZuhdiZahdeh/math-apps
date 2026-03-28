@@ -5,7 +5,6 @@ import {
   pad2,
   fetchJson,
   openImageModal,
-  clamp,
   initResponsiveSidebar,
   getGrouping,
   buildAccordionTree,
@@ -17,31 +16,18 @@ import {
 import { loadTheorems, getTheoremLabel, renderTheoremChips, bindTheoremClicks } from "./theorems-store.js";
 
 const DATA_URL = "./data/space-solutions.json";
-const FONT_KEY = "geometry_space_font_scale";
-const FONT_MIN = 0.8;
-const FONT_MAX = 1.6;
-const FONT_STEP = 0.05;
 const LIST_STATE_KEY = "geometry_space_list";
 
 const els = {
   list: byId("questionsList"),
   badge: byId("listBadge"),
   search: byId("searchInput"),
-  pageFrom: byId("pageFrom"),
-  pageTo: byId("pageTo"),
-  apply: byId("btnApply"),
-  print: byId("btnPrint"),
   title: byId("questionTitle"),
   meta: byId("metaLine"),
   gallery: byId("imageGallery"),
   solution: byId("solutionBox"),
   prev: byId("prevBtn"),
   next: byId("nextBtn"),
-  fontPlus: byId("fontPlus"),
-  fontMinus: byId("fontMinus"),
-  fontReset: byId("fontReset"),
-  fontLabel: byId("fontLabel"),
-  fontRange: byId("fontRange"),
 };
 
 let db = [];
@@ -58,33 +44,6 @@ function syncListAccordions() {
 
 function parseHashId() {
   return decodeURIComponent(location.hash.replace(/^#/, "").trim());
-}
-
-function getSavedScale() {
-  const raw = localStorage.getItem(FONT_KEY);
-  const value = raw ? Number(raw) : 1;
-  return clamp(Number.isFinite(value) ? value : 1, FONT_MIN, FONT_MAX);
-}
-
-function setFontScale(scale) {
-  const value = clamp(scale, FONT_MIN, FONT_MAX);
-  document.documentElement.style.setProperty("--font-scale", String(value));
-  localStorage.setItem(FONT_KEY, String(value));
-  const percent = Math.round(value * 100);
-  els.fontLabel.textContent = `${percent}%`;
-  els.fontRange.value = String(percent);
-}
-
-function bumpFont(delta) {
-  setFontScale(getSavedScale() + delta);
-}
-
-function bindFontControls() {
-  setFontScale(getSavedScale());
-  els.fontPlus.addEventListener("click", () => bumpFont(FONT_STEP));
-  els.fontMinus.addEventListener("click", () => bumpFont(-FONT_STEP));
-  els.fontReset.addEventListener("click", () => setFontScale(1));
-  els.fontRange.addEventListener("input", (e) => setFontScale(Number(e.target.value || 100) / 100));
 }
 
 function getSearchBlob(item) {
@@ -328,22 +287,16 @@ function renderEmptyState() {
   els.title.textContent = "لا توجد نتائج مطابقة";
   els.meta.textContent = "";
   els.gallery.innerHTML = "";
-  els.solution.innerHTML = `<div class="empty-state">جرّب تعديل نص البحث أو نطاق الصفحات.</div>`;
+  els.solution.innerHTML = `<div class="empty-state">جرّب تعديل نص البحث.</div>`;
   updateBadge();
   updateNavButtons();
 }
 
 function applyFilters(preferredId = activeId) {
   const query = normalizeArabic(els.search.value);
-  const from = Number.parseInt(els.pageFrom.value || "", 10);
-  const to = Number.parseInt(els.pageTo.value || "", 10);
 
   filtered = db.filter((item) => {
-    const matchesText = !query || getSearchBlob(item).includes(query);
-    const page = Number(item.page || 0);
-    const matchesFrom = Number.isFinite(from) ? page >= from : true;
-    const matchesTo = Number.isFinite(to) ? page <= to : true;
-    return matchesText && matchesFrom && matchesTo;
+    return !query || getSearchBlob(item).includes(query);
   });
 
   renderList();
@@ -359,18 +312,12 @@ function applyFilters(preferredId = activeId) {
 
 function bindEvents() {
   els.search.addEventListener("input", () => applyFilters(activeId));
-  els.pageFrom.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") applyFilters(activeId);
-  });
-  els.pageTo.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") applyFilters(activeId);
-  });
-  els.apply.addEventListener("click", () => applyFilters(activeId));
-  els.print.addEventListener("click", () => window.print());
+
   els.prev.addEventListener("click", () => {
     const idx = findIndexById(filtered, activeId);
     if (idx > 0) renderQuestion(filtered[idx - 1]);
   });
+
   els.next.addEventListener("click", () => {
     const idx = findIndexById(filtered, activeId);
     if (idx >= 0 && idx < filtered.length - 1) renderQuestion(filtered[idx + 1]);
@@ -399,7 +346,6 @@ async function init() {
     onStateChange: syncListAccordions,
   });
 
-  bindFontControls();
   bindEvents();
 
   const data = await fetchJson(DATA_URL);
