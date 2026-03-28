@@ -2,12 +2,12 @@
   "meta": {
     "title": "مرجع النظريات الهندسية الموحّد",
     "sourceOfTruth": "data/theorems-master.json",
-    "totalTheorems": 133,
-    "planeVisibleTheorems": 119,
+    "totalTheorems": 140,
+    "planeVisibleTheorems": 126,
     "spaceVisibleTheorems": 17,
-    "usedBySolutionsCount": 52,
+    "usedBySolutionsCount": 61,
     "generatedAt": "2026-03-28",
-    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تم تحسين قسم متوازي الأضلاع بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث صور النظريات وربطها بالأسئلة المرتبطة بدقة أعلى كما تم تحسين قسم المستطيل بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث النظريات الفردية والصور وربطها بالأسئلة المرتبطة.",
+    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تم تحسين قسم متوازي الأضلاع بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث صور النظريات وربطها بالأسئلة المرتبطة. كما تم تحسين قسم المستطيل بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث النظريات الفردية والصور وربطها بالأسئلة. وفي هذا الإصدار تم تطوير قسم المثلث بإعادة بناء نظريات المثلث الأساسية، وإضافة صفحة مجمعة لخصائص المثلث، وصفحة مجمعة لمعايير الإثبات، وإضافة صفحات خاصة بالمثلث المتساوي الساقين، والمثلث المتساوي الأضلاع، والمثلث القائم المتساوي الساقين، مع تحسين الربط مع أسئلة الكتاب والأسئلة النهائية.",
     "groupingConfig": {
       "version": 1,
       "purpose": "Accordion-ready optional grouping metadata",
@@ -183,7 +183,25 @@
     "rectangle_criterion_parallelogram_right_angle": "rectangle_test_parallelogram_right_angle",
     "rectangle_test_one_right_angle": "rectangle_test_parallelogram_right_angle",
     "rectangle_diagonals_equal": "th037",
-    "rectangle_test_parallelogram_equal_diagonals": "th038"
+    "rectangle_test_parallelogram_equal_diagonals": "th038",
+    "triangle_properties_summary": "triangle_properties_summary",
+    "triangle_criteria_summary": "triangle_criteria_summary",
+    "isosceles_triangle_properties_summary": "isosceles_triangle_properties_summary",
+    "equilateral_triangle_properties_summary": "equilateral_triangle_properties_summary",
+    "equilateral_triangle_angles_equal": "equilateral_triangle_angles_equal",
+    "isosceles_right_triangle_properties_summary": "isosceles_right_triangle_properties_summary",
+    "isosceles_right_triangle_45_45_90": "isosceles_right_triangle_45_45_90",
+    "triangle_properties": "triangle_properties_summary",
+    "triangle_tests_summary": "triangle_criteria_summary",
+    "triangle_proof_criteria": "triangle_criteria_summary",
+    "isosceles_triangle_summary": "isosceles_triangle_properties_summary",
+    "isosceles_triangle_properties": "isosceles_triangle_properties_summary",
+    "equilateral_triangle_summary": "equilateral_triangle_properties_summary",
+    "equilateral_triangle_properties": "equilateral_triangle_properties_summary",
+    "equilateral_triangle_angles_60": "equilateral_triangle_angles_equal",
+    "isosceles_right_triangle_summary": "isosceles_right_triangle_properties_summary",
+    "isosceles_right_triangle_properties": "isosceles_right_triangle_properties_summary",
+    "right_isosceles_triangle_angles": "isosceles_right_triangle_45_45_90"
   },
   "theorems": [
     {
@@ -346,8 +364,8 @@
           ]
         },
         {
-          "questionId": "qf-15",
-          "href": "./plane.html#final:qf-15",
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -360,8 +378,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -453,8 +471,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -511,40 +529,56 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - خواص أساسية",
       "title": "نظرية تساوي الزوايا المقابلة للأضلاع المتساوية",
       "statement": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية.",
-      "short": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية.",
-      "explanation": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية.",
+      "short": "إذا تساوى ضلعان في مثلث، فإن الزاويتين المقابلتين لهما متساويتان.",
+      "explanation": "إذا كان في مثلث ضلعان متساويين، فإن الزاويتين المقابلتين لهما متساويتان.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في أي مثلث، إذا تساوى ضلعان فإن الزاويتين المقابلتين لهما <strong>متساويتان</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span> إذا كان <span class='math'>AB = AC</span> فإن <span class='math'>∠B = ∠C</span>.</p><div class='th-title'>نتيجة مهمة</div><p>هذه القاعدة هي الأساس في مسائل <strong>المثلث المتساوي الساقين</strong>، ومنها نحصل مباشرة على تساوي زاويتي القاعدة.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "أضلاع متساوية",
+        "زوايا متساوية",
+        "مثلث - خواص أساسية"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/triangle-equal-sides-equal-angles.png",
+        "alt": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-equal-sides-equal-angles.png",
+          "alt": "في المثلث، مقابل الأضلاع المتساوية تقع زوايا متساوية.",
+          "caption": "إذا كان AB = BC فإن الزاويتين المقابلتين لهما عند A و C متساويتان."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th004",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 3,
         "searchTokens": [
           "th003",
           "نظرية تساوي الزوايا المقابلة للأضلاع المتساوية",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -560,31 +594,32 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - متساوي الساقين",
       "title": "نظرية زاويتي قاعدة المثلث المتساوي الساقين",
       "statement": "في المثلث المتساوي الساقين زاويتا القاعدة متساويتان.",
-      "short": "في مثلث متساوي الساقين: تساوي الساقين ⇔ تساوي زاويتي القاعدة.",
-      "explanation": "في مثلث متساوي الساقين: تساوي الساقين ⇔ تساوي زاويتي القاعدة.",
+      "short": "إذا كان AB = AC فإن ∠B = ∠C.",
+      "explanation": "في المثلث المتساوي الساقين تكون زاويتا القاعدة متساويتين، والعكس صحيح إذا تساوت زاويتان في مثلث فإن الضلعين المقابلين لهما متساويان.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في المثلث متساوي الساقين، تكون الزاويتان المقابلتان للساقين المتساويين <strong>متطابقتين</strong>.</p><div class='th-title'>عكس النظرية</div><p>إذا تساوت زاويتان في مثلث، فإن الضلعين المقابلين لهما متساويان، وبالتالي يكون المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>الأهمية</div><p>هذا العكس مفيد جداً في المسائل البرهانية؛ فإذا استطعت إثبات أن زوايا القاعدة متساوية، يمكنك فوراً استنتاج أن المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>ملخص الخصائص</div><p>في أي مثلث متساوي الساقين، هناك علاقة ارتباط شرطي بين الأضلاع والزوايا:</p><ul><li><strong>النتيجة:</strong> تساوي الضلعين يؤدي حتماً لتساوي زاويتي القاعدة.</li></ul><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span>:</p><ul><li>إذا <span class='math'>AB = AC</span> ⇒ <span class='math'>∠ABC = ∠BCA</span> (أي <span class='math'>∠B = ∠C</span>).</li><li><strong>العكس:</strong> إذا <span class='math'>∠ABC = ∠BCA</span> ⇒ <span class='math'>AB = AC</span>.</li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا كان في المثلث ضلعان متساويين، فإن الزاويتين المقابلتين لهما، أي <strong>زاويتا القاعدة</strong>، متساويتان.</p><div class='th-title'>العكس</div><p>إذا تساوت زاويتان في مثلث، فإن الضلعين المقابلين لهما متساويان، وبالتالي يكون المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span>: إذا <span class='math'>AB = AC</span> فإن <span class='math'>∠B = ∠C</span>، وإذا <span class='math'>∠B = ∠C</span> فإن <span class='math'>AB = AC</span>.</p></div>",
       "tags": [
         "مثلث",
         "متساوي الساقين",
-        "زوايا القاعدة"
+        "زاويتا القاعدة",
+        "مثلث - متساوي الساقين"
       ],
       "diagram": {
-        "image": "images/theorems/isosceles%20triangle.png",
-        "alt": "مثلث متساوي الساقين ABC حيث AB = AC وزاويتا القاعدة عند B و C متساويتان."
+        "image": "images/theorems/isosceles-triangle-base-angles.png",
+        "alt": "في المثلث المتساوي الساقين زاويتا القاعدة متساويتان."
       },
       "images": [
         {
-          "src": "images/theorems/isosceles%20triangle.png",
-          "alt": "رسم لمثلث متساوي الساقين",
-          "caption": "شكل يوضح المثلث متساوي الساقين وتساوي زاويتي القاعدة."
+          "src": "images/theorems/isosceles-triangle-base-angles.png",
+          "alt": "في المثلث المتساوي الساقين زاويتا القاعدة متساويتان.",
+          "caption": "إذا كان AB = BC فإن ∠A = ∠C."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
@@ -846,8 +881,8 @@
           ]
         },
         {
-          "questionId": "qf11",
-          "href": "./plane.html#final:qf11",
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -861,8 +896,8 @@
           ]
         },
         {
-          "questionId": "qf-15",
-          "href": "./plane.html#final:qf-15",
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -875,8 +910,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -891,25 +926,25 @@
       "questionCount": 22,
       "usedInCount": 22,
       "relatedIds": [
+        "th003",
         "th006",
-        "th007",
-        "th008",
-        "th009"
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - متساوي الساقين",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
         "sortOrder": 4,
         "searchTokens": [
           "th004",
           "نظرية زاويتي قاعدة المثلث المتساوي الساقين",
           "مثلث",
-          "مثلث",
+          "مثلث - متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -925,32 +960,32 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - خواص أساسية",
       "title": "نظرية عدم مساواة المثلث",
       "statement": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث.",
       "short": "في أي مثلث: مجموع طولي أي ضلعين أكبر من طول الضلع الثالث.",
-      "explanation": "في أي مثلث: مجموع طولي أي ضلعين أكبر من طول الضلع الثالث.",
+      "explanation": "لا يمكن تكوين مثلث إلا إذا كان مجموع كل ضلعين أكبر من الضلع الثالث.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>مجموع أي ضلعين في المثلث أكبر من الضلع الثالث.</p><div class='th-title'>التعبير الرمزي</div><ul><li><span class='math'>AB + AC > BC</span></li><li><span class='math'>AB + BC > AC</span></li><li><span class='math'>AC + BC > AB</span></li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في أي مثلث، يجب أن يكون <strong>مجموع طولي أي ضلعين</strong> أكبر من طول الضلع الثالث.</p><div class='th-title'>التعبير الرمزي</div><ul><li><span class='math'>AB + AC > BC</span></li><li><span class='math'>AB + BC > AC</span></li><li><span class='math'>AC + BC > AB</span></li></ul><div class='th-title'>استعمالها</div><p>تُستخدم هذه القاعدة لفحص إمكان تكوين مثلث، ولمقارنة الأطوال، وإثبات أن كل ضلع أصغر من نصف المحيط.</p></div>",
       "tags": [
         "مثلث",
-        "متباينة",
-        "أطوال"
+        "متباينة المثلث",
+        "أطوال",
+        "مثلث - خواص أساسية"
       ],
       "diagram": {
-        "svg": "<svg viewBox='0 0 340 230' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='متباينة المثلث'><style>.p{fill:#111827;font:14px Arial}.l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style><path class='l' d='M70 190 L170 50 L290 190 Z'/><text class='p' x='162' y='35'>A</text><text class='p' x='52' y='210'>B</text><text class='p' x='298' y='210'>C</text><text class='p' x='20' y='30'>AB + AC > BC</text></svg>",
         "image": "images/theorems/triangle-inequality.png",
-        "alt": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث"
+        "alt": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث."
       },
       "images": [
         {
           "src": "images/theorems/triangle-inequality.png",
-          "alt": "مجموع أي ضلعين في المثلث أكبر من الضلع الثالث",
-          "caption": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث."
+          "alt": "مجموع كل ضلعين في المثلث أكبر من الضلع الثالث.",
+          "caption": "مثال عددي يوضح تحقق متباينة المثلث."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
@@ -1022,21 +1057,23 @@
       ],
       "questionCount": 5,
       "usedInCount": 5,
-      "relatedIds": [],
+      "relatedIds": [
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 5,
         "searchTokens": [
           "th005",
           "نظرية عدم مساواة المثلث",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -1052,34 +1089,51 @@
         "plane",
         "space"
       ],
-      "field": "المثلثات",
-      "category": "خواص",
+      "field": "مثلث",
+      "category": "مثلث - متساوي الساقين",
       "title": "خاصية منصف زاوية الرأس في المثلث المتساوي الساقين",
       "statement": "في المثلث المتساوي الساقين يتحد منصف زاوية الرأس مع المستقيم المتوسط للقاعدة ومع الارتفاع على القاعدة.",
-      "short": "المتوسط النازل من الرأس إلى القاعدة في المثلث المتساوي الساقين هو أيضًا ارتفاع ومنصف زاوية ومنصف للقاعدة.",
-      "explanation": "المتوسط النازل من الرأس إلى القاعدة في المثلث المتساوي الساقين هو أيضًا ارتفاع ومنصف زاوية ومنصف للقاعدة.",
+      "short": "في المثلث المتساوي الساقين: منصف زاوية الرأس هو نفسه المتوسط إلى القاعدة وهو نفسه الارتفاع على القاعدة.",
+      "explanation": "إذا كان المثلث متساوي الساقين فإن المستقيم النازل من الرأس إلى القاعدة يجمع ثلاث صفات: منصف زاوية، ومتوسط، وارتفاع.",
       "proof": "",
-      "contentHtml": "<div class=\"th-section\"><div class=\"th-title\">النتائج المباشرة</div><ul><li>إذا كان <strong>AB = AC</strong> وكان <strong>D</strong> منتصف <strong>BC</strong>، فإن <strong>AD ⟂ BC</strong>.</li><li>كما أن <strong>BD = DC</strong>.</li><li>ويُستخدم كثيرًا لتحويل مسألة إلى مثلث قائم.</li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>الفكرة الأساسية</div><p>إذا كان <span class='math'>AB = AC</span> في <span class='math'>△ABC</span>، ورُسم <span class='math'>AD</span> من الرأس <span class='math'>A</span> إلى القاعدة <span class='math'>BC</span>، فإن هذا المستقيم نفسه يجمع <strong>ثلاث خصائص</strong> معًا.</p><div class='th-title'>النتائج المباشرة</div><ul><li><span class='math'>∠BAD = ∠DAC</span> (منصف زاوية الرأس).</li><li><span class='math'>BD = DC</span> (متوسط إلى القاعدة).</li><li><span class='math'>AD ⟂ BC</span> (ارتفاع على القاعدة).</li></ul><div class='th-title'>الأهمية</div><p>هذه الخاصية تختصر كثيرًا من المسائل؛ فهي تسمح بتحويل مسألة في مثلث متساوي الساقين إلى <strong>مثلث قائم</strong> واستعمال فيثاغورس أو النسب المثلثية أو التطابق.</p></div>",
       "tags": [
-        "المثلثات",
-        "خواص"
+        "مثلث",
+        "متساوي الساقين",
+        "منصف زاوية",
+        "متوسط",
+        "ارتفاع",
+        "مثلث - متساوي الساقين"
       ],
       "diagram": {
-        "image": "images/theorems/isosceles%20triangle.png",
-        "alt": "خواص المثلث المتساوي الساقين"
+        "image": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+        "alt": "في المثلث المتساوي الساقين يتحد منصف زاوية الرأس مع المتوسط والارتفاع على القاعدة."
       },
       "images": [
         {
-          "src": "images/theorems/isosceles%20triangle.png",
-          "alt": "خواص المثلث المتساوي الساقين",
-          "caption": "المتوسط النازل من الرأس إلى القاعدة في المثلث المتساوي الساقين هو أيضًا ارتفاع ومنصف زاوية ومنصف للقاعدة."
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "في المثلث المتساوي الساقين يتحد منصف زاوية الرأس مع المتوسط والارتفاع على القاعدة.",
+          "caption": "إذا كان AB = AC فإن AD ينصف زاوية A، و BD = DC، و AD ⟂ BC."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
+        {
+          "questionId": "q29",
+          "href": "./plane.html#book:q29",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (29)",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q29.png"
+          ]
+        },
         {
           "questionId": "p07-q12",
           "href": "./space.html#p07-q12",
@@ -1133,23 +1187,28 @@
           ]
         }
       ],
-      "questionCount": 4,
-      "usedInCount": 4,
-      "relatedIds": [],
+      "questionCount": 5,
+      "usedInCount": 5,
+      "relatedIds": [
+        "th007",
+        "th008",
+        "th009",
+        "isosceles_triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
-        "field": "المثلثات",
-        "category": "خواص",
+        "field": "مثلث",
+        "category": "مثلث - متساوي الساقين",
         "accordionPrimary": "الهندسة المستوية",
-        "accordionSecondary": "المثلثات",
-        "accordionTertiary": "خواص",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
         "sortOrder": 6,
         "searchTokens": [
           "th006",
           "خاصية منصف زاوية الرأس في المثلث المتساوي الساقين",
-          "المثلثات",
-          "خواص",
+          "مثلث",
+          "مثلث - متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -1163,46 +1222,58 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - متساوي الساقين",
       "title": "العكس: منصف الزاوية والارتفاع",
       "statement": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين.",
-      "short": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين.",
-      "explanation": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين.",
+      "short": "إذا اجتمع منصف الزاوية والارتفاع في مستقيم واحد داخل مثلث، كان المثلث متساوي الساقين.",
+      "explanation": "اجتماع صفتين من صفات مثلث متساوي الساقين في مستقيم واحد يكفي لإثبات أن المثلث متساوي الساقين.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص العكس</div><p>إذا كان في مثلث مستقيم يخرج من أحد الرؤوس، ويكون في الوقت نفسه <strong>منصفًا للزاوية</strong> و<strong>ارتفاعًا</strong> على الضلع المقابل، فإن المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span>، إذا كان <span class='math'>∠BAD = ∠DAC</span> و <span class='math'>AD ⟂ BC</span>، فإن <span class='math'>AB = AC</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "متساوي الساقين",
+        "عكس النظرية",
+        "منصف زاوية",
+        "ارتفاع",
+        "مثلث - متساوي الساقين"
       ],
-      "diagram": null,
+      "diagram": {
+        "image": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+        "alt": "إذا كان منصف الزاوية في مثلث هو أيضًا ارتفاعًا فإن المثلث متساوي الساقين."
+      },
       "images": [
         {
-          "src": "images/theorems/converse-isosceles-triangle.png",
-          "alt": "خواص المثلث المتساوي الساقين",
-          "caption": "إذا كان في مثلث منصف زاوية هو أيضًا ارتفاع فإن المثلث متساوي الساقين."
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "إذا كان منصف الزاوية في مثلث هو أيضًا ارتفاعًا فإن المثلث متساوي الساقين.",
+          "caption": "إذا تحقق ∠BAD = ∠DAC و AD ⟂ BC فإن AB = AC."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th006",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - متساوي الساقين",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
         "sortOrder": 7,
         "searchTokens": [
           "th007",
           "العكس: منصف الزاوية والارتفاع",
           "مثلث",
-          "مثلث",
+          "مثلث - متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -1216,40 +1287,58 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - متساوي الساقين",
       "title": "العكس: منصف الزاوية والمتوسط",
       "statement": "إذا كان في مثلث منصف زاوية هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
-      "short": "إذا كان في مثلث منصف زاوية هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
-      "explanation": "إذا كان في مثلث منصف زاوية هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
+      "short": "إذا اجتمع منصف الزاوية والمتوسط في مستقيم واحد داخل مثلث، كان المثلث متساوي الساقين.",
+      "explanation": "إذا كان المستقيم الخارج من الرأس منصفًا للزاوية ويصل إلى منتصف الضلع المقابل، فهذا يكفي لإثبات تساوي الضلعين المجاورين لتلك الزاوية.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص العكس</div><p>إذا كان مستقيم يخرج من رأس في مثلث، ويكون في الوقت نفسه <strong>منصفًا للزاوية</strong> و<strong>متوسطًا</strong> إلى الضلع المقابل، فإن المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>إذا كان <span class='math'>∠BAD = ∠DAC</span> و <span class='math'>BD = DC</span>، فإن <span class='math'>AB = AC</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "متساوي الساقين",
+        "عكس النظرية",
+        "منصف زاوية",
+        "متوسط",
+        "مثلث - متساوي الساقين"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+        "alt": "إذا كان منصف الزاوية في مثلث هو أيضًا متوسطًا فإن المثلث متساوي الساقين."
+      },
+      "images": [
+        {
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "إذا كان منصف الزاوية في مثلث هو أيضًا متوسطًا فإن المثلث متساوي الساقين.",
+          "caption": "إذا تحقق ∠BAD = ∠DAC و BD = DC فإن AB = AC."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th006",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - متساوي الساقين",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
         "sortOrder": 8,
         "searchTokens": [
           "th008",
           "العكس: منصف الزاوية والمتوسط",
           "مثلث",
-          "مثلث",
+          "مثلث - متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -1263,40 +1352,58 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - متساوي الساقين",
       "title": "العكس: الارتفاع والمتوسط",
       "statement": "إذا كان في مثلث ارتفاع هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
-      "short": "إذا كان في مثلث ارتفاع هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
-      "explanation": "إذا كان في مثلث ارتفاع هو أيضًا مستقيم متوسط فإن المثلث متساوي الساقين.",
+      "short": "إذا اجتمع الارتفاع والمتوسط في مستقيم واحد داخل مثلث، كان المثلث متساوي الساقين.",
+      "explanation": "إذا كان المستقيم الخارج من الرأس عموديًا على الضلع المقابل ويمر بمنتصفه، فإن الضلعين الجانبيين متساويان.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص العكس</div><p>إذا كان المستقيم الخارج من رأس في مثلث عموديًا على الضلع المقابل <strong>ويمر بمنتصفه</strong>، فإن المثلث <strong>متساوي الساقين</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>إذا كان <span class='math'>AD ⟂ BC</span> و <span class='math'>BD = DC</span>، فإن <span class='math'>AB = AC</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "متساوي الساقين",
+        "عكس النظرية",
+        "ارتفاع",
+        "متوسط",
+        "مثلث - متساوي الساقين"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+        "alt": "إذا كان الارتفاع في مثلث هو أيضًا متوسطًا فإن المثلث متساوي الساقين."
+      },
+      "images": [
+        {
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "إذا كان الارتفاع في مثلث هو أيضًا متوسطًا فإن المثلث متساوي الساقين.",
+          "caption": "إذا تحقق AD ⟂ BC و BD = DC فإن AB = AC."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th006",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - متساوي الساقين",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
         "sortOrder": 9,
         "searchTokens": [
           "th009",
           "العكس: الارتفاع والمتوسط",
           "مثلث",
-          "مثلث",
+          "مثلث - متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -1310,40 +1417,55 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
-      "title": "مقابلة الضلع الأكبر",
-      "statement": "في المثلث (ليس متساوي الأضلاع) مقابل الضلع الأكبر تقع الزاوية الأكبر.",
-      "short": "في المثلث (ليس متساوي الأضلاع) مقابل الضلع الأكبر تقع الزاوية الأكبر.",
-      "explanation": "في المثلث (ليس متساوي الأضلاع) مقابل الضلع الأكبر تقع الزاوية الأكبر.",
+      "category": "مثلث - خواص أساسية",
+      "title": "في المثلث: مقابل الضلع الأكبر تقع الزاوية الأكبر",
+      "statement": "في المثلث غير المتساوي الأضلاع، مقابل الضلع الأكبر تقع الزاوية الأكبر.",
+      "short": "في المثلث غير المتساوي الأضلاع: ترتيب الأضلاع يوافق ترتيب الزوايا المقابلة لها.",
+      "explanation": "كلما كبر ضلع في مثلث كبرت الزاوية المقابلة له.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في مثلث غير متساوي الأضلاع، إذا كان ضلع أكبر من ضلع آخر، فإن الزاوية المقابلة له تكون أكبر من الزاوية المقابلة للضلع الأصغر.</p><div class='th-title'>مثال رمزي</div><p>إذا كان <span class='math'>AB > AC</span> فإن <span class='math'>∠C > ∠B</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "ضلع أكبر",
+        "زاوية أكبر",
+        "مثلث - خواص أساسية"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/triangle-largest-side-largest-angle.png",
+        "alt": "في المثلث غير المتساوي الأضلاع، مقابل الضلع الأكبر تقع الزاوية الأكبر."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-largest-side-largest-angle.png",
+          "alt": "في المثلث غير المتساوي الأضلاع، مقابل الضلع الأكبر تقع الزاوية الأكبر.",
+          "caption": "الضلع الأطول AB يقابله أكبر زاوية عند C."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th011",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 10,
         "searchTokens": [
           "th010",
-          "مقابلة الضلع الأكبر",
+          "في المثلث: مقابل الضلع الأكبر تقع الزاوية الأكبر",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -1357,40 +1479,55 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
-      "title": "مقابلة الزاوية الأكبر",
-      "statement": "في المثلث (ليس متساوي الزوايا) مقابل الزاوية الأكبر يقع الضلع الأكبر.",
-      "short": "في المثلث (ليس متساوي الزوايا) مقابل الزاوية الأكبر يقع الضلع الأكبر.",
-      "explanation": "في المثلث (ليس متساوي الزوايا) مقابل الزاوية الأكبر يقع الضلع الأكبر.",
+      "category": "مثلث - خواص أساسية",
+      "title": "في المثلث: مقابل الزاوية الأكبر يقع الضلع الأكبر",
+      "statement": "في المثلث غير المتساوي الزوايا، مقابل الزاوية الأكبر يقع الضلع الأكبر.",
+      "short": "في المثلث غير المتساوي الزوايا: ترتيب الزوايا يوافق ترتيب الأضلاع المقابلة لها.",
+      "explanation": "كلما كبرت زاوية في مثلث كبر الضلع المقابل لها.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في مثلث غير متساوي الزوايا، إذا كانت زاوية أكبر من زاوية أخرى، فإن الضلع المقابل لها يكون أكبر من الضلع المقابل للزاوية الأصغر.</p><div class='th-title'>مثال رمزي</div><p>إذا كان <span class='math'>∠C > ∠B</span> فإن <span class='math'>AB > AC</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "زاوية أكبر",
+        "ضلع أكبر",
+        "مثلث - خواص أساسية"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/triangle-largest-angle-largest-side.png",
+        "alt": "في المثلث غير المتساوي الزوايا، مقابل الزاوية الأكبر يقع الضلع الأكبر."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-largest-angle-largest-side.png",
+          "alt": "في المثلث غير المتساوي الزوايا، مقابل الزاوية الأكبر يقع الضلع الأكبر.",
+          "caption": "أكبر زاوية عند C يقابلها الضلع الأطول AB."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th010",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 11,
         "searchTokens": [
           "th011",
-          "مقابلة الزاوية الأكبر",
+          "في المثلث: مقابل الزاوية الأكبر يقع الضلع الأكبر",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -1406,31 +1543,32 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - خواص أساسية",
       "title": "نظرية مجموع زوايا المثلث",
       "statement": "مجموع زوايا المثلث هو 180°.",
       "short": "في أي مثلث: مجموع الزوايا الداخلية يساوي 180°.",
-      "explanation": "في أي مثلث: مجموع الزوايا الداخلية يساوي 180°.",
+      "explanation": "مجموع الزوايا الداخلية لأي مثلث يساوي 180°.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>في أي مثلث، مجموع قياسات الزوايا الداخلية يساوي <strong>180°</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span>:</p><ul><li><span class='math'>∠A + ∠B + ∠C = 180°</span></li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>في أي مثلث، مجموع قياسات الزوايا الداخلية يساوي <strong>180°</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span>: <span class='math'>∠A + ∠B + ∠C = 180°</span>.</p><div class='th-title'>استعمالها</div><p>تُستخدم كثيرًا في حساب الزاوية الثالثة، وفي مسائل المثلث المتساوي الساقين، وفي الربط مع الزاوية الخارجية.</p></div>",
       "tags": [
         "مثلث",
-        "زوايا",
-        "180"
+        "مجموع الزوايا",
+        "180",
+        "مثلث - خواص أساسية"
       ],
       "diagram": {
-        "image": "images/theorems/sum-interior-angles-180.png",
-        "alt": "مجموع الزوايا الداخلية للمثلث يساوي 180°"
+        "image": "images/theorems/triangle-angle-sum-180.png",
+        "alt": "مجموع زوايا المثلث يساوي 180°."
       },
       "images": [
         {
-          "src": "images/theorems/sum-interior-angles-180.png",
-          "alt": "رسم يوضح مجموع زوايا المثلث",
-          "caption": "توضيح أن مجموع زوايا المثلث يساوي 180°."
+          "src": "images/theorems/triangle-angle-sum-180.png",
+          "alt": "مجموع زوايا المثلث يساوي 180°.",
+          "caption": "في أي مثلث: α + β + γ = 180°."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
@@ -1521,8 +1659,8 @@
           ]
         },
         {
-          "questionId": "qf11",
-          "href": "./plane.html#final:qf11",
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -1536,8 +1674,8 @@
           ]
         },
         {
-          "questionId": "qf-15",
-          "href": "./plane.html#final:qf-15",
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -1550,8 +1688,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -1565,21 +1703,24 @@
       ],
       "questionCount": 9,
       "usedInCount": 9,
-      "relatedIds": [],
+      "relatedIds": [
+        "th013",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 12,
         "searchTokens": [
           "th012",
           "نظرية مجموع زوايا المثلث",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -1595,43 +1736,54 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - خواص أساسية",
       "title": "نظرية الزاوية الخارجية للمثلث",
       "statement": "الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.",
-      "short": "الزاوية الخارجية في المثلث مساوية لمجموع الزاويتين الداخليتين ما عدا الزاوية المجاورة لها.",
-      "explanation": "الزاوية الخارجية في المثلث مساوية لمجموع الزاويتين الداخليتين ما عدا الزاوية المجاورة لها.",
+      "short": "الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين البعيدتين عنها.",
+      "explanation": "عند مد أحد أضلاع المثلث، تكون الزاوية الخارجية مساوية لمجموع الزاويتين الداخليتين غير المجاورتين لها.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا مددنا ضلعًا من أضلاع المثلث، فإن الزاوية الخارجية المتكوّنة تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span> إذا مددنا <span class='math'>BC</span> بعد النقطة <span class='math'>C</span>، فإن:</p><ul><li><span class='math'>∠(الخارجية عند C) = ∠A + ∠B</span></li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا مددنا أحد أضلاع المثلث، فإن الزاوية الخارجية المتكوّنة تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.</p><div class='th-title'>التعبير الرمزي</div><p>إذا مُدّ الضلع <span class='math'>BC</span> بعد النقطة <span class='math'>C</span>، فإن الزاوية الخارجية عند <span class='math'>C</span> تساوي <span class='math'>∠A + ∠B</span>.</p></div>",
       "tags": [
         "مثلث",
-        "زاوية خارجية"
+        "زاوية خارجية",
+        "مثلث - خواص أساسية"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"الزاوية الخارجية في المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .x{stroke:#0ea5e9;stroke-width:3;fill:none;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 55 L260 190 Z\"/>\n  <!-- extend BC -->\n  <line class=\"l\" x1=\"260\" y1=\"190\" x2=\"310\" y2=\"190\"/>\n  <text class=\"p\" x=\"162\" y=\"40\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"268\" y=\"210\">C</text>\n  <path class=\"x\" d=\"M255 175 A25 25 0 0 0 280 160\"/>\n  <text class=\"p\" x=\"180\" y=\"130\">∠الخارجية عند C = ∠A + ∠B</text>\n</svg>"
+        "image": "images/theorems/triangle-exterior-angle-sum-remote.png",
+        "alt": "الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها."
       },
-      "images": [],
+      "images": [
+        {
+          "src": "images/theorems/triangle-exterior-angle-sum-remote.png",
+          "alt": "الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.",
+          "caption": "عند مد BC بعد C تكون الزاوية الخارجية عند C مساوية لمجموع الزاويتين عند A و B."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th012",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - خواص أساسية",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - خواص أساسية",
         "sortOrder": 13,
         "searchTokens": [
           "th013",
           "نظرية الزاوية الخارجية للمثلث",
           "مثلث",
-          "مثلث",
+          "مثلث - خواص أساسية",
           "الهندسة المستوية"
         ]
       }
@@ -1645,69 +1797,37 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - قطعة متوسطة",
       "title": "نظرية القطعة المتوسطة في المثلث",
       "statement": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه.",
-      "short": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه.",
-      "explanation": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه.",
+      "short": "إذا وصلت بين منتصفي ضلعين في مثلث، كانت القطعة موازية للضلع الثالث وتساوي نصفه.",
+      "explanation": "القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وطولها نصف طوله.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في أي مثلث، القطعة الواصلة بين <strong>منتصفي ضلعين</strong> تكون <strong>موازية</strong> للضلع الثالث، ويساوي طولها <strong>نصف</strong> طول ذلك الضلع.</p><div class='th-title'>التعبير الرمزي</div><p>في <span class='math'>△ABC</span> إذا كان <span class='math'>D</span> منتصف <span class='math'>AC</span> و<span class='math'>E</span> منتصف <span class='math'>BC</span>، فإن <span class='math'>DE ∥ AB</span> و <span class='math'>DE = 1/2 AB</span>.</p><div class='th-title'>فائدة عملية</div><p>هذه النظرية أساسية في مسائل <strong>شبه المنحرف</strong> والمنتصفات والتشابه.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "قطعة متوسطة",
+        "منتصف",
+        "توازي",
+        "نصف الضلع الثالث",
+        "مثلث - قطعة متوسطة"
       ],
-      "diagram": null,
+      "diagram": {
+        "image": "images/theorems/triangle-midsegment-half-third-side.png",
+        "alt": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه."
+      },
       "images": [
         {
-          "src": "images/theorems/Similar-Triangles-Rules.png",
-          "alt": "قواعد التشابه أو القطعة المتوسطة",
-          "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
+          "src": "images/theorems/triangle-midsegment-half-third-side.png",
+          "alt": "القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه.",
+          "caption": "إذا كان D و E منتصفي ضلعين في المثلث فإن DE ∥ BA و DE = 1/2 BA."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
-        {
-          "questionId": "qf-28-p5",
-          "href": "./plane.html#final:qf-28-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
-          "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-28-p5.png"
-          ]
-        },
-        {
-          "questionId": "qf-29-p5",
-          "href": "./plane.html#final:qf-29-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
-          "statement": "أثبت أن O هي نقطة تقاطع متوسطات المثلث DEF. 2) إثبات أن D,M,A على استقامة واحدة:",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-29-p5.png"
-          ]
-        },
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
         {
           "questionId": "q24",
           "href": "./plane.html#book:q24",
@@ -1715,7 +1835,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (24)",
-          "statement": "(أ) PQRS متوازي أضلاع. (ب) إذا AC ⟂ BD → PQRS مستطيل.",
+          "statement": "✅ التعليل نظرية القطعة المتوسطة (منتصفات) + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q24.png"
@@ -1728,7 +1848,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (29)",
-          "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q29.png"
@@ -1741,24 +1861,11 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (31)",
-          "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q31-1.png",
             "images/questions/plane/q31-2.png"
-          ]
-        },
-        {
-          "questionId": "q33",
-          "href": "./plane.html#book:q33",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (33)",
-          "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -1768,7 +1875,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (35)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
+          "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q35.png"
@@ -1781,27 +1888,13 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (41)",
-          "statement": "إثبات: EF = 1/2 (a − b).",
+          "statement": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q41.png",
             "images/questions/plane/q41-1.png",
-            "images/questions/plane/q41-2.png"
-          ]
-        },
-        {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-3-p3.png",
-            "images/questions/plane/qf-3-1-p3.png",
-            "images/questions/plane/qf-3-2-p3.png"
+            "images/questions/plane/q41-2.png",
+            "images/questions/plane/q41-3.png"
           ]
         },
         {
@@ -1811,7 +1904,7 @@
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (7) - صفحة 4",
-          "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
+          "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-7-p4.png"
@@ -1824,30 +1917,61 @@
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (8) - صفحة 4",
-          "statement": "أثبت أن AO متوسط في المثلث AEF على الضلع EF (أي EO = OF).",
+          "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-8-p4.png"
           ]
+        },
+        {
+          "questionId": "qf-28-p5",
+          "href": "./plane.html#final:qf-28-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-28-p5.png"
+          ]
+        },
+        {
+          "questionId": "qf-29-p5",
+          "href": "./plane.html#final:qf-29-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-29-p5.png"
+          ]
         }
       ],
-      "questionCount": 12,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionCount": 9,
+      "usedInCount": 9,
+      "relatedIds": [
+        "midsegment_triangle_bundle",
+        "th015",
+        "th016",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - قطعة متوسطة",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - قطعة متوسطة",
         "sortOrder": 14,
         "searchTokens": [
           "th014",
           "نظرية القطعة المتوسطة في المثلث",
           "مثلث",
-          "مثلث",
+          "مثلث - قطعة متوسطة",
           "الهندسة المستوية"
         ]
       }
@@ -1861,33 +1985,33 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
-      "title": "نظرية القطعة المتوسطة في المثلث + عكسها",
-      "statement": "القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وتساوي نصفه، والعكس: المستقيم الذي يمرّ بمنتصف أحد الأضلاع ويوازي ضلعًا آخر يقطع الضلع الثالث في منتصفه.",
-      "short": "القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وتساوي نصفه، والعكس: المستقيم الذي يمرّ بمنتصف أحد الأضلاع ويوازي ضلعًا آخر يقطع الضلع الثالث في منتصفه.",
-      "explanation": "القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وتساوي نصفه، والعكس: المستقيم الذي يمرّ بمنتصف أحد الأضلاع ويوازي ضلعًا آخر يقطع الضلع الثالث في منتصفه.",
+      "category": "مثلث - قطعة متوسطة",
+      "title": "القطعة المتوسطة في المثلث + عكسها + تمييزها",
+      "statement": "القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وتساوي نصفه، والعكس صحيح، كما أن كل قطعة توازي الضلع الثالث وتساوي نصفه هي قطعة متوسطة.",
+      "short": "ملخص نظريات القطعة المتوسطة في المثلث: النظرية، عكسها، وتمييزها.",
+      "explanation": "ملف مجمّع يجمع نظرية القطعة المتوسطة في المثلث وعكسها وتمييزها في صفحة واحدة.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في أي مثلث، القطعة المستقيمة الواصلة بين <strong>منتصفي ضلعين</strong>:</p><ul><li>توازي الضلع الثالث.</li><li>طولها يساوي نصف طول الضلع الثالث.</li></ul><div class='th-title'>التعبير الرياضي</div><p>في المثلث <span class='math'>ABC</span>، إذا كانت <span class='math'>D</span> منتصف <span class='math'>AB</span> و<span class='math'>E</span> منتصف <span class='math'>AC</span>، فإن:</p><ul><li><span class='math'>DE ∥ BC</span></li><li><span class='math'>DE = ½ BC</span></li></ul><div class='th-title'>عكس النظرية</div><p>إذا كانت <span class='math'>D</span> منتصف أحد أضلاع المثلث ورُسم من <span class='math'>D</span> مستقيم يوازي ضلعًا ثانيًا، فإنه يقطع الضلع الثالث في <strong>منتصفه</strong>.</p></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>النظرية</div><p>القطعة الواصلة بين منتصفي ضلعين في مثلث توازي الضلع الثالث وتساوي نصفه.</p><div class='th-title'>العكس</div><p>المستقيم الذي يمرّ بمنتصف أحد الأضلاع ويوازي ضلعًا آخر يقطع الضلع الثالث في منتصفه.</p><div class='th-title'>التمييز</div><p>القطعة التي تقع على ضلعين، وتوازي الضلع الثالث، وتساوي نصفه هي قطعة متوسطة.</p></div>",
       "tags": [
         "مثلث",
         "قطعة متوسطة",
-        "منتصف",
-        "توازي"
+        "نظرية وعكسها",
+        "تمييز",
+        "مثلث - قطعة متوسطة"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية القطعة المتوسطة في المثلث\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .m{stroke:#0ea5e9;stroke-width:4;stroke-linecap:round;}\n    .pt{fill:#0ea5e9;}\n    .v{fill:#1d4ed8;}\n  </style>\n  <path class=\"l\" d=\"M70 190 L170 45 L290 190 Z\"/>\n  <circle class=\"v\" cx=\"170\" cy=\"45\" r=\"4\"/><text class=\"p\" x=\"162\" y=\"30\">A</text>\n  <circle class=\"v\" cx=\"70\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"52\" y=\"210\">B</text>\n  <circle class=\"v\" cx=\"290\" cy=\"190\" r=\"4\"/><text class=\"p\" x=\"298\" y=\"210\">C</text>\n\n  <circle class=\"pt\" cx=\"120\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"102\" y=\"113\">D</text>\n  <circle class=\"pt\" cx=\"230\" cy=\"118\" r=\"4\"/><text class=\"p\" x=\"236\" y=\"113\">E</text>\n\n  <line class=\"m\" x1=\"120\" y1=\"118\" x2=\"230\" y2=\"118\"/>\n  <text class=\"p\" x=\"140\" y=\"142\">DE ∥ BC</text>\n  <text class=\"p\" x=\"132\" y=\"162\">DE = ½ BC</text>\n</svg>",
-        "image": "images/theorems/Similar-Triangles-Rules.png",
-        "alt": "قواعد التشابه أو القطعة المتوسطة"
+        "image": "images/theorems/triangle-midsegment-half-third-side.png",
+        "alt": "ملخص نظرية القطعة المتوسطة في المثلث وعكسها وتمييزها."
       },
       "images": [
         {
-          "src": "images/theorems/Similar-Triangles-Rules.png",
-          "alt": "قواعد التشابه أو القطعة المتوسطة",
-          "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
+          "src": "images/theorems/triangle-midsegment-half-third-side.png",
+          "alt": "ملخص القطعة المتوسطة في المثلث.",
+          "caption": "تجميع بصري لنظرية القطعة المتوسطة وعكسها وتمييزها."
         }
       ],
       "source": {
-        "page": "14–15",
+        "page": "14–16",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
@@ -1974,8 +2098,8 @@
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2057,21 +2181,27 @@
       ],
       "questionCount": 12,
       "usedInCount": 12,
-      "relatedIds": [],
+      "relatedIds": [
+        "th014",
+        "th015",
+        "th016",
+        "triangle_properties_summary",
+        "triangle_criteria_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - قطعة متوسطة",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - قطعة متوسطة",
         "sortOrder": 14.5,
         "searchTokens": [
           "midsegment_triangle_bundle",
-          "نظرية القطعة المتوسطة في المثلث + عكسها",
+          "القطعة المتوسطة في المثلث + عكسها + تمييزها",
           "مثلث",
-          "مثلث",
+          "مثلث - قطعة متوسطة",
           "الهندسة المستوية"
         ]
       }
@@ -2085,82 +2215,37 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - قطعة متوسطة",
       "title": "عكس القطعة المتوسطة في المثلث",
       "statement": "المستقيم الذي ينصف أحد أضلاع المثلث ويوازي الضلع الثاني ينصف الضلع الثالث.",
-      "short": "المستقيم الذي ينصف أحد أضلاع المثلث ويوازي الضلع الثاني ينصف الضلع الثالث.",
-      "explanation": "المستقيم الذي ينصف أحد أضلاع المثلث ويوازي الضلع الثاني ينصف الضلع الثالث.",
+      "short": "إذا مرّ مستقيم بمنتصف أحد أضلاع المثلث وكان موازيًا لضلع آخر، فإنه يقطع الضلع الثالث في منتصفه.",
+      "explanation": "هذه هي الصيغة العكسية الأشهر لنظرية القطعة المتوسطة.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص العكس</div><p>إذا كان مستقيم يمرّ بمنتصف أحد أضلاع المثلث ويوازي ضلعًا آخر، فإنه يقطع الضلع الثالث في <strong>منتصفه</strong>.</p><div class='th-title'>التعبير الرمزي</div><p>إذا كان <span class='math'>E</span> منتصف <span class='math'>BC</span> و <span class='math'>ED ∥ AB</span>، فإن <span class='math'>D</span> منتصف <span class='math'>AC</span>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "قطعة متوسطة",
+        "عكس النظرية",
+        "منتصف",
+        "توازي",
+        "مثلث - قطعة متوسطة"
       ],
-      "diagram": null,
+      "diagram": {
+        "image": "images/theorems/triangle-midsegment-converse.png",
+        "alt": "عكس نظرية القطعة المتوسطة في المثلث."
+      },
       "images": [
         {
-          "src": "images/theorems/Similar-Triangles-Rules.png",
-          "alt": "قواعد التشابه أو القطعة المتوسطة",
-          "caption": "صورة داعمة لقواعد التشابه أو العلاقات النسبية في المثلث."
+          "src": "images/theorems/triangle-midsegment-converse.png",
+          "alt": "عكس نظرية القطعة المتوسطة في المثلث.",
+          "caption": "إذا كان E منتصف BC و ED ∥ BA فإن D منتصف AC."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
-        {
-          "questionId": "qf-28-p5",
-          "href": "./plane.html#final:qf-28-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
-          "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-28-p5.png"
-          ]
-        },
-        {
-          "questionId": "qf-29-p5",
-          "href": "./plane.html#final:qf-29-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
-          "statement": "أثبت أن O هي نقطة تقاطع متوسطات المثلث DEF. 2) إثبات أن D,M,A على استقامة واحدة:",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-29-p5.png"
-          ]
-        },
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "q24",
-          "href": "./plane.html#book:q24",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (24)",
-          "statement": "(أ) PQRS متوازي أضلاع. (ب) إذا AC ⟂ BD → PQRS مستطيل.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q24.png"
-          ]
-        },
         {
           "questionId": "q29",
           "href": "./plane.html#book:q29",
@@ -2168,7 +2253,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (29)",
-          "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q29.png"
@@ -2181,37 +2266,11 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (31)",
-          "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q31-1.png",
             "images/questions/plane/q31-2.png"
-          ]
-        },
-        {
-          "questionId": "q33",
-          "href": "./plane.html#book:q33",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (33)",
-          "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q33.png"
-          ]
-        },
-        {
-          "questionId": "q35",
-          "href": "./plane.html#book:q35",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (35)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q35.png"
           ]
         },
         {
@@ -2221,73 +2280,50 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (41)",
-          "statement": "إثبات: EF = 1/2 (a − b).",
+          "statement": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q41.png",
             "images/questions/plane/q41-1.png",
-            "images/questions/plane/q41-2.png"
+            "images/questions/plane/q41-2.png",
+            "images/questions/plane/q41-3.png"
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-28-p5",
+          "href": "./plane.html#final:qf-28-p5",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
+          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/questions/plane/qf-3-p3.png",
-            "images/questions/plane/qf-3-1-p3.png",
-            "images/questions/plane/qf-3-2-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-7-p4",
-          "href": "./plane.html#final:qf-7-p4",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (7) - صفحة 4",
-          "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-7-p4.png"
-          ]
-        },
-        {
-          "questionId": "qf-8-p4",
-          "href": "./plane.html#final:qf-8-p4",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (8) - صفحة 4",
-          "statement": "أثبت أن AO متوسط في المثلث AEF على الضلع EF (أي EO = OF).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-8-p4.png"
+            "images/questions/plane/qf-28-p5.png"
           ]
         }
       ],
-      "questionCount": 12,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionCount": 4,
+      "usedInCount": 4,
+      "relatedIds": [
+        "th014",
+        "midsegment_triangle_bundle",
+        "triangle_criteria_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - قطعة متوسطة",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - قطعة متوسطة",
         "sortOrder": 15,
         "searchTokens": [
           "th015",
           "عكس القطعة المتوسطة في المثلث",
           "مثلث",
-          "مثلث",
+          "مثلث - قطعة متوسطة",
           "الهندسة المستوية"
         ]
       }
@@ -2301,40 +2337,1607 @@
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث",
+      "category": "مثلث - قطعة متوسطة",
       "title": "تمييز القطعة المتوسطة في المثلث",
       "statement": "القطعة التي يقع طرفاها على ضلعين في مثلث وتوازي الضلع الثالث وتساوي نصفه هي قطعة متوسطة.",
-      "short": "القطعة التي يقع طرفاها على ضلعين في مثلث وتوازي الضلع الثالث وتساوي نصفه هي قطعة متوسطة.",
-      "explanation": "القطعة التي يقع طرفاها على ضلعين في مثلث وتوازي الضلع الثالث وتساوي نصفه هي قطعة متوسطة.",
+      "short": "إذا كانت قطعة داخل مثلث موازية للضلع الثالث وتساوي نصفه، فهي قطعة متوسطة.",
+      "explanation": "هذا معيار جاهز لتمييز القطعة المتوسطة في الرسم أو البرهان.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص التمييز</div><p>إذا كانت قطعة داخل مثلث تصل بين ضلعين، وتكون <strong>موازية</strong> للضلع الثالث، ويساوي طولها <strong>نصف</strong> طول ذلك الضلع، فإنها <strong>قطعة متوسطة</strong>.</p><div class='th-title'>فائدة</div><p>يُستخدم هذا التمييز عندما تكون لدينا أطوال وتوازٍ، ونريد إثبات أن نقطتين هما <strong>منتصفتان</strong>.</p></div>",
       "tags": [
-        "مثلث"
+        "مثلث",
+        "قطعة متوسطة",
+        "تمييز",
+        "توازي",
+        "نصف الضلع الثالث",
+        "مثلث - قطعة متوسطة"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/triangle-midsegment-recognition.png",
+        "alt": "تمييز القطعة المتوسطة في المثلث."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-midsegment-recognition.png",
+          "alt": "تمييز القطعة المتوسطة في المثلث.",
+          "caption": "إذا كانت DE ∥ BA و DE = 1/2 BA، وكانت D و E على ضلعين من المثلث، فإن DE قطعة متوسطة."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "1",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "th014",
+        "th015",
+        "midsegment_triangle_bundle",
+        "triangle_criteria_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث",
+        "category": "مثلث - قطعة متوسطة",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث",
+        "accordionTertiary": "مثلث - قطعة متوسطة",
         "sortOrder": 16,
         "searchTokens": [
           "th016",
           "تمييز القطعة المتوسطة في المثلث",
           "مثلث",
+          "مثلث - قطعة متوسطة",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "triangle_properties_summary",
+      "legacyIds": [
+        "triangle_properties"
+      ],
+      "number": 16.1,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - ملخصات",
+      "title": "خواص المثلث",
+      "statement": "ملخّص منظم لأهم خواص المثلث: تساوي الأضلاع والزوايا، عدم مساواة المثلث، ترتيب الأضلاع والزوايا، مجموع الزوايا، الزاوية الخارجية، والقطعة المتوسطة.",
+      "short": "صفحة مجمعة لخصائص المثلث الأساسية الأكثر استعمالًا في الحل.",
+      "explanation": "هذه الصفحة تجمع خواص المثلث الأساسية التي يحتاجها الطالب باستمرار في الحلول والبرهان.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>تتضمن هذه الصفحة</div><ul><li>مقابل الأضلاع المتساوية تقع زوايا متساوية.</li><li>مجموع كل ضلعين في المثلث أكبر من الضلع الثالث.</li><li>مقابل الضلع الأكبر تقع الزاوية الأكبر، ومقابل الزاوية الأكبر يقع الضلع الأكبر.</li><li>مجموع زوايا المثلث يساوي <span class='math'>180°</span>.</li><li>الزاوية الخارجية في المثلث تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها.</li><li>القطعة المتوسطة في المثلث توازي الضلع الثالث وتساوي نصفه.</li></ul><div class='th-title'>متى أستخدمها؟</div><p>ارجع إلى هذه الصفحة عندما تحتاج إلى <strong>قاعدة سريعة</strong> في مسائل الزوايا، أو أطوال الأضلاع، أو المنتصفات، أو التوازي داخل المثلث.</p><div class='th-title'>للإثباتات العكسية</div><p>إذا أردت إثبات أن المثلث <strong>متساوي الساقين</strong> أو تمييز قطعة على أنها قطعة متوسطة، فانتقل إلى صفحة <strong>خصائص المثلث (معايير الإثبات)</strong>.</p></div>",
+      "tags": [
+        "مثلث",
+        "خواص المثلث",
+        "ملخص",
+        "مثلث - ملخصات"
+      ],
+      "diagram": {
+        "image": "images/theorems/triangle-properties-summary-grid.png",
+        "alt": "ملخص خواص المثلث الأساسية."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-properties-summary-grid.png",
+          "alt": "ملخص خواص المثلث الأساسية.",
+          "caption": "تجميع بصري لأكثر خواص المثلث استعمالًا."
+        },
+        {
+          "src": "images/theorems/triangle-equal-sides-equal-angles.png",
+          "alt": "مقابل الأضلاع المتساوية زوايا متساوية.",
+          "caption": "خاصية أساسية في المثلث المتساوي الساقين."
+        },
+        {
+          "src": "images/theorems/triangle-inequality.png",
+          "alt": "متباينة المثلث.",
+          "caption": "مجموع كل ضلعين أكبر من الثالث."
+        },
+        {
+          "src": "images/theorems/triangle-angle-sum-180.png",
+          "alt": "مجموع زوايا المثلث 180°",
+          "caption": "قاعدة أساسية لحساب الزوايا."
+        },
+        {
+          "src": "images/theorems/triangle-exterior-angle-sum-remote.png",
+          "alt": "الزاوية الخارجية في المثلث.",
+          "caption": "الزاوية الخارجية تساوي مجموع الزاويتين الداخليتين غير المجاورتين لها."
+        },
+        {
+          "src": "images/theorems/triangle-midsegment-half-third-side.png",
+          "alt": "القطعة المتوسطة في المثلث.",
+          "caption": "القطعة المتوسطة توازي الضلع الثالث وتساوي نصفه."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q05",
+          "href": "./plane.html#book:q05",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (5)",
+          "statement": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q05.png"
+          ]
+        },
+        {
+          "questionId": "q06",
+          "href": "./plane.html#book:q06",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (6)",
+          "statement": "✅ التعليل الطريقة تعتمد على دوران 120° في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q06.png"
+          ]
+        },
+        {
+          "questionId": "q07",
+          "href": "./plane.html#book:q07",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (7)",
+          "statement": "✅ البرهان MB = MC ⇒ M تقع على العمود المنصف للقطعة BC . إذن MA = MD ⇒ △AMD متساوي الساقين ⇒ ∠MAD = ∠MDA .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q07.png"
+          ]
+        },
+        {
+          "questionId": "q08",
+          "href": "./plane.html#book:q08",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (8)",
+          "statement": "✅ النتيجة حل 1: (105, 105, 60) حل 2: (75, 75, 120)",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q08.png"
+          ]
+        },
+        {
+          "questionId": "q09",
+          "href": "./plane.html#book:q09",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (9)",
+          "statement": "✅ البرهان يعتمد على متباينة المثلث .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q09.png"
+          ]
+        },
+        {
+          "questionId": "q10",
+          "href": "./plane.html#book:q10",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (10)",
+          "statement": "✅ البرهان تطبيق مباشر لمتباينة المثلث على △ABD و △ACD .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q10.png"
+          ]
+        },
+        {
+          "questionId": "q11",
+          "href": "./plane.html#book:q11",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (11)",
+          "statement": "✅ الفكرة نجمع ثلاث متباينات مثلث.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q11.png"
+          ]
+        },
+        {
+          "questionId": "q12",
+          "href": "./plane.html#book:q12",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (12)",
+          "statement": "✅ البرهان تطبيق متباينة المثلث على مثلثين يحويان المتوسط.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q12.png"
+          ]
+        },
+        {
+          "questionId": "q13",
+          "href": "./plane.html#book:q13",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (13)",
+          "statement": "✅ الفكرة نجمع ثلاث متباينات ناتجة عن متباينة المثلث (عبر السؤال 12).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q13.png"
+          ]
+        },
+        {
+          "questionId": "q14",
+          "href": "./plane.html#book:q14",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (14)",
+          "statement": "✅ ملاحظة يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q14.png"
+          ]
+        },
+        {
+          "questionId": "q15",
+          "href": "./plane.html#book:q15",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (15)",
+          "statement": "✅ المعطى AB = AC = AD . الزاوية ∠BCD معطاة (إما 140° أو α ). ✅ المطلوب (أ) إذا ∠BCD = 140° احسب ∠BAD . (ب) إذا ∠BCD = α عبّر عن ∠BAD بدلالة α . ✅ البرهان من AB = AC ⇒ △ABC متساوي الساقين ⇒ ∠ABC = ∠BCA = β . من AC = AD ⇒ ",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q15.png",
+            "images/questions/plane/q15-1.png",
+            "images/questions/plane/q15-2.png"
+          ]
+        },
+        {
+          "questionId": "q20",
+          "href": "./plane.html#book:q20",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (20)",
+          "statement": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q20.png"
+          ]
+        },
+        {
+          "questionId": "q24",
+          "href": "./plane.html#book:q24",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (24)",
+          "statement": "✅ التعليل نظرية القطعة المتوسطة (منتصفات) + توازي.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q24.png"
+          ]
+        },
+        {
+          "questionId": "q25",
+          "href": "./plane.html#book:q25",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (25)",
+          "statement": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q25.png"
+          ]
+        },
+        {
+          "questionId": "q27",
+          "href": "./plane.html#book:q27",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (27)",
+          "statement": "✅ ملاحظة النظرية الأساسية: متساوي الساقين.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q27.png"
+          ]
+        },
+        {
+          "questionId": "q29",
+          "href": "./plane.html#book:q29",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (29)",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q29.png"
+          ]
+        },
+        {
+          "questionId": "q30",
+          "href": "./plane.html#book:q30",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (30)",
+          "statement": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q30.png"
+          ]
+        },
+        {
+          "questionId": "q31",
+          "href": "./plane.html#book:q31",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (31)",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
+          ]
+        },
+        {
+          "questionId": "q33",
+          "href": "./plane.html#book:q33",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (33)",
+          "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q33.png"
+          ]
+        },
+        {
+          "questionId": "q34",
+          "href": "./plane.html#book:q34",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (34)",
+          "statement": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q34.png"
+          ]
+        },
+        {
+          "questionId": "q35",
+          "href": "./plane.html#book:q35",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (35)",
+          "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q35.png"
+          ]
+        },
+        {
+          "questionId": "q36",
+          "href": "./plane.html#book:q36",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (36)",
+          "statement": "✅ التعليل متساوي الساقين + زوايا مكملة على استقامة واحدة.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q36.png"
+          ]
+        },
+        {
+          "questionId": "q37",
+          "href": "./plane.html#book:q37",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (37)",
+          "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q37.png",
+            "images/questions/plane/q37-1.png",
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
+          ]
+        },
+        {
+          "questionId": "q38",
+          "href": "./plane.html#book:q38",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (38)",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
+          ]
+        },
+        {
+          "questionId": "q40",
+          "href": "./plane.html#book:q40",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (40)",
+          "statement": "✅ المعطى النقطة O داخل △ABC بحيث OA = OB = OC . في (أ): ∠BAC = 40° ، ∠CBA = 65° . في (ب): ∠BAC = α ، ∠CBA = β . ✅ المطلوب (أ) احسب ∠AOB . (ب) عبّر عن ∠AOB بدلالة α و β . ✅ البرهان OA = OB = OC ⇒ A,B,C على دائرة مركزها O ",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q40.png",
+            "images/questions/plane/q40-1.png"
+          ]
+        },
+        {
+          "questionId": "q41",
+          "href": "./plane.html#book:q41",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (41)",
+          "statement": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q41.png",
+            "images/questions/plane/q41-1.png",
+            "images/questions/plane/q41-2.png",
+            "images/questions/plane/q41-3.png"
+          ]
+        },
+        {
+          "questionId": "q43",
+          "href": "./plane.html#book:q43",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (43)",
+          "statement": "✅ المعطى في △ABC ، AE موازية لمنصف الزاوية ∠B . AF موازية لمنصف الزاوية ∠C . النقاط E,B,C,F على استقامة واحدة. ✅ المطلوب برهن أن EF = AB + BC + AC (أي EF يساوي محيط △ABC ). ✅ البرهان لتكن BM منصف الزاوية ∠ABC . بما أن AE",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q43.svg",
+            "images/questions/plane/q43.png"
+          ]
+        },
+        {
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (3) صفحة 3",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-3-p3.png",
+            "images/questions/plane/qf-3-1-p3.png",
+            "images/questions/plane/qf-3-2-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-5-p3",
+          "href": "./plane.html#final:qf-5-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-6-p3",
+          "href": "./plane.html#final:qf-6-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (6) - صفحة 3",
+          "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-6-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-7-p1",
+          "href": "./plane.html#final:qf-7-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (7) - صفحة 1",
+          "statement": "✅ المعطى ABCD مستطيل. E نقطة على DC بحيث: AE ⟂ BD و AE = CE . F نقطة تقاطع AE مع القطر BD . ✅ المطلوب (أ) احسب ∠BDC . (ب) أثبت DF = (1/4)BD . ✅ الحل — طريقتان ① هندسية (من صفحة النظريات — بدون إحداثيات) لنرمز للزاوية الم",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-7-p1.png"
+          ]
+        },
+        {
+          "questionId": "qf-7-p4",
+          "href": "./plane.html#final:qf-7-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (7) - صفحة 4",
+          "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-7-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-8-p4",
+          "href": "./plane.html#final:qf-8-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (8) - صفحة 4",
+          "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-8-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-9-p1",
+          "href": "./plane.html#final:qf-9-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (9) - صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. CE و DE منصفا زاويتي C و D على الترتيب. F نقطة على DC ، و EF ∥ AD . ✅ المطلوب إثبات أن DF = FC (أي أن F منتصف DC ). ✅ الحل — طريقة واضحة (منصفات + متوازيات) في متوازي الأضلاع: AD ∥ BC و AB ∥ D",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-9-p1.png"
+          ]
+        },
+        {
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (11) صفحة 2",
+          "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (15) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
+          ]
+        },
+        {
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (16) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-16-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-28-p5",
+          "href": "./plane.html#final:qf-28-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-28-p5.png"
+          ]
+        },
+        {
+          "questionId": "qf-29-p5",
+          "href": "./plane.html#final:qf-29-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-29-p5.png"
+          ]
+        }
+      ],
+      "questionCount": 39,
+      "usedInCount": 39,
+      "relatedIds": [
+        "th003",
+        "th005",
+        "th010",
+        "th011",
+        "th012",
+        "th013",
+        "th014",
+        "triangle_criteria_summary"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - ملخصات",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - ملخصات",
+        "sortOrder": 16.1,
+        "searchTokens": [
+          "triangle_properties_summary",
+          "خواص المثلث",
           "مثلث",
+          "مثلث - ملخصات",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "triangle_criteria_summary",
+      "legacyIds": [
+        "triangle_tests_summary",
+        "triangle_proof_criteria"
+      ],
+      "number": 16.2,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - ملخصات",
+      "title": "خصائص المثلث (معايير الإثبات)",
+      "statement": "صفحة مجمعة لمعايير الإثبات المرتبطة بالمثلث: عكس خواص متساوي الساقين، وعكس القطعة المتوسطة وتمييزها، ومعايير المثلث المتساوي الأضلاع والقائم المتساوي الساقين.",
+      "short": "صفحة مجمعة للمعايير التي نستعملها لإثبات نوع المثلث أو تمييز قطعة داخله.",
+      "explanation": "هذه الصفحة تجمع النظريات العكسية ومعايير الإثبات في موضوع المثلث لتسهيل الربط داخل البرهان.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>تتضمن هذه الصفحة</div><ul><li>إذا كان منصف الزاوية هو أيضًا ارتفاعًا، أو متوسطًا، أو إذا كان الارتفاع متوسطًا، فإن المثلث متساوي الساقين.</li><li>عكس نظرية القطعة المتوسطة.</li><li>تمييز القطعة المتوسطة في المثلث.</li><li>في المثلث المتساوي الأضلاع الزوايا الثلاث متساوية ومقدار كل منها <span class='math'>60°</span>.</li><li>في المثلث القائم المتساوي الساقين الزاويتان الحادتان متساويتان ومقدار كل منهما <span class='math'>45°</span>.</li></ul><div class='th-title'>فائدة تعليمية</div><p>هذه الصفحة مناسبة جدًا عندما يكون المطلوب في المسألة: <strong>أثبت أن المثلث متساوي الساقين</strong>، أو <strong>أثبت أن قطعة ما قطعة متوسطة</strong>.</p></div>",
+      "tags": [
+        "مثلث",
+        "معايير الإثبات",
+        "ملخص",
+        "مثلث - ملخصات"
+      ],
+      "diagram": {
+        "image": "images/theorems/triangle-criteria-summary-grid.png",
+        "alt": "ملخص معايير الإثبات المرتبطة بالمثلث."
+      },
+      "images": [
+        {
+          "src": "images/theorems/triangle-criteria-summary-grid.png",
+          "alt": "ملخص معايير إثبات المثلث.",
+          "caption": "تجميع بصري للعكوس والمعايير الأكثر استعمالًا."
+        },
+        {
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "معايير إثبات المثلث المتساوي الساقين.",
+          "caption": "اجتماع صفتين من صفات الرأس إلى القاعدة يكفي لإثبات التساوي."
+        },
+        {
+          "src": "images/theorems/triangle-midsegment-converse.png",
+          "alt": "عكس نظرية القطعة المتوسطة.",
+          "caption": "مستقيم يمر بمنتصف ضلع ويوازي ضلعًا آخر يحدد منتصف الضلع الثالث."
+        },
+        {
+          "src": "images/theorems/triangle-midsegment-recognition.png",
+          "alt": "تمييز القطعة المتوسطة.",
+          "caption": "قطعة موازية للضلع الثالث وتساوي نصفه هي قطعة متوسطة."
+        },
+        {
+          "src": "images/theorems/equilateral-triangle-angles-60.png",
+          "alt": "معيار المثلث المتساوي الأضلاع.",
+          "caption": "في المثلث المتساوي الأضلاع كل الزوايا 60°."
+        },
+        {
+          "src": "images/theorems/isosceles-right-triangle-45-45-90.png",
+          "alt": "معيار المثلث القائم المتساوي الساقين.",
+          "caption": "فيه زاويتان حادتان متساويتان وكل منهما 45°."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q06",
+          "href": "./plane.html#book:q06",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (6)",
+          "statement": "✅ التعليل الطريقة تعتمد على دوران 120° في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q06.png"
+          ]
+        },
+        {
+          "questionId": "q29",
+          "href": "./plane.html#book:q29",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (29)",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q29.png"
+          ]
+        },
+        {
+          "questionId": "q31",
+          "href": "./plane.html#book:q31",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (31)",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
+          ]
+        },
+        {
+          "questionId": "q34",
+          "href": "./plane.html#book:q34",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (34)",
+          "statement": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q34.png"
+          ]
+        },
+        {
+          "questionId": "q35",
+          "href": "./plane.html#book:q35",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (35)",
+          "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q35.png"
+          ]
+        },
+        {
+          "questionId": "q41",
+          "href": "./plane.html#book:q41",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (41)",
+          "statement": "✅ المعطى ABCD شبه منحرف حيث AB ∥ CD . MN قطعة متوسطة ⇒ M منتصف AD و N منتصف BC ، و MN ∥ AB ∥ CD . E = MN ∩ AC و F = MN ∩ BD . نرمز: AB = a ، CD = b . ✅ المطلوب إثبات: EF = ½(a − b) . ✅ البرهان في △ADC : بما أن M منتصف AD",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q41.png",
+            "images/questions/plane/q41-1.png",
+            "images/questions/plane/q41-2.png",
+            "images/questions/plane/q41-3.png"
+          ]
+        },
+        {
+          "questionId": "qf-7-p4",
+          "href": "./plane.html#final:qf-7-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (7) - صفحة 4",
+          "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-7-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-8-p4",
+          "href": "./plane.html#final:qf-8-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (8) - صفحة 4",
+          "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-8-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (11) صفحة 2",
+          "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-28-p5",
+          "href": "./plane.html#final:qf-28-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : المستقيمان AD و CE متوسطان ويتقاطعان في O . ⇒ D منتصف BC و E منتصف AB . AF ارتفاع على BC (أي AF ⟂ BC و F∈BC ). معطى: EF ∥ AD . ✅ المطلوب (أ) إثبات AB = AD . (ب) إثبات DO : EF = 2 : 3 . ✅ الحل — خ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-28-p5.png"
+          ]
+        },
+        {
+          "questionId": "qf-29-p5",
+          "href": "./plane.html#final:qf-29-p5",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (29) صفحة 5",
+          "statement": "✅ المعطى في المثلث ABC : D منتصف BC ، و E منتصف CA ، و F منتصف AB . المستقيمات AD و BE و CF متوسطات في △ABC وتتقاطع في O . ✅ المطلوب إثبات أن O هي نقطة تقاطع متوسطات المثلث DEF . ✅ الحل (حسب الإرشاد: متوسطات DEF أجزاء من",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-29-p5.png"
+          ]
+        }
+      ],
+      "questionCount": 11,
+      "usedInCount": 11,
+      "relatedIds": [
+        "th007",
+        "th008",
+        "th009",
+        "th015",
+        "th016",
+        "isosceles_triangle_properties_summary",
+        "equilateral_triangle_properties_summary",
+        "isosceles_right_triangle_properties_summary"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - ملخصات",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - ملخصات",
+        "sortOrder": 16.2,
+        "searchTokens": [
+          "triangle_criteria_summary",
+          "خصائص المثلث (معايير الإثبات)",
+          "مثلث",
+          "مثلث - ملخصات",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "isosceles_triangle_properties_summary",
+      "legacyIds": [
+        "isosceles_triangle_summary",
+        "isosceles_triangle_properties"
+      ],
+      "number": 16.3,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - متساوي الساقين",
+      "title": "خواص المثلث المتساوي الساقين",
+      "statement": "ملخّص خواص المثلث المتساوي الساقين: زاويتا القاعدة متساويتان، والمستقيم النازل من الرأس إلى القاعدة يكون منصفًا للزاوية ومتوسطًا وارتفاعًا، مع أشهر العكوس.",
+      "short": "صفحة مجمعة لخصائص المثلث المتساوي الساقين وعكوسها.",
+      "explanation": "هذه الصفحة تجمع الخواص المباشرة والعكسية للمثلث المتساوي الساقين في مكان واحد.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>إذا كان المثلث متساوي الساقين</div><ul><li>زاويتا القاعدة متساويتان.</li><li>منصف زاوية الرأس إلى القاعدة هو أيضًا متوسط وارتفاع.</li></ul><div class='th-title'>العكوس المهمة</div><ul><li>إذا كان منصف الزاوية هو أيضًا ارتفاعًا ⇒ المثلث متساوي الساقين.</li><li>إذا كان منصف الزاوية هو أيضًا متوسطًا ⇒ المثلث متساوي الساقين.</li><li>إذا كان الارتفاع هو أيضًا متوسطًا ⇒ المثلث متساوي الساقين.</li></ul></div>",
+      "tags": [
+        "مثلث",
+        "متساوي الساقين",
+        "ملخص",
+        "مثلث - متساوي الساقين"
+      ],
+      "diagram": {
+        "image": "images/theorems/isosceles-triangle-summary-grid.png",
+        "alt": "ملخص خواص المثلث المتساوي الساقين."
+      },
+      "images": [
+        {
+          "src": "images/theorems/isosceles-triangle-summary-grid.png",
+          "alt": "ملخص خواص المثلث المتساوي الساقين.",
+          "caption": "أهم الخواص والعكوس في صفحة واحدة."
+        },
+        {
+          "src": "images/theorems/isosceles-triangle-base-angles.png",
+          "alt": "زاويتا القاعدة في المثلث المتساوي الساقين.",
+          "caption": "إذا تساوى ضلعان تساوت الزاويتان المقابلتان لهما."
+        },
+        {
+          "src": "images/theorems/isosceles-triangle-bisector-median-altitude.png",
+          "alt": "منصف زاوية الرأس في المثلث المتساوي الساقين.",
+          "caption": "منصف زاوية الرأس هو نفسه المتوسط والارتفاع على القاعدة."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q05",
+          "href": "./plane.html#book:q05",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (5)",
+          "statement": "✅ البرهان من AC = AD ⇒ △ACD متساوي الساقين ومحور تناظره هو منصف زاوية الرأس عند A . بما أن ∠ACE = ∠ADB ⇒ المستقيمان CE و BD متناظران حول محور التناظر. صورة B على AC هي E على AD ⇒ AB = AE ⇒ BC = DE . نقطة التقاطع M تقع عل",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q05.png"
+          ]
+        },
+        {
+          "questionId": "q07",
+          "href": "./plane.html#book:q07",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (7)",
+          "statement": "✅ البرهان MB = MC ⇒ M تقع على العمود المنصف للقطعة BC . إذن MA = MD ⇒ △AMD متساوي الساقين ⇒ ∠MAD = ∠MDA .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q07.png"
+          ]
+        },
+        {
+          "questionId": "q08",
+          "href": "./plane.html#book:q08",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (8)",
+          "statement": "✅ النتيجة حل 1: (105, 105, 60) حل 2: (75, 75, 120)",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q08.png"
+          ]
+        },
+        {
+          "questionId": "q14",
+          "href": "./plane.html#book:q14",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (14)",
+          "statement": "✅ ملاحظة يرجى مراجعة الرسم لتحديد القيم، وتُستخدم خاصية متساوي الساقين + زوايا مكملة.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q14.png"
+          ]
+        },
+        {
+          "questionId": "q15",
+          "href": "./plane.html#book:q15",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (15)",
+          "statement": "✅ المعطى AB = AC = AD . الزاوية ∠BCD معطاة (إما 140° أو α ). ✅ المطلوب (أ) إذا ∠BCD = 140° احسب ∠BAD . (ب) إذا ∠BCD = α عبّر عن ∠BAD بدلالة α . ✅ البرهان من AB = AC ⇒ △ABC متساوي الساقين ⇒ ∠ABC = ∠BCA = β . من AC = AD ⇒ ",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q15.png",
+            "images/questions/plane/q15-1.png",
+            "images/questions/plane/q15-2.png"
+          ]
+        },
+        {
+          "questionId": "q20",
+          "href": "./plane.html#book:q20",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (20)",
+          "statement": "✅ ملاحظة تُستخدم قواعد: منصف الزاوية + متساوي الساقين + زوايا مكملة بحسب شكل السؤال.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q20.png"
+          ]
+        },
+        {
+          "questionId": "q25",
+          "href": "./plane.html#book:q25",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (25)",
+          "statement": "✅ ملاحظة تُستخدم: متساوي الساقين + مجموع زوايا المثلث + زوايا مكملة بحسب شكل السؤال.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q25.png"
+          ]
+        },
+        {
+          "questionId": "q27",
+          "href": "./plane.html#book:q27",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (27)",
+          "statement": "✅ ملاحظة النظرية الأساسية: متساوي الساقين.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q27.png"
+          ]
+        },
+        {
+          "questionId": "q29",
+          "href": "./plane.html#book:q29",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (29)",
+          "statement": "✅ المعطى AB = AC (مثلث متساوي الساقين ). AE متوسط للقاعدة BC ⇒ E منتصف BC . CM متوسط للساق AB ⇒ M منتصف AB . AE و CM يتقاطعان في O . من M نرسم MN ∥ BC فتقطع AE في N . MN = 6 سم، و ∠COE = 45° . ✅ المطلوب احسب BC . احسب AE",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q29.png"
+          ]
+        },
+        {
+          "questionId": "q35",
+          "href": "./plane.html#book:q35",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (35)",
+          "statement": "✅ ملاحظة تُستخدم نظريات: متساوي الساقين + قطعة متوسطة + مجموع زوايا المثلث (عند الحاجة).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q35.png"
+          ]
+        },
+        {
+          "questionId": "q36",
+          "href": "./plane.html#book:q36",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (36)",
+          "statement": "✅ التعليل متساوي الساقين + زوايا مكملة على استقامة واحدة.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q36.png"
+          ]
+        },
+        {
+          "questionId": "qf-7-p4",
+          "href": "./plane.html#final:qf-7-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (7) - صفحة 4",
+          "statement": "✅ المعطى في المثلث ABC القطعة DE قطعة أواسط ⇒ D منتصف AB و E منتصف BC ⇒ DE ∥ AC . F تقع على DE . ∠AFB = 90° . ✅ المطلوب إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC ). ✅ الحل — خطوة بخطوة من ∠AFB = 90° ⇒ المثلث △AFB قا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-7-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (15) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
+          ]
+        },
+        {
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (16) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-16-p2.png"
+          ]
+        }
+      ],
+      "questionCount": 14,
+      "usedInCount": 14,
+      "relatedIds": [
+        "th004",
+        "th006",
+        "th007",
+        "th008",
+        "th009",
+        "triangle_criteria_summary"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - متساوي الساقين",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الساقين",
+        "sortOrder": 16.3,
+        "searchTokens": [
+          "isosceles_triangle_properties_summary",
+          "خواص المثلث المتساوي الساقين",
+          "مثلث",
+          "مثلث - متساوي الساقين",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "equilateral_triangle_properties_summary",
+      "legacyIds": [
+        "equilateral_triangle_summary",
+        "equilateral_triangle_properties"
+      ],
+      "number": 16.4,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - متساوي الأضلاع",
+      "title": "خواص المثلث المتساوي الأضلاع",
+      "statement": "في المثلث المتساوي الأضلاع تكون الأضلاع الثلاثة متساوية، والزوايا الثلاث متساوية ومقدار كل منها 60°، وتتطابق فيه المتوسطات والارتفاعات ومنصفات الزوايا.",
+      "short": "صفحة مجمعة لخصائص المثلث المتساوي الأضلاع.",
+      "explanation": "هذه الصفحة تجمع أهم خصائص المثلث المتساوي الأضلاع ليستفيد منها الطالب مباشرة في الحل.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>الخواص الأساسية</div><ul><li><span class='math'>AB = BC = CA</span>.</li><li><span class='math'>∠A = ∠B = ∠C = 60°</span>.</li><li>كل متوسط هو أيضًا ارتفاع ومنصف زاوية وعمود متوسط.</li></ul><div class='th-title'>ملاحظة</div><p>يمكن اعتبار المثلث المتساوي الأضلاع حالة خاصة من <strong>المثلث المتساوي الساقين</strong> من كل رأس.</p></div>",
+      "tags": [
+        "مثلث",
+        "متساوي الأضلاع",
+        "ملخص",
+        "مثلث - متساوي الأضلاع"
+      ],
+      "diagram": {
+        "image": "images/theorems/equilateral-triangle-summary-grid.png",
+        "alt": "ملخص خواص المثلث المتساوي الأضلاع."
+      },
+      "images": [
+        {
+          "src": "images/theorems/equilateral-triangle-summary-grid.png",
+          "alt": "ملخص خواص المثلث المتساوي الأضلاع.",
+          "caption": "الأضلاع الثلاثة متساوية والزوايا الثلاث 60°."
+        },
+        {
+          "src": "images/theorems/equilateral-triangle-angles-60.png",
+          "alt": "في المثلث المتساوي الأضلاع الزوايا الثلاث 60°.",
+          "caption": "كل زاوية من زوايا المثلث المتساوي الأضلاع تساوي 60°."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q06",
+          "href": "./plane.html#book:q06",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (6)",
+          "statement": "✅ التعليل الطريقة تعتمد على دوران 120° في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q06.png"
+          ]
+        },
+        {
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (11) صفحة 2",
+          "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
+      "relatedIds": [
+        "equilateral_triangle_angles_equal",
+        "isosceles_triangle_properties_summary"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - متساوي الأضلاع",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الأضلاع",
+        "sortOrder": 16.4,
+        "searchTokens": [
+          "equilateral_triangle_properties_summary",
+          "خواص المثلث المتساوي الأضلاع",
+          "مثلث",
+          "مثلث - متساوي الأضلاع",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "equilateral_triangle_angles_equal",
+      "legacyIds": [
+        "equilateral_triangle_angles_60"
+      ],
+      "number": 16.5,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - متساوي الأضلاع",
+      "title": "في المثلث المتساوي الأضلاع: الزوايا الثلاث متساوية",
+      "statement": "في المثلث المتساوي الأضلاع الزوايا الثلاث متساوية، ومقدار كل منها 60°.",
+      "short": "في المثلث المتساوي الأضلاع: ∠A = ∠B = ∠C = 60°.",
+      "explanation": "الأضلاع الثلاثة المتساوية في المثلث المتساوي الأضلاع تقابلها زوايا متساوية، ومع مجموع زوايا المثلث نحصل على 60° لكل زاوية.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا كان المثلث <strong>متساوي الأضلاع</strong>، فإن زواياه الثلاث متساوية، وبما أن مجموعها <span class='math'>180°</span> فإن قياس كل زاوية هو <span class='math'>60°</span>.</p><div class='th-title'>التعبير الرمزي</div><p><span class='math'>AB = BC = CA ⇒ ∠A = ∠B = ∠C = 60°</span>.</p></div>",
+      "tags": [
+        "مثلث",
+        "متساوي الأضلاع",
+        "60°",
+        "مثلث - متساوي الأضلاع"
+      ],
+      "diagram": {
+        "image": "images/theorems/equilateral-triangle-angles-60.png",
+        "alt": "في المثلث المتساوي الأضلاع الزوايا الثلاث 60°."
+      },
+      "images": [
+        {
+          "src": "images/theorems/equilateral-triangle-angles-60.png",
+          "alt": "في المثلث المتساوي الأضلاع الزوايا الثلاث 60°.",
+          "caption": "كل زوايا المثلث المتساوي الأضلاع متساوية وتساوي 60°."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q06",
+          "href": "./plane.html#book:q06",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (6)",
+          "statement": "✅ التعليل الطريقة تعتمد على دوران 120° في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q06.png"
+          ]
+        },
+        {
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (11) صفحة 2",
+          "statement": "✅ المعطى ABCD معيّن، و ∠B = 60° . L ∈ AD و K ∈ AB . BK = AL . ✅ المطلوب (أ) إثبات CK = CL (إرشاد: أوصل القطر AC ). (ب) إثبات أن △CLK متساوي الأضلاع. ✅ الحل — طريقتان (لتثبيت الفكرة) ① تطابق مثلثات (أوصل القطر AC) لأن ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-11-p2.png",
+            "images/questions/plane/qf-11-1-p2.png",
+            "images/questions/plane/qf-11-2-p2.png"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
+      "relatedIds": [
+        "equilateral_triangle_properties_summary",
+        "th012",
+        "th003"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - متساوي الأضلاع",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - متساوي الأضلاع",
+        "sortOrder": 16.5,
+        "searchTokens": [
+          "equilateral_triangle_angles_equal",
+          "في المثلث المتساوي الأضلاع: الزوايا الثلاث متساوية",
+          "مثلث",
+          "مثلث - متساوي الأضلاع",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "isosceles_right_triangle_properties_summary",
+      "legacyIds": [
+        "isosceles_right_triangle_summary",
+        "isosceles_right_triangle_properties"
+      ],
+      "number": 16.6,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - قائم متساوي الساقين",
+      "title": "خواص المثلث القائم المتساوي الساقين",
+      "statement": "في المثلث القائم المتساوي الساقين تكون الساقان متساويتين، والزاويتان الحادتان متساويتين ومقدار كل منهما 45°.",
+      "short": "صفحة مجمعة لخصائص المثلث القائم المتساوي الساقين (45-45-90).",
+      "explanation": "هذه الصفحة تجمع الخاصية الأساسية للمثلث القائم المتساوي الساقين مع أشهر نتائجها المباشرة.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>الخواص الأساسية</div><ul><li>إذا كان المثلث قائمًا وكانت ساقاه متساويتين، فإن الزاويتين الحادتين <strong>متساويتان</strong>.</li><li>ومع مجموع زوايا المثلث نحصل على أن قياس كل زاوية حادة هو <span class='math'>45°</span>.</li></ul><div class='th-title'>نتيجة مباشرة</div><p>إذا رأيت في مثلث قائم زاوية حادة مقدارها <span class='math'>45°</span>، فالزاوية الحادة الأخرى أيضًا <span class='math'>45°</span>، فيكون المثلث <strong>قائمًا متساوي الساقين</strong>.</p></div>",
+      "tags": [
+        "مثلث",
+        "قائم متساوي الساقين",
+        "45-45-90",
+        "ملخص",
+        "مثلث - قائم متساوي الساقين"
+      ],
+      "diagram": {
+        "image": "images/theorems/isosceles-right-triangle-summary-grid.png",
+        "alt": "ملخص خواص المثلث القائم المتساوي الساقين."
+      },
+      "images": [
+        {
+          "src": "images/theorems/isosceles-right-triangle-summary-grid.png",
+          "alt": "ملخص خواص المثلث القائم المتساوي الساقين.",
+          "caption": "الساقان متساويتان والزاويتان الحادتان 45°."
+        },
+        {
+          "src": "images/theorems/isosceles-right-triangle-45-45-90.png",
+          "alt": "في المثلث القائم المتساوي الساقين الزاويتان الحادتان 45°.",
+          "caption": "المثلث القائم المتساوي الساقين هو مثلث 45-45-90."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q34",
+          "href": "./plane.html#book:q34",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (34)",
+          "statement": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q34.png"
+          ]
+        },
+        {
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (15) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
+          ]
+        },
+        {
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (16) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-16-p2.png"
+          ]
+        }
+      ],
+      "questionCount": 3,
+      "usedInCount": 3,
+      "relatedIds": [
+        "isosceles_right_triangle_45_45_90",
+        "th012",
+        "th004"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - قائم متساوي الساقين",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - قائم متساوي الساقين",
+        "sortOrder": 16.6,
+        "searchTokens": [
+          "isosceles_right_triangle_properties_summary",
+          "خواص المثلث القائم المتساوي الساقين",
+          "مثلث",
+          "مثلث - قائم متساوي الساقين",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "isosceles_right_triangle_45_45_90",
+      "legacyIds": [
+        "right_isosceles_triangle_angles"
+      ],
+      "number": 16.7,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - قائم متساوي الساقين",
+      "title": "في المثلث القائم المتساوي الساقين: الزاويتان الحادتان 45°",
+      "statement": "في المثلث القائم المتساوي الساقين تكون الزاويتان الحادتان متساويتين ومقدار كل منهما 45°.",
+      "short": "إذا كان المثلث قائمًا ومتساوي الساقين، فإن زواياه هي 45° و45° و90°.",
+      "explanation": "لأن الساقين المتساويتين في المثلث القائم تقابلهما زاويتان متساويتان، ومع وجود زاوية قائمة يكون مجموع الزاويتين الأخريين 90°، وبالتالي كل منهما 45°.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا كان المثلث <strong>قائمًا ومتساوي الساقين</strong>، فإن الزاويتين الحادتين فيه متساويتان، ومقدار كل واحدة منهما <span class='math'>45°</span>.</p><div class='th-title'>التعبير الرمزي</div><p>إذا كان <span class='math'>∠A = 90°</span> و <span class='math'>AB = AC</span> فإن <span class='math'>∠B = ∠C = 45°</span>.</p></div>",
+      "tags": [
+        "مثلث",
+        "قائم متساوي الساقين",
+        "45°",
+        "90°",
+        "مثلث - قائم متساوي الساقين"
+      ],
+      "diagram": {
+        "image": "images/theorems/isosceles-right-triangle-45-45-90.png",
+        "alt": "في المثلث القائم المتساوي الساقين الزاويتان الحادتان 45°."
+      },
+      "images": [
+        {
+          "src": "images/theorems/isosceles-right-triangle-45-45-90.png",
+          "alt": "في المثلث القائم المتساوي الساقين الزاويتان الحادتان 45°.",
+          "caption": "المثلث 45-45-90 هو مثلث قائم متساوي الساقين."
+        }
+      ],
+      "source": {
+        "page": "1",
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q34",
+          "href": "./plane.html#book:q34",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (34)",
+          "statement": "✅ التعليل يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q34.png"
+          ]
+        },
+        {
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (15) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع. E ∈ DC ، و F ∈ BD . BE يقطع القطر AC في النقطة P . BE و CF يتقاطعان في النقطة Q . معطى: CP = DF . ✅ المطلوب إثبات أن ∠BQF = 90° . ✅ الحل (خطوات مبرَّرة) إثبات ∠BCP = 45° : في △ABC لدينا AB = BC و ∠ABC",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-15.png",
+            "images/questions/plane/qf-15-1.png"
+          ]
+        },
+        {
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (16) صفحة 2",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . E ∈ AB و F ∈ AC . معطى: BO = BE ، و EF ⟂ AB . ✅ المطلوب أثبت أن FO = EF = AE . ✅ الحل — طريقتان (لتثبيت الفكرة) ① إحداثيات (سريعة وواضحة) ليكن طول ضلع المربع a ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-16-p2.png"
+          ]
+        }
+      ],
+      "questionCount": 3,
+      "usedInCount": 3,
+      "relatedIds": [
+        "isosceles_right_triangle_properties_summary",
+        "th012",
+        "th004"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - قائم متساوي الساقين",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - قائم متساوي الساقين",
+        "sortOrder": 16.7,
+        "searchTokens": [
+          "isosceles_right_triangle_45_45_90",
+          "في المثلث القائم المتساوي الساقين: الزاويتان الحادتان 45°",
+          "مثلث",
+          "مثلث - قائم متساوي الساقين",
           "الهندسة المستوية"
         ]
       }
@@ -2434,8 +4037,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2475,8 +4078,8 @@
           ]
         },
         {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2489,8 +4092,8 @@
           ]
         },
         {
-          "questionId": "qf11",
-          "href": "./plane.html#final:qf11",
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2504,8 +4107,8 @@
           ]
         },
         {
-          "questionId": "qf-15",
-          "href": "./plane.html#final:qf-15",
+          "questionId": "qf-15-p2",
+          "href": "./plane.html#final:qf-15-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2518,8 +4121,8 @@
           ]
         },
         {
-          "questionId": "qf-17",
-          "href": "./plane.html#final:qf-17",
+          "questionId": "qf-17-p2",
+          "href": "./plane.html#final:qf-17-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2609,8 +4212,8 @@
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2624,8 +4227,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2741,8 +4344,8 @@
           ]
         },
         {
-          "questionId": "qf11",
-          "href": "./plane.html#final:qf11",
+          "questionId": "qf-11-p2",
+          "href": "./plane.html#final:qf-11-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -2819,8 +4422,8 @@
       },
       "questionLinks": [
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -3256,8 +4859,8 @@
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -3271,8 +4874,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -3351,8 +4954,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -3375,22 +4978,9 @@
           "images": [
             "images/questions/plane/qf-21-p3.png"
           ]
-        },
-        {
-          "questionId": "qf-6-p1",
-          "href": "./plane.html#final:qf-6-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (6) - صفحة 1",
-          "statement": "(أ) إثبات KE + EF + FN = BD. (ب) إثبات KE = EL.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-6-p1.png"
-          ]
         }
       ],
-      "questionCount": 17,
+      "questionCount": 16,
       "usedInCount": 16,
       "relatedIds": [
         "th022",
@@ -3808,60 +5398,6 @@
           ]
         },
         {
-          "questionId": "qf-10-p2",
-          "href": "./plane.html#final:qf-10-p2",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10-p2.png",
-            "images/questions/plane/qf-10-1-p2.png"
-          ]
-        },
-        {
-          "questionId": "qf-14-p1",
-          "href": "./plane.html#final:qf-14-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20-p3",
-          "href": "./plane.html#final:qf-20-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
-        },
-        {
           "questionId": "qf-3-p3",
           "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
@@ -3959,6 +5495,60 @@
           "images": [
             "images/questions/plane/qf-9-p1.png"
           ]
+        },
+        {
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (10) صفحة 2",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-21-p3",
+          "href": "./plane.html#final:qf-21-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (21) - صفحة 3",
+          "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-21-p3.png"
+          ]
         }
       ],
       "questionCount": 18,
@@ -4039,33 +5629,6 @@
           ]
         },
         {
-          "questionId": "qf-10-p2",
-          "href": "./plane.html#final:qf-10-p2",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10-p2.png",
-            "images/questions/plane/qf-10-1-p2.png"
-          ]
-        },
-        {
-          "questionId": "qf-14-p1",
-          "href": "./plane.html#final:qf-14-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
           "questionId": "qf-5-p1",
           "href": "./plane.html#final:qf-5-p1",
           "page": "plane",
@@ -4107,6 +5670,33 @@
             "images/questions/plane/qf-8-p1.png",
             "images/questions/plane/qf-8-1-p1.png",
             "images/questions/plane/qf-8-2-p1.png"
+          ]
+        },
+        {
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (10) صفحة 2",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
           ]
         }
       ],
@@ -4235,33 +5825,6 @@
           ]
         },
         {
-          "questionId": "qf-14-p1",
-          "href": "./plane.html#final:qf-14-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20-p3",
-          "href": "./plane.html#final:qf-20-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
           "questionId": "qf-5-p3",
           "href": "./plane.html#final:qf-5-p3",
           "page": "plane",
@@ -4286,6 +5849,33 @@
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-6-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         }
       ],
@@ -4513,33 +6103,6 @@
           ]
         },
         {
-          "questionId": "qf-14-p1",
-          "href": "./plane.html#final:qf-14-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20-p3",
-          "href": "./plane.html#final:qf-20-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
           "questionId": "qf-5-p3",
           "href": "./plane.html#final:qf-5-p3",
           "page": "plane",
@@ -4564,6 +6127,33 @@
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-6-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
           ]
         }
       ],
@@ -4755,8 +6345,8 @@
       },
       "questionLinks": [
         {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -5667,8 +7257,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -5992,36 +7582,8 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "q28",
-          "href": "./plane.html#book:q28",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (28)",
-          "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q28.png",
-            "images/questions/plane/q28-1.png"
-          ]
-        },
-        {
-          "questionId": "q29",
-          "href": "./plane.html#book:q29",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (29)",
-          "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q29.png"
-          ]
-        }
-      ],
-      "questionCount": 2,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -6162,36 +7724,8 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "q28",
-          "href": "./plane.html#book:q28",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (28)",
-          "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q28.png",
-            "images/questions/plane/q28-1.png"
-          ]
-        },
-        {
-          "questionId": "q29",
-          "href": "./plane.html#book:q29",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (29)",
-          "statement": "3) لإثبات AE ⟂ BC: في △AEB و △AEC لدينا AB = AC (معطى)، BE = EC (لأن E منتصف BC)، و AE مشترك → △AEB ≅ △AEC (SSS) → ∠AEB = ∠AEC.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q29.png"
-          ]
-        }
-      ],
-      "questionCount": 2,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -6608,62 +8142,8 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "q05",
-          "href": "./plane.html#book:q05",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (5)",
-          "statement": "(أ) إثبات BC = DE. (ب) إثبات MC = MD.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q05.png"
-          ]
-        },
-        {
-          "questionId": "q07",
-          "href": "./plane.html#book:q07",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (7)",
-          "statement": "ABCD مستطيل. النقطة M داخل المستطيل وتبعد بعدين متساويين عن B و C: MB = MC.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q07.png"
-          ]
-        },
-        {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10.png"
-          ]
-        }
-      ],
-      "questionCount": 4,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -6757,8 +8237,8 @@
           ]
         },
         {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -6824,62 +8304,8 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "q05",
-          "href": "./plane.html#book:q05",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (5)",
-          "statement": "(أ) إثبات BC = DE. (ب) إثبات MC = MD.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q05.png"
-          ]
-        },
-        {
-          "questionId": "q07",
-          "href": "./plane.html#book:q07",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (7)",
-          "statement": "ABCD مستطيل. النقطة M داخل المستطيل وتبعد بعدين متساويين عن B و C: MB = MC.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q07.png"
-          ]
-        },
-        {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10.png"
-          ]
-        }
-      ],
-      "questionCount": 4,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -8509,8 +9935,8 @@
           ]
         },
         {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -8523,8 +9949,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -8677,20 +10103,9 @@
           "images": [
             "images/questions/space/q29.png"
           ]
-        },
-        {
-          "questionId": "p06-q9",
-          "href": "./space.html#p06-q9",
-          "page": "space",
-          "domain": "space",
-          "level": "أسئلة الفراغ",
-          "title": "سؤال (9) صفحة 6",
-          "statement": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع. المعطى: منشور قائم ABCA′B′C′، القاعدة △ABC متساوي الأضلاع طول ضلعه a، وارتفاع المنشور AA′=h. النقطة E على BC بحيث A′E ⟂ BC في △A′BC، والزاوية بين A′E ومستوى القاعدة (ABC) هي α. أ) لإيجاد a بدلالة h و α: 1) زاوية الم…",
-          "sourceLabel": "حلول أسئلة الفراغ – هندسة فراغية",
-          "images": []
         }
       ],
-      "questionCount": 19,
+      "questionCount": 18,
       "usedInCount": 18,
       "relatedIds": [
         "th085"
@@ -8799,147 +10214,8 @@
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "qf-28-p5",
-          "href": "./plane.html#final:qf-28-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
-          "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-28-p5.png"
-          ]
-        },
-        {
-          "questionId": "q16",
-          "href": "./plane.html#book:q16",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (16)",
-          "statement": "(أ) إذا ∠DOC = 30° احسب ∠ABC. (ب) إذا ∠DOC = α عبّر عن ∠ABC بدلالة α.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q16.png"
-          ]
-        },
-        {
-          "questionId": "q18",
-          "href": "./plane.html#book:q18",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (18)",
-          "statement": "(أ) عبّر عن ∠ECF بدلالة α. (ب) برهن أن ∠FCE = ∠DCE.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q18.png"
-          ]
-        },
-        {
-          "questionId": "q19",
-          "href": "./plane.html#book:q19",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (19)",
-          "statement": "مثلث ABC قائم عند C: ∠ACB = 90°. CD متوسط للوتر AB (D منتصف AB).",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q19.png"
-          ]
-        },
-        {
-          "questionId": "q37",
-          "href": "./plane.html#book:q37",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (37)",
-          "statement": "إثبات ∠BEC = 90°.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q37.png",
-            "images/questions/plane/q37-1.png",
-            "images/questions/plane/q37-2.png"
-          ]
-        },
-        {
-          "questionId": "q38",
-          "href": "./plane.html#book:q38",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (38)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q38.png",
-            "images/questions/plane/q38-1.png",
-            "images/questions/plane/q38-2.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-3-p3.png",
-            "images/questions/plane/qf-3-1-p3.png",
-            "images/questions/plane/qf-3-2-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-7-p4",
-          "href": "./plane.html#final:qf-7-p4",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (7) - صفحة 4",
-          "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-7-p4.png"
-          ]
-        },
-        {
-          "questionId": "qf-8-p1",
-          "href": "./plane.html#final:qf-8-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (8) - صفحة 1",
-          "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-8-p1.png",
-            "images/questions/plane/qf-8-1-p1.png",
-            "images/questions/plane/qf-8-2-p1.png"
-          ]
-        }
-      ],
-      "questionCount": 10,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -9074,8 +10350,8 @@
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -9209,147 +10485,8 @@
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "qf-28-p5",
-          "href": "./plane.html#final:qf-28-p5",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (28) صفحة 5",
-          "statement": "(أ) أثبت أن AB = AD. (ب) أثبت أن DO : EF = 2 : 3.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-28-p5.png"
-          ]
-        },
-        {
-          "questionId": "q16",
-          "href": "./plane.html#book:q16",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (16)",
-          "statement": "(أ) إذا ∠DOC = 30° احسب ∠ABC. (ب) إذا ∠DOC = α عبّر عن ∠ABC بدلالة α.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q16.png"
-          ]
-        },
-        {
-          "questionId": "q18",
-          "href": "./plane.html#book:q18",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (18)",
-          "statement": "(أ) عبّر عن ∠ECF بدلالة α. (ب) برهن أن ∠FCE = ∠DCE.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q18.png"
-          ]
-        },
-        {
-          "questionId": "q19",
-          "href": "./plane.html#book:q19",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (19)",
-          "statement": "مثلث ABC قائم عند C: ∠ACB = 90°. CD متوسط للوتر AB (D منتصف AB).",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q19.png"
-          ]
-        },
-        {
-          "questionId": "q37",
-          "href": "./plane.html#book:q37",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (37)",
-          "statement": "إثبات ∠BEC = 90°.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q37.png",
-            "images/questions/plane/q37-1.png",
-            "images/questions/plane/q37-2.png"
-          ]
-        },
-        {
-          "questionId": "q38",
-          "href": "./plane.html#book:q38",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (38)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q38.png",
-            "images/questions/plane/q38-1.png",
-            "images/questions/plane/q38-2.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-3-p3.png",
-            "images/questions/plane/qf-3-1-p3.png",
-            "images/questions/plane/qf-3-2-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-7-p4",
-          "href": "./plane.html#final:qf-7-p4",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (7) - صفحة 4",
-          "statement": "إثبات أن AF منصف للزاوية عند A (أي ∠BAF = ∠FAC).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-7-p4.png"
-          ]
-        },
-        {
-          "questionId": "qf-8-p1",
-          "href": "./plane.html#final:qf-8-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (8) - صفحة 1",
-          "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-8-p1.png",
-            "images/questions/plane/qf-8-1-p1.png",
-            "images/questions/plane/qf-8-2-p1.png"
-          ]
-        }
-      ],
-      "questionCount": 10,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -9911,8 +11048,8 @@
           ]
         },
         {
-          "questionId": "qf-4",
-          "href": "./plane.html#final:qf-4",
+          "questionId": "qf-4-p3",
+          "href": "./plane.html#final:qf-4-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -9939,8 +11076,8 @@
           ]
         },
         {
-          "questionId": "qf-16",
-          "href": "./plane.html#final:qf-16",
+          "questionId": "qf-16-p2",
+          "href": "./plane.html#final:qf-16-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -9952,8 +11089,8 @@
           ]
         },
         {
-          "questionId": "qf-17",
-          "href": "./plane.html#final:qf-17",
+          "questionId": "qf-17-p2",
+          "href": "./plane.html#final:qf-17-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -10274,22 +11411,8 @@
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "q17",
-          "href": "./plane.html#book:q17",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (17)",
-          "statement": "(أ) إيجاد الزاويتين الحادتين في المثلث ABC. (ب) إثبات BD = 1/4 AB.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q17.png"
-          ]
-        }
-      ],
-      "questionCount": 1,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -10402,22 +11525,8 @@
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [
-        {
-          "questionId": "q17",
-          "href": "./plane.html#book:q17",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (17)",
-          "statement": "(أ) إيجاد الزاويتين الحادتين في المثلث ABC. (ب) إثبات BD = 1/4 AB.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q17.png"
-          ]
-        }
-      ],
-      "questionCount": 1,
+      "questionLinks": [],
+      "questionCount": 0,
       "usedInCount": 0,
       "relatedIds": [],
       "grouping": {
@@ -10781,20 +11890,9 @@
           "images": [
             "images/questions/space/q29.png"
           ]
-        },
-        {
-          "questionId": "p06-q9",
-          "href": "./space.html#p06-q9",
-          "page": "space",
-          "domain": "space",
-          "level": "أسئلة الفراغ",
-          "title": "سؤال (9) صفحة 6",
-          "statement": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع. المعطى: منشور قائم ABCA′B′C′، القاعدة △ABC متساوي الأضلاع طول ضلعه a، وارتفاع المنشور AA′=h. النقطة E على BC بحيث A′E ⟂ BC في △A′BC، والزاوية بين A′E ومستوى القاعدة (ABC) هي α. أ) لإيجاد a بدلالة h و α: 1) زاوية الم…",
-          "sourceLabel": "حلول أسئلة الفراغ – هندسة فراغية",
-          "images": []
         }
       ],
-      "questionCount": 21,
+      "questionCount": 20,
       "usedInCount": 20,
       "relatedIds": [],
       "grouping": {
@@ -11457,20 +12555,9 @@
           "images": [
             "images/questions/space/q29.png"
           ]
-        },
-        {
-          "questionId": "p06-q9",
-          "href": "./space.html#p06-q9",
-          "page": "space",
-          "domain": "space",
-          "level": "أسئلة الفراغ",
-          "title": "سؤال (9) صفحة 6",
-          "statement": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع. المعطى: منشور قائم ABCA′B′C′، القاعدة △ABC متساوي الأضلاع طول ضلعه a، وارتفاع المنشور AA′=h. النقطة E على BC بحيث A′E ⟂ BC في △A′BC، والزاوية بين A′E ومستوى القاعدة (ABC) هي α. أ) لإيجاد a بدلالة h و α: 1) زاوية الم…",
-          "sourceLabel": "حلول أسئلة الفراغ – هندسة فراغية",
-          "images": []
         }
       ],
-      "questionCount": 28,
+      "questionCount": 27,
       "usedInCount": 27,
       "relatedIds": [],
       "grouping": {

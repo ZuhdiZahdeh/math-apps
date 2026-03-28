@@ -378,12 +378,16 @@
       "theoremIds": [
         "th004",
         "angle_bisector_definition",
-        "perpendicular_bisector_locus"
+        "perpendicular_bisector_locus",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "angle_bisector_definition",
-        "perpendicular_bisector_locus"
+        "perpendicular_bisector_locus",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -434,8 +438,18 @@
         "  <p>الطريقة تعتمد على دوران <span class='math'>120°</span> في مثلث متساوي الأضلاع (تحويل يحفظ الأطوال).</p>",
         "</div>"
       ],
-      "theoremIds": [],
-      "legacyTheoremIds": [],
+      "theoremIds": [
+        "triangle_criteria_summary",
+        "equilateral_triangle_properties_summary",
+        "equilateral_triangle_angles_equal",
+        "triangle_properties_summary"
+      ],
+      "legacyTheoremIds": [
+        "triangle_criteria_summary",
+        "equilateral_triangle_properties_summary",
+        "equilateral_triangle_angles_equal",
+        "triangle_properties_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -488,12 +502,16 @@
       "theoremIds": [
         "perpendicular_bisector_locus",
         "th004",
-        "rectangle_properties_summary"
+        "rectangle_properties_summary",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "perpendicular_bisector_locus",
         "isosceles_triangle_base_angles",
-        "rectangle_properties_summary"
+        "rectangle_properties_summary",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -549,10 +567,14 @@
         "</div>"
       ],
       "theoremIds": [
-        "th004"
+        "th004",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "isosceles_triangle_base_angles"
+        "isosceles_triangle_base_angles",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -599,10 +621,12 @@
         "</div>"
       ],
       "theoremIds": [
-        "th005"
+        "th005",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "triangle_inequality"
+        "triangle_inequality",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -652,10 +676,12 @@
         "</div>"
       ],
       "theoremIds": [
-        "th005"
+        "th005",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "triangle_inequality"
+        "triangle_inequality",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -708,10 +734,12 @@
         "</div>"
       ],
       "theoremIds": [
-        "th005"
+        "th005",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "triangle_inequality"
+        "triangle_inequality",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -759,10 +787,12 @@
         "</div>"
       ],
       "theoremIds": [
-        "th005"
+        "th005",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "triangle_inequality"
+        "triangle_inequality",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -811,10 +841,12 @@
         "</div>"
       ],
       "theoremIds": [
-        "th005"
+        "th005",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "triangle_inequality"
+        "triangle_inequality",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -856,11 +888,15 @@
       ],
       "theoremIds": [
         "th004",
-        "th001"
+        "th001",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -953,11 +989,15 @@
       ],
       "theoremIds": [
         "th004",
-        "quadrilateral_angle_sum_360"
+        "quadrilateral_angle_sum_360",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
-        "quadrilateral_angle_sum_360"
+        "quadrilateral_angle_sum_360",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1228,12 +1268,16 @@
       "theoremIds": [
         "angle_bisector_definition",
         "th004",
-        "th001"
+        "th001",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "angle_bisector_definition",
         "isosceles_triangle_base_angles",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1450,13 +1494,17 @@
         "midsegment_triangle_bundle",
         "th025",
         "rectangle_test_parallelogram_right_angle",
-        "rectangle_criteria_summary"
+        "rectangle_criteria_summary",
+        "triangle_properties_summary",
+        "th014"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "parallel_lines_angles_rules",
         "rectangle_test_parallelogram_right_angle",
-        "rectangle_criteria_summary"
+        "rectangle_criteria_summary",
+        "triangle_properties_summary",
+        "th014"
       ],
       "grouping": {
         "domain": "plane",
@@ -1499,12 +1547,16 @@
       "theoremIds": [
         "th004",
         "th012",
-        "th001"
+        "th001",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1592,10 +1644,14 @@
         "<div class='sol-wrap'><div class='sol-h'>✅ ملاحظة</div><p>النظرية الأساسية: متساوي الساقين.</p></div>"
       ],
       "theoremIds": [
-        "th004"
+        "th004",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "isosceles_triangle_base_angles"
+        "isosceles_triangle_base_angles",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1811,7 +1867,13 @@
         "th001",
         "th012",
         "th004",
-        "medians_centroid"
+        "medians_centroid",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary",
+        "th006",
+        "th014",
+        "th015"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
@@ -1819,7 +1881,13 @@
         "supplementary_angles_straight_line",
         "triangle_angle_sum_180",
         "isosceles_triangle_base_angles",
-        "medians_centroid"
+        "medians_centroid",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary",
+        "th006",
+        "th014",
+        "th015"
       ],
       "grouping": {
         "domain": "plane",
@@ -1919,13 +1987,15 @@
         "parallelogram_property_opposite_sides_equal",
         "th025",
         "th004",
-        "th027"
+        "th027",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "parallel_lines_angles_rules",
         "isosceles_triangle_base_angles",
-        "th027"
+        "th027",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1998,14 +2068,22 @@
         "th031",
         "parallelogram_property_opposite_sides_equal",
         "th027",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "th014",
+        "th015"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "parallelogram_test_opposite_parallel_equal",
         "parallelogram_property_opposite_sides_equal",
         "th027",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "th014",
+        "th015"
       ],
       "grouping": {
         "domain": "plane",
@@ -2095,12 +2173,14 @@
       "theoremIds": [
         "midsegment_triangle_bundle",
         "th032",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "th032",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2143,10 +2223,18 @@
         "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>يعتمد على منصف الزاوية (تعريف) + مثلث قائم 45-45-90.</p></div>"
       ],
       "theoremIds": [
-        "angle_bisector_definition"
+        "angle_bisector_definition",
+        "triangle_criteria_summary",
+        "isosceles_right_triangle_properties_summary",
+        "isosceles_right_triangle_45_45_90",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
-        "angle_bisector_definition"
+        "angle_bisector_definition",
+        "triangle_criteria_summary",
+        "isosceles_right_triangle_properties_summary",
+        "isosceles_right_triangle_45_45_90",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2188,11 +2276,19 @@
       ],
       "theoremIds": [
         "th004",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary",
+        "th014"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "isosceles_triangle_properties_summary",
+        "th014"
       ],
       "grouping": {
         "domain": "plane",
@@ -2237,11 +2333,15 @@
       ],
       "theoremIds": [
         "th004",
-        "th001"
+        "th001",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_triangle_base_angles",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "triangle_properties_summary",
+        "isosceles_triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2368,7 +2468,8 @@
         "th004",
         "th012",
         "right_triangle_midpoint_hypotenuse",
-        "th027"
+        "th027",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "parallel_lines_angles_rules",
@@ -2377,7 +2478,8 @@
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
         "right_triangle_midpoint_hypotenuse",
-        "th027"
+        "th027",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2486,7 +2588,8 @@
         "th012",
         "right_triangle_midpoint_hypotenuse",
         "th027",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
@@ -2496,7 +2599,8 @@
         "triangle_angle_sum_180",
         "right_triangle_midpoint_hypotenuse",
         "th027",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2588,11 +2692,13 @@
       ],
       "theoremIds": [
         "th012",
-        "th069"
+        "th069",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "triangle_angle_sum_180",
-        "circle_inscribed_angle"
+        "circle_inscribed_angle",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2689,10 +2795,18 @@
         "</div>"
       ],
       "theoremIds": [
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "th014",
+        "th015"
       ],
       "legacyTheoremIds": [
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "triangle_properties_summary",
+        "triangle_criteria_summary",
+        "th014",
+        "th015"
       ],
       "grouping": {
         "domain": "plane",
@@ -2795,12 +2909,14 @@
       "theoremIds": [
         "angle_bisector_definition",
         "th025",
-        "th004"
+        "th004",
+        "triangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "angle_bisector_definition",
         "parallel_lines_angles_rules",
-        "isosceles_triangle_base_angles"
+        "isosceles_triangle_base_angles",
+        "triangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
