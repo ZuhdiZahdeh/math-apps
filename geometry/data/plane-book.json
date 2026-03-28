@@ -1336,12 +1336,14 @@
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "angle_bisector_definition",
-        "th025"
+        "th025",
+        "th027"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "angle_bisector_definition",
-        "parallel_lines_angles_rules"
+        "parallel_lines_angles_rules",
+        "th027"
       ],
       "grouping": {
         "domain": "plane",
@@ -1386,11 +1388,13 @@
       ],
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "th001"
+        "th001",
+        "th026"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "th026"
       ],
       "grouping": {
         "domain": "plane",
@@ -1674,11 +1678,13 @@
       ],
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "medians_centroid"
+        "medians_centroid",
+        "th028"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "medians_centroid"
+        "medians_centroid",
+        "th028"
       ],
       "grouping": {
         "domain": "plane",
@@ -1902,12 +1908,14 @@
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th025",
-        "th004"
+        "th004",
+        "th027"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "parallel_lines_angles_rules",
-        "isosceles_triangle_base_angles"
+        "isosceles_triangle_base_angles",
+        "th027"
       ],
       "grouping": {
         "domain": "plane",
@@ -1978,12 +1986,16 @@
       "theoremIds": [
         "midsegment_triangle_bundle",
         "th031",
-        "parallelogram_property_opposite_sides_equal"
+        "parallelogram_property_opposite_sides_equal",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
         "parallelogram_test_opposite_parallel_equal",
-        "parallelogram_property_opposite_sides_equal"
+        "parallelogram_property_opposite_sides_equal",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2071,12 +2083,14 @@
         "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.</p></div>"
       ],
       "theoremIds": [
-        "parallelogram_property_opposite_sides_equal",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "th032",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
-        "parallelogram_property_opposite_sides_equal",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "th032",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2343,7 +2357,8 @@
         "th039",
         "th004",
         "th012",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027"
       ],
       "legacyTheoremIds": [
         "parallel_lines_angles_rules",
@@ -2351,7 +2366,8 @@
         "isosceles_trapezoid_base_angles",
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027"
       ],
       "grouping": {
         "domain": "plane",
@@ -2458,7 +2474,9 @@
         "th025",
         "th004",
         "th012",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
@@ -2466,7 +2484,9 @@
         "parallel_lines_angles_rules",
         "isosceles_triangle_base_angles",
         "triangle_angle_sum_180",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",

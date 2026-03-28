@@ -130,14 +130,16 @@
         "th025",
         "th018",
         "midsegment_triangle_bundle",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "parallel_lines_angles_rules",
         "congruence_ASA",
         "midsegment_triangle_bundle",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th027"
       ],
       "grouping": {
         "domain": "plane",
@@ -391,11 +393,13 @@
       ],
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "th084"
+        "th084",
+        "th028"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "pythagoras_theorem"
+        "pythagoras_theorem",
+        "th028"
       ],
       "grouping": {
         "domain": "plane",
@@ -508,13 +512,17 @@
         "parallelogram_property_opposite_sides_equal",
         "th031",
         "perpendicular_bisector_locus",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "parallelogram_test_opposite_parallel_equal",
         "perpendicular_bisector_locus",
-        "midsegment_triangle_bundle"
+        "midsegment_triangle_bundle",
+        "th027",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -644,13 +652,15 @@
         "parallelogram_property_opposite_sides_equal",
         "th037",
         "th090",
-        "th084"
+        "th084",
+        "th028"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th037",
         "th090",
-        "th084"
+        "th084",
+        "th028"
       ],
       "grouping": {
         "domain": "plane",
@@ -803,7 +813,8 @@
         "th031",
         "th004",
         "th019",
-        "th001"
+        "th001",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_trapezoid_base_angles",
@@ -814,7 +825,8 @@
         "parallelogram_test_opposite_parallel_equal",
         "isosceles_triangle_base_angles",
         "congruence_SSS",
-        "supplementary_angles_straight_line"
+        "supplementary_angles_straight_line",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1180,11 +1192,13 @@
       ],
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th028"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "right_triangle_midpoint_hypotenuse"
+        "right_triangle_midpoint_hypotenuse",
+        "th028"
       ],
       "grouping": {
         "domain": "plane",
@@ -1500,14 +1514,16 @@
         "perpendicular_bisector_locus",
         "th017",
         "th084",
-        "parallelogram_adjacent_sides_equal_rhombus"
+        "parallelogram_adjacent_sides_equal_rhombus",
+        "th028"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "perpendicular_bisector_locus",
         "congruence_SAS",
         "pythagoras_theorem",
-        "parallelogram_adjacent_sides_equal_rhombus"
+        "parallelogram_adjacent_sides_equal_rhombus",
+        "th028"
       ],
       "grouping": {
         "domain": "plane",
@@ -1733,11 +1749,15 @@
       ],
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "th031"
+        "th031",
+        "th028",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
-        "parallelogram_test_opposite_parallel_equal"
+        "parallelogram_test_opposite_parallel_equal",
+        "th028",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -2293,11 +2313,13 @@
       ],
       "theoremIds": [
         "th031",
-        "parallelogram_property_opposite_sides_equal"
+        "parallelogram_property_opposite_sides_equal",
+        "parallelogram_tests_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_test_opposite_parallel_equal",
-        "parallelogram_property_opposite_sides_equal"
+        "parallelogram_property_opposite_sides_equal",
+        "parallelogram_tests_summary"
       ],
       "grouping": {
         "domain": "plane",

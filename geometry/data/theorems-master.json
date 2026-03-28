@@ -2,12 +2,12 @@
   "meta": {
     "title": "مرجع النظريات الهندسية الموحّد",
     "sourceOfTruth": "data/theorems-master.json",
-    "totalTheorems": 128,
-    "planeVisibleTheorems": 114,
+    "totalTheorems": 129,
+    "planeVisibleTheorems": 115,
     "spaceVisibleTheorems": 17,
-    "usedBySolutionsCount": 43,
+    "usedBySolutionsCount": 48,
     "generatedAt": "2026-03-28",
-    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تمت إعادة بناء هذا الملف لتفضيل diagram.image على diagram.svg عند وجود صورة PNG/PNG مناسبة، مع تصحيح اسم ملف النظرية 205 وتطبيع بنية images[].",
+    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تم تحسين قسم متوازي الأضلاع بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث صور النظريات وربطها بالأسئلة المرتبطة بدقة أعلى.",
     "groupingConfig": {
       "version": 1,
       "purpose": "Accordion-ready optional grouping metadata",
@@ -169,7 +169,9 @@
     "prism_volume": "prism_volume",
     "prism_lateral_area": "prism_lateral_area",
     "pyramid_volume": "pyramid_volume",
-    "rectangular_prism_surface_area": "rectangular_prism_surface_area"
+    "rectangular_prism_surface_area": "rectangular_prism_surface_area",
+    "parallelogram_tests_summary": "parallelogram_tests_summary",
+    "parallelogram_criteria_summary": "parallelogram_tests_summary"
   },
   "theorems": [
     {
@@ -3111,26 +3113,52 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "زوايا متوازي الأضلاع",
-      "statement": "في متوازي الأضلاع كل زاويتين متقابلتين متساويتان.",
-      "short": "في متوازي الأضلاع كل زاويتين متقابلتين متساويتان.",
-      "explanation": "في متوازي الأضلاع كل زاويتين متقابلتين متساويتان.",
+      "title": "خاصية الزاويتين المتقابلتين في متوازي الأضلاع",
+      "statement": "في متوازي الأضلاع كل زاويتين متقابلتين متطابقتان.",
+      "short": "إذا كان ABCD متوازي أضلاع فإن ∠A = ∠C و ∠B = ∠D.",
+      "explanation": "إذا كان ABCD متوازي أضلاع فإن ∠A = ∠C و ∠B = ∠D.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>النص</div><p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع، فإن:</p><ul><li><span class='math'>∠A = ∠C</span></li><li><span class='math'>∠B = ∠D</span></li></ul><div class='th-title'>مثال سريع</div><p>إذا كانت <span class='math'>∠A = 70°</span>، فحينئذٍ <span class='math'>∠C = 70°</span>.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/parallelogram-opposite-angles-equal.png",
+        "alt": "الزوايا المتقابلة في متوازي الأضلاع متساوية"
+      },
+      "images": [
+        {
+          "src": "images/theorems/parallelogram-opposite-angles-equal.png",
+          "alt": "الزوايا المتقابلة في متوازي الأضلاع متساوية",
+          "caption": "في متوازي الأضلاع: ∠A = ∠C و ∠B = ∠D."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "27",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionLinks": [
+        {
+          "questionId": "q23",
+          "href": "./plane.html#book:q23",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (23)",
+          "statement": "✅ التعليل خواص متوازي الأضلاع + زوايا مكملة (180°) في المتوازي.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q23.png"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
+      "relatedIds": [
+        "parallelogram_property_opposite_sides_equal",
+        "th029"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3159,43 +3187,32 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "أضلاع متوازي الأضلاع",
-      "statement": "في متوازي الأضلاع كل ضلعين متقابلين متساويان.",
-      "short": "في متوازي الأضلاع كل ضلعين متقابلين متساويان.",
-      "explanation": "في متوازي الأضلاع كل ضلعين متقابلين متساويان.",
+      "title": "خاصية الضلعين المتقابلين في متوازي الأضلاع",
+      "statement": "في متوازي الأضلاع كل ضلعين متقابلين متطابقان.",
+      "short": "إذا كان ABCD متوازي أضلاع فإن AB = DC و AD = BC.",
+      "explanation": "إذا كان ABCD متوازي أضلاع فإن AB = DC و AD = BC.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>النص</div><p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع، فإن:</p><ul><li><span class='math'>AB = DC</span></li><li><span class='math'>AD = BC</span></li></ul><div class='th-title'>مثال سريع</div><p>إذا عرفت أن <span class='math'>AB = 6</span> في متوازي أضلاع، فإن <span class='math'>DC = 6</span> أيضًا.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
+      "diagram": {
+        "image": "images/theorems/parallelogram-opposite-sides-equal.png",
+        "alt": "الأضلاع المتقابلة في متوازي الأضلاع متساوية"
+      },
       "images": [
         {
-          "src": "images/theorems/parallelogram.png",
-          "alt": "رسم لمتوازي أضلاع",
-          "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
+          "src": "images/theorems/parallelogram-opposite-sides-equal.png",
+          "alt": "الأضلاع المتقابلة في متوازي الأضلاع متساوية",
+          "caption": "في متوازي الأضلاع: AB = DC و AD = BC."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "27",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
         {
           "questionId": "q22",
           "href": "./plane.html#book:q22",
@@ -3203,37 +3220,10 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (22)",
-          "statement": "ABCD متوازي أضلاع، BC = 2·AB. BE منصف الزاوية ∠ABC، و E على AD.",
+          "statement": "✅ التعليل خواص متوازي الأضلاع + تعريف منصف زاوية + توازي.",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q22.png"
-          ]
-        },
-        {
-          "questionId": "q23",
-          "href": "./plane.html#book:q23",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (23)",
-          "statement": "1) ∠A+∠B=180° → ∠EFG = ∠A/2 + ∠B/2 = 90°. 2) منصفات الزوايا المتقابلة متوازية → EFGH متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q23.png"
-          ]
-        },
-        {
-          "questionId": "q28",
-          "href": "./plane.html#book:q28",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (28)",
-          "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q28.png",
-            "images/questions/plane/q28-1.png"
           ]
         },
         {
@@ -3243,7 +3233,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (30)",
-          "statement": "PQMN متوازي أضلاع. E نقطة على الضلع PQ بحيث ∠PNE = ∠ENM.",
+          "statement": "✅ المعطى PQMN متوازي أضلاع. E على PQ بحيث ∠PNE = ∠ENM . امتداد NE يقطع امتداد MQ في F . NM = a ، و NP = b . ✅ المطلوب أوجد FQ بدلالة a و b . ✅ البرهان في متوازي الأضلاع: PQ ∥ NM و NP ∥ MQ ، كما أن PQ = NM = a و NP = MQ =",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q30.png"
@@ -3256,24 +3246,11 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (31)",
-          "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q31-1.png",
             "images/questions/plane/q31-2.png"
-          ]
-        },
-        {
-          "questionId": "q33",
-          "href": "./plane.html#book:q33",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (33)",
-          "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q33.png"
           ]
         },
         {
@@ -3283,12 +3260,14 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (37)",
-          "statement": "إثبات ∠BEC = 90°.",
+          "statement": "✅ المعطى AB ∥ CD و AD = BC (شبه منحرف متساوي الساقين). MN قطعة متوسطة ⇒ N منتصف AD و M منتصف BC و MN ∥ AB ∥ CD . من M نرسم ME ∥ AD وتقطع CD في E . ✅ المطلوب إثبات ∠BEC = 90° . ✅ الطريقة (1) — بالزوايا (القاطع مع المتوازي",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q37.png",
             "images/questions/plane/q37-1.png",
-            "images/questions/plane/q37-2.png"
+            "images/questions/plane/q37-2.png",
+            "images/questions/plane/q37-3.png",
+            "images/questions/plane/q37-4.png"
           ]
         },
         {
@@ -3298,75 +3277,23 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (38)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q38.png",
             "images/questions/plane/q38-1.png",
-            "images/questions/plane/q38-2.png"
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
           ]
         },
         {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10.png"
-          ]
-        },
-        {
-          "questionId": "qf-14",
-          "href": "./plane.html#final:qf-14",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "ABCD متوازي أضلاع. K على AB، L على BC، M على CD، N على AD.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20",
-          "href": "./plane.html#final:qf-20",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "أثبت أن الرباعي EFGD متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E منتصف AB ⇒ AE = EB . F منتصف DC ⇒ DF = FC . G على امتداد AD (أي A,D,G على استقامة واحدة). معطى: BG ⟂ DG . ✅ المطلوب إثبات أن الرباعي DFEG شبه منحرف متساوي الساقين. ✅ التعليل (حل واحد فقط) بم",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-3-p3.png",
@@ -3375,50 +3302,26 @@
           ]
         },
         {
-          "questionId": "qf-5-p1",
-          "href": "./plane.html#final:qf-5-p1",
+          "questionId": "qf-5-p3",
+          "href": "./plane.html#final:qf-5-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (5) - صفحة 1",
-          "statement": "احسب الزاوية الحادّة بين قطري المستطيل.",
+          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/questions/plane/qf-5-p1.png"
-          ]
-        },
-        {
-          "questionId": "qf-8-p1",
-          "href": "./plane.html#final:qf-8-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (8) - صفحة 1",
-          "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-8-p1.png",
-            "images/questions/plane/qf-8-1-p1.png",
-            "images/questions/plane/qf-8-2-p1.png"
-          ]
-        },
-        {
-          "questionId": "qf-9-p1",
-          "href": "./plane.html#final:qf-9-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (9) - صفحة 1",
-          "statement": "إثبات أن DF = FC (أي أن F منتصف DC).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-9-p1.png"
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
           ]
         }
       ],
-      "questionCount": 17,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionCount": 7,
+      "usedInCount": 7,
+      "relatedIds": [
+        "parallelogram_property_opposite_sides_equal",
+        "th030"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3447,69 +3350,32 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "أقطار متوازي الأضلاع",
-      "statement": "في متوازي الأضلاع القطران ينصف كل منهما الآخر.",
-      "short": "في متوازي الأضلاع القطران ينصف كل منهما الآخر.",
-      "explanation": "في متوازي الأضلاع القطران ينصف كل منهما الآخر.",
+      "title": "خاصية قطري متوازي الأضلاع",
+      "statement": "في متوازي الأضلاع القطران ينصف كلٌّ منهما الآخر.",
+      "short": "إذا تقاطع القطران AC و BD في E داخل متوازي الأضلاع، فإن AE = EC و BE = ED.",
+      "explanation": "إذا تقاطع القطران AC و BD في E داخل متوازي الأضلاع، فإن AE = EC و BE = ED.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>النص</div><p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع، وتقاطع القطران <span class='math'>AC</span> و <span class='math'>BD</span> في النقطة <span class='math'>E</span>، فإن:</p><ul><li><span class='math'>AE = EC</span></li><li><span class='math'>BE = ED</span></li></ul><div class='th-title'>فائدة</div><p>تُستعمل هذه الخاصية كثيرًا لإثبات أن نقطةً ما هي <strong>منتصف قطر</strong>.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
+      "diagram": {
+        "image": "images/theorems/parallelogram-diagonals-bisect.png",
+        "alt": "قطرا متوازي الأضلاع ينصف كل منهما الآخر"
+      },
       "images": [
         {
-          "src": "images/theorems/parallelogram.png",
-          "alt": "رسم لمتوازي أضلاع",
-          "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
+          "src": "images/theorems/parallelogram-diagonals-bisect.png",
+          "alt": "قطرا متوازي الأضلاع ينصف كل منهما الآخر",
+          "caption": "إذا تقاطع القطران في E فإن AE = EC و BE = ED."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "28",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
-        {
-          "questionId": "qf-5-p3",
-          "href": "./plane.html#final:qf-5-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
-          "statement": "(أ) أثبت أن الرباعي EBCD شبه منحرف متساوي الساقين. (ب) أثبت: (1) AF = 1/2 BE ، (2) AF ∥ BE.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-5-p3.png",
-            "images/questions/plane/qf-5-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "q22",
-          "href": "./plane.html#book:q22",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (22)",
-          "statement": "ABCD متوازي أضلاع، BC = 2·AB. BE منصف الزاوية ∠ABC، و E على AD.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q22.png"
-          ]
-        },
-        {
-          "questionId": "q23",
-          "href": "./plane.html#book:q23",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (23)",
-          "statement": "1) ∠A+∠B=180° → ∠EFG = ∠A/2 + ∠B/2 = 90°. 2) منصفات الزوايا المتقابلة متوازية → EFGH متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q23.png"
-          ]
-        },
         {
           "questionId": "q28",
           "href": "./plane.html#book:q28",
@@ -3517,7 +3383,7 @@
           "domain": "plane",
           "level": "أسئلة الكتاب",
           "title": "سؤال (28)",
-          "statement": "في متوازي الأضلاع ABCD: M منتصف BC و N منتصف DC (أي BM = MC و DN = NC). المستقيمان AM و AN يقطعان القطر BD في النقطتين E و F على الترتيب.",
+          "statement": "✅ المعطى في متوازي الأضلاع ABCD : M منتصف BC و N منتصف DC . E = AM ∩ BD و F = AN ∩ BD . ✅ المطلوب إثبات BE = EF = FD . ✅ البرهان لتكن O = AC ∩ BD . بما أن ABCD متوازي أضلاع ⇒ القطران ينصف كلٌ منهما الآخر ⇒ O منتصف BD و م",
           "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
           "images": [
             "images/questions/plane/q28.png",
@@ -3525,141 +3391,30 @@
           ]
         },
         {
-          "questionId": "q30",
-          "href": "./plane.html#book:q30",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (30)",
-          "statement": "PQMN متوازي أضلاع. E نقطة على الضلع PQ بحيث ∠PNE = ∠ENM.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q30.png"
-          ]
-        },
-        {
-          "questionId": "q31",
-          "href": "./plane.html#book:q31",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (31)",
-          "statement": "(أ) إثبات NF = FE = EM. (ب) إثبات AF = MC.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q31-1.png",
-            "images/questions/plane/q31-2.png"
-          ]
-        },
-        {
-          "questionId": "q33",
-          "href": "./plane.html#book:q33",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (33)",
-          "statement": "بما أن BC ∥ PQ ∥ AD → O أيضًا منتصف MN → قطرا الرباعي PQ و MN ينصفان بعضهما → PMQN متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q33.png"
-          ]
-        },
-        {
-          "questionId": "q37",
-          "href": "./plane.html#book:q37",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (37)",
-          "statement": "إثبات ∠BEC = 90°.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q37.png",
-            "images/questions/plane/q37-1.png",
-            "images/questions/plane/q37-2.png"
-          ]
-        },
-        {
-          "questionId": "q38",
-          "href": "./plane.html#book:q38",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (38)",
-          "statement": "افتح السؤال الكامل لعرض الصور والحل خطوة بخطوة.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q38.png",
-            "images/questions/plane/q38-1.png",
-            "images/questions/plane/q38-2.png"
-          ]
-        },
-        {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "أثبت أن ABCD معيّن. الطريقة (2) — فيثاغورس بعد إثبات التعامد:",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/questions/plane/qf-10.png"
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
           ]
         },
         {
-          "questionId": "qf-14",
-          "href": "./plane.html#final:qf-14",
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "ABCD متوازي أضلاع. K على AB، L على BC، M على CD، N على AD.",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20",
-          "href": "./plane.html#final:qf-20",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "أثبت أن الرباعي EFGD متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "إثبات أن AF يساوي طول ضلع المربع (أي AF = AB).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (3) صفحة 3",
-          "statement": "أثبت أن الرباعي DFEG شبه منحرف متساوي الساقين.",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-3-p3.png",
-            "images/questions/plane/qf-3-1-p3.png",
-            "images/questions/plane/qf-3-2-p3.png"
           ]
         },
         {
@@ -3669,10 +3424,26 @@
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (5) - صفحة 1",
-          "statement": "احسب الزاوية الحادّة بين قطري المستطيل.",
+          "statement": "✅ المعطى ABCD مستطيل، والقطران يتقاطعان في O . E نقطة على DC بحيث: CE = CO و DE = OE . ✅ المطلوب احسب الزاوية الحادّة بين قطري المستطيل. ✅ الحل — خطوة بخطوة بدون تعقيد ليكن DC=a و AD=b ، وضع DE=x ⇒ CE=a-x . لأن المستطيل ",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-5-p1.png"
+          ]
+        },
+        {
+          "questionId": "qf-6-p1",
+          "href": "./plane.html#final:qf-6-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (6) - صفحة 1",
+          "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
           ]
         },
         {
@@ -3682,31 +3453,21 @@
           "domain": "plane",
           "level": "الأسئلة النهائية",
           "title": "واجب نهائي — سؤال (8) - صفحة 1",
-          "statement": "إثبات أن المثلث DOE متساوي الساقين (أي DO = OE).",
+          "statement": "✅ المعطى ABCD متوازي أضلاع، والقطران AC و BD يتقاطعان في O . E على امتداد AD . DE ⟂ BE . ✅ المطلوب إثبات أن △DOE متساوي الساقين (أي DO = OE ). ✅ الحل — طريقتان (لتثبيت الفكرة) ① منتصف الوتر في مثلث قائم من DE ⟂ BE ⇒ ∠DEB",
           "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
             "images/questions/plane/qf-8-p1.png",
             "images/questions/plane/qf-8-1-p1.png",
             "images/questions/plane/qf-8-2-p1.png"
           ]
-        },
-        {
-          "questionId": "qf-9-p1",
-          "href": "./plane.html#final:qf-9-p1",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (9) - صفحة 1",
-          "statement": "إثبات أن DF = FC (أي أن F منتصف DC).",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-9-p1.png"
-          ]
         }
       ],
-      "questionCount": 17,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionCount": 6,
+      "usedInCount": 6,
+      "relatedIds": [
+        "parallelogram_property_opposite_sides_equal",
+        "th032"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3735,26 +3496,38 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "عكس زوايا متوازي الأضلاع",
-      "statement": "الشكل الرباعي الذي فيه كل زاويتين متقابلتين متساويتان هو متوازي أضلاع.",
-      "short": "الشكل الرباعي الذي فيه كل زاويتين متقابلتين متساويتان هو متوازي أضلاع.",
-      "explanation": "الشكل الرباعي الذي فيه كل زاويتين متقابلتين متساويتان هو متوازي أضلاع.",
+      "title": "معيار الزاويتين المتقابلتين المتطابقتين",
+      "statement": "في الشكل الرباعي، إذا كانت كل زاويتين متقابلتين متطابقتين فإن الشكل الرباعي متوازي أضلاع.",
+      "short": "إذا كانت ∠A = ∠C و ∠B = ∠D في شكل رباعي، فإن الشكل متوازي أضلاع.",
+      "explanation": "إذا كانت ∠A = ∠C و ∠B = ∠D في شكل رباعي، فإن الشكل متوازي أضلاع.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>في الشكل الرباعي، إذا كانت كل زاويتين متقابلتين متطابقتين، فإن الشكل الرباعي متوازي أضلاع.</p><div class='th-title'>مثال</div><p>إذا كانت <span class='math'>∠A = ∠C</span> و <span class='math'>∠B = ∠D</span> فإن <span class='math'>ABCD</span> متوازي أضلاع.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/parallelogram-opposite-angles-equal.png",
+        "alt": "معيار الزاويتين المتقابلتين المتطابقتين"
+      },
+      "images": [
+        {
+          "src": "images/theorems/parallelogram-opposite-angles-equal.png",
+          "alt": "معيار الزاويتين المتقابلتين المتطابقتين",
+          "caption": "إذا كانت كل زاويتين متقابلتين متطابقتين فإن الشكل الرباعي متوازي أضلاع."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "29",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "parallelogram_tests_summary",
+        "th026"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3783,26 +3556,38 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "عكس أضلاع متوازي الأضلاع",
-      "statement": "الشكل الرباعي الذي فيه كل ضلعين متقابلين متساويان هو متوازي أضلاع.",
-      "short": "الشكل الرباعي الذي فيه كل ضلعين متقابلين متساويان هو متوازي أضلاع.",
-      "explanation": "الشكل الرباعي الذي فيه كل ضلعين متقابلين متساويان هو متوازي أضلاع.",
+      "title": "معيار الضلعين المتقابلين المتطابقين",
+      "statement": "في الشكل الرباعي، إذا كان كل ضلعين متقابلين متطابقين فإن الشكل الرباعي متوازي أضلاع.",
+      "short": "إذا كان AB = DC و AD = BC في شكل رباعي، فإن الشكل متوازي أضلاع.",
+      "explanation": "إذا كان AB = DC و AD = BC في شكل رباعي، فإن الشكل متوازي أضلاع.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>في الشكل الرباعي، إذا كان كل ضلعين متقابلين متطابقين، فإن الشكل الرباعي متوازي أضلاع.</p><div class='th-title'>مثال</div><p>إذا كان <span class='math'>AB = DC</span> و <span class='math'>AD = BC</span> فإن <span class='math'>ABCD</span> متوازي أضلاع.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/parallelogram-opposite-sides-equal.png",
+        "alt": "معيار الضلعين المتقابلين المتطابقين"
+      },
+      "images": [
+        {
+          "src": "images/theorems/parallelogram-opposite-sides-equal.png",
+          "alt": "معيار الضلعين المتقابلين المتطابقين",
+          "caption": "إذا كان كل ضلعين متقابلين متطابقين فإن الشكل الرباعي متوازي أضلاع."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "30",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "parallelogram_tests_summary",
+        "th027"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3833,12 +3618,12 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "شرط ضلعين متقابلين متوازيين ومتساويين",
-      "statement": "الشكل الرباعي الذي فيه زوج من الأضلاع المتقابلة متوازيان ومتساويان هو متوازي أضلاع.",
-      "short": "نفترض أن الرباعي ABCD متوازي أضلاع، ويمكن إثبات ذلك بعدة حالات أشهرها: ضلعان متقابلان متوازيان ومتساويان.",
-      "explanation": "نفترض أن الرباعي ABCD متوازي أضلاع، ويمكن إثبات ذلك بعدة حالات أشهرها: ضلعان متقابلان متوازيان ومتساويان.",
+      "title": "معيار ضلعين متقابلين متوازيين ومتطابقين",
+      "statement": "في الشكل الرباعي، إذا كان فيه ضلعان متقابلان متوازيين ومتطابقين فإن الشكل الرباعي متوازي أضلاع.",
+      "short": "إذا كان AB ∥ DC و AB = DC في شكل رباعي، فإن الشكل متوازي أضلاع.",
+      "explanation": "إذا كان AB ∥ DC و AB = DC في شكل رباعي، فإن الشكل متوازي أضلاع.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص الفرضية</div><p>نفترض أن الشكل الرباعي <span class='math'>ABCD</span> هو <strong>متوازي أضلاع</strong>.</p><div class='th-title'>توضيح</div><p>إذا توازى وتساوى ضلعان متقابلان في شكل رباعي، كان هذا الشكل <strong>متوازي أضلاع</strong>.</p><div class='th-title'>شرح الفرضية بشكل مبسط</div><p>لكي نطبق هذه القاعدة، نحتاج لتوفر شرطين في نفس الضلعين:</p><ul><li><strong>التوازي:</strong> أن يكون الضلعان متوازيين (لا يلتقيان أبداً).</li><li><strong>التساوي:</strong> أن يكون لهما نفس الطول تماماً.</li></ul><div class='th-title'>حالات أخرى لإثبات أن الشكل متوازي أضلاع</div><p>إذا لم يتوفر لديك ضلعان <em>متوازيان ومتساويان معاً</em>، يمكنك الاعتماد على حالات أخرى:</p><ul><li><strong>كل ضلعين متقابلين متوازيين</strong>: (تعريف متوازي الأضلاع).</li><li><strong>كل ضلعين متقابلين متساويين في الطول</strong>.</li><li><strong>القطران ينصف كل منهما الآخر</strong>: (نقطة تقاطع القطرين هي منتصف كل قطر).</li><li><strong>كل زاويتين متقابلتين متساويتان في القياس</strong>.</li></ul><div class='th-title'>التعبير الرمزي (أمثلة)</div><p>في الرباعي <span class='math'>ABCD</span>:</p><ul><li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AB = CD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li><li>إذا كان <span class='math'>AB ∥ CD</span> و<span class='math'>AD ∥ BC</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li><li>إذا تقاطع القطران في <span class='math'>O</span> وكان <span class='math'>AO = OC</span> و<span class='math'>BO = OD</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>في الشكل الرباعي، إذا كان فيه ضلعان متقابلان متوازيين ومتطابقين، فإن الشكل الرباعي متوازي أضلاع.</p><div class='th-title'>مثال</div><p>إذا كان <span class='math'>AB ∥ DC</span> و <span class='math'>AB = DC</span> فإن <span class='math'>ABCD</span> متوازي أضلاع.</p></div>",
       "tags": [
         "فرضية",
         "معايير",
@@ -3851,18 +3636,18 @@
         "شكل رباعي - متوازي أضلاع"
       ],
       "diagram": {
-        "image": "images/theorems/parallelogram.png",
-        "alt": "شكل رباعي ABCD متوازي أضلاع"
+        "image": "images/theorems/parallelogram-one-pair-opposite-sides-parallel-equal.png",
+        "alt": "معيار ضلعين متقابلين متوازيين ومتطابقين"
       },
       "images": [
         {
-          "src": "images/theorems/parallelogram.png",
-          "alt": "رسم لمتوازي أضلاع",
-          "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
+          "src": "images/theorems/parallelogram-one-pair-opposite-sides-parallel-equal.png",
+          "alt": "معيار ضلعين متقابلين متوازيين ومتطابقين",
+          "caption": "إذا كان ضلعان متقابلان متوازيين ومتطابقين فإن الشكل الرباعي متوازي أضلاع."
         }
       ],
       "source": {
-        "page": 1,
+        "page": "31",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
@@ -3897,6 +3682,33 @@
           ]
         },
         {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
+          ]
+        },
+        {
           "questionId": "qf-5-p3",
           "href": "./plane.html#final:qf-5-p3",
           "page": "plane",
@@ -3922,38 +3734,13 @@
           "images": [
             "images/questions/plane/qf-6-p3.png"
           ]
-        },
-        {
-          "questionId": "qf-14",
-          "href": "./plane.html#final:qf-14",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20",
-          "href": "./plane.html#final:qf-20",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
         }
       ],
       "questionCount": 6,
       "usedInCount": 6,
-      "relatedIds": [],
+      "relatedIds": [
+        "parallelogram_tests_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -3982,26 +3769,52 @@
       ],
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
-      "title": "عكس أقطار متوازي الأضلاع",
-      "statement": "الشكل الرباعي الذي ينصف قطراه كلٌّ منهما الآخر هو متوازي أضلاع.",
-      "short": "الشكل الرباعي الذي ينصف قطراه كلٌّ منهما الآخر هو متوازي أضلاع.",
-      "explanation": "الشكل الرباعي الذي ينصف قطراه كلٌّ منهما الآخر هو متوازي أضلاع.",
+      "title": "معيار تنصيف القطرين",
+      "statement": "إذا كان قطرا شكل رباعي ينصف كلٌّ منهما الآخر فإن الشكل الرباعي متوازي أضلاع.",
+      "short": "إذا كان AE = EC و BE = ED عند تقاطع القطرين، فإن الشكل الرباعي متوازي أضلاع.",
+      "explanation": "إذا كان AE = EC و BE = ED عند تقاطع القطرين، فإن الشكل الرباعي متوازي أضلاع.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>إذا كان قطرا شكل رباعي ينصف كلٌّ منهما الآخر، فإن الشكل الرباعي متوازي أضلاع.</p><div class='th-title'>مثال</div><p>إذا تقاطع القطران <span class='math'>AC</span> و <span class='math'>BD</span> في <span class='math'>E</span> وكان <span class='math'>AE = EC</span> و <span class='math'>BE = ED</span>، فإن <span class='math'>ABCD</span> متوازي أضلاع.</p></div>",
       "tags": [
         "شكل رباعي",
         "شكل رباعي - متوازي أضلاع"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/parallelogram-diagonals-bisect.png",
+        "alt": "معيار تنصيف القطرين"
+      },
+      "images": [
+        {
+          "src": "images/theorems/parallelogram-diagonals-bisect.png",
+          "alt": "معيار تنصيف القطرين",
+          "caption": "إذا كان القطران ينصف كلٌّ منهما الآخر فإن الشكل الرباعي متوازي أضلاع."
+        }
+      ],
       "source": {
-        "page": 1,
+        "page": "32",
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
-      "relatedIds": [],
+      "questionLinks": [
+        {
+          "questionId": "q33",
+          "href": "./plane.html#book:q33",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (33)",
+          "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q33.png"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
+      "relatedIds": [
+        "parallelogram_tests_summary",
+        "th028"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -9007,11 +8820,11 @@
       "field": "شكل رباعي",
       "category": "شكل رباعي - متوازي أضلاع",
       "title": "خواص متوازي الأضلاع",
-      "statement": "في متوازي الأضلاع: الأضلاع المتقابلة متساوية ومتوازية، والزوايا المتقابلة متساوية، والقطران ينصف كلٌّ منهما الآخر.",
-      "short": "في متوازي الأضلاع: الأضلاع المتقابلة متساوية ومتوازية، والزوايا المتقابلة متساوية، والقطران ينصف كلٌّ منهما الآخر.",
-      "explanation": "في متوازي الأضلاع: الأضلاع المتقابلة متساوية ومتوازية، والزوايا المتقابلة متساوية، والقطران ينصف كلٌّ منهما الآخر.",
+      "statement": "إذا كان ABCD متوازي أضلاع فإن الأضلاع المتقابلة تكون متوازية ومتطابقة، والزوايا المتقابلة متطابقة، والقطران ينصف كلٌّ منهما الآخر.",
+      "short": "في متوازي الأضلاع: الأضلاع المتقابلة متوازية ومتساوية، والزوايا المتقابلة متساوية، والقطران ينصف كلٌّ منهما الآخر.",
+      "explanation": "في متوازي الأضلاع: الأضلاع المتقابلة متوازية ومتساوية، والزوايا المتقابلة متساوية، والقطران ينصف كلٌّ منهما الآخر.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>خواص أساسية</div><ul><li>الأضلاع المتقابلة متوازية.</li><li>الأضلاع المتقابلة متساوية في الطول.</li><li>القطران ينصفان بعضهما.</li></ul><div class='th-title'>التعبير الرمزي</div><p>إذا كان <span class='math'>ABCD</span> متوازي أضلاع فإن:</p><ul><li><span class='math'>AB = CD</span> و<span class='math'>AD = BC</span>.</li></ul></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>إذا كان الشكل متوازي أضلاع</div><p>فهذه هي <strong>الخواص المباشرة</strong> التي نستعملها داخل البرهان:</p><ul><li><span class='math'>AB ∥ DC</span> و <span class='math'>AD ∥ BC</span>.</li><li><span class='math'>AB = DC</span> و <span class='math'>AD = BC</span>.</li><li><span class='math'>∠A = ∠C</span> و <span class='math'>∠B = ∠D</span>.</li><li>إذا تقاطع القطران <span class='math'>AC</span> و <span class='math'>BD</span> في <span class='math'>E</span> فإن <span class='math'>AE = EC</span> و <span class='math'>BE = ED</span>.</li><li>كل زاويتين متجاورتين مجموعهما <span class='math'>180°</span>.</li></ul><div class='th-title'>متى أستخدم هذه الصفحة؟</div><p>عندما يكون الشكل <strong>معطى أصلًا على أنه متوازي أضلاع</strong>، ونريد استخراج أطوال أو زوايا أو معلومات عن الأقطار.</p><div class='th-title'>ملحوظة مهمة</div><p>لإثبات أن شكلًا رباعيًّا هو متوازي أضلاع، انتقل إلى صفحة <strong>معايير إثبات متوازي الأضلاع</strong>.</p></div>",
       "tags": [
         "متوازي أضلاع",
         "خواص",
@@ -9021,15 +8834,29 @@
         "شكل رباعي - متوازي أضلاع"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"خواص متوازي الأضلاع\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;}\n    .d{stroke:#0ea5e9;stroke-width:3;stroke-dasharray:7 7;stroke-linecap:round;}\n  </style>\n  <path class=\"l\" d=\"M85 60 L245 60 L300 170 L140 170 Z\"/>\n  <line class=\"d\" x1=\"85\" y1=\"60\" x2=\"300\" y2=\"170\"/>\n  <line class=\"d\" x1=\"245\" y1=\"60\" x2=\"140\" y2=\"170\"/>\n\n  <text class=\"p\" x=\"72\" y=\"52\">A</text><text class=\"p\" x=\"250\" y=\"52\">B</text>\n  <text class=\"p\" x=\"306\" y=\"182\">C</text><text class=\"p\" x=\"126\" y=\"182\">D</text>\n\n  <text class=\"p\" x=\"20\" y=\"212\">AB = CD ، AD = BC  (وأيضًا القطران ينصفان بعضهما)</text>\n</svg>",
-        "image": "images/theorems/parallelogram.png",
-        "alt": "رسم لمتوازي أضلاع"
+        "image": "images/theorems/parallelogram-properties-summary-grid.png",
+        "alt": "ملخص خواص متوازي الأضلاع: توازي الأضلاع المتقابلة وتساويها، تساوي الزوايا المتقابلة، وتنصيف القطرين."
       },
       "images": [
         {
-          "src": "images/theorems/parallelogram.png",
-          "alt": "رسم لمتوازي أضلاع",
-          "caption": "شكل يوضح خواص متوازي الأضلاع أو شروطه."
+          "src": "images/theorems/parallelogram-opposite-sides-parallel.png",
+          "alt": "الأضلاع المتقابلة في متوازي الأضلاع متوازية",
+          "caption": "في متوازي الأضلاع: كل ضلعين متقابلين متوازيان."
+        },
+        {
+          "src": "images/theorems/parallelogram-opposite-sides-equal.png",
+          "alt": "الأضلاع المتقابلة في متوازي الأضلاع متساوية",
+          "caption": "في متوازي الأضلاع: كل ضلعين متقابلين متطابقان."
+        },
+        {
+          "src": "images/theorems/parallelogram-opposite-angles-equal.png",
+          "alt": "الزوايا المتقابلة في متوازي الأضلاع متساوية",
+          "caption": "في متوازي الأضلاع: كل زاويتين متقابلتين متطابقتان."
+        },
+        {
+          "src": "images/theorems/parallelogram-diagonals-bisect.png",
+          "alt": "قطرا متوازي الأضلاع ينصف كل منهما الآخر",
+          "caption": "في متوازي الأضلاع: القطران ينصف كلٌّ منهما الآخر."
         }
       ],
       "source": {
@@ -9105,19 +8932,6 @@
           ]
         },
         {
-          "questionId": "q33",
-          "href": "./plane.html#book:q33",
-          "page": "plane",
-          "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (33)",
-          "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
-          "images": [
-            "images/questions/plane/q33.png"
-          ]
-        },
-        {
           "questionId": "q37",
           "href": "./plane.html#book:q37",
           "page": "plane",
@@ -9151,8 +8965,62 @@
           ]
         },
         {
-          "questionId": "qf-3",
-          "href": "./plane.html#final:qf-3",
+          "questionId": "qf-10-p2",
+          "href": "./plane.html#final:qf-10-p2",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (10) صفحة 2",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-10-p2.png",
+            "images/questions/plane/qf-10-1-p2.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-21-p3",
+          "href": "./plane.html#final:qf-21-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (21) - صفحة 3",
+          "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-21-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-3-p3",
+          "href": "./plane.html#final:qf-3-p3",
           "page": "plane",
           "domain": "plane",
           "level": "الأسئلة النهائية",
@@ -9248,65 +9116,16 @@
           "images": [
             "images/questions/plane/qf-9-p1.png"
           ]
-        },
-        {
-          "questionId": "qf-10",
-          "href": "./plane.html#final:qf-10",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (10) صفحة 2",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. E نقطة على القطر AC بحيث: DE = BE . E ليست نقطة تقاطع القطرين. ✅ المطلوب أثبت أن ABCD معيّن. ✅ الحل — طريقتان (لتثبيت الفكرة) ① محل هندسي (العمود المنصف) ليكن O نقطة تقاطع القطرين. في متوازي ا",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-10-p2.png",
-            "images/questions/plane/qf-10-1-p2.png"
-          ]
-        },
-        {
-          "questionId": "qf-14",
-          "href": "./plane.html#final:qf-14",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (14) صفحة 1",
-          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-14.png"
-          ]
-        },
-        {
-          "questionId": "qf-20",
-          "href": "./plane.html#final:qf-20",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (20) صفحة 3",
-          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-20-p3.png",
-            "images/questions/plane/qf-20-1-p3.png"
-          ]
-        },
-        {
-          "questionId": "qf-21-p3",
-          "href": "./plane.html#final:qf-21-p3",
-          "page": "plane",
-          "domain": "plane",
-          "level": "الأسئلة النهائية",
-          "title": "واجب نهائي — سؤال (21) - صفحة 3",
-          "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
-          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
-          "images": [
-            "images/questions/plane/qf-21-p3.png"
-          ]
         }
       ],
-      "questionCount": 19,
-      "usedInCount": 19,
-      "relatedIds": [],
+      "questionCount": 18,
+      "usedInCount": 18,
+      "relatedIds": [
+        "th026",
+        "th027",
+        "th028",
+        "parallelogram_tests_summary"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
@@ -9320,6 +9139,190 @@
           "parallelogram_property_opposite_sides_equal",
           "خواص متوازي الأضلاع",
           "شكل رباعي",
+          "شكل رباعي - متوازي أضلاع",
+          "الهندسة المستوية",
+          "parallelogram properties"
+        ]
+      }
+    },
+    {
+      "id": "parallelogram_tests_summary",
+      "legacyIds": [
+        "parallelogram_criteria_summary"
+      ],
+      "number": 28.5,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "شكل رباعي",
+      "category": "شكل رباعي - متوازي أضلاع",
+      "title": "خصائص متوازي الأضلاع (معايير الإثبات)",
+      "statement": "في الشكل الرباعي، يكفي تحقق أحد الشروط الآتية ليكون الشكل متوازي أضلاع: تساوي كل ضلعين متقابلين، أو تساوي كل زاويتين متقابلتين، أو أن القطرين ينصف كلٌّ منهما الآخر، أو أن يكون زوج من الأضلاع المتقابلة متوازيًا ومتطابقًا.",
+      "short": "هذه الصفحة تجمع الطرق الأربع الأشهر لإثبات أن الشكل الرباعي متوازي أضلاع.",
+      "explanation": "هذه الصفحة تجمع الطرق الأربع الأشهر لإثبات أن الشكل الرباعي متوازي أضلاع.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>متى أستخدم هذه الصفحة؟</div><p>عندما يكون الشكل <strong>رباعيًّا غير مُصنَّف بعد</strong>، ونريد أن نثبت أنه متوازي أضلاع.</p><div class='th-title'>المعايير الأربع الأشهر</div><ol><li>إذا كان كل ضلعين متقابلين متطابقين، فإن الشكل الرباعي متوازي أضلاع.<br><span class='math'>AB = DC</span> و <span class='math'>AD = BC</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li><li>إذا كانت كل زاويتين متقابلتين متطابقتين، فإن الشكل الرباعي متوازي أضلاع.<br><span class='math'>∠A = ∠C</span> و <span class='math'>∠B = ∠D</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li><li>إذا كان قطرا شكل رباعي ينصف كلٌّ منهما الآخر، فإن الشكل الرباعي متوازي أضلاع.<br>إذا تقاطع القطران في <span class='math'>E</span> وكان <span class='math'>AE = EC</span> و <span class='math'>BE = ED</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li><li>إذا كان في الشكل الرباعي ضلعان متقابلان متوازيين ومتطابقين، فإن الشكل الرباعي متوازي أضلاع.<br><span class='math'>AB ∥ DC</span> و <span class='math'>AB = DC</span> ⇒ <span class='math'>ABCD</span> متوازي أضلاع.</li></ol><div class='th-title'>تنبيه تربوي</div><p>هذه <strong>معايير لإثبات المتوازي</strong>، وليست نفس صفحة <strong>خواص متوازي الأضلاع</strong> التي نستخدمها بعد أن يكون الشكل معطى على أنه متوازي أضلاع.</p></div>",
+      "tags": [
+        "شكل رباعي",
+        "متوازي أضلاع",
+        "معايير",
+        "شروط",
+        "إثبات",
+        "عكس"
+      ],
+      "diagram": {
+        "image": "images/theorems/parallelogram-tests-summary-grid.png",
+        "alt": "ملخص معايير إثبات أن الشكل الرباعي متوازي أضلاع."
+      },
+      "images": [
+        {
+          "src": "images/theorems/parallelogram-opposite-sides-equal.png",
+          "alt": "إذا كان كل ضلعين متقابلين متطابقين فإن الشكل الرباعي متوازي أضلاع",
+          "caption": "معيار 1: إذا كان كل ضلعين متقابلين متطابقين فإن الشكل الرباعي متوازي أضلاع."
+        },
+        {
+          "src": "images/theorems/parallelogram-opposite-angles-equal.png",
+          "alt": "إذا كانت كل زاويتين متقابلتين متطابقتين فإن الشكل الرباعي متوازي أضلاع",
+          "caption": "معيار 2: إذا كانت كل زاويتين متقابلتين متطابقتين فإن الشكل الرباعي متوازي أضلاع."
+        },
+        {
+          "src": "images/theorems/parallelogram-diagonals-bisect.png",
+          "alt": "إذا كان القطران ينصف كل منهما الآخر فإن الشكل الرباعي متوازي أضلاع",
+          "caption": "معيار 3: إذا كان القطران ينصف كلٌّ منهما الآخر فإن الشكل الرباعي متوازي أضلاع."
+        },
+        {
+          "src": "images/theorems/parallelogram-one-pair-opposite-sides-parallel-equal.png",
+          "alt": "إذا كان ضلعان متقابلان متوازيين ومتطابقين فإن الشكل الرباعي متوازي أضلاع",
+          "caption": "معيار 4: إذا كان ضلعان متقابلان متوازيين ومتطابقين فإن الشكل الرباعي متوازي أضلاع."
+        }
+      ],
+      "source": {
+        "page": "29–32",
+        "referenceFile": "تلخيص تعليمي مضاف"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q31",
+          "href": "./plane.html#book:q31",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (31)",
+          "statement": "✅ الحل تمت كتابته بالكامل في قسم الحل داخل solutions.json .",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q31-1.png",
+            "images/questions/plane/q31-2.png"
+          ]
+        },
+        {
+          "questionId": "q33",
+          "href": "./plane.html#book:q33",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (33)",
+          "statement": "✅ التعليل خاصية: إذا كان قطرا رباعي ينصفان بعضهما ⇒ متوازي أضلاع.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q33.png"
+          ]
+        },
+        {
+          "questionId": "q38",
+          "href": "./plane.html#book:q38",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (38)",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. BN ⟂ AD و DM ⟂ BC . ✅ المطلوب (أ) إثبات AM = NC . (ب) إذا AB = BM فاثبت ∠DCN = ∠BCN . (ج) إذا كان محيط ABCD يساوي 60 سم، ومعطى AB = BM = 12 سم، فاثبت ∠MDC = 30° . ✅ (أ) إثبات AM = NC بما أن AB",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q38.png",
+            "images/questions/plane/q38-1.png",
+            "images/questions/plane/q38-2.png",
+            "images/questions/plane/q38-3.png"
+          ]
+        },
+        {
+          "questionId": "qf-14-p1",
+          "href": "./plane.html#final:qf-14-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (14) صفحة 1",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. K∈AB ، L∈BC ، M∈CD ، N∈AD . KM و NL يتقاطعان في O . AK = CM و AN = CL . ✅ المطلوب (أ) KO = MO و NO = LO . (ب) O نقطة تقاطع AC و BD . ✅ الحل — بدون تعقيد في متوازي الأضلاع: AB ∥ CD و AB = CD ، ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-14.png"
+          ]
+        },
+        {
+          "questionId": "qf-20-p3",
+          "href": "./plane.html#final:qf-20-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (20) صفحة 3",
+          "statement": "✅ المعطى ABCD مربع، والقطران AC و BD يتقاطعان في النقطة O . DE تنصف الزاوية BDC . معطى: GC = DO ، و CF = EO . ✅ المطلوب إثبات أن الرباعي EFGD متوازي أضلاع. ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجه",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-20-p3.png",
+            "images/questions/plane/qf-20-1-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-5-p3",
+          "href": "./plane.html#final:qf-5-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "الأسئلة النهائية — سؤال (5) صفحة 3",
+          "statement": "✅ المعطى ABCD متوازي أضلاع. AC ⟂ AD . E على امتداد AD بحيث AE = 2AD . F منتصف DC . ✅ المطلوب (أ) إثبات أن EBCD شبه منحرف متساوي الساقين. (ب) إثبات: AF = 1/2 BE و AF ∥ BE . ✅ الحل (حل واحد فقط — حسب ملف Theorems — بدون إح",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-5-p3.png",
+            "images/questions/plane/qf-5-1-p3.png"
+          ]
+        },
+        {
+          "questionId": "qf-6-p3",
+          "href": "./plane.html#final:qf-6-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (6) - صفحة 3",
+          "statement": "✅ المعطى ABCD شبه منحرف متساوي الساقين: AB ∥ DC و AD = BC . E ∈ DC ، و F على امتداد AB . EF ∥ AC . EF تقطع القطر BD في O وتُنصِّفه ⇒ BO = OD . ✅ المطلوب إثبات أن الرباعي DFBE مستطيل. ✅ التعليل (حل واحد فقط — حسب ملف Theo",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-6-p3.png"
+          ]
+        }
+      ],
+      "questionCount": 7,
+      "usedInCount": 7,
+      "relatedIds": [
+        "th029",
+        "th030",
+        "th031",
+        "th032",
+        "parallelogram_property_opposite_sides_equal"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "شكل رباعي",
+        "category": "شكل رباعي - متوازي أضلاع",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "شكل رباعي",
+        "accordionTertiary": "شكل رباعي - متوازي أضلاع",
+        "sortOrder": 28.5,
+        "searchTokens": [
+          "parallelogram_tests_summary",
+          "parallelogram_criteria_summary",
+          "خصائص متوازي الأضلاع",
+          "معايير إثبات متوازي الأضلاع",
           "شكل رباعي - متوازي أضلاع",
           "الهندسة المستوية"
         ]
