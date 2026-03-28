@@ -487,11 +487,13 @@
       ],
       "theoremIds": [
         "perpendicular_bisector_locus",
-        "th004"
+        "th004",
+        "rectangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "perpendicular_bisector_locus",
-        "isosceles_triangle_base_angles"
+        "isosceles_triangle_base_angles",
+        "rectangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1389,12 +1391,16 @@
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th001",
-        "th026"
+        "th026",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "supplementary_angles_straight_line",
-        "th026"
+        "th026",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -1442,11 +1448,15 @@
       ],
       "theoremIds": [
         "midsegment_triangle_bundle",
-        "th025"
+        "th025",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "legacyTheoremIds": [
         "midsegment_triangle_bundle",
-        "parallel_lines_angles_rules"
+        "parallel_lines_angles_rules",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "grouping": {
         "domain": "plane",

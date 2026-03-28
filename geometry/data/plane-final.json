@@ -394,12 +394,14 @@
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th084",
-        "th028"
+        "th028",
+        "rectangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "pythagoras_theorem",
-        "th028"
+        "th028",
+        "rectangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -653,14 +655,16 @@
         "th037",
         "th090",
         "th084",
-        "th028"
+        "th028",
+        "rectangle_properties_summary"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th037",
         "th090",
         "th084",
-        "th028"
+        "th028",
+        "rectangle_properties_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -814,7 +818,9 @@
         "th004",
         "th019",
         "th001",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "legacyTheoremIds": [
         "isosceles_trapezoid_base_angles",
@@ -826,7 +832,9 @@
         "isosceles_triangle_base_angles",
         "congruence_SSS",
         "supplementary_angles_straight_line",
-        "parallelogram_tests_summary"
+        "parallelogram_tests_summary",
+        "rectangle_test_parallelogram_right_angle",
+        "rectangle_criteria_summary"
       ],
       "grouping": {
         "domain": "plane",
@@ -983,7 +991,9 @@
         "th012",
         "th025",
         "th088",
-        "th084"
+        "th084",
+        "rectangle_properties_summary",
+        "rectangle_property_right_angles"
       ],
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
@@ -992,7 +1002,9 @@
         "th012",
         "th025",
         "th088",
-        "th084"
+        "th084",
+        "rectangle_properties_summary",
+        "rectangle_property_right_angles"
       ],
       "grouping": {
         "domain": "plane",
