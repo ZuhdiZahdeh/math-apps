@@ -1,4 +1,4 @@
-import { fetchJson, escapeHtml, shorten, uniq, openImageModal } from "./utils.js";
+import { fetchJson, escapeHtml, shorten, uniq, openImageModal, getPreferredTheoremImage } from "./utils.js";
 
 const DATA_URLS = [
   "./data/theorems-master.json",
@@ -81,14 +81,16 @@ export function buildReferenceHref(id, contextDomain = "plane") {
 }
 
 function renderDiagram(theorem, { compact = false } = {}) {
-  if (theorem?.diagram?.svg) {
-    return `<div class="diagram-wrap">${theorem.diagram.svg}</div>`;
+  const image = getPreferredTheoremImage(theorem);
+  const svg = typeof theorem?.diagram?.svg === "string" ? theorem.diagram.svg : "";
+
+  if (image?.src) {
+    const caption = image.caption || image.alt || theorem?.title || "";
+    return `<div class="diagram-wrap"><img class="zoomable-image" data-zoom-src="${escapeHtml(image.src)}" data-zoom-caption="${escapeHtml(caption)}" src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || theorem?.title || "")}" /></div>`;
   }
 
-  const src = theorem?.diagram?.image || theorem?.images?.[0]?.src || "";
-  const alt = theorem?.diagram?.alt || theorem?.images?.[0]?.alt || theorem?.title || "";
-  if (src) {
-    return `<div class="diagram-wrap"><img class="zoomable-image" data-zoom-src="${escapeHtml(src)}" data-zoom-caption="${escapeHtml(alt)}" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" /></div>`;
+  if (svg) {
+    return `<div class="diagram-wrap">${svg}</div>`;
   }
 
   return compact

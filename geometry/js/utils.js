@@ -98,6 +98,53 @@ export function shorten(text, max = 200) {
   return raw.length > max ? `${raw.slice(0, max - 1)}…` : raw;
 }
 
+
+export function normalizeMediaItem(item, fallback = {}) {
+  if (!item) return null;
+
+  if (typeof item === "string") {
+    const alt = String(fallback.alt || "");
+    const caption = String(fallback.caption || alt || "");
+    return { src: item, alt, caption };
+  }
+
+  if (typeof item === "object" && typeof item.src === "string" && item.src.trim()) {
+    const alt = String(item.alt || fallback.alt || "");
+    const caption = String(item.caption || fallback.caption || alt || "");
+    return {
+      ...item,
+      src: item.src,
+      alt,
+      caption,
+    };
+  }
+
+  return null;
+}
+
+export function getPreferredTheoremImage(theorem) {
+  const title = theorem?.title || "";
+  const diagramImage = typeof theorem?.diagram?.image === "string" && theorem.diagram.image.trim()
+    ? normalizeMediaItem(
+        {
+          src: theorem.diagram.image,
+          alt: theorem?.diagram?.alt || title,
+          caption: theorem?.diagram?.alt || title,
+        },
+        { alt: title }
+      )
+    : null;
+
+  if (diagramImage) return diagramImage;
+
+  const galleryImage = normalizeMediaItem((theorem?.images || [])[0], { alt: title });
+  if (galleryImage && !theorem?.diagram?.svg) {
+    return galleryImage;
+  }
+
+  return null;
+}
+
 export function getGrouping(item, fallback = {}) {
   const g = item?.grouping || {};
   return {

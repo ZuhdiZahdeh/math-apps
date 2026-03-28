@@ -4,6 +4,7 @@ import {
   normalizeArabic,
   shorten,
   openImageModal,
+  getPreferredTheoremImage,
   initResponsiveSidebar,
   getGrouping,
   buildAccordionTree,
@@ -291,28 +292,42 @@ function renderSummary(theorem) {
 }
 
 function renderDiagram(theorem) {
-  if (theorem?.diagram?.svg) {
-    els.diagram.innerHTML = `<div class="diagram-wrap">${theorem.diagram.svg}</div>`;
+  const image = getPreferredTheoremImage(theorem);
+  const svg = typeof theorem?.diagram?.svg === "string" ? theorem.diagram.svg : "";
+
+  if (image?.src) {
+    const caption = image.caption || image.alt || theorem?.title || "";
+    els.diagram.innerHTML = `
+      <div class="diagram-wrap">
+        <img
+          class="zoomable-image"
+          src="${escapeHtml(image.src)}"
+          alt="${escapeHtml(image.alt || theorem?.title || "")}"
+          data-zoom-src="${escapeHtml(image.src)}"
+          data-zoom-caption="${escapeHtml(caption)}"
+        />
+      </div>
+    `;
+
+    const img = els.diagram.querySelector("img");
+    img?.addEventListener("error", () => {
+      if (svg) {
+        els.diagram.innerHTML = `<div class="diagram-wrap">${svg}</div>`;
+        return;
+      }
+      els.diagram.innerHTML = `<div class="diagram-empty">تعذر عرض الشكل التوضيحي ضمن المسار الحالي.</div>`;
+    });
+
+    img?.addEventListener("click", () => openImageModal(image.src, caption));
     return;
   }
 
-  const src = theorem?.diagram?.image || theorem?.images?.[0]?.src || "";
-  const alt = theorem?.diagram?.alt || theorem?.images?.[0]?.alt || theorem?.title || "";
-  if (!src) {
-    els.diagram.innerHTML = `<div class="diagram-empty">لا يوجد شكل توضيحي مرفق لهذه النظرية داخل البيانات الحالية.</div>`;
+  if (svg) {
+    els.diagram.innerHTML = `<div class="diagram-wrap">${svg}</div>`;
     return;
   }
 
-  els.diagram.innerHTML = `
-    <div class="diagram-wrap">
-      <img class="zoomable-image" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" data-zoom-src="${escapeHtml(src)}" data-zoom-caption="${escapeHtml(alt)}" />
-    </div>
-  `;
-  const img = els.diagram.querySelector("img");
-  img.addEventListener("error", () => {
-    els.diagram.innerHTML = `<div class="diagram-empty">تعذر عرض الشكل التوضيحي ضمن المسار الحالي.</div>`;
-  });
-  img.addEventListener("click", () => openImageModal(src, alt));
+  els.diagram.innerHTML = `<div class="diagram-empty">لا يوجد شكل توضيحي مرفق لهذه النظرية داخل البيانات الحالية.</div>`;
 }
 
 function renderQuestions(theorem) {
