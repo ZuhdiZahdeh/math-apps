@@ -657,7 +657,8 @@
       "theoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th037",
-        "th090",
+        "th091",
+        "thales_summary",
         "th084",
         "th028",
         "rectangle_properties_summary"
@@ -665,10 +666,10 @@
       "legacyTheoremIds": [
         "parallelogram_property_opposite_sides_equal",
         "th037",
-        "th090",
         "th084",
         "th028",
-        "rectangle_properties_summary"
+        "rectangle_properties_summary",
+        "thales_parallel_triangle"
       ],
       "grouping": {
         "domain": "plane",
@@ -1321,6 +1322,8 @@
       "theoremIds": [
         "midsegment_triangle_bundle",
         "th025",
+        "th091",
+        "thales_summary",
         "th096",
         "triangle_properties_summary",
         "triangle_criteria_summary",
@@ -1332,7 +1335,8 @@
         "similarity_AA",
         "triangle_properties_summary",
         "triangle_criteria_summary",
-        "th014"
+        "th014",
+        "thales_parallel_triangle"
       ],
       "grouping": {
         "domain": "plane",
@@ -2464,6 +2468,7 @@
       ],
       "theoremIds": [
         "th091",
+        "thales_summary",
         "right_triangle_midpoint_hypotenuse",
         "parallelogram_property_opposite_sides_equal",
         "th025"

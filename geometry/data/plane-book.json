@@ -1305,7 +1305,7 @@
       "dataset": "book",
       "datasetLabel": "أسئلة الكتاب",
       "title": "سؤال (21)",
-      "summary": "✅ التعليل تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.",
+      "summary": "✅ التعليل تطبيق نظرية طاليس في المثلث عبر مستقيمين موازيين.",
       "images": [
         "images/questions/plane/q21.png"
       ],
@@ -1318,11 +1318,12 @@
         "3) KM+KL = AB(KB+KC)/BC = AB."
       ],
       "solutionHtml": [
-        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.</p></div>"
+        "<div class='sol-wrap'><div class='sol-h'>✅ التعليل</div><p>تطبيق نظرية طاليس في المثلث عبر مستقيمين موازيين.</p></div>"
       ],
       "theoremIds": [
         "th025",
-        "th091"
+        "th091",
+        "thales_summary"
       ],
       "legacyTheoremIds": [
         "parallel_lines_angles_rules",

@@ -2,12 +2,12 @@
   "meta": {
     "title": "مرجع النظريات الهندسية الموحّد",
     "sourceOfTruth": "data/theorems-master.json",
-    "totalTheorems": 140,
-    "planeVisibleTheorems": 126,
+    "totalTheorems": 141,
+    "planeVisibleTheorems": 127,
     "spaceVisibleTheorems": 17,
     "usedBySolutionsCount": 61,
     "generatedAt": "2026-03-28",
-    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تم تحسين قسم متوازي الأضلاع بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث صور النظريات وربطها بالأسئلة المرتبطة. كما تم تحسين قسم المستطيل بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث النظريات الفردية والصور وربطها بالأسئلة. وفي هذا الإصدار تم تطوير قسم المثلث بإعادة بناء نظريات المثلث الأساسية، وإضافة صفحة مجمعة لخصائص المثلث، وصفحة مجمعة لمعايير الإثبات، وإضافة صفحات خاصة بالمثلث المتساوي الساقين، والمثلث المتساوي الأضلاع، والمثلث القائم المتساوي الساقين، مع تحسين الربط مع أسئلة الكتاب والأسئلة النهائية.",
+    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحة الهندسة المستوية، صفحة هندسة الفراغ، وصفحة مرجع النظريات. تم تحسين قسم متوازي الأضلاع بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث صور النظريات وربطها بالأسئلة المرتبطة. كما تم تحسين قسم المستطيل بإضافة صفحة مجمعة للخواص، وصفحة مجمعة لمعايير الإثبات، وتحديث النظريات الفردية والصور وربطها بالأسئلة. وفي هذا الإصدار تم تطوير قسم المثلث بإعادة بناء نظريات المثلث الأساسية، وإضافة صفحة مجمعة لخصائص المثلث، وصفحة مجمعة لمعايير الإثبات، وإضافة صفحات خاصة بالمثلث المتساوي الساقين، والمثلث المتساوي الأضلاع، والمثلث القائم المتساوي الساقين، مع تحسين الربط مع أسئلة الكتاب والأسئلة النهائية. وفي هذا الإصدار تم تنظيم قسم نظرية طاليس بإضافة صفحة مجمعة للنظرية وعكسها، وتحديث الصيغة العامة وصيغة المثلث وعكس النظرية، مع ربطها بالأسئلة المرتبطة وصور أوضح.",
     "groupingConfig": {
       "version": 1,
       "purpose": "Accordion-ready optional grouping metadata",
@@ -201,7 +201,16 @@
     "equilateral_triangle_angles_60": "equilateral_triangle_angles_equal",
     "isosceles_right_triangle_summary": "isosceles_right_triangle_properties_summary",
     "isosceles_right_triangle_properties": "isosceles_right_triangle_properties_summary",
-    "right_isosceles_triangle_angles": "isosceles_right_triangle_45_45_90"
+    "right_isosceles_triangle_angles": "isosceles_right_triangle_45_45_90",
+    "thales_summary": "thales_summary",
+    "thales_theorem_and_converse": "thales_summary",
+    "thales_bundle_summary": "thales_summary",
+    "thales_general_theorem": "th090",
+    "intercept_theorem_general": "th090",
+    "thales_in_triangle": "th091",
+    "thales_triangle_theorem": "th091",
+    "thales_converse": "th092",
+    "thales_converse_parallelism": "th092"
   },
   "theorems": [
     {
@@ -10618,39 +10627,77 @@
       }
     },
     {
-      "id": "th090",
+      "id": "thales_summary",
       "legacyIds": [
-        "intercept_theorem_parallel_lines"
+        "thales_theorem_and_converse_summary",
+        "thales_bundle_summary"
       ],
-      "number": 90,
+      "number": 89.5,
       "domain": "plane",
       "visibleDomains": [
         "plane"
       ],
       "field": "مثلث",
-      "category": "مثلث - تناسب",
-      "title": "نظرية طاليس",
-      "statement": "نظرية طاليس: إذا قطع مستقيمان متوازيان ساقي زاوية فإنهما يحددان على الساقين قطعًا متناسبة.",
-      "short": "نظرية طاليس: إذا قطع مستقيمان متوازيان ساقي زاوية فإنهما يحددان على الساقين قطعًا متناسبة.",
-      "explanation": "نظرية طاليس: إذا قطع مستقيمان متوازيان ساقي زاوية فإنهما يحددان على الساقين قطعًا متناسبة.",
+      "category": "مثلث - طاليس",
+      "title": "نظرية طاليس وعكسها",
+      "statement": "ملخّص منظم لنسختي نظرية طاليس: المباشرة والعكسية، مع الصيغة العامة وصيغة المثلث وخطوات إثبات التناسب أو التوازي.",
+      "short": "هذه الصفحة تجمع نظرية طاليس العامة، وصيغتها في المثلث، وعكسها لإثبات التوازي.",
+      "explanation": "إذا كان المعطى توازيًا فنستعمل طاليس المباشرة، وإذا كان المعطى نسبًا متساوية فنستعمل طاليس العكسية لإثبات التوازي.",
       "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص القاعدة</div><p>إذا قطع مستقيمان متوازيان ضلعي زاوية (أو ضلعي مثلث)، فإن القطع الناتجة على الضلعين تكون <strong>متناسبة</strong>.</p><div class='th-title'>صيغة شائعة</div><p>إذا كان <span class='math'>DE ∥ BC</span> في <span class='math'>△ABC</span> فإن:</p><p class='math'>AD/DB = AE/EC</p></div>",
+      "contentHtml": "<div class='th-section'><div class='th-title'>كيف أميّز بين النظرية وعكسها؟</div><ul><li>إذا كان <strong>المعطى توازيًا</strong>، والمطلوب إيجاد <strong>نِسَب أو أطوال</strong>، فنستعمل <strong>نظرية طاليس المباشرة</strong>.</li><li>إذا كانت <strong>المعطيات على صورة نِسَب متساوية</strong>، والمطلوب <strong>إثبات التوازي</strong>، فنستعمل <strong>نظرية طاليس العكسية</strong>.</li></ul><div class='th-title'>صيغة طاليس في المثلث</div><p>في <span class='math'>△ABC</span> إذا كانت <span class='math'>M∈AB</span> و<span class='math'>N∈AC</span> و<span class='math'>MN ∥ BC</span> فإن:</p><p class='math'>AM/AB = AN/AC = MN/BC</p><p class='math'>AM/MB = AN/NC</p><div class='th-title'>الصيغة العامة</div><p>إذا قطعت عدة مستقيمات متوازية قاطعين أو أكثر، فإنها تحدد على كل قاطع <strong>قطعًا متناظرة متناسبة</strong>.</p><p class='math'>PQ/QR = EF/FG &nbsp;&nbsp; و &nbsp;&nbsp; PQ/PR = EF/EG</p><div class='th-title'>الصيغة العكسية</div><p>إذا تحققت نسب متساوية على ضلعي مثلث أو على قاطعين، وكانت النقاط مرتبة بالترتيب نفسه على المستقيمين، أمكن استنتاج أن المستقيم الواصل <strong>موازٍ</strong> للمستقيم المقابل.</p><div class='th-title'>فائدة عملية</div><p>هذا الملف يسهّل على الطالب اختيار الأداة المناسبة: <strong>طاليس لإثبات التناسب</strong>، و<strong>عكس طاليس لإثبات التوازي</strong>.</p></div>",
       "tags": [
-        "اليج",
-        "نسب",
+        "طاليس",
+        "نظرية وعكسها",
+        "تناسب",
         "توازي",
-        "مثلث",
-        "مثلث - تناسب"
+        "إثبات التوازي",
+        "ملخص",
+        "مثلث - طاليس"
       ],
       "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية النسبة (موازٍ يقطع ضلعي زاوية)\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <line class=\"l\" x1=\"90\" y1=\"200\" x2=\"170\" y2=\"40\"/>\n  <line class=\"l\" x1=\"170\" y1=\"40\" x2=\"290\" y2=\"200\"/>\n  <line class=\"m\" x1=\"120\" y1=\"140\" x2=\"255\" y2=\"140\"/>\n  <text class=\"p\" x=\"162\" y=\"28\">O</text>\n  <text class=\"p\" x=\"80\" y=\"220\">A</text>\n  <text class=\"p\" x=\"296\" y=\"220\">B</text>\n  <text class=\"p\" x=\"20\" y=\"30\">إذا خطان متوازيان يقطعان ضلعي زاوية ⇒ النِّسب متساوية</text>\n</svg>"
+        "image": "images/theorems/thales-summary-direct-converse.png",
+        "alt": "ملخّص نظرية طاليس وعكسها."
       },
-      "images": [],
+      "images": [
+        {
+          "src": "images/theorems/thales-summary-direct-converse.png",
+          "alt": "ملخّص نظرية طاليس وعكسها.",
+          "caption": "صفحة مجمعة تبيّن الفرق بين طاليس المباشرة وعكسها."
+        },
+        {
+          "src": "images/theorems/thales-triangle-parallel-line.png",
+          "alt": "نظرية طاليس في المثلث.",
+          "caption": "عند وجود مستقيم موازٍ لأحد أضلاع المثلث نحصل على نسب متساوية."
+        },
+        {
+          "src": "images/theorems/thales-general-parallels-transversals.png",
+          "alt": "الصيغة العامة لنظرية طاليس.",
+          "caption": "المستقيمات المتوازية تحدد على القواطع قطعًا متناظرة متناسبة."
+        },
+        {
+          "src": "images/theorems/thales-converse-parallelism-proof.png",
+          "alt": "نظرية طاليس العكسية لإثبات التوازي.",
+          "caption": "عند تساوي النسب على القاطعين نستنتج التوازي."
+        }
+      ],
       "source": {
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
       "questionLinks": [
+        {
+          "questionId": "q21",
+          "href": "./plane.html#book:q21",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (21)",
+          "statement": "✅ التعليل تطبيق نظرية طاليس في المثلث عبر مستقيمين موازيين.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q21.png"
+          ]
+        },
         {
           "questionId": "qf-6-p1",
           "href": "./plane.html#final:qf-6-p1",
@@ -10666,77 +10713,18 @@
             "images/questions/plane/qf-6-2-p1.png",
             "images/questions/plane/qf-6-3-p1.png"
           ]
-        }
-      ],
-      "questionCount": 1,
-      "usedInCount": 1,
-      "relatedIds": [
-        "th091",
-        "th092"
-      ],
-      "grouping": {
-        "domain": "plane",
-        "domainLabel": "الهندسة المستوية",
-        "field": "مثلث",
-        "category": "مثلث - تناسب",
-        "accordionPrimary": "الهندسة المستوية",
-        "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث - تناسب",
-        "sortOrder": 90,
-        "searchTokens": [
-          "th090",
-          "نظرية طاليس",
-          "مثلث",
-          "مثلث - تناسب",
-          "الهندسة المستوية"
-        ]
-      }
-    },
-    {
-      "id": "th091",
-      "legacyIds": [
-        "thales_parallel_triangle"
-      ],
-      "number": 91,
-      "domain": "plane",
-      "visibleDomains": [
-        "plane"
-      ],
-      "field": "مثلث",
-      "category": "مثلث - تناسب",
-      "title": "نظرية طاليس الموسعة",
-      "statement": "نظرية طاليس الموسعة: المستقيم الموازي لأحد الأضلاع في مثلث يقطع الضلعين الآخرين أو امتداديهما بقطع متناسبة.",
-      "short": "نظرية طاليس الموسعة: المستقيم الموازي لأحد الأضلاع في مثلث يقطع الضلعين الآخرين أو امتداديهما بقطع متناسبة.",
-      "explanation": "نظرية طاليس الموسعة: المستقيم الموازي لأحد الأضلاع في مثلث يقطع الضلعين الآخرين أو امتداديهما بقطع متناسبة.",
-      "proof": "",
-      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في المثلث <span class='math'>ABC</span> إذا كان <span class='math'>DE ∥ BC</span> حيث <span class='math'>D</span> على <span class='math'>AB</span> و<span class='math'>E</span> على <span class='math'>AC</span>، فإن:</p><ul><li>المثلثان <span class='math'>△ADE</span> و<span class='math'>△ABC</span> متشابهان.</li></ul><div class='th-title'>التعبير الرمزي</div><p class='math'>AD/AB = AE/AC = DE/BC</p></div>",
-      "tags": [
-        "اليج الموسعة",
-        "نسب",
-        "تشابه",
-        "مثلث",
-        "مثلث - تناسب"
-      ],
-      "diagram": {
-        "svg": "<svg viewBox=\"0 0 340 230\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"نظرية طاليس (مستقيم موازٍ)\">\n  <style>\n    .p{fill:#111827;font: 14px Arial, sans-serif;}\n    .l{stroke:#111827;stroke-width:3;stroke-linecap:round;}\n    .m{stroke:#0ea5e9;stroke-width:3;stroke-linecap:round;}\n  </style>\n  <line class=\"l\" x1=\"70\" y1=\"190\" x2=\"170\" y2=\"50\"/>\n  <line class=\"l\" x1=\"170\" y1=\"50\" x2=\"290\" y2=\"190\"/>\n  <line class=\"l\" x1=\"70\" y1=\"190\" x2=\"290\" y2=\"190\"/>\n  <!-- parallel line -->\n  <line class=\"m\" x1=\"105\" y1=\"140\" x2=\"250\" y2=\"140\"/>\n  <text class=\"p\" x=\"162\" y=\"40\">A</text><text class=\"p\" x=\"52\" y=\"210\">B</text><text class=\"p\" x=\"298\" y=\"210\">C</text>\n  <text class=\"p\" x=\"20\" y=\"30\">إذا DE ∥ BC في △ABC ⇒ AD/AB = AE/AC = DE/BC</text>\n</svg>"
-      },
-      "images": [],
-      "source": {
-        "page": 2,
-        "referenceFile": "משפטים בגיאומטריה.pdf"
-      },
-      "questionLinks": [
+        },
         {
-          "questionId": "q21",
-          "href": "./plane.html#book:q21",
+          "questionId": "qf-8-p4",
+          "href": "./plane.html#final:qf-8-p4",
           "page": "plane",
           "domain": "plane",
-          "level": "أسئلة الكتاب",
-          "title": "سؤال (21)",
-          "statement": "✅ التعليل تطبيق نظرية اليج الموسعة عبر مستقيمات موازية.",
-          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (8) - صفحة 4",
+          "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
           "images": [
-            "images/questions/plane/q21.png"
+            "images/questions/plane/qf-8-p4.png"
           ]
         },
         {
@@ -10753,26 +10741,221 @@
           ]
         }
       ],
-      "questionCount": 2,
-      "usedInCount": 2,
+      "questionCount": 4,
+      "usedInCount": 4,
       "relatedIds": [
         "th090",
+        "th091",
+        "th092",
+        "midsegment_triangle_bundle"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - طاليس",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - طاليس",
+        "sortOrder": 89.5,
+        "searchTokens": [
+          "thales_summary",
+          "نظرية طاليس وعكسها",
+          "طاليس",
+          "مثلث",
+          "مثلث - طاليس",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "th090",
+      "legacyIds": [
+        "intercept_theorem_parallel_lines"
+      ],
+      "number": 90,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - تناسب",
+      "title": "نظرية طاليس العامة",
+      "statement": "إذا قطعت مستقيمات متوازية مستقيمين أو أكثر، فإنها تحدد عليهما قطعًا متناظرة متناسبة.",
+      "short": "إذا قطعت مستقيمات متوازية قاطعين، كانت القطع المتناظرة على القاطعين متناسبة.",
+      "explanation": "هذه هي الصيغة العامة لنظرية طاليس، وتفيد في كل مسائل التناسب الناتجة عن مستقيمات متوازية تقطع مستقيمين أو أكثر.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>إذا قطعت عدة مستقيمات <strong>متوازية</strong> مستقيمين أو أكثر، فإنها تحدد على كل مستقيم <strong>قطعًا متناظرة متناسبة</strong>.</p><div class='th-title'>تعبير رمزي شائع</div><p>إذا قطعت المستقيمات المتوازية القاطعين عند النقاط <span class='math'>P,Q,R</span> و<span class='math'>E,F,G</span>، فإن:</p><p class='math'>PQ/QR = EF/FG</p><p class='math'>PQ/PR = EF/EG</p><div class='th-title'>متى تستعمل؟</div><p>تستعمل هذه الصيغة عندما يكون الشكل عامًا وليس بالضرورة مثلثًا، لكن توجد <strong>مستقيمات متوازية</strong> تقطع <strong>قاطعين</strong> أو أكثر.</p><div class='th-title'>فكرة البرهان</div><p>يمكن ردّ هذه الصيغة إلى تشابه مثلثات أو إلى تطبيقات متكررة لطاليس في المثلث، فنحصل على تساوي النسب بين القطع المتناظرة.</p></div>",
+      "tags": [
+        "طاليس",
+        "تناسب",
+        "مستقيمات متوازية",
+        "قاطعان",
+        "مثلث - طاليس"
+      ],
+      "diagram": {
+        "image": "images/theorems/thales-general-parallels-transversals.png",
+        "alt": "الصيغة العامة لنظرية طاليس."
+      },
+      "images": [
+        {
+          "src": "images/theorems/thales-general-parallels-transversals.png",
+          "alt": "الصيغة العامة لنظرية طاليس.",
+          "caption": "المستقيمات المتوازية تحدد على القاطعين قطعًا متناظرة متناسبة."
+        }
+      ],
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [],
+      "questionCount": 0,
+      "usedInCount": 0,
+      "relatedIds": [
+        "thales_summary",
+        "th091",
         "th092"
       ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث - تناسب",
+        "category": "مثلث - طاليس",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث - تناسب",
+        "accordionTertiary": "مثلث - طاليس",
+        "sortOrder": 90,
+        "searchTokens": [
+          "th090",
+          "نظرية طاليس العامة",
+          "طاليس",
+          "مثلث",
+          "مثلث - طاليس",
+          "الهندسة المستوية"
+        ]
+      }
+    },
+    {
+      "id": "th091",
+      "legacyIds": [
+        "thales_parallel_triangle"
+      ],
+      "number": 91,
+      "domain": "plane",
+      "visibleDomains": [
+        "plane"
+      ],
+      "field": "مثلث",
+      "category": "مثلث - تناسب",
+      "title": "نظرية طاليس في المثلث",
+      "statement": "في المثلث، إذا كان MN يوازي BC حيث M على AB وN على AC، فإن القطع المتناظرة تكون متناسبة، كما يتشابه المثلث الصغير مع المثلث الكبير.",
+      "short": "إذا كان مستقيم يوازي ضلعًا في مثلث، فإنه يحدد على الضلعين الآخرين قطعًا متناسبة.",
+      "explanation": "هذه هي الصيغة المدرسية الأشهر لنظرية طاليس، وتستعمل عند وجود مستقيم موازٍ لأحد أضلاع المثلث.",
+      "proof": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في <span class='math'>△ABC</span> إذا كانت <span class='math'>M∈AB</span> و<span class='math'>N∈AC</span> و<span class='math'>MN ∥ BC</span>، فإن المثلثين <span class='math'>△AMN</span> و<span class='math'>△ABC</span> <strong>متشابهان</strong>.</p><div class='th-title'>الصيغ الرمزية الشائعة</div><p class='math'>AM/AB = AN/AC = MN/BC</p><p class='math'>AM/MB = AN/NC</p><div class='th-title'>كيف أستعملها؟</div><ul><li>حدّد المثلث الكبير والمثلث الصغير الناتج عن المستقيم الموازي.</li><li>اكتب نسب الأضلاع المتناظرة، أو استعمل الصيغة المختصرة مباشرة.</li><li>إذا وُجد منتصف على أحد الضلعين مع مستقيم موازٍ، فغالبًا ستنتج نقطة منتصف أخرى أو طول يساوي نصف ضلع.</li></ul><div class='th-title'>فائدة عملية</div><p>هذه النظرية أساس مهم في مسائل <strong>القطعة المتوسطة</strong>، والمنتصفات، وتجزئة الأضلاع، وإيجاد الأطوال المجهولة.</p></div>",
+      "tags": [
+        "طاليس",
+        "مثلث",
+        "تناسب",
+        "توازي",
+        "تشابه",
+        "مثلث - طاليس"
+      ],
+      "diagram": {
+        "image": "images/theorems/thales-triangle-parallel-line.png",
+        "alt": "نظرية طاليس في المثلث."
+      },
+      "images": [
+        {
+          "src": "images/theorems/thales-triangle-parallel-line.png",
+          "alt": "نظرية طاليس في المثلث.",
+          "caption": "إذا كان MN ∥ BC في مثلث، فإن القطع المتناظرة تكون متناسبة."
+        }
+      ],
+      "source": {
+        "page": 2,
+        "referenceFile": "משפטים בגיאומטריה.pdf"
+      },
+      "questionLinks": [
+        {
+          "questionId": "q21",
+          "href": "./plane.html#book:q21",
+          "page": "plane",
+          "domain": "plane",
+          "level": "أسئلة الكتاب",
+          "title": "سؤال (21)",
+          "statement": "✅ التعليل تطبيق نظرية طاليس في المثلث عبر مستقيمين موازيين.",
+          "sourceLabel": "حلول الهندسة المستوية • أسئلة الكتاب",
+          "images": [
+            "images/questions/plane/q21.png"
+          ]
+        },
+        {
+          "questionId": "qf-6-p1",
+          "href": "./plane.html#final:qf-6-p1",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (6) - صفحة 1",
+          "statement": "✅ المعطى ABCD مستطيل. KL و MN مستقيمان موازيان للقطر BD ويقطعان القطر AC في E و F على الترتيب. ✅ المطلوب (أ) KE + EF + FN = BD (ب) KE = EL ✅ الحل — طريقتان ① إحداثيات بسيطة نفترض AB=a و AD=b ، ونضع: D(0,0), C(a,0), B(a,b",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-6-p1.png",
+            "images/questions/plane/qf-6-1-p1.png",
+            "images/questions/plane/qf-6-2-p1.png",
+            "images/questions/plane/qf-6-3-p1.png"
+          ]
+        },
+        {
+          "questionId": "qf-8-p4",
+          "href": "./plane.html#final:qf-8-p4",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (8) - صفحة 4",
+          "statement": "✅ المعطى AD متوسط إلى BC في △ABC ⇒ D منتصف BC . EF قطعة أواسط في △ABC ⇒ E منتصف AB و F منتصف AC و EF ∥ BC . O = AD ∩ EF . ✅ المطلوب أثبت أن AO متوسط في △AEF (أي أن O منتصف EF ). ✅ الحل — تشابه مثلثات بما أن EF ∥ BC و B,D",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-8-p4.png"
+          ]
+        },
+        {
+          "questionId": "qf-21-p3",
+          "href": "./plane.html#final:qf-21-p3",
+          "page": "plane",
+          "domain": "plane",
+          "level": "الأسئلة النهائية",
+          "title": "واجب نهائي — سؤال (21) - صفحة 3",
+          "statement": "✅ المعطى ABCD مربع. E منتصف AD ⇒ AE = ED . F نقطة على CE . معطى: CE ⟂ BF . ✅ المطلوب إثبات أن AF يساوي طول ضلع المربع (أي AF = AB ). ✅ التعليل (حل واحد فقط — حسب ملف Theorems — بدون إحداثيات/بدون متجهات/بدون دوران) لتكن ",
+          "sourceLabel": "حلول الهندسة المستوية • الأسئلة النهائية",
+          "images": [
+            "images/questions/plane/qf-21-p3.png"
+          ]
+        }
+      ],
+      "questionCount": 4,
+      "usedInCount": 4,
+      "relatedIds": [
+        "thales_summary",
+        "th090",
+        "th092",
+        "midsegment_triangle_bundle"
+      ],
+      "grouping": {
+        "domain": "plane",
+        "domainLabel": "الهندسة المستوية",
+        "field": "مثلث",
+        "category": "مثلث - طاليس",
+        "accordionPrimary": "الهندسة المستوية",
+        "accordionSecondary": "مثلث",
+        "accordionTertiary": "مثلث - طاليس",
         "sortOrder": 91,
         "searchTokens": [
           "th091",
-          "نظرية طاليس الموسعة",
+          "نظرية طاليس في المثلث",
+          "طاليس",
           "مثلث",
-          "مثلث - تناسب",
+          "مثلث - طاليس",
           "الهندسة المستوية"
         ]
       }
@@ -10787,18 +10970,30 @@
       ],
       "field": "مثلث",
       "category": "مثلث - تناسب",
-      "title": "نظرية طاليس العكسية",
-      "statement": "نظرية طاليس العكسية: المستقيمان اللذان يقطعان ساقي زاوية ويحددان على الساقين أربع قطع متناسبة هما مستقيمان متوازيان.",
-      "short": "نظرية طاليس العكسية: المستقيمان اللذان يقطعان ساقي زاوية ويحددان على الساقين أربع قطع متناسبة هما مستقيمان متوازيان.",
-      "explanation": "نظرية طاليس العكسية: المستقيمان اللذان يقطعان ساقي زاوية ويحددان على الساقين أربع قطع متناسبة هما مستقيمان متوازيان.",
+      "title": "نظرية طاليس العكسية (إثبات التوازي)",
+      "statement": "إذا كانت النقطتان M وN على ضلعي مثلث ABC وحققتا نسبًا متساوية مثل AM/AB = AN/AC أو AM/MB = AN/NC، فإن MN يوازي BC.",
+      "short": "إذا كانت القطع المتناظرة متناسبة، استطعنا إثبات التوازي بعكس طاليس.",
+      "explanation": "عندما يكون المطلوب إثبات أن مستقيمين متوازيان، وكان المعطى على صورة نسب متساوية، فهذه هي النظرية المناسبة.",
       "proof": "",
-      "contentHtml": "",
+      "contentHtml": "<div class='th-section'><div class='th-title'>نص النظرية</div><p>في <span class='math'>△ABC</span> إذا كانت <span class='math'>M∈AB</span> و<span class='math'>N∈AC</span> وتحقق:</p><p class='math'>AM/AB = AN/AC</p><p>أو تحقق:</p><p class='math'>AM/MB = AN/NC</p><p>فإننا نستنتج أن:</p><p class='math'>MN ∥ BC</p><div class='th-title'>خطوات عملية لإثبات التوازي</div><ol><li>نختار كسرين مناسبين من المعطيات.</li><li>نقارن بينهما ونثبت تساويهما.</li><li>نتأكد أن النقاط واقعة على <strong>القاطعين نفسيهما</strong> وبالترتيب المناسب.</li><li>نطبق <strong>نظرية طاليس العكسية</strong> فنستنتج التوازي.</li></ol><div class='th-title'>الصيغة العامة</div><p>إذا قطعت نقاط على قاطعين عدة قطع متناظرة متناسبة، فإن المستقيمات الواصلة بين هذه النقاط تكون <strong>متوازية</strong>.</p><div class='th-title'>فكرة البرهان</div><p>نرسم من إحدى النقطتين مستقيمًا موازيًا للضلع المقابل، ثم نطبق طاليس المباشرة؛ إذا حصلنا على النسبة نفسها المعطاة، تطابقت النقطة الجديدة مع النقطة الأصلية، ومن ثم يكون المستقيم المطلوب موازيًا.</p></div>",
       "tags": [
+        "طاليس العكسية",
+        "إثبات التوازي",
+        "تناسب",
         "مثلث",
-        "مثلث - تناسب"
+        "مثلث - طاليس"
       ],
-      "diagram": null,
-      "images": [],
+      "diagram": {
+        "image": "images/theorems/thales-converse-parallelism-proof.png",
+        "alt": "نظرية طاليس العكسية لإثبات التوازي."
+      },
+      "images": [
+        {
+          "src": "images/theorems/thales-converse-parallelism-proof.png",
+          "alt": "نظرية طاليس العكسية لإثبات التوازي.",
+          "caption": "عند تساوي النسب المناسبة على القاطعين نستنتج أن المستقيمين متوازيان."
+        }
+      ],
       "source": {
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
@@ -10806,21 +11001,27 @@
       "questionLinks": [],
       "questionCount": 0,
       "usedInCount": 0,
-      "relatedIds": [],
+      "relatedIds": [
+        "thales_summary",
+        "th091",
+        "th090",
+        "th015"
+      ],
       "grouping": {
         "domain": "plane",
         "domainLabel": "الهندسة المستوية",
         "field": "مثلث",
-        "category": "مثلث - تناسب",
+        "category": "مثلث - طاليس",
         "accordionPrimary": "الهندسة المستوية",
         "accordionSecondary": "مثلث",
-        "accordionTertiary": "مثلث - تناسب",
+        "accordionTertiary": "مثلث - طاليس",
         "sortOrder": 92,
         "searchTokens": [
           "th092",
-          "نظرية طاليس العكسية",
+          "نظرية طاليس العكسية (إثبات التوازي)",
+          "طاليس",
           "مثلث",
-          "مثلث - تناسب",
+          "مثلث - طاليس",
           "الهندسة المستوية"
         ]
       }
