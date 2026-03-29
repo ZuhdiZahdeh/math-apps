@@ -1,12 +1,30 @@
 
 const FALLBACK_DATA = {"meta":{"title":"لعبة الفضاء العيني — مغامرة Ω","subtitle":"لعبة تربوية تفاعلية لتعلّم كتابة الفضاء العيني، وعدّ عناصره، وربط التجربة المناسبة بفضائها العيني.","grades":[5,6,7,8,9]},"rules":[{"id":"single","title":"تجربة من مرحلة واحدة","text":"نكتب جميع النتائج الممكنة مرة واحدة داخل الأقواس المعقوفة. لا نكرّر النتائج ولا نضيف شيئًا غير ممكن.","miniExample":"Ω = {أحمر، أزرق، أخضر}"},{"id":"same","title":"مرتان من نفس النوع","text":"عندما نكرّر التجربة نفسها مرتين نستخدم أزواجًا مرتبة؛ لأن ترتيب النتيجتين مهم.","miniExample":"Ω = {(خ، خ)، (خ، ح)، (ح، خ)، (ح، ح)}"},{"id":"different","title":"مرحلتان من نوعين مختلفين","text":"نزاوج كل اختيار من المرحلة الأولى مع كل اختيار من المرحلة الثانية. غالبًا نعدّ العناصر بالضرب.","miniExample":"2 مشروبات × 3 شطائر = 6 عناصر"}],"levels":[{"id":"single","title":"المستوى 1: مرحلة واحدة","emoji":"①","objective":"نكتب فضاء عيني بسيطًا لتجربة واحدة ونميّز بين الناتج الواحد والفضاء العيني كاملًا.","heroImage":"images/school-bag.svg","questions":[{"id":"bag-colors-write","type":"write_space","image":"images/school-bag.svg","prompt":"تبيع المكتبة غلافًا لدفتر الواجب بألوان: أزرق، أخضر، أحمر. اكتب الفضاء العيني Ω.","stages":[{"label":"اللون الممكن","options":["أزرق","أخضر","أحمر"]}],"sampleSpace":["أزرق","أخضر","أحمر"],"hint":"في المرحلة الواحدة نكتب كل نتيجة ممكنة مرة واحدة داخل الأقواس المعقوفة.","explanation":"لأن التجربة تتكوّن من خطوة واحدة فقط، فالفضاء العيني هو قائمة الألوان الممكنة كلها: Ω = {أزرق، أخضر، أحمر}."},{"id":"spinner-count","type":"count_space","image":"images/spinner.svg","prompt":"في ركن الألعاب الصفية يدور قرص بأربعة ألوان: أصفر، أزرق، وردي، أخضر. ما عدد عناصر الفضاء العيني؟","stages":[{"label":"نتائج القرص","options":["أصفر","أزرق","وردي","أخضر"]}],"sampleSpace":["أصفر","أزرق","وردي","أخضر"],"correctCount":4,"hint":"عدّ النتائج الممكنة مباشرة.","explanation":"هناك 4 نتائج مختلفة ممكنة، إذن عدد عناصر الفضاء العيني يساوي 4."},{"id":"fruit-choose-space","type":"choose_space","image":"images/canteen.svg","prompt":"اختيار فاكهة من سلة الصف إذا كانت الخيارات: تفاح، موز، برتقال. ما الفضاء العيني المناسب؟","stages":[{"label":"الفاكهة","options":["تفاح","موز","برتقال"]}],"choices":[["تفاح","موز","برتقال"],["تفاح","موز"],["تفاح","موز","برتقال","عنب"],["(تفاح، موز)","(تفاح، برتقال)"]],"correctChoice":0,"hint":"لا نكتب إلا النتائج التي يمكن أن تحدث فعلاً.","explanation":"التجربة اختيار فاكهة واحدة فقط، لذلك الفضاء العيني هو {تفاح، موز، برتقال}."},{"id":"cards-reverse","type":"choose_experiment","image":"images/reverse.svg","prompt":"إذا كان Ω = {1، 2، 3، 4، 5} فما التجربة العشوائية المناسبة؟","spaceDisplay":["1","2","3","4","5"],"choices":["سحب بطاقة مرقمة من 1 إلى 5.","اختيار لون من (أحمر، أزرق).","مراقبة إشارة المرور مرتين من (خ، ح).","اختيار وجبة من عصيرين وثلاث شطائر."],"correctChoice":0,"hint":"فتّش عن تجربة نتائجها هي الأعداد نفسها تمامًا.","explanation":"لأن الفضاء العيني يتكوّن من الأعداد 1 إلى 5 فقط، فأفضل تجربة مناسبة هي سحب بطاقة مرقمة من 1 إلى 5."}]},{"id":"same","title":"المستوى 2: مرحلتان من نفس النوع","emoji":"②","objective":"نتدرّب على كتابة الأزواج المرتبة عندما تتكرر التجربة نفسها مرتين.","heroImage":"images/traffic-light.svg","questions":[{"id":"traffic-count","type":"count_space","image":"images/traffic-light.svg","prompt":"في تجربة مراقبة إشارة المرور لمرتين متتاليتين (عند الذهاب للبيت وعند العودة)، إذا كانت الإشارة إما خضراء (خ) أو حمراء (ح)، فما عدد عناصر الفضاء العيني؟","stages":[{"label":"المرّة الأولى","options":["خ","ح"]},{"label":"المرّة الثانية","options":["خ","ح"]}],"sampleSpace":["(خ، خ)","(خ، ح)","(ح، خ)","(ح، ح)"],"correctCount":4,"hint":"لكل نتيجة في المرة الأولى نتيجتان ممكنتان في المرة الثانية.","explanation":"نكوّن كل الأزواج المرتبة الممكنة: (خ، خ)، (خ، ح)، (ح، خ)، (ح، ح). لذلك 2 × 2 = 4 عناصر."},{"id":"bus-write","type":"write_space","image":"images/bus-trip.svg","prompt":"في يومين متتاليين، قد تصل حافلة المدرسة إمّا في موعدها (م) أو متأخرة (ت). اكتب Ω.","stages":[{"label":"اليوم الأول","options":["م","ت"]},{"label":"اليوم الثاني","options":["م","ت"]}],"sampleSpace":["(م، م)","(م، ت)","(ت، م)","(ت، ت)"],"hint":"اكتب كل زوج مرتب: (نتيجة اليوم الأول، نتيجة اليوم الثاني).","explanation":"الترتيب مهم لأن (م، ت) يختلف عن (ت، م). لذلك نكتب جميع الأزواج المرتبة الممكنة."},{"id":"weather-choose-space","type":"choose_space","image":"images/weather.svg","prompt":"عند تسجيل الطقس صباحًا ومساءً، وكانت الحالة إما مشمس (ش) أو غائم (غ)، ما الفضاء العيني المناسب؟","stages":[{"label":"الصباح","options":["ش","غ"]},{"label":"المساء","options":["ش","غ"]}],"choices":[["(ش، ش)","(ش، غ)","(غ، ش)","(غ، غ)"],["ش","غ"],["(ش، غ)","(غ، ش)"],["(ش، ش، غ)","(غ، غ، ش)"]],"correctChoice":0,"hint":"لدينا مرحلتان، لذا نكتب أزواجًا مرتبة لا عناصر مفردة.","explanation":"كل حالة صباحية يمكن أن يقابلها حالتان مسائيتان؛ لذلك نحصل على 4 أزواج مرتبة."},{"id":"same-reverse","type":"choose_experiment","image":"images/reverse.svg","prompt":"إذا كان Ω = {(أ، أ)، (أ، ب)، (ب، أ)، (ب، ب)} فما التجربة الأنسب؟","spaceDisplay":["(أ، أ)","(أ، ب)","(ب، أ)","(ب، ب)"],"choices":["اختيار لون حقيبة من (أ، ب).","متابعة نتيجتين متتاليتين لتجربة لها خياران فقط: (أ، ب).","اختيار وجبة من عصيرين وثلاث شطائر.","سحب بطاقة مرقمة من 1 إلى 4."],"correctChoice":1,"hint":"وجود أزواج مرتبة من العنصرين نفسيهما يدل على تكرار التجربة نفسها مرتين.","explanation":"هذا فضاء عيني لمرحلتين من النوع نفسه، وفي كل مرحلة خياران فقط هما أ وب."}]},{"id":"different","title":"المستوى 3: مرحلتان من نوعين مختلفين","emoji":"③","objective":"نزاوج اختيارات من نوعين مختلفين ونستعمل قاعدة الضرب لعدّ العناصر.","heroImage":"images/hero-player.svg","questions":[{"id":"hero-write","type":"write_space","image":"images/hero-player.svg","prompt":"تصميم شخصية لاعب في لعبة إلكترونية، حيث يختار نوع القتال (سيف، قوس) ولون الدرع (ذهبي، فضي). ما هو الفضاء العيني لهذه التجربة؟","stages":[{"label":"نوع القتال","options":["سيف","قوس"]},{"label":"لون الدرع","options":["ذهبي","فضي"]}],"sampleSpace":["(سيف، ذهبي)","(سيف، فضي)","(قوس، ذهبي)","(قوس، فضي)"],"hint":"ابدأ بكل اختيار للسيف، ثم كرره مع اللونين. بعد ذلك كرر الأمر للقوس.","explanation":"نزاوج كل نوع قتال مع كل لون درع، لذلك 2 × 2 = 4 نواتج ممكنة."},{"id":"canteen-count","type":"count_space","image":"images/canteen.svg","prompt":"اختيار وجبة من المقصف المدرسي تتكون من (عصير برتقال أو حليب) مع (شطيرة لبنة أو زعتر أو جبنة). ما عدد عناصر الفضاء العيني؟","stages":[{"label":"المشروب","options":["عصير برتقال","حليب"]},{"label":"الشطيرة","options":["لبنة","زعتر","جبنة"]}],"sampleSpace":["(عصير برتقال، لبنة)","(عصير برتقال، زعتر)","(عصير برتقال، جبنة)","(حليب، لبنة)","(حليب، زعتر)","(حليب، جبنة)"],"correctCount":6,"hint":"عدد الخيارات في المشروب × عدد الخيارات في الشطيرة.","explanation":"لأن لدينا مشروبين وثلاث شطائر، فإن عدد عناصر الفضاء العيني يساوي 2 × 3 = 6."},{"id":"outfit-choose-space","type":"choose_space","image":"images/outfit.svg","prompt":"في نادي الرسم، يختار الطالب لون القميص (أزرق، أبيض) مع شارة الحقيبة (نجمة، قلب، كتاب). ما الفضاء العيني المناسب؟","stages":[{"label":"لون القميص","options":["أزرق","أبيض"]},{"label":"شارة الحقيبة","options":["نجمة","قلب","كتاب"]}],"choices":[["(أزرق، نجمة)","(أزرق، قلب)","(أزرق، كتاب)","(أبيض، نجمة)","(أبيض، قلب)","(أبيض، كتاب)"],["أزرق","أبيض","نجمة","قلب","كتاب"],["(أزرق، أبيض)","(نجمة، قلب، كتاب)"],["(أزرق، نجمة)","(أبيض، قلب)"]],"correctChoice":0,"hint":"كل لون قميص يمكن أن يقترن بثلاث شارات.","explanation":"هنا ندمج اختيارًا من نوعين مختلفين، لذلك نكتب جميع الأزواج الممكنة بين ألوان القميص وشارات الحقيبة."},{"id":"different-reverse","type":"choose_experiment","image":"images/reverse.svg","prompt":"إذا كان Ω = {(مشي، مبكر)، (مشي، متأخر)، (حافلة، مبكر)، (حافلة، متأخر)} فما التجربة المناسبة؟","spaceDisplay":["(مشي، مبكر)","(مشي، متأخر)","(حافلة، مبكر)","(حافلة، متأخر)"],"choices":["اختيار وسيلة الوصول إلى المدرسة (مشي، حافلة) مع وقت الانطلاق (مبكر، متأخر).","اختيار رقم من 1 إلى 4.","مراقبة إشارة المرور مرتين من (خ، ح).","اختيار لون واحد من أربعة ألوان."],"correctChoice":0,"hint":"لاحظ أن العنصر الأول يصف نوعًا، والثاني يصف نوعًا مختلفًا.","explanation":"الفضاء هنا ناتج عن دمج وسيلة وصول مع وقت انطلاق؛ ولذلك هو مثال لمرحلتين من نوعين مختلفين."}]}],"matching":{"terms":[{"left":"التجربة العشوائية","right":"موقف له أكثر من نتيجة ممكنة ولا نعرف أيها سيحدث قبل التنفيذ."},{"left":"الناتج","right":"نتيجة واحدة ممكنة للتجربة."},{"left":"الفضاء العيني","right":"مجموعة كل النتائج الممكنة للتجربة."},{"left":"عنصر في Ω","right":"ناتج واحد داخل الفضاء العيني."},{"left":"عدد عناصر Ω","right":"عدد النواتج المختلفة الموجودة في الفضاء العيني."},{"left":"زوج مرتب","right":"طريقتنا في كتابة نتيجتين عندما يكون الترتيب مهمًا."}],"experiments":[{"left":"اختيار مشروب من (ماء، عصير)","right":"Ω = {ماء، عصير}"},{"left":"إشارة المرور مرتان من (خ، ح)","right":"Ω = {(خ، خ)، (خ، ح)، (ح، خ)، (ح، ح)}"},{"left":"سحب بطاقة مرقمة من 1 إلى 3","right":"Ω = {1، 2، 3}"},{"left":"اختيار مشروب (حليب، عصير) مع شطيرة (لبنة، جبنة)","right":"Ω = {(حليب، لبنة)، (حليب، جبنة)، (عصير، لبنة)، (عصير، جبنة)}"},{"left":"حالة الحافلة في يومين: (م، ت)","right":"Ω = {(م، م)، (م، ت)، (ت، م)، (ت، ت)}"},{"left":"اختيار لون كرة من (أحمر، أزرق، أخضر)","right":"Ω = {أحمر، أزرق، أخضر}"}]},"reverse":[{"id":"rev-1","image":"images/reverse.svg","spaceDisplay":["1","2","3","4","5","6","7","8","9"],"prompt":"إذا كان Ω = {1، 2، 3، 4، 5، 6، 7، 8، 9}، فما التجربة العشوائية المناسبة؟","choices":["إدارة قرص مرقم من 1 إلى 9.","اختيار لون من (أحمر، أزرق، أخضر).","مراقبة نتيجتين من (ش، غ).","اختيار وجبة من عصيرين وثلاث شطائر."],"correctChoice":0,"explanation":"هذه تجربة من مرحلة واحدة ونتائجها هي الأعداد من 1 إلى 9."},{"id":"rev-2","image":"images/traffic-light.svg","spaceDisplay":["(خ، خ)","(خ، ح)","(ح، خ)","(ح، ح)"],"prompt":"ما التجربة التي تناسب هذا الفضاء؟","choices":["اختيار لون واحد من (خ، ح).","مراقبة إشارة المرور مرتين من (خ، ح).","اختيار وجبة من خيارين وثلاثة أصناف.","سحب بطاقة من 1 إلى 4."],"correctChoice":1,"explanation":"الأزواج المرتبة هنا تدل على أن التجربة نفسها تكررت مرتين."},{"id":"rev-3","image":"images/canteen.svg","spaceDisplay":["(عصير، لبنة)","(عصير، جبنة)","(حليب، لبنة)","(حليب، جبنة)"],"prompt":"أي تجربة تناسب Ω؟","choices":["اختيار شطيرة واحدة فقط.","اختيار مشروب من (عصير، حليب) مع شطيرة من (لبنة، جبنة).","مراقبة مصباحين بلونين.","سحب بطاقة مرقمة من 1 إلى 4."],"correctChoice":1,"explanation":"العنصر الأول مشروب والعنصر الثاني شطيرة، لذلك التجربة المناسبة تجمع نوعين مختلفين من الخيارات."},{"id":"rev-4","image":"images/school-bag.svg","spaceDisplay":["أحمر","أزرق","أخضر"],"prompt":"أي تجربة تناسب Ω = {أحمر، أزرق، أخضر}؟","choices":["اختيار لون قلم من ثلاثة ألوان.","مراقبة نتيجتين متتاليتين من لونين.","اختيار وجبة من خيارين وثلاثة أصناف.","إدارة قرص مرقم من 1 إلى 3."],"correctChoice":0,"explanation":"هذا فضاء عيني لتجربة من مرحلة واحدة لها ثلاث نتائج لونية."},{"id":"rev-5","image":"images/hero-player.svg","spaceDisplay":["(سيف، ذهبي)","(سيف، فضي)","(قوس، ذهبي)","(قوس، فضي)"],"prompt":"أي تجربة تناسب Ω الآتي؟","choices":["تصميم شخصية لاعب: نوع القتال (سيف، قوس) ولون الدرع (ذهبي، فضي).","مراقبة إشارة المرور مرتين.","اختيار لون واحد من أربعة ألوان.","سحب بطاقة مرقمة من 1 إلى 4."],"correctChoice":0,"explanation":"الفضاء يضم جميع التزاوجات الممكنة بين نوع القتال ولون الدرع."},{"id":"rev-6","image":"images/outfit.svg","spaceDisplay":["(أبيض، نجمة)","(أبيض، قلب)","(أبيض، كتاب)","(أزرق، نجمة)","(أزرق، قلب)","(أزرق، كتاب)"],"prompt":"أي تجربة تناسب هذا الفضاء العيني؟","choices":["اختيار لون قميص (أبيض، أزرق) مع شارة حقيبة (نجمة، قلب، كتاب).","مراقبة الطقس صباحًا ومساءً من (ش، غ).","اختيار رقم من 1 إلى 6.","اختيار لون حقيبة من ستة ألوان."],"correctChoice":0,"explanation":"كل عنصر يتكوّن من لون قميص مع شارة مختلفة، وهذا يدل على مرحلتين من نوعين مختلفين."}],"glossaryCards":[{"title":"كيف أكتب Ω؟","body":"أكتب النتائج كلها داخل الأقواس المعقوفة { }، ويمكنك أن تبدأ بالرمز Ω = ولكن هذا ليس شرطًا للتصحيح."},{"title":"متى أستخدم زوجًا مرتبًا؟","body":"عندما توجد مرحلتان، ونريد أن نعرف نتيجة الأولى ثم الثانية. لذلك الترتيب مهم."},{"title":"كيف أعدّ العناصر بسرعة؟","body":"إذا كانت التجربة تمرّ بمراحل مستقلة، فغالبًا نضرب عدد الخيارات في كل مرحلة."},{"title":"هل ترتيب كتابة العناصر في Ω مهم؟","body":"يمكن أن ترتّب عناصر الفضاء العيني بأي ترتيب، لكن يجب أن تكون جميع النتائج الصحيحة موجودة دون نقصان أو زيادة."},{"title":"متى يكون الجواب خاطئًا؟","body":"إذا نسيت عنصرًا، أو أضفت عنصرًا غير ممكن، أو خلطت بين تجربة من مرحلة واحدة وتجربة من مرحلتين."},{"title":"فكرة تربوية سريعة","body":"اسأل نفسك دائمًا: ما الذي يمكن أن يحدث؟ هل يوجد خطوة واحدة أم خطوتان؟ وهل المرحلتان من النوع نفسه أم من نوعين مختلفين؟"}]};
 const STORAGE_KEY = 'sample-space-lab-progress-v1';
+const SOUND_STORAGE_KEY = 'sample-space-lab-sound-enabled-v1';
+
+// ================== إعداد الأصوات المشتركة ==================
+// المسار النسبي من apps/sample-space-lab/ إلى apps/audio/...
+const successSounds = [
+  new Audio('../audio/success/success_toolMatch_a.mp3'),
+  new Audio('../audio/success/success_toolMatch_b.mp3'),
+  new Audio('../audio/success/success_toolMatch_c.mp3'),
+  new Audio('../audio/success/success_toolMatch_d.mp3'),
+  new Audio('../audio/success/success_toolMatch_e.mp3')
+].map(prepareAudioClip);
+
+const failSounds = [
+  new Audio('../audio/fail/fail_toolMatch_a.mp3'),
+  new Audio('../audio/fail/fail_toolMatch_b.mp3'),
+  new Audio('../audio/fail/fail_toolMatch_c.mp3')
+].map(prepareAudioClip);
 
 const state = {
   data: FALLBACK_DATA,
   currentTab: 'levels',
   currentLevelIndex: 0,
   currentQuestionIndex: 0,
+  reverseIndex: 0,
   currentLevelSelectedChoice: null,
   currentReverseSelectedChoice: null,
   levelRevealChoice: false,
@@ -16,6 +34,8 @@ const state = {
   matchingPairs: {},
   matchingPool: [],
   progress: loadProgress(),
+  soundEnabled: loadSoundPreference(),
+  audioContext: null,
   pendingLevelMessage: ''
 };
 
@@ -26,6 +46,7 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
   cacheDom();
   bindEvents();
+  initializeSoundUi();
   state.data = await loadData();
   ensureProgressShape();
   renderLevelCards();
@@ -41,6 +62,7 @@ function cacheDom() {
   els.levelCards = byId('levelCards');
   els.modeButtons = Array.from(document.querySelectorAll('.mode-btn'));
   els.tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
+  els.soundToggleBtn = byId('soundToggleBtn');
 
   els.levelBadge = byId('levelBadge');
   els.questionCounter = byId('questionCounter');
@@ -167,6 +189,10 @@ function bindEvents() {
   els.reverseShowBtn.addEventListener('click', showReverseSolution);
   els.reverseNextBtn.addEventListener('click', goToNextReverseQuestion);
 
+  if (els.soundToggleBtn) {
+    els.soundToggleBtn.addEventListener('click', toggleSound);
+  }
+
   window.addEventListener('resize', debounce(drawMatchingLines, 60));
 }
 
@@ -178,6 +204,136 @@ async function loadData() {
   } catch (error) {
     console.warn('سيتم استخدام البيانات المضمّنة بدل الملف الخارجي.', error);
     return FALLBACK_DATA;
+  }
+}
+
+function prepareAudioClip(audio) {
+  audio.preload = 'auto';
+  audio.volume = 0.92;
+  audio._loadFailed = false;
+  audio.addEventListener('error', () => {
+    audio._loadFailed = true;
+  });
+  return audio;
+}
+
+function initializeSoundUi() {
+  warmUpSoundPool(successSounds);
+  warmUpSoundPool(failSounds);
+  updateSoundToggle();
+}
+
+function warmUpSoundPool(pool) {
+  pool.forEach((audio) => {
+    try {
+      audio.load();
+    } catch (error) {
+      /* تجاهل */
+    }
+  });
+}
+
+function loadSoundPreference() {
+  try {
+    const raw = localStorage.getItem(SOUND_STORAGE_KEY);
+    if (raw === null) return true;
+    return raw !== 'false';
+  } catch (error) {
+    return true;
+  }
+}
+
+function saveSoundPreference() {
+  try {
+    localStorage.setItem(SOUND_STORAGE_KEY, String(state.soundEnabled));
+  } catch (error) {
+    /* تجاهل */
+  }
+}
+
+function updateSoundToggle() {
+  if (!els.soundToggleBtn) return;
+  els.soundToggleBtn.setAttribute('aria-pressed', String(Boolean(state.soundEnabled)));
+  els.soundToggleBtn.textContent = state.soundEnabled ? '🔊 الصوت مفعّل' : '🔇 الصوت مكتوم';
+}
+
+function toggleSound() {
+  state.soundEnabled = !state.soundEnabled;
+  saveSoundPreference();
+  updateSoundToggle();
+}
+
+function pickRandom(list) {
+  if (!Array.isArray(list) || !list.length) return null;
+  const index = Math.floor(Math.random() * list.length);
+  return list[index];
+}
+
+function playFeedbackSound(kind) {
+  if (!state.soundEnabled) return;
+
+  const pool = kind === 'success' ? successSounds : failSounds;
+  const audio = pickRandom(pool);
+
+  if (!audio || audio._loadFailed) {
+    playFallbackToneSequence(kind);
+    return;
+  }
+
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => playFallbackToneSequence(kind));
+    }
+  } catch (error) {
+    playFallbackToneSequence(kind);
+  }
+}
+
+function playFallbackToneSequence(kind) {
+  if (!state.soundEnabled) return;
+
+  const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextCtor) return;
+
+  try {
+    if (!state.audioContext) {
+      state.audioContext = new AudioContextCtor();
+    }
+
+    const ctx = state.audioContext;
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
+
+    const notes = kind === 'success'
+      ? [659.25, 783.99, 987.77]
+      : [246.94, 207.65, 164.81];
+
+    let start = ctx.currentTime + 0.01;
+    notes.forEach((freq, index) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = kind === 'success' ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(freq, start);
+
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(kind === 'success' ? 0.09 : 0.07, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.18);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(start);
+      osc.stop(start + 0.2);
+
+      start += kind === 'success' ? 0.12 : (index === 0 ? 0.11 : 0.13);
+    });
+  } catch (error) {
+    /* تجاهل */
   }
 }
 
@@ -522,6 +678,7 @@ function checkCurrentQuestion() {
     const correct = compareSets(parsed, question.sampleSpace || []);
     if (correct) {
       awardPoints('level', key, 10);
+      playFeedbackSound('success');
       renderLevelCards();
       setFeedback(els.feedbackBox, 'success', 'إجابة صحيحة', question.explanation || '');
       updateStats();
@@ -529,6 +686,7 @@ function checkCurrentQuestion() {
     }
 
     const expectedCount = (question.sampleSpace || []).length;
+    playFeedbackSound('fail');
     setFeedback(
       els.feedbackBox,
       'error',
@@ -549,12 +707,14 @@ function checkCurrentQuestion() {
     const target = Number(question.correctCount || (question.sampleSpace || []).length);
     if (value === target) {
       awardPoints('level', key, 10);
+      playFeedbackSound('success');
       renderLevelCards();
       setFeedback(els.feedbackBox, 'success', 'إجابة صحيحة', question.explanation || '');
       updateStats();
       return;
     }
 
+    playFeedbackSound('fail');
     setFeedback(els.feedbackBox, 'error', 'العدد غير صحيح', 'أعد التفكير في عدد الخيارات في كل مرحلة، ثم جرّب ثانية.');
     return;
   }
@@ -567,6 +727,7 @@ function checkCurrentQuestion() {
 
     if (state.currentLevelSelectedChoice === question.correctChoice) {
       awardPoints('level', key, 10);
+      playFeedbackSound('success');
       state.levelRevealChoice = true;
       renderQuestionAnswerArea(question, state.progress.answered[key]);
       setFeedback(els.feedbackBox, 'success', 'إجابة صحيحة', question.explanation || '');
@@ -576,6 +737,7 @@ function checkCurrentQuestion() {
     }
 
     highlightWrongChoice(els.answerBox, state.currentLevelSelectedChoice);
+    playFeedbackSound('fail');
     setFeedback(els.feedbackBox, 'error', 'هذه ليست البطاقة الصحيحة', 'تأمّل شكل عناصر Ω: هل هي مفردة أم أزواج مرتبة؟ وهل تمثل مرحلة واحدة أم مرحلتين؟');
   }
 }
@@ -704,6 +866,7 @@ function handleMatchingTry(rightPairId, rightCard) {
 
     const totalPairs = (state.data.matching[state.matchingMode] || []).length;
     const matchedCount = Object.keys(state.matchingPairs).length;
+    playFeedbackSound('success');
     setFeedback(els.matchingFeedback, 'success', 'مطابقة صحيحة', `أحسنت! أنجزت ${matchedCount} من ${totalPairs}.`);
 
     if (matchedCount === totalPairs) {
@@ -732,6 +895,7 @@ function handleMatchingTry(rightPairId, rightCard) {
     rightCard.classList.remove('shake');
   }, 280);
 
+  playFeedbackSound('fail');
   setFeedback(els.matchingFeedback, 'error', 'ليست المطابقة الصحيحة', 'جرّب مرة أخرى، وانظر إلى معنى المصطلح أو شكل الفضاء العيني بعناية.');
 }
 
@@ -826,6 +990,7 @@ function checkReverseQuestion() {
 
   if (state.currentReverseSelectedChoice === question.correctChoice) {
     awardPoints('reverse', key, 8);
+    playFeedbackSound('success');
     state.reverseRevealChoice = true;
     renderReverse();
     setFeedback(els.reverseFeedback, 'success', 'إجابة صحيحة', question.explanation || '');
@@ -834,6 +999,7 @@ function checkReverseQuestion() {
   }
 
   highlightWrongChoice(els.reverseChoices, state.currentReverseSelectedChoice);
+  playFeedbackSound('fail');
   setFeedback(els.reverseFeedback, 'error', 'هذه ليست التجربة المناسبة', 'حلّل شكل العناصر: هل هي مفردة أم أزواج؟ وهل تعبّر عن نوع واحد من النتائج أم عن نوعين مختلفين؟');
 }
 

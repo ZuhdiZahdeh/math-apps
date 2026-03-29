@@ -398,6 +398,8 @@ code{
 .btn.warm{background:linear-gradient(180deg,#f59e0b,#ef4444)}
 .btn.violet{background:linear-gradient(180deg,#8b5cf6,#6d28d9)}
 .btn.inline-end{margin-inline-start:auto}
+.sound-toggle[aria-pressed="false"]{opacity:.78; filter:saturate(.7)}
+.sound-toggle[aria-pressed="true"]{box-shadow:0 8px 22px rgba(16,185,129,.14)}
 .btn:focus-visible,
 .choice-card:focus-visible,
 .level-card:focus-visible,
