@@ -31,6 +31,8 @@ body{
 img{max-width:100%; display:block}
 a{color:#bfdbfe; text-decoration:none}
 a:hover{text-decoration:underline}
+a.btn,
+a.btn:hover{text-decoration:none}
 code{
   background:#0b1220;
   border:1px solid #1f2937;
@@ -534,6 +536,35 @@ code{
   color:var(--muted);
   text-align:center;
   font-size:.95rem;
+}
+.compact-hero{padding-bottom:0}
+.play-grid.solo{grid-template-columns:1fr}
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+  margin-top:16px;
+}
+.guide-rule-card{
+  background:linear-gradient(180deg,rgba(245,158,11,.08),rgba(124,58,237,.08),rgba(15,23,42,.98));
+}
+.guide-mini-space{
+  display:block;
+  margin-top:8px;
+  color:#fef3c7;
+  font-weight:800;
+  line-height:1.85;
+}
+.guide-progress-note{
+  margin-top:.7rem;
+  color:var(--muted);
+  font-size:.92rem;
 }
 
 .noscript-msg{

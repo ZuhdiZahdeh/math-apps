@@ -16,55 +16,14 @@
   <a class="omega-badge" href="../../index.html" title="الرجوع إلى الفهرس">Ω</a>
 
   <div class="shell">
-    <header class="hero">
+    <header class="hero compact-hero">
       <div class="topbar">
         <a class="btn small ghost" href="../../index.html" title="الرجوع إلى الصفحة الرئيسية">↩︎ رجوع</a>
         <h1>لعبة الفضاء العيني — مغامرة Ω</h1>
         <span class="pill accent">الصفوف 5–9</span>
+        <a class="btn small ghost" href="guide.html" title="الانتقال إلى صفحة التعريف والإرشادات">ℹ️ التعريف باللعبة</a>
         <button id="soundToggleBtn" class="btn small ghost sound-toggle" type="button" aria-pressed="true" title="تفعيل أو كتم أصوات التعزيز">🔊 الصوت مفعّل</button>
       </div>
-      <p class="lead">
-        لعبة تربوية تفاعلية لتعلّم <strong>كتابة الفضاء العيني</strong>، و<strong>عدّ عناصره</strong>، والتمييز بين
-        <strong>التجربة المناسبة</strong> و<strong>فضائها العيني</strong>، مع أمثلة حياتية ومطابقة ونمط عكسي.
-      </p>
-
-      <section class="hero-grid">
-        <article class="card stat-card">
-          <h2>الهدف</h2>
-          <p>
-            نبدأ بتجربة من مرحلة واحدة، ثم ننتقل إلى مرحلتين من النوع نفسه، ثم إلى مرحلتين من نوعين مختلفين.
-          </p>
-        </article>
-        <article class="card stat-card">
-          <h2>التقدّم</h2>
-          <div class="stats-grid">
-            <div class="stat-box">
-              <span class="stat-label">النقاط</span>
-              <strong id="scoreValue">0</strong>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">المستويات المكتملة</span>
-              <strong id="completedLevelsValue">0 / 3</strong>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">مهام بالعكس</span>
-              <strong id="reverseProgressValue">0 / 0</strong>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">المطابقة</span>
-              <strong id="matchingProgressValue">0 / 2</strong>
-            </div>
-          </div>
-        </article>
-        <article class="card stat-card">
-          <h2>فكرة سريعة</h2>
-          <ul class="quick-list">
-            <li>مرحلة واحدة ⟵ نكتب النتائج مباشرة داخل { }.</li>
-            <li>مرتان من النوع نفسه ⟵ نستخدم <strong>زوجًا مرتبًا</strong>.</li>
-            <li>نوعان مختلفان ⟵ نزاوج كل اختيار مع كل اختيار آخر.</li>
-          </ul>
-        </article>
-      </section>
     </header>
 
     <nav class="mode-bar" aria-label="أنماط اللعبة">
@@ -78,7 +37,7 @@
       <section id="levelsTab" class="tab-panel active" aria-labelledby="المستويات">
         <div id="levelCards" class="level-cards"></div>
 
-        <div class="play-grid">
+        <div class="play-grid solo">
           <article class="card question-card">
             <div class="question-head">
               <div class="question-meta">
@@ -94,7 +53,7 @@
               </div>
 
               <div class="question-body">
-                <div id="ruleBox" class="rule-box"></div>
+                <div id="ruleBox" class="rule-box" hidden></div>
                 <h2 id="questionPrompt">...</h2>
                 <div id="spacePreview" class="space-preview" hidden></div>
                 <div id="stagesBox" class="stages-box"></div>
@@ -111,26 +70,6 @@
               </div>
             </div>
           </article>
-
-          <aside class="side-stack">
-            <article class="card">
-              <h3>كيف أكتب الفضاء العيني؟</h3>
-              <ul class="quick-list">
-                <li>اكتب العناصر داخل الأقواس المعقوفة <code>{ }</code>.</li>
-                <li>يمكنك كتابة <code>Ω =</code> قبل المجموعة.</li>
-                <li>في التجربتين المتتاليتين استخدم <code>(الأولى، الثانية)</code>.</li>
-                <li>لا تضف عنصرًا غير ممكن، ولا تنسَ أي عنصر ممكن.</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>نصيحة</h3>
-              <p>
-                قبل الإجابة اسأل نفسك: هل التجربة من <strong>مرحلة واحدة</strong> أم من <strong>مرحلتين</strong>؟
-                وهل المرحلتان من <strong>النوع نفسه</strong> أم من <strong>نوعين مختلفين</strong>؟
-              </p>
-            </article>
-          </aside>
         </div>
       </section>
 
@@ -145,9 +84,6 @@
           <div class="matching-head">
             <div>
               <h2>وفق بين العمودين</h2>
-              <p class="muted-text">
-                اختر بطاقة من العمود الأيسر، ثم اختر البطاقة المناسبة لها من العمود الأيمن.
-              </p>
             </div>
             <div class="pill accent" id="matchingStatusPill">0 / 0</div>
           </div>
@@ -163,7 +99,7 @@
       </section>
 
       <section id="reverseTab" class="tab-panel" aria-labelledby="بالعكس">
-        <div class="play-grid">
+        <div class="play-grid solo">
           <article class="card question-card">
             <div class="question-head">
               <div class="question-meta">
@@ -192,17 +128,6 @@
               </div>
             </div>
           </article>
-
-          <aside class="side-stack">
-            <article class="card">
-              <h3>كيف أفكّر بالعكس؟</h3>
-              <ul class="quick-list">
-                <li>انظر أولًا إلى شكل العناصر: هل هي أعداد؟ ألوان؟ أزواج مرتبة؟</li>
-                <li>إذا رأيت زوجًا مرتبًا، فغالبًا توجد مرحلتان.</li>
-                <li>إذا كان العنصران من نوعين مختلفين، فالتجربة غالبًا تجمع اختيارين مختلفين.</li>
-              </ul>
-            </article>
-          </aside>
         </div>
       </section>
 
@@ -213,6 +138,8 @@
 
     <footer class="foot">
       <span>مغامرة Ω — لعبة تربوية في الاحتمالات والفضاء العيني.</span>
+      <span> • </span>
+      <a href="guide.html">صفحة التعريف والإرشادات</a>
     </footer>
   </div>
 

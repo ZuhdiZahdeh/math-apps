@@ -547,11 +547,13 @@ function renderCurrentQuestion() {
   els.questionImage.alt = `صورة توضيحية: ${question.prompt}`;
   els.questionPrompt.textContent = question.prompt;
 
-  els.ruleBox.innerHTML = `
+  if (els.ruleBox) {
+    els.ruleBox.innerHTML = `
     <b>${escapeHTML(rule.title)}</b>
     <span>${escapeHTML(rule.text)}</span>
     <span class="mini-space">${escapeHTML(rule.miniExample || '')}</span>
   `;
+  }
 
   if (Array.isArray(question.spaceDisplay) && question.spaceDisplay.length) {
     els.spacePreview.hidden = false;
@@ -1183,8 +1185,12 @@ function insertAtCursor(textarea, snippet) {
 }
 
 function updateStats() {
-  els.scoreValue.textContent = String(state.progress.score || 0);
-  els.completedLevelsValue.textContent = `${countCompletedLevels()} / ${state.data.levels.length}`;
-  els.reverseProgressValue.textContent = `${countSolvedReverse()} / ${state.data.reverse.length}`;
-  els.matchingProgressValue.textContent = `${countCompletedMatching()} / 2`;
+  setTextIfPresent(els.scoreValue, String(state.progress.score || 0));
+  setTextIfPresent(els.completedLevelsValue, `${countCompletedLevels()} / ${state.data.levels.length}`);
+  setTextIfPresent(els.reverseProgressValue, `${countSolvedReverse()} / ${state.data.reverse.length}`);
+  setTextIfPresent(els.matchingProgressValue, `${countCompletedMatching()} / 2`);
+}
+
+function setTextIfPresent(element, value) {
+  if (element) element.textContent = value;
 }
