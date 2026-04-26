@@ -269,3 +269,98 @@ exCanvas.addEventListener('touchmove', handlePointerExplore, {passive: false});
 window.addEventListener('touchend', () => activePoint = null);
 
 drawExplore();
+// ==========================================
+// 4. منطق المستوى 3: الاختبار والتغذية البصرية
+// ==========================================
+const qzCanvas = document.getElementById('quizCanvas');
+const qzCtx = qzCanvas.getContext('2d');
+
+const qz_cx = 225, qz_cy = 225, qz_r = 150;
+const qzAngles = { A: 0.5, B: Math.PI, C: 0, D: 3.8, E: 5.2 };
+const qzPoints = {
+    M: { x: qz_cx, y: qz_cy, label: "م" },
+    A: { x: qz_cx + qz_r * Math.cos(qzAngles.A), y: qz_cy + qz_r * Math.sin(qzAngles.A), label: "أ", a: qzAngles.A },
+    B: { x: qz_cx + qz_r * Math.cos(qzAngles.B), y: qz_cy + qz_r * Math.sin(qzAngles.B), label: "ب", a: qzAngles.B },
+    C: { x: qz_cx + qz_r * Math.cos(qzAngles.C), y: qz_cy + qz_r * Math.sin(qzAngles.C), label: "ج", a: qzAngles.C },
+    D: { x: qz_cx + qz_r * Math.cos(qzAngles.D), y: qz_cy + qz_r * Math.sin(qzAngles.D), label: "د", a: qzAngles.D },
+    E: { x: qz_cx + qz_r * Math.cos(qzAngles.E), y: qz_cy + qz_r * Math.sin(qzAngles.E), label: "هـ", a: qzAngles.E }
+};
+
+// دالة رسم شكل الاختبار، تستقبل المتغير (الجزء المطلوب تلوينه)
+function drawQuiz(highlightPart = null) {
+    qzCtx.clearRect(0, 0, qzCanvas.width, qzCanvas.height);
+    
+    // رسم الدائرة
+    qzCtx.beginPath(); qzCtx.arc(qz_cx, qz_cy, qz_r, 0, Math.PI * 2);
+    qzCtx.strokeStyle = '#dfe6e9'; qzCtx.lineWidth = 2; qzCtx.stroke();
+
+    // رسم الخطوط (القطع) بلون رمادي، وتلوين القطعة المحددة بلون أخضر للتعزيز
+    const drawLine = (p1, p2, type) => {
+        qzCtx.beginPath();
+        qzCtx.moveTo(qzPoints[p1].x, qzPoints[p1].y);
+        qzCtx.lineTo(qzPoints[p2].x, qzPoints[p2].y);
+        qzCtx.strokeStyle = highlightPart === type ? '#27ae60' : '#bdc3c7';
+        qzCtx.lineWidth = highlightPart === type ? 6 : 3;
+        qzCtx.stroke();
+    };
+
+    drawLine('M', 'A', 'radius');
+    drawLine('B', 'C', 'diameter');
+    drawLine('D', 'E', 'chord');
+
+    // رسم المركز "م"
+    qzCtx.beginPath(); qzCtx.arc(qz_cx, qz_cy, 6, 0, Math.PI * 2);
+    qzCtx.fillStyle = '#2c3e50'; qzCtx.fill();
+    qzCtx.font = "bold 24px Arial"; qzCtx.textAlign = "right"; qzCtx.fillText("م", qz_cx - 10, qz_cy - 10);
+
+    // رسم النقاط والحروف بإزاحة (نفس منطق المستوى الأول للوضوح)
+    ['A', 'B', 'C', 'D', 'E'].forEach(key => {
+        const p = qzPoints[key];
+        qzCtx.beginPath(); qzCtx.arc(p.x, p.y, 5, 0, 7); qzCtx.fillStyle = "#34495e"; qzCtx.fill();
+        
+        let tx = p.x + Math.cos(p.a) * 25;
+        let ty = p.y + Math.sin(p.a) * 25;
+        qzCtx.textAlign = Math.cos(p.a) > 0 ? "left" : "right";
+        qzCtx.textBaseline = "middle";
+        qzCtx.fillText(p.label, tx, ty);
+    });
+}
+drawQuiz(); // رسم الشكل الابتدائي
+
+// التحقق من الإجابة
+function checkAnswer(qIndex, targetPart, isCorrect, btnElement) {
+    const parentCard = btnElement.parentElement;
+    const allOptions = parentCard.querySelectorAll('.option-btn');
+    
+    // تعطيل الأزرار بعد الإجابة لمنع التغيير
+    allOptions.forEach(btn => btn.disabled = true);
+
+    if (isCorrect) {
+        btnElement.classList.add('correct');
+        drawQuiz(targetPart); // إضاءة القطعة على الرسم
+        if(successSound) {
+            successSound.currentTime = 0;
+            successSound.play().catch(e => {});
+        }
+    } else {
+        btnElement.classList.add('wrong');
+        // إظهار الإجابة الصحيحة للطالب
+        const correctBtn = parentCard.querySelector('[data-correct="true"]');
+        if(correctBtn) correctBtn.classList.add('correct');
+        drawQuiz(targetPart); // إضاءة القطعة الصحيحة حتى لو أخطأ
+    }
+
+    // إظهار زر التالي
+    document.getElementById(`next${qIndex}`).style.display = 'block';
+}
+
+function nextQuestion(currentIndex) {
+    document.getElementById(`q${currentIndex}`).classList.remove('active-q');
+    document.getElementById(`q${currentIndex + 1}`).classList.add('active-q');
+    drawQuiz(); // إعادة الرسم بدون تلوين للسؤال الجديد
+}
+
+function finishQuiz() {
+    document.getElementById('q4').classList.remove('active-q');
+    document.getElementById('quiz-completion').classList.add('active-q');
+}
