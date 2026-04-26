@@ -41,17 +41,17 @@ header p { color: #7f8c8d; margin-top: 5px; }
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #dfe4ea;
-    transition: all 0.3s ease;
 }
 
 .stat-card.highlight { background: #e8f4fd; border-color: var(--accent); }
-.stat-card .label { display: block; font-size: 0.8rem; color: #747d8c; }
+.stat-card .label { display: block; font-size: 0.85rem; color: #747d8c; margin-bottom: 5px; }
 .stat-card .value { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+
+#chordType { color: var(--accent); font-size: 1rem; }
 
 .controls { margin-bottom: 20px; text-align: right; }
 input[type=range] { width: 100%; cursor: pointer; }
 
-.canvas-area { position: relative; }
 canvas {
     background: #ffffff;
     border: 2px solid #ecf0f1;
@@ -66,7 +66,6 @@ canvas {
     font-weight: 500;
     color: var(--primary);
     min-height: 1.5em;
-    transition: color 0.3s ease;
 }
 
-.is-diameter { color: var(--success) !important; font-weight: bold; }
+.is-diameter { color: var(--success) !important; }
