@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر تطبيقات الرياضيات - الدائرة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>مختبر هندسة الدائرة</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
+            <button class="tab-btn" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
+        </div>
+    </header>
+
+    <div id="identify-mode" class="mode-container active-mode">
+        <div class="main-layout">
+            <div class="canvas-section">
+                <canvas id="identifyCanvas" width="450" height="450"></canvas>
+                <div id="descriptionBox">اختر عنصراً من القائمة للتعرف عليه</div>
+            </div>
+            <div class="elements-list">
+                <button class="list-btn" onclick="highlight('center')">مركز الدائرة (م)</button>
+                <button class="list-btn" onclick="highlight('radius')">نصف القطر (م أ)</button>
+                <button class="list-btn" onclick="highlight('diameter')">القطر (ب ج)</button>
+                <button class="list-btn" onclick="highlight('chord')">الوتر (د هـ)</button>
+                <button class="list-btn" onclick="highlight('arc')">القوس (د هـ)</button>
+                <button class="list-btn" onclick="highlight('circumference')">المحيط</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="explore-mode" class="mode-container">
+        <div class="dashboard">
+            <div class="stat-card">
+                <span class="label">نصف القطر (نق)</span>
+                <span id="radiusVal" class="value">50</span> <small>ملم</small>
+            </div>
+            <div class="stat-card">
+                <span class="label">طول القطر (ق)</span>
+                <span id="diamVal" class="value">100</span> <small>ملم</small>
+            </div>
+            <div class="stat-card highlight-card">
+                <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
+                <span id="chordVal" class="value">0</span> <small>ملم</small>
+            </div>
+        </div>
+        <div class="controls">
+            <label for="radiusSlider">حجم الدائرة:</label>
+            <input type="range" id="radiusSlider" min="50" max="180" value="150">
+        </div>
+        <div class="canvas-area">
+            <canvas id="exploreCanvas" width="500" height="450"></canvas>
+            <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
+        </div>
+    </div>
+
+</div>
+
+<audio id="successSound">
+    <source src="../audio/success/applause.mp3" type="audio/mpeg">
+</audio>
+
+<script src="js/script.js"></script>
+</body>
+</html>
