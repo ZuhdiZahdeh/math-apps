@@ -41,6 +41,7 @@ header p { color: #7f8c8d; margin-top: 5px; }
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #dfe4ea;
+    transition: all 0.3s ease;
 }
 
 .stat-card.highlight { background: #e8f4fd; border-color: var(--accent); }
@@ -65,6 +66,7 @@ canvas {
     font-weight: 500;
     color: var(--primary);
     min-height: 1.5em;
+    transition: color 0.3s ease;
 }
 
 .is-diameter { color: var(--success) !important; font-weight: bold; }
