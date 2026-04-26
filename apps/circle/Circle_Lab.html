@@ -14,6 +14,7 @@
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
             <button class="tab-btn" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
+            <button class="tab-btn" onclick="switchTab('quiz')">المستوى 3: اختبر معلوماتك</button>
         </div>
     </header>
 
@@ -21,7 +22,7 @@
         <div class="main-layout">
             <div class="canvas-section">
                 <canvas id="identifyCanvas" width="450" height="450"></canvas>
-                <div id="descriptionBox">اختر عنصراً من القائمة للتعرف عليه. اضغط مرة أخرى لرؤية أمثلة أخرى!</div>
+                <div id="descriptionBox">اختر عنصراً من القائمة للتعرف عليه. اضغط مراراً لرؤية أمثلة.</div>
             </div>
             <div class="elements-list">
                 <button class="list-btn" onclick="highlight('center')">مركز الدائرة</button>
@@ -36,33 +37,77 @@
 
     <div id="explore-mode" class="mode-container">
         <div class="dashboard">
-            <div class="stat-card">
-                <span class="label">نصف القطر (نق)</span>
-                <span id="radiusVal" class="value">50</span> <small>ملم</small>
-            </div>
-            <div class="stat-card">
-                <span class="label">طول القطر (ق)</span>
-                <span id="diamVal" class="value">100</span> <small>ملم</small>
-            </div>
-            <div class="stat-card highlight-card">
-                <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
-                <span id="chordVal" class="value">0</span> <small>ملم</small>
-            </div>
+            <div class="stat-card"><span class="label">نصف القطر</span><span id="radiusVal" class="value">50</span></div>
+            <div class="stat-card"><span class="label">طول القطر</span><span id="diamVal" class="value">100</span></div>
+            <div class="stat-card highlight-card"><span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span><span id="chordVal" class="value">0</span></div>
         </div>
-        <div class="controls">
-            <label for="radiusSlider">حجم الدائرة:</label>
-            <input type="range" id="radiusSlider" min="50" max="180" value="150">
-        </div>
-        <div class="canvas-area">
-            <canvas id="exploreCanvas" width="500" height="450"></canvas>
-            <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
+        <div class="controls"><label>حجم الدائرة:</label><input type="range" id="radiusSlider" min="50" max="180" value="150"></div>
+        <div class="canvas-area"><canvas id="exploreCanvas" width="500" height="450"></canvas><div id="feedbackMsg">حرك النقطتين (أ، ب)</div></div>
+    </div>
+
+    <div id="quiz-mode" class="mode-container">
+        <div class="quiz-layout">
+            <div class="quiz-canvas-section">
+                <canvas id="quizCanvas" width="450" height="450"></canvas>
+            </div>
+            
+            <div class="quiz-questions-section">
+                <div class="question-card active-q" id="q1">
+                    <h3>السؤال 1 من 4</h3>
+                    <p>تأمل الشكل المجاور جيداً. ماذا تسمى القطعة المستقيمة <strong>(م أ)</strong>؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(1, 'radius', false, this)">وتراً</button>
+                        <button class="option-btn" data-correct="true" onclick="checkAnswer(1, 'radius', true, this)">نصف قطر</button>
+                        <button class="option-btn" onclick="checkAnswer(1, 'radius', false, this)">قطراً</button>
+                    </div>
+                    <button class="next-btn" id="next1" onclick="nextQuestion(1)">السؤال التالي &laquo;</button>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>السؤال 2 من 4</h3>
+                    <p>القطعة المستقيمة <strong>(د هـ)</strong> تصل بين نقطتين على الدائرة ولا تمر بالمركز، تسمى:</p>
+                    <div class="options">
+                        <button class="option-btn" data-correct="true" onclick="checkAnswer(2, 'chord', true, this)">وتراً</button>
+                        <button class="option-btn" onclick="checkAnswer(2, 'chord', false, this)">قوساً</button>
+                        <button class="option-btn" onclick="checkAnswer(2, 'chord', false, this)">قطراً</button>
+                    </div>
+                    <button class="next-btn" id="next2" onclick="nextQuestion(2)">السؤال التالي &laquo;</button>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>السؤال 3 من 4</h3>
+                    <p>أي من القطع التالية يمثل <strong>أطول وتر</strong> في الدائرة (القطر)؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(3, 'diameter', false, this)">القطعة (م أ)</button>
+                        <button class="option-btn" onclick="checkAnswer(3, 'diameter', false, this)">القطعة (د هـ)</button>
+                        <button class="option-btn" data-correct="true" onclick="checkAnswer(3, 'diameter', true, this)">القطعة (ب ج)</button>
+                    </div>
+                    <button class="next-btn" id="next3" onclick="nextQuestion(3)">السؤال التالي &laquo;</button>
+                </div>
+
+                <div class="question-card" id="q4">
+                    <h3>السؤال 4 من 4</h3>
+                    <p>تطبيق رياضي: إذا علمت أن طول القطعة (م أ) = 5 سم، فكم يكون طول القطعة <strong>(ب ج)</strong>؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(4, 'diameter', false, this)">5 سم</button>
+                        <button class="option-btn" data-correct="true" onclick="checkAnswer(4, 'diameter', true, this)">10 سم</button>
+                        <button class="option-btn" onclick="checkAnswer(4, 'diameter', false, this)">2.5 سم</button>
+                    </div>
+                    <button class="next-btn" id="next4" onclick="finishQuiz()">إنهاء الاختبار</button>
+                </div>
+
+                <div class="question-card" id="quiz-completion" style="text-align: center;">
+                    <h2 style="color: #27ae60;">🎉 أحسنت صنعاً!</h2>
+                    <p>لقد أنهيت مختبر الدائرة بنجاح وأثبتّ فهمك الممتاز للعناصر الهندسية.</p>
+                    <button class="next-btn" style="display:inline-block; margin-top:15px;" onclick="location.reload()">إعادة المختبر</button>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
 
-<audio id="successSound">
-    <source src="../audio/success/applause.mp3" type="audio/mpeg">
-</audio>
+<audio id="successSound"><source src="../audio/success/applause.mp3" type="audio/mpeg"></audio>
 
 <script src="js/script.js"></script>
 </body>
