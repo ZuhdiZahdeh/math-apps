@@ -36,3 +36,70 @@ canvas { background: #ffffff; border: 2px solid #ecf0f1; border-radius: 15px; to
 input[type=range] { width: 50%; cursor: pointer; }
 #feedbackMsg { margin-top: 15px; font-size: 1.1rem; font-weight: bold; color: var(--primary); min-height: 1.5em; }
 .is-diameter { color: var(--success) !important; }
+/* =========================================
+   تنسيقات المستوى 3: الاختبار (Quiz Layout)
+   ========================================= */
+.quiz-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; /* للالتفاف على شاشات الجوال */
+    text-align: right;
+}
+
+.quiz-canvas-section {
+    flex: 1 1 400px;
+    position: relative;
+}
+
+.quiz-questions-section {
+    flex: 1 1 350px;
+    background: #fdfdfd;
+    border: 2px solid #ecf0f1;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.question-card { display: none; animation: fadeIn 0.4s ease; }
+.question-card.active-q { display: block; }
+
+.question-card h3 { color: var(--accent); margin-top: 0; border-bottom: 2px dashed #ecf0f1; padding-bottom: 10px; }
+.question-card p { font-size: 1.2rem; color: var(--primary); margin-bottom: 20px; line-height: 1.5; }
+
+.option-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    text-align: right;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover:not(:disabled) { background: #f8f9fa; border-color: var(--accent); }
+.option-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+
+.option-btn.correct { background: var(--success); color: white; border-color: var(--success); font-weight: bold; }
+.option-btn.wrong { background: var(--danger); color: white; border-color: var(--danger); text-decoration: line-through; }
+
+.next-btn {
+    display: none;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    width: 100%;
+    transition: background 0.3s;
+}
+.next-btn:hover { background: #34495e; }
