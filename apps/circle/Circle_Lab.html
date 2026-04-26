@@ -36,27 +36,29 @@
     </div>
 
     <div id="explore-mode" class="mode-container">
-        <div class="dashboard">
-            <div class="stat-card">
-                <span class="label">نصف القطر (نق)</span>
-                <span id="radiusVal" class="value">50</span> <small>ملم</small>
+        <div class="explore-layout">
+            <div class="explore-sidebar">
+                <div class="stat-card">
+                    <span class="label">نصف القطر (نق)</span>
+                    <div class="value-wrap"><span id="radiusVal" class="value">50</span> <small>ملم</small></div>
+                </div>
+                <div class="stat-card">
+                    <span class="label">طول القطر (ق)</span>
+                    <div class="value-wrap"><span id="diamVal" class="value">100</span> <small>ملم</small></div>
+                </div>
+                <div class="stat-card highlight-card">
+                    <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
+                    <div class="value-wrap"><span id="chordVal" class="value">0</span> <small>ملم</small></div>
+                </div>
+                <div class="controls stat-card" style="background: white;">
+                    <label style="display:block; margin-bottom:10px; font-weight:bold; color:#2c3e50;">تغيير الحجم:</label>
+                    <input type="range" id="radiusSlider" min="50" max="180" value="150" style="width: 100%;">
+                </div>
             </div>
-            <div class="stat-card">
-                <span class="label">طول القطر (ق)</span>
-                <span id="diamVal" class="value">100</span> <small>ملم</small>
+            <div class="explore-canvas-wrapper">
+                <canvas id="exploreCanvas" width="550" height="480"></canvas>
+                <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
             </div>
-            <div class="stat-card highlight-card">
-                <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
-                <span id="chordVal" class="value">0</span> <small>ملم</small>
-            </div>
-        </div>
-        <div class="controls">
-            <label>حجم الدائرة:</label>
-            <input type="range" id="radiusSlider" min="50" max="180" value="150">
-        </div>
-        <div class="canvas-area">
-            <canvas id="exploreCanvas" width="500" height="450"></canvas>
-            <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
         </div>
     </div>
 
@@ -65,60 +67,8 @@
             <div class="quiz-canvas-section">
                 <canvas id="quizCanvas" width="450" height="450"></canvas>
             </div>
-            <div class="quiz-questions-section">
-                <div class="question-card active-q" id="q1">
-                    <h3>السؤال 1 من 4</h3>
-                    <p>ماذا تسمى القطعة المستقيمة <strong>(م أ)</strong>؟</p>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(1, 'radius', false, this)">وتراً</button>
-                        <button class="option-btn" data-correct="true" onclick="checkAnswer(1, 'radius', true, this)">نصف قطر</button>
-                        <button class="option-btn" onclick="checkAnswer(1, 'radius', false, this)">قطراً</button>
-                    </div>
-                    <button class="next-btn" id="next1" onclick="nextQuestion(1)">التالي &raquo;</button>
+            <div class="quiz-questions-section" id="quiz-questions-container">
                 </div>
-
-                <div class="question-card" id="q2">
-                    <h3>السؤال 2 من 4</h3>
-                    <p>القطعة <strong>(د هـ)</strong> لا تمر بالمركز، تسمى:</p>
-                    <div class="options">
-                        <button class="option-btn" data-correct="true" onclick="checkAnswer(2, 'chord', true, this)">وتراً</button>
-                        <button class="option-btn" onclick="checkAnswer(2, 'chord', false, this)">قوساً</button>
-                        <button class="option-btn" onclick="checkAnswer(2, 'chord', false, this)">قطراً</button>
-                    </div>
-                    <button class="next-btn" id="next2" onclick="nextQuestion(2)">التالي &raquo;</button>
-                </div>
-
-                <div class="question-card" id="q3">
-                    <h3>السؤال 3 من 4</h3>
-                    <p>أي من القطع تمثل <strong>أطول وتر</strong> في الدائرة؟</p>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(3, 'diameter', false, this)">(م أ)</button>
-                        <button class="option-btn" data-correct="true" onclick="checkAnswer(3, 'diameter', true, this)">(ب ج)</button>
-                        <button class="option-btn" onclick="checkAnswer(3, 'diameter', false, this)">(د هـ)</button>
-                    </div>
-                    <button class="next-btn" id="next3" onclick="nextQuestion(3)">التالي &raquo;</button>
-                </div>
-
-                <div class="question-card" id="q4">
-                    <h3>السؤال 4 من 4</h3>
-                    <p>تطبيق رياضي: إذا كان طول (م أ) = 5 سم، فكم يكون طول <strong>(ب ج)</strong>؟</p>
-                    <div class="options">
-                        <button class="option-btn" onclick="checkAnswer(4, 'diameter', false, this)">5 سم</button>
-                        <button class="option-btn" data-correct="true" onclick="checkAnswer(4, 'diameter', true, this)">10 سم</button>
-                        <button class="option-btn" onclick="checkAnswer(4, 'diameter', false, this)">2.5 سم</button>
-                    </div>
-                    <button class="next-btn" id="next4" onclick="finishQuiz()">عرض النتيجة</button>
-                </div>
-
-                <div class="question-card" id="quiz-completion" style="text-align: center;">
-                    <h2 style="color: #27ae60;">🎉 اكتمل الاختبار!</h2>
-                    <div class="score-board" style="background: #f1f2f6; padding: 15px; border-radius: 10px; margin: 20px 0;">
-                        <p style="font-size: 1.2rem;">✅ الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
-                        <p style="font-size: 1.2rem;">❌ الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
-                    </div>
-                    <button class="next-btn" style="display:inline-block;" onclick="location.reload()">إعادة التجربة</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
