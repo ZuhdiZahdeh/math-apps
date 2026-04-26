@@ -65,7 +65,6 @@
             <div class="quiz-canvas-section">
                 <canvas id="quizCanvas" width="450" height="450"></canvas>
             </div>
-            
             <div class="quiz-questions-section">
                 <div class="question-card active-q" id="q1">
                     <h3>السؤال 1 من 4</h3>
@@ -91,7 +90,7 @@
 
                 <div class="question-card" id="q3">
                     <h3>السؤال 3 من 4</h3>
-                    <p>أي القطع تمثل <strong>أطول وتر</strong> في الدائرة؟</p>
+                    <p>أي من القطع تمثل <strong>أطول وتر</strong> في الدائرة؟</p>
                     <div class="options">
                         <button class="option-btn" onclick="checkAnswer(3, 'diameter', false, this)">(م أ)</button>
                         <button class="option-btn" data-correct="true" onclick="checkAnswer(3, 'diameter', true, this)">(ب ج)</button>
@@ -102,7 +101,7 @@
 
                 <div class="question-card" id="q4">
                     <h3>السؤال 4 من 4</h3>
-                    <p>إذا كان طول (م أ) = 5 سم، فما طول (ب ج)؟</p>
+                    <p>تطبيق رياضي: إذا كان طول (م أ) = 5 سم، فكم يكون طول <strong>(ب ج)</strong>؟</p>
                     <div class="options">
                         <button class="option-btn" onclick="checkAnswer(4, 'diameter', false, this)">5 سم</button>
                         <button class="option-btn" data-correct="true" onclick="checkAnswer(4, 'diameter', true, this)">10 سم</button>
@@ -114,8 +113,8 @@
                 <div class="question-card" id="quiz-completion" style="text-align: center;">
                     <h2 style="color: #27ae60;">🎉 اكتمل الاختبار!</h2>
                     <div class="score-board" style="background: #f1f2f6; padding: 15px; border-radius: 10px; margin: 20px 0;">
-                        <p style="font-size: 1.2rem;">الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
-                        <p style="font-size: 1.2rem;">الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
+                        <p style="font-size: 1.2rem;">✅ الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
+                        <p style="font-size: 1.2rem;">❌ الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
                     </div>
                     <button class="next-btn" style="display:inline-block;" onclick="location.reload()">إعادة التجربة</button>
                 </div>
