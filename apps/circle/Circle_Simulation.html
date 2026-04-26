@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكاة الوتر والقطر ببيانات رقمية</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; text-align: center; background-color: #f0f4f8; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; margin-bottom: 10px; }
+        .stats-panel { display: flex; justify-content: space-around; background: #ecf0f1; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #dcdde1; }
+        .stat-item { text-align: center; }
+        .stat-label { display: block; font-size: 14px; color: #7f8c8d; }
+        .stat-value { font-size: 24px; font-weight: bold; color: #2980b9; }
+        .highlight-value { color: #27ae60; }
+        canvas { border: 1px solid #dfe6e9; border-radius: 8px; touch-action: none; cursor: crosshair; max-width: 100%; height: auto; }
+        #msg { height: 30px; margin-top: 15px; font-weight: bold; font-size: 18px; color: #e67e22; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>القياس الرقمي لعناصر الدائرة</h2>
+    
+    <div class="stats-panel">
+        <div class="stat-item">
+            <span class="stat-label">طول الوتر الحالي</span>
+            <span id="chordVal" class="stat-value">0 ملم</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">طول القطر (ثابت)</span>
+            <span id="diamVal" class="stat-value">100 ملم</span>
+        </div>
+    </div>
+
+    <canvas id="c" width="450" height="450"></canvas>
+    <div id="msg">حرك النقاط لاستكشاف الأطوال</div>
+</div>
+
+<script>
+    const c = document.getElementById('c'), ctx = c.getContext('2d');
+    const chordDisp = document.getElementById('chordVal'), msg = document.getElementById('msg');
+    const cx = 225, cy = 225, r = 180; // r=180px يمثل 50mm، القطر 360px يمثل 100mm
+    let a1 = 0.5, a2 = 3.5, active = null;
+
+    function toMM(pixels) { return Math.round((pixels / (r * 2)) * 100); }
+
+    function draw() {
+        ctx.clearRect(0, 0, 450, 450);
+        
+        // رسم الدائرة
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.strokeStyle = '#bdc3c7'; ctx.lineWidth = 2; ctx.stroke();
+        
+        // المركز
+        ctx.beginPath(); ctx.arc(cx, cy, 5, 0, 7); ctx.fillStyle = '#34495e'; ctx.fill();
+        ctx.font = "16px Tahoma"; ctx.fillText("م", cx - 8, cy - 12);
+
+        const p1 = { x: cx + r * Math.cos(a1), y: cy + r * Math.sin(a1) };
+        const p2 = { x: cx + r * Math.cos(a2), y: cy + r * Math.sin(a2) };
+        const lenPx = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+        const lenMM = toMM(lenPx);
+
+        // الوتر
+        ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y);
+        const isDiam = lenMM >= 99;
+        ctx.strokeStyle = isDiam ? '#27ae60' : '#2980b9';
+        ctx.lineWidth = isDiam ? 5 : 3; ctx.stroke();
+
+        // النقاط
+        [p1, p2].forEach(p => {
+            ctx.beginPath(); ctx.arc(p.x, p.y, 10, 0, 7); ctx.fillStyle = '#e74c3c'; ctx.fill();
+        });
+
+        chordDisp.textContent = lenMM + " ملم";
+        chordDisp.className = isDiam ? "stat-value highlight-value" : "stat-value";
+        msg.textContent = isDiam ? "أحسنت! الوتر يمر بالمركز وهو القطر (أطول وتر)" : "كلما اقترب الوتر من المركز زاد طوله";
+    }
+
+    function getPos(e) {
+        const rect = c.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function start(e) {
+        const p = getPos(e);
+        const d1 = Math.hypot(p.x - (cx + r * Math.cos(a1)), p.y - (cy + r * Math.sin(a1)));
+        const d2 = Math.hypot(p.x - (cx + r * Math.cos(a2)), p.y - (cy + r * Math.sin(a2)));
+        if (d1 < 20) active = 'a1'; else if (d2 < 20) active = 'a2';
+    }
+
+    function move(e) {
+        if (!active) return;
+        const p = getPos(e);
+        const angle = Math.atan2(p.y - cy, p.x - cx);
+        if (active === 'a1') a1 = angle; else a2 = angle;
+        draw();
+    }
+
+    c.onmousedown = c.ontouchstart = start;
+    window.onmousemove = window.ontouchmove = move;
+    window.onmouseup = window.ontouchend = () => active = null;
+    draw();
+</script>
+</body>
+</html>
