@@ -1,0 +1,70 @@
+:root {
+    --primary: #2c3e50;
+    --accent: #2980b9;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 700px;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+header h1 { color: var(--primary); margin: 0; }
+header p { color: #7f8c8d; margin-top: 5px; }
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: #f1f2f6;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #dfe4ea;
+}
+
+.stat-card.highlight { background: #e8f4fd; border-color: var(--accent); }
+.stat-card .label { display: block; font-size: 0.8rem; color: #747d8c; }
+.stat-card .value { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+
+.controls { margin-bottom: 20px; text-align: right; }
+input[type=range] { width: 100%; cursor: pointer; }
+
+.canvas-area { position: relative; }
+canvas {
+    background: #ffffff;
+    border: 2px solid #ecf0f1;
+    border-radius: 15px;
+    touch-action: none;
+    max-width: 100%;
+}
+
+#feedbackMsg {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary);
+    min-height: 1.5em;
+}
+
+.is-diameter { color: var(--success) !important; font-weight: bold; }
