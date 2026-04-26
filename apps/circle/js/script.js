@@ -5,16 +5,18 @@ const radiusDisp = document.getElementById('radiusVal');
 const diamDisp = document.getElementById('diamVal');
 const chordDisp = document.getElementById('chordVal');
 const feedbackMsg = document.getElementById('feedbackMsg');
+const successSound = document.getElementById('successSound'); // جلب عنصر الصوت
 
 // الحالة الابتدائية
 let centerX = canvas.width / 2;
 let centerY = canvas.height / 2;
 let visualRadius = parseInt(radiusSlider.value);
 let angle1 = 0; // زاوية النقطة الأولى
-let angle2 = Math.PI; // زاوية النقطة الثانية (تبدأ كقطر)
+let angle2 = Math.PI; // زاوية النقطة الثانية
 let activePoint = null;
+let hasPlayedSound = false; // لمنع تكرار الصوت بشكل مزعج
 
-// التحويل من بكسل إلى ملم (لأغراض تعليمية: نعتبر 150 بكسل = 50 ملم)
+// التحويل من بكسل إلى ملم (لأغراض تعليمية: 150 بكسل = 50 ملم)
 const scale = 50 / 150; 
 
 function toMM(pixels) {
@@ -48,13 +50,13 @@ function draw() {
         y: centerY + visualRadius * Math.sin(angle2)
     };
 
-    // حساب طول الوتر
+    // حساب الأطوال
     const chordPx = Math.hypot(p2.x - p1.x, p2.y - p1.y);
     const chordMM = toMM(chordPx);
     const diamMM = toMM(visualRadius * 2);
     const radMM = Math.round(diamMM / 2);
 
-    // هل الوتر هو قطر؟ (سماحية 2 ملم للسهولة)
+    // السماحية للقطر (ملم واحد لتسهيل التطابق للطلاب)
     const isDiameter = chordMM >= diamMM - 1;
 
     // 3. رسم الوتر
@@ -78,18 +80,30 @@ function draw() {
     diamDisp.textContent = diamMM;
     chordDisp.textContent = chordMM;
     
+    // إدارة الرسائل والصوت
     if (isDiameter) {
         chordDisp.classList.add('is-diameter');
         feedbackMsg.textContent = "رائع! الوتر يمر بالمركز، فهو قطر (أطول وتر)";
         feedbackMsg.style.color = "#27ae60";
+        
+        // تشغيل الصوت لمرة واحدة عند التطابق
+        if (!hasPlayedSound) {
+            // استخدام catch لمعالجة رفض المتصفح للتشغيل التلقائي قبل تفاعل المستخدم
+            successSound.currentTime = 0; // إعادة الصوت للبداية
+            successSound.play().catch(e => console.log("بانتظار تفاعل المستخدم للتشغيل")); 
+            hasPlayedSound = true;
+        }
     } else {
         chordDisp.classList.remove('is-diameter');
         feedbackMsg.textContent = "حرك النقاط لتقترب من المركز وتلاحظ زيادة طول الوتر";
         feedbackMsg.style.color = "#2c3e50";
+        
+        // إعادة تهيئة حالة الصوت عند الابتعاد عن المركز
+        hasPlayedSound = false; 
     }
 }
 
-// التعامل مع السحب
+// التعامل مع السحب (اللمس أو الماوس)
 function handlePointer(e) {
     const rect = canvas.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -106,6 +120,9 @@ function handlePointer(e) {
         if (Math.hypot(x - p1x, y - p1y) < 30) activePoint = 1;
         else if (Math.hypot(x - p2x, y - p2y) < 30) activePoint = 2;
     } else if (activePoint && (e.type === 'mousemove' || e.type === 'touchmove')) {
+        // منع السحب من تمرير الشاشة على الهواتف
+        if(e.cancelable) e.preventDefault(); 
+        
         const newAngle = Math.atan2(y - centerY, x - centerX);
         if (activePoint === 1) angle1 = newAngle;
         else angle2 = newAngle;
@@ -115,19 +132,19 @@ function handlePointer(e) {
 
 function stopPointer() { activePoint = null; }
 
-// الأحداث
+// الأحداث والمستمعات
 radiusSlider.addEventListener('input', (e) => {
     visualRadius = parseInt(e.target.value);
     draw();
 });
 
 canvas.addEventListener('mousedown', handlePointer);
-window.addEventListener('mousemove', handlePointer);
+window.addEventListener('mousemove', handlePointer, {passive: false});
 window.addEventListener('mouseup', stopPointer);
 
 canvas.addEventListener('touchstart', handlePointer, {passive: false});
 canvas.addEventListener('touchmove', handlePointer, {passive: false});
 window.addEventListener('touchend', stopPointer);
 
-// التشغيل الأول
+// التشغيل الأول لرسم الحالة الابتدائية
 draw();
