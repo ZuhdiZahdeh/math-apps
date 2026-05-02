@@ -10,17 +10,15 @@ function switchTab(tabId) {
     const activeContainer = document.getElementById(tabId + '-mode');
     if (activeContainer) activeContainer.classList.add('active-mode');
 
-    // إعادة رسم لوحة الفرجار عند فتح المستوى؛ لأن Canvas قد يكون مخفياً وقت التحميل.
     if (tabId === 'compass' && typeof drawCompass === 'function') {
         drawCompass();
     }
 }
 
-// الألوان المعتمدة لكل عنصر
 const systemColors = { center: '#e74c3c', radius: '#27ae60', diameter: '#2980b9', chord: '#f39c12', arc: '#9b59b6', circumference: '#34495e' };
 
 // ==========================================
-// 2. المستوى 1: التعرف المتعدد وإزاحة الرموز (مع إصلاح الألوان)
+// 2. المستوى 1: التعرف على العناصر
 // ==========================================
 const idCanvas = document.getElementById('identifyCanvas');
 const idCtx = idCanvas ? idCanvas.getContext('2d') : null;
@@ -45,40 +43,19 @@ const elementsData = {
     center: [ { type: 'point', p: 'M', text: "المركز (م): النقطة الثابتة في منتصف الدائرة." } ],
     radius: [
         { type: 'line', p1: 'M', p2: 'A', text: "نصف القطر (م أ): يصل بين المركز والمحيط." },
-        { type: 'line', p1: 'M', p2: 'B', text: "نصف القطر (م ب): جميع أنصاف الأقطار متساوية الطول." },
-        { type: 'line', p1: 'M', p2: 'C', text: "نصف القطر (م ج): قطعة من المركز للنقطة ج." },
-        { type: 'line', p1: 'M', p2: 'D', text: "نصف القطر (م د)." },
-        { type: 'line', p1: 'M', p2: 'E', text: "نصف القطر (م هـ)." },
-        { type: 'line', p1: 'M', p2: 'F', text: "نصف القطر (م و)." }
+        { type: 'line', p1: 'M', p2: 'B', text: "نصف القطر (م ب): جميع أنصاف الأقطار متساوية الطول." }
     ],
-    diameter: [
-        { type: 'line', p1: 'B', p2: 'C', text: "القطر (ب ج): أطول وتر في الدائرة، ويمر بالمركز." },
-        { type: 'line', p1: 'D', p2: 'E', text: "القطر (د هـ): يتكون من نصفي قطر على استقامة واحدة." },
-        { type: 'line', p1: 'A', p2: 'F', text: "القطر (أ و): يقسم الدائرة لنصفين متطابقين." }
-    ],
-    chord: [
-        { type: 'line', p1: 'A', p2: 'D', text: "الوتر (أ د): قطعة مستقيمة تصل بين نقطتين ولا تمر بالمركز." },
-        { type: 'line', p1: 'A', p2: 'B', text: "الوتر (أ ب): وتر آخر." },
-        { type: 'line', p1: 'D', p2: 'B', text: "الوتر (د ب)." },
-        { type: 'line', p1: 'C', p2: 'E', text: "الوتر (ج هـ)." },
-        { type: 'line', p1: 'E', p2: 'F', text: "الوتر (هـ و)." },
-        { type: 'line', p1: 'F', p2: 'B', text: "الوتر (و ب)." }
-    ],
-    arc: [
-        { type: 'arc', s: angles.C, e: angles.A, text: "القوس (ج أ): جزء من محيط الدائرة." },
-        { type: 'arc', s: angles.A, e: angles.D, text: "القوس (أ د)." },
-        { type: 'arc', s: angles.D, e: angles.B, text: "القوس (د ب)." },
-        { type: 'arc', s: angles.B, e: angles.F, text: "القوس (ب و)." },
-        { type: 'arc', s: angles.F, e: angles.E, text: "القوس (و هـ)." }
-    ],
+    diameter: [ { type: 'line', p1: 'B', p2: 'C', text: "القطر (ب ج): أطول وتر في الدائرة، ويمر بالمركز." } ],
+    chord: [ { type: 'line', p1: 'D', p2: 'E', text: "الوتر (د هـ): قطعة مستقيمة تصل بين نقطتين ولا تمر بالمركز." } ],
+    arc: [ { type: 'arc', s: angles.C, e: angles.A, text: "القوس (ج أ): جزء من محيط الدائرة." } ],
     circumference: [ { type: 'circle', text: "المحيط: هو الخط المنحني المغلق الذي يمثل طول إطار الدائرة." } ]
 };
 
 function highlight(name) {
     if (currentElement === name) cycleIndex++; else { currentElement = name; cycleIndex = 0; }
     cycleIndex %= elementsData[name].length;
-    descBox.textContent = elementsData[name][cycleIndex].text;
-    if(idCtx) drawIdentify();
+    if (descBox) descBox.textContent = elementsData[name][cycleIndex].text;
+    if (idCtx) drawIdentify();
 }
 
 function drawIdentify() {
@@ -91,7 +68,6 @@ function drawIdentify() {
     if (currentElement) {
         idCtx.lineWidth = 6; 
         idCtx.strokeStyle = systemColors[currentElement]; 
-        
         const item = elementsData[currentElement][cycleIndex];
         if (item.type === 'point') {
             idCtx.fillStyle = systemColors[currentElement]; 
@@ -114,10 +90,9 @@ function drawIdentify() {
         idCtx.fillText(p.label, tx, ty);
     });
 }
-if(idCtx) drawIdentify();
 
 // ==========================================
-// 3. المستوى 2: التفاعل الحي
+// 3. المستوى 2: التفاعل الحي (Explore)
 // ==========================================
 const exCanvas = document.getElementById('exploreCanvas');
 const exCtx = exCanvas ? exCanvas.getContext('2d') : null;
@@ -129,7 +104,6 @@ function drawExplore() {
     exCtx.clearRect(0, 0, exCanvas.width, exCanvas.height);
     const r = parseInt(radiusSlider.value);
     const cx = exCanvas.width / 2, cy = exCanvas.height / 2;
-    
     exCtx.beginPath(); exCtx.arc(cx, cy, r, 0, Math.PI * 2); exCtx.strokeStyle = '#dfe6e9'; exCtx.stroke();
     
     exCtx.beginPath(); exCtx.arc(cx, cy, 5, 0, Math.PI * 2); exCtx.fillStyle = '#2c3e50'; exCtx.fill();
@@ -157,63 +131,25 @@ function drawExplore() {
     document.getElementById('chordVal').textContent = Math.round(dist * (50/150));
     document.getElementById('chordType').textContent = isDiam ? "قطر" : "وتر";
     
-    const successSound = document.getElementById('successSound');
     if(isDiam && !hasPlayedSuccess) {
+        const successSound = document.getElementById('successSound');
         if(successSound) { successSound.currentTime=0; successSound.play().catch(()=>{}); }
         hasPlayedSuccess = true;
     } else if(!isDiam) hasPlayedSuccess = false;
 }
-
 if(radiusSlider) radiusSlider.oninput = drawExplore;
 
-function handlePointerExplore(e) {
-    if (!exCanvas) return;
-    const rect = exCanvas.getBoundingClientRect();
-    const cx = exCanvas.width / 2, cy = exCanvas.height / 2, r = parseInt(radiusSlider.value);
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    const x = clientX - rect.left, y = clientY - rect.top;
-
-    if (e.type === 'mousedown' || e.type === 'touchstart') {
-        const d1 = Math.hypot(x - (cx + r * Math.cos(angle1)), y - (cy + r * Math.sin(angle1)));
-        const d2 = Math.hypot(x - (cx + r * Math.cos(angle2)), y - (cy + r * Math.sin(angle2)));
-        if (d1 < 30) activePoint = 1; else if (d2 < 30) activePoint = 2;
-    } else if (activePoint && (e.type === 'mousemove' || e.type === 'touchmove')) {
-        if(e.cancelable) e.preventDefault();
-        const ang = Math.atan2(y - cy, x - cx);
-        if (activePoint === 1) angle1 = ang; else angle2 = ang;
-        drawExplore();
-    }
-}
-
-if (exCanvas) {
-    exCanvas.onmousedown = exCanvas.ontouchstart = handlePointerExplore;
-    window.addEventListener('mousemove', handlePointerExplore, {passive: false});
-    window.addEventListener('touchmove', handlePointerExplore, {passive: false});
-    window.addEventListener('mouseup', () => activePoint = null);
-    window.addEventListener('touchend', () => activePoint = null);
-    drawExplore();
-}
-
 // ==========================================
-// 4. المستوى 3: الاختبار والمحرك الديناميكي والتغذية الراجعة
+// 4. المستوى 4: الاختبار (Quiz) والربط
 // ==========================================
 const qzCanvas = document.getElementById('quizCanvas');
 const qzCtx = qzCanvas ? qzCanvas.getContext('2d') : null;
 let correctScore = 0, wrongScore = 0;
 
 const quizData = [
-    { shape: 1, text: "في الشكل المجاور، ماذا تسمى القطعة المستقيمة (م أ)؟", options: ["وتراً", "نصف قطر", "قطراً"], correct: 1, hl: {type:'line', p1:'M', p2:'A', c:systemColors.radius} },
-    { shape: 1, text: "القطعة (د هـ) تصل بين نقطتين ولا تمر بالمركز، تسمى:", options: ["قوساً", "وتراً", "قطراً"], correct: 1, hl: {type:'line', p1:'D', p2:'E', c:systemColors.chord} },
-    { shape: 1, text: "أي من القطع التالية يمثل أطول وتر في الدائرة؟", options: ["(م أ)", "(د هـ)", "(ب ج)"], correct: 2, hl: {type:'line', p1:'B', p2:'C', c:systemColors.diameter} },
-    { shape: 1, text: "الجزء المنحني المحصور بين النقطتين (د) و (هـ) على الدائرة يسمى:", options: ["قوساً", "محيطاً", "وتراً"], correct: 0, hl: {type:'arc', s:3.8, e:5.2, c:systemColors.arc} },
-    { shape: 1, text: "تطبيق: إذا كان طول (م أ) = 5 سم، فكم يكون طول القطر (ب ج)؟", options: ["5 سم", "10 سم", "2.5 سم"], correct: 1, hl: {type:'line', p1:'B', p2:'C', c:systemColors.diameter} },
-    
-    { shape: 2, text: "انتقلنا لشكل جديد مركزه (ن). أي القطع التالية تمثل نصف قطر؟", options: ["(س ص)", "(ن و)", "(ع ل)"], correct: 1, hl: {type:'line', p1:'N', p2:'W', c:systemColors.radius} },
-    { shape: 2, text: "القطعة (س ص) تمر بالمركز (ن)، إذن هي:", options: ["وتر فقط", "قوس", "قطر"], correct: 2, hl: {type:'line', p1:'S', p2:'Y', c:systemColors.diameter} },
-    { shape: 2, text: "القطعة المتقاطعة (ع ل) لا تمر بالمركز، ماذا نسميها؟", options: ["قطر", "وتر", "نصف قطر"], correct: 1, hl: {type:'line', p1:'X', p2:'L', c:systemColors.chord} },
-    { shape: 2, text: "كم عدد أنصاف الأقطار المرسومة بوضوح في هذا الشكل؟", options: ["1", "2", "3"], correct: 2, hl: {type:'multi_radius'} },
-    { shape: 2, text: "تحدي: إذا كان طول القطر (س ص) = 14 سم، فما طول نصف القطر (ن و)؟", options: ["7 سم", "14 سم", "28 سم"], correct: 0, hl: {type:'line', p1:'N', p2:'W', c:systemColors.radius} }
+    { shape: 1, text: "ماذا تسمى القطعة المستقيمة (م أ)؟", options: ["وتراً", "نصف قطر", "قطراً"], correct: 1, hl: {type:'line', p1:'M', p2:'A', c:systemColors.radius} },
+    { shape: 1, text: "القطعة (د هـ) لا تمر بالمركز، تسمى:", options: ["قوساً", "وتراً", "قطراً"], correct: 1, hl: {type:'line', p1:'D', p2:'E', c:systemColors.chord} },
+    { shape: 1, text: "أي من القطع التالية يمثل أطول وتر في الدائرة؟", options: ["(م أ)", "(د هـ)", "(ب ج)"], correct: 2, hl: {type:'line', p1:'B', p2:'C', c:systemColors.diameter} }
 ];
 
 function initQuizDOM() {
@@ -223,23 +159,20 @@ function initQuizDOM() {
     quizData.forEach((q, idx) => {
         let html = `
         <div class="question-card" id="q${idx}" style="display: ${idx === 0 ? 'block' : 'none'};">
-            <h3>السؤال ${idx + 1} من ${quizData.length} ${q.shape===2 ? '(شكل متقدم)' : ''}</h3>
+            <h3>السؤال ${idx + 1} من ${quizData.length}</h3>
             <p>${q.text}</p>
             <div class="options">
                 ${q.options.map((opt, i) => `<button class="option-btn" onclick="checkAnswer(${idx}, ${i}, this)">${opt}</button>`).join('')}
             </div>
-            <div id="feedback${idx}" class="answer-feedback" style="display:none; margin-top: 15px; padding: 15px; border-radius: 8px; font-size: 1.1rem; text-align: right;"></div>
             <button class="next-btn" id="next${idx}" onclick="nextQuestion(${idx})" style="display:none;">${idx === quizData.length - 1 ? 'عرض النتيجة النهائية' : 'السؤال التالي &raquo;'}</button>
         </div>`;
         container.innerHTML += html;
     });
-    
     container.innerHTML += `
         <div class="question-card" id="quiz-completion" style="display:none; text-align: center;">
             <h2 style="color: #27ae60;">🎉 اكتمل الاختبار!</h2>
             <div class="score-board" style="background: #f1f2f6; padding: 15px; border-radius: 10px; margin: 20px 0;">
-                <p style="font-size: 1.2rem;">✅ الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
-                <p style="font-size: 1.2rem;">❌ الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
+                <p>✅ صحيح: <strong id="correctScore">0</strong> | ❌ خطأ: <strong id="wrongScore">0</strong></p>
             </div>
             <button class="next-btn" style="display:inline-block;" onclick="location.reload()">إعادة التجربة</button>
         </div>`;
@@ -249,158 +182,74 @@ function drawQuizShape(shapeId, highlightData = null) {
     if (!qzCtx) return;
     qzCtx.clearRect(0, 0, 450, 450);
     const cx = 225, cy = 225, r = 150;
-    
-    qzCtx.beginPath(); qzCtx.arc(cx, cy, r, 0, Math.PI * 2); 
-    qzCtx.strokeStyle = '#ecf0f1'; qzCtx.lineWidth = 2; qzCtx.stroke();
-    
-    let pts = {};
-    if (shapeId === 1) {
-        pts = {
-            M: {x:cx, y:cy, l:"م", a:null}, A: {x:cx+r*Math.cos(0.5), y:cy+r*Math.sin(0.5), l:"أ", a:0.5},
-            B: {x:cx-r, y:cy, l:"ب", a:Math.PI}, C: {x:cx+r, y:cy, l:"ج", a:0}, 
-            D: {x:cx+r*Math.cos(3.8), y:cy+r*Math.sin(3.8), l:"د", a:3.8}, E: {x:cx+r*Math.cos(5.2), y:cy+r*Math.sin(5.2), l:"هـ", a:5.2}
-        };
-        drawQLine(pts.M, pts.A); drawQLine(pts.B, pts.C); drawQLine(pts.D, pts.E);
-    } else {
-        pts = {
-            N: {x:cx, y:cy, l:"ن", a:null}, 
-            S: {x:cx+r*Math.cos(Math.PI/4), y:cy+r*Math.sin(Math.PI/4), l:"س", a:Math.PI/4}, 
-            Y: {x:cx+r*Math.cos(5*Math.PI/4), y:cy+r*Math.sin(5*Math.PI/4), l:"ص", a:5*Math.PI/4}, 
-            W: {x:cx+r*Math.cos(7*Math.PI/4), y:cy+r*Math.sin(7*Math.PI/4), l:"و", a:7*Math.PI/4}, 
-            X: {x:cx+r*Math.cos(Math.PI), y:cy+r*Math.sin(Math.PI), l:"ع", a:Math.PI}, 
-            L: {x:cx+r*Math.cos(3*Math.PI/2), y:cy+r*Math.sin(3*Math.PI/2), l:"ل", a:3*Math.PI/2} 
-        };
-        drawQLine(pts.S, pts.Y); drawQLine(pts.N, pts.W); drawQLine(pts.X, pts.L);
-    }
-
-    function drawQLine(p1, p2, c = '#bdc3c7', lw = 3) {
+    qzCtx.beginPath(); qzCtx.arc(cx, cy, r, 0, Math.PI * 2); qzCtx.strokeStyle = '#ecf0f1'; qzCtx.stroke();
+    const pts = {
+        M: {x:cx, y:cy, l:"م", a:null}, A: {x:cx+r*Math.cos(0.5), y:cy+r*Math.sin(0.5), l:"أ", a:0.5},
+        B: {x:cx-r, y:cy, l:"ب", a:Math.PI}, C: {x:cx+r, y:cy, l:"ج", a:0}, 
+        D: {x:cx+r*Math.cos(3.8), y:cy+r*Math.sin(3.8), l:"د", a:3.8}, E: {x:cx+r*Math.cos(5.2), y:cy+r*Math.sin(5.2), l:"هـ", a:5.2}
+    };
+    const drawL = (p1, p2, c = '#bdc3c7', lw = 3) => {
         qzCtx.beginPath(); qzCtx.moveTo(p1.x, p1.y); qzCtx.lineTo(p2.x, p2.y);
         qzCtx.strokeStyle = c; qzCtx.lineWidth = lw; qzCtx.stroke();
-    }
-
-    if (highlightData) {
-        if (highlightData.type === 'line') {
-            drawQLine(pts[highlightData.p1], pts[highlightData.p2], highlightData.c, 6);
-        } else if (highlightData.type === 'arc') {
-            qzCtx.beginPath(); qzCtx.arc(cx, cy, r, highlightData.s, highlightData.e);
-            qzCtx.strokeStyle = highlightData.c; qzCtx.lineWidth = 8; qzCtx.stroke();
-        } else if (highlightData.type === 'multi_radius') {
-            drawQLine(pts.N, pts.S, systemColors.radius, 6);
-            drawQLine(pts.N, pts.Y, systemColors.radius, 6);
-            drawQLine(pts.N, pts.W, systemColors.radius, 6);
-        }
-    }
+    };
+    drawL(pts.M, pts.A); drawL(pts.B, pts.C); drawL(pts.D, pts.E);
+    if (highlightData) drawL(pts[highlightData.p1], pts[highlightData.p2], highlightData.c, 6);
 
     qzCtx.font = "bold 26px Arial"; qzCtx.fillStyle = "#2c3e50";
     Object.values(pts).forEach(p => {
         qzCtx.beginPath(); qzCtx.arc(p.x, p.y, 5, 0, 7); qzCtx.fill();
-        let isCenter = p.a === null;
-        let tx = isCenter ? p.x - 15 : p.x + Math.cos(p.a) * 30;
-        let ty = isCenter ? p.y - 15 : p.y + Math.sin(p.a) * 30;
-        qzCtx.textAlign = isCenter ? "right" : (Math.cos(p.a) >= 0 ? "left" : "right");
-        qzCtx.textBaseline = isCenter ? "bottom" : "middle";
+        let tx = p.a === null ? p.x - 15 : p.x + Math.cos(p.a) * 30;
+        let ty = p.a === null ? p.y - 15 : p.y + Math.sin(p.a) * 30;
         qzCtx.fillText(p.l, tx, ty);
     });
 }
 
-function checkAnswer(qIndex, selectedOptionIndex, btn) {
+function checkAnswer(qIndex, selectedIndex, btn) {
     const parent = btn.parentElement;
     parent.querySelectorAll('button').forEach(b => b.disabled = true);
-    
-    const qData = quizData[qIndex];
-    const isCorrect = selectedOptionIndex === qData.correct;
-    
-    const successSound = document.getElementById('successSound');
-    const failSound = document.getElementById('failSound');
-
-    if (isCorrect) {
-        correctScore++; btn.classList.add('correct');
-        if(successSound) { successSound.currentTime=0; successSound.play().catch(()=>{}); }
-    } else {
-        wrongScore++; btn.classList.add('wrong');
-        parent.children[qData.correct].classList.add('correct'); 
-        if(failSound) { failSound.currentTime=0; failSound.play().catch(()=>{}); }
-    }
-
-    // إضافة التغذية الراجعة التفسيرية التي تم طلبها مسبقاً
-    const feedbackBox = document.getElementById('feedback' + qIndex);
-    if (feedbackBox) {
-        feedbackBox.style.display = 'block';
-        feedbackBox.style.backgroundColor = isCorrect ? '#e8f8f5' : '#fdedec';
-        feedbackBox.style.color = isCorrect ? '#27ae60' : '#e74c3c';
-        feedbackBox.style.border = `2px solid ${isCorrect ? '#27ae60' : '#e74c3c'}`;
-        
-        const explanation = qData.feedback && qData.feedback[selectedOptionIndex] 
-            ? qData.feedback[selectedOptionIndex] 
-            : (isCorrect ? 'إجابة صحيحة. أحسنت!' : 'راجع العنصر المضاء في الرسم وحاول تفسير السبب.');
-        
-        feedbackBox.innerHTML = `<strong>${isCorrect ? 'أحسنت! إجابة صحيحة ✅' : 'إجابة غير صحيحة، والتفسير هو: ❌'}</strong><br>${explanation}<br><span style="font-size: 0.9rem; color: #7f8c8d;">انظر إلى العنصر المضاء في الرسم لتثبيت الفكرة.</span>`;
-    }
-    
-    drawQuizShape(qData.shape, qData.hl); 
+    const isCorrect = selectedIndex === quizData[qIndex].correct;
+    if (isCorrect) { correctScore++; btn.classList.add('correct'); document.getElementById('successSound').play().catch(()=>{}); }
+    else { wrongScore++; btn.classList.add('wrong'); parent.children[quizData[qIndex].correct].classList.add('correct'); document.getElementById('failSound').play().catch(()=>{}); }
+    drawQuizShape(quizData[qIndex].shape, quizData[qIndex].hl);
     document.getElementById('next' + qIndex).style.display = 'block';
 }
 
-function nextQuestion(currentIndex) {
-    document.getElementById('q'+currentIndex).style.display = 'none';
-    
-    if (currentIndex + 1 < quizData.length) {
-        document.getElementById('q'+(currentIndex+1)).style.display = 'block';
-        drawQuizShape(quizData[currentIndex+1].shape); 
-    } else {
-        finishQuiz();
-    }
+function nextQuestion(n) {
+    document.getElementById('q'+n).style.display = 'none';
+    if (n + 1 < quizData.length) { document.getElementById('q'+(n+1)).style.display = 'block'; drawQuizShape(quizData[n+1].shape); }
+    else { finishQuiz(); }
 }
 
 // ==========================================
-// 5. إرسال البيانات إلى لوحة المعلم (Google Forms)
+// 5. الربط مع Google Forms (لوحة المعلم)
 // ==========================================
-// دالة ترحيل البيانات المحدثة بناءً على رابط النموذج الأخير
 async function sendDataToGoogleSheet(studentName, correct, wrong) {
-    // رابط إرسال الاستجابة الخاص بنموذجك
     const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScFMAWBnGGfrTevoUarrCvg5VC5onuRS91kKKAzBVsGt7JO5A/formResponse";
-    
     const formData = new URLSearchParams();
-    // المعرفات التي استخرجناها من رابطك الأخير
-    formData.append("entry.1275102630", studentName);  // حقل الاسم
-    formData.append("entry.357058504", correct);      // حقل الإجابات الصحيحة
-    formData.append("entry.745084820", wrong);        // حقل الإجابات الخاطئة
+    formData.append("entry.1275102630", studentName);  
+    formData.append("entry.357058504", correct);      
+    formData.append("entry.745084820", wrong);        
 
     try {
-        await fetch(formURL, {
-            method: "POST",
-            mode: "no-cors", 
-            body: formData,
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        });
-        console.log("تم ترحيل البيانات بنجاح إلى لوحة المعلم.");
-    } catch (error) {
-        console.error("حدث خطأ في الاتصال:", error);
-    }
+        await fetch(formURL, { method: "POST", mode: "no-cors", body: formData, headers: { "Content-Type": "application/x-www-form-urlencoded" } });
+        console.log("تم الإرسال بنجاح.");
+    } catch (e) { console.error("خطأ:", e); }
 }
 
 function finishQuiz() {
-    // إخفاء آخر سؤال وعرض شاشة النتيجة النهائية
     document.getElementById('q' + (quizData.length - 1)).style.display = 'none';
     document.getElementById('quiz-completion').style.display = 'block';
-    
     document.getElementById('correctScore').textContent = correctScore;
     document.getElementById('wrongScore').textContent = wrongScore;
 
-    // طلب الاسم والترحيل تلقائياً للوحة المعلم
     setTimeout(() => {
-        let name = prompt("رائع جداً! أدخل اسمك الثلاثي لتسجيل نتيجتك في لوحة الصدارة الخاصة بالمهندس زهدي:");
+        let name = prompt("أدخل اسمك الثلاثي لتسجيل النتيجة في لوحة الصدارة:");
         if (name && name.trim() !== "") {
             sendDataToGoogleSheet(name, correctScore, wrongScore);
-            alert("شكراً لك يا " + name + "، تم إرسال نتيجتك بنجاح.");
+            alert("تم إرسال نتيجتك بنجاح.");
         }
     }, 500);
 }
 
-// التشغيل المبدئي للاختبار
-if (document.getElementById('quiz-questions-container')) {
-    initQuizDOM();
-    drawQuizShape(quizData[0].shape);
-}
+initQuizDOM();
+drawQuizShape(quizData[0].shape);
