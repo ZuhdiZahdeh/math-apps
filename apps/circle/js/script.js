@@ -355,13 +355,16 @@ function nextQuestion(currentIndex) {
 // ==========================================
 // 5. إرسال البيانات إلى لوحة المعلم (Google Forms)
 // ==========================================
+// دالة ترحيل البيانات المحدثة بناءً على رابط النموذج الأخير
 async function sendDataToGoogleSheet(studentName, correct, wrong) {
+    // رابط إرسال الاستجابة الخاص بنموذجك
     const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScFMAWBnGGfrTevoUarrCvg5VC5onuRS91kKKAzBVsGt7JO5A/formResponse";
     
     const formData = new URLSearchParams();
-    formData.append("entry.1275102630", studentName);    
-    formData.append("entry.357058504", correct);        
-    formData.append("entry.745084820", wrong);          
+    // المعرفات التي استخرجناها من رابطك الأخير
+    formData.append("entry.1275102630", studentName);  // حقل الاسم
+    formData.append("entry.357058504", correct);      // حقل الإجابات الصحيحة
+    formData.append("entry.745084820", wrong);        // حقل الإجابات الخاطئة
 
     try {
         await fetch(formURL, {
@@ -372,9 +375,9 @@ async function sendDataToGoogleSheet(studentName, correct, wrong) {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         });
-        console.log("تم ترحيل بيانات الطالب بنجاح.");
+        console.log("تم ترحيل البيانات بنجاح إلى لوحة المعلم.");
     } catch (error) {
-        console.error("عذراً، حدث خطأ في ترحيل البيانات:", error);
+        console.error("حدث خطأ في الاتصال:", error);
     }
 }
 
