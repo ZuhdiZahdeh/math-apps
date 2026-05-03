@@ -3,10 +3,10 @@
 // ==========================================
 const LAB_CONFIG = {
     labId: 'circle-geometry-grade6',
-    labVersion: '1.1.0-google-sheets',
+    labVersion: '1.2.0-distributed-questions',
 
     // ضع هنا رابط Apps Script Web App بعد النشر، ويجب أن ينتهي غالباً بـ /exec
-    webAppUrl: 'https://script.google.com/macros/s/AKfycbxTMtpl4A1lnRMt8fYT-0SoB3_2ai4wyaY9H3rc1f5dA6Gon0tNZ0rr_9MfU6Gtw-DM/exec',
+    webAppUrl: 'ضع_رابط_Apps_Script_Web_App_هنا',
 
     // يجب أن يطابق قيمة Script Property باسم LAB_SECRET في Apps Script
     token: 'circle-lab-2026',
@@ -205,6 +205,8 @@ function buildSubmissionPayload() {
             score,
             totalQuestions,
             percentage,
+            answeredQuestions: answers.length,
+            levelSummary: typeof getLevelSummary === 'function' ? getLevelSummary() : {},
             wrongQuestions: wrongAnswers.map(a => a.questionIndex),
             misconceptions,
             answers
@@ -269,6 +271,16 @@ async function submitLabResults() {
         setSubmitStatus('لم يتم الإرسال: يرجى إدخال رمز الطالب والشعبة أولاً.', 'error');
         return;
     }
+
+    if (typeof isAssessmentComplete === 'function' && !isAssessmentComplete()) {
+        const answered = typeof getAnsweredCount === 'function' ? getAnsweredCount() : 0;
+        const total = typeof quizData !== 'undefined' ? quizData.length : 0;
+        setSubmitStatus(`لم يتم الإرسال: أكمل أسئلة التحقق في جميع المستويات أولاً. الإجابات الحالية ${answered} من ${total}.`, 'error');
+        return;
+    }
+
+    const missingBox = document.getElementById('missingLevelsBox');
+    if (missingBox) missingBox.innerHTML = '';
 
     addLabEvent('submission_started', 'summary', 'بدأ إرسال النتائج إلى لوحة المعلم');
     const payload = buildSubmissionPayload();
@@ -370,8 +382,12 @@ function switchTab(tabId) {
         drawCompass();
     }
 
-    if (tabId === 'quiz' && typeof drawQuizShape === 'function' && quizData[currentQuestionIndex]) {
-        drawQuizShape(quizData[currentQuestionIndex].shape);
+    if (typeof renderLevelQuestionVisual === 'function') {
+        renderLevelQuestionVisual(tabId);
+    }
+
+    if (typeof updateAssessmentProgress === 'function') {
+        updateAssessmentProgress();
     }
 
     addLabEvent('level_open', tabId, `فتح المستوى: ${tabId}`);
@@ -1244,139 +1260,361 @@ if (compassTargetVal) compassTargetVal.textContent = compassTargetRadius.toStrin
 if (compassRadiusVal) compassRadiusVal.textContent = compassState.openingCm.toString();
 drawCompass();
 
+
 // ==========================================
-// 5. المستوى 4: الاختبار والمحرك الديناميكي للبيانات
+// 5. أسئلة التحقق الموزعة على جميع المستويات
 // ==========================================
 const qzCanvas = document.getElementById('quizCanvas');
-const qzCtx = qzCanvas.getContext('2d');
+const qzCtx = qzCanvas ? qzCanvas.getContext('2d') : null;
 let correctScore = 0;
 let wrongScore = 0;
 let currentQuestionIndex = 0;
 
+const levelOrder = ['identify', 'explore', 'compass', 'quiz'];
+const levelInfo = {
+    identify: {
+        title: 'المستوى 1: استكشاف العناصر',
+        shortTitle: 'استكشاف العناصر',
+        containerId: 'identify-questions-container',
+        nextLevel: 'explore'
+    },
+    explore: {
+        title: 'المستوى 2: تحدي القطر والوتر',
+        shortTitle: 'تحدي القطر والوتر',
+        containerId: 'explore-questions-container',
+        nextLevel: 'compass'
+    },
+    compass: {
+        title: 'المستوى 3: الفرجار الرقمي',
+        shortTitle: 'الفرجار الرقمي',
+        containerId: 'compass-questions-container',
+        nextLevel: 'quiz'
+    },
+    quiz: {
+        title: 'المستوى 4: التقييم الختامي',
+        shortTitle: 'التقييم الختامي',
+        containerId: 'quiz-questions-container',
+        nextLevel: null
+    }
+};
+
+// المصفوفة التالية موزعة تربوياً على المستويات الأربعة بدلاً من تجميعها في مستوى واحد.
+// يظل رقم السؤال عالمياً حتى تصل النتائج إلى Google Sheets كسجل تشخيصي واحد.
 const quizData = [
-    { shape: 1, text: 'في الشكل المجاور، ماذا تسمى القطعة المستقيمة (م أ)؟', options: ['وتراً', 'نصف قطر', 'قطراً'], correct: 1, hl: { type: 'line', p1: 'M', p2: 'A', c: systemColors.radius } },
-    { shape: 1, text: 'القطعة (د هـ) تصل بين نقطتين ولا تمر بالمركز، تسمى:', options: ['قوساً', 'وتراً', 'قطراً'], correct: 1, hl: { type: 'line', p1: 'D', p2: 'E', c: systemColors.chord } },
-    { shape: 1, text: 'أي من القطع التالية يمثل أطول وتر في الدائرة؟', options: ['(م أ)', '(د هـ)', '(ب ج)'], correct: 2, hl: { type: 'line', p1: 'B', p2: 'C', c: systemColors.diameter } },
-    { shape: 1, text: 'الجزء المنحني المحصور بين النقطتين (د) و (هـ) على الدائرة يسمى:', options: ['قوساً', 'محيطاً', 'وتراً'], correct: 0, hl: { type: 'arc', s: 3.8, e: 5.2, c: systemColors.arc } },
-    { shape: 1, text: 'تطبيق: إذا كان طول (م أ) = 5 سم، فكم يكون طول القطر (ب ج)؟', options: ['5 سم', '10 سم', '2.5 سم'], correct: 1, hl: { type: 'line', p1: 'B', p2: 'C', c: systemColors.diameter } },
-    { shape: 2, text: 'انتقلنا لشكل جديد مركزه (ن). أي القطع التالية تمثل نصف قطر؟', options: ['(س ص)', '(ن و)', '(ع ل)'], correct: 1, hl: { type: 'line', p1: 'N', p2: 'W', c: systemColors.radius } },
-    { shape: 2, text: 'القطعة (س ص) تمر بالمركز (ن)، إذن هي:', options: ['وتر فقط', 'قوس', 'قطر'], correct: 2, hl: { type: 'line', p1: 'S', p2: 'Y', c: systemColors.diameter } },
-    { shape: 2, text: 'القطعة المتقاطعة (ع ل) لا تمر بالمركز، ماذا نسميها؟', options: ['قطر', 'وتر', 'نصف قطر'], correct: 1, hl: { type: 'line', p1: 'X', p2: 'L', c: systemColors.chord } },
-    { shape: 2, text: 'كم عدد أنصاف الأقطار المرسومة بوضوح في هذا الشكل؟', options: ['1', '2', '3'], correct: 2, hl: { type: 'multi_radius' } },
-    { shape: 2, text: 'تحدي: إذا كان طول القطر (س ص) = 14 سم، فما طول نصف القطر (ن و)؟', options: ['7 سم', '14 سم', '28 سم'], correct: 0, hl: { type: 'line', p1: 'N', p2: 'W', c: systemColors.radius } }
+    {
+        level: 'identify',
+        text: 'ما اسم النقطة الثابتة في منتصف الدائرة؟',
+        options: ['الوتر', 'المركز', 'القوس'],
+        correct: 1,
+        focusElement: 'center',
+        feedback: [
+            'الوتر قطعة مستقيمة تصل بين نقطتين على الدائرة، وليس النقطة التي في المنتصف.',
+            'صحيح؛ المركز هو النقطة الثابتة التي تبعد عنها جميع نقاط الدائرة المسافة نفسها.',
+            'القوس جزء منحني من محيط الدائرة، وليس النقطة الثابتة في المنتصف.'
+        ],
+        misconceptions: ['خلط بين نقطة المركز والقطعة المستقيمة', '', 'خلط بين المركز والقوس']
+    },
+    {
+        level: 'identify',
+        text: 'في الرسم، ماذا تسمى القطعة التي تصل المركز بنقطة على الدائرة مثل (م أ)؟',
+        options: ['وتراً', 'نصف قطر', 'قطراً'],
+        correct: 1,
+        focusElement: 'radius',
+        feedback: [
+            'ليست وتراً؛ لأن الوتر يصل بين نقطتين على الدائرة، أما هذه القطعة فتبدأ من المركز.',
+            'صحيح؛ نصف القطر يصل المركز بنقطة على الدائرة.',
+            'ليست قطراً؛ لأن القطر يصل بين نقطتين على الدائرة ويمر بالمركز.'
+        ],
+        misconceptions: ['اعتقاد أن أي قطعة مستقيمة داخل الدائرة وتر', '', 'خلط بين نصف القطر والقطر']
+    },
+    {
+        level: 'identify',
+        text: 'الجزء المنحني من محيط الدائرة بين نقطتين يسمى:',
+        options: ['قوساً', 'وتراً', 'قطراً'],
+        correct: 0,
+        focusElement: 'arc',
+        feedback: [
+            'صحيح؛ القوس جزء منحني من محيط الدائرة.',
+            'الوتر قطعة مستقيمة، أما القوس فهو جزء منحني.',
+            'القطر قطعة مستقيمة تمر بالمركز، أما الجزء المنحني فهو قوس.'
+        ],
+        misconceptions: ['', 'خلط بين القوس والوتر', 'خلط بين القوس والقطر']
+    },
+    {
+        level: 'explore',
+        text: 'عندما تصل القطعة بين نقطتين على الدائرة وتمر بالمركز، فإنها تسمى:',
+        options: ['وتراً عادياً', 'قطراً', 'قوساً'],
+        correct: 1,
+        exploreAction: 'showDiameter',
+        feedback: [
+            'هي وتر من حيث إنها تصل بين نقطتين، لكنها ليست وتراً عادياً؛ لأنها تمر بالمركز فتسمى قطراً.',
+            'صحيح؛ الوتر الذي يمر بالمركز يسمى قطراً.',
+            'ليست قوساً؛ لأن القوس جزء منحني، أما هذه قطعة مستقيمة.'
+        ],
+        misconceptions: ['إجابة ناقصة: لم يميز أن الوتر المار بالمركز قطر', '', 'خلط بين القوس والقطعة المستقيمة']
+    },
+    {
+        level: 'explore',
+        text: 'إذا كان نصف القطر 5 سم، فما طول القطر؟',
+        options: ['5 سم', '10 سم', '2.5 سم'],
+        correct: 1,
+        exploreAction: 'showDiameter',
+        feedback: [
+            'هذه قيمة نصف القطر، وليست القطر. القطر يساوي ضعفي نصف القطر.',
+            'صحيح؛ القطر = ٢ × نصف القطر = ٢ × ٥ = ١٠ سم.',
+            'هذه قيمة أصغر من نصف القطر. المطلوب حساب القطر، أي مضاعفة نصف القطر.'
+        ],
+        misconceptions: ['نسي أن القطر يساوي ضعفي نصف القطر', '', 'استخدم القسمة بدل الضرب في علاقة القطر بنصف القطر']
+    },
+    {
+        level: 'explore',
+        text: 'أي عبارة صحيحة عن القطر؟',
+        options: ['هو وتر يمر بالمركز', 'هو قوس طويل', 'هو نصف القطر نفسه'],
+        correct: 0,
+        exploreAction: 'showDiameter',
+        feedback: [
+            'صحيح؛ القطر وتر خاص يمر بالمركز ويعد أطول وتر في الدائرة.',
+            'ليس قوساً؛ القطر قطعة مستقيمة، والقوس جزء منحني.',
+            'ليس نصف القطر نفسه؛ القطر يساوي نصفين من نصف القطر.'
+        ],
+        misconceptions: ['', 'خلط بين القطر والقوس', 'خلط بين القطر ونصف القطر']
+    },
+    {
+        level: 'compass',
+        text: 'فتحة الفرجار التي تضبطها قبل الرسم تمثل:',
+        options: ['القطر', 'نصف القطر', 'المحيط'],
+        correct: 1,
+        compassHint: 'الفتحة = نصف القطر؛ لذلك نضبطها على المسافة من المركز إلى أي نقطة على الدائرة.',
+        feedback: [
+            'ليست القطر؛ القطر يساوي ضعفي الفتحة لأن الفتحة تمثل نصف القطر.',
+            'صحيح؛ فتحة الفرجار تمثل نصف القطر.',
+            'المحيط هو طول الإطار المنحني كاملاً، ولا تمثله فتحة الفرجار.'
+        ],
+        misconceptions: ['خلط بين القطر ونصف القطر في استخدام الفرجار', '', 'خلط بين المسافة الخطية والمحيط']
+    },
+    {
+        level: 'compass',
+        text: 'لرسم دائرة نصف قطرها 4 سم، أضبط فتحة الفرجار على:',
+        options: ['2 سم', '4 سم', '8 سم'],
+        correct: 1,
+        compassHint: 'عند المهمة الحالية اضبط فتحة الفرجار على القيمة المطلوبة لنصف القطر، ثم ثبت السن في المركز.',
+        feedback: [
+            '2 سم نصف القيمة المطلوبة، وستنتج دائرة أصغر من المطلوب.',
+            'صحيح؛ لأن فتحة الفرجار تساوي نصف القطر المطلوب.',
+            '8 سم تمثل ضعف نصف القطر، أي القطر، وليست فتحة الفرجار المطلوبة.'
+        ],
+        misconceptions: ['قسم نصف القطر على 2 عند ضبط الفتحة', '', 'ضاعف نصف القطر واعتبر الفتحة قطراً']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'في الشكل الختامي، القطعة (س ص) تمر بالمركز (ن)، إذن هي:',
+        options: ['وتر فقط', 'قوس', 'قطر'],
+        correct: 2,
+        hl: { type: 'line', p1: 'S', p2: 'Y', c: systemColors.diameter },
+        feedback: [
+            'هي وتر، لكنها ليست وتراً فقط؛ لأنها تمر بالمركز، لذلك تسمى قطراً.',
+            'ليست قوساً؛ لأن القوس جزء منحني من المحيط، أما (س ص) فهي قطعة مستقيمة.',
+            'صحيح؛ القطعة (س ص) قطر لأنها تصل بين نقطتين على الدائرة وتمر بالمركز (ن).'
+        ],
+        misconceptions: ['إجابة ناقصة: لم يميز أن الوتر المار بالمركز قطر', 'خلط بين القوس والقطعة المستقيمة', '']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'تحدي ختامي: إذا كان طول القطر (س ص) = 14 سم، فما طول نصف القطر (ن و)؟',
+        options: ['7 سم', '14 سم', '28 سم'],
+        correct: 0,
+        hl: { type: 'line', p1: 'N', p2: 'W', c: systemColors.radius },
+        feedback: [
+            'صحيح؛ نصف القطر = القطر ÷ ٢ = ١٤ ÷ ٢ = ٧ سم.',
+            'هذه قيمة القطر، وليست نصف القطر. نصف القطر يساوي القطر ÷ ٢.',
+            'هذه قيمة ضعف القطر، بينما المطلوب هو نصف القطر: القطر ÷ ٢.'
+        ],
+        misconceptions: ['', 'اعتبر القطر نصف قطر', 'ضاعف القطر بدلاً من قسمته على 2']
+    }
 ];
 
-const quizFeedback = [
-    [
-        'ليست وتراً؛ لأن الوتر يصل بين نقطتين على الدائرة، أما القطعة (م أ) فتبدأ من المركز.',
-        'صحيح؛ القطعة (م أ) نصف قطر لأنها تصل المركز (م) بنقطة على الدائرة.',
-        'ليست قطراً؛ لأن القطر يصل بين نقطتين على الدائرة ويمر بالمركز، أما (م أ) فهي من المركز إلى نقطة واحدة على الدائرة.'
-    ],
-    [
-        'ليست قوساً؛ لأن القوس جزء منحني من المحيط، أما (د هـ) فهي قطعة مستقيمة.',
-        'صحيح؛ القطعة (د هـ) وتر لأنها تصل بين نقطتين على الدائرة ولا يشترط أن تمر بالمركز.',
-        'ليست قطراً؛ لأن القطر يجب أن يمر بالمركز، والقطعة (د هـ) لا تمر بالمركز.'
-    ],
-    [
-        'القطعة (م أ) نصف قطر؛ لأنها تبدأ من المركز وتنتهي عند نقطة على الدائرة، لذلك ليست أطول وتر.',
-        'القطعة (د هـ) وتر، لكنها ليست أطول وتر لأنها لا تمر بالمركز.',
-        'صحيح؛ القطعة (ب ج) قطر، والقطر هو أطول وتر لأنه يمر بالمركز.'
-    ],
-    [
-        'صحيح؛ الجزء المنحني بين النقطتين (د) و(هـ) يسمى قوساً.',
-        'ليس محيطاً كاملاً؛ لأنه جزء فقط من المحيط وليس الدائرة كلها.',
-        'ليس وتراً؛ لأن الوتر قطعة مستقيمة، أما الجزء المعروض فهو منحني.'
-    ],
-    [
-        'هذه قيمة نصف القطر، وليست القطر. القطر يساوي ضعفي نصف القطر.',
-        'صحيح؛ القطر = ٢ × نصف القطر = ٢ × ٥ = ١٠ سم.',
-        'هذه قيمة أصغر من نصف القطر. المطلوب حساب القطر، أي مضاعفة نصف القطر.'
-    ],
-    [
-        'القطعة (س ص) قطر؛ لأنها تصل بين نقطتين على الدائرة وتمر بالمركز (ن).',
-        'صحيح؛ القطعة (ن و) نصف قطر لأنها تبدأ من المركز (ن) وتنتهي عند نقطة على الدائرة.',
-        'القطعة (ع ل) وتر؛ لأنها تصل بين نقطتين على الدائرة ولا تبدأ من المركز.'
-    ],
-    [
-        'هي وتر، لكنها ليست وتراً فقط؛ لأنها تمر بالمركز، لذلك تسمى قطراً.',
-        'ليست قوساً؛ لأن القوس جزء منحني من المحيط، أما (س ص) فهي قطعة مستقيمة.',
-        'صحيح؛ القطعة (س ص) قطر لأنها تصل بين نقطتين على الدائرة وتمر بالمركز (ن).'
-    ],
-    [
-        'ليست قطراً؛ لأن القطر يجب أن يمر بالمركز، والقطعة (ع ل) لا تمر بالمركز.',
-        'صحيح؛ القطعة (ع ل) وتر لأنها تصل بين نقطتين على الدائرة.',
-        'ليست نصف قطر؛ لأن نصف القطر يبدأ من المركز وينتهي عند نقطة على الدائرة.'
-    ],
-    [
-        'يوجد أكثر من نصف قطر؛ لاحظ أن القطر (س ص) يحتوي على نصفين: (ن س) و(ن ص)، ومعهما (ن و).',
-        'إجابة قريبة، لكن يوجد نصف قطر ثالث هو (ن و)، إضافة إلى (ن س) و(ن ص).',
-        'صحيح؛ أنصاف الأقطار المرسومة هي: (ن س)، (ن ص)، و(ن و).'
-    ],
-    [
-        'صحيح؛ نصف القطر = القطر ÷ ٢ = ١٤ ÷ ٢ = ٧ سم.',
-        'هذه قيمة القطر، وليست نصف القطر. نصف القطر يساوي القطر ÷ ٢.',
-        'هذه قيمة ضعف القطر، بينما المطلوب هو نصف القطر: القطر ÷ ٢.'
-    ]
-];
+function getQuestionsForLevel(levelId) {
+    return quizData
+        .map((question, index) => ({ question, index }))
+        .filter(item => item.question.level === levelId)
+        .map(item => item.index);
+}
 
-const quizMisconceptions = [
-    ['اعتقاد أن أي قطعة مستقيمة داخل الدائرة وتر', '', 'خلط بين نصف القطر والقطر'],
-    ['خلط بين القوس والقطعة المستقيمة', '', 'خلط بين الوتر والقطر'],
-    ['اعتبار نصف القطر أطول وتر', 'عدم إدراك أن القطر هو أطول وتر', ''],
-    ['', 'اعتبار الجزء المنحني محيطاً كاملاً', 'خلط بين القوس والوتر'],
-    ['نسي أن القطر يساوي ضعفي نصف القطر', '', 'استخدم القسمة بدل الضرب في علاقة القطر بنصف القطر'],
-    ['خلط بين القطر ونصف القطر', '', 'خلط بين الوتر ونصف القطر'],
-    ['إجابة ناقصة: لم يميز أن الوتر المار بالمركز قطر', 'خلط بين القوس والقطعة المستقيمة', ''],
-    ['خلط بين الوتر والقطر', '', 'خلط بين الوتر ونصف القطر'],
-    ['لم يحسب نصفي القطر داخل القطر', 'أغفل نصف القطر الثالث', ''],
-    ['', 'اعتبر القطر نصف قطر', 'ضاعف القطر بدلاً من قسمته على 2']
-];
+function getAnsweredCount() {
+    return labState.quiz.answers.filter(Boolean).length;
+}
 
-quizData.forEach((question, index) => {
-    question.feedback = quizFeedback[index];
-    question.misconceptions = quizMisconceptions[index];
-});
+function isAssessmentComplete() {
+    return getAnsweredCount() === quizData.length;
+}
 
-function initQuizDOM() {
-    const container = document.getElementById('quiz-questions-container');
-    container.innerHTML = '';
+function getLevelSummary() {
+    const summary = {};
+    levelOrder.forEach(levelId => {
+        const indices = getQuestionsForLevel(levelId);
+        const answers = indices.map(idx => labState.quiz.answers[idx]).filter(Boolean);
+        const correct = answers.filter(a => a.isCorrect).length;
+        summary[levelId] = {
+            title: levelInfo[levelId].title,
+            answered: answers.length,
+            total: indices.length,
+            correct,
+            wrong: answers.length - correct,
+            completed: answers.length === indices.length
+        };
+    });
+    return summary;
+}
 
-    quizData.forEach((q, idx) => {
-        const html = `
-        <div class="question-card" id="q${idx}" style="display: ${idx === 0 ? 'block' : 'none'};">
-            <h3>السؤال ${idx + 1} من ${quizData.length} ${q.shape === 2 ? '(شكل متقدم)' : ''}</h3>
-            <p>${q.text}</p>
-            <div class="options">
-                ${q.options.map((opt, i) => `<button class="option-btn" onclick="checkAnswer(${idx}, ${i}, this)">${opt}</button>`).join('')}
-            </div>
-            <div class="answer-feedback" id="feedback${idx}" aria-live="polite"></div>
-            <button class="next-btn" id="next${idx}" onclick="nextQuestion(${idx})" style="display:none;">${idx === quizData.length - 1 ? 'عرض النتيجة النهائية' : 'السؤال التالي &raquo;'}</button>
-        </div>`;
-        container.innerHTML += html;
+function updateAssessmentProgress() {
+    const answered = getAnsweredCount();
+    const total = quizData.length;
+    const percent = total ? Math.round((answered / total) * 100) : 0;
+    const text = document.getElementById('assessmentProgressText');
+    const bar = document.getElementById('assessmentProgressBar');
+
+    if (text) text.textContent = `${answered} / ${total}`;
+    if (bar) bar.style.width = `${percent}%`;
+}
+
+function getMissingLevelButtonsHtml() {
+    const missing = levelOrder.filter(levelId => {
+        const indices = getQuestionsForLevel(levelId);
+        return indices.some(idx => !labState.quiz.answers[idx]);
     });
 
-    container.innerHTML += `
-        <div class="question-card" id="quiz-completion" style="display:none; text-align: center;">
-            <h2 style="color: #27ae60;">🎉 اكتمل الاختبار!</h2>
-            <div class="score-board">
-                <p>✅ الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
-                <p>❌ الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
-                <p>📊 النسبة: <strong id="percentageScore" style="color: #2980b9;">0%</strong></p>
-            </div>
+    if (!missing.length) return '';
 
-            <div id="submitStatus" class="submit-status pending" aria-live="polite">
-                سيتم إرسال النتيجة إلى لوحة بيانات المعلم بعد إدخال رمز الطالب والشعبة.
-            </div>
-
-            <div class="completion-actions">
-                <button class="start-btn" type="button" onclick="submitLabResults()">إرسال النتيجة للمعلم</button>
-                <button class="ghost-btn" type="button" onclick="retryPendingSubmissions(true)">إعادة إرسال المحفوظ</button>
-                <button class="next-btn" type="button" onclick="location.reload()">إعادة التجربة</button>
-            </div>
+    return `
+        <div class="missing-levels-list">
+            ${missing.map(levelId => `<button class="ghost-btn" type="button" onclick="switchTab('${levelId}')">${levelInfo[levelId].shortTitle}</button>`).join('')}
         </div>`;
 }
 
+function renderLevelQuestionVisual(levelId) {
+    const indices = getQuestionsForLevel(levelId);
+    if (!indices.length) return;
+
+    const visibleIndex = indices.find(idx => {
+        const card = document.getElementById('q' + idx);
+        return card && card.style.display !== 'none';
+    });
+
+    const firstUnanswered = indices.find(idx => !labState.quiz.answers[idx]);
+    const qIndex = typeof visibleIndex === 'number'
+        ? visibleIndex
+        : (typeof firstUnanswered === 'number' ? firstUnanswered : indices[indices.length - 1]);
+
+    currentQuestionIndex = qIndex;
+    const qData = quizData[qIndex];
+
+    if (levelId === 'quiz' && qData && qData.shape) {
+        drawQuizShape(qData.shape, labState.quiz.answers[qIndex] ? qData.hl : null);
+    }
+}
+
+function initQuizDOM() {
+    levelOrder.forEach(levelId => {
+        const info = levelInfo[levelId];
+        const container = document.getElementById(info.containerId);
+        if (!container) return;
+
+        container.innerHTML = '';
+        const indices = getQuestionsForLevel(levelId);
+
+        indices.forEach((qIndex, localIndex) => {
+            const q = quizData[qIndex];
+            const isFirst = localIndex === 0;
+            const isLastInLevel = localIndex === indices.length - 1;
+            const isFinalQuestion = levelId === 'quiz' && isLastInLevel;
+            const nextLabel = isFinalQuestion
+                ? 'عرض النتيجة وإرسالها'
+                : (isLastInLevel ? 'إنهاء أسئلة هذا المستوى' : 'السؤال التالي »');
+
+            const html = `
+                <div class="question-card" id="q${qIndex}" style="display: ${isFirst ? 'block' : 'none'};">
+                    <div class="question-meta">
+                        <span class="question-pill level">${info.shortTitle}</span>
+                        <span class="question-pill">السؤال ${qIndex + 1} من ${quizData.length}</span>
+                        <span class="question-pill">${localIndex + 1} / ${indices.length} في هذا المستوى</span>
+                    </div>
+                    <h3>${q.text}</h3>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `<button class="option-btn" onclick="checkAnswer(${qIndex}, ${i}, this)">${opt}</button>`).join('')}
+                    </div>
+                    <div class="answer-feedback" id="feedback${qIndex}" aria-live="polite"></div>
+                    <button class="next-btn" id="next${qIndex}" onclick="nextQuestion(${qIndex})" style="display:none;">${nextLabel}</button>
+                </div>`;
+            container.innerHTML += html;
+        });
+
+        if (levelId !== 'quiz') {
+            const nextLevel = info.nextLevel;
+            container.innerHTML += `
+                <div class="level-completion-card" id="level-completion-${levelId}">
+                    <h3>✅ أتممت أسئلة ${info.shortTitle}</h3>
+                    <p>أحسنت. انتقل الآن إلى ${levelInfo[nextLevel].shortTitle}.</p>
+                    <button class="next-btn" type="button" onclick="switchTab('${nextLevel}')">الانتقال إلى ${levelInfo[nextLevel].shortTitle}</button>
+                </div>`;
+        } else {
+            container.innerHTML += `
+                <div class="question-card" id="quiz-completion" style="display:none; text-align: center;">
+                    <h2 style="color: #27ae60;">🎉 اكتملت أسئلة التحقق الموزعة!</h2>
+                    <div class="score-board">
+                        <p>✅ الإجابات الصحيحة: <strong id="correctScore" style="color: #27ae60;">0</strong></p>
+                        <p>❌ الإجابات الخاطئة: <strong id="wrongScore" style="color: #e74c3c;">0</strong></p>
+                        <p>📊 النسبة: <strong id="percentageScore" style="color: #2980b9;">0%</strong></p>
+                    </div>
+
+                    <div id="submitStatus" class="submit-status pending" aria-live="polite">
+                        سيتم إرسال النتيجة إلى لوحة بيانات المعلم بعد إكمال جميع أسئلة المستويات وإدخال رمز الطالب والشعبة.
+                    </div>
+
+                    <div id="missingLevelsBox"></div>
+
+                    <div class="completion-actions">
+                        <button class="start-btn" type="button" onclick="submitLabResults()">إرسال النتيجة للمعلم</button>
+                        <button class="ghost-btn" type="button" onclick="retryPendingSubmissions(true)">إعادة إرسال المحفوظ</button>
+                        <button class="next-btn" type="button" onclick="location.reload()">إعادة التجربة</button>
+                    </div>
+                </div>`;
+        }
+    });
+
+    updateAssessmentProgress();
+}
+
+function applyQuestionVisual(qData, answered = false) {
+    if (!qData) return;
+
+    if (qData.focusElement && typeof highlight === 'function') {
+        highlight(qData.focusElement);
+        return;
+    }
+
+    if (qData.exploreAction === 'showDiameter') {
+        angle1 = 0;
+        angle2 = Math.PI;
+        drawExplore();
+        return;
+    }
+
+    if (qData.compassHint) {
+        setCompassFeedback(qData.compassHint, answered ? 'success' : 'info');
+        drawCompass();
+        return;
+    }
+
+    if (qData.shape && typeof drawQuizShape === 'function') {
+        drawQuizShape(qData.shape, answered ? qData.hl : null);
+    }
+}
+
 function drawQuizShape(shapeId, highlightData = null) {
+    if (!qzCtx) return;
+
     qzCtx.clearRect(0, 0, 450, 450);
     const cx = 225;
     const cy = 225;
@@ -1416,6 +1654,7 @@ function drawQuizShape(shapeId, highlightData = null) {
     }
 
     function drawQLine(p1, p2, c = '#bdc3c7', lw = 3) {
+        if (!p1 || !p2) return;
         qzCtx.beginPath();
         qzCtx.moveTo(p1.x, p1.y);
         qzCtx.lineTo(p2.x, p2.y);
@@ -1465,7 +1704,7 @@ function checkAnswer(qIndex, selectedOptionIndex, btn) {
     const correctAnswer = qData.options[qData.correct];
     const explanation = qData.feedback && qData.feedback[selectedOptionIndex]
         ? qData.feedback[selectedOptionIndex]
-        : (isCorrect ? 'إجابة صحيحة.' : 'راجع العنصر المضاء في الرسم وحاول تفسير السبب.');
+        : (isCorrect ? 'إجابة صحيحة.' : 'راجع العنصر المضاء في النشاط وحاول تفسير السبب.');
     const misconception = isCorrect
         ? ''
         : (qData.misconceptions && qData.misconceptions[selectedOptionIndex]
@@ -1492,9 +1731,12 @@ function checkAnswer(qIndex, selectedOptionIndex, btn) {
         }
     }
 
+    const levelTitle = levelInfo[qData.level].title;
     labState.quiz.answers[qIndex] = {
         questionIndex: qIndex + 1,
-        questionText: qData.text,
+        questionLevel: qData.level,
+        questionLevelTitle: levelTitle,
+        questionText: `[${levelTitle}] ${qData.text}`,
         selectedOptionIndex,
         selectedAnswer,
         correctOptionIndex: qData.correct,
@@ -1505,8 +1747,9 @@ function checkAnswer(qIndex, selectedOptionIndex, btn) {
         elapsedAtSecond: elapsedSeconds()
     };
 
-    addLabEvent('quiz_answer', 'quiz', `إجابة السؤال ${qIndex + 1}`, {
+    addLabEvent('quiz_answer', qData.level, `إجابة السؤال ${qIndex + 1}`, {
         questionIndex: qIndex + 1,
+        level: qData.level,
         isCorrect,
         selectedAnswer,
         correctAnswer,
@@ -1517,37 +1760,81 @@ function checkAnswer(qIndex, selectedOptionIndex, btn) {
     feedbackBox.innerHTML = `
         <span class="feedback-title">${isCorrect ? 'أحسنت! إجابة صحيحة ✅' : 'إجابة غير صحيحة، والتفسير هو:'}</span>
         <span>${explanation}</span>
-        ${misconception ? `<span class="mini-rule">التشخيص: ${misconception}</span>` : '<span class="mini-rule">انظر إلى العنصر المضاء في الرسم لتثبيت الفكرة.</span>'}
+        ${misconception ? `<span class="mini-rule">التشخيص: ${misconception}</span>` : '<span class="mini-rule">انظر إلى العنصر المضاء في النشاط لتثبيت الفكرة.</span>'}
     `;
     feedbackBox.className = `answer-feedback show ${isCorrect ? 'correct-feedback' : 'wrong-feedback'}`;
 
-    drawQuizShape(qData.shape, qData.hl);
+    applyQuestionVisual(qData, true);
+    updateAssessmentProgress();
     document.getElementById('next' + qIndex).style.display = 'block';
 }
 
 function nextQuestion(currentIndex) {
-    document.getElementById('q' + currentIndex).style.display = 'none';
+    const qData = quizData[currentIndex];
+    const levelId = qData.level;
+    const levelQuestions = getQuestionsForLevel(levelId);
+    const localIndex = levelQuestions.indexOf(currentIndex);
+    const currentCard = document.getElementById('q' + currentIndex);
+    if (currentCard) currentCard.style.display = 'none';
 
-    if (currentIndex + 1 < quizData.length) {
-        currentQuestionIndex = currentIndex + 1;
-        document.getElementById('q' + (currentIndex + 1)).style.display = 'block';
-        drawQuizShape(quizData[currentIndex + 1].shape);
-    } else {
-        currentQuestionIndex = currentIndex;
-        document.getElementById('quiz-completion').style.display = 'block';
-        document.getElementById('correctScore').textContent = correctScore;
-        document.getElementById('wrongScore').textContent = wrongScore;
-        const percentage = Math.round((correctScore / quizData.length) * 100);
-        document.getElementById('percentageScore').textContent = `${percentage}%`;
+    if (localIndex + 1 < levelQuestions.length) {
+        const nextIndex = levelQuestions[localIndex + 1];
+        currentQuestionIndex = nextIndex;
+        const nextCard = document.getElementById('q' + nextIndex);
+        if (nextCard) nextCard.style.display = 'block';
+        applyQuestionVisual(quizData[nextIndex], false);
+        return;
+    }
 
-        addLabEvent('quiz_completed', 'quiz', 'اكتمل الاختبار', {
-            score: correctScore,
-            wrong: wrongScore,
-            total: quizData.length,
-            percentage
-        });
+    if (levelId !== 'quiz') {
+        const completion = document.getElementById('level-completion-' + levelId);
+        if (completion) completion.style.display = 'block';
+        addLabEvent('level_questions_completed', levelId, `اكتملت أسئلة ${levelInfo[levelId].shortTitle}`, getLevelSummary()[levelId]);
+        updateAssessmentProgress();
+        return;
+    }
 
+    finishDistributedAssessment();
+}
+
+function finishDistributedAssessment() {
+    const completion = document.getElementById('quiz-completion');
+    if (completion) completion.style.display = 'block';
+
+    const answered = getAnsweredCount();
+    const total = quizData.length;
+    const percentage = total ? Math.round((correctScore / total) * 100) : 0;
+
+    const correctEl = document.getElementById('correctScore');
+    const wrongEl = document.getElementById('wrongScore');
+    const percentageEl = document.getElementById('percentageScore');
+    const missingBox = document.getElementById('missingLevelsBox');
+
+    if (correctEl) correctEl.textContent = correctScore;
+    if (wrongEl) wrongEl.textContent = wrongScore;
+    if (percentageEl) percentageEl.textContent = `${percentage}%`;
+
+    if (missingBox) {
+        missingBox.innerHTML = answered < total
+            ? `<div class="submit-status error">أجبت عن ${answered} من ${total}. أكمل أسئلة المستويات الناقصة قبل الإرسال.${getMissingLevelButtonsHtml()}</div>`
+            : '';
+    }
+
+    addLabEvent('distributed_assessment_completed', 'summary', 'اكتملت أسئلة التحقق الموزعة', {
+        score: correctScore,
+        wrong: wrongScore,
+        answered,
+        total,
+        percentage,
+        levelSummary: getLevelSummary()
+    });
+
+    updateAssessmentProgress();
+
+    if (answered === total) {
         submitLabResults();
+    } else {
+        setSubmitStatus('لم يتم إرسال النتيجة بعد؛ أكمل أسئلة التحقق في المستويات الناقصة أولاً.', 'error');
     }
 }
 
@@ -1556,6 +1843,6 @@ function nextQuestion(currentIndex) {
 // ==========================================
 loadSavedIdentity();
 initQuizDOM();
-drawQuizShape(quizData[0].shape);
-addLabEvent('lab_loaded', 'general', 'تم تحميل مختبر هندسة الدائرة');
+renderLevelQuestionVisual('identify');
+addLabEvent('lab_loaded', 'general', 'تم تحميل مختبر هندسة الدائرة بنظام أسئلة موزعة على المستويات');
 retryPendingSubmissions(false);
