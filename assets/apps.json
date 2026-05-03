@@ -66,11 +66,11 @@
   {
     "id": "slope-intercept",
     "title": "الميل و التقاطع",
-    "grades": [7,8,9],
-    "tags": ["خط مستقيم", "معادلات"],
-    "path": "apps/slope-intercept/index.html",
-    "thumb": "images/thumbs/placeholder.jpg",
-    "desc": "استكشاف y=mx+b وتغير الميل والتقاطع."
+    "grades": [5,6],
+    "tags": ["الدائرة", "عناصر الدائرة"],
+    "path": "apps/circle-lab/Circle_Lab.html",
+    "thumb": "images/thumbs/Circle_Lab.jpg",
+    "desc": "استكشاف عناصر الدائرة، والفرق بين الوتر والقطر"
   },
   {
   "id": "plane-geometry-solutions",
