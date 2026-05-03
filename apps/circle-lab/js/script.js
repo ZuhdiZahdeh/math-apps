@@ -6,7 +6,7 @@ const LAB_CONFIG = {
     labVersion: '1.1.0-google-sheets',
 
     // ضع هنا رابط Apps Script Web App بعد النشر، ويجب أن ينتهي غالباً بـ /exec
-    webAppUrl: 'ضع_رابط_Apps_Script_Web_App_هنا',
+    webAppUrl: 'AKfycbwaoYmAy0W7Gza42tJBg7iZtmaCdSaopuIYepKIgDY',
 
     // يجب أن يطابق قيمة Script Property باسم LAB_SECRET في Apps Script
     token: 'circle-lab-2026',
