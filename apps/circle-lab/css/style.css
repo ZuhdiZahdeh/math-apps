@@ -720,3 +720,169 @@ canvas {
         width: 100%;
     }
 }
+
+
+/* =========================================
+   أسئلة التحقق الموزعة على المستويات
+   ========================================= */
+.assessment-progress-panel {
+    background: #f8fbff;
+    border: 2px solid #e8f4fd;
+    border-radius: 12px;
+    padding: 13px 16px;
+    margin: -5px 0 22px;
+    text-align: right;
+}
+
+.assessment-progress-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.assessment-progress-track {
+    height: 12px;
+    background: #ecf0f1;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.assessment-progress-track span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--success);
+    border-radius: 999px;
+    transition: width 0.25s ease;
+}
+
+.assessment-progress-note {
+    margin: 9px 0 0;
+    color: #747d8c;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.level-check-section {
+    margin-top: 22px;
+    padding: 18px;
+    border: 2px solid #ecf0f1;
+    border-radius: 15px;
+    background: #fdfdfd;
+    text-align: right;
+}
+
+.level-check-header {
+    text-align: right;
+    margin-bottom: 14px;
+}
+
+.final-check-header {
+    background: #f8fbff;
+    border: 2px solid #e8f4fd;
+    border-radius: 15px;
+    padding: 16px 18px;
+}
+
+.level-check-header h2 {
+    margin: 8px 0 6px;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.level-check-header p {
+    margin: 0;
+    color: #747d8c;
+    line-height: 1.7;
+    font-weight: bold;
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8f4fd;
+    color: var(--accent);
+    border: 1px solid #d6eaf8;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.level-questions-container {
+    display: block;
+}
+
+.level-check-section .question-card,
+.quiz-questions-section .question-card {
+    background: #ffffff;
+    border: 1px solid #ecf0f1;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.question-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.question-pill {
+    display: inline-flex;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f1f2f6;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.question-pill.level {
+    background: #e8f4fd;
+    color: var(--accent);
+}
+
+.level-completion-card {
+    display: none;
+    background: #eafaf1;
+    border: 2px solid var(--success);
+    color: #1e8449;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    line-height: 1.7;
+    font-weight: bold;
+}
+
+.level-completion-card h3 {
+    margin-top: 0;
+}
+
+.missing-levels-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.missing-levels-list button {
+    width: auto;
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .assessment-progress-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .level-check-section {
+        padding: 14px;
+    }
+}
