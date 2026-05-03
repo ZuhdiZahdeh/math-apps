@@ -703,18 +703,24 @@ const compassFeedback = document.getElementById('compassFeedback');
 const compassProgressText = document.getElementById('compassProgressText');
 const compassProgressBar = document.getElementById('compassProgressBar');
 
-const compassScale = 35;
-const compassBinsCount = 144;
+// كل مربع كبير في الشبكة = 1 سم.
+// كل مربع كبير مقسم إلى 4 مربعات صغيرة للمساعدة على الدقة البصرية.
+const compassScale = 40;
+const compassSubDivisions = 4;
+const compassMinorStep = compassScale / compassSubDivisions;
+const compassBinsCount = 180;
 const compassCompletionThreshold = 0.98;
-const compassMissionRadii = [4, 3, 5, 6, 3.5, 4.5, 5.5];
+
+// أنصاف أقطار صحيحة حتى يستطيع الطالب عدّ المربعات الكبيرة بسهولة.
+const compassMissionRadii = [4, 3, 5, 6];
 let compassMissionIndex = 0;
 let compassTargetRadius = compassMissionRadii[compassMissionIndex];
 let compassAutoAnimation = null;
 let compassPointerId = null;
 
 const compassState = {
-    targetCenter: { x: 300, y: 260 },
-    center: { x: 300, y: 260 },
+    targetCenter: { x: 320, y: 280 },
+    center: { x: 320, y: 280 },
     centerPlaced: false,
     openingCm: 2,
     fixed: false,
@@ -731,6 +737,17 @@ function isCompassOpeningCorrect() {
 
 function compassOpeningPixels() {
     return compassState.openingCm * compassScale;
+}
+
+function snapToCompassGrid(pos) {
+    return {
+        x: Math.round(pos.x / compassScale) * compassScale,
+        y: Math.round(pos.y / compassScale) * compassScale
+    };
+}
+
+function isNearPoint(p1, p2, tolerance = 24) {
+    return Math.hypot(p1.x - p2.x, p1.y - p2.y) <= tolerance;
 }
 
 function setCompassFeedback(message, type = 'info') {
@@ -769,27 +786,55 @@ function updateCompassSteps() {
 function drawCompassGrid(ctx) {
     const w = compassCanvas.width;
     const h = compassCanvas.height;
+
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, w, h);
 
     ctx.save();
-    ctx.strokeStyle = '#eef3f6';
+
+    // الشبكة الدقيقة: مربعات صغيرة داخل كل 1 سم.
+    ctx.strokeStyle = '#f0f5f7';
     ctx.lineWidth = 1;
+    for (let x = 0; x <= w; x += compassMinorStep) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+    }
+    for (let y = 0; y <= h; y += compassMinorStep) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+    }
+
+    // الشبكة الرئيسة: كل مربع كبير = 1 سم.
+    ctx.strokeStyle = '#cfd8dc';
+    ctx.lineWidth = 2;
     for (let x = 0; x <= w; x += compassScale) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
     }
     for (let y = 0; y <= h; y += compassScale) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
     }
-    ctx.strokeStyle = '#dfe6e9';
-    ctx.lineWidth = 2;
-    for (let x = compassScale; x <= w; x += compassScale * 2) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+
+    // نقاط تقاطع الشبكة الرئيسة لتوضيح مكان تثبيت المركز.
+    ctx.fillStyle = 'rgba(44, 62, 80, 0.12)';
+    for (let x = 0; x <= w; x += compassScale) {
+        for (let y = 0; y <= h; y += compassScale) {
+            ctx.beginPath();
+            ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
-    for (let y = compassScale; y <= h; y += compassScale * 2) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-    }
+
     ctx.restore();
 }
 
@@ -829,18 +874,28 @@ function drawCompassMissionHeader(ctx) {
 function drawCompassTargetCenter(ctx) {
     const c = compassState.targetCenter;
     ctx.save();
+
+    // إبراز تقاطع الشبكة الذي يجب أن يثبت عليه مركز الدائرة.
+    ctx.strokeStyle = 'rgba(231, 76, 60, 0.45)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(c.x - compassScale / 2, c.y); ctx.lineTo(c.x + compassScale / 2, c.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(c.x, c.y - compassScale / 2); ctx.lineTo(c.x, c.y + compassScale / 2); ctx.stroke();
+
     ctx.setLineDash([7, 7]);
     ctx.strokeStyle = '#e74c3c';
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.arc(c.x, c.y, 18, 0, Math.PI * 2); ctx.stroke();
     ctx.setLineDash([]);
+
     ctx.fillStyle = '#e74c3c';
-    ctx.beginPath(); ctx.arc(c.x, c.y, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(c.x, c.y, 5, 0, Math.PI * 2); ctx.fill();
+
     ctx.fillStyle = '#2c3e50';
     ctx.font = 'bold 24px Arial';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'bottom';
     ctx.fillText('م', c.x - 14, c.y - 12);
+
     ctx.restore();
 }
 
@@ -938,18 +993,85 @@ function drawCompassTool(ctx) {
 
 function drawCompassCheck(ctx) {
     if (!compassState.completed) return;
+
     const c = compassState.center;
     const rPx = compassOpeningPixels();
+    const w = compassCanvas.width;
+    const h = compassCanvas.height;
+
     ctx.save();
-    ctx.fillStyle = 'rgba(39, 174, 96, 0.12)';
-    ctx.beginPath(); ctx.arc(c.x, c.y, rPx, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = systemColors.radius;
+
+    // تلوين خفيف داخل الدائرة بعد اكتمالها.
+    ctx.fillStyle = 'rgba(39, 174, 96, 0.10)';
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, rPx, 0, Math.PI * 2);
+    ctx.fill();
+
+    // نصف قطر أفقي واضح لليمين حتى يستطيع الطالب عدّ المربعات.
+    const endX = c.x + rPx;
+    const endY = c.y;
+
+    ctx.strokeStyle = '#27ae60';
     ctx.lineWidth = 4;
-    ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x + rPx, c.y); ctx.stroke();
-    ctx.fillStyle = systemColors.radius;
-    ctx.font = 'bold 18px Arial';
+    ctx.beginPath();
+    ctx.moveTo(c.x, c.y);
+    ctx.lineTo(endX, endY);
+    ctx.stroke();
+
+    // نقطة المركز ونقطة نهاية نصف القطر.
+    ctx.fillStyle = '#e74c3c';
+    ctx.beginPath(); ctx.arc(c.x, c.y, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#27ae60';
+    ctx.beginPath(); ctx.arc(endX, endY, 7, 0, Math.PI * 2); ctx.fill();
+
+    // علامات عدّ المربعات الكبيرة: 1، 2، 3 ...
+    ctx.strokeStyle = '#2c3e50';
+    ctx.lineWidth = 2;
+    ctx.fillStyle = '#2c3e50';
+    ctx.font = 'bold 14px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText(`التحقق: كل نقطة على الدائرة تبعد ${compassTargetRadius} سم عن م`, c.x, c.y + rPx + 28);
+    ctx.textBaseline = 'top';
+
+    for (let i = 1; i <= compassTargetRadius; i++) {
+        const x = c.x + i * compassScale;
+        ctx.beginPath();
+        ctx.moveTo(x, c.y - 11);
+        ctx.lineTo(x, c.y + 11);
+        ctx.stroke();
+        ctx.fillText(String(i), x, c.y + 18);
+    }
+
+    // مربع نص داخلي لا يخرج من حدود اللوحة، حتى في مهمة نصف قطرها 6 سم.
+    const boxWidth = Math.min(520, w - 40);
+    const boxHeight = 56;
+    const boxX = (w - boxWidth) / 2;
+    const preferredY = c.y + rPx + 22;
+    const boxY = preferredY + boxHeight < h
+        ? preferredY
+        : Math.max(72, Math.min(h - boxHeight - 16, c.y + rPx - 76));
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+    ctx.strokeStyle = 'rgba(39, 174, 96, 0.50)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    if (typeof ctx.roundRect === 'function') {
+        ctx.roundRect(boxX, boxY, boxWidth, boxHeight, 10);
+    } else {
+        ctx.rect(boxX, boxY, boxWidth, boxHeight);
+    }
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#27ae60';
+    ctx.font = 'bold 17px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`التحقق: عدّ ${compassTargetRadius} مربعات كبيرة من م إلى محيط الدائرة`, w / 2, boxY + 19);
+
+    ctx.fillStyle = '#2c3e50';
+    ctx.font = 'bold 15px Arial';
+    ctx.fillText(`كل مربع كبير = 1 سم ← إذن نصف القطر = ${compassTargetRadius} سم`, w / 2, boxY + 41);
+
     ctx.restore();
 }
 
@@ -1003,7 +1125,7 @@ function completeCompassCircle() {
         targetRadiusCm: compassTargetRadius,
         attempts: labState.compass.attempts
     });
-    setCompassFeedback(`اكتملت الدائرة! الفتحة بقيت ثابتة، ونصف القطر = ${compassTargetRadius} سم.`, 'success');
+    setCompassFeedback(`اكتملت الدائرة! يمكنك الآن عدّ ${compassTargetRadius} مربعات كبيرة من المركز م إلى المحيط للتحقق من نصف القطر.`, 'success');
 }
 
 function markCompassAngle(angle) {
@@ -1039,16 +1161,25 @@ function handleCompassPointerDown(e) {
     const target = compassState.targetCenter;
 
     if (!compassState.centerPlaced) {
-        const d = Math.hypot(pos.x - target.x, pos.y - target.y);
-        if (d <= 45) {
+        const snappedPos = snapToCompassGrid(pos);
+
+        if (isNearPoint(snappedPos, target, 24)) {
             compassState.centerPlaced = true;
-            compassState.center = { ...target };
-            addLabEvent('compass_center_placed', 'compass', 'حدد الطالب المركز م');
-            setCompassFeedback('تم تحديد المركز م. الآن اضبط فتحة الفرجار لتساوي نصف القطر المطلوب.', 'success');
+            compassState.center = { ...target }; // تثبيت المركز تماماً على تقاطع الشبكة الرئيسة.
+            addLabEvent('compass_center_placed', 'compass', 'حدد الطالب المركز م على تقاطع الشبكة', {
+                snappedX: snappedPos.x,
+                snappedY: snappedPos.y
+            });
+            setCompassFeedback('أحسنت! تم تثبيت المركز م على نقطة تقاطع في الشبكة. الآن اضبط فتحة الفرجار على نصف القطر المطلوب.', 'success');
         } else {
             labState.compass.centerMisses++;
-            addLabEvent('compass_center_miss', 'compass', 'ضغط بعيداً عن المركز');
-            setCompassFeedback('حاول أن تضغط على النقطة المعلّمة م؛ سن الفرجار يجب أن يبدأ من المركز.', 'warning');
+            addLabEvent('compass_center_miss', 'compass', 'لم يحدد الطالب المركز على نقطة التقاطع الصحيحة', {
+                snappedX: snappedPos.x,
+                snappedY: snappedPos.y,
+                targetX: target.x,
+                targetY: target.y
+            });
+            setCompassFeedback('اضغط على النقطة م عند تقاطع الشبكة الأحمر؛ يجب أن يكون المركز مثبتاً على تقاطع واضح.', 'warning');
         }
         drawCompass();
         return;
@@ -1254,6 +1385,10 @@ if (compassCanvas) {
     compassCanvas.addEventListener('pointerleave', handleCompassPointerUp);
 }
 if (compassRadiusSlider) {
+    compassRadiusSlider.min = '1';
+    compassRadiusSlider.max = '8';
+    compassRadiusSlider.step = '1';
+    compassRadiusSlider.value = String(compassState.openingCm);
     compassRadiusSlider.addEventListener('input', updateCompassOpeningFromSlider);
 }
 if (compassTargetVal) compassTargetVal.textContent = compassTargetRadius.toString();
