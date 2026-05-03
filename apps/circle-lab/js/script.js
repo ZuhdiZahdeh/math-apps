@@ -6,7 +6,7 @@ const LAB_CONFIG = {
     labVersion: '1.2.0-distributed-questions',
 
     // ضع هنا رابط Apps Script Web App بعد النشر، ويجب أن ينتهي غالباً بـ /exec
-    webAppUrl: 'ضع_رابط_Apps_Script_Web_App_هنا',
+    webAppUrl: 'https://script.google.com/macros/s/AKfycbxTMtpl4A1lnRMt8fYT-0SoB3_2ai4wyaY9H3rc1f5dA6Gon0tNZ0rr_9MfU6Gtw-DM/exec',
 
     // يجب أن يطابق قيمة Script Property باسم LAB_SECRET في Apps Script
     token: 'circle-lab-2026',
