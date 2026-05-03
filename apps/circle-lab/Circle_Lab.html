@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مختبر تطبيقات الرياضيات - الدائرة</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
@@ -36,8 +36,18 @@
             <button class="tab-btn active" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
             <button class="tab-btn" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
             <button class="tab-btn" onclick="switchTab('compass')">المستوى 3: الفرجار الرقمي</button>
-            <button class="tab-btn" onclick="switchTab('quiz')">المستوى 4: اختبر معلوماتك</button>
+            <button class="tab-btn" onclick="switchTab('quiz')">المستوى 4: التقييم الختامي</button>
         </nav>
+        <section class="assessment-progress-panel" aria-label="تقدم أسئلة التحقق">
+            <div class="assessment-progress-top">
+                <strong>تقدم أسئلة التحقق الموزعة</strong>
+                <span id="assessmentProgressText">0 / 10</span>
+            </div>
+            <div class="assessment-progress-track" aria-hidden="true">
+                <span id="assessmentProgressBar"></span>
+            </div>
+            <p class="assessment-progress-note">أجب عن بطاقة التحقق في كل مستوى؛ تجمع لوحة المعلم النتائج والتشخيص عند إكمال جميع المستويات.</p>
+        </section>
     </header>
 
     <main>
@@ -56,6 +66,14 @@
                     <button class="list-btn" onclick="highlight('circumference')">المحيط</button>
                 </div>
             </div>
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الأول">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 1</span>
+                    <h2>أسئلة قصيرة بعد استكشاف العناصر</h2>
+                    <p>تأكد من فهمك للمركز، نصف القطر، والقوس قبل الانتقال.</p>
+                </div>
+                <div class="level-questions-container" id="identify-questions-container"></div>
+            </section>
         </section>
 
         <section id="explore-mode" class="mode-container" aria-label="تحدي القطر والوتر">
@@ -83,6 +101,14 @@
                     <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
                 </div>
             </div>
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثاني">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 2</span>
+                    <h2>أسئلة بعد تحدي القطر والوتر</h2>
+                    <p>حرّك النقطتين ولاحظ متى يصبح الوتر قطراً، ثم أجب عن الأسئلة.</p>
+                </div>
+                <div class="level-questions-container" id="explore-questions-container"></div>
+            </section>
         </section>
 
         <section id="compass-mode" class="mode-container" aria-label="الفرجار الرقمي">
@@ -123,9 +149,22 @@
                     </div>
                 </div>
             </div>
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثالث">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 3</span>
+                    <h2>أسئلة بعد الفرجار الرقمي</h2>
+                    <p>طبّق فكرة أن فتحة الفرجار تمثل نصف القطر، ثم أجب عن الأسئلة.</p>
+                </div>
+                <div class="level-questions-container" id="compass-questions-container"></div>
+            </section>
         </section>
 
-        <section id="quiz-mode" class="mode-container" aria-label="اختبار عناصر الدائرة">
+        <section id="quiz-mode" class="mode-container" aria-label="التقييم الختامي">
+            <section class="level-check-header final-check-header" aria-label="تعليمات التقييم الختامي">
+                <span class="level-badge">تحقق المستوى 4</span>
+                <h2>التقييم الختامي</h2>
+                <p>أجب عن السؤالين الختاميين بعد إكمال بطاقات التحقق في المستويات السابقة.</p>
+            </section>
             <div class="quiz-layout">
                 <div class="quiz-canvas-section">
                     <canvas id="quizCanvas" width="450" height="450"></canvas>
@@ -139,6 +178,6 @@
 <audio id="successSound"><source src="../audio/success/applause.mp3" type="audio/mpeg"></audio>
 <audio id="failSound"><source src="../audio/fail/fail_toolMatch_b.mp3" type="audio/mpeg"></audio>
 
-<script src="js/script.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>
