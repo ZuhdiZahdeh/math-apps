@@ -68,7 +68,7 @@
     "title": "مختبر هندسة الدائرة",
     "grades": [5,6],
     "tags": ["الدائرة", "عناصر الدائرة"],
-    "path": "apps/circle-lab/Circle_Lab.html",
+    "path": "apps/circle-lab/index.html",
     "thumb": "images/thumbs/Circle_Lab.png",
     "desc": "استكشاف عناصر الدائرة، والفرق بين الوتر والقطر"
   },
