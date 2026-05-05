@@ -491,6 +491,34 @@ h1 {
   font-size: clamp(1.6rem, 3vw, 2.5rem);
 }
 
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eaf0fb;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  outline: none;
+  background: #dfe8f8;
+}
+
+.completion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
 @media (max-width: 900px) {
   .hero,
   .stage-header,

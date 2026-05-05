@@ -917,6 +917,7 @@ canvas {
     border: none;
 }
 
+.tab-btn.matching-open-btn.ready-matching,
 .tab-btn.memory-open-btn.ready-memory {
     background: linear-gradient(135deg, #7c3aed, #2563eb);
     color: #ffffff;
