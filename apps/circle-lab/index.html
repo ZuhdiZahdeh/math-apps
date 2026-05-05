@@ -38,13 +38,13 @@
         </section>
 
         <nav class="tabs" aria-label="مستويات المختبر">
-            <button class="tab-btn active" type="button" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
-            <button class="tab-btn" type="button" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
-            <button class="tab-btn" type="button" onclick="switchTab('compass')">المستوى 3: الفرجار الرقمي</button>
-            <button class="tab-btn" type="button" onclick="switchTab('quiz')">المستوى 4: التقييم الختامي</button>
+            <button class="tab-btn active" type="button" data-tab-id="identify" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
+            <button class="tab-btn locked" type="button" data-tab-id="explore" onclick="switchTab('explore')" disabled>المستوى 2: تحدي القطر والوتر</button>
+            <button class="tab-btn locked" type="button" data-tab-id="compass" onclick="switchTab('compass')" disabled>المستوى 3: الفرجار الرقمي</button>
+            <button class="tab-btn locked" type="button" data-tab-id="quiz" onclick="switchTab('quiz')" disabled>المستوى 4: التقييم الختامي</button>
 
             <!-- زر لعبة الذاكرة مدمج مع أزرار التطبيق -->
-            <button class="tab-btn memory-open-btn" type="button" id="btnOpenMemoryGame">
+            <button class="tab-btn memory-open-btn gate-hidden locked" type="button" id="btnOpenMemoryGame" disabled aria-disabled="true">
                 🧠 لعبة الذاكرة
             </button>
         </nav>
