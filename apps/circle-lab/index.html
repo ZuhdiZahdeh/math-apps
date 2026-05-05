@@ -8,8 +8,7 @@
     <!-- تنسيق التطبيق الأساسي -->
     <link rel="stylesheet" href="./css/style.css">
 
-    <!-- تنسيق لعبة الذاكرة -->
-    <link rel="stylesheet" href="./css/memory-game.css">
+    <!-- لعبة المطابقة تعمل في صفحة مستقلة: matching-game.html -->
 </head>
 
 <body>
@@ -43,9 +42,9 @@
             <button class="tab-btn locked" type="button" data-tab-id="compass" onclick="switchTab('compass')" disabled>المستوى 3: الفرجار الرقمي</button>
             <button class="tab-btn locked" type="button" data-tab-id="quiz" onclick="switchTab('quiz')" disabled>المستوى 4: التقييم الختامي</button>
 
-            <!-- زر لعبة الذاكرة مدمج مع أزرار التطبيق -->
-            <button class="tab-btn memory-open-btn gate-hidden locked" type="button" id="btnOpenMemoryGame" disabled aria-disabled="true">
-                🧠 لعبة الذاكرة
+            <!-- زر لعبة المطابقة التعليمية المكشوفة مدمج مع أزرار التطبيق -->
+            <button class="tab-btn matching-open-btn gate-hidden locked" type="button" id="btnOpenMatchingGame" onclick="openMatchingGame()" disabled aria-disabled="true">
+                🧩 مطابقة عناصر الدائرة
             </button>
         </nav>
 
@@ -219,7 +218,6 @@
 <!-- سكربت التطبيق الأساسي -->
 <script src="./js/script.js"></script>
 
-<!-- سكربت لعبة الذاكرة -->
-<script src="./js/memory-game.js"></script>
+<!-- لعبة المطابقة تعمل من صفحة مستقلة عبر الزر: matching-game.html -->
 </body>
 </html>
