@@ -886,3 +886,54 @@ canvas {
         padding: 14px;
     }
 }
+
+
+/* =========================================
+   نظام قفل التنقل للحصة التقييمية
+   ========================================= */
+.tab-btn.locked,
+.tab-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background: #e5e7eb;
+    color: #64748b;
+    box-shadow: none;
+}
+
+.tab-btn.locked:hover,
+.tab-btn:disabled:hover {
+    background: #e5e7eb;
+}
+
+.tab-btn.completed-level {
+    background: #eafaf1;
+    color: #1e8449;
+    border: 1px solid #b7e4c7;
+}
+
+.tab-btn.completed-level.active {
+    background: var(--accent);
+    color: white;
+    border: none;
+}
+
+.tab-btn.memory-open-btn.ready-memory {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: #ffffff;
+}
+
+.gate-hidden {
+    display: none !important;
+}
+
+.navigation-lock-note {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #fff7e8;
+    border: 1px solid #f6c96f;
+    color: #8a4b08;
+    font-weight: bold;
+    line-height: 1.7;
+    text-align: center;
+}
