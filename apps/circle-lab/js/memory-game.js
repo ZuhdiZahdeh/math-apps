@@ -148,6 +148,13 @@
   }
 
   function openGame() {
+    if (typeof window.isMemoryGameUnlocked === "function" && !window.isMemoryGameUnlocked()) {
+      if (typeof window.showLockedNavigationMessage === "function") {
+        window.showLockedNavigationMessage("memory");
+      }
+      return;
+    }
+
     state.overlay.classList.add("is-open");
     state.overlay.setAttribute("aria-hidden", "false");
 

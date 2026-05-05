@@ -444,8 +444,14 @@ window.addEventListener('online', () => retryPendingSubmissions(false));
 // 1. نظام التبويبات
 // ==========================================
 function switchTab(tabId) {
+    if (typeof isLevelUnlocked === 'function' && !isLevelUnlocked(tabId)) {
+        showLockedNavigationMessage(tabId);
+        updateNavigationLocks();
+        return;
+    }
+
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    const activeBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+    const activeBtn = document.querySelector(`.tab-btn[data-tab-id="${tabId}"]`) || document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
     if (activeBtn) activeBtn.classList.add('active');
 
     document.querySelectorAll('.mode-container').forEach(container => container.classList.remove('active-mode'));
@@ -464,6 +470,7 @@ function switchTab(tabId) {
         updateAssessmentProgress();
     }
 
+    updateNavigationLocks();
     addLabEvent('level_open', tabId, `فتح المستوى: ${tabId}`);
 }
 
@@ -1449,6 +1456,94 @@ const levelInfo = {
     }
 };
 
+
+// ==========================================
+// 5.1 نظام قفل التنقل للحصة التقييمية
+// ==========================================
+function isLevelQuestionsComplete(levelId) {
+    if (typeof getQuestionsForLevel !== 'function') return false;
+    const indices = getQuestionsForLevel(levelId);
+    if (!indices.length) return false;
+    return indices.every(idx => Boolean(labState.quiz.answers[idx]));
+}
+
+function isLevelUnlocked(tabId) {
+    if (tabId === 'identify') return true;
+    if (tabId === 'explore') return isLevelQuestionsComplete('identify');
+    if (tabId === 'compass') return isLevelQuestionsComplete('explore');
+    if (tabId === 'quiz') return isLevelQuestionsComplete('compass');
+    return true;
+}
+
+function isMemoryGameUnlocked() {
+    return isLevelQuestionsComplete('explore');
+}
+
+function getLockedReason(tabId) {
+    const reasons = {
+        explore: 'أكمل أسئلة تحقق المستوى الأول أولاً، ثم سيفتح مستوى تحدي القطر والوتر.',
+        compass: 'أكمل أسئلة تحقق المستوى الثاني أولاً. بعد ذلك تظهر لعبة الذاكرة كنشاط تثبيت، ويفتح الفرجار الرقمي.',
+        quiz: 'أكمل أسئلة تحقق المستوى الثالث أولاً، ثم يفتح التقييم الختامي.',
+        memory: 'لعبة الذاكرة ستظهر بعد إنهاء المستوى الثاني؛ لتكون نشاط تثبيت لا نشاطاً مفتوحاً من البداية.'
+    };
+    return reasons[tabId] || 'هذا الجزء مقفل حتى تنهي المهمة السابقة.';
+}
+
+function showLockedNavigationMessage(tabId) {
+    const info = document.getElementById('sessionInfo');
+    const message = getLockedReason(tabId);
+    if (info) {
+        info.textContent = message;
+        info.style.color = '#8a4b08';
+    } else {
+        alert(message);
+    }
+    addLabEvent('locked_navigation_attempt', 'navigation', message, { requestedTab: tabId });
+}
+
+function updateNavigationLocks() {
+    document.querySelectorAll('.tab-btn[data-tab-id]').forEach(btn => {
+        const tabId = btn.dataset.tabId;
+        const baseLabel = btn.dataset.baseLabel || btn.textContent.replace(/^✅\s*/, '').replace(/^🔒\s*/, '').trim();
+        btn.dataset.baseLabel = baseLabel;
+
+        const unlocked = isLevelUnlocked(tabId);
+        const completed = isLevelQuestionsComplete(tabId);
+
+        btn.disabled = !unlocked;
+        btn.setAttribute('aria-disabled', String(!unlocked));
+        btn.classList.toggle('locked', !unlocked);
+        btn.classList.toggle('completed-level', unlocked && completed);
+        btn.title = unlocked ? '' : getLockedReason(tabId);
+
+        if (!unlocked) {
+            btn.textContent = `🔒 ${baseLabel}`;
+        } else if (completed) {
+            btn.textContent = `✅ ${baseLabel}`;
+        } else {
+            btn.textContent = baseLabel;
+        }
+    });
+
+    const memoryBtn = document.getElementById('btnOpenMemoryGame');
+    if (memoryBtn) {
+        const unlocked = isMemoryGameUnlocked();
+        const baseLabel = memoryBtn.dataset.baseLabel || memoryBtn.textContent.replace(/^✅\s*/, '').replace(/^🔒\s*/, '').trim();
+        memoryBtn.dataset.baseLabel = baseLabel;
+
+        memoryBtn.disabled = !unlocked;
+        memoryBtn.setAttribute('aria-disabled', String(!unlocked));
+        memoryBtn.classList.toggle('locked', !unlocked);
+        memoryBtn.classList.toggle('gate-hidden', !unlocked);
+        memoryBtn.classList.toggle('ready-memory', unlocked);
+        memoryBtn.title = unlocked ? 'نشاط تثبيت بعد المستوى الثاني' : getLockedReason('memory');
+        memoryBtn.textContent = unlocked ? `🧠 نشاط تثبيت: لعبة الذاكرة` : baseLabel;
+    }
+}
+
+window.isMemoryGameUnlocked = isMemoryGameUnlocked;
+window.showLockedNavigationMessage = showLockedNavigationMessage;
+
 // المصفوفة التالية موزعة تربوياً على المستويات الأربعة بدلاً من تجميعها في مستوى واحد.
 // يظل رقم السؤال عالمياً حتى تصل النتائج إلى Google Sheets كسجل تشخيصي واحد.
 const quizData = [
@@ -1917,6 +2012,7 @@ function checkAnswer(qIndex, selectedOptionIndex, btn) {
 
     applyQuestionVisual(qData, true);
     updateAssessmentProgress();
+    updateNavigationLocks();
     document.getElementById('next' + qIndex).style.display = 'block';
 }
 
@@ -1942,6 +2038,7 @@ function nextQuestion(currentIndex) {
         if (completion) completion.style.display = 'block';
         addLabEvent('level_questions_completed', levelId, `اكتملت أسئلة ${levelInfo[levelId].shortTitle}`, getLevelSummary()[levelId]);
         updateAssessmentProgress();
+        updateNavigationLocks();
         return;
     }
 
@@ -1994,6 +2091,7 @@ function finishDistributedAssessment() {
 // ==========================================
 loadSavedIdentity();
 initQuizDOM();
+updateNavigationLocks();
 renderLevelQuestionVisual('identify');
 addLabEvent('lab_loaded', 'general', 'تم تحميل مختبر هندسة الدائرة بنظام أسئلة موزعة على المستويات');
 retryPendingSubmissions(false);
