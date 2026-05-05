@@ -316,7 +316,7 @@
 
     wrongMatches++;
     lockBoard = true;
-    playSound("failSound");
+ 
 
     const hint = first.wrongHint || second.wrongHint || "حاول مرة أخرى، وابحث عن العلاقة الصحيحة.";
     showMessage(hint, "info");
