@@ -104,6 +104,7 @@
   font-weight: 800;
   background: #e0f2fe;
   color: #075985;
+  font-family: inherit;
 }
 
 .memory-level-btn.is-active {
@@ -153,6 +154,7 @@
   font-weight: 800;
   background: #0f766e;
   color: white;
+  font-family: inherit;
 }
 
 .memory-action-btn.secondary {
@@ -168,6 +170,7 @@
   border: 1px solid #fed7aa;
   color: #9a3412;
   font-weight: 700;
+  line-height: 1.7;
 }
 
 .memory-message.success {
@@ -182,26 +185,36 @@
   color: #1e40af;
 }
 
+/* ==============================
+   شبكة البطاقات
+   ============================== */
 .memory-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(110px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(135px, 1fr));
+  gap: 14px;
+  align-items: stretch;
 }
 
+/* هذا الجزء كان سبب المشكلة الأساسية */
 .memory-card {
+  display: block;
+  width: 100%;
+  min-height: 145px;
   border: 0;
   cursor: pointer;
-  min-height: 128px;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 0;
   background: transparent;
   perspective: 900px;
+  font-family: inherit;
 }
 
 .memory-card-inner {
+  display: block;
   position: relative;
   width: 100%;
-  min-height: 128px;
+  height: 145px;
+  min-height: 145px;
   transform-style: preserve-3d;
   transition: transform 0.28s ease;
 }
@@ -214,22 +227,38 @@
 .memory-card-face {
   position: absolute;
   inset: 0;
-  border-radius: 18px;
+  border-radius: 20px;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 12px;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
   border: 2px solid rgba(148, 163, 184, 0.25);
 }
 
+/* خلفية البطاقة باستخدام الصورة التي طلبتها */
 .memory-card-back {
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
-  color: #fff;
-  font-size: 40px;
+  background-color: #f97316;
+  background-image: url("../images/card-back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: transparent;
+  font-size: 0;
   font-weight: 900;
+}
+
+/* في حال لم تظهر الصورة لأي سبب، يظهر شكل احتياطي */
+.memory-card-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(239, 68, 68, 0.08));
+  pointer-events: none;
 }
 
 .memory-card-front {
@@ -239,6 +268,11 @@
   font-size: 17px;
   font-weight: 900;
   line-height: 1.55;
+  overflow: hidden;
+}
+
+.memory-card-front span {
+  display: block;
 }
 
 .memory-card.is-matched .memory-card-front {
@@ -270,27 +304,36 @@
   font-size: 22px;
 }
 
+@media (max-width: 900px) {
+  .memory-grid {
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+  }
+}
+
 @media (max-width: 800px) {
   .memory-status {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .memory-grid {
-    grid-template-columns: repeat(3, minmax(90px, 1fr));
-  }
-
   .memory-card,
   .memory-card-inner {
-    min-height: 112px;
+    min-height: 125px;
+    height: 125px;
   }
 }
 
 @media (max-width: 540px) {
   .memory-grid {
-    grid-template-columns: repeat(2, minmax(90px, 1fr));
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
 
   .memory-game-title {
     font-size: 20px;
+  }
+
+  .memory-card,
+  .memory-card-inner {
+    min-height: 115px;
+    height: 115px;
   }
 }
