@@ -179,13 +179,13 @@
       "levelId": "medium_terms_properties",
       "levelNumber": 2,
       "title": {
-        "ar": "المستوى المتوسط: المصطلح والخاصية"
+        "ar": "المستوى المتوسط: المفهوم والخاصية"
       },
       "description": {
-        "ar": "طابق عنصر الدائرة مع خاصيته الصحيحة."
+        "ar": "طابق كل مفهوم أو علاقة مع الخاصية الصحيحة دون تكرار البطاقات."
       },
       "difficulty": "medium",
-      "pairType": "term_property",
+      "pairType": "concept_property",
       "recommendedPairsCount": 8,
       "pairs": [
         {
@@ -194,13 +194,13 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "القطر"
+              "ar": "علاقة القطر بنصف القطر"
             }
           },
           "cardB": {
             "type": "text",
             "text": {
-              "ar": "يساوي ضعفي نصف القطر"
+              "ar": "القطر يساوي ضعفي نصف القطر"
             }
           },
           "feedback": {
@@ -208,7 +208,7 @@
               "ar": "رائع! القطر = 2 × نصف القطر."
             },
             "wrongHint": {
-              "ar": "تذكّر العلاقة: القطر ضعف نصف القطر."
+              "ar": "فكر في العلاقة العددية بين القطر ونصف القطر."
             }
           }
         },
@@ -218,13 +218,13 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "نصف القطر"
+              "ar": "علاقة نصف القطر بالقطر"
             }
           },
           "cardB": {
             "type": "text",
             "text": {
-              "ar": "يساوي نصف طول القطر"
+              "ar": "نصف القطر يساوي نصف طول القطر"
             }
           },
           "feedback": {
@@ -242,13 +242,13 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "القطر"
+              "ar": "خاصية القطر كوتر"
             }
           },
           "cardB": {
             "type": "text",
             "text": {
-              "ar": "أطول وتر في الدائرة"
+              "ar": "القطر هو أطول وتر في الدائرة"
             }
           },
           "feedback": {
@@ -256,7 +256,7 @@
               "ar": "أحسنت! القطر هو أطول وتر لأنه يمر بالمركز."
             },
             "wrongHint": {
-              "ar": "ابحث عن الوتر الذي يمر بمركز الدائرة."
+              "ar": "ابحث عن الخاصية التي تتحدث عن الوتر الأطول."
             }
           }
         },
@@ -266,7 +266,7 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "المركز"
+              "ar": "دور المركز عند الرسم"
             }
           },
           "cardB": {
@@ -290,13 +290,13 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "نصف القطر"
+              "ar": "فتحة الفرجار"
             }
           },
           "cardB": {
             "type": "text",
             "text": {
-              "ar": "فتحة الفرجار عند رسم الدائرة"
+              "ar": "تمثل نصف القطر عند رسم الدائرة"
             }
           },
           "feedback": {
@@ -314,7 +314,7 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "الوتر"
+              "ar": "شرط الوتر"
             }
           },
           "cardB": {
@@ -338,7 +338,7 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "القوس"
+              "ar": "طبيعة القوس"
             }
           },
           "cardB": {
@@ -362,7 +362,7 @@
           "cardA": {
             "type": "text",
             "text": {
-              "ar": "القطر"
+              "ar": "شرط القطر"
             }
           },
           "cardB": {
@@ -376,7 +376,7 @@
               "ar": "رائع! من شروط القطر أن يمر بالمركز."
             },
             "wrongHint": {
-              "ar": "ابحث عن العنصر الذي يجب أن يمر بالمركز دائمًا."
+              "ar": "ابحث عن الخاصية التي تذكر المرور بالمركز."
             }
           }
         }
@@ -827,19 +827,254 @@
         "ar": "تحدي مختلط"
       },
       "description": {
-        "ar": "تحدٍّ يجمع بين التعريفات والخصائص والأشكال وتصحيح الأخطاء."
+        "ar": "تحدٍّ يجمع بين التعريفات والخصائص والأشكال وتصحيح الأخطاء دون تكرار مربك للبطاقات."
       },
       "difficulty": "challenge",
       "pairType": "mixed",
-      "recommendedPairsCount": 12,
-      "sourceLevels": [
-        "easy_terms_definitions",
-        "medium_terms_properties",
-        "visual_shape_element",
-        "remedial_common_mistakes"
-      ],
-      "selectionMode": "random_from_source_levels",
-      "pairs": []
+      "recommendedPairsCount": 10,
+      "selectionMode": "fixed_pairs",
+      "pairs": [
+        {
+          "pairId": "mix_001",
+          "conceptId": "mix_center",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "مركز الدائرة"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "نقطة ثابتة داخل الدائرة"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "صحيح! المركز نقطة ثابتة داخل الدائرة."
+            },
+            "wrongHint": {
+              "ar": "ابحث عن الوصف الذي يتحدث عن نقطة ثابتة داخل الدائرة."
+            }
+          }
+        },
+        {
+          "pairId": "mix_002",
+          "conceptId": "mix_radius",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "قطعة من المركز إلى المحيط"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "نصف القطر"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "أحسنت! القطعة من المركز إلى المحيط هي نصف قطر."
+            },
+            "wrongHint": {
+              "ar": "تذكّر أن نصف القطر يبدأ من المركز وينتهي عند المحيط."
+            }
+          }
+        },
+        {
+          "pairId": "mix_003",
+          "conceptId": "mix_diameter",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "وتر يمر بالمركز"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "القطر"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "ممتاز! الوتر الذي يمر بالمركز يسمى قطرًا."
+            },
+            "wrongHint": {
+              "ar": "ابحث عن العنصر الذي يمر بالمركز ويصل بين نقطتين على المحيط."
+            }
+          }
+        },
+        {
+          "pairId": "mix_004",
+          "conceptId": "mix_arc",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "جزء منحني من المحيط"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "القوس"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "صحيح! القوس جزء منحني من محيط الدائرة."
+            },
+            "wrongHint": {
+              "ar": "تذكّر أن القوس ليس قطعة مستقيمة."
+            }
+          }
+        },
+        {
+          "pairId": "mix_005",
+          "conceptId": "mix_compass_opening",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "فتحة الفرجار"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "تمثل نصف القطر"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "رائع! فتحة الفرجار تمثل نصف القطر عند رسم الدائرة."
+            },
+            "wrongHint": {
+              "ar": "فتحة الفرجار ليست القطر؛ إنها نصف القطر."
+            }
+          }
+        },
+        {
+          "pairId": "mix_006",
+          "conceptId": "mix_radius_4_diameter_8",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "نصف القطر 4 سم"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "القطر 8 سم"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "صحيح! القطر يساوي ضعفي نصف القطر."
+            },
+            "wrongHint": {
+              "ar": "لإيجاد القطر نضرب نصف القطر في 2."
+            }
+          }
+        },
+        {
+          "pairId": "mix_007",
+          "conceptId": "mix_diameter_10_radius_5",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "القطر 10 سم"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "نصف القطر 5 سم"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "أحسنت! نصف القطر يساوي نصف القطر الكامل."
+            },
+            "wrongHint": {
+              "ar": "إذا عرفت القطر، اقسمه على 2."
+            }
+          }
+        },
+        {
+          "pairId": "mix_008",
+          "conceptId": "mix_longest_chord",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "أطول وتر في الدائرة"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "هو القطر"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "صحيح! القطر هو أطول وتر في الدائرة."
+            },
+            "wrongHint": {
+              "ar": "ابحث عن الوتر الذي يمر بمركز الدائرة."
+            }
+          }
+        },
+        {
+          "pairId": "mix_009",
+          "conceptId": "mix_chord_arc_difference",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "الوتر والقوس"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "الوتر مستقيم والقوس منحني"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "ممتاز! هذا هو الفرق المهم بين الوتر والقوس."
+            },
+            "wrongHint": {
+              "ar": "تذكّر: الوتر قطعة مستقيمة، والقوس جزء منحني."
+            }
+          }
+        },
+        {
+          "pairId": "mix_010",
+          "conceptId": "mix_chord_condition",
+          "cardA": {
+            "type": "text",
+            "text": {
+              "ar": "شرط الوتر"
+            }
+          },
+          "cardB": {
+            "type": "text",
+            "text": {
+              "ar": "يصل بين نقطتين على المحيط"
+            }
+          },
+          "feedback": {
+            "correct": {
+              "ar": "صحيح! الوتر يصل بين نقطتين على محيط الدائرة."
+            },
+            "wrongHint": {
+              "ar": "ابحث عن الوصف الذي يذكر نقطتين على المحيط."
+            }
+          }
+        }
+      ]
     }
   ],
   "resultMessages": {
