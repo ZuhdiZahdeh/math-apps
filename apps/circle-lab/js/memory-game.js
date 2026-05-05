@@ -16,11 +16,10 @@
 
   const state = {
     overlay: null,
-    levelTitle: null,
-    levelDesc: null,
     levelsBox: null,
     grid: null,
     message: null,
+    levelDesc: null,
     statLevel: null,
     statPairs: null,
     statAttempts: null,
@@ -33,13 +32,14 @@
   async function initMemoryGame() {
     injectOpenButtonIfNeeded();
     injectGamePanel();
-
     bindOpenButtons();
 
     try {
       const res = await fetch(DATA_URL, { cache: "no-store" });
       if (!res.ok) throw new Error("تعذر تحميل ملف بيانات اللعبة.");
       gameData = await res.json();
+
+      prepareMixedChallengeLevel();
       buildLevelButtons();
       selectLevel(0);
     } catch (err) {
@@ -149,6 +149,11 @@
   function openGame() {
     state.overlay.classList.add("is-open");
     state.overlay.setAttribute("aria-hidden", "false");
+
+    if (typeof addLabEvent === "function") {
+      addLabEvent("memory_game_opened", "memory", "فتح الطالب لعبة الذاكرة");
+    }
+
     if (gameData) selectLevel(currentLevelIndex);
   }
 
@@ -161,10 +166,12 @@
     state.levelsBox.innerHTML = "";
 
     gameData.levels.forEach((level, index) => {
+      if (!Array.isArray(level.pairs) || !level.pairs.length) return;
+
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "memory-level-btn";
-      btn.textContent = level.shortTitle || level.title;
+      btn.textContent = getText(level.title, `المستوى ${index + 1}`);
       btn.addEventListener("click", () => selectLevel(index));
       state.levelsBox.appendChild(btn);
     });
@@ -175,6 +182,11 @@
 
     currentLevelIndex = index;
     const level = gameData.levels[currentLevelIndex];
+
+    if (!Array.isArray(level.pairs) || !level.pairs.length) {
+      showMessage("هذا المستوى لا يحتوي على أزواج جاهزة بعد.", "info");
+      return;
+    }
 
     document.querySelectorAll(".memory-level-btn").forEach((btn, i) => {
       btn.classList.toggle("is-active", i === currentLevelIndex);
@@ -190,43 +202,53 @@
     state.endBox.classList.remove("is-visible");
     state.endBox.innerHTML = "";
 
-    state.statLevel.textContent = level.shortTitle || level.title;
-    state.levelDesc.textContent = level.description || "طابق البطاقات الصحيحة.";
+    state.statLevel.textContent = getText(level.title, `المستوى ${index + 1}`);
+    state.levelDesc.textContent = getText(level.description, "طابق البطاقات الصحيحة.");
     showMessage("ابدأ بقلب بطاقتين.", "info");
 
     buildDeck(level);
     renderCards();
     updateStats();
-
     startTimer();
+
+    if (typeof addLabEvent === "function") {
+      addLabEvent("memory_level_started", "memory", `بدأ مستوى الذاكرة: ${getText(level.title, "")}`, {
+        levelId: level.levelId || "",
+        pairsCount: level.pairs.length
+      });
+    }
   }
 
   function buildDeck(level) {
     deck = [];
 
     level.pairs.forEach((pair) => {
+      const conceptId = pair.conceptId || pair.concept || pair.pairId;
+
       deck.push({
         uid: `${pair.pairId}_a`,
         pairId: pair.pairId,
-        concept: pair.concept,
+        conceptId,
         content: pair.cardA,
-        correctFeedback: pair.correctFeedback,
-        wrongHint: pair.wrongHint,
+        correctFeedback: getText(pair.feedback && pair.feedback.correct, pair.correctFeedback || "أحسنت! مطابقة صحيحة."),
+        wrongHint: getText(pair.feedback && pair.feedback.wrongHint, pair.wrongHint || "حاول مرة أخرى."),
         matched: false
       });
 
       deck.push({
         uid: `${pair.pairId}_b`,
         pairId: pair.pairId,
-        concept: pair.concept,
+        conceptId,
         content: pair.cardB,
-        correctFeedback: pair.correctFeedback,
-        wrongHint: pair.wrongHint,
+        correctFeedback: getText(pair.feedback && pair.feedback.correct, pair.correctFeedback || "أحسنت! مطابقة صحيحة."),
+        wrongHint: getText(pair.feedback && pair.feedback.wrongHint, pair.wrongHint || "حاول مرة أخرى."),
         matched: false
       });
     });
 
-    shuffle(deck);
+    if (!gameData.settings || gameData.settings.shuffleCards !== false) {
+      shuffle(deck);
+    }
   }
 
   function renderCards() {
@@ -241,8 +263,8 @@
 
       btn.innerHTML = `
         <span class="memory-card-inner">
-          <span class="memory-card-face memory-card-back">${escapeHTML(gameData.settings.cardBackText || "؟")}</span>
-          <span class="memory-card-face memory-card-front">${renderCardContent(card.content)}</span>
+          <span class="memory-card-face memory-card-back">${escapeHTML(getCardBackText())}</span>
+          <span class="memory-card-face memory-card-front">${renderCardContent(card.content, card.conceptId)}</span>
         </span>
       `;
 
@@ -280,6 +302,8 @@
       setCardMatched(second.uid);
 
       showMessage(first.correctFeedback || "أحسنت! مطابقة صحيحة.", "success");
+      playSound("successSound");
+
       flipped = [];
       updateStats();
 
@@ -292,6 +316,7 @@
 
     wrongMatches++;
     lockBoard = true;
+    playSound("failSound");
 
     const hint = first.wrongHint || second.wrongHint || "حاول مرة أخرى، وابحث عن العلاقة الصحيحة.";
     showMessage(hint, "info");
@@ -302,16 +327,16 @@
       flipped = [];
       lockBoard = false;
       updateStats();
-    }, gameData.settings.flipBackDelayMs || 900);
+    }, getFlipDelay());
   }
 
   function setCardFlipped(uid, isFlipped) {
-    const el = document.querySelector(`.memory-card[data-uid="${CSS.escape(uid)}"]`);
+    const el = document.querySelector(`.memory-card[data-uid="${uid}"]`);
     if (el) el.classList.toggle("is-flipped", isFlipped);
   }
 
   function setCardMatched(uid) {
-    const el = document.querySelector(`.memory-card[data-uid="${CSS.escape(uid)}"]`);
+    const el = document.querySelector(`.memory-card[data-uid="${uid}"]`);
     if (el) {
       el.classList.add("is-matched");
       el.disabled = true;
@@ -329,38 +354,53 @@
     if (accuracy >= 85) message = "إتقان عالٍ";
     else if (accuracy < 60) message = "يحتاج تدريبًا إضافيًا";
 
+    const level = gameData.levels[currentLevelIndex];
+
     state.endBox.innerHTML = `
       <h3>🎉 أحسنت! أنهيت المستوى</h3>
-      <p><strong>المستوى:</strong> ${escapeHTML(gameData.levels[currentLevelIndex].title)}</p>
+      <p><strong>المستوى:</strong> ${escapeHTML(getText(level.title, ""))}</p>
       <p><strong>عدد المحاولات:</strong> ${attempts}</p>
       <p><strong>الأخطاء:</strong> ${wrongMatches}</p>
       <p><strong>الوقت:</strong> ${formatTime(seconds)}</p>
-      <p><strong>التقدير:</strong> ${message}</p>
+      <p><strong>التقدير:</strong> ${escapeHTML(message)}</p>
     `;
 
     state.endBox.classList.add("is-visible");
     showMessage("أنهيت المستوى بنجاح. يمكنك إعادة المستوى أو الانتقال للمستوى التالي.", "success");
 
-    saveMemoryResult({
-      levelId: gameData.levels[currentLevelIndex].levelId,
-      levelTitle: gameData.levels[currentLevelIndex].title,
+    const result = {
+      levelId: level.levelId || "",
+      levelTitle: getText(level.title, ""),
       attempts,
       wrongMatches,
       totalPairs,
+      matchedPairs,
       timeSpentSeconds: seconds,
       accuracyPercent: accuracy,
       completed: true
-    });
+    };
+
+    saveMemoryResult(result);
+
+    if (typeof addLabEvent === "function") {
+      addLabEvent("memory_level_completed", "memory", `أنهى الطالب مستوى الذاكرة: ${result.levelTitle}`, result);
+    }
   }
 
   function goNextLevel() {
     if (!gameData) return;
-    const next = currentLevelIndex + 1;
-    if (next < gameData.levels.length) {
-      selectLevel(next);
-    } else {
-      selectLevel(0);
+
+    let next = currentLevelIndex + 1;
+
+    while (next < gameData.levels.length) {
+      if (Array.isArray(gameData.levels[next].pairs) && gameData.levels[next].pairs.length) {
+        selectLevel(next);
+        return;
+      }
+      next++;
     }
+
+    selectLevel(0);
   }
 
   function updateStats() {
@@ -393,17 +433,27 @@
     state.message.className = `memory-message ${type}`;
   }
 
-  function renderCardContent(content) {
+  function renderCardContent(content, conceptId) {
     if (!content) return "";
 
-    if (content.type === "visual") {
-      return renderCircleVisual(content.value);
+    if (content.type === "text") {
+      return `<span>${escapeHTML(getText(content.text, content.value || ""))}</span>`;
     }
 
-    return `<span>${escapeHTML(content.value)}</span>`;
+    if (content.type === "image") {
+      return renderCircleVisual(conceptId);
+    }
+
+    if (content.type === "visual") {
+      return renderCircleVisual(content.value || conceptId);
+    }
+
+    return `<span>${escapeHTML(getText(content.text, content.value || ""))}</span>`;
   }
 
-  function renderCircleVisual(kind) {
+  function renderCircleVisual(conceptId) {
+    const key = normalizeConceptKey(conceptId);
+
     const commonStart = `
       <svg viewBox="0 0 160 120" role="img" aria-label="رسم عنصر من الدائرة">
         <circle cx="80" cy="60" r="42" fill="#f8fafc" stroke="#0f172a" stroke-width="3"/>
@@ -412,14 +462,14 @@
 
     const commonEnd = `</svg>`;
 
-    if (kind === "center") {
+    if (key.includes("center")) {
       return `${commonStart}
         <circle cx="80" cy="60" r="7" fill="#ef4444"/>
-        <text x="80" y="50" text-anchor="middle" font-size="15" font-weight="800" fill="#ef4444">م</text>
+        <text x="80" y="48" text-anchor="middle" font-size="15" font-weight="800" fill="#ef4444">م</text>
       ${commonEnd}`;
     }
 
-    if (kind === "radius") {
+    if (key.includes("radius") && !key.includes("diameter")) {
       return `${commonStart}
         <line x1="80" y1="60" x2="122" y2="60" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
         <circle cx="122" cy="60" r="4" fill="#2563eb"/>
@@ -427,7 +477,7 @@
       ${commonEnd}`;
     }
 
-    if (kind === "diameter") {
+    if (key.includes("diameter")) {
       return `${commonStart}
         <line x1="38" y1="60" x2="122" y2="60" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/>
         <circle cx="38" cy="60" r="4" fill="#7c3aed"/>
@@ -436,7 +486,7 @@
       ${commonEnd}`;
     }
 
-    if (kind === "chord") {
+    if (key.includes("chord")) {
       return `${commonStart}
         <line x1="50" y1="34" x2="118" y2="82" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
         <circle cx="50" cy="34" r="4" fill="#f97316"/>
@@ -444,35 +494,118 @@
       ${commonEnd}`;
     }
 
-    if (kind === "arc") {
+    if (key.includes("arc")) {
       return `${commonStart}
         <path d="M 112 33 A 42 42 0 0 1 121 78" fill="none" stroke="#db2777" stroke-width="7" stroke-linecap="round"/>
       ${commonEnd}`;
     }
 
-    if (kind === "circumference") {
+    if (key.includes("circumference")) {
       return `
-      <svg viewBox="0 0 160 120" role="img" aria-label="محيط الدائرة">
-        <circle cx="80" cy="60" r="42" fill="#f8fafc" stroke="#0891b2" stroke-width="7"/>
-        <circle cx="80" cy="60" r="3.8" fill="#ef4444"/>
-      </svg>`;
+        <svg viewBox="0 0 160 120" role="img" aria-label="محيط الدائرة">
+          <circle cx="80" cy="60" r="42" fill="#f8fafc" stroke="#0891b2" stroke-width="7"/>
+          <circle cx="80" cy="60" r="3.8" fill="#ef4444"/>
+        </svg>`;
     }
 
-    return commonStart + commonEnd;
+    if (key.includes("point")) {
+      return `${commonStart}
+        <circle cx="112" cy="33" r="6" fill="#16a34a"/>
+        <path d="M 130 18 L 116 29" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+      ${commonEnd}`;
+    }
+
+    if (key.includes("radii") || key.includes("multiple")) {
+      return `${commonStart}
+        <line x1="80" y1="60" x2="122" y2="60" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+        <line x1="80" y1="60" x2="50" y2="34" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+        <line x1="80" y1="60" x2="80" y2="18" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+      ${commonEnd}`;
+    }
+
+    return `${commonStart}${commonEnd}`;
+  }
+
+  function normalizeConceptKey(value) {
+    return String(value || "")
+      .replace("visual_", "")
+      .replace("mistake_", "")
+      .toLowerCase();
+  }
+
+  function prepareMixedChallengeLevel() {
+    if (!gameData || !Array.isArray(gameData.levels)) return;
+
+    const mixed = gameData.levels.find((level) => level.levelId === "mixed_challenge");
+    if (!mixed || (Array.isArray(mixed.pairs) && mixed.pairs.length)) return;
+
+    const sourceIds = mixed.sourceLevels || [];
+    const sourcePairs = [];
+
+    gameData.levels.forEach((level) => {
+      if (sourceIds.includes(level.levelId) && Array.isArray(level.pairs)) {
+        level.pairs.forEach((pair) => sourcePairs.push(pair));
+      }
+    });
+
+    shuffle(sourcePairs);
+    mixed.pairs = sourcePairs.slice(0, mixed.recommendedPairsCount || 12);
   }
 
   function saveMemoryResult(result) {
     try {
       const key = "circleMemoryResults";
       const old = JSON.parse(localStorage.getItem(key) || "[]");
+
+      const studentCodeInput = document.getElementById("studentCode");
+      const classNameInput = document.getElementById("className");
+
       old.push({
         ...result,
+        studentCode: studentCodeInput ? studentCodeInput.value.trim() : "",
+        className: classNameInput ? classNameInput.value.trim() : "",
         savedAt: new Date().toISOString()
       });
-      localStorage.setItem(key, JSON.stringify(old.slice(-30)));
+
+      localStorage.setItem(key, JSON.stringify(old.slice(-50)));
     } catch (err) {
       console.warn("Could not save memory game result:", err);
     }
+  }
+
+  function playSound(id) {
+    const sound = document.getElementById(id);
+    if (!sound) return;
+
+    try {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    } catch (err) {
+      console.warn("تعذر تشغيل الصوت.", err);
+    }
+  }
+
+  function getText(value, fallback = "") {
+    if (typeof value === "string") return value;
+    if (value && typeof value === "object") {
+      if (typeof value.ar === "string") return value.ar;
+      if (typeof value.text === "string") return value.text;
+    }
+    return fallback;
+  }
+
+  function getCardBackText() {
+    if (gameData && gameData.settings) {
+      return gameData.settings.cardBackText || "؟";
+    }
+    return "؟";
+  }
+
+  function getFlipDelay() {
+    if (gameData && gameData.settings && Number(gameData.settings.flipBackDelayMs)) {
+      return Number(gameData.settings.flipBackDelayMs);
+    }
+    return 1000;
   }
 
   function shuffle(arr) {
