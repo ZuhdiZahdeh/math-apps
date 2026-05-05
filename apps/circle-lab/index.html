@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مختبر تطبيقات الرياضيات - الدائرة</title>
+
+    <!-- تنسيق التطبيق الأساسي -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- تنسيق لعبة الذاكرة -->
+    <link rel="stylesheet" href="./css/memory-game.css">
 </head>
+
 <body>
 <div class="app-container">
     <header>
@@ -32,11 +38,17 @@
         </section>
 
         <nav class="tabs" aria-label="مستويات المختبر">
-            <button class="tab-btn active" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
-            <button class="tab-btn" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
-            <button class="tab-btn" onclick="switchTab('compass')">المستوى 3: الفرجار الرقمي</button>
-            <button class="tab-btn" onclick="switchTab('quiz')">المستوى 4: التقييم الختامي</button>
+            <button class="tab-btn active" type="button" onclick="switchTab('identify')">المستوى 1: استكشاف العناصر</button>
+            <button class="tab-btn" type="button" onclick="switchTab('explore')">المستوى 2: تحدي القطر والوتر</button>
+            <button class="tab-btn" type="button" onclick="switchTab('compass')">المستوى 3: الفرجار الرقمي</button>
+            <button class="tab-btn" type="button" onclick="switchTab('quiz')">المستوى 4: التقييم الختامي</button>
+
+            <!-- زر لعبة الذاكرة مدمج مع أزرار التطبيق -->
+            <button class="tab-btn memory-open-btn" type="button" id="btnOpenMemoryGame">
+                🧠 لعبة الذاكرة
+            </button>
         </nav>
+
         <section class="assessment-progress-panel" aria-label="تقدم أسئلة التحقق">
             <div class="assessment-progress-top">
                 <strong>تقدم أسئلة التحقق الموزعة</strong>
@@ -50,21 +62,24 @@
     </header>
 
     <main>
+        <!-- المستوى 1 -->
         <section id="identify-mode" class="mode-container active-mode" aria-label="استكشاف عناصر الدائرة">
             <div class="main-layout">
                 <div class="canvas-section">
                     <canvas id="identifyCanvas" width="450" height="450"></canvas>
                     <div id="descriptionBox">اختر عنصراً من القائمة للتعرف عليه. اضغط مراراً لرؤية أمثلة مختلفة.</div>
                 </div>
+
                 <div class="elements-list">
-                    <button class="list-btn" onclick="highlight('center')">مركز الدائرة</button>
-                    <button class="list-btn" onclick="highlight('radius')">نصف القطر</button>
-                    <button class="list-btn" onclick="highlight('diameter')">القطر</button>
-                    <button class="list-btn" onclick="highlight('chord')">الوتر</button>
-                    <button class="list-btn" onclick="highlight('arc')">القوس</button>
-                    <button class="list-btn" onclick="highlight('circumference')">المحيط</button>
+                    <button class="list-btn" type="button" onclick="highlight('center')">مركز الدائرة</button>
+                    <button class="list-btn" type="button" onclick="highlight('radius')">نصف القطر</button>
+                    <button class="list-btn" type="button" onclick="highlight('diameter')">القطر</button>
+                    <button class="list-btn" type="button" onclick="highlight('chord')">الوتر</button>
+                    <button class="list-btn" type="button" onclick="highlight('arc')">القوس</button>
+                    <button class="list-btn" type="button" onclick="highlight('circumference')">المحيط</button>
                 </div>
             </div>
+
             <section class="level-check-section" aria-label="أسئلة تحقق المستوى الأول">
                 <div class="level-check-header">
                     <span class="level-badge">تحقق المستوى 1</span>
@@ -75,6 +90,7 @@
             </section>
         </section>
 
+        <!-- المستوى 2 -->
         <section id="explore-mode" class="mode-container" aria-label="تحدي القطر والوتر">
             <div class="explore-layout">
                 <div class="explore-sidebar">
@@ -82,24 +98,29 @@
                         <span class="label">نصف القطر (نق)</span>
                         <div class="value-wrap"><span id="radiusVal" class="value">50</span> <small>ملم</small></div>
                     </div>
+
                     <div class="stat-card">
                         <span class="label">طول القطر (ق)</span>
                         <div class="value-wrap"><span id="diamVal" class="value">100</span> <small>ملم</small></div>
                     </div>
+
                     <div class="stat-card highlight-card">
                         <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
                         <div class="value-wrap"><span id="chordVal" class="value">0</span> <small>ملم</small></div>
                     </div>
+
                     <div class="controls stat-card white-card">
                         <label for="radiusSlider">تغيير الحجم:</label>
                         <input type="range" id="radiusSlider" min="50" max="180" value="150">
                     </div>
                 </div>
+
                 <div class="explore-canvas-wrapper">
                     <canvas id="exploreCanvas" width="550" height="480"></canvas>
                     <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
                 </div>
             </div>
+
             <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثاني">
                 <div class="level-check-header">
                     <span class="level-badge">تحقق المستوى 2</span>
@@ -110,6 +131,7 @@
             </section>
         </section>
 
+        <!-- المستوى 3 -->
         <section id="compass-mode" class="mode-container" aria-label="الفرجار الرقمي">
             <div class="compass-layout">
                 <div class="compass-sidebar">
@@ -141,13 +163,22 @@
 
                 <div class="compass-canvas-wrapper">
                     <canvas id="compassCanvas" width="600" height="520"></canvas>
-                    <div id="compassFeedback" class="compass-feedback" aria-live="polite">اضغط على النقطة المعلّمة م لتثبيت سن الفرجار.</div>
+                    <div id="compassFeedback" class="compass-feedback" aria-live="polite">
+                        اضغط على النقطة المعلّمة م لتثبيت سن الفرجار.
+                    </div>
+
                     <div class="compass-progress-wrap">
-                        <div class="compass-progress-label"><span>اكتمال الدورة</span><strong id="compassProgressText">0%</strong></div>
-                        <div class="compass-progress"><span id="compassProgressBar"></span></div>
+                        <div class="compass-progress-label">
+                            <span>اكتمال الدورة</span>
+                            <strong id="compassProgressText">0%</strong>
+                        </div>
+                        <div class="compass-progress">
+                            <span id="compassProgressBar"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثالث">
                 <div class="level-check-header">
                     <span class="level-badge">تحقق المستوى 3</span>
@@ -158,25 +189,37 @@
             </section>
         </section>
 
+        <!-- المستوى 4 -->
         <section id="quiz-mode" class="mode-container" aria-label="التقييم الختامي">
             <section class="level-check-header final-check-header" aria-label="تعليمات التقييم الختامي">
                 <span class="level-badge">تحقق المستوى 4</span>
                 <h2>التقييم الختامي</h2>
                 <p>أجب عن السؤالين الختاميين بعد إكمال بطاقات التحقق في المستويات السابقة.</p>
             </section>
+
             <div class="quiz-layout">
                 <div class="quiz-canvas-section">
                     <canvas id="quizCanvas" width="450" height="450"></canvas>
                 </div>
+
                 <div class="quiz-questions-section" id="quiz-questions-container"></div>
             </div>
         </section>
     </main>
 </div>
 
-<audio id="successSound"><source src="../audio/success/applause.mp3" type="audio/mpeg"></audio>
-<audio id="failSound"><source src="../audio/fail/fail_toolMatch_b.mp3" type="audio/mpeg"></audio>
+<audio id="successSound">
+    <source src="../audio/success/applause.mp3" type="audio/mpeg">
+</audio>
 
+<audio id="failSound">
+    <source src="../audio/fail/fail_toolMatch_b.mp3" type="audio/mpeg">
+</audio>
+
+<!-- سكربت التطبيق الأساسي -->
 <script src="./js/script.js"></script>
+
+<!-- سكربت لعبة الذاكرة -->
+<script src="./js/memory-game.js"></script>
 </body>
 </html>
