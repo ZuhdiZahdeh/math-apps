@@ -3,7 +3,7 @@
 // ==========================================
 const LAB_CONFIG = {
     labId: 'circle-geometry-grade6',
-    labVersion: '1.2.0-distributed-questions',
+    labVersion: '1.3.0-matching-game',
 
     // ضع هنا رابط Apps Script Web App بعد النشر، ويجب أن ينتهي غالباً بـ /exec
     webAppUrl: 'https://script.google.com/macros/s/AKfycbxTMtpl4A1lnRMt8fYT-0SoB3_2ai4wyaY9H3rc1f5dA6Gon0tNZ0rr_9MfU6Gtw-DM/exec',
@@ -40,10 +40,10 @@ const labState = {
 
     events: [],
 
-    // نتائج لعبة الذاكرة المرفقة مع نتيجة الطالب النهائية
-    memory: {
-        levels: [],
-        completedLevels: 0,
+    // نتائج لعبة المطابقة التعليمية المكشوفة المرفقة مع نتيجة الطالب النهائية
+    matchingGame: {
+        stages: [],
+        completedStages: 0,
         totalAttempts: 0,
         totalWrongMatches: 0,
         totalTimeSpentSeconds: 0,
@@ -92,12 +92,12 @@ function addLabEvent(eventType, levelId, value, extra = {}) {
     });
 }
 
-function recordMemoryGameResult(result) {
+function recordMatchingGameResult(result, options = {}) {
     if (!result) return;
 
     const safeResult = {
-        levelId: sanitizeClientText(result.levelId || '', 60),
-        levelTitle: sanitizeClientText(result.levelTitle || '', 120),
+        stageId: sanitizeClientText(result.stageId || result.levelId || '', 60),
+        stageTitle: sanitizeClientText(result.stageTitle || result.levelTitle || '', 140),
         attempts: Number(result.attempts || 0),
         wrongMatches: Number(result.wrongMatches || 0),
         matchedPairs: Number(result.matchedPairs || 0),
@@ -110,39 +110,56 @@ function recordMemoryGameResult(result) {
             : []
     };
 
-    // إذا أعاد الطالب نفس مستوى الذاكرة، نحتفظ بآخر نتيجة لذلك المستوى بدل التكرار.
-    const existingIndex = labState.memory.levels.findIndex(level => level.levelId === safeResult.levelId);
+    if (!safeResult.stageId) return;
+
+    // إذا أعاد الطالب نفس مرحلة المطابقة، نحتفظ بآخر نتيجة لتلك المرحلة بدل التكرار.
+    const existingIndex = labState.matchingGame.stages.findIndex(stage => stage.stageId === safeResult.stageId);
     if (existingIndex >= 0) {
-        labState.memory.levels[existingIndex] = safeResult;
+        labState.matchingGame.stages[existingIndex] = safeResult;
     } else {
-        labState.memory.levels.push(safeResult);
+        labState.matchingGame.stages.push(safeResult);
     }
 
-    labState.memory.completedLevels = labState.memory.levels.filter(level => level.completed).length;
-    labState.memory.totalAttempts = labState.memory.levels.reduce((sum, level) => sum + Number(level.attempts || 0), 0);
-    labState.memory.totalWrongMatches = labState.memory.levels.reduce((sum, level) => sum + Number(level.wrongMatches || 0), 0);
-    labState.memory.totalTimeSpentSeconds = labState.memory.levels.reduce((sum, level) => sum + Number(level.timeSpentSeconds || 0), 0);
+    labState.matchingGame.completedStages = labState.matchingGame.stages.filter(stage => stage.completed).length;
+    labState.matchingGame.totalAttempts = labState.matchingGame.stages.reduce((sum, stage) => sum + Number(stage.attempts || 0), 0);
+    labState.matchingGame.totalWrongMatches = labState.matchingGame.stages.reduce((sum, stage) => sum + Number(stage.wrongMatches || 0), 0);
+    labState.matchingGame.totalTimeSpentSeconds = labState.matchingGame.stages.reduce((sum, stage) => sum + Number(stage.timeSpentSeconds || 0), 0);
 
     safeResult.feedbackSummary.forEach(item => {
-        if (item && !labState.memory.feedbackSummary.includes(item)) {
-            labState.memory.feedbackSummary.push(item);
+        if (item && !labState.matchingGame.feedbackSummary.includes(item)) {
+            labState.matchingGame.feedbackSummary.push(item);
         }
     });
 
-    labState.memory.feedbackSummary = labState.memory.feedbackSummary.slice(0, 12);
+    labState.matchingGame.feedbackSummary = labState.matchingGame.feedbackSummary.slice(0, 12);
 
-    addLabEvent('memory_result_recorded', 'memory', `تم تسجيل نتيجة لعبة الذاكرة: ${safeResult.levelTitle}`, {
-        levelId: safeResult.levelId,
-        attempts: safeResult.attempts,
-        wrongMatches: safeResult.wrongMatches,
-        matchedPairs: safeResult.matchedPairs,
-        totalPairs: safeResult.totalPairs,
-        accuracyPercent: safeResult.accuracyPercent,
-        feedbackSummary: safeResult.feedbackSummary
-    });
+    if (!options.silent) {
+        addLabEvent('matching_result_recorded', 'matching', `تم تسجيل نتيجة لعبة المطابقة: ${safeResult.stageTitle}`, {
+            stageId: safeResult.stageId,
+            attempts: safeResult.attempts,
+            wrongMatches: safeResult.wrongMatches,
+            matchedPairs: safeResult.matchedPairs,
+            totalPairs: safeResult.totalPairs,
+            accuracyPercent: safeResult.accuracyPercent,
+            feedbackSummary: safeResult.feedbackSummary
+        });
+    }
 }
 
-window.recordMemoryGameResult = recordMemoryGameResult;
+function syncMatchingGameResultsFromStorage() {
+    try {
+        const saved = JSON.parse(localStorage.getItem('circleLab.matchingGameResults') || '[]');
+        if (Array.isArray(saved)) {
+            saved.forEach(result => recordMatchingGameResult(result, { silent: true }));
+        }
+    } catch (err) {
+        console.warn('تعذر قراءة نتائج لعبة المطابقة المحفوظة محلياً.', err);
+    }
+}
+
+window.recordMatchingGameResult = recordMatchingGameResult;
+// إبقاء الاسم القديم يحميك من أي ملف قديم ما زال يستدعي دالة لعبة الذاكرة.
+window.recordMemoryGameResult = recordMatchingGameResult;
 
 function loadSavedIdentity() {
     try {
@@ -222,6 +239,8 @@ function setSubmitStatus(message, type = 'pending') {
 }
 
 function buildSubmissionPayload() {
+    syncMatchingGameResultsFromStorage();
+
     const studentInput = document.getElementById('studentCode');
     const classInput = document.getElementById('className');
 
@@ -285,16 +304,45 @@ function buildSubmissionPayload() {
             autoDemoUsed: labState.compass.autoDemoUsed
         },
 
-        memory: labState.memory,
+        matchingGame: labState.matchingGame,
 
         // حقول مختصرة مسطّحة لتسهيل قراءتها في Apps Script أو Google Sheets لاحقاً
-        memoryCompletedLevels: labState.memory.completedLevels,
-        memoryTotalAttempts: labState.memory.totalAttempts,
-        memoryWrongMatches: labState.memory.totalWrongMatches,
-        memoryTimeSpentSeconds: labState.memory.totalTimeSpentSeconds,
-        memoryFeedbackSummary: labState.memory.feedbackSummary.join(' | '),
-        memoryLevelsSummary: labState.memory.levels.map(level =>
-            `${level.levelTitle}: ${level.matchedPairs}/${level.totalPairs}, محاولات=${level.attempts}, أخطاء=${level.wrongMatches}, زمن=${level.timeSpentSeconds}ث`
+        matchingCompletedStages: labState.matchingGame.completedStages,
+        matchingTotalAttempts: labState.matchingGame.totalAttempts,
+        matchingWrongMatches: labState.matchingGame.totalWrongMatches,
+        matchingTimeSpentSeconds: labState.matchingGame.totalTimeSpentSeconds,
+        matchingFeedbackSummary: labState.matchingGame.feedbackSummary.join(' | '),
+        matchingStagesSummary: labState.matchingGame.stages.map(stage =>
+            `${stage.stageTitle}: ${stage.matchedPairs}/${stage.totalPairs}, محاولات=${stage.attempts}, أخطاء=${stage.wrongMatches}, زمن=${stage.timeSpentSeconds}ث`
+        ).join(' || '),
+
+        // توافق خلفي مؤقت: هذه الحقول القديمة تُملأ بنتائج المطابقة حتى لا يتعطل Apps Script الحالي إذا كان يعتمد عليها.
+        memory: {
+            levels: labState.matchingGame.stages.map(stage => ({
+                levelId: stage.stageId,
+                levelTitle: stage.stageTitle,
+                attempts: stage.attempts,
+                wrongMatches: stage.wrongMatches,
+                matchedPairs: stage.matchedPairs,
+                totalPairs: stage.totalPairs,
+                timeSpentSeconds: stage.timeSpentSeconds,
+                accuracyPercent: stage.accuracyPercent,
+                completed: stage.completed,
+                feedbackSummary: stage.feedbackSummary
+            })),
+            completedLevels: labState.matchingGame.completedStages,
+            totalAttempts: labState.matchingGame.totalAttempts,
+            totalWrongMatches: labState.matchingGame.totalWrongMatches,
+            totalTimeSpentSeconds: labState.matchingGame.totalTimeSpentSeconds,
+            feedbackSummary: labState.matchingGame.feedbackSummary
+        },
+        memoryCompletedLevels: labState.matchingGame.completedStages,
+        memoryTotalAttempts: labState.matchingGame.totalAttempts,
+        memoryWrongMatches: labState.matchingGame.totalWrongMatches,
+        memoryTimeSpentSeconds: labState.matchingGame.totalTimeSpentSeconds,
+        memoryFeedbackSummary: labState.matchingGame.feedbackSummary.join(' | '),
+        memoryLevelsSummary: labState.matchingGame.stages.map(stage =>
+            `${stage.stageTitle}: ${stage.matchedPairs}/${stage.totalPairs}, محاولات=${stage.attempts}, أخطاء=${stage.wrongMatches}, زمن=${stage.timeSpentSeconds}ث`
         ).join(' || '),
 
         events: labState.events
@@ -439,6 +487,18 @@ async function retryPendingSubmissions(manual = false) {
 }
 
 window.addEventListener('online', () => retryPendingSubmissions(false));
+
+window.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'circleLab.matchingGameResult') {
+        recordMatchingGameResult(event.data.result);
+    }
+});
+
+window.addEventListener('storage', (event) => {
+    if (event.key === 'circleLab.matchingGameResults') {
+        syncMatchingGameResultsFromStorage();
+    }
+});
 
 // ==========================================
 // 1. نظام التبويبات
@@ -1475,16 +1535,17 @@ function isLevelUnlocked(tabId) {
     return true;
 }
 
-function isMemoryGameUnlocked() {
+function isMatchingGameUnlocked() {
     return isLevelQuestionsComplete('explore');
 }
 
 function getLockedReason(tabId) {
     const reasons = {
         explore: 'أكمل أسئلة تحقق المستوى الأول أولاً، ثم سيفتح مستوى تحدي القطر والوتر.',
-        compass: 'أكمل أسئلة تحقق المستوى الثاني أولاً. بعد ذلك تظهر لعبة الذاكرة كنشاط تثبيت، ويفتح الفرجار الرقمي.',
+        compass: 'أكمل أسئلة تحقق المستوى الثاني أولاً. بعد ذلك تظهر لعبة المطابقة كنشاط تثبيت، ويفتح الفرجار الرقمي.',
         quiz: 'أكمل أسئلة تحقق المستوى الثالث أولاً، ثم يفتح التقييم الختامي.',
-        memory: 'لعبة الذاكرة ستظهر بعد إنهاء المستوى الثاني؛ لتكون نشاط تثبيت لا نشاطاً مفتوحاً من البداية.'
+        matching: 'لعبة المطابقة التعليمية ستظهر بعد إنهاء المستوى الثاني؛ لتكون نشاط تثبيت لا نشاطاً مفتوحاً من البداية.',
+        memory: 'لعبة المطابقة التعليمية ستظهر بعد إنهاء المستوى الثاني؛ لتكون نشاط تثبيت لا نشاطاً مفتوحاً من البداية.'
     };
     return reasons[tabId] || 'هذا الجزء مقفل حتى تنهي المهمة السابقة.';
 }
@@ -1525,24 +1586,41 @@ function updateNavigationLocks() {
         }
     });
 
-    const memoryBtn = document.getElementById('btnOpenMemoryGame');
-    if (memoryBtn) {
-        const unlocked = isMemoryGameUnlocked();
-        const baseLabel = memoryBtn.dataset.baseLabel || memoryBtn.textContent.replace(/^✅\s*/, '').replace(/^🔒\s*/, '').trim();
-        memoryBtn.dataset.baseLabel = baseLabel;
+    const matchingBtn = document.getElementById('btnOpenMatchingGame');
+    if (matchingBtn) {
+        const unlocked = isMatchingGameUnlocked();
+        const baseLabel = matchingBtn.dataset.baseLabel || matchingBtn.textContent.replace(/^✅\s*/, '').replace(/^🔒\s*/, '').trim();
+        matchingBtn.dataset.baseLabel = baseLabel;
 
-        memoryBtn.disabled = !unlocked;
-        memoryBtn.setAttribute('aria-disabled', String(!unlocked));
-        memoryBtn.classList.toggle('locked', !unlocked);
-        memoryBtn.classList.toggle('gate-hidden', !unlocked);
-        memoryBtn.classList.toggle('ready-memory', unlocked);
-        memoryBtn.title = unlocked ? 'نشاط تثبيت بعد المستوى الثاني' : getLockedReason('memory');
-        memoryBtn.textContent = unlocked ? `🧠 نشاط تثبيت: لعبة الذاكرة` : baseLabel;
+        matchingBtn.disabled = !unlocked;
+        matchingBtn.setAttribute('aria-disabled', String(!unlocked));
+        matchingBtn.classList.toggle('locked', !unlocked);
+        matchingBtn.classList.toggle('gate-hidden', !unlocked);
+        matchingBtn.classList.toggle('ready-matching', unlocked);
+        matchingBtn.title = unlocked ? 'نشاط تثبيت بعد المستوى الثاني' : getLockedReason('matching');
+        matchingBtn.textContent = unlocked ? `🧩 نشاط تثبيت: مطابقة عناصر الدائرة` : baseLabel;
     }
 }
 
-window.isMemoryGameUnlocked = isMemoryGameUnlocked;
+function openMatchingGame() {
+    if (!isMatchingGameUnlocked()) {
+        showLockedNavigationMessage('matching');
+        updateNavigationLocks();
+        return;
+    }
+
+    syncMatchingGameResultsFromStorage();
+    addLabEvent('matching_game_opened', 'matching', 'فتح الطالب لعبة مطابقة عناصر الدائرة');
+
+    const gameWindow = window.open('./matching-game.html', 'circleMatchingGame');
+    if (!gameWindow) {
+        window.location.href = './matching-game.html';
+    }
+}
+
+window.isMatchingGameUnlocked = isMatchingGameUnlocked;
 window.showLockedNavigationMessage = showLockedNavigationMessage;
+window.openMatchingGame = openMatchingGame;
 
 // المصفوفة التالية موزعة تربوياً على المستويات الأربعة بدلاً من تجميعها في مستوى واحد.
 // يظل رقم السؤال عالمياً حتى تصل النتائج إلى Google Sheets كسجل تشخيصي واحد.
@@ -2090,6 +2168,7 @@ function finishDistributedAssessment() {
 // تهيئة التطبيق
 // ==========================================
 loadSavedIdentity();
+syncMatchingGameResultsFromStorage();
 initQuizDOM();
 updateNavigationLocks();
 renderLevelQuestionVisual('identify');

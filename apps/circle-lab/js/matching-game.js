@@ -9,7 +9,10 @@
     selectedItem: null,
     checked: false,
     completedStages: new Set(),
-    optionOrders: {}
+    optionOrders: {},
+    startedAt: Date.now(),
+    stageStartedAt: Date.now(),
+    stageStats: {}
   };
 
   const els = {
@@ -75,6 +78,78 @@
     return currentStage().targets.reduce((sum, targetId) => {
       return sum + (state.answers[targetId] === targetId ? 1 : 0);
     }, 0);
+  }
+
+  function ensureStageStats(stageId) {
+    if (!state.stageStats[stageId]) {
+      state.stageStats[stageId] = {
+        attempts: 0,
+        wrongMatches: 0,
+        startedAt: Date.now(),
+        completedAt: null
+      };
+    }
+    return state.stageStats[stageId];
+  }
+
+  function secondsSince(timestamp) {
+    return Math.max(0, Math.round((Date.now() - timestamp) / 1000));
+  }
+
+  function countWrongMatches(stage) {
+    return stage.targets.reduce((sum, targetId) => {
+      const assigned = state.answers[targetId];
+      return sum + (assigned && assigned !== targetId ? 1 : 0);
+    }, 0);
+  }
+
+  function buildStageResult(stage) {
+    const stats = ensureStageStats(stage.id);
+    const correct = countCorrect();
+    const total = stage.targets.length;
+    const accuracyPercent = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+    return {
+      stageId: stage.id,
+      stageTitle: stage.title,
+      attempts: Number(stats.attempts || 0),
+      wrongMatches: Number(stats.wrongMatches || 0),
+      matchedPairs: correct,
+      totalPairs: total,
+      timeSpentSeconds: secondsSince(stats.startedAt),
+      accuracyPercent,
+      completed: correct === total,
+      feedbackSummary: stage.targets
+        .filter((targetId) => state.answers[targetId] !== targetId)
+        .map((targetId) => `${term(targetId).name}: ${term(targetId).hint}`)
+        .slice(0, 8)
+    };
+  }
+
+  function saveStageResult(stage) {
+    const result = buildStageResult(stage);
+
+    try {
+      const key = "circleLab.matchingGameResults";
+      const existing = JSON.parse(localStorage.getItem(key) || "[]");
+      const withoutDuplicate = existing.filter((item) => item.stageId !== result.stageId);
+      withoutDuplicate.push(result);
+      localStorage.setItem(key, JSON.stringify(withoutDuplicate));
+    } catch (err) {
+      console.warn("تعذر حفظ نتيجة لعبة المطابقة محلياً.", err);
+    }
+
+    try {
+      if (window.opener && !window.opener.closed && typeof window.opener.recordMatchingGameResult === "function") {
+        window.opener.recordMatchingGameResult(result);
+      } else if (window.opener && !window.opener.closed) {
+        window.opener.postMessage({ type: "circleLab.matchingGameResult", result }, "*");
+      }
+    } catch (err) {
+      console.warn("تعذر إرسال نتيجة لعبة المطابقة إلى صفحة المختبر.", err);
+    }
+
+    return result;
   }
 
   function shuffle(items) {
@@ -296,20 +371,28 @@
   }
 
   function checkStage() {
-    state.checked = true;
     const stage = currentStage();
+    const stats = ensureStageStats(stage.id);
     const correct = countCorrect();
     const total = stage.targets.length;
+    const emptyCount = stage.targets.filter((targetId) => !state.answers[targetId]).length;
+    const wrongCount = countWrongMatches(stage);
+
+    // كل ضغط على زر التحقق يعد محاولة تعليمية، وتُجمع الأخطاء لتظهر للمعلم في الملخص.
+    stats.attempts += 1;
+    stats.wrongMatches += wrongCount;
+    state.checked = true;
 
     if (correct === total) {
       state.completedStages.add(stage.id);
+      stats.completedAt = Date.now();
+      saveStageResult(stage);
       setFeedback("ممتاز! جميع المطابقات صحيحة. انتقل إلى المرحلة التالية.", "success");
     } else {
-      const emptyCount = stage.targets.filter((targetId) => !state.answers[targetId]).length;
-      const wrongCount = total - correct - emptyCount;
       const parts = [];
       if (wrongCount) parts.push(`${wrongCount} مطابقة تحتاج مراجعة`);
       if (emptyCount) parts.push(`${emptyCount} مكان لم توضع فيه بطاقة`);
+      saveStageResult(stage);
       setFeedback(`إجاباتك قريبة. ${parts.join("، ")}. اقرأ التلميحات ثم عدّل البطاقات.`, "error");
     }
     renderStage();
@@ -347,6 +430,8 @@
     state.answers = {};
     state.selectedItem = null;
     state.checked = false;
+    state.stageStartedAt = Date.now();
+    ensureStageStats(currentStage().id);
     setFeedback("مرحلة جديدة: اقرأ التعليمات ثم ابدأ المطابقة.", "neutral");
     renderStage();
   }
@@ -362,7 +447,10 @@
       <div class="completion-card">
         <h2>أحسنت! لقد أتممت لعبة مطابقة عناصر الدائرة.</h2>
         <p>تدرّبت على التعرف إلى عناصر الدائرة، والتمييز بين القطر والوتر ونصف القطر، وربط المصطلح بالرسم والتعريف.</p>
-        <button type="button" class="primary-btn" id="playAgainBtn">إعادة اللعبة من البداية</button>
+        <div class="completion-actions">
+          <button type="button" class="primary-btn" id="playAgainBtn">إعادة اللعبة من البداية</button>
+          <button type="button" class="secondary-btn" id="backToLabBtn">العودة إلى المختبر</button>
+        </div>
       </div>
     `;
     els.checkBtn.disabled = true;
@@ -374,11 +462,24 @@
       state.answers = {};
       state.selectedItem = null;
       state.checked = false;
+      state.completedStages = new Set();
       state.optionOrders = {};
+      state.startedAt = Date.now();
+      state.stageStartedAt = Date.now();
+      state.stageStats = {};
+      ensureStageStats(currentStage().id);
       els.checkBtn.disabled = false;
       els.hintBtn.disabled = false;
       setFeedback("لنبدأ من جديد. اسحب كل بطاقة إلى مكانها الصحيح.", "neutral");
       renderStage();
+    });
+
+    document.getElementById("backToLabBtn").addEventListener("click", () => {
+      if (window.opener && !window.opener.closed) {
+        window.opener.focus();
+      } else {
+        window.location.href = "./index.html";
+      }
     });
   }
 
@@ -461,5 +562,6 @@
   els.hintBtn.addEventListener("click", showHint);
   els.nextBtn.addEventListener("click", nextStage);
 
+  ensureStageStats(currentStage().id);
   renderStage();
 })();
