@@ -1,1 +1,296 @@
+.memory-open-btn,
+.memory-floating-btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 800;
+  font-size: 15px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
 
+.memory-floating-btn {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 9998;
+}
+
+.memory-game-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  direction: rtl;
+}
+
+.memory-game-overlay.is-open {
+  display: flex;
+}
+
+.memory-game-panel {
+  width: min(1120px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  background: #f8fafc;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.memory-game-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(135deg, #1e3a8a, #0f766e);
+  color: white;
+  padding: 18px 22px;
+  border-radius: 24px 24px 0 0;
+}
+
+.memory-game-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.memory-game-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.memory-close-btn {
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.memory-game-subtitle {
+  margin: 8px 0 0;
+  opacity: 0.95;
+  font-size: 15px;
+}
+
+.memory-game-body {
+  padding: 18px;
+}
+
+.memory-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.memory-level-btn {
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.memory-level-btn.is-active {
+  background: #2563eb;
+  color: white;
+  border-color: #1d4ed8;
+}
+
+.memory-status {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.memory-stat {
+  background: white;
+  border-radius: 16px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.memory-stat span {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.memory-stat strong {
+  font-size: 17px;
+  color: #0f172a;
+}
+
+.memory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.memory-action-btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #0f766e;
+  color: white;
+}
+
+.memory-action-btn.secondary {
+  background: #475569;
+}
+
+.memory-message {
+  min-height: 44px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  font-weight: 700;
+}
+
+.memory-message.success {
+  background: #ecfdf5;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.memory-message.info {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.memory-card {
+  border: 0;
+  cursor: pointer;
+  min-height: 128px;
+  border-radius: 18px;
+  padding: 0;
+  background: transparent;
+  perspective: 900px;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 128px;
+  transform-style: preserve-3d;
+  transition: transform 0.28s ease;
+}
+
+.memory-card.is-flipped .memory-card-inner,
+.memory-card.is-matched .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  border: 2px solid rgba(148, 163, 184, 0.25);
+}
+
+.memory-card-back {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.memory-card-front {
+  transform: rotateY(180deg);
+  background: white;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.memory-card.is-matched .memory-card-front {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.memory-card svg {
+  max-width: 100%;
+  height: 105px;
+}
+
+.memory-end-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #ecfdf5;
+  border: 1px solid #86efac;
+  color: #14532d;
+  display: none;
+}
+
+.memory-end-box.is-visible {
+  display: block;
+}
+
+.memory-end-box h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+@media (max-width: 800px) {
+  .memory-status {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+  }
+
+  .memory-card,
+  .memory-card-inner {
+    min-height: 112px;
+  }
+}
+
+@media (max-width: 540px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+  }
+
+  .memory-game-title {
+    font-size: 20px;
+  }
+}
