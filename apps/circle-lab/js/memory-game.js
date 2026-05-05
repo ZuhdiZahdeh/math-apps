@@ -13,6 +13,7 @@
   let wrongMatches = 0;
   let startedAt = null;
   let timerId = null;
+  let memoryFeedbackSummary = [];
 
   const state = {
     overlay: null,
@@ -198,6 +199,7 @@
     flipped = [];
     lockBoard = false;
     startedAt = new Date();
+    memoryFeedbackSummary = [];
 
     state.endBox.classList.remove("is-visible");
     state.endBox.innerHTML = "";
@@ -303,6 +305,7 @@
 
       showMessage(first.correctFeedback || "أحسنت! مطابقة صحيحة.", "success");
       playSound("successSound");
+      addMemoryFeedback(first.correctFeedback || "مطابقة صحيحة.");
 
       flipped = [];
       updateStats();
@@ -320,6 +323,7 @@
 
     const hint = first.wrongHint || second.wrongHint || "حاول مرة أخرى، وابحث عن العلاقة الصحيحة.";
     showMessage(hint, "info");
+    addMemoryFeedback(hint);
 
     setTimeout(() => {
       setCardFlipped(first.uid, false);
@@ -377,10 +381,15 @@
       matchedPairs,
       timeSpentSeconds: seconds,
       accuracyPercent: accuracy,
-      completed: true
+      completed: true,
+      feedbackSummary: memoryFeedbackSummary
     };
 
     saveMemoryResult(result);
+
+    if (typeof window.recordMemoryGameResult === "function") {
+      window.recordMemoryGameResult(result);
+    }
 
     if (typeof addLabEvent === "function") {
       addLabEvent("memory_level_completed", "memory", `أنهى الطالب مستوى الذاكرة: ${result.levelTitle}`, result);
@@ -550,6 +559,20 @@
 
     shuffle(sourcePairs);
     mixed.pairs = sourcePairs.slice(0, mixed.recommendedPairsCount || 12);
+  }
+
+  function addMemoryFeedback(text) {
+    const clean = String(text || "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (!clean) return;
+
+    if (!memoryFeedbackSummary.includes(clean)) {
+      memoryFeedbackSummary.push(clean);
+    }
+
+    memoryFeedbackSummary = memoryFeedbackSummary.slice(0, 8);
   }
 
   function saveMemoryResult(result) {

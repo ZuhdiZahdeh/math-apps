@@ -38,7 +38,17 @@ const labState = {
         lastPathWarningAt: 0
     },
 
-    events: []
+    events: [],
+
+    // نتائج لعبة الذاكرة المرفقة مع نتيجة الطالب النهائية
+    memory: {
+        levels: [],
+        completedLevels: 0,
+        totalAttempts: 0,
+        totalWrongMatches: 0,
+        totalTimeSpentSeconds: 0,
+        feedbackSummary: []
+    }
 };
 
 // الألوان المعتمدة لكل عنصر
@@ -81,6 +91,58 @@ function addLabEvent(eventType, levelId, value, extra = {}) {
         elapsedAtSecond: elapsedSeconds()
     });
 }
+
+function recordMemoryGameResult(result) {
+    if (!result) return;
+
+    const safeResult = {
+        levelId: sanitizeClientText(result.levelId || '', 60),
+        levelTitle: sanitizeClientText(result.levelTitle || '', 120),
+        attempts: Number(result.attempts || 0),
+        wrongMatches: Number(result.wrongMatches || 0),
+        matchedPairs: Number(result.matchedPairs || 0),
+        totalPairs: Number(result.totalPairs || 0),
+        timeSpentSeconds: Number(result.timeSpentSeconds || 0),
+        accuracyPercent: Number(result.accuracyPercent || 0),
+        completed: Boolean(result.completed),
+        feedbackSummary: Array.isArray(result.feedbackSummary)
+            ? result.feedbackSummary.map(item => sanitizeClientText(item, 220)).slice(0, 8)
+            : []
+    };
+
+    // إذا أعاد الطالب نفس مستوى الذاكرة، نحتفظ بآخر نتيجة لذلك المستوى بدل التكرار.
+    const existingIndex = labState.memory.levels.findIndex(level => level.levelId === safeResult.levelId);
+    if (existingIndex >= 0) {
+        labState.memory.levels[existingIndex] = safeResult;
+    } else {
+        labState.memory.levels.push(safeResult);
+    }
+
+    labState.memory.completedLevels = labState.memory.levels.filter(level => level.completed).length;
+    labState.memory.totalAttempts = labState.memory.levels.reduce((sum, level) => sum + Number(level.attempts || 0), 0);
+    labState.memory.totalWrongMatches = labState.memory.levels.reduce((sum, level) => sum + Number(level.wrongMatches || 0), 0);
+    labState.memory.totalTimeSpentSeconds = labState.memory.levels.reduce((sum, level) => sum + Number(level.timeSpentSeconds || 0), 0);
+
+    safeResult.feedbackSummary.forEach(item => {
+        if (item && !labState.memory.feedbackSummary.includes(item)) {
+            labState.memory.feedbackSummary.push(item);
+        }
+    });
+
+    labState.memory.feedbackSummary = labState.memory.feedbackSummary.slice(0, 12);
+
+    addLabEvent('memory_result_recorded', 'memory', `تم تسجيل نتيجة لعبة الذاكرة: ${safeResult.levelTitle}`, {
+        levelId: safeResult.levelId,
+        attempts: safeResult.attempts,
+        wrongMatches: safeResult.wrongMatches,
+        matchedPairs: safeResult.matchedPairs,
+        totalPairs: safeResult.totalPairs,
+        accuracyPercent: safeResult.accuracyPercent,
+        feedbackSummary: safeResult.feedbackSummary
+    });
+}
+
+window.recordMemoryGameResult = recordMemoryGameResult;
 
 function loadSavedIdentity() {
     try {
@@ -222,6 +284,18 @@ function buildSubmissionPayload() {
             pathWarnings: labState.compass.pathWarnings,
             autoDemoUsed: labState.compass.autoDemoUsed
         },
+
+        memory: labState.memory,
+
+        // حقول مختصرة مسطّحة لتسهيل قراءتها في Apps Script أو Google Sheets لاحقاً
+        memoryCompletedLevels: labState.memory.completedLevels,
+        memoryTotalAttempts: labState.memory.totalAttempts,
+        memoryWrongMatches: labState.memory.totalWrongMatches,
+        memoryTimeSpentSeconds: labState.memory.totalTimeSpentSeconds,
+        memoryFeedbackSummary: labState.memory.feedbackSummary.join(' | '),
+        memoryLevelsSummary: labState.memory.levels.map(level =>
+            `${level.levelTitle}: ${level.matchedPairs}/${level.totalPairs}, محاولات=${level.attempts}, أخطاء=${level.wrongMatches}, زمن=${level.timeSpentSeconds}ث`
+        ).join(' || '),
 
         events: labState.events
     };
