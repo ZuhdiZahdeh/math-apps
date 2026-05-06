@@ -1756,6 +1756,62 @@ const quizData = [
             'هذه قيمة ضعف القطر، بينما المطلوب هو نصف القطر: القطر ÷ ٢.'
         ],
         misconceptions: ['', 'اعتبر القطر نصف قطر', 'ضاعف القطر بدلاً من قسمته على 2']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'في الشكل الختامي، القطعة (ن و) تصل من المركز (ن) إلى نقطة على الدائرة، إذن هي:',
+        options: ['نصف قطر', 'وتر', 'قوس'],
+        correct: 0,
+        hl: { type: 'line', p1: 'N', p2: 'W', c: systemColors.radius },
+        feedback: [
+            'صحيح؛ نصف القطر قطعة مستقيمة تصل مركز الدائرة بنقطة على محيطها.',
+            'ليست وتراً؛ لأن الوتر يصل بين نقطتين على محيط الدائرة، أما هذه القطعة فتبدأ من المركز.',
+            'ليست قوساً؛ لأن القوس جزء منحني من المحيط، أما (ن و) فهي قطعة مستقيمة.'
+        ],
+        misconceptions: ['', 'خلط بين نصف القطر والوتر', 'خلط بين نصف القطر والقوس']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'في الشكل الختامي، القطعة (ع ل) تصل بين نقطتين على الدائرة ولا تمر بالمركز، إذن هي:',
+        options: ['قطر', 'وتر', 'نصف قطر'],
+        correct: 1,
+        hl: { type: 'line', p1: 'X', p2: 'L', c: systemColors.chord },
+        feedback: [
+            'ليست قطراً؛ لأن القطر يجب أن يمر بمركز الدائرة.',
+            'صحيح؛ الوتر قطعة مستقيمة تصل بين نقطتين على محيط الدائرة ولا يشترط أن تمر بالمركز.',
+            'ليست نصف قطر؛ لأن نصف القطر يصل المركز بنقطة على المحيط.'
+        ],
+        misconceptions: ['خلط بين الوتر والقطر', '', 'خلط بين الوتر ونصف القطر']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'الجزء المنحني من محيط الدائرة بين النقطتين (و، س) يسمى:',
+        options: ['وتر', 'قوس', 'قطر'],
+        correct: 1,
+        hl: { type: 'arc', s: 7 * Math.PI / 4, e: 2 * Math.PI + Math.PI / 4, c: systemColors.arc },
+        feedback: [
+            'الوتر قطعة مستقيمة، أما الجزء المطلوب فهو جزء منحني من محيط الدائرة.',
+            'صحيح؛ القوس هو جزء من محيط الدائرة يقع بين نقطتين على المحيط.',
+            'القطر قطعة مستقيمة تمر بالمركز، وليس جزءاً منحنياً من المحيط.'
+        ],
+        misconceptions: ['خلط بين القوس والوتر', '', 'خلط بين القوس والقطر']
+    },
+    {
+        level: 'quiz',
+        shape: 2,
+        text: 'في الشكل الختامي، النقطة (ن) الواقعة في وسط الدائرة تسمى:',
+        options: ['المركز', 'الوتر', 'القوس'],
+        correct: 0,
+        hl: { type: 'point', p: 'N', c: systemColors.center },
+        feedback: [
+            'صحيح؛ المركز هو النقطة الثابتة في وسط الدائرة وتبعد عنها نقاط المحيط المسافة نفسها.',
+            'الوتر قطعة مستقيمة تصل بين نقطتين على محيط الدائرة، وليس نقطة في الوسط.',
+            'القوس جزء منحني من المحيط، وليس نقطة داخل الدائرة.'
+        ],
+        misconceptions: ['', 'خلط بين المركز والوتر', 'خلط بين المركز والقوس']
     }
 ];
 
@@ -1991,11 +2047,31 @@ function drawQuizShape(shapeId, highlightData = null) {
         if (highlightData.type === 'line') {
             drawQLine(pts[highlightData.p1], pts[highlightData.p2], highlightData.c, 6);
         } else if (highlightData.type === 'arc') {
+            qzCtx.save();
             qzCtx.beginPath();
             qzCtx.arc(cx, cy, r, highlightData.s, highlightData.e);
             qzCtx.strokeStyle = highlightData.c;
             qzCtx.lineWidth = 8;
+            qzCtx.lineCap = 'round';
             qzCtx.stroke();
+            qzCtx.restore();
+        } else if (highlightData.type === 'point') {
+            const p = pts[highlightData.p];
+            if (p) {
+                qzCtx.save();
+                qzCtx.fillStyle = highlightData.c || systemColors.center;
+                qzCtx.strokeStyle = highlightData.c || systemColors.center;
+                qzCtx.lineWidth = 4;
+                qzCtx.globalAlpha = 0.20;
+                qzCtx.beginPath();
+                qzCtx.arc(p.x, p.y, 18, 0, Math.PI * 2);
+                qzCtx.fill();
+                qzCtx.globalAlpha = 1;
+                qzCtx.beginPath();
+                qzCtx.arc(p.x, p.y, 12, 0, Math.PI * 2);
+                qzCtx.stroke();
+                qzCtx.restore();
+            }
         } else if (highlightData.type === 'multi_radius') {
             drawQLine(pts.N, pts.S, systemColors.radius, 6);
             drawQLine(pts.N, pts.Y, systemColors.radius, 6);
