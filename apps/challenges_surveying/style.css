@@ -81,47 +81,16 @@ button {
     padding: 10px 25px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: var(--secondary);
-}
-
-#feedback {
-    text-align: center;
-    font-weight: bold;
-    min-height: 1.5rem;
-}
-
-/* حل مشكلة ظهور النافذة بشكل دائم */
-.hidden {
-    display: none !important;
 }
 
 #overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     z-index: 100;
 }
 
-.modal {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    animation: popIn 0.3s ease-out;
-}
+.hidden { display: none !important; }
 
-@keyframes popIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
+.modal { background: white; padding: 40px; border-radius: 15px; text-align: center; }
