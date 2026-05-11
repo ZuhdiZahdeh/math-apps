@@ -3,6 +3,17 @@
 
   const DATA = window.GEOMETRY_QUESTION_BANK;
   const STORAGE_KEY = 'geometryUnitApp.unified.v2';
+  const ONLINE_QUEUE_KEY = 'geometryUnitApp.onlineQueue.v1';
+  const ONLINE_MAX_QUEUE_SIZE = 300;
+
+  const ONLINE_CONFIG = {
+    enabled: true,
+    endpoint: 'https://script.google.com/macros/s/AKfycbxNSR9Nw_QeYyNejTXIJv85PKXRhzRrh-Xh4cMZG1ezv4uSjqDET5Fjbe-D6lqnXVSYDg/exec',
+    sendEveryAttempt: true,
+    sendExitTickets: true,
+    sendReports: true
+  };
+
   const app = document.getElementById('app');
   const toastEl = document.getElementById('toast');
 
@@ -11,29 +22,42 @@
     return;
   }
 
-  const defaultState = {
-    student: { name: '', className: '' },
-    view: 'home',
-    currentLessonId: null,
-    currentQuestionByLesson: {},
-    progress: {},
-    exitTickets: {},
-    openAnswers: {},
-    lastFeedback: null,
-    startedAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  };
+  function createId(prefix = 'id') {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+      return `${prefix}-${window.crypto.randomUUID()}`;
+    }
+    return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  }
 
+  function createDefaultState() {
+    return {
+      sessionId: createId('session'),
+      student: { name: '', className: '' },
+      view: 'home',
+      currentLessonId: null,
+      currentQuestionByLesson: {},
+      progress: {},
+      exitTickets: {},
+      openAnswers: {},
+      lastFeedback: null,
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  const defaultState = createDefaultState();
   let state = loadState();
 
   function loadState() {
+    const base = createDefaultState();
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-      if (!saved || typeof saved !== 'object') return structuredCloneSafe(defaultState);
+      if (!saved || typeof saved !== 'object') return structuredCloneSafe(base);
       return {
-        ...structuredCloneSafe(defaultState),
+        ...structuredCloneSafe(base),
         ...saved,
-        student: { ...defaultState.student, ...(saved.student || {}) },
+        sessionId: saved.sessionId || base.sessionId,
+        student: { ...base.student, ...(saved.student || {}) },
         currentQuestionByLesson: saved.currentQuestionByLesson || {},
         progress: saved.progress || {},
         exitTickets: saved.exitTickets || {},
@@ -41,7 +65,7 @@
       };
     } catch (err) {
       console.warn('تعذر قراءة حالة التطبيق المحفوظة.', err);
-      return structuredCloneSafe(defaultState);
+      return structuredCloneSafe(base);
     }
   }
 
@@ -73,6 +97,108 @@
     toastEl.classList.add('show');
     clearTimeout(showToast.timer);
     showToast.timer = setTimeout(() => toastEl.classList.remove('show'), 2800);
+  }
+
+  function onlineEnabled() {
+    return Boolean(ONLINE_CONFIG.enabled && ONLINE_CONFIG.endpoint && ONLINE_CONFIG.endpoint.startsWith('https://'));
+  }
+
+  function buildOnlineEnvelope(action, payload) {
+    return {
+      action,
+      payload,
+      clientSentAt: new Date().toISOString(),
+      sessionId: state.sessionId || createId('session'),
+      appVersion: DATA.meta?.version || ''
+    };
+  }
+
+  async function sendOnline(action, payload, options = {}) {
+    if (!onlineEnabled()) return false;
+
+    const envelope = buildOnlineEnvelope(action, payload);
+
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      queueOnline(envelope);
+      if (options.toast) showToast('لا يوجد اتصال بالإنترنت. تم حفظ البيانات مؤقتاً وستُرسل لاحقاً.');
+      return false;
+    }
+
+    try {
+      await fetch(ONLINE_CONFIG.endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(envelope)
+      });
+
+      if (options.toast) showToast(options.successMessage || 'تم إرسال البيانات إلكترونياً.');
+      return true;
+    } catch (err) {
+      queueOnline(envelope);
+      console.warn('تعذر الإرسال Online، تم حفظ البيانات في قائمة انتظار محلية.', err);
+      if (options.toast) showToast('تعذر الإرسال الآن. تم حفظ البيانات مؤقتاً وستُرسل عند توفر الاتصال.');
+      return false;
+    }
+  }
+
+  function queueOnline(envelope) {
+    try {
+      const queue = JSON.parse(localStorage.getItem(ONLINE_QUEUE_KEY) || '[]');
+      queue.push({
+        ...envelope,
+        queuedAt: new Date().toISOString()
+      });
+      const trimmed = queue.slice(-ONLINE_MAX_QUEUE_SIZE);
+      localStorage.setItem(ONLINE_QUEUE_KEY, JSON.stringify(trimmed));
+    } catch (err) {
+      console.warn('تعذر حفظ قائمة الإرسال المؤجل.', err);
+    }
+  }
+
+  async function syncOnlineQueue(options = {}) {
+    if (!onlineEnabled()) return;
+
+    let queue = [];
+    try {
+      queue = JSON.parse(localStorage.getItem(ONLINE_QUEUE_KEY) || '[]');
+    } catch (err) {
+      queue = [];
+    }
+
+    if (!Array.isArray(queue) || queue.length === 0) return;
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) return;
+
+    const remaining = [];
+    let sent = 0;
+
+    for (const item of queue) {
+      try {
+        await fetch(ONLINE_CONFIG.endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(item)
+        });
+        sent += 1;
+      } catch (err) {
+        remaining.push(item);
+      }
+    }
+
+    try {
+      localStorage.setItem(ONLINE_QUEUE_KEY, JSON.stringify(remaining));
+    } catch (err) {
+      console.warn('تعذر تحديث قائمة الإرسال المؤجل.', err);
+    }
+
+    if (options.toast && sent > 0 && remaining.length === 0) {
+      showToast(`تمت مزامنة ${sent} عملية إرسال مؤجلة.`);
+    }
   }
 
   function getLesson(id) {
@@ -556,9 +682,65 @@
     p.lastAnswer = answer;
     p.completedAt = new Date().toISOString();
     saveProgress(qid, p);
+    sendAnswerOnline(question, p, answer, true, { message: question.feedback.correct });
     state.lastFeedback = { qid, type: 'correct', title: 'تم حفظ المهمة الأدائية', message: question.feedback.correct, hint: '' };
     saveState();
     render();
+  }
+
+  function getStudentAnswerForOnline(question, answerValue) {
+    if (question.type === 'choice') {
+      const index = Number(answerValue);
+      return {
+        index,
+        text: question.options?.[index] || ''
+      };
+    }
+
+    if (question.type === 'matching') {
+      return {
+        summary: String(answerValue || ''),
+        correctPairs: question.pairs?.map(pair => ({ term: pair.term, definition: pair.definition })) || []
+      };
+    }
+
+    return answerValue;
+  }
+
+  function buildAnswerPayload(question, progress, answerValue, isCorrect, options = {}) {
+    const found = findQuestion(question.id);
+    const lesson = found ? found.lesson : getLesson(state.currentLessonId);
+    const message = isCorrect
+      ? (options.message || question.feedback?.correct || '')
+      : (options.message || question.feedback?.wrong || '');
+
+    return {
+      sessionId: state.sessionId || createId('session'),
+      studentName: state.student.name || '',
+      className: state.student.className || '',
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      questionId: question.id,
+      questionType: question.type,
+      prompt: question.prompt,
+      studentAnswer: getStudentAnswerForOnline(question, answerValue),
+      correctAnswer: formatCorrectAnswer(question),
+      isCorrect: Boolean(isCorrect),
+      attempts: Number(progress.attempts || 0),
+      score: Number(progress.score || 0),
+      maxScore: getQuestionMax(question),
+      misconception: question.misconception || '',
+      feedback: message,
+      progressSnapshot: structuredCloneSafe(progress),
+      clientTimestamp: new Date().toISOString(),
+      appVersion: DATA.meta?.version || ''
+    };
+  }
+
+  function sendAnswerOnline(question, progress, answerValue, isCorrect, options = {}) {
+    if (!ONLINE_CONFIG.sendEveryAttempt) return;
+    const payload = buildAnswerPayload(question, progress, answerValue, isCorrect, options);
+    sendOnline('submitAnswer', payload);
   }
 
   function recordAttempt(question, isCorrect, answerValue, options = {}) {
@@ -615,6 +797,9 @@
     }
 
     saveProgress(question.id, p);
+    sendAnswerOnline(question, p, answerValue, isCorrect, {
+      message: state.lastFeedback?.qid === question.id ? state.lastFeedback.message : ''
+    });
     render();
   }
 
@@ -640,9 +825,25 @@
 
   function saveExitTicket(lessonId) {
     const val = document.getElementById('exitTicketAnswer')?.value || '';
+    const lesson = getLesson(lessonId);
     state.exitTickets[lessonId] = val.trim();
     state.lastFeedback = null;
     saveState();
+
+    if (ONLINE_CONFIG.sendExitTickets && state.exitTickets[lessonId]) {
+      sendOnline('submitExitTicket', {
+        sessionId: state.sessionId || createId('session'),
+        studentName: state.student.name || '',
+        className: state.student.className || '',
+        lessonId: lesson.id,
+        lessonTitle: lesson.title,
+        exitTicket: lesson.exitTicket,
+        answer: state.exitTickets[lessonId],
+        clientTimestamp: new Date().toISOString(),
+        appVersion: DATA.meta?.version || ''
+      });
+    }
+
     showToast('تم حفظ بطاقة الخروج.');
     render();
   }
@@ -694,6 +895,7 @@
           <div class="btn-row">
             <button class="btn ghost small" type="button" data-action="print-report">طباعة</button>
             <button class="btn ghost small" type="button" data-action="export-report">تصدير JSON</button>
+            <button class="btn success small" type="button" data-action="send-report-online">حفظ التقرير Online</button>
           </div>
         </div>
         <div class="report-grid">
@@ -816,6 +1018,7 @@
 
   function buildReportPayload() {
     return {
+      sessionId: state.sessionId || createId('session'),
       app: DATA.meta.appTitle,
       version: DATA.meta.version,
       exportedAt: new Date().toISOString(),
@@ -847,10 +1050,19 @@
     showToast('تم تجهيز ملف التقرير للتنزيل.');
   }
 
+  function sendReportOnline() {
+    if (!ONLINE_CONFIG.sendReports) return;
+    const payload = buildReportPayload();
+    sendOnline('submitReport', payload, {
+      toast: true,
+      successMessage: 'تم إرسال التقرير إلكترونياً. يمكن مراجعته في Google Sheets.'
+    });
+  }
+
   function resetAll() {
     const ok = confirm('هل تريد مسح كل تقدم الطالب من هذا المتصفح؟');
     if (!ok) return;
-    state = structuredCloneSafe(defaultState);
+    state = createDefaultState();
     localStorage.removeItem(STORAGE_KEY);
     render();
     showToast('تم مسح التقدم.');
@@ -1130,6 +1342,7 @@
     if (action === 'reset-question') { resetQuestion(target.dataset.qid); return; }
     if (action === 'next-lesson') { nextLesson(); return; }
     if (action === 'export-report') { exportReport(); return; }
+    if (action === 'send-report-online') { sendReportOnline(); return; }
     if (action === 'print-report') { window.print(); return; }
     if (action === 'reset-all') { resetAll(); return; }
   });
@@ -1163,5 +1376,7 @@
     }
   });
 
+  window.addEventListener('online', () => syncOnlineQueue({ toast: true }));
+  syncOnlineQueue();
   render();
 })();
