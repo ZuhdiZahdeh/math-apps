@@ -2,12 +2,11 @@
     --primary: #1f4e79;
     --secondary: #5b9bd5;
     --success: #70ad47;
-    --accent: #ffc107;
-    --bg: #f0f4f8;
+    --bg: #f8f9fa;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
     background-color: var(--bg);
     margin: 0;
     display: flex;
@@ -18,11 +17,12 @@ body {
 
 #game-container {
     width: 90%;
-    max-width: 800px;
+    max-width: 700px;
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     overflow: hidden;
+    position: relative;
 }
 
 header {
@@ -39,41 +39,39 @@ header {
     font-weight: bold;
 }
 
-#game-screen {
-    padding: 30px;
-}
-
 #shape-display {
-    height: 250px;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fafafa;
-    border: 2px dashed #ccc;
-    margin-bottom: 20px;
-    border-radius: 15px;
+    background: #ffffff;
+    border: 2px dashed #ddd;
+    margin: 20px;
+    border-radius: 10px;
 }
 
 #question-text {
-    font-size: 1.2rem;
-    color: var(--primary);
-    margin-bottom: 15px;
+    font-size: 1.15rem;
+    color: #333;
     text-align: center;
+    margin: 0 20px 20px;
+    min-height: 3rem;
 }
 
 .input-group {
     display: flex;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 input {
-    padding: 10px;
+    padding: 12px;
     border: 2px solid var(--secondary);
     border-radius: 8px;
-    width: 150px;
+    width: 100px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 button {
@@ -84,25 +82,35 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
-button:hover { background: var(--secondary); }
+button:hover {
+    background: var(--secondary);
+}
 
 #feedback {
     text-align: center;
-    margin-top: 15px;
-    min-height: 24px;
     font-weight: bold;
+    min-height: 1.5rem;
 }
 
-.hidden { display: none; }
+/* حل مشكلة ظهور النافذة بشكل دائم */
+.hidden {
+    display: none !important;
+}
 
 #overlay {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.7);
-    display: flex; justify-content: center; align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
 }
 
 .modal {
@@ -110,4 +118,10 @@ button:hover { background: var(--secondary); }
     padding: 40px;
     border-radius: 15px;
     text-align: center;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
