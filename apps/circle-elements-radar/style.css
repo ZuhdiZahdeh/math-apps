@@ -1,0 +1,50 @@
+:root {
+    --primary: #1769aa;
+    --secondary: #0b8f8f;
+    --bg: #f0f4f8;
+    --salmon: #ffa07a;
+    --sky: #eef6ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background-color: var(--bg);
+    margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh;
+}
+
+#game-container {
+    width: 90%; max-width: 800px; background: white; border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); overflow: hidden; position: relative;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white; padding: 20px; text-align: center;
+}
+
+#status-bar { display: flex; justify-content: space-around; font-weight: bold; margin-top: 10px; }
+
+#shape-display {
+    height: 260px; display: flex; justify-content: center; align-items: center;
+    background: #fff; border: 2px dashed #ccc; margin: 20px; border-radius: 12px;
+}
+
+#question-text { font-size: 1.2rem; text-align: center; padding: 0 20px; min-height: 3rem; color: #333; margin-bottom: 15px; }
+
+.options-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 20px 20px; }
+
+.option-btn {
+    padding: 12px; border: 2px solid var(--primary); background: white;
+    border-radius: 8px; cursor: pointer; transition: 0.3s; font-size: 1rem;
+}
+
+.option-btn:hover { background: var(--sky); }
+
+.input-group { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
+.hidden { display: none !important; }
+
+input { padding: 10px; border: 2px solid var(--primary); border-radius: 8px; width: 100px; text-align: center; font-size: 1.2rem; }
+
+#overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 100; }
+
+.modal { background: white; padding: 40px; border-radius: 15px; text-align: center; border-top: 8px solid var(--salmon); }
