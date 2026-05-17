@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ورقة عمل محوسبة: تمارين عامة - وحدة الهندسة (٢)</title>
+<style>
+  :root{
+    --main:#d9579b;
+    --main-dark:#b93678;
+    --accent:#1aa6b7;
+    --soft:#fff4fa;
+    --line:#f2b7d4;
+    --ok:#168a43;
+    --bad:#c0392b;
+    --warn:#f2a20c;
+    --ink:#202124;
+    --muted:#60656f;
+    --card:#ffffff;
+    --bg:#f9fbff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Tahoma", "Arial", sans-serif;
+    background:linear-gradient(180deg,#fff 0%,#f7fbff 55%,#fff4fa 100%);
+    color:var(--ink);
+    line-height:1.75;
+  }
+  .wrap{max-width:1120px;margin:auto;padding:18px}
+  header.hero{
+    background:linear-gradient(135deg,var(--main),#7d5fff);
+    color:white;border-radius:24px;padding:28px 24px;margin:16px 0 18px;
+    box-shadow:0 14px 30px rgba(120,40,120,.18);position:relative;overflow:hidden
+  }
+  header.hero:before{content:"";position:absolute;inset:-60px auto auto -60px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.16)}
+  header.hero:after{content:"";position:absolute;right:-90px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10)}
+  h1{margin:0 0 8px;font-size:clamp(1.45rem,3.5vw,2.4rem)}
+  .subtitle{font-size:1rem;opacity:.95;margin:0;max-width:850px}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 10px;border-radius:999px;font-size:.92rem}
+  .toolbar{
+    position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+    border:1px solid #edf0f5;border-radius:18px;padding:10px;margin:0 0 18px;box-shadow:0 8px 22px rgba(0,0,0,.05)
+  }
+  .toolbar .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  button,.btn{
+    border:0;border-radius:12px;background:var(--main);color:white;padding:10px 14px;font-weight:700;cursor:pointer;
+    transition:.2s transform,.2s filter; font-family:inherit; text-decoration:none;display:inline-flex;align-items:center;gap:6px
+  }
+  button:hover,.btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
+  button.secondary{background:#eef2ff;color:#243263;border:1px solid #dfe5ff}
+  button.ghost{background:#fff;color:var(--main-dark);border:1px solid var(--line)}
+  button.warn{background:var(--warn);color:#3b2b00}
+  .student{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+  input[type="text"], input[type="number"], textarea, select{
+    border:1px solid #d9deea;border-radius:10px;padding:9px 10px;font-family:inherit;background:white;min-height:38px
+  }
+  input.small{width:120px;text-align:center}
+  input.answer{width:130px;text-align:center;margin:0 4px}
+  textarea{width:100%;min-height:110px;resize:vertical}
+  .scorebox{margin-inline-start:auto;background:#f7f9ff;border:1px solid #e3e9ff;border-radius:14px;padding:8px 12px;font-weight:700;color:#2e3c69}
+  nav.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  nav.chips a{color:#26304c;background:#f5f7fc;border:1px solid #e5e9f4;border-radius:999px;text-decoration:none;padding:6px 10px;font-size:.93rem}
+  section.card{
+    background:var(--card);border:1px solid #eceff6;border-radius:22px;padding:20px;margin:18px 0;
+    box-shadow:0 12px 28px rgba(0,0,0,.045)
+  }
+  section.card h2{margin:0 0 12px;color:var(--main-dark);font-size:1.35rem;border-bottom:2px dashed var(--line);padding-bottom:8px}
+  .note{background:#f8fcff;border-right:5px solid var(--accent);padding:12px 14px;border-radius:12px;color:#24333d;margin:12px 0}
+  .q{
+    border:1px solid #edf0f5;border-radius:18px;padding:16px;margin:14px 0;background:linear-gradient(180deg,#fff,#fffafd)
+  }
+  .q h3{margin:0 0 8px;font-size:1.08rem;color:#2c2d34}
+  .qnum{display:inline-grid;place-items:center;background:var(--main);color:white;min-width:34px;height:34px;border-radius:50%;margin-left:8px;font-weight:900}
+  .opts{display:grid;gap:8px;margin-top:8px}
+  .opt{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e8eaf2;border-radius:12px;padding:9px;cursor:pointer}
+  .opt input{accent-color:var(--main)}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+  @media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr}.scorebox{margin-inline-start:0}.toolbar{position:relative}}
+  .diagram{background:#fbfdff;border:1px solid #e5edf8;border-radius:16px;padding:10px;margin:10px 0;overflow:auto;text-align:center}
+  svg{max-width:100%;height:auto}
+  .formula{background:#f7f2ff;color:#2b2854;border:1px solid #e3d6ff;border-radius:12px;padding:8px 10px;display:inline-block;margin:4px 0;font-weight:700}
+  .feedback{margin-top:8px;font-weight:700;min-height:26px}
+  .correct{border-color:#b8e6c7!important;background:#f2fff6!important}
+  .wrong{border-color:#f2b4ac!important;background:#fff6f4!important}
+  .fb-ok{color:var(--ok)}.fb-bad{color:var(--bad)}.fb-warn{color:#996600}
+  details{background:#f9fafc;border:1px solid #edf0f5;border-radius:12px;padding:8px 10px;margin-top:8px}
+  summary{cursor:pointer;font-weight:700;color:#4d5772}
+  .solutions{display:none;background:#fffbea;border:1px solid #f1d48b;border-radius:16px;padding:14px;margin-top:12px}
+  .solutions.show{display:block}
+  .solution-step{margin:6px 0;padding:6px 8px;background:white;border-radius:8px;border:1px solid #f7e5ab}
+  .self-grid{display:grid;grid-template-columns:1.5fr repeat(3,110px);gap:8px;align-items:center}
+  .self-grid>div{padding:8px;border-bottom:1px solid #eef0f6}
+  .center{text-align:center}.muted{color:var(--muted)}
+  .pill{display:inline-block;background:#eefafc;color:#0b6773;border:1px solid #cdeef2;border-radius:999px;padding:4px 9px;font-size:.88rem;margin:2px}
+  .footer{font-size:.9rem;color:#647084;text-align:center;padding:22px 0}
+  .print-only{display:none}
+  @media print{
+    body{background:white}.toolbar,button,.no-print{display:none!important}.wrap{max-width:none;padding:0 8px}
+    section.card{box-shadow:none;break-inside:avoid}.solutions{display:block}.print-only{display:block}
+    header.hero{background:white!important;color:#111;border:2px solid #ddd;box-shadow:none}
+  }
+</style>
+
+<style id="unit7-floating-style">
+.unit7-floating-nav{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;align-items:center;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.unit7-floating-nav a,.unit7-floating-nav button{all:unset;box-sizing:border-box;background:#111827!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:999px!important;padding:9px 13px!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important;text-decoration:none!important;line-height:1.2!important}
+.unit7-floating-nav a:hover,.unit7-floating-nav button:hover{background:#0b7fab!important;transform:translateY(-1px)}
+@media print{.unit7-floating-nav{display:none!important}}
+@media(max-width:640px){.unit7-floating-nav{left:8px;right:8px;bottom:8px;justify-content:center}.unit7-floating-nav a,.unit7-floating-nav button{font-size:12px!important;padding:8px 10px!important}}
+</style>
+
+</head>
+<body>
+
+<nav class="unit7-floating-nav" aria-label="روابط التنقل في الوحدة السابعة">
+  <a href="index.html">↩ فهرس الوحدة</a>
+  <button type="button" onclick="window.print()">طباعة</button>
+</nav>
+
+<div class="wrap">
+<header class="hero">
+  <h1>ورقة عمل محوسبة: التمارين العامة في وحدة الهندسة (٢)</h1>
+  <p class="subtitle">الصف السادس الأساسي – الفصل الثاني. صُممت الورقة لتدريب الطلبة على اختيار القانون المناسب، الحساب بوحدات صحيحة، تفسير الخطوات، وحل مسائل حياتية في المساحة ومحيط الدائرة.</p>
+  <div class="meta">
+    <span class="badge">المجال: الهندسة والقياس</span>
+    <span class="badge">النمط: تفاعلي – تقويم ذاتي – تغذية راجعة فورية</span>
+    <span class="badge">تعمل دون إنترنت</span>
+  </div>
+</header>
+
+<div class="toolbar no-print">
+  <div class="student">
+    <label>اسم الطالب/ـة: <input type="text" id="studentName" placeholder="اكتب الاسم هنا"></label>
+    <label>الشعبة: <input type="text" id="studentClass" class="small" placeholder="..."></label>
+    <div class="scorebox" id="scoreBox">الدرجة: لم تُصحّح بعد</div>
+  </div>
+  <div class="row">
+    <button onclick="checkAll()">تصحيح الورقة</button>
+    <button class="secondary" onclick="toggleSolutions()">إظهار/إخفاء الحلول النموذجية</button>
+    <button class="ghost" onclick="window.print()">طباعة / حفظ PDF</button>
+    <button class="warn" onclick="resetAll()">إعادة المحاولة</button>
+  </div>
+  <nav class="chips">
+    <a href="#mcq">اختيار من متعدد</a>
+    <a href="#areas">مساحات وأشكال رباعية</a>
+    <a href="#circle">محيط الدائرة وتطبيقات</a>
+    <a href="#draw">الرسم والمناطق المظللة</a>
+    <a href="#self">أقيّم ذاتي</a>
+  </nav>
+</div>
+
+<section class="card" id="intro">
+  <h2>إرشادات للطالب</h2>
+  <div class="note">
+    اكتب الأعداد فقط داخل الخانات، ويمكنك استخدام الفاصلة العشرية أو الفاصلة العربية. في الأسئلة التي تتضمن الدائرة استُخدمت القيمة <b>π = 3.14</b> غالباً، و <b>π = 22/7</b> عندما يكون القطر أو نصف القطر مناسباً للقسمة على 7 كما في السؤال الخاص بعجلة الدراجة ونصف القطر 7 سم.
+  </div>
+  <span class="pill">تغذية راجعة فورية</span>
+  <span class="pill">أمثلة محلولة</span>
+  <span class="pill">رسومات SVG تفاعلية</span>
+  <span class="pill">قابلة للطباعة</span>
+</section>
+
+<section class="card" id="mcq">
+  <h2>أولاً: أضع دائرة حول رمز الإجابة الصحيحة</h2>
+  <div class="q mcq" data-answer="b">
+    <h3><span class="qnum">1</span>ما النسبة التقريبية π من الآتية؟</h3>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="mc1" value="a"> أ) القطر ÷ المحيط</label>
+      <label class="opt"><input type="radio" name="mc1" value="b"> ب) المحيط ÷ القطر</label>
+      <label class="opt"><input type="radio" name="mc1" value="c"> ج) المحيط × القطر</label>
+      <label class="opt"><input type="radio" name="mc1" value="d"> د) القطر × المحيط</label>
+    </div>
+    <div class="feedback"></div>
+  </div>
+  <div class="q mcq" data-answer="a">
+    <h3><span class="qnum">2</span>ما محيط الدائرة التي نصف قطرها 7 سم؟</h3>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="mc2" value="a"> أ) 44 سم</label>
+      <label class="opt"><input type="radio" name="mc2" value="b"> ب) 22 سم</label>
+      <label class="opt"><input type="radio" name="mc2" value="c"> ج) 14 سم</label>
+      <label class="opt"><input type="radio" name="mc2" value="d"> د) 3.14 سم</label>
+    </div>
+    <div class="feedback"></div>
+  </div>
+  <div class="q mcq" data-answer="a">
+    <h3><span class="qnum">3</span>متوازي أضلاع طول قاعدته 10 سم، وارتفاعه 20 سم. ما مساحته؟</h3>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="mc3" value="a"> أ) 200 سم²</label>
+      <label class="opt"><input type="radio" name="mc3" value="b"> ب) 100 سم²</label>
+      <label class="opt"><input type="radio" name="mc3" value="c"> ج) 200 م²</label>
+      <label class="opt"><input type="radio" name="mc3" value="d"> د) 200 سم</label>
+    </div>
+    <div class="feedback"></div>
+  </div>
+  <div class="q mcq" data-answer="b">
+    <h3><span class="qnum">4</span>ما وحدة قياس المساحة؟</h3>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="mc4" value="a"> أ) وحدة الطول</label>
+      <label class="opt"><input type="radio" name="mc4" value="b"> ب) الوحدة المربعة</label>
+      <label class="opt"><input type="radio" name="mc4" value="c"> ج) الوحدة المكعبة</label>
+      <label class="opt"><input type="radio" name="mc4" value="d"> د) الجذر التربيعي للوحدة</label>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section class="card" id="areas">
+  <h2>ثانياً: مساحات وأشكال رباعية</h2>
+
+  <div class="q">
+    <h3><span class="qnum">5</span>أجد مساحة شبه المنحرف في الشكل المجاور بطريقتين.</h3>
+    <div class="grid2">
+      <div class="diagram">
+        <svg width="430" height="170" viewBox="0 0 430 170" aria-label="شبه منحرف مركب من مستطيل ومثلث">
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d9579b"/></marker>
+          </defs>
+          <polygon points="40,130 380,130 160,40 40,40" fill="#fff0f7" stroke="#e33b3b" stroke-width="4"/>
+          <line x1="160" y1="40" x2="160" y2="130" stroke="#333" stroke-dasharray="7 5" stroke-width="2"/>
+          <path d="M40,130 L40,112 L58,112" stroke="#333" fill="none" stroke-width="2"/>
+          <path d="M160,130 L160,112 L178,112" stroke="#333" fill="none" stroke-width="2"/>
+          <text x="26" y="88" font-size="22" fill="#333">٦ سم</text>
+          <text x="88" y="122" font-size="22" fill="#333">٦ سم</text>
+          <text x="242" y="122" font-size="22" fill="#333">٨ سم</text>
+          <text x="210" y="22" font-size="17" fill="#555">القاعدة الصغرى = ٦ سم، الكبرى = ١٤ سم</text>
+        </svg>
+      </div>
+      <div>
+        <p>طريقة التجزئة: مساحة المستطيل = <input class="answer num" data-answer="36" data-tol="0" placeholder="..."> سم²، ومساحة المثلث = <input class="answer num" data-answer="24" data-tol="0" placeholder="..."> سم²، إذن المساحة = <input class="answer num" data-answer="60" data-tol="0" placeholder="..."> سم².</p>
+        <p>طريقة القانون: م = ½ × (مجموع القاعدتين) × الارتفاع = <input class="answer num" data-answer="60" data-tol="0" placeholder="..."> سم².</p>
+        <details><summary>تلميح</summary>القاعدة الكبرى = 6 + 8 = 14 سم، والارتفاع = 6 سم.</details>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">6</span>قاعة اجتماعات على شكل شبه منحرف، مساحته 45 م²، وطول إحدى قاعدتيه 7 م، وارتفاعه 6 م. ما طول القاعدة الأخرى؟</h3>
+    <p>طول القاعدة الأخرى = <input class="answer num" data-answer="8" data-tol="0" placeholder="..."> م.</p>
+    <details><summary>تلميح</summary>45 = ½ × (7 + س) × 6</details>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">7</span>حديقة على شكل متوازي أضلاع، طول قاعدتها 8 م وارتفاعها 10 م. أراد جميل وضع سماد بمعدل 0.4 كغم لكل متر مربع. كم كغم يلزمه؟</h3>
+    <p>مساحة الحديقة = <input class="answer num" data-answer="80" data-tol="0" placeholder="..."> م²، وكمية السماد = <input class="answer num" data-answer="32" data-tol="0.01" placeholder="..."> كغم.</p>
+    <details><summary>تلميح</summary>مساحة متوازي الأضلاع = القاعدة × الارتفاع، ثم نضرب المساحة في 0.4.</details>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">8</span>يراد تبليط أرضية قاعة على شكل شبه منحرف، طولا قاعدتيه 12 م و24 م، والارتفاع بينهما 35 م. أجد التكلفة إذا كان ثمن المتر المربع من البلاط 8.2 ديناراً.</h3>
+    <p>مساحة القاعة = <input class="answer num" data-answer="630" data-tol="0" placeholder="..."> م²، والتكلفة = <input class="answer num" data-answer="5166" data-tol="0.01" placeholder="..."> دينار.</p>
+    <details><summary>توضيح حول التعديل الرقمي</summary>في الحوسبة استُخدمت القاعدتان 12م و24م كما في صفحة التمرين؛ فإذا غُيّرت أعداد المسألة في نسخة أخرى يمكن تعديل القيم داخل الملف بسهولة من الكود.</details>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section class="card" id="circle">
+  <h2>ثالثاً: محيط الدائرة وتطبيقات حياتية</h2>
+
+  <div class="q">
+    <h3><span class="qnum">9</span>دراجة طول قطر عجلتها 42 سم. أجد المسافة التي تقطعها عندما تدور 100 دورة.</h3>
+    <p>محيط العجلة = <input class="answer num" data-answer="132" data-tol="0.1" placeholder="..."> سم، والمسافة في 100 دورة = <input class="answer num" data-answer="132" data-tol="0.1" placeholder="..."> م.</p>
+    <details><summary>تلميح</summary>محيط الدائرة = π × القطر = 22/7 × 42 = 132 سم. ثم 132 × 100 = 13200 سم = 132 م.</details>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">10</span>ساعة حائط دائرية الشكل، طول عقرب الثواني فيها يساوي 20 سم. أجد المسافة التي يقطعها رأس العقرب في الدقيقة الواحدة.</h3>
+    <div class="grid2">
+      <div class="diagram">
+        <svg width="280" height="280" viewBox="0 0 280 280" aria-label="ساعة وعقرب ثواني">
+          <circle cx="140" cy="140" r="105" fill="#fff" stroke="#111" stroke-width="5"/>
+          <circle cx="140" cy="140" r="4" fill="#d9579b"/>
+          <line x1="140" y1="140" x2="140" y2="48" stroke="#d9579b" stroke-width="4"/>
+          <line x1="140" y1="140" x2="96" y2="112" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+          <line x1="140" y1="140" x2="178" y2="102" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+          <text x="132" y="42" font-size="30" font-weight="bold">12</text><text x="220" y="150" font-size="30" font-weight="bold">3</text><text x="134" y="238" font-size="30" font-weight="bold">6</text><text x="52" y="150" font-size="30" font-weight="bold">9</text>
+          <text x="82" y="24" font-size="17" fill="#555">نق = ٢٠ سم</text>
+        </svg>
+      </div>
+      <div>
+        <p>المسافة التي يقطعها رأس عقرب الثواني في دقيقة واحدة = <input class="answer num" data-answer="125.6" data-tol="0.1" placeholder="..."> سم.</p>
+        <details><summary>تلميح</summary>في دقيقة واحدة يدور عقرب الثواني دورة كاملة، والمسافة = محيط دائرة نصف قطرها 20 سم.</details>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">11</span>بمناسبة رمضان، زُيّن باب مسجد بحبل مصابيح كما في الشكل: ارتفاع الضلعين 2 م، وعرض الباب 0.9 م. ما طول الحبل؟</h3>
+    <div class="grid2">
+      <div class="diagram">
+        <svg width="320" height="300" viewBox="0 0 320 300" aria-label="باب مقوس وحبل مصابيح">
+          <path d="M80 250 L80 120 A80 80 0 0 1 240 120 L240 250" fill="none" stroke="#111" stroke-width="5"/>
+          <line x1="80" y1="250" x2="240" y2="250" stroke="#111" stroke-width="3"/>
+          <line x1="160" y1="120" x2="160" y2="250" stroke="#333" stroke-width="3"/>
+          <g id="bulbs" fill="#f2c94c" stroke="#555" stroke-width="1">
+            <script type="application/ecmascript"><![CDATA[]]></script>
+          </g>
+          <!-- bulbs manually -->
+          <circle cx="80" cy="232" r="7" fill="#ff6b6b"/><circle cx="80" cy="206" r="7" fill="#ffd93d"/><circle cx="80" cy="180" r="7" fill="#6bcff6"/><circle cx="80" cy="154" r="7" fill="#95e06c"/><circle cx="240" cy="232" r="7" fill="#ffd93d"/><circle cx="240" cy="206" r="7" fill="#ff6b6b"/><circle cx="240" cy="180" r="7" fill="#95e06c"/><circle cx="240" cy="154" r="7" fill="#6bcff6"/>
+          <circle cx="97" cy="83" r="7" fill="#ff6b6b"/><circle cx="119" cy="62" r="7" fill="#ffd93d"/><circle cx="146" cy="51" r="7" fill="#6bcff6"/><circle cx="174" cy="52" r="7" fill="#95e06c"/><circle cx="199" cy="64" r="7" fill="#ff6b6b"/><circle cx="221" cy="85" r="7" fill="#ffd93d"/>
+          <text x="38" y="190" fill="#d33" font-size="18">٢ م</text>
+          <text x="130" y="272" fill="#d33" font-size="18">٠٫٩ م</text>
+        </svg>
+      </div>
+      <div>
+        <p>طول الحبل تقريباً = <input class="answer num" data-answer="5.41" data-tol="0.05" placeholder="..."> م.</p>
+        <details><summary>تلميح</summary>الطول = الضلعان الرأسيان + طول نصف الدائرة = 2 + 2 + ½ × π × 0.9.</details>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">12</span>جسر مائي على شكل دائرة مساحتها 314 م². أجد محيط هذا الجسر.</h3>
+    <p>نصف القطر = <input class="answer num" data-answer="10" data-tol="0.05" placeholder="..."> م، ومحيط الجسر = <input class="answer num" data-answer="62.8" data-tol="0.1" placeholder="..."> م.</p>
+    <details><summary>تلميح</summary>314 = 3.14 × نق²، إذن نق² = 100، نق = 10 م.</details>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section class="card" id="draw">
+  <h2>رابعاً: الرسم والمناطق المظللة</h2>
+
+  <div class="q">
+    <h3><span class="qnum">13</span>أرسم دائرتين تشتركان معاً في المركز «م»: نصف قطر الأولى 3 سم، ونصف قطر الثانية 5 سم.</h3>
+    <div class="grid2">
+      <div>
+        <p>أدخل نصفي القطرين ثم اضغط «ارسم»:</p>
+        <label>نق الأولى: <input class="answer num small" id="rOne" data-answer="3" data-tol="0" placeholder="3"> سم</label>
+        <label>نق الثانية: <input class="answer num small" id="rTwo" data-answer="5" data-tol="0" placeholder="5"> سم</label>
+        <button class="secondary" onclick="drawConcentric()" type="button">ارسم</button>
+        <details><summary>تلميح</summary>الدائرتان متحدتا المركز؛ أي لهما المركز نفسه «م» لكن نصفا قطرهما مختلفان.</details>
+      </div>
+      <div class="diagram">
+        <svg id="concentricSvg" width="340" height="260" viewBox="0 0 340 260" aria-label="دائرتان متحدتا المركز">
+          <rect x="0" y="0" width="340" height="260" fill="#fbfdff"/>
+          <line x1="20" y1="130" x2="320" y2="130" stroke="#e7edf6"/>
+          <line x1="170" y1="20" x2="170" y2="240" stroke="#e7edf6"/>
+          <circle cx="170" cy="130" r="3" fill="#d9579b"/>
+          <text x="155" y="125" font-size="18">م</text>
+          <text x="60" y="235" font-size="15" fill="#647084">ستظهر الدائرتان بعد الضغط على زر الرسم</text>
+        </svg>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">14</span>أجد مساحة المنطقة المظللة في الشكل المركب الآتي.</h3>
+    <div class="grid2">
+      <div class="diagram">
+        <svg width="360" height="250" viewBox="0 0 360 250" aria-label="شكل مركب من مستطيل ونصفي دائرتين">
+          <rect x="70" y="120" width="160" height="80" fill="#e9e9e9" stroke="#111" stroke-width="3"/>
+          <path d="M70 120 A80 80 0 0 1 230 120 Z" fill="#d9d9d9" stroke="#111" stroke-width="3"/>
+          <path d="M230 120 A40 40 0 0 1 230 200 Z" fill="#d9d9d9" stroke="#111" stroke-width="3"/>
+          <line x1="70" y1="120" x2="230" y2="120" stroke="#d33" stroke-width="3"/>
+          <line x1="230" y1="120" x2="230" y2="200" stroke="#d33" stroke-width="3"/>
+          <text x="135" y="111" font-size="18" fill="#d33">٤ سم</text>
+          <text x="237" y="165" font-size="18" fill="#d33">٢ سم</text>
+          <text x="105" y="228" font-size="15" fill="#555">مستطيل + نصف دائرة كبيرة + نصف دائرة صغيرة</text>
+        </svg>
+      </div>
+      <div>
+        <p>مساحة الشكل المركب = <input class="answer num" data-answer="15.85" data-tol="0.05" placeholder="..."> سم².</p>
+        <details><summary>تلميح</summary>المستطيل 4 × 2، ونصف الدائرة الكبيرة نصف قطرها 2 سم، ونصف الدائرة الصغيرة نصف قطرها 1 سم.</details>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="q">
+    <h3><span class="qnum">15</span>أجد مساحة المنطقة المظللة في مربع ضلعه 6 سم بداخله دائرة نصف قطرها 3 سم.</h3>
+    <div class="grid2">
+      <div class="diagram">
+        <svg width="290" height="250" viewBox="0 0 290 250" aria-label="مربع بداخله دائرة">
+          <rect x="55" y="30" width="190" height="190" fill="#e8e8e8" stroke="#111" stroke-width="5"/>
+          <circle cx="150" cy="125" r="92" fill="white" stroke="#111" stroke-width="3"/>
+          <line x1="150" y1="125" x2="242" y2="125" stroke="#d33" stroke-width="3"/>
+          <circle cx="150" cy="125" r="4" fill="#d9579b"/>
+          <text x="185" y="116" font-size="18" fill="#d33">٣ سم</text>
+          <text x="138" y="240" font-size="18">٦ سم</text>
+          <text x="28" y="130" font-size="18">٦ سم</text>
+        </svg>
+      </div>
+      <div>
+        <p>المساحة المظللة = <input class="answer num" data-answer="7.74" data-tol="0.05" placeholder="..."> سم².</p>
+        <details><summary>تلميح</summary>المساحة المظللة = مساحة المربع − مساحة الدائرة.</details>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section class="card" id="self">
+  <h2>خامساً: أقيّم ذاتي ومشروع مصغّر</h2>
+  <p class="muted">هذا الجزء لا يدخل في التصحيح الآلي، لكنه مناسب للتقويم البديل والملف التعليمي.</p>
+  <div class="self-grid">
+    <div><b>المهارة</b></div><div class="center"><b>مرتفع</b></div><div class="center"><b>متوسط</b></div><div class="center"><b>دون المتوسط</b></div>
+    <div>أختار القانون المناسب للمساحة أو المحيط.</div><div class="center"><input type="radio" name="s1"></div><div class="center"><input type="radio" name="s1"></div><div class="center"><input type="radio" name="s1"></div>
+    <div>أحسب مساحة متوازي الأضلاع وشبه المنحرف.</div><div class="center"><input type="radio" name="s2"></div><div class="center"><input type="radio" name="s2"></div><div class="center"><input type="radio" name="s2"></div>
+    <div>أحسب محيط الدائرة ومساحة الدائرة في مواقف حياتية.</div><div class="center"><input type="radio" name="s3"></div><div class="center"><input type="radio" name="s3"></div><div class="center"><input type="radio" name="s3"></div>
+    <div>أكتب وحدة القياس المناسبة للناتج.</div><div class="center"><input type="radio" name="s4"></div><div class="center"><input type="radio" name="s4"></div><div class="center"><input type="radio" name="s4"></div>
+  </div>
+  <div class="q">
+    <h3>مشروع قصير: حديقة مدرسية هندسية</h3>
+    <p>صمّم نموذجاً لحديقة مدرسية تتضمن: مربعاً، مستطيلاً، شبه منحرف، دائرة، ومتوازي أضلاع. اكتب أبعاد كل شكل واحسب المساحات، ثم اقترح كيف يمكن توزيع النباتات أو المقاعد.</p>
+    <textarea placeholder="اكتب فكرة المشروع، الأبعاد، والحسابات الأولية هنا..."></textarea>
+  </div>
+</section>
+
+<section class="card solutions" id="solutions">
+  <h2>الحلول النموذجية المختصرة</h2>
+  <div class="solution-step">1) π = المحيط ÷ القطر.</div>
+  <div class="solution-step">2) محيط الدائرة ذات نق = 7 سم: 2 × 7 × 22/7 = 44 سم.</div>
+  <div class="solution-step">3) مساحة متوازي الأضلاع = 10 × 20 = 200 سم².</div>
+  <div class="solution-step">4) وحدة قياس المساحة هي الوحدة المربعة.</div>
+  <div class="solution-step">5) مساحة شبه المنحرف = 36 + 24 = 60 سم²، أو ½ × (6 + 14) × 6 = 60 سم².</div>
+  <div class="solution-step">6) 45 = ½ × (7 + س) × 6 ⟵ س = 8 م.</div>
+  <div class="solution-step">7) مساحة الحديقة = 8 × 10 = 80 م²، والسماد = 80 × 0.4 = 32 كغم.</div>
+  <div class="solution-step">8) مساحة القاعة = ½ × (12 + 24) × 35 = 630 م²، والتكلفة = 630 × 8.2 = 5166 ديناراً.</div>
+  <div class="solution-step">9) محيط العجلة = 132 سم، وفي 100 دورة = 132 م.</div>
+  <div class="solution-step">10) مسافة رأس عقرب الثواني = 2 × 3.14 × 20 = 125.6 سم.</div>
+  <div class="solution-step">11) طول حبل المصابيح ≈ 2 + 2 + ½ × 3.14 × 0.9 = 5.41 م.</div>
+  <div class="solution-step">12) 314 = 3.14 × نق² ⟵ نق = 10 م، المحيط = 62.8 م.</div>
+  <div class="solution-step">13) دائرتان متحدتا المركز م، بنصفي قطر 3 سم و5 سم.</div>
+  <div class="solution-step">14) المساحة = 8 + 6.28 + 1.57 = 15.85 سم².</div>
+  <div class="solution-step">15) المساحة المظللة = 6×6 − 3.14×3×3 = 7.74 سم².</div>
+</section>
+
+<div class="footer">إعداد ورقة محوسبة تعليمية – يمكن تعديل الأرقام أو الأسئلة من داخل ملف HTML حسب حاجة المعلم.</div>
+</div>
+<script>
+function normalizeDigits(str){
+  if(str == null) return '';
+  const ar='٠١٢٣٤٥٦٧٨٩', fa='۰۱۲۳۴۵۶۷۸۹';
+  return String(str).replace(/[٠-٩]/g,d=>ar.indexOf(d)).replace(/[۰-۹]/g,d=>fa.indexOf(d)).replace(/،/g,'.').replace(/٫/g,'.');
+}
+function parseNum(v){
+  v = normalizeDigits(v).replace(/[^0-9.\-]/g,'');
+  if(v.split('.').length>2){
+    let parts=v.split('.'); v=parts.shift()+'.'+parts.join('');
+  }
+  return parseFloat(v);
+}
+function checkNumericInput(inp){
+  const ans=parseFloat(inp.dataset.answer), tol=parseFloat(inp.dataset.tol || '0.05');
+  const val=parseNum(inp.value);
+  const ok = !Number.isNaN(val) && Math.abs(val-ans) <= tol;
+  inp.classList.remove('correct','wrong');
+  inp.classList.add(ok?'correct':'wrong');
+  return ok;
+}
+function checkAll(){
+  let total=0, score=0;
+  document.querySelectorAll('.q.mcq').forEach(q=>{
+    total++;
+    const name=q.querySelector('input[type=radio]').name;
+    const chosen=q.querySelector('input[name="'+name+'"]:checked');
+    const ok=chosen && chosen.value===q.dataset.answer;
+    q.classList.remove('correct','wrong'); q.classList.add(ok?'correct':'wrong');
+    const fb=q.querySelector('.feedback');
+    fb.innerHTML=ok?'إجابة صحيحة ✓':'تحتاج مراجعة. راجع القانون أو الوحدة.';
+    fb.className='feedback '+(ok?'fb-ok':'fb-bad');
+    if(ok) score++;
+  });
+  document.querySelectorAll('input.answer.num').forEach(inp=>{
+    total++;
+    const ok=checkNumericInput(inp);
+    if(ok) score++;
+  });
+  // feedback per question for numeric questions
+  document.querySelectorAll('.q:not(.mcq)').forEach(q=>{
+    const inputs=[...q.querySelectorAll('input.answer.num')];
+    if(inputs.length){
+      const okAll=inputs.every(i=>i.classList.contains('correct'));
+      const anyWrong=inputs.some(i=>i.classList.contains('wrong'));
+      const fb=q.querySelector('.feedback');
+      if(fb){
+        fb.innerHTML=okAll?'أحسنت، جميع خانات هذا السؤال صحيحة ✓':(anyWrong?'راجع الخانات المظللة. انتبه للوحدة والخطوات.':'');
+        fb.className='feedback '+(okAll?'fb-ok':'fb-bad');
+      }
+      q.classList.remove('correct','wrong'); q.classList.add(okAll?'correct':'wrong');
+    }
+  });
+  const pct = total? Math.round((score/total)*100):0;
+  document.getElementById('scoreBox').textContent = `الدرجة: ${score} / ${total} (${pct}%)`;
+  localStorage.setItem('geomGeneralScore', JSON.stringify({score,total,pct,student:document.getElementById('studentName').value, date:new Date().toISOString()}));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleSolutions(){document.getElementById('solutions').classList.toggle('show')}
+function resetAll(){
+  if(!confirm('هل تريد مسح الإجابات والبدء من جديد؟')) return;
+  document.querySelectorAll('input[type="text"], input[type="number"], textarea').forEach(i=>{ if(i.id!=='studentName' && i.id!=='studentClass') i.value=''; });
+  document.querySelectorAll('input[type="radio"]').forEach(i=>i.checked=false);
+  document.querySelectorAll('.correct,.wrong').forEach(e=>e.classList.remove('correct','wrong'));
+  document.querySelectorAll('.feedback').forEach(f=>{f.innerHTML=''; f.className='feedback'});
+  document.getElementById('scoreBox').textContent='الدرجة: لم تُصحّح بعد';
+  drawBlankConcentric();
+}
+function drawBlankConcentric(){
+  const svg=document.getElementById('concentricSvg');
+  svg.innerHTML=`<rect x="0" y="0" width="340" height="260" fill="#fbfdff"/>
+  <line x1="20" y1="130" x2="320" y2="130" stroke="#e7edf6"/>
+  <line x1="170" y1="20" x2="170" y2="240" stroke="#e7edf6"/>
+  <circle cx="170" cy="130" r="3" fill="#d9579b"/><text x="155" y="125" font-size="18">م</text>
+  <text x="60" y="235" font-size="15" fill="#647084">ستظهر الدائرتان بعد الضغط على زر الرسم</text>`;
+}
+function drawConcentric(){
+  const rOneEl=document.getElementById('rOne');
+  const rTwoEl=document.getElementById('rTwo');
+  const r1=parseNum(rOneEl.value)||3;
+  const r2=parseNum(rTwoEl.value)||5;
+  rOneEl.value=r1; rTwoEl.value=r2;
+  const scale=18;
+  const svg=document.getElementById('concentricSvg');
+  const R1=r1*scale, R2=r2*scale;
+  svg.innerHTML=`<rect x="0" y="0" width="340" height="260" fill="#fbfdff"/>
+    <line x1="20" y1="130" x2="320" y2="130" stroke="#e7edf6"/>
+    <line x1="170" y1="20" x2="170" y2="240" stroke="#e7edf6"/>
+    <circle cx="170" cy="130" r="${R2}" fill="rgba(217,87,155,.06)" stroke="#7d5fff" stroke-width="4"/>
+    <circle cx="170" cy="130" r="${R1}" fill="rgba(26,166,183,.08)" stroke="#1aa6b7" stroke-width="4"/>
+    <line x1="170" y1="130" x2="${170+R1}" y2="130" stroke="#1aa6b7" stroke-width="3"/>
+    <line x1="170" y1="130" x2="${170+R2}" y2="130" stroke="#7d5fff" stroke-width="3"/>
+    <circle cx="170" cy="130" r="4" fill="#d9579b"/><text x="155" y="125" font-size="18">م</text>
+    <text x="${175+R1/2}" y="122" font-size="14" fill="#0b6773">${r1} سم</text>
+    <text x="${175+R2/2}" y="150" font-size="14" fill="#543bb7">${r2} سم</text>`;
+}
+// Allow Enter to check quickly inside numeric inputs
+window.addEventListener('keydown', e=>{ if(e.key==='Enter' && e.target.matches('input.answer')){ e.preventDefault(); checkAll(); }});
+</script>
+</body>
+</html>

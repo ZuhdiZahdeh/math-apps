@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ورقة عمل محوسبة - مساحة الدائرة</title>
+<style>
+:root{--main:#0b7fab;--accent:#e67e22;--ok:#168a42;--bad:#b42318;--soft:#f4fbff;--ink:#1f2937;--violet:#7c3aed}
+*{box-sizing:border-box}body{font-family:"Noto Naskh Arabic",Tahoma,Arial,sans-serif;margin:0;background:#eef6f9;color:var(--ink);line-height:1.7}.container{max-width:1180px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#0b7fab,#3bb3c3);color:#fff;border-radius:18px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.12)}h1{margin:0;font-size:30px}.sub{font-size:18px;opacity:.95}.grid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;margin-top:18px}.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);border:1px solid #d8edf3}.card h2{margin:0 0 10px;color:#0b6588;font-size:22px}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.btn{border:0;border-radius:10px;padding:9px 14px;background:var(--main);color:#fff;cursor:pointer;font-weight:700}.btn.secondary{background:#6b7280}.btn.warn{background:#b45309}.btn.okbtn{background:#168a42}.btn:hover{filter:brightness(.95)}svg{width:100%;max-height:430px;background:#fbfdff;border-radius:14px;border:1px solid #dbeafe}.slider-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:7px 0}.pill{display:inline-block;background:#e1f5fe;color:#0b6588;border-radius:999px;padding:4px 10px;font-weight:700}.question{border:1px solid #e5e7eb;border-radius:14px;padding:12px;margin:12px 0;background:#fff}.question b{color:#0b6588}.answers{display:grid;gap:8px;margin-top:8px}select,input[type=number],input[type=text]{width:100%;padding:9px;border-radius:10px;border:1px solid #cbd5e1;font-size:16px;background:#fff}.feedback{font-weight:700;margin-top:8px;min-height:26px}.ok{color:var(--ok)}.bad{color:var(--bad)}.score{font-size:20px;font-weight:800;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px;margin-top:12px}.small{font-size:14px;color:#4b5563}.formula{font-size:24px;text-align:center;background:#fef3c7;border-radius:12px;padding:10px;margin:10px 0}.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.legend span{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:8px}.note{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:10px;margin-top:10px}.mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media(max-width:900px){.grid,.mini{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+
+<style id="unit7-floating-style">
+.unit7-floating-nav{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;align-items:center;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.unit7-floating-nav a,.unit7-floating-nav button{all:unset;box-sizing:border-box;background:#111827!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:999px!important;padding:9px 13px!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important;text-decoration:none!important;line-height:1.2!important}
+.unit7-floating-nav a:hover,.unit7-floating-nav button:hover{background:#0b7fab!important;transform:translateY(-1px)}
+@media print{.unit7-floating-nav{display:none!important}}
+@media(max-width:640px){.unit7-floating-nav{left:8px;right:8px;bottom:8px;justify-content:center}.unit7-floating-nav a,.unit7-floating-nav button{font-size:12px!important;padding:8px 10px!important}}
+</style>
+
+</head>
+<body>
+
+<nav class="unit7-floating-nav" aria-label="روابط التنقل في الوحدة السابعة">
+  <a href="index.html">↩ فهرس الوحدة</a>
+  <button type="button" onclick="window.print()">طباعة</button>
+</nav>
+
+<div class="container">
+  <section class="hero">
+    <h1>ورقة عمل محوسبة: مساحة الدائرة</h1>
+    <div class="sub">الصف السادس الأساسي - وحدة الهندسة (2) - الدرس السابع</div>
+  </section>
+  <div class="grid">
+    <section class="card">
+      <h2>مختبر مساحة الدائرة</h2>
+      <p>حرّك نصف القطر، واختر قيمة π، ولاحظ أن المساحة تقيس المنطقة الداخلية للدائرة.</p>
+      <div class="slider-row">
+        <label>نصف القطر: <span id="rVal" class="pill">8</span> سم</label>
+        <input id="radius" type="range" min="2" max="16" value="8" oninput="drawCircle()" />
+        <span class="pill">القطر = <span id="dVal">16</span> سم</span>
+      </div>
+      <div class="slider-row">
+        <label>اختر π:</label>
+        <select id="piChoice" onchange="drawCircle()"><option value="3.14">3.14</option><option value="22/7">22/7</option></select>
+        <span class="pill">المساحة = <span id="aVal">200.96</span> سم²</span>
+      </div>
+      <svg id="svg" viewBox="0 0 650 450" aria-label="رسم تفاعلي لمساحة الدائرة"></svg>
+      <div class="formula">م = نق × نق × π &nbsp;&nbsp; | &nbsp;&nbsp; م = π نق²</div>
+      <div class="legend">
+        <span>المساحة: المنطقة الداخلية.</span><span>المحيط: الحافة الخارجية.</span><span>إذا أعطي القطر: نق = ق ÷ 2.</span><span>وحدة المساحة مربعة: سم² أو م².</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>من الدائرة إلى شبه مستطيل</h2>
+      <p>الفكرة: عند تقسيم الدائرة إلى قطاعات كثيرة وإعادة ترتيبها، يصبح الشكل قريباً من مستطيل.</p>
+      <svg id="deriveSvg" viewBox="0 0 650 430" aria-label="استنتاج مساحة الدائرة"></svg>
+      <div class="note"><b>الاستنتاج:</b> الطول = نصف محيط الدائرة = π × نق، والعرض = نق؛ لذلك م = π × نق × نق = π نق².</div>
+      <div class="controls"><button class="btn" onclick="animateSectors()">بدّل عدد القطاعات</button></div>
+    </section>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>حاسبة وتحدي المساحة</h2>
+      <div class="mini">
+        <div>
+          <label>المعطى:</label>
+          <select id="givenType"><option value="r">نصف القطر</option><option value="d">القطر</option><option value="c">المحيط</option></select>
+        </div>
+        <div>
+          <label>القيمة:</label>
+          <input id="givenValue" type="number" step="0.01" value="8" />
+        </div>
+      </div>
+      <div class="controls"><button class="btn okbtn" onclick="calcAreaTool()">احسب المساحة</button></div>
+      <div id="calcResult" class="note">اختر المعطى ثم احسب. إذا كان المعطى القطر أو المحيط فسنجد نصف القطر أولاً.</div>
+      <h2>تدريبات تحقق الأهداف</h2>
+      <div class="question"><b>1) قانون مساحة الدائرة هو:</b><select id="q1"><option value="">اختر...</option><option>م = نق × نق × π</option><option>م = 2 × نق × π</option><option>م = ق × π</option></select><div class="feedback" id="f1"></div></div>
+      <div class="question"><b>2) دائرة نصف قطرها 8 سم. أوجد مساحتها باستخدام π = 3.14.</b><input id="q2" type="number" step="0.01" placeholder="اكتب العدد فقط"/><div class="feedback" id="f2"></div></div>
+      <div class="question"><b>3) دائرة قطرها 14 سم. أوجد مساحتها باستخدام π = 22/7.</b><input id="q3" type="number" step="0.01" placeholder="اكتب العدد فقط"/><div class="feedback" id="f3"></div></div>
+      <div class="question"><b>4) دائرة محيطها 62.8 سم. أوجد مساحتها باستخدام π = 3.14.</b><input id="q4" type="number" step="0.01" placeholder="اكتب العدد فقط"/><div class="feedback" id="f4"></div></div>
+      <div class="question"><b>5) منطقة مظللة بين دائرتين: نق الكبرى 10 سم، ونق الصغرى 6 سم. أوجد المساحة المظللة باستخدام π = 3.14.</b><input id="q5" type="number" step="0.01" placeholder="اكتب العدد فقط"/><div class="feedback" id="f5"></div></div>
+      <div class="question"><b>6) وحدة مساحة دائرة هي:</b><select id="q6"><option value="">اختر...</option><option>سم²</option><option>سم</option><option>سم³</option></select><div class="feedback" id="f6"></div></div>
+      <div class="controls"><button class="btn" onclick="checkAll()">تحقق من الإجابات</button><button class="btn warn" onclick="showAnswers()">إظهار الإجابات</button><button class="btn secondary" onclick="resetAll()">إعادة المحاولة</button></div>
+      <div class="score" id="score">النتيجة: لم تُصحح بعد.</div>
+    </section>
+
+    <section class="card">
+      <h2>مناطق مظللة</h2>
+      <p>غيّر نصفي القطر ولاحظ أن المساحة المظللة = مساحة الكبرى - مساحة الصغرى.</p>
+      <div class="slider-row"><label>نق الكبرى: <span id="bigVal" class="pill">10</span> سم</label><input id="bigR" type="range" min="5" max="16" value="10" oninput="drawShaded()" /></div>
+      <div class="slider-row"><label>نق الصغرى: <span id="smallVal" class="pill">6</span> سم</label><input id="smallR" type="range" min="1" max="12" value="6" oninput="drawShaded()" /></div>
+      <svg id="shadeSvg" viewBox="0 0 650 420" aria-label="منطقة مظللة"></svg>
+      <div class="formula">المظللة = <span id="shadeArea">200.96</span> سم²</div>
+      <p><b>مهمة إثرائية:</b> كتب طالب لمساحة دائرة نصف قطرها 16 سم: م = 2 × 3.14 × 16. ما الخطأ؟</p>
+      <input id="extra" type="text" placeholder="اكتب إجابتك هنا" />
+      <div class="controls"><button class="btn" onclick="checkExtra()">تحقق من المهمة</button></div><div class="feedback" id="extraFeedback"></div>
+      <p class="small">بعد الانتهاء، اكتب في دفترك سؤالاً أخطأت فيه واذكر سبب التصحيح.</p>
+    </section>
+  </div>
+</div>
+<script>
+let sectorMode=16;
+function piValue(){return document.getElementById('piChoice').value==='22/7'?22/7:3.14}
+function fmt(n){return (Math.round(n*100)/100).toString()}
+function drawCircle(){const svg=document.getElementById('svg');const r=+document.getElementById('radius').value;const q=2*r;const area=r*r*piValue();document.getElementById('rVal').textContent=r;document.getElementById('dVal').textContent=q;document.getElementById('aVal').textContent=fmt(area);const cx=325,cy=220,rr=r*9+60;let sectors='';for(let i=0;i<24;i++){let a1=i*15,a2=(i+1)*15;sectors += `<path d="${sectorPath(cx,cy,rr,a1,a2)}" fill="${i%2?'#fed7aa':'#bfdbfe'}" stroke="white" stroke-width="1"/>`;}svg.innerHTML=`${sectors}<circle cx="${cx}" cy="${cy}" r="${rr}" fill="none" stroke="#0f5c78" stroke-width="5"/><line x1="${cx}" y1="${cy}" x2="${cx+rr}" y2="${cy}" stroke="#0284c7" stroke-width="6"/><circle cx="${cx}" cy="${cy}" r="7" fill="#dc2626"/><text x="${cx+45}" y="${cy-14}" font-size="25" fill="#0284c7">نق = ${r}</text><text x="50" y="50" font-size="26" fill="#0b6588">م = ${fmt(area)} سم²</text><text x="50" y="90" font-size="22" fill="#7c3aed">م = ${r} × ${r} × ${document.getElementById('piChoice').value}</text>`}
+function polar(cx,cy,r,a){let rad=(a-90)*Math.PI/180;return {x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)}}
+function sectorPath(cx,cy,r,a1,a2){let p1=polar(cx,cy,r,a1),p2=polar(cx,cy,r,a2);let large=(a2-a1)>180?1:0;return `M ${cx} ${cy} L ${p1.x} ${p1.y} A ${r} ${r} 0 ${large} 1 ${p2.x} ${p2.y} Z`}
+function drawDerive(){const svg=document.getElementById('deriveSvg');let n=sectorMode;let w=560/n,h=190,x0=42,y0=155;let pieces='';for(let i=0;i<n;i++){let x=x0+i*w;if(i%2===0){pieces+=`<polygon points="${x},${y0+h} ${x+w/2},${y0} ${x+w},${y0+h}" fill="#bfdbfe" stroke="white"/>`;}else{pieces+=`<polygon points="${x},${y0} ${x+w/2},${y0+h} ${x+w},${y0}" fill="#fed7aa" stroke="white"/>`;}}svg.innerHTML=`<text x="55" y="42" font-size="25" fill="#0b6588">عدد القطاعات: ${n}</text><rect x="${x0}" y="${y0}" width="560" height="${h}" fill="none" stroke="#0f5c78" stroke-width="3"/>${pieces}<line x1="${x0}" y1="${y0+h+25}" x2="${x0+560}" y2="${y0+h+25}" stroke="#16a34a" stroke-width="4"/><text x="200" y="${y0+h+58}" font-size="21" fill="#166534">الطول ≈ نصف المحيط = π × نق</text><line x1="${x0-25}" y1="${y0}" x2="${x0-25}" y2="${y0+h}" stroke="#0284c7" stroke-width="4"/><text x="${x0-42}" y="${y0+100}" font-size="22" fill="#0284c7">نق</text><text x="135" y="390" font-size="22" fill="#7c3aed">م = الطول × العرض = πنق × نق = πنق²</text>`}
+function animateSectors(){sectorMode=sectorMode===16?32:sectorMode===32?64:16;drawDerive();}
+function calcAreaTool(){let type=document.getElementById('givenType').value;let v=+document.getElementById('givenValue').value;let pi=piValue();let r=0, steps='';if(type==='r'){r=v;steps=`نق = ${fmt(r)}`;}else if(type==='d'){r=v/2;steps=`نق = ق ÷ 2 = ${fmt(r)}`;}else{r=v/(2*pi);steps=`نق = ح ÷ (2π) = ${fmt(r)}`;}let area=r*r*pi;document.getElementById('calcResult').innerHTML=`${steps}<br>م = نق × نق × π = ${fmt(area)} وحدة مربعة`;}
+function drawShaded(){let R=+document.getElementById('bigR').value;let r=+document.getElementById('smallR').value;if(r>=R){r=R-1;document.getElementById('smallR').value=r;}document.getElementById('bigVal').textContent=R;document.getElementById('smallVal').textContent=r;let area=(R*R-r*r)*3.14;document.getElementById('shadeArea').textContent=fmt(area);const svg=document.getElementById('shadeSvg');let cx=325,cy=205,RR=R*10+50,rr=r*10+50;svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${RR}" fill="#cbd5e1" stroke="#1f2937" stroke-width="4"/><circle cx="${cx}" cy="${cy}" r="${rr}" fill="#fff" stroke="#1f2937" stroke-width="3"/><line x1="${cx}" y1="${cy}" x2="${cx+RR}" y2="${cy}" stroke="#0284c7" stroke-width="5"/><line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy-rr}" stroke="#dc2626" stroke-width="5"/><circle cx="${cx}" cy="${cy}" r="7" fill="#dc2626"/><text x="${cx+55}" y="${cy+30}" font-size="22" fill="#0284c7">${R}</text><text x="${cx+10}" y="${cy-rr/2}" font-size="22" fill="#dc2626">${r}</text><text x="55" y="390" font-size="22" fill="#b45309">المظللة = ${fmt(R*R*3.14)} - ${fmt(r*r*3.14)} = ${fmt(area)}</text>`}
+function val(id){return document.getElementById(id).value.trim()}
+function nearly(g,a){return Math.abs(parseFloat(g)-parseFloat(a))<0.03}
+function setFeed(i,ok,msg){let f=document.getElementById('f'+i);f.textContent=msg;f.className='feedback '+(ok?'ok':'bad')}
+function checkAll(){let ans=['م = نق × نق × π','200.96','154','314','200.96','سم²'];let got=[val('q1'),val('q2'),val('q3'),val('q4'),val('q5'),val('q6')];let score=0;got.forEach((g,i)=>{let ok=(i===0||i===5)?g===ans[i]:nearly(g,ans[i]);if(ok)score++;setFeed(i+1,ok,ok?'إجابة صحيحة.':'راجع القانون أو نصف القطر أو وحدة القياس.');});document.getElementById('score').textContent=`النتيجة: ${score} من 6`;}
+function showAnswers(){let ans=['م = نق × نق × π','200.96','154','314','200.96','سم²'];for(let i=1;i<=6;i++){document.getElementById('f'+i).textContent='الإجابة: '+ans[i-1];document.getElementById('f'+i).className='feedback ok';}document.getElementById('score').textContent='تم عرض الإجابات للمراجعة.'}
+function resetAll(){['q1','q2','q3','q4','q5','q6','extra'].forEach(id=>document.getElementById(id).value='');for(let i=1;i<=6;i++){document.getElementById('f'+i).textContent=''}document.getElementById('extraFeedback').textContent='';document.getElementById('score').textContent='النتيجة: لم تُصحح بعد.'}
+function checkExtra(){let t=val('extra');let ok=t.includes('المحيط')||t.includes('803')||t.includes('16 × 16')||t.includes('نق');document.getElementById('extraFeedback').textContent=ok?'صحيح: الخطأ أنه استعمل قانون المحيط. مساحة الدائرة = 16 × 16 × 3.14 = 803.84 سم².':'تلميح: قانون المساحة لا يحتوي على 2، بل نضرب نصف القطر في نفسه ثم في π.';document.getElementById('extraFeedback').className='feedback '+(ok?'ok':'bad')}
+drawCircle();drawDerive();drawShaded();
+</script>
+</body>
+</html>
