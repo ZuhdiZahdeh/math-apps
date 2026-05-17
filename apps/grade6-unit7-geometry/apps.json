@@ -1,0 +1,274 @@
+[
+  {
+    "id": "gauss-pairing",
+    "title": "قاعدة التزاوج (حيلة غاوس)",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "tags": [
+      "جمع",
+      "متتاليات",
+      "تمثيل بصري"
+    ],
+    "path": "apps/gauss-pairing/index.html",
+    "thumb": "images/thumbs/gauss-pairing.png",
+    "desc": "تجربة بصرية لمجموع 1..n عبر تكوين مستطيل n×(n+1) ثم أخذ نصفه."
+  },
+  {
+    "id": "geometry",
+    "title": "الصفحة الموحدة لاسئلة الهندسة",
+    "grades": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "tags": [
+      "هندسة",
+      "نظريات",
+      "مرجع",
+      "براهين"
+    ],
+    "path": "geometry/index.html",
+    "thumb": "images/thumbs/geometry-theorems.png",
+    "desc": "منصة هندسية موحدة تجمع أسئلة الهندسة المستوية والفراغية، وتقدم مرجعًا قويًا للنظريات الأساسية، مع صور وشرح واضح للحلول خطوة بخطوة."
+  },
+  {
+    "id": "circle",
+    "title": "الدائرة",
+    "grades": [
+      5,
+      6
+    ],
+    "tags": [
+      "الدائرة",
+      "مركز الدائرة",
+      "القطر",
+      "الوتر"
+    ],
+    "path": "apps/circle/Circle_Lab.html",
+    "thumb": "images/thumbs/circle1.png",
+    "desc": "ربط القياسات العددية المباشرة بالتمثيل البصري يساعد الطلاب في الانتقال من الملاحظة النوعية -الوتر يقترب من المركز."
+  },
+  {
+    "id": "area-perimeter",
+    "title": "المساحة و المحيط",
+    "grades": [
+      5,
+      6,
+      7
+    ],
+    "tags": [
+      "هندسة",
+      "مساحة",
+      "محيط"
+    ],
+    "path": "apps/area-perimeter/index.html",
+    "thumb": "images/thumbs/area-perimeter.png",
+    "desc": "حسابات تفاعلية للمستطيلات والمضلعات البسيطة."
+  },
+  {
+    "id": "grade6-unit7-geometry",
+    "title": "الصف السادس – الوحدة السابعة: أوراق عمل محوسبة في الهندسة",
+    "grades": [
+      6
+    ],
+    "tags": [
+      "هندسة",
+      "الصف السادس",
+      "الوحدة السابعة",
+      "أوراق عمل",
+      "مساحة",
+      "الدائرة"
+    ],
+    "path": "apps/grade6-unit7-geometry/index.html",
+    "thumb": "images/thumbs/grade6-unit7-geometry.svg",
+    "desc": "تجميع منظم لأوراق العمل المحوسبة في الهندسة: المساحات، الارتفاع، متوازي الأضلاع، شبه المنحرف، الدائرة، وتمارين عامة."
+  },
+  {
+    "id": "equilateral-vanhiele",
+    "title": "المثلث متساوي الأضلاع – لعبة فان هيلي (1–4)",
+    "grades": [
+      8,
+      9
+    ],
+    "tags": [
+      "هندسة",
+      "مثلثات",
+      "فان هيلي",
+      "برهان",
+      "بجروت"
+    ],
+    "path": "apps/equilateral-vanhiele/index.html",
+    "thumb": "images/thumbs/equilateral-vanhiele.svg",
+    "desc": "مسار تفاعلي من التعرّف البصري إلى القياس والاستدلال ثم البرهان الرسمي في المثلث متساوي الأضلاع."
+  },
+  {
+    "id": "sample-space-lab",
+    "title": "لعبة الفضاء العيني — مغامرة Ω",
+    "grades": [
+      7,
+      8,
+      9
+    ],
+    "tags": [
+      "احتمالات",
+      "الفضاء العيني",
+      "الحادث",
+      "التمثيل البياني"
+    ],
+    "path": "apps/sample-space-lab/index.html",
+    "thumb": "images/thumbs/sample-space-lab.png",
+    "desc": "لعبة تربوية تعرض الافكار بشكل واضح وتستخدم مجموعة كبيرة من التجارب الحياتية وتنوع في طريقة عرض السؤال."
+  },
+  {
+    "id": "pythagoras",
+    "title": "شرح نظرية فيثاغورس – الصف الثامن",
+    "path": "apps/pythagoras/pythagoras.html",
+    "thumb": "images/thumbs/pythagoras.png",
+    "grades": [
+      8
+    ],
+    "tags": [
+      "هندسة",
+      "نظرية فيثاغورس",
+      "مثلثات"
+    ],
+    "desc": "درس محوسب تفاعلي لاكتشاف نظرية فيثاغورس بصريًا، وربطها بمساحات المربعات، مع مسائل حياتية ولعبة تحدّي."
+  },
+  {
+    "id": "Circle_Lab",
+    "title": "مختبر هندسة الدائرة",
+    "grades": [
+      5,
+      6
+    ],
+    "tags": [
+      "الدائرة",
+      "عناصر الدائرة"
+    ],
+    "path": "apps/circle-lab/index.html",
+    "thumb": "images/thumbs/Circle_Lab.png",
+    "desc": "استكشاف عناصر الدائرة، والفرق بين الوتر والقطر"
+  },
+  {
+    "id": "plane-geometry-solutions",
+    "title": "حلول الهندسة المستوية (ص 222–235) – أسئلة 1–68",
+    "grades": [
+      10,
+      11
+    ],
+    "tags": [
+      "هندسة",
+      "مثلثات",
+      "أشكال رباعية",
+      "براهين",
+      "حلول"
+    ],
+    "path": "solutions-site/plane-geometry/index.html",
+    "thumb": "images/thumbs/plane-geometry.png",
+    "desc": "حلول محوسبة لأسئلة المراجعة في المثلثات والأشكال الرباعية (1–68) مع صور لكل سؤال وإثباتات خطوة بخطوة."
+  },
+  {
+    "id": "balance-equations",
+    "title": "ميزان المعادلة – حل المعادلات الخطية",
+    "grades": [
+      8,
+      9,
+      10
+    ],
+    "tags": [
+      "جبر",
+      "معادلات",
+      "ميزان",
+      "بجروت"
+    ],
+    "path": "apps/balance-equations/balance-equations.html",
+    "thumb": "images/thumbs/balance-equations.png",
+    "desc": "تطبيق ميزان تفاعلي لتمثيل المعادلات الخطية، يوضّح فكرة التوازن وإضافة النظير الجمعي للطرفين، مع ربطها بمسائل حياتية كما في منهاج البجروت."
+  },
+  {
+    "id": "order-of-operations",
+    "title": "أولويات العمليات الحسابية",
+    "grades": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "tags": [
+      "الأقواس",
+      "الأسس",
+      "الضرب"
+    ],
+    "path": "order-of-operations/index.html",
+    "thumb": "images/thumbs/order-of-operations.png",
+    "desc": "ترتيب العمليات هو “قانون السير” في الرياضيات: إذا لم نلتزم به، كل واحد قد يصل لجواب مختلف!"
+  },
+  {
+    "id": "triangle-types",
+    "title": "أنواع المثلثات – لعبة تصنيف",
+    "grades": [
+      7,
+      8
+    ],
+    "tags": [
+      "هندسة",
+      "مثلثات",
+      "تصنيف"
+    ],
+    "path": "apps/triangle-types/triangle-quiz.html",
+    "thumb": "images/thumbs/triangle-quiz.png",
+    "desc": "لعبة تفاعلية لتحديد نوع المثلث (قائم، متساوي الأضلاع، متساوي الساقين، منفرج الزاوية)."
+  },
+  {
+    "id": "geometry-in-blanks",
+    "title": "حلول اسئلة الهندسة الفراغية-المنشور",
+    "grades": [
+      12
+    ],
+    "tags": [
+      "المنشور",
+      "الهرم الرباعي",
+      "الهرم القائم"
+    ],
+    "path": "solutions-site/geometry-in-blanks/index.html",
+    "thumb": "images/thumbs/geometry-in-blanks.jpg",
+    "desc": "ارتباط القطر/نصف القطر بالمحيط والمساحة بصريًا."
+  },
+  {
+    "id": "pythagoras-lottery",
+    "title": "قرعة مسابقة نظرية فيثاغورس",
+    "grades": [
+      8
+    ],
+    "tags": [
+      "هندسة",
+      "نظرية فيثاغورس",
+      "مسابقة",
+      "قرعة"
+    ],
+    "path": "apps/pythagoras/pythagoras-lottery.html",
+    "thumb": "images/thumbs/pythagoras-lottery-thumb.png",
+    "desc": "لعبة قرعة لاختيار طالبة فائزة في مسابقة نظرية فيثاغورس مع عدٍّ تنازلي وتصفيق أمام الصف."
+  },
+  {
+    "id": "permutations-combinations-solutions",
+    "title": "حلول التباديل والتوافيق (391–397)",
+    "grades": [
+      12
+    ],
+    "tags": [
+      "تباديل",
+      "توافيق",
+      "احتمالات",
+      "حلول"
+    ],
+    "path": "solutions-site/permutations-combinations/index.html",
+    "thumb": "images/thumbs/permutations-combinations.png",
+    "desc": "حلول مرتّبة وقابلة للطباعة مع أكثر من طريقة (ضرب/جمع/متمّم/كتلة/فجوات...)."
+  }
+]
