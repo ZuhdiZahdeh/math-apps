@@ -1,267 +1,76 @@
-<!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>حقيبة المعلم - الصف السادس - الوحدة السابعة: الهندسة</title>
-<meta content="حقيبة المعلم الإلكترونية للصف السادس، الوحدة السابعة: الهندسة، تحتوي الخطة الفصلية وخطة الوحدة والتحاضير وأوراق العمل المحوسبة مع عارض PDF داخل الصفحة." name="description"/>
-<link href="assets/teacher-kit.css" rel="stylesheet"/>
+<meta name="description" content="حقيبة المعلم الإلكترونية للصف السادس، الوحدة السابعة: الهندسة، تعرض الخطط والتحاضير بصيغة HTML مع أوراق العمل المحوسبة.">
+<link rel="stylesheet" href="assets/teacher-kit.css">
 </head>
 <body>
 <header class="wrap hero">
-<div class="topbar">
-<a class="back" href="../../index.html">↩ العودة إلى مختبر تطبيقات الرياضيات</a>
-<a class="toplink" href="worksheets/index.html">نسخة أوراق العمل للطالب</a>
-</div>
-<section class="hero-card">
-<span class="kicker">حقيبة المعلم الإلكترونية</span>
-<h1>الصف السادس - الوحدة السابعة: الهندسة</h1>
-<p class="subtitle">صفحة رئيسية موحدة تجمع التخطيط والتحضير والتنفيذ والتقويم، مع عارض PDF مدمج لفتح الخطة الفصلية وخطة الوحدة وتحاضير الدروس داخل الصفحة، إضافة إلى قسم مستقل لأوراق العمل المحوسبة.</p>
-<div aria-label="إحصاءات الحقيبة" class="stats">
-<div class="stat"><b>32</b><span>حصة في الوحدة</span></div>
-<div class="stat"><b>2</b><span>خطط تعليمية</span></div>
-<div class="stat"><b>7</b><span>تحاضير دروس</span></div>
-<div class="stat"><b>8</b><span>أوراق عمل محوسبة</span></div>
-</div>
-<div class="quick"><a class="accent" href="#plans">ابدأ من الخطط</a>
-<a href="#pdf-viewer">عارض ملفات PDF</a>
-<a href="#lessons">خريطة الدروس</a>
-<a href="#worksheets">أوراق العمل</a>
-<button onclick="window.print()" type="button">طباعة الفهرس</button>
-</div>
-</section>
+  <div class="topbar"><a class="back" href="../../index.html">↩ العودة إلى مختبر تطبيقات الرياضيات</a><a class="toplink" href="worksheets/index.html">نسخة أوراق العمل للطالب</a></div>
+  <section class="hero-card">
+    <span class="kicker">حقيبة المعلم الإلكترونية</span>
+    <h1>الصف السادس - الوحدة السابعة: الهندسة</h1>
+    <p class="subtitle">صفحة رئيسية موحدة تجمع التخطيط والتحضير والتنفيذ والتقويم. في هذه النسخة تم تحويل الخطة الفصلية وخطة الوحدة وتحاضير الدروس إلى صفحات HTML مريحة للقراءة والطباعة، دون استخدام عارض ملفات داخل الصفحة.</p>
+    <div class="stats"><div class="stat"><b>32</b><span>حصة في الوحدة</span></div><div class="stat"><b>2</b><span>خطط HTML</span></div><div class="stat"><b>7</b><span>تحاضير HTML</span></div><div class="stat"><b>8</b><span>أوراق عمل محوسبة</span></div></div>
+    <div class="quick"><a class="accent" href="#plans">ابدأ من الخطط</a><a href="#lessons">تحضير الدروس</a><a href="worksheets/index.html">أوراق العمل</a><a href="#documents">كل ملفات HTML</a><button onclick="window.print()" type="button">طباعة الفهرس</button></div>
+  </section>
 </header>
-<nav aria-label="تنقل الحقيبة" class="navtabs">
-<div class="wrap">
-<a href="#overview">نظرة عامة</a><a href="#plans">الخطة الفصلية وخطة الوحدة</a><a href="#pdf-viewer">عارض PDF</a><a href="#lessons">تحضير الدروس</a><a href="#worksheets">أوراق العمل</a><a href="#assessment">التقويم والمشروع</a><a href="#files">كل الملفات</a>
-</div>
-</nav>
+<nav class="navtabs" aria-label="تنقل الحقيبة"><div class="wrap"><a href="#overview">نظرة عامة</a><a href="#plans">الخطة الفصلية وخطة الوحدة</a><a href="#sequence">توزيع الدروس</a><a href="#lessons">تحضير الدروس</a><a href="#worksheets">أوراق العمل</a><a href="#assessment">التقويم والمشروع</a><a href="#documents">كل ملفات HTML</a></div></nav>
 <main class="wrap">
-<section class="panel" id="overview">
-<h2>نظرة عامة على الحقيبة</h2>
-<div class="biggrid">
-<div>
-<p>تهدف هذه الصفحة إلى جعل الوحدة السابعة «الهندسة» جاهزة للتنفيذ من مكان واحد: يبدأ المعلم بالخطة الفصلية وخطة الوحدة، ثم ينتقل إلى بطاقة كل درس حيث يجد التحضير وورقة العمل المرتبطة به.</p>
-<div class="toolbar"><input aria-label="بحث داخل الدروس" class="search" id="search" placeholder="ابحث داخل الدروس: دائرة، مساحة، ارتفاع، شبه منحرف..." type="search"/><button class="btn" onclick="window.print()" type="button">طباعة</button></div>
-</div>
-<div class="project">
-<h3>الفكرة المحورية للوحدة</h3>
-<p>توظيف الأشكال الهندسية المستوية والدائرة في قياس المساحات والمحيطات وحل مشكلات حياتية، مع مشروع ختامي لتصميم حديقة مدرسية بأحواض هندسية متنوعة.</p>
-<div class="meta"><span class="tag">هندسة وقياس</span><span class="tag">تعلم محوسب</span><span class="tag">تقويم ذاتي</span></div>
-</div>
-</div>
-</section>
-<section class="panel pdf-panel" id="pdf-viewer">
-<h2>عارض ملفات PDF داخل الصفحة</h2>
-<p class="section-sub">اختر ملفًا من القائمة، وسيظهر مباشرة داخل الصفحة. بقيت أزرار «فتح في تبويب جديد» و«تحميل» موجودة كحل بديل إذا كان المتصفح أو الهاتف لا يدعم عرض PDF المدمج.</p>
-<div class="viewer-layout">
-<aside aria-label="قائمة ملفات PDF" class="pdf-list">
-<button class="pdf-item active" data-pdf="plans/semester-plan-grade6-term2.pdf" onclick="openPdf('plans/semester-plan-grade6-term2.pdf','الخطة الفصلية - الصف السادس / الفصل الثاني')" type="button"><span>📅</span><b>الخطة الفصلية - الصف السادس / الفصل الثاني</b></button>
-<button class="pdf-item" data-pdf="plans/unit-plan-grade6-unit7-geometry.pdf" onclick="openPdf('plans/unit-plan-grade6-unit7-geometry.pdf','خطة الوحدة - الوحدة السابعة: الهندسة')" type="button"><span>🧭</span><b>خطة الوحدة - الوحدة السابعة: الهندسة</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-01-area-plane-shapes.pdf" onclick="openPdf('preparations/lesson-01-area-plane-shapes.pdf','تحضير الدرس 1: مساحة الأشكال الهندسية المستوية')" type="button"><span>1</span><b>تحضير الدرس 1: مساحة الأشكال الهندسية المستوية</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-02-heights.pdf" onclick="openPdf('preparations/lesson-02-heights.pdf','تحضير الدرس 2: الارتفاع في الأشكال الهندسية')" type="button"><span>2</span><b>تحضير الدرس 2: الارتفاع في الأشكال الهندسية</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-03-parallelogram-area.pdf" onclick="openPdf('preparations/lesson-03-parallelogram-area.pdf','تحضير الدرس 3: مساحة متوازي الأضلاع')" type="button"><span>3</span><b>تحضير الدرس 3: مساحة متوازي الأضلاع</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-04-trapezoid-area.pdf" onclick="openPdf('preparations/lesson-04-trapezoid-area.pdf','تحضير الدرس 4: مساحة شبه المنحرف')" type="button"><span>4</span><b>تحضير الدرس 4: مساحة شبه المنحرف</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-05-circle.pdf" onclick="openPdf('preparations/lesson-05-circle.pdf','تحضير الدرس 5: الدائرة وعناصرها')" type="button"><span>5</span><b>تحضير الدرس 5: الدائرة وعناصرها</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-06-circle-circumference.pdf" onclick="openPdf('preparations/lesson-06-circle-circumference.pdf','تحضير الدرس 6: محيط الدائرة')" type="button"><span>6</span><b>تحضير الدرس 6: محيط الدائرة</b></button>
-<button class="pdf-item" data-pdf="preparations/lesson-07-circle-area.pdf" onclick="openPdf('preparations/lesson-07-circle-area.pdf','تحضير الدرس 7: مساحة الدائرة')" type="button"><span>7</span><b>تحضير الدرس 7: مساحة الدائرة</b></button>
-</aside>
-<div class="pdf-box">
-<div class="pdf-head">
-<div><span class="tag">PDF</span><h3 id="pdfTitle">الخطة الفصلية - الصف السادس / الفصل الثاني</h3></div>
-<div class="actions compact">
-<a class="btn" href="plans/semester-plan-grade6-term2.pdf" id="pdfOpen" rel="noopener" target="_blank">فتح في تبويب جديد</a>
-<a class="btn light download" download="" href="plans/semester-plan-grade6-term2.pdf" id="pdfDownload">تحميل</a>
-<button class="btn ghost copy" id="pdfCopy" onclick="copyLink('plans/semester-plan-grade6-term2.pdf')" type="button">نسخ الرابط</button>
-</div>
-</div>
-<iframe class="pdf-frame" id="pdfFrame" loading="lazy" src="plans/semester-plan-grade6-term2.pdf#view=FitH" title="عارض PDF"></iframe>
-<p class="pdf-help">ملاحظة: إذا ظهرت الصفحة فارغة عند المعاينة داخل ChatGPT، فهذا غالبًا لأن المعاينة فتحت ملف HTML وحده دون باقي المجلدات. بعد رفع الحزمة كاملة إلى GitHub سيعمل الرابط النسبي، أو استخدم زر «فتح في تبويب جديد».</p>
-</div>
-</div>
-</section>
-<section class="panel" id="plans">
-<h2>ابدأ من هنا: الخطة الفصلية وخطة الوحدة</h2>
-<p class="section-sub">ملفان مرجعيان قبل الدخول إلى الدروس التفصيلية.</p>
-<div class="grid">
-<article class="plan-card">
-<div class="plan-icon">📅</div>
-<h3>الخطة الفصلية - الصف السادس / الفصل الثاني</h3>
-<p>توضح توزيع وحدات الفصل الثاني، وموقع الوحدة السابعة «الهندسة» ضمن خطة الفصل.</p>
-<div class="meta"><span class="tag">خطة فصلية</span><span class="tag">72 حصة للفصل</span><span class="tag">الوحدة السابعة: 32 حصة</span></div>
-<div class="actions"><button class="btn" onclick="openPdf('plans/semester-plan-grade6-term2.pdf','الخطة الفصلية - الصف السادس / الفصل الثاني')" type="button">عرض داخل الصفحة</button><a class="btn" href="plans/semester-plan-grade6-term2.pdf" target="_blank">فتح PDF</a><a class="btn light download" download="" href="plans/semester-plan-grade6-term2.pdf">تحميل</a><button class="btn ghost copy" onclick="copyLink('plans/semester-plan-grade6-term2.pdf')">نسخ الرابط</button></div>
-</article>
-<article class="plan-card">
-<div class="plan-icon">🧭</div>
-<h3>خطة الوحدة - الوحدة السابعة: الهندسة</h3>
-<p>خريطة تعليمية تشمل فكرة الوحدة، توزيع الحصص، الأهداف، الأنشطة، التقويم، الصعوبات، والمشروع الختامي.</p>
-<div class="meta"><span class="tag">خطة وحدة</span><span class="tag">32 حصة</span><span class="tag">مشروع الحديقة المدرسية</span></div>
-<div class="actions"><button class="btn" onclick="openPdf('plans/unit-plan-grade6-unit7-geometry.pdf','خطة الوحدة - الوحدة السابعة: الهندسة')" type="button">عرض داخل الصفحة</button><a class="btn" href="plans/unit-plan-grade6-unit7-geometry.pdf" target="_blank">فتح PDF</a><a class="btn light download" download="" href="plans/unit-plan-grade6-unit7-geometry.pdf">تحميل</a><button class="btn ghost copy" onclick="copyLink('plans/unit-plan-grade6-unit7-geometry.pdf')">نسخ الرابط</button></div>
-</article>
-</div>
-</section>
-<section class="panel" id="sequence">
-<h2>توزيع الدروس والحصص</h2>
-<div class="table-wrap"><table><thead><tr><th>الرقم</th><th>الدرس</th><th>الحصص</th><th>الفترة المقترحة</th><th>الفكرة التعليمية</th></tr></thead><tbody><tr><td>1</td><td>مساحة الأشكال الهندسية المستوية</td><td>3</td><td>آذار - الأسبوع الأول</td><td>المساحة، المستطيل، المربع، المثلث، المناطق المظللة</td></tr><tr><td>2</td><td>الارتفاع في الأشكال الهندسية</td><td>4</td><td>آذار - الأسبوع الأول/الثاني</td><td>الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف</td></tr><tr><td>3</td><td>مساحة متوازي الأضلاع</td><td>4</td><td>آذار - الأسبوع الثاني</td><td>استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية</td></tr><tr><td>4</td><td>مساحة شبه المنحرف</td><td>4</td><td>آذار - الأسبوع الثالث</td><td>القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية</td></tr><tr><td>5</td><td>الدائرة وعناصرها</td><td>4</td><td>آذار - الأسبوع الثالث/الرابع</td><td>المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار</td></tr><tr><td>6</td><td>محيط الدائرة</td><td>4</td><td>نيسان - الأسبوع الأول</td><td>المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π</td></tr><tr><td>7</td><td>مساحة الدائرة</td><td>4</td><td>نيسان - الأسبوع الأول/الثاني</td><td>تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة</td></tr><tr><td>8</td><td>تمارين عامة + مشروع + تقويم ذاتي</td><td>3</td><td>نيسان - الأسبوع الثالث</td><td>مراجعة شاملة، مسائل مركبة، مشروع الحديقة المدرسية، تقييم ذاتي</td></tr></tbody></table></div>
-</section>
-<section class="panel" id="lessons">
-<h2>تحضير الدروس مع روابط أوراق العمل</h2>
-<p class="section-sub">كل بطاقة درس تحتوي رابط التحضير PDF ورابط ورقة العمل المحوسبة المناسبة.</p>
-<div class="timeline">
-<article class="lesson-card" data-search="مساحة الأشكال الهندسية المستوية المساحة، المستطيل، المربع، المثلث، المناطق المظللة آذار - الأسبوع الأول" style="--c:#1f4e79">
-<div class="num">1</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">3 حصص</span><span class="tag">آذار - الأسبوع الأول</span></div>
-<h3>مساحة الأشكال الهندسية المستوية</h3>
-<p>المساحة، المستطيل، المربع، المثلث، المناطق المظللة</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-01-area-plane-shapes.pdf','تحضير الدرس 1: مساحة الأشكال الهندسية المستوية')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-01-area-plane-shapes.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-01-area-plane-shapes.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/01-area-plane-shapes.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/01-area-plane-shapes.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="الارتفاع في الأشكال الهندسية الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف آذار - الأسبوع الأول/الثاني" style="--c:#0b7fab">
-<div class="num">2</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">آذار - الأسبوع الأول/الثاني</span></div>
-<h3>الارتفاع في الأشكال الهندسية</h3>
-<p>الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-02-heights.pdf','تحضير الدرس 2: الارتفاع في الأشكال الهندسية')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-02-heights.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-02-heights.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/02-heights.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/02-heights.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="مساحة متوازي الأضلاع استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية آذار - الأسبوع الثاني" style="--c:#5b2a67">
-<div class="num">3</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">آذار - الأسبوع الثاني</span></div>
-<h3>مساحة متوازي الأضلاع</h3>
-<p>استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-03-parallelogram-area.pdf','تحضير الدرس 3: مساحة متوازي الأضلاع')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-03-parallelogram-area.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-03-parallelogram-area.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/03-parallelogram-area.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/03-parallelogram-area.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="مساحة شبه المنحرف القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية آذار - الأسبوع الثالث" style="--c:#0f6f8a">
-<div class="num">4</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">آذار - الأسبوع الثالث</span></div>
-<h3>مساحة شبه المنحرف</h3>
-<p>القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-04-trapezoid-area.pdf','تحضير الدرس 4: مساحة شبه المنحرف')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-04-trapezoid-area.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-04-trapezoid-area.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/04-trapezoid-area.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/04-trapezoid-area.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="الدائرة وعناصرها المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار آذار - الأسبوع الثالث/الرابع" style="--c:#0b7fab">
-<div class="num">5</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">آذار - الأسبوع الثالث/الرابع</span></div>
-<h3>الدائرة وعناصرها</h3>
-<p>المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-05-circle.pdf','تحضير الدرس 5: الدائرة وعناصرها')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-05-circle.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-05-circle.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/05-circle-elements.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/05-circle-elements.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="محيط الدائرة المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π نيسان - الأسبوع الأول" style="--c:#1f6d9b">
-<div class="num">6</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">نيسان - الأسبوع الأول</span></div>
-<h3>محيط الدائرة</h3>
-<p>المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-06-circle-circumference.pdf','تحضير الدرس 6: محيط الدائرة')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-06-circle-circumference.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-06-circle-circumference.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/06-circle-circumference.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/06-circle-circumference.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="مساحة الدائرة تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة نيسان - الأسبوع الأول/الثاني" style="--c:#e67e22">
-<div class="num">7</div>
-<div>
-<div class="meta"><span class="tag">درس</span><span class="tag">4 حصص</span><span class="tag">نيسان - الأسبوع الأول/الثاني</span></div>
-<h3>مساحة الدائرة</h3>
-<p>تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة</p>
-<div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-07-circle-area.pdf','تحضير الدرس 7: مساحة الدائرة')" type="button">عرض داخل الصفحة</button><a class="btn light" href="preparations/lesson-07-circle-area.pdf" target="_blank">تحضير الدرس PDF</a><a class="btn ghost download" download="" href="preparations/lesson-07-circle-area.pdf">تحميل التحضير</a><a class="btn dark" href="worksheets/07-circle-area.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/07-circle-area.html')">نسخ رابط الورقة</button></div>
-</div>
-</article>
-<article class="lesson-card" data-search="تمارين عامة + مشروع + تقويم ذاتي مراجعة شاملة، مسائل مركبة، مشروع الحديقة المدرسية، تقييم ذاتي نيسان - الأسبوع الثالث" style="--c:#d9579b">
-<div class="num">8</div>
-<div>
-<div class="meta"><span class="tag">تقويم</span><span class="tag">3 حصص</span><span class="tag">نيسان - الأسبوع الثالث</span></div>
-<h3>تمارين عامة + مشروع + تقويم ذاتي</h3>
-<p>مراجعة شاملة، مسائل مركبة، مشروع الحديقة المدرسية، تقييم ذاتي</p>
-<div class="actions"><span class="tag">لا يوجد تحضير منفصل - تقويم ومشروع</span><a class="btn dark" href="worksheets/08-general-exercises.html" target="_blank">فتح ورقة العمل</a><button class="btn ghost copy" onclick="copyLink('worksheets/08-general-exercises.html')">نسخ رابط الورقة</button></div>
-</div>
-</article></div>
-</section>
-<section class="panel" id="worksheets">
-<div class="student-banner">
-<div><h3>قسم أوراق العمل المحوسبة</h3><p>قسم مستقل ومنظم للطالب أو للعرض على اللوح الذكي، يحتوي الأوراق الثماني فقط بدون ملفات التحضير.</p></div>
-<a class="btn dark" href="worksheets/index.html">فتح قسم أوراق العمل</a>
-</div>
-<div class="grid" style="margin-top:14px">
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>1. مساحة الأشكال الهندسية المستوية</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/01-area-plane-shapes.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/01-area-plane-shapes.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>2. الارتفاع في الأشكال الهندسية</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/02-heights.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/02-heights.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>3. مساحة متوازي الأضلاع</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/03-parallelogram-area.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/03-parallelogram-area.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>4. مساحة شبه المنحرف</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/04-trapezoid-area.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/04-trapezoid-area.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>5. الدائرة وعناصرها</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/05-circle-elements.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/05-circle-elements.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>6. محيط الدائرة</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/06-circle-circumference.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/06-circle-circumference.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>7. مساحة الدائرة</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/07-circle-area.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/07-circle-area.html')">نسخ الرابط</button></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">🧩</div>
-<div><h3>8. تمارين عامة + مشروع + تقويم ذاتي</h3><p class="small">ورقة HTML تفاعلية تعمل مباشرة من المتصفح.</p><div class="actions"><a class="btn dark" href="worksheets/08-general-exercises.html" target="_blank">فتح الورقة</a><button class="btn ghost copy" onclick="copyLink('worksheets/08-general-exercises.html')">نسخ الرابط</button></div></div>
-</article></div>
-</section>
-<section class="panel" id="assessment">
-<h2>التقويم والمشروع الختامي</h2>
-<div class="biggrid">
-<div class="project"><h3>مشروع الحديقة المدرسية</h3><p>تصميم نموذج لحديقة مدرسية تحتوي أحواضًا على شكل مربع ومستطيل وشبه منحرف ودائرة ومتوازي أضلاع، ثم حساب المساحات والمحيطات المناسبة وعرض الحلول.</p><div class="actions"><a class="btn dark" href="worksheets/08-general-exercises.html" target="_blank">فتح ورقة التمارين العامة</a><button class="btn" onclick="openPdf('plans/unit-plan-grade6-unit7-geometry.pdf','خطة الوحدة - الوحدة السابعة: الهندسة')" type="button">عرض داخل الصفحة</button><a class="btn light" href="plans/unit-plan-grade6-unit7-geometry.pdf" target="_blank">فتح خطة الوحدة</a></div></div>
-<div class="project"><h3>أدوات تقويم مقترحة</h3><p>بطاقات خروج، اختبار قصير، ورقة العمل المحوسبة، سلم تقدير للمشروع، تقييم ذاتي، وملف إنجاز للطالب.</p><div class="meta"><span class="tag">تقويم قبلي</span><span class="tag">تقويم تكويني</span><span class="tag">تقويم ختامي</span></div></div>
-</div>
-</section>
-<section class="panel" id="files">
-<h2>كل ملفات التحضير PDF</h2>
-<div class="grid">
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 1: مساحة الأشكال الهندسية المستوية</h3><p class="small">3 حصص - المساحة، المستطيل، المربع، المثلث، المناطق المظللة</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-01-area-plane-shapes.pdf','تحضير الدرس 1: مساحة الأشكال الهندسية المستوية')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-01-area-plane-shapes.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-01-area-plane-shapes.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 2: الارتفاع في الأشكال الهندسية</h3><p class="small">4 حصص - الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-02-heights.pdf','تحضير الدرس 2: الارتفاع في الأشكال الهندسية')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-02-heights.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-02-heights.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 3: مساحة متوازي الأضلاع</h3><p class="small">4 حصص - استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-03-parallelogram-area.pdf','تحضير الدرس 3: مساحة متوازي الأضلاع')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-03-parallelogram-area.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-03-parallelogram-area.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 4: مساحة شبه المنحرف</h3><p class="small">4 حصص - القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-04-trapezoid-area.pdf','تحضير الدرس 4: مساحة شبه المنحرف')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-04-trapezoid-area.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-04-trapezoid-area.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 5: الدائرة وعناصرها</h3><p class="small">4 حصص - المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-05-circle.pdf','تحضير الدرس 5: الدائرة وعناصرها')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-05-circle.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-05-circle.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 6: محيط الدائرة</h3><p class="small">4 حصص - المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-06-circle-circumference.pdf','تحضير الدرس 6: محيط الدائرة')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-06-circle-circumference.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-06-circle-circumference.pdf">تحميل</a></div></div>
-</article>
-<article class="resource-card">
-<div class="icon">📘</div>
-<div><h3>تحضير الدرس 7: مساحة الدائرة</h3><p class="small">4 حصص - تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة</p><div class="actions"><button class="btn" onclick="openPdf('preparations/lesson-07-circle-area.pdf','تحضير الدرس 7: مساحة الدائرة')" type="button">عرض داخل الصفحة</button><a class="btn" href="preparations/lesson-07-circle-area.pdf" target="_blank">فتح التحضير</a><a class="btn light download" download="" href="preparations/lesson-07-circle-area.pdf">تحميل</a></div></div>
-</article></div>
-</section>
-</main>
-<div class="footer">إعداد وتجميع حقيبة المعلم - الصف السادس - الوحدة السابعة: الهندسة.</div>
-<script src="assets/teacher-kit.js"></script>
-</body>
-</html>
+<section class="panel" id="overview"><h2>نظرة عامة على الحقيبة</h2><div class="biggrid"><div><p>تهدف هذه الصفحة إلى جعل الوحدة السابعة «الهندسة» جاهزة للتنفيذ من مكان واحد: يبدأ المعلم بالخطة الفصلية وخطة الوحدة، ثم ينتقل إلى بطاقة كل درس حيث يجد التحضير بصيغة HTML وورقة العمل المحوسبة المرتبطة به.</p><div class="notice"><strong>ملاحظة:</strong> أُلغي عرض الملفات داخل عارض مدمج. جميع الخطط والتحاضير المعروضة هنا صفحات HTML، مع إبقاء ملفات DOCX الأصلية للتحميل والتعديل عند الحاجة.</div><div class="toolbar"><input class="search" id="search" type="search" aria-label="بحث داخل الدروس" placeholder="ابحث داخل الدروس: دائرة، مساحة، ارتفاع، شبه منحرف..."><button class="btn" onclick="window.print()" type="button">طباعة</button></div></div><div class="project"><h3>الفكرة المحورية للوحدة</h3><p>توظيف الأشكال الهندسية المستوية والدائرة في قياس المساحات والمحيطات وحل مشكلات حياتية، مع مشروع ختامي لتصميم حديقة مدرسية بأحواض هندسية متنوعة.</p><div class="meta"><span class="tag">هندسة وقياس</span><span class="tag">تعلم محوسب</span><span class="tag">تقويم ذاتي</span></div></div></div></section>
+<section class="panel" id="plans"><h2>ابدأ من هنا: الخطة الفصلية وخطة الوحدة</h2><p class="section-sub">ملفان مرجعيان قبل الدخول إلى الدروس التفصيلية، وكلاهما يعمل الآن كصفحة HTML مباشرة.</p><div class="grid"><article class="plan-card"><div class="plan-icon">📅</div><h3>الخطة الفصلية - الصف السادس / الفصل الثاني</h3><p>توضح توزيع وحدات الفصل الثاني، وموقع الوحدة السابعة «الهندسة» ضمن خطة الفصل.</p><div class="meta"><span class="tag">خطة فصلية</span><span class="tag">72 حصة للفصل</span><span class="tag">HTML</span></div><div class="actions"><a class="btn" href="plans/semester-plan-grade6-term2.html">فتح الخطة HTML</a><a class="btn ghost" href="originals/semester-plan-grade6-term2.docx" download>تحميل DOCX</a></div></article><article class="plan-card"><div class="plan-icon">🧭</div><h3>خطة الوحدة - الوحدة السابعة: الهندسة</h3><p>خريطة تعليمية تشمل فكرة الوحدة، توزيع الحصص، الأهداف، الأنشطة، التقويم، الصعوبات، والمشروع الختامي.</p><div class="meta"><span class="tag">خطة وحدة</span><span class="tag">32 حصة</span><span class="tag">HTML</span></div><div class="actions"><a class="btn" href="plans/unit-plan-grade6-unit7-geometry.html">فتح خطة الوحدة HTML</a><a class="btn ghost" href="originals/unit-plan-grade6-unit7-geometry.docx" download>تحميل DOCX</a></div></article></div></section>
+<section class="panel" id="sequence"><h2>توزيع الدروس والحصص</h2><div class="table-wrap"><table><thead><tr><th>الرقم</th><th>الدرس</th><th>الحصص</th><th>الفترة المقترحة</th><th>الفكرة التعليمية</th></tr></thead><tbody><tr><td>1</td><td>مساحة الأشكال الهندسية المستوية</td><td>3</td><td>آذار - الأسبوع الأول</td><td>المساحة، المستطيل، المربع، المثلث، المناطق المظللة</td></tr><tr><td>2</td><td>الارتفاع في الأشكال الهندسية</td><td>4</td><td>آذار - الأسبوع الأول/الثاني</td><td>الارتفاع بوصفه بعدًا عموديًا في المثلث ومتوازي الأضلاع وشبه المنحرف</td></tr><tr><td>3</td><td>مساحة متوازي الأضلاع</td><td>4</td><td>آذار - الأسبوع الثاني</td><td>استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية</td></tr><tr><td>4</td><td>مساحة شبه المنحرف</td><td>4</td><td>آذار - الأسبوع الثالث</td><td>القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية</td></tr><tr><td>5</td><td>الدائرة وعناصرها</td><td>4</td><td>آذار - الأسبوع الثالث/الرابع</td><td>المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار</td></tr><tr><td>6</td><td>محيط الدائرة</td><td>4</td><td>نيسان - الأسبوع الأول</td><td>المحيط، القطر، النسبة التقريبية π، قانونا المحيط</td></tr><tr><td>7</td><td>مساحة الدائرة</td><td>4</td><td>نيسان - الأسبوع الأول/الثاني</td><td>تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة</td></tr><tr><td>8</td><td>تمارين عامة + مشروع + تقويم ذاتي</td><td>3</td><td>نيسان - الأسبوع الثالث</td><td>مراجعة شاملة، مسائل مركبة، مشروع الحديقة المدرسية، تقييم ذاتي</td></tr></tbody></table></div></section>
+<section class="panel" id="lessons"><h2>تحضير الدروس مع روابط أوراق العمل</h2><p class="section-sub">كل تحضير يفتح كصفحة HTML منسقة، وبجانبه رابط ورقة العمل المحوسبة ونسخة DOCX الأصلية.</p><div class="timeline"><article class="lesson-card" data-search="مساحة الأشكال الهندسية المستوية المساحة، المستطيل، المربع، المثلث، المناطق المظللة 3 حصص">
+  <div class="num" style="--c:#1f4e79">1</div>
+  <div><div class="meta"><span class="tag">درس 1</span><span class="tag">3 حصص</span></div><h3>مساحة الأشكال الهندسية المستوية</h3><p>المساحة، المستطيل، المربع، المثلث، المناطق المظللة</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-01-area-plane-shapes.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/01-area-plane-shapes.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-01-area-plane-shapes.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="الارتفاع في الأشكال الهندسية الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف 4 حصص">
+  <div class="num" style="--c:#0b7fab">2</div>
+  <div><div class="meta"><span class="tag">درس 2</span><span class="tag">4 حصص</span></div><h3>الارتفاع في الأشكال الهندسية</h3><p>الارتفاع بوصفه بعدًا عموديًا، القاعدة، المثلث، متوازي الأضلاع، شبه المنحرف</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-02-heights.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/02-heights.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-02-heights.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="مساحة متوازي الأضلاع استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية 4 حصص">
+  <div class="num" style="--c:#5b2a67">3</div>
+  <div><div class="meta"><span class="tag">درس 3</span><span class="tag">4 حصص</span></div><h3>مساحة متوازي الأضلاع</h3><p>استنتاج القانون بالقص والنقل، القاعدة × الارتفاع، المسائل العكسية</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-03-parallelogram-area.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/03-parallelogram-area.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-03-parallelogram-area.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="مساحة شبه المنحرف القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية 4 حصص">
+  <div class="num" style="--c:#0f6f8a">4</div>
+  <div><div class="meta"><span class="tag">درس 4</span><span class="tag">4 حصص</span></div><h3>مساحة شبه المنحرف</h3><p>القاعدتان، الارتفاع، تركيب شبهين متطابقين، المسائل الحياتية</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-04-trapezoid-area.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/04-trapezoid-area.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-04-trapezoid-area.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="الدائرة وعناصرها المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار 4 حصص">
+  <div class="num" style="--c:#0b7fab">5</div>
+  <div><div class="meta"><span class="tag">درس 5</span><span class="tag">4 حصص</span></div><h3>الدائرة وعناصرها</h3><p>المركز، نصف القطر، القطر، الوتر، القوس، الرسم بالفرجار</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-05-circle.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/05-circle-elements.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-05-circle.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="محيط الدائرة المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π 4 حصص">
+  <div class="num" style="--c:#1f6d9b">6</div>
+  <div><div class="meta"><span class="tag">درس 6</span><span class="tag">4 حصص</span></div><h3>محيط الدائرة</h3><p>المحيط، القطر، النسبة التقريبية π، ح = ق × π أو ح = 2 × نق × π</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-06-circle-circumference.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/06-circle-circumference.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-06-circle-circumference.docx" download>تحميل DOCX</a></div></div>
+</article><article class="lesson-card" data-search="مساحة الدائرة تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة 4 حصص">
+  <div class="num" style="--c:#e67e22">7</div>
+  <div><div class="meta"><span class="tag">درس 7</span><span class="tag">4 حصص</span></div><h3>مساحة الدائرة</h3><p>تمييز المساحة عن المحيط، استنتاج م = π نق²، المناطق المظللة</p>
+  <div class="actions"><a class="btn" href="preparations/lesson-07-circle-area.html">عرض التحضير HTML</a><a class="btn light" href="worksheets/07-circle-area.html">ورقة العمل</a><a class="btn ghost" href="originals/lesson-07-circle-area.docx" download>تحميل DOCX</a></div></div>
+</article></div></section>
+<section class="panel" id="worksheets"><h2>قسم أوراق العمل المحوسبة</h2><div class="student-banner"><div><h3>نسخة الطالب / اللوح الذكي</h3><p>صفحة مستقلة تحتوي أوراق العمل المحوسبة الثمانية فقط، مناسبة للطلاب أو للعرض داخل مختبر الحاسوب.</p></div><a class="btn dark" href="worksheets/index.html">فتح قسم أوراق العمل</a></div></section>
+<section class="panel" id="assessment"><h2>التقويم والمشروع الختامي</h2><div class="biggrid"><div><h3>أدوات التقويم المقترحة</h3><p>بطاقات خروج، ورقة تمارين عامة، اختبار قصير، تقويم ذاتي، وسلم تقدير للمشروع.</p><div class="actions"><a class="btn" href="worksheets/08-general-exercises.html">فتح التمارين العامة</a></div></div><div class="project"><h3>مشروع الحديقة المدرسية</h3><p>تصميم نموذج لحديقة مدرسية تحتوي أحواضًا هندسية متنوعة: مربع، مستطيل، شبه منحرف، دائرة، ومتوازي أضلاع، ثم حساب المساحات والمحيطات اللازمة وعرض الحلول.</p></div></div></section>
+<section class="panel" id="documents"><h2>كل ملفات الخطة والتحضير بصيغة HTML</h2><p class="section-sub">قائمة كاملة بصفحات HTML المحوّلة من ملفات DOCX.</p><div class="grid"><article class="resource-card">
+  <div class="icon">📅</div><div><h3>الخطة الفصلية - رياضيات الصف السادس / الفصل الثاني</h3><p>توزيع وحدات الفصل الثاني، وموقع الوحدة السابعة: الهندسة ضمن الخطة الفصلية.</p><div class="meta"><span class="tag">خطة فصلية</span><span class="tag">HTML</span><span class="tag">72 حصة للفصل</span></div><div class="actions"><a class="btn" href="plans/semester-plan-grade6-term2.html">فتح HTML</a><a class="btn ghost" href="originals/semester-plan-grade6-term2.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">🧭</div><div><h3>خطة الوحدة - الوحدة السابعة: الهندسة</h3><p>مخطط الوحدة: الأهداف، المحتوى، الأنشطة، التقويم، الصعوبات، والمشروع الختامي.</p><div class="meta"><span class="tag">خطة وحدة</span><span class="tag">HTML</span><span class="tag">32 حصة</span></div><div class="actions"><a class="btn" href="plans/unit-plan-grade6-unit7-geometry.html">فتح HTML</a><a class="btn ghost" href="originals/unit-plan-grade6-unit7-geometry.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 1: مساحة الأشكال الهندسية المستوية</h3><p>تحضير محوسب مع ورقة العمل التفاعلية المرتبطة بالدرس الأول.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">3 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-01-area-plane-shapes.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-01-area-plane-shapes.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 2: الارتفاع في الأشكال الهندسية</h3><p>تحضير محوسب لمعنى الارتفاع بوصفه بعدًا عموديًا في المثلث ومتوازي الأضلاع وشبه المنحرف.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-02-heights.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-02-heights.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 3: مساحة متوازي الأضلاع</h3><p>تحضير محوسب لاستنتاج قانون مساحة متوازي الأضلاع بالقص والنقل والتطبيق.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-03-parallelogram-area.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-03-parallelogram-area.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 4: مساحة شبه المنحرف</h3><p>تحضير محوسب لاستنتاج مساحة شبه المنحرف وتوظيفها في مسائل مباشرة وحياتية.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-04-trapezoid-area.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-04-trapezoid-area.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 5: الدائرة وعناصرها</h3><p>تحضير محوسب لاستكشاف عناصر الدائرة والعلاقة بين القطر ونصف القطر والرسم بالفرجار.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-05-circle.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-05-circle.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 6: محيط الدائرة</h3><p>تحضير محوسب لاكتشاف النسبة التقريبية π وتطبيق قانون محيط الدائرة.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-06-circle-circumference.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-06-circle-circumference.docx" download>تحميل DOCX</a></div></div>
+</article><article class="resource-card">
+  <div class="icon">📝</div><div><h3>تحضير الدرس 7: مساحة الدائرة</h3><p>تحضير محوسب لاستنتاج قانون مساحة الدائرة وتطبيقه في مسائل حياتية ومناطق مظللة.</p><div class="meta"><span class="tag">تحضير درس</span><span class="tag">HTML</span><span class="tag">4 حصص</span></div><div class="actions"><a class="btn" href="preparations/lesson-07-circle-area.html">فتح HTML</a><a class="btn ghost" href="originals/lesson-07-circle-area.docx" download>تحميل DOCX</a></div></div>
+</article></div></section>
+</main><footer class="footer">حقيبة معلم إلكترونية - الصف السادس - الوحدة السابعة: الهندسة. تم تنسيق الخطط والتحاضير كصفحات HTML دون عارض ملفات مدمج.</footer><script src="assets/teacher-kit.js"></script></body></html>
