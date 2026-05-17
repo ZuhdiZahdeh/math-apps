@@ -13,3 +13,23 @@ function printSection(id){
   document.body.dataset.printOnly = id;
   window.print();
 }
+
+function openPdf(path, title){
+  const viewer = document.getElementById('pdf-viewer');
+  const frame = document.getElementById('pdfFrame');
+  const titleEl = document.getElementById('pdfTitle');
+  const openEl = document.getElementById('pdfOpen');
+  const downloadEl = document.getElementById('pdfDownload');
+  const copyEl = document.getElementById('pdfCopy');
+  if(!frame || !titleEl || !openEl || !downloadEl){
+    window.open(path, '_blank', 'noopener');
+    return;
+  }
+  titleEl.textContent = title || 'ملف PDF';
+  frame.src = path + '#view=FitH';
+  openEl.href = path;
+  downloadEl.href = path;
+  if(copyEl){ copyEl.setAttribute('onclick', "copyLink('" + path.replace(/'/g,"\\'") + "')"); }
+  document.querySelectorAll('.pdf-item').forEach(btn => btn.classList.toggle('active', btn.dataset.pdf === path));
+  viewer?.scrollIntoView({behavior:'smooth', block:'start'});
+}
