@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ورقة عمل محوسبة - محيط الدائرة</title>
+<style>
+  :root{--blue:#1f6d9b;--light:#eef7fb;--green:#1b7f4d;--red:#b3261e;--gold:#f6c244;--ink:#1d1d1f;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#f7fafc;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.7}
+  header{background:linear-gradient(135deg,#1f6d9b,#2e96bd);color:white;padding:22px 16px;text-align:center}
+  header h1{margin:0 0 6px;font-size:28px}
+  header p{margin:0;font-size:15px}
+  main{max-width:1100px;margin:18px auto;padding:0 14px}
+  .card{background:white;border:1px solid #d9e5ec;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  h2{color:var(--blue);margin-top:0;border-right:6px solid var(--blue);padding-right:10px}
+  .goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:8px}
+  .goal{background:#eef7fb;border-radius:12px;padding:10px;border:1px solid #cfe7f1}
+  .lab{display:grid;grid-template-columns:360px 1fr;gap:20px;align-items:center}
+  @media(max-width:820px){.lab{grid-template-columns:1fr}.circlebox{text-align:center}}
+  svg{max-width:100%;height:auto}
+  .controls label{display:block;margin:10px 0 4px;font-weight:bold}
+  input[type=range]{width:100%}
+  .formula{background:#fff7db;border:1px solid #f1d57a;border-radius:12px;padding:12px;margin:10px 0;font-size:18px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .q{background:#fbfdff;border:1px solid #dce8ee;border-radius:12px;padding:12px}
+  .q label{display:block;font-weight:bold;margin-bottom:6px}
+  input[type=number], input[type=text], select{width:100%;padding:10px;border:1px solid #bdcbd4;border-radius:10px;font-size:16px;direction:ltr;text-align:center;background:white}
+  .mc label{font-weight:normal;margin:5px 0;display:block;cursor:pointer}
+  button{border:0;border-radius:12px;padding:12px 22px;font-weight:bold;font-size:16px;cursor:pointer;margin:8px 4px;background:var(--blue);color:white}
+  button.secondary{background:#52616b}
+  .feedback{min-height:30px;margin-top:8px;font-weight:bold}
+  .ok{color:var(--green)} .bad{color:var(--red)} .hint{color:#6c4a00;background:#fff8d7;border-radius:10px;padding:8px;margin-top:8px}
+  table{width:100%;border-collapse:collapse;margin-top:8px;background:white}
+  th,td{border:1px solid #cfd9df;padding:8px;text-align:center}
+  th{background:#e8f2f7;color:#174d6c}
+  .score{font-size:20px;text-align:center;background:#eefaf3;border:1px solid #b9e3c7;border-radius:14px;padding:12px;margin-top:14px}
+  .print{background:#0f766e}
+</style>
+
+<style id="unit7-floating-style">
+.unit7-floating-nav{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;align-items:center;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.unit7-floating-nav a,.unit7-floating-nav button{all:unset;box-sizing:border-box;background:#111827!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:999px!important;padding:9px 13px!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important;text-decoration:none!important;line-height:1.2!important}
+.unit7-floating-nav a:hover,.unit7-floating-nav button:hover{background:#0b7fab!important;transform:translateY(-1px)}
+@media print{.unit7-floating-nav{display:none!important}}
+@media(max-width:640px){.unit7-floating-nav{left:8px;right:8px;bottom:8px;justify-content:center}.unit7-floating-nav a,.unit7-floating-nav button{font-size:12px!important;padding:8px 10px!important}}
+</style>
+
+</head>
+<body>
+
+<nav class="unit7-floating-nav" aria-label="روابط التنقل في حقيبة المعلم">
+  <a href="../index.html">↩ حقيبة المعلم</a>
+  <a href="index.html">قسم أوراق العمل</a>
+  <button type="button" onclick="window.print()">طباعة</button>
+</nav>
+
+<header>
+  <h1>ورقة عمل محوسبة: محيط الدائرة</h1>
+  <p>الصف السادس الأساسي - الوحدة السابعة: الهندسة (2) - الدرس السادس</p>
+</header>
+<main>
+<section class="card">
+  <h2>أهداف الورقة</h2>
+  <div class="goals">
+    <div class="goal">أميز مفهوم محيط الدائرة بوصفه طول المسار حول الدائرة.</div>
+    <div class="goal">أستنتج أن محيط الدائرة ÷ قطرها ≈ π.</div>
+    <div class="goal">أحسب محيط الدائرة عند معرفة القطر أو نصف القطر.</div>
+    <div class="goal">أجد نصف القطر أو القطر عند معرفة المحيط.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>النشاط الأول: مختبر محيط الدائرة</h2>
+  <div class="lab">
+    <div class="circlebox">
+      <svg id="svgCircle" width="360" height="360" viewBox="0 0 360 360" aria-label="دائرة تفاعلية">
+        <circle cx="180" cy="180" r="100" fill="#f7fbff" stroke="#1f6d9b" stroke-width="8"></circle>
+        <line x1="80" y1="180" x2="280" y2="180" stroke="#cc4a35" stroke-width="5"></line>
+        <line x1="180" y1="180" x2="180" y2="80" stroke="#1b7f4d" stroke-width="5"></line>
+        <circle cx="180" cy="180" r="5" fill="#111"></circle>
+        <text x="128" y="205" fill="#cc4a35" font-size="20">ق = القطر</text>
+        <text x="188" y="135" fill="#1b7f4d" font-size="20">نق</text>
+        <text x="72" y="50" fill="#1f6d9b" font-size="19">المحيط: المسار حول الدائرة</text>
+      </svg>
+    </div>
+    <div class="controls">
+      <label for="r">غيّر نصف القطر:</label>
+      <input type="range" id="r" min="1" max="20" value="7" oninput="updateLab()">
+      <div class="formula" id="labValues"></div>
+      <div class="hint">لاحظ أن ناتج: المحيط ÷ القطر يبقى قريباً من 3.14 مهما تغيّر نصف القطر.</div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>النشاط الثاني: أحسب وأتحقق</h2>
+  <div class="grid">
+    <div class="q"><label>1) دائرة قطرها 14 سم. أوجد محيطها باستخدام π = 22/7.</label><input id="a1" type="number" step="0.01" placeholder="اكتب الناتج بالسم"><div id="f1" class="feedback"></div></div>
+    <div class="q"><label>2) دائرة نصف قطرها 5.5 م. أوجد محيطها باستخدام π = 3.14.</label><input id="a2" type="number" step="0.01" placeholder="اكتب الناتج بالمتر"><div id="f2" class="feedback"></div></div>
+    <div class="q"><label>3) دائرة قطرها 12.5 سم. أوجد محيطها باستخدام π = 3.14.</label><input id="a3" type="number" step="0.01" placeholder="اكتب الناتج بالسم"><div id="f3" class="feedback"></div></div>
+    <div class="q"><label>4) دائرة محيطها 44 سم. أوجد نصف قطرها باستخدام π = 22/7.</label><input id="a4" type="number" step="0.01" placeholder="اكتب نصف القطر بالسم"><div id="f4" class="feedback"></div></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>النشاط الثالث: اختر الإجابة الصحيحة</h2>
+  <div class="grid">
+    <div class="q mc"><label>5) النسبة التقريبية π تمثل:</label>
+      <label><input type="radio" name="q5" value="a"> القطر ÷ المحيط</label>
+      <label><input type="radio" name="q5" value="b"> المحيط ÷ القطر</label>
+      <label><input type="radio" name="q5" value="c"> نصف القطر ÷ المحيط</label><div id="f5" class="feedback"></div>
+    </div>
+    <div class="q mc"><label>6) إذا علمت نصف القطر، فأفضل قانون لحساب المحيط هو:</label>
+      <label><input type="radio" name="q6" value="a"> ح = ق × π</label>
+      <label><input type="radio" name="q6" value="b"> ح = 2 × نق × π</label>
+      <label><input type="radio" name="q6" value="c"> ح = نق × نق × π</label><div id="f6" class="feedback"></div>
+    </div>
+    <div class="q mc"><label>7) وحدة قياس محيط دائرة طولية مثل:</label>
+      <label><input type="radio" name="q7" value="a"> سم²</label>
+      <label><input type="radio" name="q7" value="b"> م²</label>
+      <label><input type="radio" name="q7" value="c"> سم أو م</label><div id="f7" class="feedback"></div>
+    </div>
+    <div class="q mc"><label>8) عند وجود قطر يساوي 28 سم، أي قيمة لـ π أسهل غالباً؟</label>
+      <label><input type="radio" name="q8" value="a"> 22/7</label>
+      <label><input type="radio" name="q8" value="b"> 3.14 فقط دائماً</label>
+      <label><input type="radio" name="q8" value="c"> لا نستخدم π</label><div id="f8" class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>النشاط الرابع: مسألة حياتية</h2>
+  <p>طاولة دائرية قطرها 2 م، وُضع عليها غطاء دائري يتدلى 25 سم من كل جانب. أوجد محيط حافة الغطاء تقريباً باستخدام π = 3.14، ثم قرر هل يكفي شريط طوله 7 م لإحاطة الغطاء؟</p>
+  <table>
+    <tr><th>المطلوب</th><th>إجابتك</th></tr>
+    <tr><td>قطر الغطاء بالمتر</td><td><input id="a9" type="number" step="0.01"></td></tr>
+    <tr><td>محيط الغطاء بالمتر</td><td><input id="a10" type="number" step="0.01"></td></tr>
+    <tr><td>هل يكفي شريط 7 م؟ اكتب نعم أو لا</td><td><input id="a11" type="text" placeholder="نعم / لا"></td></tr>
+  </table>
+  <div id="f9" class="feedback"></div>
+</section>
+
+<section class="card">
+  <button onclick="checkAll()">افحص الإجابات</button>
+  <button class="secondary" onclick="resetAll()">إعادة المحاولة</button>
+  <button class="print" onclick="window.print()">طباعة النتيجة</button>
+  <div id="score" class="score">لم يتم الفحص بعد.</div>
+</section>
+</main>
+<script>
+function round2(x){ return Math.round(x*100)/100; }
+function updateLab(){
+  const r = Number(document.getElementById('r').value);
+  const d = 2*r;
+  const c = round2(2*r*3.14);
+  const ratio = round2(c/d);
+  document.getElementById('labValues').innerHTML = `نق = ${r} وحدة | ق = ${d} وحدة<br>ح ≈ 2 × ${r} × 3.14 = ${c} وحدة<br>ح ÷ ق ≈ ${ratio}`;
+}
+function val(id){ return parseFloat(document.getElementById(id).value); }
+function mark(id, ok, msg){ const el=document.getElementById(id); el.textContent=msg; el.className='feedback '+(ok?'ok':'bad'); }
+function near(x,y,tol=0.03){ return !isNaN(x) && Math.abs(x-y)<=tol; }
+function radio(name){ const r=document.querySelector(`input[name="${name}"]:checked`); return r?r.value:null; }
+function checkAll(){
+  let score=0,total=11;
+  if(near(val('a1'),44)){score++;mark('f1',true,'صحيح: ح = 14 × 22/7 = 44 سم.');} else mark('f1',false,'راجع القانون: ح = ق × π.');
+  if(near(val('a2'),34.54)){score++;mark('f2',true,'صحيح: ح = 2 × 5.5 × 3.14 = 34.54 م.');} else mark('f2',false,'تأكد أنك استخدمت 2 × نق × π.');
+  if(near(val('a3'),39.25)){score++;mark('f3',true,'صحيح: ح = 12.5 × 3.14 = 39.25 سم.');} else mark('f3',false,'المعطى قطر، إذن ح = ق × π.');
+  if(near(val('a4'),7)){score++;mark('f4',true,'صحيح: القطر = 44 ÷ 22/7 = 14، ونصف القطر = 7 سم.');} else mark('f4',false,'أوجد القطر أولاً ثم اقسمه على 2.');
+  if(radio('q5')==='b'){score++;mark('f5',true,'صحيح.');} else mark('f5',false,'π = المحيط ÷ القطر.');
+  if(radio('q6')==='b'){score++;mark('f6',true,'صحيح.');} else mark('f6',false,'عند معرفة نصف القطر نستخدم ح = 2 × نق × π.');
+  if(radio('q7')==='c'){score++;mark('f7',true,'صحيح.');} else mark('f7',false,'المحيط طول، لذلك وحدته سم أو م لا وحدة مربعة.');
+  if(radio('q8')==='a'){score++;mark('f8',true,'صحيح، لأن 28 يقبل القسمة على 7.');} else mark('f8',false,'22/7 مناسب غالباً عندما تكون الأعداد من مضاعفات 7.');
+  let qd=val('a9'), qc=val('a10'), ans=(document.getElementById('a11').value||'').trim();
+  let lifeOk=0;
+  if(near(qd,2.5)){ lifeOk++; }
+  if(near(qc,7.85,0.05)){ lifeOk++; }
+  if(ans==='لا' || ans==='لا يكفي' || ans==='لايكفي'){ lifeOk++; }
+  score += lifeOk;
+  mark('f9', lifeOk===3, lifeOk===3 ? 'صحيح: قطر الغطاء 2.5 م، ومحيطه تقريباً 7.85 م، لذلك لا يكفي شريط 7 م.' : 'راجع: أضف 25 سم من كل جانب، أي 0.5 م إلى قطر الطاولة، ثم احسب المحيط.');
+  document.getElementById('score').textContent = `درجتك: ${score} / ${total}. ${score>=9?'ممتاز!':score>=7?'جيد، راجع الأخطاء البسيطة.':'تحتاج إلى إعادة المحاولة مع كتابة القانون أولاً.'}`;
+}
+function resetAll(){
+  document.querySelectorAll('input[type=number],input[type=text]').forEach(x=>x.value='');
+  document.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false);
+  document.querySelectorAll('.feedback').forEach(x=>{x.textContent='';x.className='feedback';});
+  document.getElementById('score').textContent='لم يتم الفحص بعد.';
+}
+updateLab();
+</script>
+</body>
+</html>

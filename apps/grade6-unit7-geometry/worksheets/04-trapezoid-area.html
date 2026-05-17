@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ورقة عمل محوسبة - مساحة شبه المنحرف</title>
+<style>
+:root{--main:#5b2a67;--accent:#0f6f8a;--soft:#eef8fb;--ok:#dcfce7;--bad:#fee2e2;--warn:#fff7cc;--line:#d1d5db}*{box-sizing:border-box}body{font-family:Arial,Tahoma,sans-serif;margin:0;background:#f6f7fb;color:#111;line-height:1.75}header{background:linear-gradient(135deg,var(--main),var(--accent));color:white;text-align:center;padding:22px 12px}header h1{margin:0 0 4px;font-size:1.8rem}main{max-width:1160px;margin:auto;padding:18px}section{background:white;border-radius:16px;margin:16px 0;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.05)}h2{color:var(--main);margin-top:0;border-bottom:2px solid #e6eef5;padding-bottom:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}@media(max-width:850px){.grid{grid-template-columns:1fr}}label{display:block;margin:8px 0 4px;font-weight:bold}input[type=range]{width:100%}input[type=number],select{font-size:1rem;padding:8px;border:1px solid #cbd5e1;border-radius:8px;min-width:110px}button{background:var(--accent);color:white;border:0;border-radius:10px;padding:9px 14px;font-size:1rem;cursor:pointer;margin:4px}button.secondary{background:var(--main)}button.light{background:#e2e8f0;color:#222}.card{background:var(--soft);border-radius:12px;padding:12px;margin:8px 0;border:1px solid #d3e8f0}.formula{font-size:1.2rem;font-weight:bold;color:var(--main);background:#f8f1fb;border-radius:10px;padding:10px;text-align:center}.feedback{font-weight:bold;padding:8px;border-radius:8px;margin-top:8px;display:inline-block}.ok{background:var(--ok);color:#166534}.bad{background:var(--bad);color:#991b1b}.warn{background:var(--warn);color:#8a5b00}svg{max-width:100%;height:auto;background:white;border:1px solid #cbd5e1;border-radius:12px}.question{border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:10px 0;background:#fff}.score{font-size:1.25rem;font-weight:bold;color:var(--main)}table{width:100%;border-collapse:collapse;background:white;margin-top:8px}th,td{border:1px solid var(--line);padding:8px;text-align:center}th{background:var(--accent);color:white}.mini{font-size:.93rem;color:#475569}footer{text-align:center;padding:20px;color:#64748b}
+</style>
+<style id="unit7-floating-style">
+.unit7-floating-nav{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;align-items:center;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.unit7-floating-nav a,.unit7-floating-nav button{all:unset;box-sizing:border-box;background:#111827!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:999px!important;padding:9px 13px!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important;text-decoration:none!important;line-height:1.2!important}
+.unit7-floating-nav a:hover,.unit7-floating-nav button:hover{background:#0b7fab!important;transform:translateY(-1px)}
+@media print{.unit7-floating-nav{display:none!important}}
+@media(max-width:640px){.unit7-floating-nav{left:8px;right:8px;bottom:8px;justify-content:center}.unit7-floating-nav a,.unit7-floating-nav button{font-size:12px!important;padding:8px 10px!important}}
+</style>
+
+</head><body>
+
+<nav class="unit7-floating-nav" aria-label="روابط التنقل في حقيبة المعلم">
+  <a href="../index.html">↩ حقيبة المعلم</a>
+  <a href="index.html">قسم أوراق العمل</a>
+  <button type="button" onclick="window.print()">طباعة</button>
+</nav>
+<header><h1>ورقة عمل محوسبة: مساحة شبه المنحرف</h1><p>الصف السادس الأساسي – الوحدة السابعة: الهندسة (2)</p></header><main>
+<section><h2>أهداف الورقة</h2><div class="card">بعد تنفيذ هذه الورقة يستطيع الطالب أن يحدد قاعدتي شبه المنحرف والارتفاع، ويستنتج القانون، ويحسب المساحة أو أحد العناصر المجهولة في مسائل حياتية.</div></section>
+<section><h2>1) استكشف الشكل والقانون</h2><div class="grid"><div>
+<label>طول القاعدة الأولى ق١: <span id="b1Val">6</span> وحدات</label><input id="b1" type="range" min="3" max="10" value="6" oninput="drawTrap()">
+<label>طول القاعدة الثانية ق٢: <span id="b2Val">12</span> وحدات</label><input id="b2" type="range" min="5" max="16" value="12" oninput="drawTrap()">
+<label>الارتفاع ع: <span id="hVal">5</span> وحدات</label><input id="h" type="range" min="2" max="9" value="5" oninput="drawTrap()">
+<label>ميل الشكل: <span id="shiftVal">3</span> وحدات</label><input id="shift" type="range" min="0" max="6" value="3" oninput="drawTrap()">
+<div class="formula" id="formulaBox"></div><div id="note" class="card mini"></div>
+</div><div><svg id="trapSvg" viewBox="0 0 760 420"></svg></div></div></section>
+<section><h2>2) لماذا نأخذ نصف حاصل ضرب مجموع القاعدتين في الارتفاع؟</h2><div class="grid"><div><div class="card">عند ضم شبه منحرف مطابق إلى شبه المنحرف الأول ينتج متوازي أضلاع قاعدته تساوي مجموع القاعدتين، وارتفاعه هو ارتفاع شبه المنحرف. لذلك تكون مساحة شبه المنحرف نصف مساحة متوازي الأضلاع.</div><button class="secondary" onclick="togglePair()">إظهار/إخفاء شبه المنحرف الثاني</button><div class="formula" id="pairFormula"></div></div><div><svg id="pairSvg" viewBox="0 0 760 420"></svg></div></div></section>
+<section><h2>3) تدرب وتحقق</h2><div class="question"><b>السؤال 1: </b>شبه منحرف قاعدتاه 12 سم و8 سم، وارتفاعه 5 سم. أوجد مساحته.<br><input type="number" id="q1" placeholder="الإجابة"><button onclick="checkNum('q1',50,'fb1','سم²')">تحقق</button><span id="fb1"></span></div>
+<div class="question"><b>السؤال 2: </b>لوحة فنية على شكل شبه منحرف قاعدتاها 80 سم و50 سم، وارتفاعها 40 سم. أوجد مساحتها.<br><input type="number" id="q2" placeholder="الإجابة"><button onclick="checkNum('q2',2600,'fb2','سم²')">تحقق</button><span id="fb2"></span></div>
+<div class="question"><b>السؤال 3: </b>شبه منحرف مساحته 80 م²، ومجموع قاعدتيه 10 م. أوجد ارتفاعه.<br><input type="number" id="q3" placeholder="الإجابة"><button onclick="checkNum('q3',16,'fb3','م')">تحقق</button><span id="fb3"></span></div>
+<div class="question"><b>السؤال 4: </b>شبه منحرف مساحته 96 سم²، وارتفاعه 8 سم، وإحدى قاعدتيه 10 سم. أوجد طول القاعدة الأخرى.<br><input type="number" id="q4" placeholder="الإجابة"><button onclick="checkNum('q4',14,'fb4','سم')">تحقق</button><span id="fb4"></span></div>
+<div class="question"><b>السؤال 5: </b>ما الخطوة الأولى الصحيحة في القانون؟ <select id="q5"><option value="">اختر</option><option value="halfOne">أضرب ١/٢ في القاعدة الأولى فقط</option><option value="sum">أجمع القاعدتين داخل القوسين</option><option value="slope">أستخدم طول الساق المائل بدل الارتفاع</option></select><button onclick="checkChoice()">تحقق</button><span id="fb5"></span></div></section>
+<section><h2>4) تحدي ختامي</h2><p class="mini">أجب عن الأسئلة ثم اضغط "احسب درجتي". الدرجة تساعدك على معرفة ما تحتاج إلى مراجعته.</p><table><tr><th>السؤال</th><th>إجابة الطالب</th></tr><tr><td>1) م = ١/٢ × (7 + 13) × 6 = ؟</td><td><input type="number" id="t1"></td></tr><tr><td>2) إذا كانت م = 45 م²، والارتفاع = 5 م، فمجموع القاعدتين = ؟</td><td><input type="number" id="t2"></td></tr><tr><td>3) شبه منحرف قاعدتاه 4 م و3 م وارتفاعه 3.5 م. مساحته = ؟</td><td><input type="number" step="0.01" id="t3"></td></tr><tr><td>4) وحدة قياس المساحة هي: 1 = سم، 2 = سم²</td><td><input type="number" id="t4"></td></tr><tr><td>5) إذا بقيت القاعدتان والارتفاع كما هي وتغير ميل شبه المنحرف، فهل تتغير المساحة؟ 0 = لا، 1 = نعم</td><td><input type="number" id="t5"></td></tr></table><button class="secondary" onclick="scoreTest()">احسب درجتي</button><button class="light" onclick="resetAll()">إعادة ضبط</button><div id="score" class="score"></div></section>
+</main><footer>تصميم تعليمي محوسب لدرس مساحة شبه المنحرف – يعمل دون اتصال بالإنترنت.</footer>
+<script>
+let showSecond=false;
+function line(x1,y1,x2,y2,color,w=2,dash=''){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${w}" stroke-dasharray="${dash}"/>`}
+function text(x,y,t,color='#111',size=22){return `<text x="${x}" y="${y}" fill="${color}" font-size="${size}" text-anchor="middle" dominant-baseline="middle">${t}</text>`}
+function drawGrid(){let s=''; for(let x=60;x<=700;x+=40)s+=line(x,40,x,360,'#e5e7eb',1); for(let y=40;y<=360;y+=40)s+=line(60,y,700,y,'#e5e7eb',1); return s;}
+function drawTrap(){
+ const b1=+document.getElementById('b1').value,b2=+document.getElementById('b2').value,h=+document.getElementById('h').value,sh=+document.getElementById('shift').value;
+ document.getElementById('b1Val').textContent=b1;document.getElementById('b2Val').textContent=b2;document.getElementById('hVal').textContent=h;document.getElementById('shiftVal').textContent=sh;
+ const scale=28, x0=160, y0=320, topX=x0+sh*scale, topY=y0-h*scale;
+ const p1=[x0,y0],p2=[x0+b2*scale,y0],p3=[topX+b1*scale,topY],p4=[topX,topY];
+ let svg=drawGrid()+`<polygon points="${p1.join(',')} ${p2.join(',')} ${p3.join(',')} ${p4.join(',')}" fill="#e0f2fe" stroke="#0f6f8a" stroke-width="4"/>`;
+ svg+=line(p4[0],p4[1],p3[0],p3[1],'#2563eb',6)+line(p1[0],p1[1],p2[0],p2[1],'#2563eb',6)+line(p4[0],p4[1],p4[0],p1[1],'#dc2626',5,'6 4');
+ svg+=`<rect x="${p4[0]}" y="${p1[1]-24}" width="24" height="24" fill="none" stroke="#dc2626" stroke-width="3"/>`;
+ svg+=text((p4[0]+p3[0])/2,p4[1]-22,'ق١ = '+b1,'#2563eb')+text((p1[0]+p2[0])/2,p1[1]+28,'ق٢ = '+b2,'#2563eb')+text(p4[0]-35,(p4[1]+p1[1])/2,'ع = '+h,'#dc2626');
+ document.getElementById('trapSvg').innerHTML=svg;
+ const area=0.5*(b1+b2)*h;
+ document.getElementById('formulaBox').innerHTML=`م = ١/٢ × (ق١ + ق٢) × ع = ١/٢ × (${b1} + ${b2}) × ${h} = ${area} وحدة مربعة`;
+ document.getElementById('note').textContent='لاحظ: تغيير الميل وحده لا يغير المساحة ما دامت القاعدتان والارتفاع ثابتة.';
+ drawPair();
+}
+function togglePair(){showSecond=!showSecond;drawPair()}
+function drawPair(){
+ const b1=+document.getElementById('b1').value,b2=+document.getElementById('b2').value,h=+document.getElementById('h').value;
+ const scale=24,x0=110,y0=315,topX=x0+80,topY=y0-h*scale;
+ const p1=[x0,y0],p2=[x0+b2*scale,y0],p3=[topX+b1*scale,topY],p4=[topX,topY];
+ let svg=`<polygon points="${p1.join(',')} ${p2.join(',')} ${p3.join(',')} ${p4.join(',')}" fill="#e0f2fe" stroke="#0f6f8a" stroke-width="4"/>`+line(p4[0],p4[1],p4[0],p1[1],'#dc2626',5,'6 4');
+ if(showSecond){
+   const q1=[p3[0],topY],q2=[p3[0]+b2*scale,y0],q3=[p2[0],y0],q4=[p3[0],topY];
+   svg+=`<polygon points="${p3.join(',')} ${q2.join(',')} ${q3.join(',')}" fill="#f3e8ff" stroke="#7e22ce" stroke-width="4"/>`;
+   svg+=line(p4[0],p4[1],q2[0],q2[1],'#334155',3);
+   svg+=text(540,80,'صار لدينا متوازي أضلاع','#166534',24);
+ } else { svg+=text(500,100,'اضغط الزر لإضافة شبه منحرف مطابق','#475569',22); }
+ svg+=text((p1[0]+p2[0])/2,y0+35,'ق٢','#2563eb')+text((p4[0]+p3[0])/2,topY-25,'ق١','#2563eb')+text(p4[0]-35,(p4[1]+p1[1])/2,'ع','#dc2626');
+ document.getElementById('pairSvg').innerHTML=svg;
+ document.getElementById('pairFormula').innerHTML=`مساحة متوازي الأضلاع الناتج = (${b1}+${b2}) × ${h}.<br>مساحة شبه المنحرف = نصف ذلك = ${0.5*(b1+b2)*h} وحدة مربعة.`;
+}
+function checkNum(id,correct,fb,unit){const v=parseFloat(document.getElementById(id).value);const el=document.getElementById(fb); if(Math.abs(v-correct)<0.01){el.className='feedback ok';el.textContent='صحيح: '+correct+' '+unit;}else{el.className='feedback bad';el.textContent='راجع القانون: م = ١/٢ × (ق١ + ق٢) × ع';}}
+function checkChoice(){const el=document.getElementById('fb5'); if(document.getElementById('q5').value==='sum'){el.className='feedback ok';el.textContent='صحيح، نجمع القاعدتين أولاً داخل القوسين.'}else{el.className='feedback bad';el.textContent='انتبه: يجب جمع القاعدتين أولاً، ولا نستخدم الساق المائل بدل الارتفاع.'}}
+function scoreTest(){const answers=[60,18,12.25,2,0];let ids=['t1','t2','t3','t4','t5'];let score=0;ids.forEach((id,i)=>{let v=parseFloat(document.getElementById(id).value);if(Math.abs(v-answers[i])<0.01)score++;});let msg=score+'/5'; if(score===5)msg+=' ممتاز!'; else if(score>=3)msg+=' جيد، راجع الأسئلة التي أخطأت فيها.'; else msg+=' تحتاج إلى مراجعة القانون وتحديد القاعدتين والارتفاع.';document.getElementById('score').textContent=msg;}
+function resetAll(){['q1','q2','q3','q4','t1','t2','t3','t4','t5'].forEach(id=>document.getElementById(id).value='');['fb1','fb2','fb3','fb4','fb5'].forEach(id=>{document.getElementById(id).textContent='';document.getElementById(id).className='';});document.getElementById('q5').value='';document.getElementById('score').textContent='';}
+window.addEventListener('load',drawTrap);
+</script></body></html>

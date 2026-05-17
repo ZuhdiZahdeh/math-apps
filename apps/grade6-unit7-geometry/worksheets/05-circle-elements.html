@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ورقة عمل محوسبة - الدائرة</title>
+<style>
+:root{--main:#0b7fab;--accent:#e67e22;--ok:#168a42;--bad:#b42318;--soft:#f4fbff;--ink:#1f2937}
+*{box-sizing:border-box} body{font-family:"Noto Naskh Arabic", Tahoma, Arial, sans-serif;margin:0;background:#eef6f9;color:var(--ink);line-height:1.7}
+.container{max-width:1100px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#0b7fab,#3bb3c3);color:white;border-radius:18px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+h1{margin:0;font-size:30px}.sub{font-size:18px;opacity:.95}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}.card{background:white;border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);border:1px solid #d8edf3}.card h2{margin:0 0 10px;color:#0b6588;font-size:22px}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.btn{border:0;border-radius:10px;padding:9px 14px;background:var(--main);color:white;cursor:pointer;font-weight:700}.btn.secondary{background:#6b7280}.btn.warn{background:#b45309}.btn:hover{filter:brightness(.95)}
+svg{width:100%;max-height:430px;background:#fbfdff;border-radius:14px;border:1px solid #dbeafe}.slider-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.pill{display:inline-block;background:#e1f5fe;color:#0b6588;border-radius:999px;padding:4px 10px;font-weight:700}.question{border:1px solid #e5e7eb;border-radius:14px;padding:12px;margin:12px 0;background:#fff}.question b{color:#0b6588}.answers{display:grid;gap:8px;margin-top:8px}select,input[type=number],input[type=text]{width:100%;padding:9px;border-radius:10px;border:1px solid #cbd5e1;font-size:16px;background:white}.feedback{font-weight:700;margin-top:8px;min-height:26px}.ok{color:var(--ok)}.bad{color:var(--bad)}.score{font-size:20px;font-weight:800;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px;margin-top:12px}.small{font-size:14px;color:#4b5563}.formula{font-size:24px;text-align:center;background:#fef3c7;border-radius:12px;padding:10px;margin:10px 0}.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.legend span{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:8px}@media(max-width:900px){.grid{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+
+<style id="unit7-floating-style">
+.unit7-floating-nav{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;align-items:center;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.unit7-floating-nav a,.unit7-floating-nav button{all:unset;box-sizing:border-box;background:#111827!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:999px!important;padding:9px 13px!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important;text-decoration:none!important;line-height:1.2!important}
+.unit7-floating-nav a:hover,.unit7-floating-nav button:hover{background:#0b7fab!important;transform:translateY(-1px)}
+@media print{.unit7-floating-nav{display:none!important}}
+@media(max-width:640px){.unit7-floating-nav{left:8px;right:8px;bottom:8px;justify-content:center}.unit7-floating-nav a,.unit7-floating-nav button{font-size:12px!important;padding:8px 10px!important}}
+</style>
+
+</head>
+<body>
+
+<nav class="unit7-floating-nav" aria-label="روابط التنقل في حقيبة المعلم">
+  <a href="../index.html">↩ حقيبة المعلم</a>
+  <a href="index.html">قسم أوراق العمل</a>
+  <button type="button" onclick="window.print()">طباعة</button>
+</nav>
+
+<div class="container">
+  <section class="hero">
+    <h1>ورقة عمل محوسبة: الدائرة وعناصرها</h1>
+    <div class="sub">الصف السادس الأساسي - وحدة الهندسة (2) - الدرس الخامس</div>
+  </section>
+  <div class="grid">
+    <section class="card">
+      <h2>مختبر الدائرة</h2>
+      <p>حرّك منزلق نصف القطر، ثم اضغط على اسم العنصر لتراه على الرسم.</p>
+      <div class="slider-row">
+        <label>طول نصف القطر: <span id="rVal" class="pill">5</span> وحدات</label>
+        <input id="radius" type="range" min="2" max="8" value="5" oninput="drawCircle()" />
+        <span class="pill">القطر = <span id="dVal">10</span> وحدات</span>
+      </div>
+      <div class="controls">
+        <button class="btn" onclick="highlight('center')">المركز</button>
+        <button class="btn" onclick="highlight('radius')">نصف القطر</button>
+        <button class="btn" onclick="highlight('diameter')">القطر</button>
+        <button class="btn" onclick="highlight('chord')">الوتر</button>
+        <button class="btn" onclick="highlight('arc')">القوس</button>
+        <button class="btn secondary" onclick="highlight('all')">إظهار الكل</button>
+      </div>
+      <svg id="svg" viewBox="0 0 600 420" aria-label="رسم تفاعلي للدائرة">
+        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L6,3 z" fill="#555"/></marker></defs>
+      </svg>
+      <div class="formula">ق = 2 × نق &nbsp;&nbsp; | &nbsp;&nbsp; نق = ق ÷ 2</div>
+      <div class="legend">
+        <span>المركز: نقطة ثابتة داخل الدائرة.</span>
+        <span>نصف القطر: من المركز إلى نقطة على الدائرة.</span>
+        <span>القطر: وتر يمر بالمركز.</span>
+        <span>الوتر: قطعة تصل بين نقطتين على الدائرة.</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>أنشطة تحقق الأهداف</h2>
+      <div class="question" data-answer="المركز">
+        <b>1) النقطة الثابتة التي تبعد عنها جميع نقاط الدائرة المسافة نفسها تسمى:</b>
+        <select id="q1"><option value="">اختر...</option><option>المركز</option><option>الوتر</option><option>القوس</option></select>
+        <div class="feedback" id="f1"></div>
+      </div>
+      <div class="question" data-answer="12">
+        <b>2) إذا كان نصف قطر دائرة 6 سم، فما طول قطرها؟</b>
+        <input id="q2" type="number" placeholder="اكتب العدد فقط" />
+        <div class="feedback" id="f2"></div>
+      </div>
+      <div class="question" data-answer="7">
+        <b>3) إذا كان قطر دائرة 14 سم، فما طول نصف قطرها؟</b>
+        <input id="q3" type="number" placeholder="اكتب العدد فقط" />
+        <div class="feedback" id="f3"></div>
+      </div>
+      <div class="question" data-answer="قطر">
+        <b>4) قطعة مستقيمة تصل بين نقطتين على الدائرة وتمر بالمركز هي:</b>
+        <select id="q4"><option value="">اختر...</option><option>نصف قطر</option><option>قطر</option><option>قوس</option><option>مماس</option></select>
+        <div class="feedback" id="f4"></div>
+      </div>
+      <div class="question" data-answer="لا">
+        <b>5) هل كل وتر في الدائرة يعد قطراً؟</b>
+        <select id="q5"><option value="">اختر...</option><option>نعم</option><option>لا</option></select>
+        <div class="feedback" id="f5"></div>
+      </div>
+      <div class="question" data-answer="قوس">
+        <b>6) جزء منحني من محيط الدائرة يسمى:</b>
+        <select id="q6"><option value="">اختر...</option><option>وتر</option><option>قطر</option><option>قوس</option><option>نصف قطر</option></select>
+        <div class="feedback" id="f6"></div>
+      </div>
+      <div class="controls">
+        <button class="btn" onclick="checkAll()">تحقق من الإجابات</button>
+        <button class="btn warn" onclick="showAnswers()">إظهار الإجابات</button>
+        <button class="btn secondary" onclick="resetAll()">إعادة المحاولة</button>
+      </div>
+      <div class="score" id="score">النتيجة: لم تُصحح بعد.</div>
+      <p class="small">مهمة رسم: على دفترك، ارسم دائرة مركزها م ونصف قطرها 4 سم، ثم عيّن عليها نصف قطر وقطراً ووتراً لا يمر بالمركز.</p>
+    </section>
+  </div>
+</div>
+<script>
+let current='all';
+function drawCircle(){
+  const svg=document.getElementById('svg');
+  const rv=+document.getElementById('radius').value;
+  document.getElementById('rVal').textContent=rv;
+  document.getElementById('dVal').textContent=2*rv;
+  const cx=300, cy=215, r=rv*25;
+  function show(name){return current==='all'||current===name;}
+  const centerColor=show('center')?'#dc2626':'#9ca3af';
+  const radiusColor=show('radius')?'#0284c7':'#cbd5e1';
+  const diameterColor=show('diameter')?'#16a34a':'#cbd5e1';
+  const chordColor=show('chord')?'#9333ea':'#cbd5e1';
+  const arcColor=show('arc')?'#f97316':'#e5e7eb';
+  const ax=cx+r*Math.cos(-Math.PI/4), ay=cy+r*Math.sin(-Math.PI/4);
+  const bx=cx-r, by=cy, dx=cx+r, dy=cy;
+  const sx=cx-r*.72, sy=cy-r*.62, px=cx+r*.80, py=cy+r*.45;
+  const arcPath=describeArc(cx,cy,r,210,300);
+  svg.innerHTML=`
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#111827" stroke-width="3"/>
+    <path d="${arcPath}" fill="none" stroke="${arcColor}" stroke-width="10" stroke-linecap="round"/>
+    <line x1="${cx}" y1="${cy}" x2="${ax}" y2="${ay}" stroke="${radiusColor}" stroke-width="6"/>
+    <line x1="${bx}" y1="${by}" x2="${dx}" y2="${dy}" stroke="${diameterColor}" stroke-width="6"/>
+    <line x1="${sx}" y1="${sy}" x2="${px}" y2="${py}" stroke="${chordColor}" stroke-width="6"/>
+    <circle cx="${cx}" cy="${cy}" r="7" fill="${centerColor}"/>
+    <text x="${cx+10}" y="${cy-12}" font-size="26" fill="#111827">م</text>
+    <text x="${ax+8}" y="${ay-10}" font-size="26" fill="#111827">أ</text>
+    <text x="${bx-22}" y="${by-10}" font-size="26" fill="#111827">ب</text>
+    <text x="${dx+8}" y="${dy-10}" font-size="26" fill="#111827">د</text>
+    <text x="${sx-25}" y="${sy-10}" font-size="26" fill="#111827">س</text>
+    <text x="${px+8}" y="${py+5}" font-size="26" fill="#111827">ص</text>
+    <text x="40" y="45" font-size="24" fill="#0b6588">نق = ${rv} وحدات، ق = ${2*rv} وحدات</text>
+  `;
+}
+function polarToCartesian(cx, cy, r, angle){let a=(angle-90)*Math.PI/180;return {x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)}}
+function describeArc(cx, cy, r, startAngle, endAngle){let start=polarToCartesian(cx,cy,r,endAngle), end=polarToCartesian(cx,cy,r,startAngle), large=endAngle-startAngle<=180?'0':'1';return `M ${start.x} ${start.y} A ${r} ${r} 0 ${large} 0 ${end.x} ${end.y}`}
+function highlight(name){current=name;drawCircle();}
+function val(id){return document.getElementById(id).value.trim();}
+function setFeed(i,ok,msg){const f=document.getElementById('f'+i);f.textContent=msg;f.className='feedback '+(ok?'ok':'bad');}
+function checkAll(){
+  const answers=['المركز','12','7','قطر','لا','قوس'];
+  let got=[val('q1'),val('q2'),val('q3'),val('q4'),val('q5'),val('q6')];
+  let score=0;
+  got.forEach((g,i)=>{let ok=(g===answers[i]); if(ok)score++; setFeed(i+1,ok, ok?'إجابة صحيحة.':'راجع التعريف أو القاعدة ثم حاول ثانية.');});
+  document.getElementById('score').textContent=`النتيجة: ${score} من 6`;
+}
+function showAnswers(){
+  const answers=['المركز','12','7','قطر','لا','قوس'];
+  for(let i=1;i<=6;i++){document.getElementById('f'+i).textContent='الإجابة: '+answers[i-1];document.getElementById('f'+i).className='feedback ok';}
+  document.getElementById('score').textContent='تم عرض الإجابات للمراجعة.';
+}
+function resetAll(){['q1','q2','q3','q4','q5','q6'].forEach(id=>document.getElementById(id).value='');for(let i=1;i<=6;i++){document.getElementById('f'+i).textContent='';}document.getElementById('score').textContent='النتيجة: لم تُصحح بعد.';}
+drawCircle();
+</script>
+</body>
+</html>
