@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تحضير الدرس 6: محيط الدائرة</title>
+  <link rel="stylesheet" href="../assets/teacher-kit.css">
+</head>
+<body class="doc-page">
+  <div class="doc-shell">
+    <div class="doc-top">
+      <a class="doc-back" href="../index.html#lessons">↩ العودة إلى الحقيبة</a>
+      <a class="doc-download" href="../originals/lesson-06-circle-circumference.docx" download>تحميل نسخة DOCX</a>
+    </div>
+    <header class="doc-hero">
+      <span class="kicker">تحضير درس بصيغة HTML</span>
+      <h1>تحضير الدرس 6: محيط الدائرة</h1>
+      <p>تحضير محوسب لاكتشاف النسبة التقريبية π وتطبيق قانون محيط الدائرة.</p>
+      <div class="doc-meta"><span>تحضير درس</span><span>4 حصص</span><span>عرض مريح للقراءة والطباعة</span></div>
+    </header>
+    <div class="doc-tools">
+      <a href="../originals/lesson-06-circle-circumference.docx" download>تحميل DOCX</a>
+      <a href="../worksheets/06-circle-circumference.html" class="light">فتح ورقة العمل المحوسبة</a>
+      <button class="light" onclick="window.print()" type="button">طباعة الصفحة</button>
+      <button class="light" onclick="copyLink(location.pathname, this)" type="button">نسخ رابط الصفحة</button>
+    </div>
+    <div class="toc-mini"><strong>فهرس سريع داخل الملف</strong><div id="docToc"></div></div>
+    <article class="doc-content">
+      
+
+
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 32%"/>
+<col style="width: 15%"/>
+<col style="width: 36%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">البند</span></strong></th>
+<th><strong><span dir="rtl">البيان</span></strong></th>
+<th><strong><span dir="rtl">البند</span></strong></th>
+<th><strong><span dir="rtl">البيان</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">المادة</span></th>
+<th><span dir="rtl">الرياضيات</span></th>
+<th><span dir="rtl">الصف</span></th>
+<th><span dir="rtl">السادس الأساسي</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الوحدة</span></th>
+<th><span dir="rtl">السابعة: الهندسة</span></th>
+<th><span dir="rtl">عنوان الدرس</span></th>
+<th><span dir="rtl">محيط الدائرة</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">عدد الحصص المقترح</span></th>
+<th><span dir="rtl">4 حصص × 45 دقيقة</span></th>
+<th><span dir="rtl">المجال</span></th>
+<th><span dir="rtl">الهندسة والقياس</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">مكان التنفيذ</span></th>
+<th><span dir="rtl">غرفة الصف/مختبر الحاسوب/اللوح الذكي</span></th>
+<th><span dir="rtl">نوع التحضير</span></th>
+<th><span dir="rtl">تحضير محوسب مع ورقة عمل تفاعلية</span></th>
+</tr>
+<tr class="odd">
+<th></th>
+<th> <span dir="rtl">المعلم :</span>  <span dir="rtl"><strong>زهدي زاهدة</strong></span></th>
+<th><span dir="rtl">التاريخ: ............</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+
+<h2>فكرة الدرس المركزية</h2>
+<p><span dir="rtl">يتعرّف الطالب إلى محيط الدائرة بوصفه طول المسار حول الدائرة، ثم يستكشف عملياً أن ناتج قسمة محيط الدائرة على قطرها ثابت تقريباً ويسمى النسبة التقريبية</span> <span dir="ltr">π</span> <span dir="rtl">أو ط.</span></p>
+<p><span dir="rtl">وبعد ذلك يوظف القانونين: محيط الدائرة = ق ×</span> <span dir="ltr">π</span><span dir="rtl">، ومحيط الدائرة = 2 × نق ×</span> <span dir="ltr">π</span><span dir="rtl">، في إيجاد المحيط أو القطر أو نصف القطر ضمن مسائل مباشرة وحياتية،<br/>
+مع اختيار القيمة المناسبة للنسبة التقريبية وكتابة وحدة القياس الخطية.</span></p>
+
+<h2 id="الأهداف-السلوكية"><span dir="rtl">الأهداف السلوكية</span></h2>
+<p><span dir="rtl">• أن يتعرّف الطالب إلى مفهوم محيط الدائرة بوصفه طول المسار حول الدائرة بلغة رياضية صحيحة.</span></p>
+<p><span dir="rtl">• أن يستنتج الطالب أن ناتج قسمة محيط الدائرة على قطرها يساوي تقريباً النسبة التقريبية</span> <span dir="ltr">π.</span></p>
+<p><span dir="rtl">• أن يحسب الطالب محيط دائرة إذا علم طول قطرها أو نصف قطرها مستخدماً القانون المناسب.</span></p>
+<p><span dir="rtl">• أن يجد الطالب طول نصف قطر دائرة أو قطرها إذا علم محيطها.</span></p>
+<p><span dir="rtl">• أن يوظف الطالب قانون محيط الدائرة في حل مشكلات حياتية مع اختيار القيمة المناسبة لـ</span> <span dir="ltr">π</span> <span dir="rtl">وكتابة وحدة القياس الصحيحة.</span></p>
+
+
+
+
+
+<h2>رسم توضيحي مختصر لمحيط الدائرة وقانونها</h2>
+<p><img alt="صورة توضيحية من ملف التحضير" class="doc-image" loading="lazy" src="media/lesson-06-circle-circumference/media/image1.png" style="width:8.2in;height:3.5875in"/></p>
+<h2 id="المفاهيم-والتعلم-القبلي-والمهارات"><span dir="rtl">المفاهيم والتعلم القبلي والمهارات</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 86%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">البند</span></strong></th>
+<th><strong><span dir="rtl">التفصيل</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">المفاهيم الجديدة</span></th>
+<th><span dir="rtl">محيط الدائرة، القطر (ق)، نصف القطر (نق)، النسبة التقريبية</span> <span dir="ltr">π</span> <span dir="rtl">أو ط، القانون: ح = ق ×</span> <span dir="ltr">π</span><span dir="rtl">، القانون: ح = 2 × نق ×</span> <span dir="ltr">π.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">التعلم القبلي</span></th>
+<th><span dir="rtl">تعريف الدائرة وعناصرها، العلاقة ق = 2 × نق، مفهوم المحيط في الأشكال الهندسية، القياس بالمسطرة والخيط، الضرب والقسمة، وحدات الطول.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">المهارات</span></th>
+<th><span dir="rtl">القياس العملي، الملاحظة والاستنتاج، قراءة المعطيات، اختيار القانون، التعويض المنظم، التحقق من وحدة القياس، حل مشكلات حياتية.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">القيم والاتجاهات</span></th>
+<th><span dir="rtl">الدقة في القياس، العمل التعاوني، احترام آراء الزملاء، ربط الرياضيات بالحياة اليومية والتراث الفلسطيني.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="section"></h2>
+
+<h2 id="section-1"></h2>
+
+
+<h2 id="نموذج-التحضير"><span dir="rtl">نموذج التحضير</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 8%"/>
+<col style="width: 15%"/>
+<col style="width: 10%"/>
+<col style="width: 11%"/>
+<col style="width: 26%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">اليوم/التاريخ</span></strong></th>
+<th><strong><span dir="rtl">الأهداف</span></strong></th>
+<th><strong><span dir="rtl">المفاهيم الجديدة</span></strong></th>
+<th><strong><span dir="rtl">التعلم القبلي</span></strong></th>
+<th><strong><span dir="rtl">الأنشطة والتدريبات</span></strong></th>
+<th><strong><span dir="rtl">التقويم</span></strong></th>
+<th><strong><span dir="rtl">التغذية الراجعة</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">اليوم: ........<br/>
+التاريخ: ........</span></th>
+<th><span dir="rtl">أن يتعرّف الطالب إلى محيط الدائرة بوصفه طول المسار حول الدائرة، وأن يقيسه تقريبياً باستخدام خيط ومسطرة.</span></th>
+<th><span dir="rtl">محيط الدائرة، المسار حول الدائرة، القياس التقريبي.</span></th>
+<th><span dir="rtl">مفهوم المحيط في المستطيل والمربع، عناصر الدائرة، استخدام المسطرة.</span></th>
+<th><span dir="rtl">تهيئة بصورة عملة أو ساعة أو غطاء دائري. يمرر الطالب قلماً حول دائرة مرسومة، ثم يقيس محيط جسم دائري بالخيط والمسطرة ضمن مجموعات.</span></th>
+<th><span dir="rtl">سؤال شفوي: كيف نقيس محيط جسم دائري لا تكفي المسطرة وحدها لقياسه؟ ثم متابعة جدول القياس.</span></th>
+<th><span dir="rtl">تصحيح فوري: المحيط ليس مساحة داخل الدائرة، بل طول حافتها. إعادة القياس عند شد الخيط أو ارتخائه.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">اليوم: ........<br/>
+التاريخ: ........</span></th>
+<th><span dir="rtl">أن يستنتج الطالب من القياس العملي أن المحيط ÷ القطر يساوي تقريباً قيمة ثابتة تسمى</span> <span dir="ltr">π.</span></th>
+<th><span dir="rtl">النسبة التقريبية</span> <span dir="ltr">π</span><span dir="rtl">، المحيط ÷ القطر، الثبات التقريبي.</span></th>
+<th><span dir="rtl">القسمة، القطر، قياس طول القطر.</span></th>
+<th><span dir="rtl">تقيس كل مجموعة قطر ومحيط 3 أو 4 مجسمات دائرية، ثم تحسب المحيط ÷ القطر وتعرض النتائج. يناقش المعلم تقارب القيم حول 3.14.</span></th>
+<th><span dir="rtl">أكمل: إذا كان المحيط 31.4 سم والقطر 10 سم فإن المحيط ÷ القطر =</span> </th>
+<th><span dir="rtl">التأكيد أن اختلاف القياس العملي مقبول بسبب التقريب، وأن القيمة الرياضية المستعملة تقريبية.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">اليوم: ........<br/>
+التاريخ: ........</span></th>
+<th><span dir="rtl">أن يحسب الطالب محيط دائرة إذا علم قطرها أو نصف قطرها باستخدام القانون المناسب.</span></th>
+<th><span dir="rtl">ح = ق ×</span> <span dir="ltr">π</span><span dir="rtl">، ح = 2 × نق ×</span> <span dir="ltr">π</span><span dir="rtl">، اختيار قيمة</span> <span dir="ltr">π</span><span dir="rtl">.</span></th>
+<th><span dir="rtl">العلاقة بين القطر ونصف القطر، الضرب في أعداد عشرية أو كسور.</span></th>
+<th><span dir="rtl">حل أمثلة من الكتاب: ساعة قطرها 14 سم، وبركة نصف قطرها 5.5 م. يوضح المعلم سبب اختيار 22/7 أو 3.14 حسب سهولة الحساب.</span></th>
+<th><span dir="rtl">احسب محيط دائرة قطرها 10 سم، ثم احسب محيط دائرة نصف قطرها 3.8 سم.</span></th>
+<th><span dir="rtl">تغذية راجعة: تحديد المعطى أولاً: ق أم نق، ثم كتابة القانون، ثم التعويض، ثم الوحدة.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">اليوم: ........<br/>
+التاريخ: ........</span></th>
+<th><span dir="rtl">أن يجد الطالب نصف القطر أو القطر إذا علم المحيط، وأن يوظف القانون في مسألة حياتية.</span></th>
+<th><span dir="rtl">إيجاد نق من ح، إيجاد ق من ح، وحدة الطول.</span></th>
+<th><span dir="rtl">القسمة، المحافظة على طرفي المعادلة، وحدات القياس.</span></th>
+<th><span dir="rtl">ينفذ الطلبة ورقة العمل المحوسبة: مختبر محيط الدائرة، تدريبات حسابية، أسئلة اختيار من متعدد، وسؤال حياتي. ثم يناقش المعلم إجابات الطلبة.</span></th>
+<th><span dir="rtl">ورقة عمل محوسبة + سؤال ختامي: دائرة محيطها 44 سم، أوجد نصف قطرها باستخدام 22/7.</span></th>
+<th><span dir="rtl">تصحيح فوري من الورقة المحوسبة، ثم علاج جماعي للأخطاء المتكررة: نسيان 2 عند استخدام نصف القطر أو نسيان الوحدة.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+
+<h2 id="section-2"></h2>
+<h2 id="section-3"></h2>
+<h2 id="section-4"></h2>
+
+
+<h2 id="section-5"></h2>
+<h2 id="section-6"></h2>
+<h2 id="خطة-سير-الحصتين-الأولى-والثانية"><span dir="rtl">خطة سير الحصتين الأولى والثانية</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 8%"/>
+<col style="width: 80%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">الحصة</span></strong></th>
+<th><strong><span dir="rtl">الزمن</span></strong></th>
+<th><strong><span dir="rtl">الإجراء التعليمي</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الأولى</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تهيئة: عرض عملة، ساعة حائط، طبق دائري أو غطاء دائري. طرح سؤال: كيف نقيس طول المسار حول هذا الشكل؟</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الأولى</span></th>
+<th><span dir="rtl">10 دقائق</span></th>
+<th><span dir="rtl">ينفذ الطلبة نشاط تمرير القلم على الدائرة، ثم يصفون بلغة بسيطة ما المقصود بمحيط الدائرة.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الأولى</span></th>
+<th><span dir="rtl">15 دقيقة</span></th>
+<th><span dir="rtl">نشاط عملي جماعي: قياس محيط أجسام دائرية بالخيط، وقياس القطر بالمسطرة، وتسجيل النتائج في جدول.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الأولى</span></th>
+<th><span dir="rtl">10 دقائق</span></th>
+<th><span dir="rtl">مناقشة الأخطاء العملية: شد الخيط، بداية القياس، الفرق بين المحيط والقطر، وتثبيت مفهوم المحيط.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الأولى</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تذكرة خروج: اكتب جملة تصف محيط الدائرة، واذكر أداة يمكن أن تساعدك في قياسه.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الثانية</span></th>
+<th><span dir="rtl">8 دقائق</span></th>
+<th><span dir="rtl">مراجعة نتائج القياس من الحصة السابقة، ثم حساب المحيط ÷ القطر لعدة أجسام.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الثانية</span></th>
+<th><span dir="rtl">15 دقيقة</span></th>
+<th><span dir="rtl">اكتشاف: مقارنة نواتج القسمة بين المجموعات والتوصل إلى أن القيمة قريبة من 3.14 أو 22/7.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الثانية</span></th>
+<th><span dir="rtl">12 دقيقة</span></th>
+<th><span dir="rtl">صياغة القاعدة: ح ÷ ق =</span> <span dir="ltr">π</span><span dir="rtl">، ومنها ح = ق ×</span> <span dir="ltr">π</span><span dir="rtl">. ربطها بالعلاقة ق = 2 × نق لاشتقاق ح = 2 × نق ×</span> <span dir="ltr">π.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الثانية</span></th>
+<th><span dir="rtl">7 دقائق</span></th>
+<th><span dir="rtl">تطبيق مباشر: إذا كان ق = 14 سم فاحسب ح باستخدام 22/7. وإذا كان نق = 5 سم فاحسب ح باستخدام 3.14.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الثانية</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تلخيص شفوي: ما معنى</span> <span dir="ltr">π</span><span dir="rtl">؟ ومتى نستخدم 22/7 أو 3.14؟</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الثالثة</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تهيئة: مراجعة العلاقة ق = 2 × نق، وكتابة قانوني محيط الدائرة على السبورة.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الثالثة</span></th>
+<th><span dir="rtl">12 دقيقة</span></th>
+<th><span dir="rtl">مثال موجه: ساعة حائط قطرها 14 سم. يختار الطلبة</span> <span dir="ltr">π</span> <span dir="rtl">= 22/7 لأن القطر من مضاعفات 7، ثم يحسبون المحيط.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الثالثة</span></th>
+<th><span dir="rtl">12 دقيقة</span></th>
+<th><span dir="rtl">مثال موجه: بركة نصف قطرها 5.5 م. يختار الطلبة</span> <span dir="ltr">π</span> <span dir="rtl">= 3.14، ثم يحسبون ح = 2 × نق ×</span> <span dir="ltr">π</span><span dir="rtl">.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الثالثة</span></th>
+<th><span dir="rtl">15 دقيقة</span></th>
+<th><span dir="rtl">تدريبات فردية وثنائية: إيجاد المحيط عند معرفة القطر أو نصف القطر، مع متابعة المعلم للخطوات والوحدة.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الثالثة</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تذكرة خروج: متى أستخدم ح = ق ×</span> <span dir="ltr">π</span><span dir="rtl">؟ ومتى أستخدم ح = 2 × نق ×</span> <span dir="ltr">π</span><span dir="rtl">؟</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الرابعة</span></th>
+<th><span dir="rtl">8 دقائق</span></th>
+<th><span dir="rtl">مراجعة علاجية: قراءة المسألة وتحديد المعطى والمطلوب قبل اختيار القانون.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الرابعة</span></th>
+<th><span dir="rtl">12 دقيقة</span></th>
+<th><span dir="rtl">حل معكوس: محيط دائرة = 44 سم. أوجد نصف القطر. يوضح المعلم القسمة على 2</span><span dir="ltr">π</span> <span dir="rtl">أو إيجاد القطر أولاً ثم نصفه.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الرابعة</span></th>
+<th><span dir="rtl">15 دقيقة</span></th>
+<th><span dir="rtl">تنفيذ ورقة العمل المحوسبة فردياً أو ثنائياً. يحصل الطالب على تغذية راجعة فورية ودرجة تقديرية.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الحصة الرابعة</span></th>
+<th><span dir="rtl">8 دقائق</span></th>
+<th><span dir="rtl">مناقشة إجابات الورقة المحوسبة، والوقوف على الخطأ في وحدة القياس أو اختيار قيمة</span> <span dir="ltr">π</span><span dir="rtl">.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">الحصة الرابعة</span></th>
+<th><span dir="rtl">5 دقائق</span></th>
+<th><span dir="rtl">تقويم ختامي: مسألة حياتية قصيرة حول شريط يحيط بطاولة دائرية أو إطار صورة دائري.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="الصعوبات-والمفاهيم-الخاطئة-المتوقعة-وإجراءات-علاجها"><span dir="rtl">الصعوبات والمفاهيم الخاطئة المتوقعة وإجراءات علاجها</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">الصعوبة/الخطأ المتوقع</span></strong></th>
+<th><strong><span dir="rtl">إجراء علاجي مقترح</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">يخلط الطالب بين محيط الدائرة ومساحة الدائرة.</span></th>
+<th><span dir="rtl">استخدام تمثيل بصري: تلوين الحافة فقط للمحيط، وتلوين الداخل للمساحة. التأكيد أن وحدة المحيط سم أو م وليست سم² أو م².</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">ينسى الطالب مضاعفة نصف القطر عند استخدام قانون ح = 2 × نق ×</span> <span dir="ltr">π.</span></th>
+<th><span dir="rtl">تثبيت العلاقة ق = 2 × نق قبل التعويض، وكتابة القانون كاملاً في كل مرة، ثم وضع خط تحت المعطى: ق أم نق.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">يختار الطالب قيمة غير مناسبة لـ</span> <span dir="ltr">π</span><span dir="rtl">، أو لا يعرف متى يستخدم 22/7 أو 3.14.</span></th>
+<th><span dir="rtl">توضيح أن القيمتين تقريبيتان، ويفضل 22/7 عندما يكون القطر أو نصف القطر مناسباً للقسمة على 7، و3.14 في الأعداد العشرية.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">عند إيجاد نصف القطر من المحيط يقسم الطالب المحيط على</span> <span dir="ltr">π</span> <span dir="rtl">فقط وينسى القسمة على 2.</span></th>
+<th><span dir="rtl">تدريب الطلبة على طريقتين: إيجاد القطر أولاً ح ÷</span> <span dir="ltr">π</span><span dir="rtl">، ثم نق = ق ÷ 2، أو استخدام نق = ح ÷ (2</span><span dir="ltr">π).</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">الخطأ في وحدة القياس أو تقريب الناتج.</span></th>
+<th><span dir="rtl">تذكير مستمر بأن المحيط طول، ووحدته خطية. قبول التقريب المناسب مع كتابة: تقريباً عند استخدام</span> <span dir="ltr">π</span> <span dir="rtl">التقريبية.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="section-7"></h2>
+<h2 id="تثبيت-الأهداف-بورقة-العمل-المحوسبة"><span dir="rtl">تثبيت الأهداف بورقة العمل المحوسبة</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 38%"/>
+<col style="width: 46%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">الهدف</span></strong></th>
+<th><strong><span dir="rtl">موضعه في الورقة المحوسبة</span></strong></th>
+<th><strong><span dir="rtl">دور المعلم</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">تمييز مفهوم محيط الدائرة</span></th>
+<th><span dir="rtl">عرض دائرة تفاعلية وتلوين محيطها، مع سؤال: ماذا يمثل المسار حول الدائرة؟</span></th>
+<th><span dir="rtl">يسأل المعلم عن الفرق بين المحيط والداخل، ويطلب مثالاً حياتياً: شريط حول ساعة أو طاولة.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">استنتاج النسبة التقريبية</span></th>
+<th><span dir="rtl">مختبر يغيّر نصف القطر ويعرض القطر والمحيط وناتج المحيط ÷ القطر.</span></th>
+<th><span dir="rtl">يوجه المعلم الطلبة لملاحظة ثبات الناتج تقريباً، لا حفظه مباشرة.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">حساب المحيط</span></th>
+<th><span dir="rtl">تدريبات إدخال الإجابة على محيط دائرة عند معرفة القطر أو نصف القطر.</span></th>
+<th><span dir="rtl">يتحقق المعلم من اختيار القانون وكتابة وحدة القياس.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">إيجاد نصف القطر أو القطر</span></th>
+<th><span dir="rtl">سؤال تفاعلي: محيط معلوم، والمطلوب إيجاد نصف القطر أو القطر.</span></th>
+<th><span dir="rtl">يوجه الطلبة لاستخدام خطوات مرتبة: القانون - التعويض - القسمة - الوحدة.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">التطبيق الحياتي</span></th>
+<th><span dir="rtl">مسألة شريط حول ساعة أو طاولة دائرية، مع قرار هل الكمية تكفي أم لا.</span></th>
+<th><span dir="rtl">يربط المعلم الرياضيات بمواقف حياتية قريبة من الطالب.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="section-8"></h2>
+<h2 id="section-9"></h2>
+<h2 id="section-10"></h2>
+<h2 id="section-11"></h2>
+
+
+<h2 id="section-12"></h2>
+<h2 id="ورقة-عمل-ورقية-مرافقة"><span dir="rtl">ورقة عمل ورقية مرافقة</span></h2>
+<p><em><span dir="rtl">تعليمات للطالب: اقرأ المعطى أولاً وحدد هل هو قطر أم نصف قطر أم محيط، ثم اكتب القانون والتعويض ووحدة القياس.</span></em></p>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 7%"/>
+<col style="width: 92%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">رقم السؤال</span></strong></th>
+<th><strong><span dir="rtl">السؤال</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">1</span></th>
+<th><span dir="rtl">أكمل: محيط الدائرة هو ..............................................................</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">2</span></th>
+<th><span dir="rtl">أكمل: إذا كان طول القطر 10 سم فإن محيط الدائرة = 10 × 3.14 = .......... سم.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">3</span></th>
+<th><span dir="rtl">دائرة نصف قطرها 7 سم. أوجد محيطها مستخدماً</span> <span dir="ltr">π = 22/7.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">4</span></th>
+<th><span dir="rtl">دائرة محيطها 44 سم. أوجد طول قطرها ثم نصف قطرها.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">5</span></th>
+<th><span dir="rtl">ساعة حائط دائرية قطرها 28 سم، نريد وضع شريط حولها. ما طول الشريط اللازم تقريباً؟</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">6</span></th>
+<th><span dir="rtl">اشترت دعاء غطاءً دائرياً لطاولة قطرها 2 م، ويتدلى الغطاء 25 سم من كل جانب. أوجد محيط حافة الغطاء، ثم قرر هل يكفي شريط طوله 7 م لإحاطتها؟</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="إجابات-ورقة-العمل"><span dir="rtl">إجابات ورقة العمل</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 9%"/>
+<col style="width: 90%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">رقم السؤال</span></strong></th>
+<th><strong><span dir="rtl">الإجابة النموذجية</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">1</span></th>
+<th><span dir="rtl">طول المسار حول الدائرة أو طول حافتها.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">2</span></th>
+<th><span dir="rtl">31.4 سم.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">3</span></th>
+<th><span dir="rtl">ح = 2 × 7 × 22/7 = 44 سم.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">4</span></th>
+<th><span dir="rtl">ق = ح ÷</span> <span dir="ltr">π</span> <span dir="rtl">= 44 ÷ 22/7 = 14 سم، نق = 7 سم.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="ltr">5</span></th>
+<th><span dir="rtl">ح = 28 × 22/7 = 88 سم.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="ltr">6</span></th>
+<th><span dir="rtl">قطر الغطاء = 2 م + 0.25 م + 0.25 م = 2.5 م. محيط الغطاء ≈ 2.5 × 3.14 = 7.85 م، لذلك لا يكفي شريط طوله 7 م.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="نشاط-إثرائي-وتكليف-بيتي"><span dir="rtl">نشاط إثرائي وتكليف بيتي</span></h2>
+<div class="table-scroll"><table>
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 88%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span dir="rtl">البند</span></strong></th>
+<th><strong><span dir="rtl">التفصيل</span></strong></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">نشاط إثرائي</span></th>
+<th><span dir="rtl">يقيس الطالب في البيت محيط وقطر ثلاثة أشياء دائرية آمنة مثل غطاء علبة أو طبق، ثم يحسب المحيط ÷ القطر ويقارن القيم التي حصل عليها.</span></th>
+</tr>
+<tr class="header">
+<th><span dir="rtl">تكليف بيتي</span></th>
+<th><span dir="rtl">حل تدريبات الكتاب المتعلقة بمحيط الدائرة، مع كتابة القانون في بداية كل حل ووحدة القياس في النهاية.</span></th>
+</tr>
+<tr class="odd">
+<th><span dir="rtl">ملف الإنجاز</span></th>
+<th><span dir="rtl">يضيف الطالب صورة أو رسماً لجسم دائري من بيئته، ويكتب كيف يحسب محيطه وما الأدوات التي يحتاجها.</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+
+<h2>إعداد وتصميم : زهدي زاهدة</h2>
+
+    </article>
+    <p class="doc-footer-note">تم تحويل هذا الملف من DOCX إلى HTML لعرضه داخل حقيبة المعلم كصفحة ويب مباشرة.</p>
+  </div>
+  <script src="../assets/teacher-kit.js"></script>
+</body>
+</html>
