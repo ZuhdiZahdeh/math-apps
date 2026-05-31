@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة اكتشاف الدائرة: من موجات الماء إلى الفرجار</title>
+
+    <!-- تنسيق التطبيق الأساسي -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- لعبة المطابقة تعمل في صفحة مستقلة: matching-game.html -->
+</head>
+
+<body>
+<div class="app-container">
+    <header>
+        <h1>رحلة اكتشاف الدائرة: من موجات الماء إلى الفرجار</h1>
+        <p class="subtitle">درس تفاعلي يبدأ بموقف حياتي، ثم يستنتج الطالب معنى المركز ونصف القطر قبل دخول المختبر.</p>
+
+        <section class="student-panel" aria-label="بيانات الطالب والإرسال">
+            <div class="student-field">
+                <label for="studentCode">اسم الطالب</label>
+                <input id="studentCode" type="text" maxlength="30" autocomplete="off" placeholder="اكتب اسمك وعائلتك">
+            </div>
+
+            <div class="student-field">
+                <label for="className">الشعبة</label>
+                <input id="className" type="text" maxlength="20" autocomplete="off" placeholder="مثال: 6A">
+            </div>
+
+            <button class="start-btn" type="button" onclick="startLabSession()">بدء / تحديث بيانات الطالب</button>
+            <button class="ghost-btn compact-btn" type="button" onclick="retryPendingSubmissions(true)">إعادة إرسال المحفوظ</button>
+
+            <div id="sessionInfo" class="session-info" aria-live="polite">
+                أدخل اسم الطالب والشعبة قبل إنهاء الاختبار.
+            </div>
+        </section>
+
+        <nav class="tabs" aria-label="مستويات المختبر">
+            <button class="tab-btn active" type="button" data-tab-id="intro" onclick="switchTab('intro')">التمهيد: موجات الماء</button>
+            <button class="tab-btn locked" type="button" data-tab-id="identify" onclick="switchTab('identify')" disabled>المستوى 1: استكشاف العناصر</button>
+            <button class="tab-btn locked" type="button" data-tab-id="explore" onclick="switchTab('explore')" disabled>المستوى 2: تحدي القطر والوتر</button>
+            <button class="tab-btn locked" type="button" data-tab-id="compass" onclick="switchTab('compass')" disabled>المستوى 3: الفرجار الرقمي</button>
+            <button class="tab-btn locked" type="button" data-tab-id="quiz" onclick="switchTab('quiz')" disabled>المستوى 4: التقييم الختامي</button>
+
+            <!-- زر لعبة المطابقة التعليمية المكشوفة مدمج مع أزرار التطبيق -->
+            <button class="tab-btn matching-open-btn gate-hidden locked" type="button" id="btnOpenMatchingGame" onclick="openMatchingGame()" disabled aria-disabled="true">
+                🧩 مطابقة عناصر الدائرة
+            </button>
+        </nav>
+
+        <section class="assessment-progress-panel" aria-label="تقدم أسئلة التحقق">
+            <div class="assessment-progress-top">
+                <strong>تقدم أسئلة التحقق الموزعة</strong>
+                <span id="assessmentProgressText">0 / 10</span>
+            </div>
+            <div class="assessment-progress-track" aria-hidden="true">
+                <span id="assessmentProgressBar"></span>
+            </div>
+            <p class="assessment-progress-note">ابدأ بالتمهيد، ثم أجب عن بطاقة التحقق في كل مستوى.</p>
+        </section>
+    </header>
+
+    <main>
+
+        <!-- التمهيد: موقف حياتي واستنتاج المفهوم -->
+        <section id="intro-mode" class="mode-container active-mode" aria-label="التمهيد: موجات الماء والدائرة">
+            <div class="intro-lesson">
+                <div class="intro-hero-card">
+                    <span class="level-badge">التمهيد</span>
+                    <h2>من موجات الماء إلى معنى الدائرة</h2>
+                    <p>
+                        في هذا الجزء يلاحظ الطالب أن الموجات تبدأ من نقطة واحدة، ثم يستنتج أن المركز هو النقطة الثابتة،
+                        وأن نصف القطر هو المسافة من هذه النقطة إلى الدائرة.
+                    </p>
+                </div>
+
+                <section class="intro-card" aria-labelledby="waterStageTitle">
+                    <div class="intro-card-header">
+                        <div>
+                            <span class="question-pill level">١. ألاحظ</span>
+                            <h2 id="waterStageTitle">موقف حياتي متحرك: حجر في بركة ماء</h2>
+                            <p>شاهد مكان سقوط الحجر، ثم لاحظ شكل الموجات التي تنتشر حوله.</p>
+                        </div>
+                        <button class="ghost-btn" type="button" onclick="restartWaterAnimation()">إعادة الحركة</button>
+                    </div>
+
+                    <div class="intro-visual-wrap">
+                        <canvas id="waterCanvas" class="intro-canvas" width="700" height="420" aria-label="موجات دائرية حول مكان سقوط حجر في الماء"></canvas>
+                    </div>
+
+                    <div id="waterCaption" class="intro-caption" aria-live="polite">
+                        راقب النقطة التي سقط فيها الحجر: هل تتحرك أم تبقى ثابتة؟
+                    </div>
+
+                    <div class="guided-questions">
+                        <strong>أسئلة للطلاب:</strong>
+                        <span>ما شكل الموجات؟</span>
+                        <span>أين بدأت كل موجة؟</span>
+                        <span>هل تكبر الموجات مع بقاء نقطة البداية نفسها؟</span>
+                    </div>
+
+                    <div class="actions intro-actions">
+                        <button class="next-btn intro-next-btn" type="button" onclick="showConceptPanel()">ننتقل إلى الاستنتاج</button>
+                    </div>
+                </section>
+
+                <section id="conceptPanel" class="intro-card hidden-panel" aria-labelledby="conceptStageTitle">
+                    <div class="intro-card-header">
+                        <div>
+                            <span class="question-pill level">٢. أستنتج</span>
+                            <h2 id="conceptStageTitle">استنتاج المفهوم: المركز ونصف القطر</h2>
+                            <p>نحوّل ما شاهدناه في الماء إلى لغة رياضية بسيطة.</p>
+                        </div>
+                        <button class="ghost-btn" type="button" onclick="resetIntroDiscovery()">إخفاء الاستنتاجات</button>
+                    </div>
+
+                    <div class="concept-layout">
+                        <div class="intro-visual-wrap">
+                            <canvas id="conceptCanvas" class="intro-canvas" width="640" height="380" aria-label="دوائر متحدة المركز مع توضيح المركز ونصف القطر"></canvas>
+                        </div>
+
+                        <aside class="concept-think-card">
+                            <h3>اكتشف بالتدريج</h3>
+                            <button class="list-btn" type="button" onclick="revealConceptStep('center')">أين مكان الحجر؟</button>
+                            <button class="list-btn" type="button" onclick="revealConceptStep('radius')">ما المسافة من المركز إلى الموجة؟</button>
+                            <button class="list-btn" type="button" onclick="revealConceptStep('definition')">ما تعريف الدائرة؟</button>
+                        </aside>
+                    </div>
+
+                    <div id="conceptSummary" class="intro-summary" aria-live="polite">
+                        اضغط الأزرار بالتدريج ليظهر الاستنتاج أمام الطلاب.
+                    </div>
+
+                    <div class="teacher-prompt">
+                        <strong>توجيه للمعلم:</strong>
+                        اطلب من الطلاب صياغة الجملة بأنفسهم أولاً: «كل نقطة على الموجة تبعد المسافة نفسها عن مكان سقوط الحجر».
+                    </div>
+
+                    <div class="actions intro-actions">
+                        <button id="introCompleteBtn" class="next-btn intro-next-btn" type="button" onclick="completeIntroLesson()">
+                            الانتقال إلى المستوى 1: استكشاف العناصر
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- المستوى 1 -->
+        <section id="identify-mode" class="mode-container" aria-label="استكشاف عناصر الدائرة">
+            <div class="main-layout">
+                <div class="canvas-section">
+                    <canvas id="identifyCanvas" width="450" height="450"></canvas>
+                    <div id="descriptionBox">اختر عنصراً من القائمة للتعرف عليه. اضغط مراراً لرؤية أمثلة مختلفة.</div>
+                </div>
+
+                <div class="elements-list">
+                    <button class="list-btn" type="button" onclick="highlight('center')">مركز الدائرة</button>
+                    <button class="list-btn" type="button" onclick="highlight('radius')">نصف القطر</button>
+                    <button class="list-btn" type="button" onclick="highlight('diameter')">القطر</button>
+                    <button class="list-btn" type="button" onclick="highlight('chord')">الوتر</button>
+                    <button class="list-btn" type="button" onclick="highlight('arc')">القوس</button>
+                    <button class="list-btn" type="button" onclick="highlight('circumference')">المحيط</button>
+                </div>
+            </div>
+
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الأول">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 1</span>
+                    <h2>أسئلة قصيرة بعد استكشاف العناصر</h2>
+                    <p>تأكد من فهمك للمركز، نصف القطر، والقوس قبل الانتقال.</p>
+                </div>
+                <div class="level-questions-container" id="identify-questions-container"></div>
+            </section>
+        </section>
+
+        <!-- المستوى 2 -->
+        <section id="explore-mode" class="mode-container" aria-label="تحدي القطر والوتر">
+            <div class="explore-layout">
+                <div class="explore-sidebar">
+                    <div class="stat-card">
+                        <span class="label">نصف القطر (نق)</span>
+                        <div class="value-wrap"><span id="radiusVal" class="value">50</span> <small>ملم</small></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="label">طول القطر (ق)</span>
+                        <div class="value-wrap"><span id="diamVal" class="value">100</span> <small>ملم</small></div>
+                    </div>
+
+                    <div class="stat-card highlight-card">
+                        <span class="label">القطعة أب تسمى: <strong id="chordType">وتر</strong></span>
+                        <div class="value-wrap"><span id="chordVal" class="value">0</span> <small>ملم</small></div>
+                    </div>
+
+                    <div class="controls stat-card white-card">
+                        <label for="radiusSlider">تغيير الحجم:</label>
+                        <input type="range" id="radiusSlider" min="50" max="180" value="150">
+                    </div>
+                </div>
+
+                <div class="explore-canvas-wrapper">
+                    <canvas id="exploreCanvas" width="550" height="480"></canvas>
+                    <div id="feedbackMsg">حرك النقطتين الحمراوين (أ، ب)</div>
+                </div>
+            </div>
+
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثاني">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 2</span>
+                    <h2>أسئلة بعد تحدي القطر والوتر</h2>
+                    <p>حرّك النقطتين ولاحظ متى يصبح الوتر قطراً، ثم أجب عن الأسئلة.</p>
+                </div>
+                <div class="level-questions-container" id="explore-questions-container"></div>
+            </section>
+        </section>
+
+        <!-- المستوى 3 -->
+        <section id="compass-mode" class="mode-container" aria-label="الفرجار الرقمي">
+            <div class="compass-layout">
+                <div class="compass-sidebar">
+                    <div class="mission-card">
+                        <span class="label">المهمة العملية</span>
+                        <strong>ارسم دائرة مركزها <span class="center-symbol">م</span> ونصف قطرها <span id="compassTargetVal">4</span> سم</strong>
+                    </div>
+
+                    <div class="compass-steps" aria-label="خطوات الرسم بالفرجار">
+                        <div class="compass-step active" id="compassStepCenter"><span>١</span> أحدد المركز وأسميه م</div>
+                        <div class="compass-step" id="compassStepOpening"><span>٢</span> أضبط فتحة الفرجار على نصف القطر</div>
+                        <div class="compass-step" id="compassStepFix"><span>٣</span> أثبت سن الفرجار في المركز</div>
+                        <div class="compass-step" id="compassStepDraw"><span>٤</span> أدير القلم دورة كاملة</div>
+                        <div class="compass-step" id="compassStepCheck"><span>٥</span> أتحقق من ثبات نصف القطر</div>
+                    </div>
+
+                    <div class="stat-card compass-control-card">
+                        <label for="compassRadiusSlider" class="label">فتحة الفرجار (نق)</label>
+                        <div class="value-wrap"><span id="compassRadiusVal" class="value">2</span> <small>سم</small></div>
+                        <input type="range" id="compassRadiusSlider" min="2" max="8" value="2" step="0.5">
+                        <small class="hint-line">الفتحة = نصف القطر، وليست القطر.</small>
+                    </div>
+
+                    <button class="next-btn compass-action" type="button" onclick="fixCompassNeedle()">ثبّت سن الفرجار</button>
+                    <button class="ghost-btn" type="button" onclick="animateCompassDraw()">عرض تدوير تلقائي</button>
+                    <button class="ghost-btn" type="button" onclick="resetCompass()">إعادة المحاولة</button>
+                    <button class="ghost-btn" type="button" onclick="newCompassMission()">مهمة جديدة</button>
+                </div>
+
+                <div class="compass-canvas-wrapper">
+                    <canvas id="compassCanvas" width="600" height="520"></canvas>
+                    <div id="compassFeedback" class="compass-feedback" aria-live="polite">
+                        اضغط على النقطة المعلّمة م لتثبيت سن الفرجار.
+                    </div>
+
+                    <div class="compass-progress-wrap">
+                        <div class="compass-progress-label">
+                            <span>اكتمال الدورة</span>
+                            <strong id="compassProgressText">0%</strong>
+                        </div>
+                        <div class="compass-progress">
+                            <span id="compassProgressBar"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="level-check-section" aria-label="أسئلة تحقق المستوى الثالث">
+                <div class="level-check-header">
+                    <span class="level-badge">تحقق المستوى 3</span>
+                    <h2>أسئلة بعد الفرجار الرقمي</h2>
+                    <p>طبّق فكرة أن فتحة الفرجار تمثل نصف القطر، ثم أجب عن الأسئلة.</p>
+                </div>
+                <div class="level-questions-container" id="compass-questions-container"></div>
+            </section>
+        </section>
+
+        <!-- المستوى 4 -->
+        <section id="quiz-mode" class="mode-container" aria-label="التقييم الختامي">
+            <section class="level-check-header final-check-header" aria-label="تعليمات التقييم الختامي">
+                <span class="level-badge">تحقق المستوى 4</span>
+                <h2>التقييم الختامي</h2>
+                <p>أجب عن السؤالين الختاميين بعد إكمال بطاقات التحقق في المستويات السابقة.</p>
+            </section>
+
+            <div class="quiz-layout">
+                <div class="quiz-canvas-section">
+                    <canvas id="quizCanvas" width="450" height="450"></canvas>
+                </div>
+
+                <div class="quiz-questions-section" id="quiz-questions-container"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<audio id="successSound">
+    <source src="../audio/success/success_toolMatch_b.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="failSound">
+    <source src="../audio/fail/fail_toolMatch_b.mp3" type="audio/mpeg">
+</audio>
+
+<!-- سكربت التطبيق الأساسي -->
+<script src="./js/script.js"></script>
+
+<!-- لعبة المطابقة تعمل من صفحة مستقلة عبر الزر: matching-game.html -->
+</body>
+</html>
