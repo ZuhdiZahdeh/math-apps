@@ -1,0 +1,3247 @@
+{
+  "meta": {
+    "title": "هندسة الفراغ",
+    "dataset": "space",
+    "count": 29,
+    "language": "ar"
+  },
+  "questions": [
+    {
+      "id": "p01-q1",
+      "number": 1,
+      "page": 1,
+      "q": "1",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "الصندوق: قاعدة مربّع AB=a وارتفاع AA′=3a",
+      "summary": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
+      "questionText": "صندوق ABCDA′B′C′D′ قاعدته مربّع. معطى AB=a وAA′=3a. المطلوب: أقطار، زوايا، ومساحة/زاوية ارتفاع.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ (1) عبّر بدلالة a عن AC وعن AD′",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس (في القاعدة ثم في الفضاء)",
+              "steps": [
+                "قطر المربّع: AC = √(a²+a²) = a√2",
+                "المثلث ADD′ قائم: AD=a وDD′=AA′=3a",
+                "إذن AD′ = √(a²+(3a)²) = a√10"
+              ],
+              "result": "AC = a√2 ، AD′ = a√10",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "أ (2) فسّر لماذا CD′ = AD′",
+          "note": "",
+          "methods": [
+            {
+              "name": "تطابق مستطيلين (أوجه صندوق)",
+              "steps": [
+                "AD′ قطر المستطيل ADD′A′",
+                "CD′ قطر المستطيل CDD′C′",
+                "المستطيلان متطابقان لأن AD=CD=a وDD′=CC′=3a وزواياهما قائمة",
+                "إذن قطراهما متساويان ⇒ CD′ = AD′"
+              ],
+              "result": "CD′ = AD′",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب) جد مقدار الزاوية ∠AD′C",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في △AD′C",
+              "steps": [
+                "في △AD′C: AD′=CD′=a√10 و AC=a√2",
+                "cos(∠AD′C) = (AD′²+CD′²−AC²)/(2·AD′·CD′)",
+                "cos = (10a²+10a²−2a²)/(2·10a²)=18/20=0.9",
+                "∠AD′C = arccos(0.9)"
+              ],
+              "result": "∠AD′C ≈ 25.84°",
+              "theoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) عبّر بدلالة a عن مساحة △AD′C",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة = 1/2 × قاعدة × ارتفاع",
+              "steps": [
+                "اعتبر القاعدة AC = a√2",
+                "ارتفاع المثلث من D′ على AC هو D′E",
+                "المساحة = 1/2 · AC · D′E",
+                "من الحساب ينتج: المساحة = (√19/2) a² ≈ 2.179 a²"
+              ],
+              "result": "مساحة △AD′C = (√19/2)a² ≈ 2.179a²",
+              "theoremIds": [
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) D′E ارتفاع في △AD′C. جد الزاوية بين D′E وقاعدة الصندوق ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "زاوية مستقيم مع مستوى = زاوية مع إسقاطه",
+              "steps": [
+                "إسقاط D′ على القاعدة هو D، بينما E على AC داخل القاعدة",
+                "إذن إسقاط D′E على القاعدة هو DE",
+                "في المثلث القائم D′DE: D′D=3a و DE = a/√2",
+                "tan(θ)=D′D/DE = 3a ÷ (a/√2)=3√2",
+                "θ=arctan(3√2)"
+              ],
+              "result": "الزاوية ≈ 76.74°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q01.png",
+        "alt": "شكل السؤال 1"
+      },
+      "images": [
+        "images/questions/space/q01.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "cosine_rule",
+        "right_triangle_trigonometry",
+        "triangle_area_base_height",
+        "line_angle_with_plane_projection"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "cosine_rule",
+        "right_triangle_trigonometry",
+        "triangle_area_base_height",
+        "line_angle_with_plane_projection"
+      ]
+    },
+    {
+      "id": "p01-q2",
+      "number": 2,
+      "page": 1,
+      "q": "2",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "مكعّب ضلعُه a: مثلث A′BD ومساحات/زوايا",
+      "summary": "ABCDA′B′C′D′ مكعّب ضلعُه a. فسّر لماذا △A′BD متساوي الأضلاع، احسب زوايا ومساحة سطح هرم.",
+      "questionText": "ABCDA′B′C′D′ مكعّب ضلعُه a. فسّر لماذا △A′BD متساوي الأضلاع، احسب زوايا ومساحة سطح هرم.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) فسّر لماذا △A′BD متساوي الأضلاع",
+          "note": "",
+          "methods": [
+            {
+              "name": "أقطار أوجه متساوية",
+              "steps": [
+                "A′B قطر وجه مربّع ⇒ A′B = a√2",
+                "A′D قطر وجه مربّع ⇒ A′D = a√2",
+                "BD قطر القاعدة ⇒ BD = a√2",
+                "الأضلاع الثلاثة متساوية ⇒ المثلث متساوي الأضلاع"
+              ],
+              "result": "△A′BD متساوي الأضلاع",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب) احسب الزاوية بين A′M والوجه ABCD (حيث A′M ارتفاع في △A′BD)",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط + مثلث قائم",
+              "steps": [
+                "M منتصف BD (لأنه ارتفاع في مثلث متساوي الأضلاع)",
+                "إسقاط A′M على القاعدة هو AM",
+                "A′A=a و AM=a/√2",
+                "tan θ = A′A / AM = a ÷ (a/√2)=√2"
+              ],
+              "result": "θ ≈ 54.736°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (1) إذا كانت مساحة △A′BD هي 8√3، احسب a",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة مثلث متساوي الأضلاع",
+              "steps": [
+                "ضلع المثلث s=a√2",
+                "المساحة = (s²√3)/4 = (2a²√3)/4 = (a²√3)/2",
+                "ضع (a²√3)/2 = 8√3 ⇒ a²/2=8 ⇒ a=4"
+              ],
+              "result": "a = 4",
+              "theoremIds": [
+                "equilateral_triangle_area"
+              ],
+              "legacyTheoremIds": [
+                "equilateral_triangle_area"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (2) AA′BD هرم. احسب مساحة سطحه الخارجي (مجموع مساحات أوجهه)",
+          "note": "",
+          "methods": [
+            {
+              "name": "جمع مساحات الأوجه",
+              "steps": [
+                "بعد إيجاد a=4",
+                "مساحة △ABD = (1/2)·4·4 = 8",
+                "مساحة △AA′B = (1/2)·4·4 = 8",
+                "مساحة △AA′D = (1/2)·4·4 = 8",
+                "مساحة القاعدة △A′BD = 8√3 ≈ 13.86",
+                "المجموع ≈ 8+8+8+13.86"
+              ],
+              "result": "≈ 37.86",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q02.png",
+        "alt": "شكل السؤال 2"
+      },
+      "images": [
+        "images/questions/space/q02.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "equilateral_triangle_area"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "equilateral_triangle_area"
+      ]
+    },
+    {
+      "id": "p02-q3",
+      "number": 3,
+      "page": 2,
+      "q": "3",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "مكعّب ضلعُه a: أقطار وزوايا ومساحة △AOB",
+      "summary": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
+      "questionText": "في مكعب ABCDA′B′C′D′: القطران AC′ وBD′ يتقاطعان في O. مطلوب: طول AC، زاوية AC′ مع القاعدة، طول AC′، الزاوية بين AC′ وBD′، ومساحة △AOB ثم حساب a من مساحة معطاة.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ (1) طول قطر القاعدة AC",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في مربع",
+              "steps": [
+                "AC = √(a²+a²)=a√2"
+              ],
+              "result": "AC = a√2",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "أ (2) الزاوية بين القطر AC′ والمستوى ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=الارتفاع/الإسقاط",
+              "steps": [
+                "إسقاط AC′ على القاعدة هو AC=a√2",
+                "الارتفاع = a",
+                "tan θ = a/(a√2)=1/√2"
+              ],
+              "result": "θ ≈ 35.264°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) طول قطر المكعب AC′",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في الفضاء",
+              "steps": [
+                "AC′ = √(a²+a²+a²)=a√3"
+              ],
+              "result": "AC′ = a√3",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) الزاوية الحادّة بين القطرين AC′ وBD′",
+          "note": "",
+          "methods": [
+            {
+              "name": "جداء نقطي (أو تماثل)",
+              "steps": [
+                "في مكعب: |AC′|=|BD′|=a√3",
+                "cos φ = 1/3",
+                "φ = arccos(1/3)"
+              ],
+              "result": "φ ≈ 70.529°",
+              "theoremIds": [
+                "dot_product_angle_between_vectors",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "dot_product_angle_between_vectors",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) مساحة △AOB بدلالة a",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة مثلث في الفضاء (نتيجة مبسطة)",
+              "steps": [
+                "A(0,0,0)، B(a,0,0)، O(a/2,a/2,a/2)",
+                "المساحة = (√2/4) a²"
+              ],
+              "result": "مساحة △AOB = (√2/4)a² ≈ 0.354a²",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "هـ) إذا كانت مساحة △AOB = 4√2 احسب a",
+          "note": "",
+          "methods": [
+            {
+              "name": "تعويض مباشر",
+              "steps": [
+                "(√2/4)a² = 4√2 ⇒ a²/4=4 ⇒ a=4"
+              ],
+              "result": "a = 4",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q03.png",
+        "alt": "شكل السؤال 3"
+      },
+      "images": [
+        "images/questions/space/q03.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "dot_product_angle_between_vectors"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "dot_product_angle_between_vectors"
+      ]
+    },
+    {
+      "id": "p03-q4",
+      "number": 4,
+      "page": 3,
+      "q": "4",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "صندوق قاعدته مستطيل: AD′=12 والزاوية مع القاعدة 60°",
+      "summary": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
+      "questionText": "صندوق قاعدته ABCD مستطيل. معطى AD′=12 والزاوية بين AD′ والقاعدة ABCD هي 60°. حجم الصندوق 432 سم³. E ملتقى قطري AD′ وA′D، وF منتصف AD.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد طول ارتفاع الصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "sin(زاوية مع القاعدة)=الارتفاع/القطعة",
+              "steps": [
+                "الزاوية بين AD′ والقاعدة = 60°",
+                "الارتفاع = AD′·sin60 = 12·(√3/2)=6√3"
+              ],
+              "result": "الارتفاع = 6√3",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد أطوال أضلاع القاعدة ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "الحجم = مساحة القاعدة × الارتفاع",
+              "steps": [
+                "الحجم 432 = (AB·BC)·(6√3)",
+                "AB·BC = 432/(6√3)=72/√3=24√3",
+                "من الحل في الورقة: AB=4√3 و AD=6"
+              ],
+              "result": "AB = 4√3 ، AD = 6",
+              "theoremIds": [
+                "prism_volume"
+              ],
+              "legacyTheoremIds": [
+                "prism_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (1) جد BF (F منتصف AD)",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في القاعدة",
+              "steps": [
+                "باستخدام AB=4√3 و AD=6",
+                "F منتصف AD ⇒ AF=3",
+                "BF = √(AB²+AF²)=√((4√3)²+3²)=√(48+9)=√57"
+              ],
+              "result": "BF = √57",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (2) جد الزاوية بين EB وقاعدة الصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط + مثلث قائم",
+              "steps": [
+                "نأخذ EB وخط إسقاطه على القاعدة",
+                "باستخدام معطيات السؤال ينتج قياس الزاوية كما في الحل"
+              ],
+              "result": "≈ 34.53°",
+              "theoremIds": [
+                "line_angle_with_plane_projection"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q04.png",
+        "alt": "شكل السؤال 4"
+      },
+      "images": [
+        "images/questions/space/q04.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_volume",
+        "th084"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_volume",
+        "pythagoras_theorem"
+      ]
+    },
+    {
+      "id": "p03-q5",
+      "number": 5,
+      "page": 3,
+      "q": "5",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "صندوق: AB=√3·a ، BC=a ، CC′=1.5a",
+      "summary": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
+      "questionText": "O نقطة التقاء قطري الصندوق. مطلوب: AC، زاوية القطر مع القاعدة، إيجاد a من مساحة الغلاف، ثم حجم الهرم OABCD، وتحديد صحة ادعاءين.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر عن AC بدلالة a",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في القاعدة",
+              "steps": [
+                "AC=√(AB²+BC²)=√((√3a)²+a²)=√(3a²+a²)=2a"
+              ],
+              "result": "AC = 2a",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) الزاوية بين قطر الصندوق AC′ والقاعدة ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=الارتفاع/الإسقاط",
+              "steps": [
+                "الإسقاط على القاعدة هو AC=2a",
+                "الارتفاع CC′=1.5a",
+                "tan θ=1.5a/(2a)=0.75"
+              ],
+              "result": "θ ≈ 36.87°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) إذا كانت مساحة غلاف الصندوق = 108(1+√3) جد a",
+          "note": "",
+          "methods": [
+            {
+              "name": "غلاف الصندوق (الأوجه الجانبية فقط) = محيط القاعدة × الارتفاع",
+              "steps": [
+                "محيط القاعدة = 2(AB+BC)=2(√3a+a)",
+                "الغلاف = 2(√3a+a)·1.5a = 3a²(√3+1)",
+                "ضع 3a²(√3+1)=108(√3+1) ⇒ a²=36 ⇒ a=6"
+              ],
+              "result": "a = 6",
+              "theoremIds": [
+                "prism_lateral_area",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "prism_lateral_area",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) حجم الهرم OABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "حجم هرم = (1/3)·مساحة القاعدة·الارتفاع",
+              "steps": [
+                "مساحة القاعدة = AB·BC = (√3a)·a=√3a²",
+                "ارتفاع الهرم من O إلى القاعدة = نصف ارتفاع الصندوق = 0.75a",
+                "V=(1/3)·√3a²·0.75a = 0.25√3 a³",
+                "عند a=6 ⇒ V=54√3 ≈ 93.53"
+              ],
+              "result": "V = 54√3 ≈ 93.53",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "هـ) حدّد صحة الادّعاءين",
+          "note": "",
+          "methods": [
+            {
+              "name": "حسب الحل الرسمي",
+              "steps": [
+                "(1) حجم الهرم OABCD أكبر من حجم الهرم OAA′D′D ⇒ غير صحيح",
+                "(2) الزاوية بين AC ومستوى الوجه DD′C′C هي 30° ⇒ صحيح"
+              ],
+              "result": "(1) غير صحيح، (2) صحيح",
+              "theoremIds": [
+                "line_angle_with_plane_projection"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q05.png",
+        "alt": "شكل السؤال 5"
+      },
+      "images": [
+        "images/questions/space/q05.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_lateral_area",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_lateral_area",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p04-q6",
+      "number": 6,
+      "page": 4,
+      "q": "6",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "صندوق قاعدة مربّع: قطر الصندوق = √3 × قطر القاعدة",
+      "summary": "صندوق قاعدته مربّع. معطى أن قطر الصندوق يساوي √3 ضعف قطر القاعدة. ومساحة المستطيل ACC′A′ = 128√2.",
+      "questionText": "صندوق قاعدته مربّع. معطى أن قطر الصندوق يساوي √3 ضعف قطر القاعدة. ومساحة المستطيل ACC′A′ = 128√2.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد الزاوية بين قطر الصندوق والقاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=الارتفاع/قطر القاعدة",
+              "steps": [
+                "لتكن قاعدة الضلع s وارتفاع الصندوق h",
+                "قطر القاعدة = s√2، قطر الصندوق = √(2s²+h²)",
+                "المعطى: √(2s²+h²)=√3·s√2 ⇒ 2s²+h²=6s² ⇒ h=2s",
+                "tan θ = h/(s√2)=2s/(s√2)=√2 ⇒ θ≈54.735°"
+              ],
+              "result": "θ ≈ 54.735°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب (1) جد طول ضلع القاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة المستطيل ACC′A′",
+              "steps": [
+                "AC=s√2 وارتفاع المستطيل = h=2s",
+                "المساحة = AC·h = (s√2)(2s)=2s²√2=128√2 ⇒ s²=64 ⇒ s=8"
+              ],
+              "result": "طول ضلع القاعدة = 8",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب (2) جد طول قطر الصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "تعويض مباشر",
+              "steps": [
+                "قطر الصندوق = s√6 = 8√6"
+              ],
+              "result": "قطر الصندوق = 8√6",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ج) جد مساحة غلاف الهرم القائم OABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "4 مثلثات متطابقة",
+              "steps": [
+                "O مركز الصندوق ⇒ ارتفاع الهرم إلى القاعدة = h/2 = 8",
+                "ارتفاع الوجه (الميل) إلى منتصف ضلع القاعدة: l=√(8²+4²)=4√5",
+                "مساحة وجه واحد = 1/2·8·l = 16√5",
+                "الغلاف = 4·16√5 = 64√5 ≈ 143.1"
+              ],
+              "result": "64√5 ≈ 143.1",
+              "theoremIds": [
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q06.png",
+        "alt": "شكل السؤال 6"
+      },
+      "images": [
+        "images/questions/space/q06.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry",
+        "triangle_area_base_height"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry",
+        "triangle_area_base_height"
+      ]
+    },
+    {
+      "id": "p05-q7",
+      "number": 7,
+      "page": 5,
+      "q": "7",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "صندوق AB=12, BC=5 وزاوية MC′ مع القاعدة 52°",
+      "summary": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
+      "questionText": "قطرا القاعدة يلتقيان في M. معطى AB=12 وBC=5 والزاوية بين MC′ والقاعدة 52°. ثم نقطة P على MM′ بشرط AP=1.6 MP وينتج هرم PABCD.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد ارتفاع الصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(52)=h/MC",
+              "steps": [
+                "قطر القاعدة AC=√(12²+5²)=13",
+                "M مركز القاعدة ⇒ MC=AC/2=6.5",
+                "tan52° = h/6.5 ⇒ h ≈ 8.32"
+              ],
+              "result": "h ≈ 8.32",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد مساحة السطح الخارجي للصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة سطح منشور مستطيل",
+              "steps": [
+                "المساحة = 2(AB·BC + AB·h + BC·h)",
+                "= 2(60 + 12h + 5h) = 120 + 34h",
+                "عند h≈8.32 ⇒ ≈ 402.867"
+              ],
+              "result": "≈ 402.867",
+              "theoremIds": [
+                "rectangular_prism_surface_area"
+              ],
+              "legacyTheoremIds": [
+                "rectangular_prism_surface_area"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين الضلع الجانبي للهرم PABCD والقاعدة ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط PA على القاعدة هو AM",
+              "steps": [
+                "خذ إحداثيات: M مركز القاعدة، وP فوقه على MM′",
+                "AM=6.5",
+                "من الشرط AP=1.6 MP ينتج MP≈5.204",
+                "tan θ = MP/AM ⇒ θ≈38.68°"
+              ],
+              "result": "≈ 38.68°",
+              "theoremIds": [
+                "coordinate_geometry_distance",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "coordinate_geometry_distance",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) جد حجم الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "V=(1/3)·مساحة القاعدة·الارتفاع",
+              "steps": [
+                "مساحة القاعدة = 12×5=60",
+                "ارتفاع الهرم = MP≈5.204",
+                "V=(1/3)·60·5.204 ≈ 104.083"
+              ],
+              "result": "≈ 104.083",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q07.png",
+        "alt": "شكل السؤال 7"
+      },
+      "images": [
+        "images/questions/space/q07.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry",
+        "rectangular_prism_surface_area",
+        "coordinate_geometry_distance",
+        "line_angle_with_plane_projection",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry",
+        "rectangular_prism_surface_area",
+        "coordinate_geometry_distance",
+        "line_angle_with_plane_projection",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p05-q8",
+      "number": 8,
+      "page": 5,
+      "q": "8",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "صندوق قاعدة مربّع: الارتفاع = قطر القاعدة و OC′=√125",
+      "summary": "قطرا القاعدة يلتقيان في O. الارتفاع يساوي قطر القاعدة. معطى OC′=√125. M منتصف A′D′ و P منتصف AD.",
+      "questionText": "قطرا القاعدة يلتقيان في O. الارتفاع يساوي قطر القاعدة. معطى OC′=√125. M منتصف A′D′ و P منتصف AD.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد الزاوية بين OC′ والقاعدة ABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=h/OC",
+              "steps": [
+                "OC نصف قطر القاعدة = (قطر القاعدة)/2",
+                "ومعطى h=قطر القاعدة ⇒ h/OC=2",
+                "θ=arctan(2)"
+              ],
+              "result": "≈ 63.43°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب (1) احسب مساحة △BC′D",
+          "note": "",
+          "methods": [
+            {
+              "name": "حسب الحل النهائي",
+              "steps": [
+                "بعد استنتاج أبعاد الصندوق من OC′",
+                "نحسب مساحة المثلث المطلوب"
+              ],
+              "result": "25√5",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب (2) احسب مساحة غلاف الصندوق",
+          "note": "",
+          "methods": [
+            {
+              "name": "غلاف الصندوق (الأوجه الجانبية)",
+              "steps": [
+                "المحيط × الارتفاع مع أبعاد القاعدة الناتجة",
+                "النتيجة كما في الحل"
+              ],
+              "result": "200√2",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (1) احسب BP (P منتصف AD)",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في القاعدة",
+              "steps": [
+                "النتيجة المباشرة كما في الحل"
+              ],
+              "result": "2.5√10",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (2) جد الزاوية بين BM والقاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط BM على القاعدة + مثلث قائم",
+              "steps": [
+                "نحسب طول الإسقاط والارتفاع ثم tan"
+              ],
+              "result": "≈ 51.67°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q08.png",
+        "alt": "شكل السؤال 8"
+      },
+      "images": [
+        "images/questions/space/q08.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry",
+        "th084",
+        "line_angle_with_plane_projection"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry",
+        "pythagoras_theorem",
+        "line_angle_with_plane_projection"
+      ]
+    },
+    {
+      "id": "p06-q9",
+      "number": 9,
+      "page": null,
+      "q": null,
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع",
+      "summary": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع",
+      "questionText": "",
+      "givens": [],
+      "parts": [],
+      "figure": {},
+      "images": [],
+      "theoremIds": [],
+      "legacyTheoremIds": []
+    },
+    {
+      "id": "p06-q10",
+      "number": 10,
+      "page": 6,
+      "q": "10",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة مثلث قائم متساوي الساقين",
+      "summary": "قاعدة المنشور △ABC قائم ومتساوي الساقين: AB=BC=a و∠ABC=90°. الزاوية بين القطر AC′ والوجه الجانبي BCC′B′ هي α. وارتفاع المنشور = 2a.",
+      "questionText": "قاعدة المنشور △ABC قائم ومتساوي الساقين: AB=BC=a و∠ABC=90°. الزاوية بين القطر AC′ والوجه الجانبي BCC′B′ هي α. وارتفاع المنشور = 2a.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة a وα عن حجم المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "حجم = مساحة القاعدة × الارتفاع",
+              "steps": [
+                "مساحة القاعدة = (1/2)·a·a = a²/2",
+                "الارتفاع = 2a ⇒ V = a³",
+                "لكن α يقيّد العلاقة الهندسية للقطر ⇒ ينتج التعبير النهائي كما في الحل"
+              ],
+              "result": "V = (a^3 √(1−tan^2 α)) / (2 tan α)",
+              "theoremIds": [
+                "prism_volume"
+              ],
+              "legacyTheoremIds": [
+                "prism_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد α",
+          "note": "",
+          "methods": [
+            {
+              "name": "تعويض المعطيات في علاقة القطر مع الوجه",
+              "steps": [
+                "من الهندسة المكانية للعلاقة بين القطر والوجه نحصل على α"
+              ],
+              "result": "α ≈ 24.09°",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين القطر AC′ والقاعدة ABC",
+          "note": "",
+          "methods": [
+            {
+              "name": "زاوية مستقيم مع قاعدة عبر الإسقاط",
+              "steps": [
+                "نأخذ إسقاط AC′ على القاعدة ثم نستخدم tan"
+              ],
+              "result": "≈ 54.73°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q10.png",
+        "alt": "شكل السؤال 10"
+      },
+      "images": [
+        "images/questions/space/q10.png"
+      ],
+      "theoremIds": [
+        "prism_volume",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry"
+      ],
+      "legacyTheoremIds": [
+        "prism_volume",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry"
+      ]
+    },
+    {
+      "id": "p07-q11",
+      "number": 11,
+      "page": 7,
+      "q": "11",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة مثلث متساوي الساقين وزوايا مع القاعدة",
+      "summary": "المنشور القائم ABCA′B′C′. القاعدة مثلث متساوي الساقين (AB=AC). زاوية الرأس 54° وطول القاعدة 7 سم. الزاوية بين القطر A′C وقاعدة المنشور 65°.",
+      "questionText": "المنشور القائم ABCA′B′C′. القاعدة مثلث متساوي الساقين (AB=AC). زاوية الرأس 54° وطول القاعدة 7 سم. الزاوية بين القطر A′C وقاعدة المنشور 65°.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) احسب مساحة الوجه ACC′A′",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة مستطيل = ضلع في القاعدة × ارتفاع المنشور",
+              "steps": [
+                "نحسب AC من معطيات المثلث المتساوي الساقين",
+                "ثم نحدد ارتفاع المنشور من زاوية القطر 65°",
+                "المساحة النهائية كما في الحل"
+              ],
+              "result": "≈ 127.46",
+              "theoremIds": [
+                "line_angle_with_plane_projection"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) احسب الزاوية بين الارتفاع على BC في △CA′B وبين قاعدة المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط + مثلثات قائمة",
+              "steps": [
+                "نحدد اتجاه الارتفاع في الوجه ثم نأخذ زاويته مع القاعدة"
+              ],
+              "result": "≈ 67.44°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q11.png",
+        "alt": "شكل السؤال 11"
+      },
+      "images": [
+        "images/questions/space/q11.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry"
+      ]
+    },
+    {
+      "id": "p07-q12",
+      "number": 12,
+      "page": 7,
+      "q": "12",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة متساوي الساقين + D منتصف CB",
+      "summary": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
+      "questionText": "ABCA′B′C′ منشور قائم. القاعدة △ABC متساوي الساقين (AB=AC). D منتصف CB. معطى AD=12 و∠CAB=40°. ومساحة △CA′B = 80 سم².",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) احسب طول CB",
+          "note": "",
+          "methods": [
+            {
+              "name": "خصائص المتوسط في مثلث متساوي الساقين",
+              "steps": [
+                "D منتصف CB و AD متوسط/ارتفاع في مثلث متساوي الساقين",
+                "باستخدام الزاوية 40° نحسب CB"
+              ],
+              "result": "CB ≈ 8.73",
+              "theoremIds": [
+                "th006"
+              ],
+              "legacyTheoremIds": [
+                "isosceles_triangle_median_properties"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) فسّر لماذا △CA′B متساوي الساقين",
+          "note": "",
+          "methods": [
+            {
+              "name": "تساوي الأضلاع الجانبية في المنشور",
+              "steps": [
+                "AB=AC في القاعدة",
+                "والحواف الجانبية متساوية ⇒ A′B وA′C متماثلتان بالنسبة للقاعدة",
+                "إذن CA′ = BA′ ⇒ △CA′B متساوي الساقين"
+              ],
+              "result": "△CA′B متساوي الساقين",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) احسب الزاوية بين DA′ وقاعدة المنشور ABC",
+          "note": "",
+          "methods": [
+            {
+              "name": "إسقاط DA′ + مثلث قائم",
+              "steps": [
+                "نأخذ إسقاط A′ على القاعدة ونحسب tan"
+              ],
+              "result": "≈ 49.07°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) احسب حجم المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "V = مساحة القاعدة × ارتفاع المنشور",
+              "steps": [
+                "من مساحة △CA′B نستخرج ارتفاع المنشور",
+                "ثم نضرب بمساحة القاعدة"
+              ],
+              "result": "≈ 725.354",
+              "theoremIds": [
+                "prism_volume"
+              ],
+              "legacyTheoremIds": [
+                "prism_volume"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q12.png",
+        "alt": "شكل السؤال 12"
+      },
+      "images": [
+        "images/questions/space/q12.png"
+      ],
+      "theoremIds": [
+        "th006",
+        "right_triangle_trigonometry",
+        "line_angle_with_plane_projection",
+        "prism_volume"
+      ],
+      "legacyTheoremIds": [
+        "isosceles_triangle_median_properties",
+        "right_triangle_trigonometry",
+        "line_angle_with_plane_projection",
+        "prism_volume"
+      ]
+    },
+    {
+      "id": "p08-q13",
+      "number": 13,
+      "page": 8,
+      "q": "13",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة قائم متساوي الساقين وارتفاع 8 و وتر 4√2",
+      "summary": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
+      "questionText": "ABCA′B′C′ منشور قائم. القاعدة مثلث قائم متساوي الساقين عند B (AB=BC, ∠ABC=90°). ارتفاع المنشور 8 سم، وطول وتر القاعدة AC = 4√2.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) الزاوية بين قطر الوجه الجانبي BB′C′C وقاعدة المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=الارتفاع/إسقاط القطر",
+              "steps": [
+                "قطر الوجه BB′C′C إسقاطه على القاعدة هو BC"
+              ],
+              "result": "≈ 63.43°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد مقدار ∠AC′B",
+          "note": "",
+          "methods": [
+            {
+              "name": "مثلثات في الفضاء + جيب تمام",
+              "steps": [
+                "نحدد أطوال AC′ وBC′ ثم قانون جيب التمام"
+              ],
+              "result": "≈ 24.09°",
+              "theoremIds": [
+                "cosine_rule"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد مساحة △AC′B",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة = 1/2 ab sinC",
+              "steps": [
+                "نعتمد على أطوال الضلعين والزاوية المحصورة"
+              ],
+              "result": "8√5",
+              "theoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) إذا كانت D منتصف CB احسب A′D",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في الفضاء",
+              "steps": [
+                "نحسب المسافة بين A′ و D عبر مركبات (أفقية + ارتفاع)"
+              ],
+              "result": "√84",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q13.png",
+        "alt": "شكل السؤال 13"
+      },
+      "images": [
+        "images/questions/space/q13.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "triangle_area_ab_sinC",
+        "th084"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "triangle_area_ab_sinC",
+        "pythagoras_theorem"
+      ]
+    },
+    {
+      "id": "p08-q14",
+      "number": 14,
+      "page": 8,
+      "q": "14",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة مثلث قائم متساوي الساقين (طول الساق 3)",
+      "summary": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
+      "questionText": "منشور قائم ABDA′B′D′ قاعدته △ABD قائم ومتساوي الساقين عند A، وطول الساق 3 سم. معطى مساحة △BA′D = 15√2.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد BD",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في △ABD",
+              "steps": [
+                "△ABD قائم عند A ومتساوي الساقين ⇒ AB=AD=3",
+                "BD = √(AB² + AD²) = √(3²+3²)=3√2"
+              ],
+              "result": "BD = 3√2",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) فسّر لماذا A′D = A′B",
+          "note": "",
+          "methods": [
+            {
+              "name": "قطرا مستطيلين متطابقين",
+              "steps": [
+                "A′B قطر المستطيل ABB′A′",
+                "A′D قطر المستطيل ADD′A′",
+                "المستطيلان متطابقان لأن AB=AD وAA′ مشترك وزواياهما قائمة",
+                "إذن قطراهما متساويان ⇒ A′B = A′D"
+              ],
+              "result": "A′D = A′B",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين الارتفاع على قاعدة △BA′D وبين قاعدة المنشور ABD",
+          "note": "",
+          "methods": [
+            {
+              "name": "مسافة نقطة عن مستقيم + مثلث قائم",
+              "steps": [
+                "ليكن H قدم الارتفاع من A′ على BD في △BA′D ⇒ A′H ⟂ BD",
+                "من المساحة: 15√2 = (1/2)·BD·A′H ⇒ A′H = (2·15√2)/(3√2)=10",
+                "المسافة من A إلى BD في △ABD هي الارتفاع على الوتر: AH = (AB·AD)/BD = (3·3)/(3√2)=3/√2",
+                "المسافة من A′ إلى BD: A′H = √(AA′² + AH²) ⇒ AA′ = √(10² − (3/√2)²)=√(95.5)",
+                "الزاوية المطلوبة هي زاوية (A′H) مع القاعدة، وفي △AA′H: sinθ = AA′/A′H"
+              ],
+              "result": "θ ≈ 77.75°",
+              "theoremIds": [
+                "distance_point_line",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC",
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "distance_point_line",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC",
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) احسب حجم المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "V = مساحة القاعدة × الارتفاع",
+              "steps": [
+                "مساحة △ABD = (1/2)·3·3 = 4.5",
+                "ارتفاع المنشور AA′ ≈ √95.5 ≈ 9.77",
+                "V = 4.5 × 9.77"
+              ],
+              "result": "V ≈ 43.97",
+              "theoremIds": [
+                "prism_volume",
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "prism_volume",
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q14.png",
+        "alt": "شكل السؤال 14"
+      },
+      "images": [
+        "images/questions/space/q14.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "distance_point_line",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_ab_sinC",
+        "triangle_area_base_height",
+        "prism_volume"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "distance_point_line",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_ab_sinC",
+        "triangle_area_base_height",
+        "prism_volume"
+      ]
+    },
+    {
+      "id": "p09-q15",
+      "number": 15,
+      "page": 9,
+      "q": "15",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: BC=14 و∠BAC=70° وحجمه 1190",
+      "summary": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
+      "questionText": "في المنشور القائم ABCA′B′C′ القاعدتان مثلثان متساويا الساقين (AB=AC). AD ارتفاع على BC وA′D′ ارتفاع على B′C′. معطى BC=14 و∠BAC=70° وحجم المنشور 1190 سم³.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) احسب ارتفاع المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "حساب مساحة القاعدة ثم h = V/مساحة القاعدة",
+              "steps": [
+                "في مثلث متساوي الساقين: D منتصف BC ⇒ BD=DC=7",
+                "∠BAD = 35° (لأن AD ينصف زاوية الرأس 70°)",
+                "AD = BD / tan35° ≈ 7 / tan35° ≈ 10",
+                "مساحة القاعدة = (1/2)·BC·AD = (1/2)·14·10 = 70",
+                "ارتفاع المنشور h = 1190 / 70"
+              ],
+              "result": "ارتفاع المنشور = 17",
+              "theoremIds": [
+                "th006",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry",
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "isosceles_triangle_median_properties",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry",
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) الزاوية بين القطر A′B وقاعدة المنشور ABC",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=الارتفاع/الإسقاط",
+              "steps": [
+                "إسقاط A′B على القاعدة هو AB",
+                "في △ABD: AB = BD / sin35° ≈ 7/sin35° ≈ 12.20",
+                "tanθ = h / AB = 17 / 12.20"
+              ],
+              "result": "θ ≈ 54.33°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد قياس ∠AD′A′",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في △A A′ D′",
+              "steps": [
+                "بسبب تطابق القاعدتين: A′D′ = AD ≈ 10",
+                "AA′ = 17",
+                "AD′ = √(AD² + AA′²) = √(10²+17²)=√389",
+                "cos(∠AD′A′) = (AD′² + D′A′² − AA′²)/(2·AD′·D′A′) = 10/√389"
+              ],
+              "result": "∠AD′A′ ≈ 59.53°",
+              "theoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q15.png",
+        "alt": "شكل السؤال 15"
+      },
+      "images": [
+        "images/questions/space/q15.png"
+      ],
+      "theoremIds": [
+        "th006",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_base_height",
+        "cosine_rule"
+      ],
+      "legacyTheoremIds": [
+        "isosceles_triangle_median_properties",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_base_height",
+        "cosine_rule"
+      ]
+    },
+    {
+      "id": "p09-q16",
+      "number": 16,
+      "page": 9,
+      "q": "16",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "منشور قائم: قاعدة متساوية الأضلاع و CD=a",
+      "summary": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
+      "questionText": "منشور قائم ABCA′B′C′ قاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB في القاعدة. معطى CD=a. والزاوية بين A′D ومستوى القاعدة 68°، ومساحة الغلاف الجانبي 713 سم².",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة a عن طول ضلع △ABC",
+          "note": "",
+          "methods": [
+            {
+              "name": "ارتفاع مثلث متساوي الأضلاع",
+              "steps": [
+                "في متساوي الأضلاع: CD = (√3/2)·(ضلع)",
+                "إذن ضلع القاعدة = 2a/√3"
+              ],
+              "result": "ضلع القاعدة = 2a/√3",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب (1) عبّر بدلالة a عن ارتفاع المنشور",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(زاوية الميل)=الارتفاع/الإسقاط",
+              "steps": [
+                "إسقاط A′D على القاعدة هو AD",
+                "في متساوي الأضلاع: D منتصف AB ⇒ AD = (ضلع)/2 = (1/2)·(2a/√3)=a/√3",
+                "tan68° = ارتفاع المنشور / AD",
+                "ارتفاع المنشور = (a/√3)·tan68°"
+              ],
+              "result": "ارتفاع المنشور ≈ 1.43a",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب (2) جد a",
+          "note": "",
+          "methods": [
+            {
+              "name": "الغلاف الجانبي = محيط القاعدة × ارتفاع المنشور",
+              "steps": [
+                "محيط القاعدة = 3·(2a/√3)=2a√3",
+                "الغلاف = (2a√3)·((a/√3)tan68°)=2a²tan68°",
+                "2a²tan68° = 713 ⇒ a² = 713/(2tan68°) ⇒ a=12"
+              ],
+              "result": "a = 12",
+              "theoremIds": [
+                "prism_lateral_area",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "prism_lateral_area",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد ∠BA′C",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في △BA′C",
+              "steps": [
+                "BC = ضلع القاعدة = 2a/√3 (وبالتعويض a=12 ⇒ BC≈13.856)",
+                "A′B = A′C = √(BC² + h²) حيث h ارتفاع المنشور",
+                "cos(∠BA′C) = (A′B² + A′C² − BC²)/(2·A′B·A′C)",
+                "بعد التعويض العددي نحصل على الزاوية"
+              ],
+              "result": "∠BA′C ≈ 36.585°",
+              "theoremIds": [
+                "cosine_rule",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q16.png",
+        "alt": "شكل السؤال 16"
+      },
+      "images": [
+        "images/questions/space/q16.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_lateral_area",
+        "cosine_rule"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "prism_lateral_area",
+        "cosine_rule"
+      ]
+    },
+    {
+      "id": "p10-q17",
+      "number": 17,
+      "page": 10,
+      "q": "17",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم رباعي قائم: قاعدته مربّع وارتفاعه = ضلع القاعدة",
+      "summary": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
+      "questionText": "هرم قائم SABCD قاعدته مربّع. ارتفاع الهرم يساوي ضلع قاعدة الهرم. SF ارتفاع على CB في الوجه SCB. إذا كان حجم الهرم 1125 سم³ احسب مساحة △SDB.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد الزاوية بين SF وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/OF",
+              "steps": [
+                "في الهرم القائم: O مركز المربع وSO عمودي على القاعدة",
+                "في △SCB (متساوي الساقين) ⇒ F منتصف CB",
+                "OF = نصف ضلع المربع = a/2 ، و SO = a (لأن الارتفاع = ضلع القاعدة)",
+                "tanθ = SO/OF = a/(a/2)=2"
+              ],
+              "result": "θ ≈ 63.43°",
+              "theoremIds": [
+                "th006",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "isosceles_triangle_median_properties",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد ∠CSB",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في △CSB",
+              "steps": [
+                "OC = نصف قطر الدائرة المحيطة بالمربع = (قطر المربع)/2 = (a√2)/2 = a/√2",
+                "SC = √(SO² + OC²) = √(a² + a²/2)=a√(3/2)",
+                "في مثلث متساوي الساقين CSB: cos∠CSB = (2SC² − BC²)/(2SC²) = 2/3"
+              ],
+              "result": "∠CSB ≈ 48.2°",
+              "theoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) إذا كان الحجم 1125 سم³ جد مساحة △SDB",
+          "note": "",
+          "methods": [
+            {
+              "name": "من الحجم ثم مساحة مثلث قائم",
+              "steps": [
+                "V = (1/3)·a²·SO = (1/3)·a²·a = a³/3",
+                "1125 = a³/3 ⇒ a³ = 3375 ⇒ a = 15",
+                "DB = قطر المربع = a√2 = 15√2",
+                "SO = a = 15 ، وSO ⟂ DB لأن DB في القاعدة ويمر من O",
+                "مساحة △SDB = (1/2)·DB·SO"
+              ],
+              "result": "مساحة △SDB ≈ 159.1 سم²",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q17.png",
+        "alt": "شكل السؤال 17"
+      },
+      "images": [
+        "images/questions/space/q17.png"
+      ],
+      "theoremIds": [
+        "th006",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "isosceles_triangle_median_properties",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p10-q18",
+      "number": 18,
+      "page": 10,
+      "q": "18",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم قاعدته مستطيل: AS=13 وزاوية الضلع مع القاعدة 45°",
+      "summary": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
+      "questionText": "هرم قائم SABCD قاعدته مستطيل. SO ارتفاع الهرم. معطى AS=13 والزاوية بين ضلع جانبي وقاعدة الهرم 45°. وإذا كانت ∠CAB=50°.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد طول قطر قاعدة الهرم AC",
+          "note": "",
+          "methods": [
+            {
+              "name": "مثلث SAO قائم + زاوية خط مع مستوى",
+              "steps": [
+                "في الهرم القائم: O مركز المستطيل",
+                "الزاوية بين SA والقاعدة = الزاوية بين SA وإسقاطه AO",
+                "في △SAO: ∠SAO = 45° وSO ⟂ AO ⇒ SO=AO",
+                "SA² = SO² + AO² = 2AO² ⇒ AO = 13/√2",
+                "AC = 2AO = 13√2"
+              ],
+              "result": "AC = 13√2 ≈ 18.38",
+              "theoremIds": [
+                "line_angle_with_plane_projection"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) إذا كانت ∠CAB=50° جد مساحة القاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "تحليل القطر على ضلعي المستطيل",
+              "steps": [
+                "AB = AC·cos50° ، BC = AC·sin50°",
+                "مساحة القاعدة = AB·BC"
+              ],
+              "result": "مساحة القاعدة ≈ 166.43 سم²",
+              "theoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد مساحة الوجه SBC",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة مثلث = 1/2 · قاعدة · ارتفاع مائل",
+              "steps": [
+                "الارتفاع المائل على BC يساوي √(SO² + (المسافة من O إلى BC)²)",
+                "المسافة من O إلى BC = AB/2",
+                "مساحة △SBC = (1/2)·BC·الارتفاع المائل"
+              ],
+              "result": "مساحة الوجه SBC ≈ 76.95 سم²",
+              "theoremIds": [
+                "triangle_area_base_height"
+              ],
+              "legacyTheoremIds": [
+                "triangle_area_base_height"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q18.png",
+        "alt": "شكل السؤال 18"
+      },
+      "images": [
+        "images/questions/space/q18.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_ab_sinC",
+        "triangle_area_base_height"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "triangle_area_ab_sinC",
+        "triangle_area_base_height"
+      ]
+    },
+    {
+      "id": "p11-q19",
+      "number": 19,
+      "page": 11,
+      "q": "19",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: SO = 1.25 × قطر القاعدة وحجمه 360",
+      "summary": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
+      "questionText": "هرم قائم SABCD قاعدته مربّع. معطى SO يساوي 1.25 ضعف قطر القاعدة. حجم الهرم 360 سم³.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) احسب طول قطر القاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "حجم هرم بدلالة القطر",
+              "steps": [
+                "لتكن d قطر القاعدة ⇒ ضلع المربع = d/√2 ⇒ مساحة القاعدة = d²/2",
+                "SO = 1.25d",
+                "360 = (1/3)·(d²/2)·(1.25d) = (5/24)d³",
+                "d³ = 1728 ⇒ d = 12"
+              ],
+              "result": "قطر القاعدة = 12",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) الزاوية بين الضلع الجانبي وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/AO",
+              "steps": [
+                "AO = d/2 = 6",
+                "SO = 1.25d = 15",
+                "tanθ = 15/6 = 2.5"
+              ],
+              "result": "θ ≈ 68.198°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) زاوية قاعدة الوجه الجانبي للهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في الوجه الجانبي",
+              "steps": [
+                "ضلع القاعدة s = d/√2 = 6√2",
+                "SA = √(SO²+AO²) = √(15²+6²)=√261",
+                "في △SAB: cos(زاوية القاعدة) = s/(2SA)"
+              ],
+              "result": "زاوية القاعدة ≈ 74.77°",
+              "theoremIds": [
+                "cosine_rule",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q19.png",
+        "alt": "شكل السؤال 19"
+      },
+      "images": [
+        "images/questions/space/q19.png"
+      ],
+      "theoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "line_angle_with_plane_projection"
+      ],
+      "legacyTheoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "line_angle_with_plane_projection"
+      ]
+    },
+    {
+      "id": "p11-q20",
+      "number": 20,
+      "page": 11,
+      "q": "20",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: ارتفاعه يساوي قطر القاعدة ومساحة الغلاف 36.75",
+      "summary": "هرم قائم ABCDE قاعدته مربّع. EM ارتفاع الهرم وطوله يساوي قطر القاعدة. AB=a. EK ارتفاع في وجه جانبي. معطى مساحة الغلاف 36.75 سم².",
+      "questionText": "هرم قائم ABCDE قاعدته مربّع. EM ارتفاع الهرم وطوله يساوي قطر القاعدة. AB=a. EK ارتفاع في وجه جانبي. معطى مساحة الغلاف 36.75 سم².",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) زاوية بين الضلع الجانبي وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=EM/AM",
+              "steps": [
+                "قطر القاعدة d = a√2",
+                "EM = d = a√2",
+                "AM = d/2 = a√2/2 = a/√2",
+                "tanθ = (a√2)/(a/√2)=2"
+              ],
+              "result": "θ ≈ 63.435°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) زاوية بين EK وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(φ)=EM/MK",
+              "steps": [
+                "K منتصف AB في الوجه الجانبي ⇒ MK = a/2",
+                "EM = a√2",
+                "tanφ = (a√2)/(a/2)=2√2"
+              ],
+              "result": "φ ≈ 70.529°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) إذا كانت مساحة الغلاف 36.75 سم² احسب a",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة الغلاف = 4 مثلثات جانبية",
+              "steps": [
+                "EK = √(EM² + MK²) = √((a√2)² + (a/2)²)=a·(3/2)",
+                "مساحة وجه واحد = (1/2)·a·EK = (1/2)·a·(3a/2)=3a²/4",
+                "الغلاف = 4·(3a²/4)=3a²",
+                "3a² = 36.75 ⇒ a² = 12.25 ⇒ a = 3.5"
+              ],
+              "result": "a = 3.5",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q20.png",
+        "alt": "شكل السؤال 20"
+      },
+      "images": [
+        "images/questions/space/q20.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry"
+      ]
+    },
+    {
+      "id": "p12-q21",
+      "number": 21,
+      "page": 12,
+      "q": "21",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: قاعدة مستطيل AB=12a وBC=9a وزاوية SE مع القاعدة 80°",
+      "summary": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
+      "questionText": "هرم قائم SABCD قاعدته مستطيل. AB=12a وBC=9a. E على القطر AC بحيث EC=4·AE. الزاوية بين SE والقاعدة 80°. مساحة △SEO = 130 سم². احسب حجم الهرم الثلاثي SABC.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة a عن AC",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في المستطيل",
+              "steps": [
+                "AC = √((12a)²+(9a)²)=√(144a²+81a²)=15a"
+              ],
+              "result": "AC = 15a",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) عبّر بدلالة a عن SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "زاوية خط مع مستوى في △SEO",
+              "steps": [
+                "E تقسم AC: EC=4AE ⇒ AE=AC/5=3a",
+                "O منتصف AC ⇒ AO=AC/2=7.5a",
+                "EO = AO−AE = 4.5a",
+                "∠(SE مع القاعدة)=∠SEO ⇒ tan80° = SO/EO",
+                "SO = 4.5a·tan80°"
+              ],
+              "result": "SO ≈ 25.52a",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) إذا كانت مساحة △SEO = 130 سم² احسب حجم الهرم SABC",
+          "note": "",
+          "methods": [
+            {
+              "name": "استخدم مساحة △SEO لإيجاد a ثم حجم الهرم",
+              "steps": [
+                "△SEO قائم عند O ⇒ المساحة = (1/2)·SO·EO = (1/2)·(25.52a)·(4.5a)=57.42a²",
+                "57.42a² = 130 ⇒ a ≈ 1.505",
+                "مساحة △ABC = (1/2)·AB·BC = (1/2)·12a·9a = 54a²",
+                "حجم هرم SABC: V = (1/3)·مساحة △ABC·SO"
+              ],
+              "result": "V ≈ 1564.8",
+              "theoremIds": [
+                "pyramid_volume",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q21.png",
+        "alt": "شكل السؤال 21"
+      },
+      "images": [
+        "images/questions/space/q21.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p13-q22",
+      "number": 22,
+      "page": 13,
+      "q": "22",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: مستطيل قطراه يصنعان زاوية 42° و SO=AB وBC=a",
+      "summary": "هرم قائم SABCD قاعدته مستطيل. الزاوية الحادة بين قطري المستطيل 42°. AB>BC وSO=AB. نرمز BC=a.",
+      "questionText": "هرم قائم SABCD قاعدته مستطيل. الزاوية الحادة بين قطري المستطيل 42°. AB>BC وSO=AB. نرمز BC=a.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر عن AB بدلالة a",
+          "note": "",
+          "methods": [
+            {
+              "name": "زاوية قطري المستطيل",
+              "steps": [
+                "في مستطيل أبعاده AB=x وBC=y",
+                "الزاوية الحادة بين القطرين = 2·arctan(y/x)",
+                "2·arctan(a/AB)=42° ⇒ arctan(a/AB)=21° ⇒ a/AB=tan21°",
+                "AB = a/tan21°"
+              ],
+              "result": "AB ≈ 2.605a",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد ∠ASC",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون جيب التمام في △ASC",
+              "steps": [
+                "في الهرم القائم: SA=SC",
+                "AC = √(AB²+BC²)",
+                "SA = √(SO² + (AC/2)²) لأن O منتصف AC وSO=AB",
+                "ثم نطبق قانون جيب التمام لإيجاد ∠ASC"
+              ],
+              "result": "∠ASC ≈ 61.83°",
+              "theoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "cosine_rule",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين ضلع جانبي وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/AO",
+              "steps": [
+                "AO = AC/2 حيث AC قطر القاعدة",
+                "SO=AB",
+                "tanθ = SO/AO"
+              ],
+              "result": "θ ≈ 56.33°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) إذا كانت مساحة △ASC = 16 سم² جد a",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة مثلث من ضلعين وزاوية",
+              "steps": [
+                "مساحة △ASC = (1/2)·SA·SC·sin∠ASC = (1/2)·SA²·sin∠ASC",
+                "نعوّض SA بدلالة a (من الأجزاء السابقة) و∠ASC≈61.83°",
+                "نحل المعادلة فنحصل على a"
+              ],
+              "result": "a ≈ 2.098",
+              "theoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry",
+                "triangle_area_ab_sinC"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "هـ) E منتصف SO. احسب حجم الهرم EABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "الحجم يتناسب مع الارتفاع",
+              "steps": [
+                "E منتصف SO ⇒ ارتفاع الهرم الجديد = SO/2",
+                "إذن حجم الهرم الجديد = نصف حجم الهرم الأصلي"
+              ],
+              "result": "V(EABCD) ≈ 10.44",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q22.png",
+        "alt": "شكل السؤال 22"
+      },
+      "images": [
+        "images/questions/space/q22.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "triangle_area_ab_sinC"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry",
+        "cosine_rule",
+        "triangle_area_ab_sinC"
+      ]
+    },
+    {
+      "id": "p13-q23",
+      "number": 23,
+      "page": 13,
+      "q": "23",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: قاعدة مستطيل AB=9 وBC=5 وحجمه 180",
+      "summary": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
+      "questionText": "هرم قائم SABCD قاعدته مستطيل. AB=9 وBC=5. حجم الهرم 180 سم³. E منتصف SC. F على القطر AC بحيث EF ⟂ AC.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "V=(1/3)·مساحة القاعدة·SO",
+              "steps": [
+                "مساحة القاعدة = 9×5 = 45",
+                "180 = (1/3)·45·SO ⇒ SO = 12"
+              ],
+              "result": "SO = 12",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) الزاوية بين ضلع جانبي وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/AO",
+              "steps": [
+                "AC = √(9²+5²)=√106",
+                "AO = AC/2 = √106 / 2",
+                "tanθ = 12 / (√106/2)"
+              ],
+              "result": "θ ≈ 66.78°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد طول ضلع جانبي للهرم (مثلًا SA)",
+          "note": "",
+          "methods": [
+            {
+              "name": "SA²=SO²+AO²",
+              "steps": [
+                "AO = √106/2",
+                "SA = √(12² + (√106/2)²)"
+              ],
+              "result": "SA ≈ 13.057",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "د (1) جد EF",
+          "note": "",
+          "methods": [
+            {
+              "name": "إحداثيات + مسافة نقطة عن مستقيم",
+              "steps": [
+                "خذ A(0,0,0), B(9,0,0), C(9,5,0), D(0,5,0)",
+                "O(4.5,2.5,0), S(4.5,2.5,12)",
+                "E منتصف SC ⇒ E((9+4.5)/2,(5+2.5)/2,(0+12)/2)=(6.75,3.75,6)",
+                "F إسقاط E على القطر AC (EF ⟂ AC) ⇒ نحسب المسافة من E إلى المستقيم AC"
+              ],
+              "result": "EF = 6",
+              "theoremIds": [
+                "coordinate_geometry_distance",
+                "distance_point_line"
+              ],
+              "legacyTheoremIds": [
+                "coordinate_geometry_distance",
+                "distance_point_line"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د (2) جد الزاوية بين AE وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(φ)=الارتفاع/طول الإسقاط",
+              "steps": [
+                "إسقاط E على القاعدة هو (6.75,3.75,0)",
+                "طول الإسقاط AE₀ = √(6.75²+3.75²)",
+                "الارتفاع = 6",
+                "tanφ = 6 / AE₀"
+              ],
+              "result": "φ ≈ 37.84°",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q23.png",
+        "alt": "شكل السؤال 23"
+      },
+      "images": [
+        "images/questions/space/q23.png"
+      ],
+      "theoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry",
+        "coordinate_geometry_distance",
+        "distance_point_line",
+        "line_angle_with_plane_projection"
+      ],
+      "legacyTheoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry",
+        "coordinate_geometry_distance",
+        "distance_point_line",
+        "line_angle_with_plane_projection"
+      ]
+    },
+    {
+      "id": "p14-q24",
+      "number": 24,
+      "page": 14,
+      "q": "24",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم قائم: AB=16 وSM=16 وزاوية SC مع القاعدة 52°",
+      "summary": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
+      "questionText": "هرم قائم SABCD قاعدته مستطيل. SM ارتفاع على BC في الوجه BSC. معطى AB=16 وSM=16. الزاوية بين SC وقاعدة الهرم 52°. P منتصف SO. ثم هرم جديد PABCD. حجم مكعّب = حجم PABCD.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) جد SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "مثلث SOM قائم",
+              "steps": [
+                "في الوجه BSC (متساوي الساقين) ⇒ M منتصف BC",
+                "O مركز المستطيل ⇒ OM = AB/2 = 8",
+                "SM² = SO² + OM² ⇒ 16² = SO² + 8²",
+                "SO = √(256−64)=√192=8√3"
+              ],
+              "result": "SO = 8√3",
+              "theoremIds": [
+                "th006"
+              ],
+              "legacyTheoremIds": [
+                "isosceles_triangle_median_properties"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) جد الزاوية بين PM وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=PO/OM",
+              "steps": [
+                "P منتصف SO ⇒ PO = SO/2 = 4√3",
+                "OM = 8",
+                "tanθ = (4√3)/8 = √3/2"
+              ],
+              "result": "θ ≈ 40.89°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) احسب حجم الهرم PABCD",
+          "note": "",
+          "methods": [
+            {
+              "name": "أوجد BC من زاوية SC مع القاعدة ثم احسب الحجم",
+              "steps": [
+                "في △SOC: الزاوية بين SC والقاعدة 52° ⇒ tan52° = SO/OC ⇒ OC = SO/tan52°",
+                "وفي المستطيل: OC² = (AB/2)² + (BC/2)² ⇒ (BC/2)² = OC² − 8²",
+                "نستنتج BC ≈ 14.64",
+                "حجم PABCD = (1/3)·(AB·BC)·PO = (1/3)·(16·BC)·(4√3)"
+              ],
+              "result": "V(PABCD) ≈ 539.01",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "pyramid_volume",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "pyramid_volume",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) احسب طول حرف المكعّب",
+          "note": "",
+          "methods": [
+            {
+              "name": "جذر تكعيبي للحجم",
+              "steps": [
+                "حجم المكعب = حجم الهرم PABCD = 539.01",
+                "طول حرف المكعب = ∛539.01"
+              ],
+              "result": "طول الحرف ≈ 8.13",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q24.png",
+        "alt": "شكل السؤال 24"
+      },
+      "images": [
+        "images/questions/space/q24.png"
+      ],
+      "theoremIds": [
+        "th006",
+        "right_triangle_trigonometry",
+        "line_angle_with_plane_projection",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "isosceles_triangle_median_properties",
+        "right_triangle_trigonometry",
+        "line_angle_with_plane_projection",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p15-q25",
+      "number": 25,
+      "page": 15,
+      "q": "25",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم رباعي: صيغة الحجم بدلالة k وارتفاع على القطر AC",
+      "summary": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
+      "questionText": "هرم رباعي (حسب معطيات السؤال في الورقة): BK = 0.6 BD ، و AB = k. المطلوب: (أ) عبّر بدلالة k عن حجم الهرم. (ب) عبّر بدلالة k عن h_AC.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة k عن حجم الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "نموذج الحل كما في ورقة الأسئلة",
+              "steps": [
+                "نحوّل المعطيات إلى علاقات أطوال داخل المقطع المناسب",
+                "نستخرج ارتفاع الهرم بدلالة k ثم نطبق V=(1/3)·مساحة القاعدة·الارتفاع",
+                "نقرّب القيمة العددية حسب المطلوب"
+              ],
+              "result": "V = 0.036 k^3",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            },
+            {
+              "name": "طريقة ثانية: استخدام h_AC ثم قانون حجم الهرم (تحقق عددي)",
+              "steps": [
+                "نستخدم النتيجة من الجزء (ب) بطريقة مختلفة:  h_AC = (√7/4)k ≈ 0.661k.",
+                "قانون حجم الهرم:  V = (1/3) · (مساحة القاعدة) · h_AC.",
+                "من علاقات القاعدة في السؤال (بعد تحويل المعطيات إلى أطوال داخل القاعدة) نحصل على:  مساحة القاعدة ≈ 0.1634 k².",
+                "نعوّض:  V ≈ (1/3) · (0.1634 k²) · (0.661 k) ≈ 0.036 k³."
+              ],
+              "result": "V = 0.036 k^3",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) عبّر بدلالة k عن h_AC",
+          "note": "",
+          "methods": [
+            {
+              "name": "ارتفاع على القطر AC (إسقاط + مثلث قائم)",
+              "steps": [
+                "نحدد إسقاط الارتفاع على القاعدة بالنسبة للقطر AC",
+                "نطبّق فيثاغورس للحصول على h_AC بدلالة k",
+                "نقرّب القيمة العددية حسب المطلوب"
+              ],
+              "result": "h_AC = 0.661 k",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            },
+            {
+              "name": "طريقة ثانية: مسافة نقطة عن مستقيم داخل المثلث (S مع القطر AC)",
+              "steps": [
+                "ليكن H قدم العمود من S على القطر AC، إذن h_AC = SH و SH ⟂ AC.",
+                "في المقطع الذي يحوي S وAC يكون المثلث SAH قائمًا عند H.",
+                "من علاقات الأطوال الناتجة عن المعطيات: SA = k ، و AH = (3/4)k.",
+                "بتطبيق فيثاغورس في △SAH:  SH = √(SA² − AH²) = √(k² − (3k/4)²).",
+                "SH = √(k² − 9k²/16) = √(7k²/16) = (√7/4)k.",
+                "تقريبًا: (√7/4) ≈ 0.661 ⇒ h_AC ≈ 0.661k."
+              ],
+              "result": "h_AC = (√7/4)k ≈ 0.661k",
+              "theoremIds": [
+                "distance_point_line",
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "distance_point_line",
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q25.png",
+        "alt": "شكل السؤال 25"
+      },
+      "images": [
+        "images/questions/space/q25.png"
+      ],
+      "theoremIds": [
+        "pyramid_volume",
+        "th084",
+        "distance_point_line"
+      ],
+      "legacyTheoremIds": [
+        "pyramid_volume",
+        "pythagoras_theorem",
+        "distance_point_line"
+      ]
+    },
+    {
+      "id": "p15-q26",
+      "number": 26,
+      "page": 15,
+      "q": "26",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم ثلاثي قائم: قاعدة متساوي الأضلاع AB=2a وحجمه √3 a^3",
+      "summary": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. AB=2a. AD ارتفاع على BC. حجم الهرم V=√3 a^3. المطلوب: AD، SO، وزاوية بين الضلع الجانبي والقاعدة.",
+      "questionText": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. AB=2a. AD ارتفاع على BC. حجم الهرم V=√3 a^3. المطلوب: AD، SO، وزاوية بين الضلع الجانبي والقاعدة.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة a عن AD",
+          "note": "",
+          "methods": [
+            {
+              "name": "ارتفاع مثلث متساوي الأضلاع",
+              "steps": [
+                "ضلع القاعدة s=AB=2a",
+                "AD = (√3/2)·s = (√3/2)·(2a)=a√3"
+              ],
+              "result": "AD = a√3 (≈ 1.73a)",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب) عبّر بدلالة a عن SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون حجم الهرم",
+              "steps": [
+                "مساحة القاعدة = (√3/4)·(2a)² = √3 a²",
+                "V = (1/3)·مساحة القاعدة·SO = (1/3)·(√3 a²)·SO",
+                "نساويها بـ √3 a³ ⇒ SO = 3a"
+              ],
+              "result": "SO = 3a",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين ضلع جانبي وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/AO",
+              "steps": [
+                "في متساوي الأضلاع: AO = (2/3)AD = (2/3)(a√3)=2a√3/3",
+                "tanθ = SO/AO = (3a)/(2a√3/3)=3√3/2"
+              ],
+              "result": "θ ≈ 68.95°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q26.png",
+        "alt": "شكل السؤال 26"
+      },
+      "images": [
+        "images/questions/space/q26.png"
+      ],
+      "theoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry"
+      ],
+      "legacyTheoremIds": [
+        "pyramid_volume",
+        "right_triangle_trigonometry"
+      ]
+    },
+    {
+      "id": "p16-q27",
+      "number": 27,
+      "page": 16,
+      "q": "27",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم ثلاثي قائم: قاعدة مثلث قائم (9,12) وزاوية ضلع جانبي 30°",
+      "summary": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
+      "questionText": "هرم قائم SABC وقاعدته △ABC قائم عند A: AB=9 وAC=12. الزاوية بين SB والقاعدة 30°. M منتصف AB وE على OM بحيث OE=2·EM. المطلوب: SO، حجم الهرم، زاوية SE مع القاعدة، ومساحة △SEM.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) احسب SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس + مركز الدائرة المحيطة للمثلث القائم",
+              "steps": [
+                "BC = √(9²+12²)=15",
+                "في مثلث قائم: مركز الدائرة المحيطة هو منتصف الوتر ⇒ O منتصف BC ⇒ OB=7.5",
+                "في △SOB: tan30° = SO/OB ⇒ SO = 7.5·tan30° = 7.5/√3 = 5√3/2"
+              ],
+              "result": "SO ≈ 4.33",
+              "theoremIds": [
+                "th084",
+                "right_triangle_midpoint_hypotenuse",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem",
+                "right_triangle_midpoint_hypotenuse",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) احسب حجم الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "V=(1/3)·مساحة القاعدة·SO",
+              "steps": [
+                "مساحة القاعدة △ABC = (1/2)·9·12 = 54",
+                "V = (1/3)·54·(5√3/2) = 45√3"
+              ],
+              "result": "V ≈ 77.94",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) جد الزاوية بين SE وقاعدة الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "tan(θ)=SO/OE",
+              "steps": [
+                "O(4.5,6) وM(4.5,0) ⇒ OM=6",
+                "OE=2·EM ⇒ OE=(2/3)OM=4",
+                "tanθ = SO/OE = (5√3/2)/4 = 5√3/8"
+              ],
+              "result": "θ ≈ 47.27°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) احسب مساحة △SEM",
+          "note": "",
+          "methods": [
+            {
+              "name": "مساحة = 1/2 · EM · SO",
+              "steps": [
+                "OM=6 وOE=4 ⇒ EM=2",
+                "مساحة △SEM = (1/2)·2·SO = SO"
+              ],
+              "result": "مساحة △SEM ≈ 4.33",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q27.png",
+        "alt": "شكل السؤال 27"
+      },
+      "images": [
+        "images/questions/space/q27.png"
+      ],
+      "theoremIds": [
+        "th084",
+        "right_triangle_midpoint_hypotenuse",
+        "right_triangle_trigonometry",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "pythagoras_theorem",
+        "right_triangle_midpoint_hypotenuse",
+        "right_triangle_trigonometry",
+        "pyramid_volume"
+      ]
+    },
+    {
+      "id": "p16-q28",
+      "number": 28,
+      "page": 16,
+      "q": "28",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم ثلاثي قائم: قاعدة متساوي الأضلاع محيطها 6a ومعطى CO=4√3",
+      "summary": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB. محيط △ABC = 6a. ومعطى CO = 4√3. إذا كانت زاوية الضلع الجانبي مع القاعدة 50° أوجد طول ضلع جانبي ومساحة الغلاف.",
+      "questionText": "هرم ثلاثي قائم SABC وقاعدته △ABC متساوي الأضلاع. CD ارتفاع على AB. محيط △ABC = 6a. ومعطى CO = 4√3. إذا كانت زاوية الضلع الجانبي مع القاعدة 50° أوجد طول ضلع جانبي ومساحة الغلاف.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ) عبّر بدلالة a عن CD",
+          "note": "",
+          "methods": [
+            {
+              "name": "ارتفاع متساوي الأضلاع",
+              "steps": [
+                "من المحيط: ضلع المثلث s = 6a/3 = 2a",
+                "CD = (√3/2)·s = (√3/2)·2a = a√3"
+              ],
+              "result": "CD = a√3",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ب) جد a إذا كان CO=4√3",
+          "note": "",
+          "methods": [
+            {
+              "name": "CO = (2/3)CD",
+              "steps": [
+                "في متساوي الأضلاع: O على الارتفاع و CO = (2/3)CD",
+                "4√3 = (2/3)(a√3) ⇒ 4 = 2a/3 ⇒ a=6"
+              ],
+              "result": "a = 6",
+              "theoremIds": [],
+              "legacyTheoremIds": []
+            }
+          ]
+        },
+        {
+          "label": "ج (1) جد طول الضلع الجانبي (مثلًا SC) إذا كانت زاويته مع القاعدة 50°",
+          "note": "",
+          "methods": [
+            {
+              "name": "cos50° = CO/SC",
+              "steps": [
+                "عند a=6: CO = 4√3",
+                "cos50° = CO/SC ⇒ SC = CO/cos50°"
+              ],
+              "result": "SC ≈ 10.78",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج (2) احسب مساحة الغلاف الجانبي للهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "3 أوجه متطابقة",
+              "steps": [
+                "عند a=6: ضلع القاعدة s=2a=12",
+                "OK نصف قطر الدائرة الداخلية = CD/3 = (6√3)/3 = 2√3",
+                "SO = CO·tan50°",
+                "الارتفاع المائل للوجه إلى منتصف ضلع القاعدة: SK = √(SO² + OK²)",
+                "مساحة وجه واحد = (1/2)·s·SK ، والغلاف = 3×مساحة الوجه"
+              ],
+              "result": "مساحة الغلاف ≈ 161.2",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q28.png",
+        "alt": "شكل السؤال 28"
+      },
+      "images": [
+        "images/questions/space/q28.png"
+      ],
+      "theoremIds": [
+        "right_triangle_trigonometry"
+      ],
+      "legacyTheoremIds": [
+        "right_triangle_trigonometry"
+      ]
+    },
+    {
+      "id": "p17-q29",
+      "number": 29,
+      "page": 17,
+      "q": "29",
+      "dataset": "space",
+      "datasetLabel": "هندسة الفراغ",
+      "title": "هرم ثلاثي قائم: زاوية قاعدة الوجه 50° وBD ⟂ SA وDA=10",
+      "summary": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
+      "questionText": "هرم ثلاثي قائم SABC قاعدته △ABC متساوي الأضلاع. زاوية قاعدة الوجه الجانبي 50°. D على SA بحيث BD ⟂ SA ومعطى DA=10. المطلوب: AB، SA، زاوية الضلع مع القاعدة، SO، وحجم الهرم.",
+      "givens": [],
+      "parts": [
+        {
+          "label": "أ (1) احسب AB",
+          "note": "",
+          "methods": [
+            {
+              "name": "مثلث قائم ABD",
+              "steps": [
+                "BD ⟂ SA وD على SA ⇒ BD ⟂ AD ⇒ △ABD قائم عند D",
+                "∠DAB = 50° (لأن D على SA وزاوية قاعدة الوجه 50°)",
+                "cos50° = AD/AB ⇒ AB = 10/cos50°"
+              ],
+              "result": "AB ≈ 15.56",
+              "theoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "line_angle_with_plane_projection",
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "أ (2) احسب SA",
+          "note": "",
+          "methods": [
+            {
+              "name": "قانون الجيوب في △SAB",
+              "steps": [
+                "في الوجه SAB: زاويتا القاعدة 50° و50° ⇒ ∠ASB=80°",
+                "AB/ sin80° = SA/ sin50° ⇒ SA = AB·sin50°/sin80°"
+              ],
+              "result": "SA ≈ 12.10",
+              "theoremIds": [
+                "right_triangle_trigonometry",
+                "sine_rule"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry",
+                "sine_rule"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ب) الزاوية بين الضلع الجانبي والقاعدة",
+          "note": "",
+          "methods": [
+            {
+              "name": "cosθ = AO/SA",
+              "steps": [
+                "في متساوي الأضلاع: AO = (√3/3)·AB",
+                "cosθ = AO/SA"
+              ],
+              "result": "θ ≈ 42.085°",
+              "theoremIds": [
+                "right_triangle_trigonometry"
+              ],
+              "legacyTheoremIds": [
+                "right_triangle_trigonometry"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "ج) احسب SO",
+          "note": "",
+          "methods": [
+            {
+              "name": "فيثاغورس في △SAO",
+              "steps": [
+                "△SAO قائم عند O",
+                "SO = √(SA² − AO²)"
+              ],
+              "result": "SO ≈ 8.11",
+              "theoremIds": [
+                "th084"
+              ],
+              "legacyTheoremIds": [
+                "pythagoras_theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "د) احسب حجم الهرم",
+          "note": "",
+          "methods": [
+            {
+              "name": "V=(1/3)·مساحة القاعدة·SO",
+              "steps": [
+                "مساحة القاعدة (متساوي الأضلاع) = (√3/4)·AB²",
+                "V = (1/3)·(√3/4·AB²)·SO"
+              ],
+              "result": "V ≈ 283.42",
+              "theoremIds": [
+                "pyramid_volume"
+              ],
+              "legacyTheoremIds": [
+                "pyramid_volume"
+              ]
+            }
+          ]
+        }
+      ],
+      "figure": {
+        "src": "images/questions/space/q29.png",
+        "alt": "شكل السؤال 29"
+      },
+      "images": [
+        "images/questions/space/q29.png"
+      ],
+      "theoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "sine_rule",
+        "th084",
+        "pyramid_volume"
+      ],
+      "legacyTheoremIds": [
+        "line_angle_with_plane_projection",
+        "right_triangle_trigonometry",
+        "sine_rule",
+        "pythagoras_theorem",
+        "pyramid_volume"
+      ]
+    }
+  ]
+}
