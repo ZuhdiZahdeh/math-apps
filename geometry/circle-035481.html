@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الدائرة 035481 | geometry</title>
+  <meta name="description" content="محور نظريات الدائرة لمساق الهندسة المستوية، نموذج 035481، مع فصل المعطى والنتيجة ونص النظرية ضمن منصة geometry." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+  <div class="topbar__content">
+    <div class="topbar__eyebrow">منصة مراجعة هندسية موحّدة</div>
+    <div class="topbar__title">الدائرة 035481</div>
+    <div class="topbar__hint">محور خاص بنظريات الدائرة في الهندسة المستوية، مبني على ملف الشرح المرفق ومربوط بملف النظريات الموحّد data/theorems-master.json.</div>
+  </div>
+  <nav class="topbar__nav" aria-label="أقسام الموقع">
+    <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link is-active" href="circle-035481.html">الدائرة 035481</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
+  </nav>
+</header>
+
+  <main class="home-shell circle-shell">
+    <section class="card home-hero circle-hero">
+      <div class="home-hero__content">
+        <div class="card__title">محور إضافي من ملف شرح سابق</div>
+        <h1 class="home-title">الهندسة المستوية - الدائرة - نموذج 035481 - 4 وحدات</h1>
+        <p class="home-lead">تم تحويل نظريات الدائرة إلى بطاقات تعليمية موحّدة تعرض: اسم النظرية، المعطى، النتيجة المطلوبة، نص النظرية، والتعبير الرمزي. كل بطاقة هنا مرتبطة أيضًا بمرجع النظريات الرئيسي.</p>
+        <div class="hero-kpis">
+          <div class="stat-chip stat-chip--primary"><strong>24</strong><span>نظرية دائرة</span></div>
+          <div class="stat-chip"><strong>5</strong><span>عائلات أساسية</span></div>
+          <div class="stat-chip stat-chip--soft"><strong>035481</strong><span>نموذج المساق</span></div>
+          <div class="stat-chip"><strong>1</strong><span>مصدر بيانات موحّد</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card__title">الخلاصة العلمية للملف</div>
+      <div class="circle-summary-grid">
+        <div class="circle-summary-card"><strong>الزوايا المركزية، الأقواس، والأوتار</strong><span>تساوي الزوايا المركزية أو الأقواس أو الأوتار يؤدي غالبًا إلى تساوي الباقي داخل الدائرة الواحدة.</span></div>
+        <div class="circle-summary-card"><strong>الوتر والعمود النازل من المركز</strong><span>يركّز على العلاقة بين التعامد والتنصيف وموقع مركز الدائرة.</span></div>
+        <div class="circle-summary-card"><strong>بعد الوتر عن المركز</strong><span>الأوتار المتساوية تبعد أبعادًا متساوية عن المركز، والوتر الأكبر أقرب إلى المركز.</span></div>
+        <div class="circle-summary-card"><strong>الزوايا المحيطية</strong><span>يربط بين الزاوية المحيطية والزاوية المركزية، ومنها قواعد الزوايا المتساوية والزاوية القائمة على القطر.</span></div>
+        <div class="circle-summary-card"><strong>المماسات</strong><span>يثبت علاقة المماس بنصف القطر، ثم يوسّعها إلى المماس والوتر والمماسين من نقطة خارجية.</span></div>
+      </div>
+      <div class="page-note circle-study-note">طريقة الدراسة المقترحة: حدّد أولًا هل المطلوب إثبات تساوي أطوال، تساوي زوايا، تعامد، تنصيف، أم إثبات أن خطًا مماس؛ ثم اختر عائلة النظريات المناسبة.</div>
+    </section>
+
+    <section class="card" id="circleTheoryExplorer">
+      <div class="card__title">النظريات المضافة إلى المنصة</div>
+      <div class="circle-controls">
+        <input id="circleSearch" class="search" type="search" placeholder="ابحث باسم النظرية، المعطى، النتيجة، أو كلمة مثل: مماس، وتر، قوس..." />
+        <select id="circleFamilyFilter" class="filter-select" aria-label="فلترة حسب عائلة النظرية">
+          <option value="">كل العائلات</option>
+        </select>
+      </div>
+      <div id="familyChips" class="tag-cloud circle-chip-row"></div>
+      <div id="circleStats" class="stats-row"></div>
+      <div id="circleTheoremsRoot" class="circle-theorem-root">
+        <div class="empty-state">جاري تحميل نظريات الدائرة...</div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/circle-035481.js"></script>
+</body>
+</html>

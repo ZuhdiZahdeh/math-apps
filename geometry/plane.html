@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الهندسة المستوية | geometry</title>
+  <meta name="description" content="حلول الهندسة المستوية بنفس الهوية الحديثة مع ربط مباشر بمرجع النظريات الموحّد." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+  <div class="topbar__content">
+    <div class="topbar__eyebrow">منصة مراجعة هندسية موحّدة</div>
+    <div class="topbar__title">حلول الهندسة المستوية</div>
+    <div class="topbar__hint">نفس الهوية البصرية الحديثة، لكن الآن مع ربط مباشر بمرجع النظريات الموحّد عبر data/theorems-master.json.</div>
+  </div>
+  <nav class="topbar__nav" aria-label="أقسام الموقع">
+    <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link is-active" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="circle-035481.html">الدائرة 035481</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
+  </nav>
+</header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <div class="sidebar__title">
+          <span>الأسئلة</span>
+          <span id="datasetBadge" class="badge">الكتاب</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="مصدر الأسئلة">
+          <button id="tabBook" class="tab is-active" type="button" role="tab" aria-selected="true">أسئلة الكتاب</button>
+          <button id="tabFinal" class="tab" type="button" role="tab" aria-selected="false">الأسئلة النهائية</button>
+        </div>
+
+        <input id="searchInput" class="search" type="search" placeholder="ابحث برقم السؤال أو عنوانه أو النظرية..." />
+      </div>
+
+      <div id="questionsList" class="questions"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="questionTitle" class="content__title">اختر سؤالًا من القائمة</h1>
+          <div id="metaLine" class="meta"></div>
+        </div>
+        <div class="nav">
+          <button id="prevBtn" class="btn btn--soft" type="button">السابق</button>
+          <button id="nextBtn" class="btn btn--success" type="button">التالي</button>
+        </div>
+      </div>
+
+      <div class="page-note">بطاقات النظريات في هذه الصفحة تُقرأ مباشرة من ملف المرجع الموحّد، ويمكن فتح النظرية نفسها داخل صفحة المرجع من البطاقة المنبثقة.</div>
+
+      <section class="card">
+        <div class="card__title">الصور المرافقة</div>
+        <div id="imageGallery" class="gallery"></div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">الحل خطوة بخطوة</div>
+        <div id="solutionBox" class="solution-box">
+          <div class="solution-empty">اختر سؤالًا من القائمة اليسرى لعرض الحل.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/plane.js"></script>
+</body>
+</html>
