@@ -1833,3 +1833,115 @@ a.btn:hover{ text-decoration:none; }
     height:260px;
   }
 }
+
+/* ===============================
+   Model solutions for previous exams
+   =============================== */
+.model-solution{
+  margin:18px 0;
+  padding:16px;
+  border:1px solid rgba(37,99,235,.14);
+  border-radius:22px;
+  background:linear-gradient(180deg, rgba(239,246,255,.84), rgba(255,255,255,.96));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
+}
+.model-solution__head{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:14px;
+}
+.model-solution__hint{
+  margin:6px 0 0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:13px;
+}
+.solution-status-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:8px 11px;
+  border-radius:999px;
+  color:#14532d;
+  background:rgba(220,252,231,.86);
+  border:1px solid rgba(22,163,74,.18);
+  font-size:12px;
+  font-weight:900;
+  white-space:normal;
+  line-height:1.5;
+}
+.model-solution__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.model-part{
+  border:1px solid rgba(24,59,91,.10);
+  border-radius:20px;
+  background:#fff;
+  padding:14px;
+  box-shadow:0 12px 30px rgba(15,23,42,.05);
+}
+.model-part__top{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-bottom:10px;
+}
+.model-part__num{
+  flex:0 0 auto;
+  min-width:46px;
+  text-align:center;
+  padding:6px 9px;
+  border-radius:12px;
+  color:#1d4ed8;
+  background:#eff6ff;
+  border:1px solid rgba(37,99,235,.14);
+  font-weight:900;
+  font-size:13px;
+}
+.model-part h3{
+  margin:0;
+  color:var(--title);
+  font-size:16px;
+  line-height:1.7;
+}
+.model-steps{
+  margin:8px 0 0;
+  padding-right:24px;
+  color:var(--text);
+  line-height:1.95;
+}
+.model-steps li{
+  margin:7px 0;
+}
+.model-result{
+  margin-top:12px;
+  padding:11px 12px;
+  border-radius:16px;
+  background:linear-gradient(180deg, #ecfdf5, #f7fffb);
+  border:1px solid rgba(22,163,74,.18);
+  color:#14532d;
+  font-weight:900;
+  line-height:1.8;
+}
+.model-result span{
+  display:inline-flex;
+  margin-left:8px;
+  color:#166534;
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(187,247,208,.7);
+}
+@media (max-width: 680px){
+  .model-solution__head{
+    flex-direction:column;
+  }
+  .model-part__top{
+    flex-direction:column;
+  }
+}
