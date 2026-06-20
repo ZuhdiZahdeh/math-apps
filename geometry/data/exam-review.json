@@ -36,10 +36,10 @@
       "sourceFile": "شتاء 2017.pdf",
       "pdfUrl": "pdfs/exam-review/winter-2017.pdf",
       "images": [
-        "images/exam-review/winter-2017/page-01.jpg",
-        "images/exam-review/winter-2017/page-02.jpg",
-        "images/exam-review/winter-2017/page-03.jpg",
-        "images/exam-review/winter-2017/page-04.jpg"
+        "images/exam-review/winter-2017-01.png",
+        "images/exam-review/winter-2017-02.png",
+        "images/exam-review/winter-2017-03.png",
+        "images/exam-review/winter-2017-04.png"
       ],
       "summary": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
       "given": [
@@ -160,9 +160,9 @@
       "sourceFile": "شتاء 2018.pdf",
       "pdfUrl": "pdfs/exam-review/winter-2018.pdf",
       "images": [
-        "images/exam-review/winter-2018/page-01.jpg",
-        "images/exam-review/winter-2018/page-02.jpg",
-        "images/exam-review/winter-2018/page-03.jpg"
+        "images/exam-review/winter-2018-01.png",
+        "images/exam-review/winter-2018-02.png",
+        "images/exam-review/winter-2018-03.png"
       ],
       "summary": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
       "given": [
@@ -257,10 +257,10 @@
       "sourceFile": "شتاء 2020.pdf",
       "pdfUrl": "pdfs/exam-review/winter-2020.pdf",
       "images": [
-        "images/exam-review/winter-2020/page-01.jpg",
-        "images/exam-review/winter-2020/page-02.jpg",
-        "images/exam-review/winter-2020/page-03.jpg",
-        "images/exam-review/winter-2020/page-04.jpg"
+        "images/exam-review/winter-2020-01.png",
+        "images/exam-review/winter-2020-02.png",
+        "images/exam-review/winter-2020-03.png",
+        "images/exam-review/winter-2020-04.png"
       ],
       "summary": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
       "given": [
@@ -381,11 +381,11 @@
       "sourceFile": "شتاء 2023.pdf",
       "pdfUrl": "pdfs/exam-review/winter-2023.pdf",
       "images": [
-        "images/exam-review/winter-2025-01.jpg",
-        "images/exam-review/winter-2023/page-02.jpg",
-        "images/exam-review/winter-2023/page-03.jpg",
-        "images/exam-review/winter-2023/page-04.jpg",
-        "images/exam-review/winter-2023/page-05.jpg"
+        "images/exam-review/winter-2025-01.png",
+        "images/exam-review/winter-2023-02.png",
+        "images/exam-review/winter-2023-03.png",
+        "images/exam-review/winter-2023-04.png",
+        "images/exam-review/winter-2023-05.png"
       ],
       "summary": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
       "given": [
@@ -508,9 +508,9 @@
       "sourceFile": "شتاء 2025.pdf",
       "pdfUrl": "pdfs/exam-review/winter-2025.pdf",
       "images": [
-        "images/exam-review/winter-2025-01.jpg",
-        "images/exam-review/winter-2025/page-02.jpg",
-        "images/exam-review/winter-2025/page-03.jpg"
+        "images/exam-review/winter-2025-01.png",
+        "images/exam-review/winter-2025-02.png",
+        "images/exam-review/winter-2025-03.png"
       ],
       "summary": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
       "given": [
@@ -1269,11 +1269,11 @@
       "sourceFile": "صيف 2023 موعد أ.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2023-a.pdf",
       "images": [
-        "images/exam-review/summer-2023-a/page-01.jpg",
-        "images/exam-review/summer-2023-a/page-02.jpg",
-        "images/exam-review/summer-2023-a/page-03.jpg",
-        "images/exam-review/summer-2023-a/page-04.jpg",
-        "images/exam-review/summer-2023-a/page-05.jpg"
+        "images/exam-review/summer-2023-a-01.png",
+        "images/exam-review/summer-2023-a-02.png",
+        "images/exam-review/summer-2023-a-03.png",
+        "images/exam-review/summer-2023-a-04.png",
+        "images/exam-review/summer-2023-a-05.png"
       ],
       "summary": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
       "given": [
@@ -1380,10 +1380,10 @@
       "sourceFile": "صيف 2023 موعد ب.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2023-b.pdf",
       "images": [
-        "images/exam-review/summer-2023-b/page-01.jpg",
-        "images/exam-review/summer-2023-b/page-02.jpg",
-        "images/exam-review/summer-2023-b/page-03.jpg",
-        "images/exam-review/summer-2023-b/page-04.jpg"
+        "images/exam-review/summer-2023-b-01.png",
+        "images/exam-review/summer-2023-b-02.png",
+        "images/exam-review/summer-2023-b-03.png",
+        "images/exam-review/summer-2023-b-04.png"
       ],
       "summary": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
       "given": [
@@ -1509,9 +1509,9 @@
       "sourceFile": "صيف 2025 موعد أ.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2025-a.pdf",
       "images": [
-        "images/exam-review/summer-2025-a/page-01.jpg",
-        "images/exam-review/summer-2025-a/page-02.jpg",
-        "images/exam-review/summer-2025-a/page-03.jpg"
+        "images/exam-review/summer-2025-a-01.png",
+        "images/exam-review/summer-2025-a-02.png",
+        "images/exam-review/summer-2025-a-03.png"
       ],
       "summary": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
       "given": [
@@ -1638,8 +1638,8 @@
       "sourceFile": "صيف 2025 موعد ب.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2025-b.pdf",
       "images": [
-        "images/exam-review/summer-2025-b/page-01.jpg",
-        "images/exam-review/summer-2025-b/page-02.jpg"
+        "images/exam-review/summer-2025-b-01.png",
+        "images/exam-review/summer-2025-b-02.png"
       ],
       "summary": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
       "given": [
