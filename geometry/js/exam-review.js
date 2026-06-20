@@ -58,6 +58,9 @@ function getSearchBlob(q) {
     ...(q.required || []),
     ...(q.solutionPlan || []),
     ...(q.finalAnswers || []),
+    q.solutionStatus,
+    q.modelSolutionSummary,
+    ...((q.modelSolution || []).flatMap((part) => [part.part, part.title, part.result, ...(part.steps || [])])),
     ...(q.theoremIds || []).map((id) => getTheoremLabel(id)),
   ].join(" "));
 }
@@ -170,6 +173,38 @@ function renderListBlock(title, items, cls = "sol-ul") {
   `;
 }
 
+
+function renderModelSolutions(parts) {
+  if (!Array.isArray(parts) || !parts.length) return "";
+  return `
+    <div class="model-solution">
+      <div class="model-solution__head">
+        <div>
+          <div class="sol-h">الحل النموذجي المفصل</div>
+          <p class="model-solution__hint">صياغة منظمة تصلح للمراجعة أو الكتابة في الامتحان، مع الحفاظ على تسلسل الادعاء ثم التعليل.</p>
+        </div>
+        <span class="solution-status-pill">${parts.length} بنود محلولة</span>
+      </div>
+      <div class="model-solution__grid">
+        ${parts.map((part, idx) => `
+          <article class="model-part">
+            <div class="model-part__top">
+              <span class="model-part__num">${escapeHtml(part.part || String(idx + 1))}</span>
+              <h3>${escapeHtml(part.title || "بند الحل")}</h3>
+            </div>
+            ${(part.steps || []).length ? `
+              <ol class="model-steps">
+                ${part.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}
+              </ol>
+            ` : ""}
+            ${part.result ? `<div class="model-result"><span>النتيجة</span>${escapeHtml(part.result)}</div>` : ""}
+          </article>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderQuestion(q) {
   if (!q) return;
 
@@ -188,12 +223,14 @@ function renderQuestion(q) {
       <div class="source-actions">
         ${pdfLink}
         <span class="btn btn--soft btn--as-label">${escapeHtml(q.imageCount || 0)} صفحات مصورة</span>
+        ${q.solutionStatus ? `<span class="solution-status-pill">${escapeHtml(q.solutionStatus)}</span>` : ""}
       </div>
       <div class="sol-kv exam-kv">
         <div>${renderListBlock("المعطيات", q.given)}</div>
         <div>${renderListBlock("المطلوب", q.required)}</div>
       </div>
       ${renderListBlock("خطة الحل / الإرشادات العلمية", q.solutionPlan, "sol-ol")}
+      ${renderModelSolutions(q.modelSolution)}
       ${renderListBlock("النتائج النهائية", q.finalAnswers)}
       ${renderTheoremChips(q.theoremIds, { title: "النظريات المرتبطة بالسؤال" })}
     </div>
