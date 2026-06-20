@@ -622,9 +622,9 @@
       "sourceFile": "صيف 2017 موعد أ.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2017-a.pdf",
       "images": [
-        "images/exam-review/summer-2017-a/page-01.jpg",
-        "images/exam-review/summer-2017-a/page-02.jpg",
-        "images/exam-review/summer-2017-a/page-03.jpg"
+        "images/exam-review/summer-2017-a-01.png",
+        "images/exam-review/summer-2017-a-02.png",
+        "images/exam-review/summer-2017-a-03.png"
       ],
       "summary": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
       "given": [
@@ -731,9 +731,9 @@
       "sourceFile": "صيف 2017 موعد ب.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2017-b.pdf",
       "images": [
-        "images/exam-review/summer-2017-b/page-01.jpg",
-        "images/exam-review/summer-2017-b/page-02.jpg",
-        "images/exam-review/summer-2017-b/page-03.jpg"
+        "images/exam-review/summer-2017-b-01.png",
+        "images/exam-review/summer-2017-b-02.png",
+        "images/exam-review/summer-2017-b-03.png"
       ],
       "summary": "ABCD معين، E على DC، وF على القطر DB، والرباعي BCEF قابل للحصر في دائرة. المطلوب مساواة زوايا، مثلث متساوي الساقين، تشابه، ثم مساحة المعين.",
       "given": [
@@ -838,10 +838,9 @@
       "sourceFile": "صيف 2018 موعد أ.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2018-a.pdf",
       "images": [
-        "images/exam-review/summer-2018-a/page-01.jpg",
-        "images/exam-review/summer-2018-a/page-02.jpg",
-        "images/exam-review/summer-2018-a/page-03.jpg",
-        "images/exam-review/summer-2018-a/page-04.jpg"
+        "images/exam-review/summer-2018-a-01.png",
+        "images/exam-review/summer-2018-a-02.png",
+        "images/exam-review/summer-2018-a-03.png"
       ],
       "summary": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
       "given": [
@@ -948,9 +947,9 @@
       "sourceFile": "صيف 2018 موعد ب.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2018-b.pdf",
       "images": [
-        "images/exam-review/summer-2018-b/page-01.jpg",
-        "images/exam-review/summer-2018-b/page-02.jpg",
-        "images/exam-review/summer-2018-b/page-03.jpg"
+        "images/exam-review/summer-2018-b-01.png",
+        "images/exam-review/summer-2018-b-02.png",
+        "images/exam-review/summer-2018-b-03.png"
       ],
       "summary": "المثلث AEB محصور في دائرة، و GF مماس عند E. النقطتان C وD على BE وAE بحيث CD ∥ GF. المطلوب زاوية، تشابه، رباعي دائري، ثم حساب ED.",
       "given": [
@@ -1057,9 +1056,9 @@
       "sourceFile": "صيف 2020 موعد أ.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2020-a.pdf",
       "images": [
-        "images/exam-review/summer-2020-a/page-01.jpg",
-        "images/exam-review/summer-2020-a/page-02.jpg",
-        "images/exam-review/summer-2020-a/page-03.jpg"
+        "images/exam-review/summer-2020-a-01.png",
+        "images/exam-review/summer-2020-a-02.png",
+        "images/exam-review/summer-2020-a-03.png"
       ],
       "summary": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
       "given": [
@@ -1164,9 +1163,9 @@
       "sourceFile": "صيف 2020 موعد ب.pdf",
       "pdfUrl": "pdfs/exam-review/summer-2020-b.pdf",
       "images": [
-        "images/exam-review/summer-2020-b/page-01.jpg",
-        "images/exam-review/summer-2020-b/page-02.jpg",
-        "images/exam-review/summer-2020-b/page-03.jpg"
+        "images/exam-review/summer-2020-b-01.png",
+        "images/exam-review/summer-2020-b-02.png",
+        "images/exam-review/summer-2020-b-03.png"
       ],
       "summary": "ABCD متوازي أضلاع، G على القطر AC و F على AD، ومعطى ∠FGA=∠ABC. المطلوب تشابه، علاقة جداء، نسبة AF/AC، وتشابه آخر عند تقاطع القطرين.",
       "given": [
