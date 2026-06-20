@@ -5,9 +5,10 @@
     "totalTheorems": 152,
     "planeVisibleTheorems": 138,
     "spaceVisibleTheorems": 17,
-    "usedBySolutionsCount": 43,
+    "usedBySolutionsCount": 70,
     "generatedAt": "2026-06-19",
-    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحات الحلول ومرجع النظريات، وأضيف إليه محور الدائرة 035481 مفصولًا إلى معطى ونتيجة ونص نظرية."
+    "note_ar": "هذا الملف هو المرجع الحقيقي المشترك بين صفحات الحلول ومحور الدائرة وبنك أسئلة السنوات، وأضيف إليه محور الدائرة 035481 مفصولًا إلى معطى ونتيجة ونص نظرية.",
+    "examReviewQuestionCount": 15
   },
   "aliases": {
     "th001": "th001",
@@ -485,10 +486,23 @@
           "images": [
             "images/questions/plane/qf-6-p3.png"
           ]
+        },
+        {
+          "questionId": "summer-2023-a",
+          "href": "./exam-review.html#exam:summer-2023-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد أ - مستطيل وتشابه ومساحة",
+          "statement": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2023-a/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 3,
-      "usedInCount": 3,
+      "questionCount": 4,
+      "usedInCount": 4,
       "relatedIds": []
     },
     {
@@ -858,10 +872,23 @@
           "images": [
             "images/questions/plane/qf-16-p2.png"
           ]
+        },
+        {
+          "questionId": "winter-2018",
+          "href": "./exam-review.html#exam:winter-2018",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2018 - وتر وقطعة وسطى ومعين",
+          "statement": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2018",
+          "images": [
+            "images/exam-review/winter-2018/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 22,
-      "usedInCount": 22,
+      "questionCount": 23,
+      "usedInCount": 23,
       "relatedIds": [
         "th006",
         "th007",
@@ -1395,10 +1422,23 @@
           "images": [
             "images/questions/plane/qf-16-p2.png"
           ]
+        },
+        {
+          "questionId": "summer-2017-a",
+          "href": "./exam-review.html#exam:summer-2017-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد أ - شبه منحرف قائم وتطابق",
+          "statement": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2017-a/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 9,
-      "usedInCount": 9,
+      "questionCount": 10,
+      "usedInCount": 10,
       "relatedIds": []
     },
     {
@@ -1629,10 +1669,49 @@
           "images": [
             "images/questions/plane/qf-8-p4.png"
           ]
+        },
+        {
+          "questionId": "winter-2018",
+          "href": "./exam-review.html#exam:winter-2018",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2018 - وتر وقطعة وسطى ومعين",
+          "statement": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2018",
+          "images": [
+            "images/exam-review/winter-2018/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2020",
+          "href": "./exam-review.html#exam:winter-2020",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2020 - دائرتان متماستان وتشابه",
+          "statement": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2020",
+          "images": [
+            "images/exam-review/winter-2020/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-a",
+          "href": "./exam-review.html#exam:summer-2018-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد أ - زاوية مركزية وقطعة وسطى",
+          "statement": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2018-a/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 12,
-      "usedInCount": 0,
+      "questionCount": 15,
+      "usedInCount": 15,
       "relatedIds": []
     },
     {
@@ -1831,7 +1910,7 @@
         }
       ],
       "questionCount": 12,
-      "usedInCount": 0,
+      "usedInCount": 12,
       "relatedIds": []
     },
     {
@@ -2158,10 +2237,23 @@
           "images": [
             "images/questions/plane/qf-6-p3.png"
           ]
+        },
+        {
+          "questionId": "summer-2017-a",
+          "href": "./exam-review.html#exam:summer-2017-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد أ - شبه منحرف قائم وتطابق",
+          "statement": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2017-a/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 4,
-      "usedInCount": 4,
+      "questionCount": 5,
+      "usedInCount": 5,
       "relatedIds": []
     },
     {
@@ -2308,9 +2400,36 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2017",
+          "href": "./exam-review.html#exam:winter-2017",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2017 - الدالتون داخل دائرة",
+          "statement": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2017",
+          "images": [
+            "images/exam-review/winter-2017/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
       "relatedIds": []
     },
     {
@@ -2689,10 +2808,36 @@
           "images": [
             "images/questions/plane/qf-6-p1.png"
           ]
+        },
+        {
+          "questionId": "summer-2017-a",
+          "href": "./exam-review.html#exam:summer-2017-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد أ - شبه منحرف قائم وتطابق",
+          "statement": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2017-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-b",
+          "href": "./exam-review.html#exam:summer-2020-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد ب - متوازي أضلاع وتشابه",
+          "statement": "ABCD متوازي أضلاع، G على القطر AC و F على AD، ومعطى ∠FGA=∠ABC. المطلوب تشابه، علاقة جداء، نسبة AF/AC، وتشابه آخر عند تقاطع القطرين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2020-b/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 17,
-      "usedInCount": 16,
+      "questionCount": 19,
+      "usedInCount": 19,
       "relatedIds": [
         "th022",
         "th023",
@@ -2995,10 +3140,23 @@
           "images": [
             "images/questions/plane/qf-9-p1.png"
           ]
+        },
+        {
+          "questionId": "summer-2020-b",
+          "href": "./exam-review.html#exam:summer-2020-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد ب - متوازي أضلاع وتشابه",
+          "statement": "ABCD متوازي أضلاع، G على القطر AC و F على AD، ومعطى ∠FGA=∠ABC. المطلوب تشابه، علاقة جداء، نسبة AF/AC، وتشابه آخر عند تقاطع القطرين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2020-b/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 17,
-      "usedInCount": 0,
+      "questionCount": 18,
+      "usedInCount": 18,
       "relatedIds": []
     },
     {
@@ -3269,7 +3427,7 @@
         }
       ],
       "questionCount": 17,
-      "usedInCount": 0,
+      "usedInCount": 17,
       "relatedIds": []
     },
     {
@@ -3525,9 +3683,23 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "summer-2017-b",
+          "href": "./exam-review.html#exam:summer-2017-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد ب - معين ورباعي دائري",
+          "statement": "ABCD معين، E على DC، وF على القطر DB، والرباعي BCEF قابل للحصر في دائرة. المطلوب مساواة زوايا، مثلث متساوي الساقين، تشابه، ثم مساحة المعين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2017-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": []
     },
     {
@@ -3697,9 +3869,23 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": []
     },
     {
@@ -3824,9 +4010,23 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": []
     },
     {
@@ -4015,7 +4215,7 @@
         }
       ],
       "questionCount": 2,
-      "usedInCount": 0,
+      "usedInCount": 2,
       "relatedIds": []
     },
     {
@@ -4080,7 +4280,7 @@
         }
       ],
       "questionCount": 2,
-      "usedInCount": 0,
+      "usedInCount": 2,
       "relatedIds": []
     },
     {
@@ -4295,7 +4495,7 @@
         }
       ],
       "questionCount": 4,
-      "usedInCount": 0,
+      "usedInCount": 4,
       "relatedIds": []
     },
     {
@@ -4386,7 +4586,7 @@
         }
       ],
       "questionCount": 4,
-      "usedInCount": 0,
+      "usedInCount": 4,
       "relatedIds": []
     },
     {
@@ -4508,9 +4708,75 @@
         "page": 1,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2017",
+          "href": "./exam-review.html#exam:winter-2017",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2017 - الدالتون داخل دائرة",
+          "statement": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2017",
+          "images": [
+            "images/exam-review/winter-2017/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2017-b",
+          "href": "./exam-review.html#exam:summer-2017-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد ب - معين ورباعي دائري",
+          "statement": "ABCD معين، E على DC، وF على القطر DB، والرباعي BCEF قابل للحصر في دائرة. المطلوب مساواة زوايا، مثلث متساوي الساقين، تشابه، ثم مساحة المعين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2017-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-b",
+          "href": "./exam-review.html#exam:summer-2018-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد ب - مماس وتشابه ورباعي دائري",
+          "statement": "المثلث AEB محصور في دائرة، و GF مماس عند E. النقطتان C وD على BE وAE بحيث CD ∥ GF. المطلوب زاوية، تشابه، رباعي دائري، ثم حساب ED.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2018-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 5,
+      "usedInCount": 5,
       "relatedIds": []
     },
     {
@@ -5648,10 +5914,101 @@
           "statement": "منشور ثلاثي قائم: قاعدتان متساويتا الأضلاع. المعطى: منشور قائم ABCA′B′C′، القاعدة △ABC متساوي الأضلاع طول ضلعه a، وارتفاع المنشور AA′=h. النقطة E على BC بحيث A′E ⟂ BC في △A′BC، والزاوية بين A′E ومستوى القاعدة (ABC) هي α. أ) لإيجاد a بدلالة h و α: 1) زاوية الم…",
           "sourceLabel": "حلول أسئلة الفراغ – هندسة فراغية",
           "images": []
+        },
+        {
+          "questionId": "winter-2017",
+          "href": "./exam-review.html#exam:winter-2017",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2017 - الدالتون داخل دائرة",
+          "statement": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2017",
+          "images": [
+            "images/exam-review/winter-2017/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2020",
+          "href": "./exam-review.html#exam:winter-2020",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2020 - دائرتان متماستان وتشابه",
+          "statement": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2020",
+          "images": [
+            "images/exam-review/winter-2020/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-a",
+          "href": "./exam-review.html#exam:summer-2018-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد أ - زاوية مركزية وقطعة وسطى",
+          "statement": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2018-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-a",
+          "href": "./exam-review.html#exam:summer-2023-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد أ - مستطيل وتشابه ومساحة",
+          "statement": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2023-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 19,
-      "usedInCount": 18,
+      "questionCount": 26,
+      "usedInCount": 26,
       "relatedIds": [
         "th085"
       ]
@@ -5863,10 +6220,23 @@
             "images/questions/plane/qf-8-1-p1.png",
             "images/questions/plane/qf-8-2-p1.png"
           ]
+        },
+        {
+          "questionId": "summer-2020-a",
+          "href": "./exam-review.html#exam:summer-2020-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد أ - مماس وقاطع عبر المركز",
+          "statement": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2020-a/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 10,
-      "usedInCount": 0,
+      "questionCount": 11,
+      "usedInCount": 11,
       "relatedIds": []
     },
     {
@@ -6042,7 +6412,7 @@
         }
       ],
       "questionCount": 10,
-      "usedInCount": 0,
+      "usedInCount": 10,
       "relatedIds": []
     },
     {
@@ -6515,10 +6885,205 @@
           "images": [
             "images/questions/plane/qf-29-p5.png"
           ]
+        },
+        {
+          "questionId": "winter-2017",
+          "href": "./exam-review.html#exam:winter-2017",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2017 - الدالتون داخل دائرة",
+          "statement": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2017",
+          "images": [
+            "images/exam-review/winter-2017/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2018",
+          "href": "./exam-review.html#exam:winter-2018",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2018 - وتر وقطعة وسطى ومعين",
+          "statement": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2018",
+          "images": [
+            "images/exam-review/winter-2018/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2020",
+          "href": "./exam-review.html#exam:winter-2020",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2020 - دائرتان متماستان وتشابه",
+          "statement": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2020",
+          "images": [
+            "images/exam-review/winter-2020/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2017-a",
+          "href": "./exam-review.html#exam:summer-2017-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد أ - شبه منحرف قائم وتطابق",
+          "statement": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2017-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2017-b",
+          "href": "./exam-review.html#exam:summer-2017-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد ب - معين ورباعي دائري",
+          "statement": "ABCD معين، E على DC، وF على القطر DB، والرباعي BCEF قابل للحصر في دائرة. المطلوب مساواة زوايا، مثلث متساوي الساقين، تشابه، ثم مساحة المعين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2017-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-a",
+          "href": "./exam-review.html#exam:summer-2018-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد أ - زاوية مركزية وقطعة وسطى",
+          "statement": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2018-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-b",
+          "href": "./exam-review.html#exam:summer-2018-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد ب - مماس وتشابه ورباعي دائري",
+          "statement": "المثلث AEB محصور في دائرة، و GF مماس عند E. النقطتان C وD على BE وAE بحيث CD ∥ GF. المطلوب زاوية، تشابه، رباعي دائري، ثم حساب ED.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2018-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-a",
+          "href": "./exam-review.html#exam:summer-2020-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد أ - مماس وقاطع عبر المركز",
+          "statement": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2020-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-b",
+          "href": "./exam-review.html#exam:summer-2020-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد ب - متوازي أضلاع وتشابه",
+          "statement": "ABCD متوازي أضلاع، G على القطر AC و F على AD، ومعطى ∠FGA=∠ABC. المطلوب تشابه، علاقة جداء، نسبة AF/AC، وتشابه آخر عند تقاطع القطرين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2020-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-a",
+          "href": "./exam-review.html#exam:summer-2023-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد أ - مستطيل وتشابه ومساحة",
+          "statement": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2023-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
         }
       ],
-      "questionCount": 6,
-      "usedInCount": 6,
+      "questionCount": 21,
+      "usedInCount": 21,
       "relatedIds": []
     },
     {
@@ -6587,9 +7152,140 @@
         "page": 2,
         "referenceFile": "משפטים בגיאומטריה.pdf"
       },
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2020",
+          "href": "./exam-review.html#exam:winter-2020",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2020 - دائرتان متماستان وتشابه",
+          "statement": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2020",
+          "images": [
+            "images/exam-review/winter-2020/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2017-a",
+          "href": "./exam-review.html#exam:summer-2017-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد أ - شبه منحرف قائم وتطابق",
+          "statement": "ABCD شبه منحرف قائم الزاوية، E على امتداد BC، و AE عمودية على BD وتقطع DC في G. المطلوب مساواة زاويتين، تطابق مثلثين، تشابه، ثم نسبة GC/AB.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2017-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2017-b",
+          "href": "./exam-review.html#exam:summer-2017-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2017 موعد ب - معين ورباعي دائري",
+          "statement": "ABCD معين، E على DC، وF على القطر DB، والرباعي BCEF قابل للحصر في دائرة. المطلوب مساواة زوايا، مثلث متساوي الساقين، تشابه، ثم مساحة المعين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2017 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2017-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-b",
+          "href": "./exam-review.html#exam:summer-2018-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد ب - مماس وتشابه ورباعي دائري",
+          "statement": "المثلث AEB محصور في دائرة، و GF مماس عند E. النقطتان C وD على BE وAE بحيث CD ∥ GF. المطلوب زاوية، تشابه، رباعي دائري، ثم حساب ED.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2018-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-b",
+          "href": "./exam-review.html#exam:summer-2020-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد ب - متوازي أضلاع وتشابه",
+          "statement": "ABCD متوازي أضلاع، G على القطر AC و F على AD، ومعطى ∠FGA=∠ABC. المطلوب تشابه، علاقة جداء، نسبة AF/AC، وتشابه آخر عند تقاطع القطرين.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2020-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-a",
+          "href": "./exam-review.html#exam:summer-2023-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد أ - مستطيل وتشابه ومساحة",
+          "statement": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2023-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 10,
+      "usedInCount": 10,
       "relatedIds": []
     },
     {
@@ -6727,7 +7423,7 @@
         }
       ],
       "questionCount": 1,
-      "usedInCount": 0,
+      "usedInCount": 1,
       "relatedIds": []
     },
     {
@@ -6772,7 +7468,7 @@
         }
       ],
       "questionCount": 1,
-      "usedInCount": 0,
+      "usedInCount": 1,
       "relatedIds": []
     },
     {
@@ -8369,7 +9065,7 @@
         }
       ],
       "questionCount": 21,
-      "usedInCount": 20,
+      "usedInCount": 21,
       "relatedIds": []
     },
     {
@@ -8969,7 +9665,7 @@
         }
       ],
       "questionCount": 28,
-      "usedInCount": 27,
+      "usedInCount": 28,
       "relatedIds": []
     },
     {
@@ -10210,9 +10906,23 @@
       "given": "O مركز الدائرة، و OD عمود على الوتر AB.",
       "required": "إثبات AD = DB، وانقسام الزاوية المركزية والقوس المقابل إلى قسمين متساويين.",
       "symbolic": "OD ⟂ AB ⟹ AD = DB ، ∠AOD = ∠DOB ، والقوس المقابل للوتر AB منقسم إلى قوسين متساويين",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2018",
+          "href": "./exam-review.html#exam:winter-2018",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2018 - وتر وقطعة وسطى ومعين",
+          "statement": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2018",
+          "images": [
+            "images/exam-review/winter-2018/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": [
         "circle035481_t08",
         "circle035481_t09"
@@ -10630,9 +11340,36 @@
       "given": "A و B و C نقاط على الدائرة، و O مركزها، والزاويتان ∠ACB و ∠AOB ترتكزان على القوس نفسه ⌒AB.",
       "required": "إثبات أن ∠ACB = ½ ∠AOB.",
       "symbolic": "∠ACB = ½ ∠AOB",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-a",
+          "href": "./exam-review.html#exam:summer-2018-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد أ - زاوية مركزية وقطعة وسطى",
+          "statement": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2018-a/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
       "relatedIds": [
         "circle035481_t15",
         "circle035481_t16",
@@ -10809,9 +11546,23 @@
       "given": "زاويتان محيطيتان متساويتان في الدائرة.",
       "required": "إثبات تساوي القوسين أو الوترين اللذين ترتكز عليهما الزاويتان.",
       "symbolic": "زاويتان محيطيتان متساويتان ⟹ الأقواس أو الأوتار المقابلة متساوية",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": [
         "circle035481_t16",
         "circle035481_t15"
@@ -10868,9 +11619,101 @@
       "given": "AB قطر في الدائرة، و C نقطة على محيط الدائرة.",
       "required": "إثبات أن ∠ACB = 90°.",
       "symbolic": "AB قطر ⟹ ∠ACB = 90°",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2017",
+          "href": "./exam-review.html#exam:winter-2017",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2017 - الدالتون داخل دائرة",
+          "statement": "دالتون ABCD محصور في دائرة مركزها O، مع AB=AD و BC=DC و ∠BCD=60°. المطلوب إثبات زوايا قائمة، مثلث متساوي الأضلاع، معين، حساب BC، ثم تشابه مثلثين.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2017",
+          "images": [
+            "images/exam-review/winter-2017/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2018",
+          "href": "./exam-review.html#exam:winter-2018",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2018 - وتر وقطعة وسطى ومعين",
+          "statement": "المثلث ABC محصور في دائرة، مركزها O على AC، و OE عمودي على AB. المطلوب إثبات أن OE قطعة وسطى، ثم أن AFB متساوي الساقين، ثم إثبات أن FOCB معين عند ∠ACB=60°.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2018",
+          "images": [
+            "images/exam-review/winter-2018/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "winter-2020",
+          "href": "./exam-review.html#exam:winter-2020",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2020 - دائرتان متماستان وتشابه",
+          "statement": "دائرة كبيرة مركزها M ودائرة صغيرة مركزها O متماستان داخليًا في C. يُستعمل القطران AC و MC لإثبات زوايا قائمة، تشابه، قطعة وسطى، نسبة مساحات، ثم حساب BC.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2020",
+          "images": [
+            "images/exam-review/winter-2020/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-a",
+          "href": "./exam-review.html#exam:summer-2018-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد أ - زاوية مركزية وقطعة وسطى",
+          "statement": "دائرة مركزها M ونصف قطرها R، و BC قطر. النقطة D خارج الدائرة و DC تقطع الدائرة في A، مع ∠ABD = 1/2 ∠AMC. المطلوب منصف زاوية، تشابه، قطعة وسطى، ومساحة بدلالة R.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2018-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-a",
+          "href": "./exam-review.html#exam:summer-2020-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد أ - مماس وقاطع عبر المركز",
+          "statement": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2020-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 7,
+      "usedInCount": 7,
       "relatedIds": [
         "circle035481_t19",
         "circle035481_t14"
@@ -10928,9 +11771,36 @@
       "given": "زاوية محيطية قائمة: ∠ACB = 90°.",
       "required": "إثبات أن الوتر المقابل للزاوية القائمة AB هو قطر الدائرة.",
       "symbolic": "∠ACB = 90° ⟹ AB قطر",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "summer-2023-a",
+          "href": "./exam-review.html#exam:summer-2023-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد أ - مستطيل وتشابه ومساحة",
+          "statement": "ABCD مستطيل، E على امتداد CB، و DE يقطع AB في F. المطلوب تشابه، نسبة AF/FB من المساحات، حساب CB، ثم نصف قطر دائرة المثلث DCE.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2023-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
       "relatedIds": [
         "circle035481_t18",
         "circle035481_t14"
@@ -10988,9 +11858,62 @@
       "given": "OA نصف قطر، و BC مماس للدائرة عند النقطة A.",
       "required": "إثبات أن OA ⟂ BC.",
       "symbolic": "BC مماس عند A ⟹ OA ⟂ BC",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-a",
+          "href": "./exam-review.html#exam:summer-2020-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد أ - مماس وقاطع عبر المركز",
+          "statement": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2020-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 4,
+      "usedInCount": 4,
       "relatedIds": [
         "circle035481_t21",
         "circle035481_t22",
@@ -11109,9 +12032,75 @@
       "given": "مماس للدائرة عند A، ووتر AB، ونقطة C على محيط الدائرة في الجهة المقابلة.",
       "required": "إثبات أن الزاوية بين المماس والوتر AB تساوي ∠ACB.",
       "symbolic": "∠(المماس, AB) = ∠ACB",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2023",
+          "href": "./exam-review.html#exam:winter-2023",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2023 - شبه منحرف دائري ومماس",
+          "statement": "ABCD شبه منحرف محصور في دائرة و AB ∥ DC، والمماس عند A يقطع امتداد CD في E. المطلوب إثبات شبه منحرف متساوي الساقين، مساواة زوايا، تشابه، ثم حساب ED و AB.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2023",
+          "images": [
+            "images/exam-review/winter-2023/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2018-b",
+          "href": "./exam-review.html#exam:summer-2018-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2018 موعد ب - مماس وتشابه ورباعي دائري",
+          "statement": "المثلث AEB محصور في دائرة، و GF مماس عند E. النقطتان C وD على BE وAE بحيث CD ∥ GF. المطلوب زاوية، تشابه، رباعي دائري، ثم حساب ED.",
+          "sourceLabel": "امتحانات سابقة • صيف 2018 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2018-b/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2020-a",
+          "href": "./exam-review.html#exam:summer-2020-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2020 موعد أ - مماس وقاطع عبر المركز",
+          "statement": "من نقطة A خارج دائرة مركزها M رُسم مماس عند C، ومستقيم آخر يمر عبر M ويقطع الدائرة في D وE. المطلوب تشابه وزوايا ثم إثبات أن MCD متساوي الأضلاع.",
+          "sourceLabel": "امتحانات سابقة • صيف 2020 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2020-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-a",
+          "href": "./exam-review.html#exam:summer-2025-a",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد أ - رباعي دائري ومماس",
+          "statement": "ABCD رباعي محصور في دائرة، F على امتداد AD و CF مماس، والوتر AC ينصف ∠BAD. المطلوب زوايا، تشابه، علاقة جداء، حساب BC و AB، ثم نصف القطر.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد أ",
+          "images": [
+            "images/exam-review/summer-2025-a/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2025-b",
+          "href": "./exam-review.html#exam:summer-2025-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2025 موعد ب - قطر ومماس ومستطيل",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر. مرّ مماس عند C، و E على المماس بحيث AE ⟂ CE. المطلوب تشابه، حساب AC، إثبات مستطيل، ثم نسبة مساحة.",
+          "sourceLabel": "امتحانات سابقة • صيف 2025 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2025-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 5,
+      "usedInCount": 5,
       "relatedIds": [
         "circle035481_t20",
         "circle035481_t23"
@@ -11167,9 +12156,36 @@
       "given": "من نقطة خارجية C رُسم مماسان CA و CB للدائرة عند A و B.",
       "required": "إثبات أن CA = CB.",
       "symbolic": "CA و CB مماسان من C ⟹ CA = CB",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        },
+        {
+          "questionId": "summer-2023-b",
+          "href": "./exam-review.html#exam:summer-2023-b",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "صيف 2023 موعد ب - قطر ومماسان ومثلث متساوي الأضلاع",
+          "statement": "ABC مثلث محصور في دائرة مركزها O، و AB قطر، و E منتصف AC. ثم تُرسم مماسان عند B و C يلتقيان في D. المطلوب تعامد، تشابه، نسبة مساحات، مثلث متساوي الأضلاع، ومساحة OCD.",
+          "sourceLabel": "امتحانات سابقة • صيف 2023 - موعد ب",
+          "images": [
+            "images/exam-review/summer-2023-b/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 2,
+      "usedInCount": 2,
       "relatedIds": [
         "circle035481_t24",
         "circle035481_t20"
@@ -11227,9 +12243,23 @@
       "given": "من نقطة خارجية A رُسم المماسان AB و AC، و O مركز الدائرة.",
       "required": "إثبات أن AO ينصف الزاوية بين المماسين: ∠BAO = ∠OAC.",
       "symbolic": "AB و AC مماسان من A ⟹ ∠BAO = ∠OAC",
-      "questionLinks": [],
-      "questionCount": 0,
-      "usedInCount": 0,
+      "questionLinks": [
+        {
+          "questionId": "winter-2025",
+          "href": "./exam-review.html#exam:winter-2025",
+          "page": "exam-review",
+          "domain": "plane",
+          "level": "امتحانات سابقة",
+          "title": "شتاء 2025 - مماسان ودالتون وتشابه",
+          "statement": "ABC مثلث محصور في دائرة مركزها O و AC قطر. من B و C رُسم مماسان يلتقيان في F. المطلوب دالتون، مساواة زوايا، تشابه، ثم علاقة CB=OE.",
+          "sourceLabel": "امتحانات سابقة • شتاء 2025",
+          "images": [
+            "images/exam-review/winter-2025/page-01.jpg"
+          ]
+        }
+      ],
+      "questionCount": 1,
+      "usedInCount": 1,
       "relatedIds": [
         "circle035481_t23",
         "circle035481_t20"
