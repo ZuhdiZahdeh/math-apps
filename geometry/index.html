@@ -15,21 +15,23 @@
     <div class="topbar__hint">موقع واحد يجمع الحلول والمرجع النظري في هوية بصرية موحّدة، مع اعتماد data/theorems-master.json كمصدر الحقيقة الوحيد للنظريات.</div>
   </div>
   <nav class="topbar__nav" aria-label="أقسام الموقع">
-    <a class="topnav__link is-active" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="circle-035481.html">الدائرة 035481</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
+    <a class="topnav__link is-active" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="circle-035481.html">الدائرة 035481</a><a class="topnav__link" href="exam-review.html">امتحانات سابقة</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
   </nav>
 </header>
   <main class="home-shell">
     <section class="card home-hero">
       <div class="home-hero__content">
         <div class="card__title">البنية الجديدة للموقع</div>
-        <h1 class="home-title">الهندسة المستوية + هندسة الفراغ + الدائرة 035481 + مرجع النظريات في منصة واحدة</h1>
-        <p class="home-lead">كل بطاقات النظريات في صفحات الحلول ومحور الدائرة تقرأ الآن من ملف واحد موحّد: <code class="code-pill">data/theorems-master.json</code>، لذلك أي تعديل على نظرية واحدة ينعكس مباشرة على الصفحات المرتبطة.</p>
+        <h1 class="home-title">الهندسة المستوية + هندسة الفراغ + الدائرة 035481 + امتحانات سابقة + مرجع النظريات في منصة واحدة</h1>
+        <p class="home-lead">كل بطاقات النظريات في صفحات الحلول ومحور الدائرة وبنك الامتحانات تقرأ الآن من ملف واحد موحّد: <code class="code-pill">data/theorems-master.json</code>. أما أسئلة السنوات السابقة فمخزنة في <code class="code-pill">data/exam-review.json</code> مع صور صفحاتها الأصلية.</p>
         <div class="hero-kpis">
           <div class="stat-chip stat-chip--primary"><strong>62</strong><span>سؤال في المستوية</span></div>
           <div class="stat-chip"><strong>29</strong><span>سؤال في الفراغ</span></div>
           <div class="stat-chip stat-chip--soft"><strong>152</strong><span>نظرية في المرجع</span></div>
           <div class="stat-chip"><strong>24</strong><span>نظرية دائرة 035481</span></div>
-          <div class="stat-chip"><strong>43</strong><span>نظرية مستخدمة فعليًا</span></div>
+          <div class="stat-chip stat-chip--primary"><strong>15</strong><span>سؤال امتحانات سابقة</span></div>
+          <div class="stat-chip"><strong>52</strong><span>صفحة مصورة للأسئلة</span></div>
+          <div class="stat-chip"><strong>70</strong><span>نظرية مرتبطة بالأسئلة</span></div>
         </div>
       </div>
     </section>
@@ -57,10 +59,18 @@
         <span class="btn btn--success">فتح المحور</span>
       </a>
 
+
+      <a class="home-card" href="exam-review.html">
+        <div class="home-card__eyebrow">امتحانات سابقة + صور أصلية + خطة حل</div>
+        <div class="home-card__title">أسئلة الامتحانات السابقة</div>
+        <p class="home-card__text">بنك مراجعة للأسئلة المرفقة من شتاء/صيف 2017-2025، مع المعطيات والمطلوب وخطة الحل والنظريات المرتبطة.</p>
+        <span class="btn btn--success">فتح بنك الأسئلة</span>
+      </a>
+
       <a class="home-card" href="theorems.html">
         <div class="home-card__eyebrow">بحث + مجالات + أصناف + أسئلة مرتبطة</div>
         <div class="home-card__title">مرجع النظريات الهندسية</div>
-        <p class="home-card__text">المرجع الحقيقي للموقع كله: يعرض النظرية، شرحها، تصنيفها، والأسئلة المرتبطة بها من المستوية والفراغ.</p>
+        <p class="home-card__text">المرجع الحقيقي للموقع كله: يعرض النظرية، شرحها، تصنيفها، والأسئلة المرتبطة بها من المستوية والفراغ وأسئلة السنوات.</p>
         <span class="btn btn--success">فتح الصفحة</span>
       </a>
     </section>
@@ -68,8 +78,8 @@
     <section class="card">
       <div class="card__title">المصدر الحقيقي للنظريات</div>
       <div class="source-note">
-        <p>الملف الموحّد المعتمد هو <code class="code-pill">data/theorems-master.json</code>. داخل هذا الملف ستجد لكل نظرية حقولًا من نوع: <code class="code-pill">id</code>، <code class="code-pill">domain</code>، <code class="code-pill">field</code>، <code class="code-pill">category</code>، <code class="code-pill">title</code>، <code class="code-pill">statement</code>، <code class="code-pill">explanation</code>، <code class="code-pill">proof</code>، إضافةً إلى الرسومات وروابط الأسئلة المرتبطة. ومحور الدائرة 035481 يضيف حقولًا تعليمية مثل <code class="code-pill">given</code>، <code class="code-pill">required</code>، <code class="code-pill">symbolic</code>، و <code class="code-pill">course</code>.</p>
-        <p>مهم: ملفات الصور الأصلية غير مرفقة هنا. إذا أردت ظهور جميع الرسومات، ضع مجلد <code class="code-pill">images/</code> في جذر المشروع بنفس الأسماء والمسارات المتوقعة.</p>
+        <p>الملف الموحّد المعتمد هو <code class="code-pill">data/theorems-master.json</code>. داخل هذا الملف ستجد لكل نظرية حقولًا من نوع: <code class="code-pill">id</code>، <code class="code-pill">domain</code>، <code class="code-pill">field</code>، <code class="code-pill">category</code>، <code class="code-pill">title</code>، <code class="code-pill">statement</code>، <code class="code-pill">explanation</code>، <code class="code-pill">proof</code>، إضافةً إلى الرسومات وروابط الأسئلة المرتبطة. ومحور الدائرة 035481 يضيف حقولًا تعليمية مثل <code class="code-pill">given</code>، <code class="code-pill">required</code>، <code class="code-pill">symbolic</code>، و <code class="code-pill">course</code>. أما بنك الامتحانات فيعتمد على <code class="code-pill">data/exam-review.json</code>.</p>
+        <p>ملاحظة: أُرفقت صور صفحات الامتحانات السابقة داخل <code class="code-pill">images/exam-review/</code>، وأُرفقت ملفات PDF الأصلية داخل <code class="code-pill">pdfs/exam-review/</code>. وقد تبقى صور بعض محاور المستوية القديمة معتمدة على مجلد <code class="code-pill">images/</code> إذا كان موجودًا لديك في نسخة الموقع الأصلية.</p>
       </div>
     </section>
   </main>

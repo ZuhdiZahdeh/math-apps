@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>أسئلة الامتحانات السابقة | geometry</title>
+  <meta name="description" content="بنك أسئلة مراجعة هندسية من سنوات سابقة مع صور صفحات PDF، المعطيات، المطلوب، خطة الحل، والنظريات المرتبطة." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__content">
+      <div class="topbar__eyebrow">منصة مراجعة هندسية موحّدة</div>
+      <div class="topbar__title">أسئلة الامتحانات السابقة</div>
+      <div class="topbar__hint">بنك مراجعة للأسئلة المرفقة من شتاء/صيف 2017-2025، مع ربط مباشر بالنظريات وصور صفحات الحل الإرشادي.</div>
+    </div>
+  <nav class="topbar__nav" aria-label="أقسام الموقع">
+    <a class="topnav__link" href="index.html">الرئيسية</a><a class="topnav__link" href="plane.html">الهندسة المستوية</a><a class="topnav__link" href="space.html">هندسة الفراغ</a><a class="topnav__link" href="circle-035481.html">الدائرة 035481</a><a class="topnav__link is-active" href="exam-review.html">امتحانات سابقة</a><a class="topnav__link" href="theorems.html">مرجع النظريات</a>
+  </nav>
+  </header>
+
+  <section class="exam-hero">
+    <div class="card exam-hero__card">
+      <div>
+        <div class="card__title">بنك مراجعة الأسئلة المرفقة</div>
+        <p class="home-lead">كل سؤال هنا محفوظ كمدخل منظّم: المعطيات، المطلوب، خطة الحل، النتائج النهائية، صفحات PDF المصورة، والنظريات المرتبطة من المرجع الموحّد.</p>
+      </div>
+      <div id="examStats" class="hero-kpis exam-kpis"></div>
+    </div>
+  </section>
+
+  <div class="layout exam-layout">
+    <aside class="sidebar">
+      <div class="sidebar__head">
+        <div class="sidebar__title">
+          <span>أسئلة الامتحانات</span>
+          <span id="examDatasetBadge" class="badge">0</span>
+        </div>
+
+        <input id="examSearchInput" class="search" type="search" placeholder="ابحث بالسنة، الموسم، النظرية، أو النتيجة..." />
+
+        <div class="filter-grid">
+          <select id="yearFilter" class="select" aria-label="فلترة حسب السنة"></select>
+          <select id="seasonFilter" class="select" aria-label="فلترة حسب الموسم"></select>
+          <select id="topicFilter" class="select" aria-label="فلترة حسب المحور"></select>
+        </div>
+        <button id="clearExamFilters" class="btn btn--soft btn--wide" type="button">إعادة ضبط البحث</button>
+      </div>
+
+      <div id="examQuestionsList" class="questions"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content__head">
+        <div>
+          <h1 id="examQuestionTitle" class="content__title">اختر سؤالًا من القائمة</h1>
+          <div id="examMetaLine" class="meta"></div>
+        </div>
+        <div class="nav">
+          <button id="prevExamBtn" class="btn btn--soft" type="button">السابق</button>
+          <button id="nextExamBtn" class="btn btn--success" type="button">التالي</button>
+        </div>
+      </div>
+
+      <div class="page-note">ملاحظة: ملفات السنوات المرفقة هي إرشادات حل وليست حلولًا كاملة؛ لذلك عُرضت هنا كخطة مراجعة منظمة مع صور الصفحات الأصلية.</div>
+
+      <section class="card">
+        <div class="card__title">ملخص السؤال وخطة الحل</div>
+        <div id="examSolutionBox" class="solution-box">
+          <div class="solution-empty">اختر سؤالًا لعرض المعطيات، المطلوب، خطة الحل، والنظريات المرتبطة.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__title">صفحات الملف المصورة</div>
+        <div id="examImageGallery" class="gallery exam-gallery"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/exam-review.js"></script>
+</body>
+</html>
