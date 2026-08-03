@@ -1,1 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081526">
+  <meta name="description" content="Privacy Policy for Geometry VR Lab, available in Arabic and English.">
+  <meta property="og:title" content="Privacy Policy | Geometry VR Lab">
+  <meta property="og:description" content="How Geometry VR Lab handles personal information, local diagnostics, and platform services.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/privacy-policy.html">
+  <link rel="canonical" href="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/privacy-policy.html">
+  <title>Privacy Policy | Geometry VR Lab</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #06111f;
+      --surface: rgba(13, 34, 56, .78);
+      --line: rgba(148, 207, 255, .18);
+      --text: #f5fbff;
+      --muted: #b8cbd9;
+      --cyan: #42d7ff;
+      --mint: #71f2ce;
+      --violet: #a788ff;
+      --max: 980px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .3);
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 2%, rgba(66, 215, 255, .15), transparent 28rem),
+        radial-gradient(circle at 93% 11%, rgba(167, 136, 255, .14), transparent 30rem),
+        linear-gradient(145deg, #06111f, #07192b 58%, #071320);
+      line-height: 1.78;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .26;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(108, 173, 224, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 173, 224, .07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 88%);
+    }
+
+    a { color: var(--cyan); }
+    a:hover { color: var(--mint); }
+
+    .shell {
+      width: min(calc(100% - 34px), var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -70px;
+      inset-inline-start: 18px;
+      z-index: 100;
+      padding: 11px 17px;
+      border-radius: 12px;
+      color: #06111f;
+      background: #fff;
+    }
+
+    .skip-link:focus { top: 14px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(148, 207, 255, .12);
+      background: rgba(6, 17, 31, .84);
+      backdrop-filter: blur(18px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 760;
+    }
+
+    .mark {
+      width: 40px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(113, 242, 206, .36);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(66,215,255,.18), rgba(167,136,255,.19));
+    }
+
+    .mark::after {
+      content: "";
+      width: 17px;
+      aspect-ratio: 1;
+      border: 2px solid var(--mint);
+      transform: rotate(29deg) skew(-5deg, -5deg);
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .lang-button {
+      min-width: 51px;
+      min-height: 36px;
+      padding: 5px 11px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-button[aria-pressed="true"] { color: #05121c; background: var(--mint); }
+
+    .hero { padding-block: 78px 42px; }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--mint);
+      font-size: .86rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 1.02;
+      letter-spacing: -.05em;
+    }
+
+    html[dir="rtl"] h1 { letter-spacing: -.035em; }
+
+    .gradient {
+      color: transparent;
+      background: linear-gradient(90deg, var(--cyan), var(--mint), #c3b1ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .intro {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dcebf5;
+      background: rgba(255, 255, 255, .04);
+      font-size: .9rem;
+    }
+
+    .summary {
+      margin-block: 30px 58px;
+      padding: 28px;
+      border: 1px solid rgba(113, 242, 206, .25);
+      border-radius: 24px;
+      background: linear-gradient(120deg, rgba(113,242,206,.095), rgba(66,215,255,.055), rgba(167,136,255,.07));
+      box-shadow: var(--shadow);
+    }
+
+    .summary h2 { margin-top: 0; }
+    .summary ul { margin-bottom: 0; }
+
+    article {
+      margin-bottom: 70px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .policy-section {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 0;
+      padding: 32px 34px;
+      border-bottom: 1px solid rgba(148, 207, 255, .12);
+      scroll-margin-top: 96px;
+    }
+
+    .policy-section:last-child { border-bottom: 0; }
+
+    .section-number {
+      width: 47px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(66, 215, 255, .28);
+      border-radius: 14px;
+      color: var(--cyan);
+      background: rgba(66, 215, 255, .065);
+      font-weight: 850;
+    }
+
+    h2 { margin: 0 0 12px; font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.3; }
+    h3 { margin: 22px 0 7px; font-size: 1.08rem; }
+    p { margin: 0 0 13px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 10px 0 15px; padding-inline-start: 22px; }
+    li + li { margin-top: 8px; }
+
+    .muted { color: var(--muted); }
+
+    .notice {
+      margin-top: 17px;
+      padding: 17px 18px;
+      border-inline-start: 3px solid var(--mint);
+      border-radius: 12px;
+      color: #dcecf5;
+      background: rgba(113, 242, 206, .06);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 9px 17px;
+      border-radius: 999px;
+      color: #04131d;
+      background: linear-gradient(100deg, var(--mint), var(--cyan));
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding-block: 30px 44px;
+      border-top: 1px solid rgba(148, 207, 255, .12);
+      color: var(--muted);
+      font-size: .91rem;
+    }
+
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+
+    [data-lang="en"] { display: none; }
+    html[data-language="en"] [data-lang="ar"] { display: none; }
+    html[data-language="en"] [data-lang="en"] { display: revert; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 22px), var(--max)); }
+      nav { min-height: 68px; }
+      .brand-text { display: none; }
+      .back-link { display: none; }
+      .hero { padding-block: 54px 30px; }
+      article { border-radius: 22px; }
+      .policy-section { grid-template-columns: 1fr; gap: 16px; padding: 25px 21px; }
+      .contact-card, .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#policy-content"><span data-lang="ar">انتقل إلى السياسة</span><span data-lang="en">Skip to policy</span></a>
+
+  <header>
+    <nav class="shell" aria-label="التنقل الرئيسي / Main navigation">
+      <a class="brand" href="./">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="brand-text">Geometry VR Lab</span>
+      </a>
+      <div class="nav-actions">
+        <a class="back-link" href="./"><span data-lang="ar">العودة إلى التطبيق</span><span data-lang="en">Back to the app</span></a>
+        <div class="lang-switch" role="group" aria-label="اختيار اللغة / Language selection">
+          <button class="lang-button" type="button" data-set-language="ar" aria-pressed="true">عربي</button>
+          <button class="lang-button" type="button" data-set-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="policy-content" class="shell">
+    <section class="hero">
+      <p class="eyebrow"><span data-lang="ar">Geometry VR Lab · الخصوصية</span><span data-lang="en">Geometry VR Lab · Privacy</span></p>
+      <h1><span data-lang="ar">سياسة <span class="gradient">خصوصية واضحة</span></span><span data-lang="en">A <span class="gradient">clear privacy</span> policy</span></h1>
+      <p class="intro"><span data-lang="ar">تشرح هذه السياسة، بلغة مباشرة، المعلومات التي يعالجها تطبيق Geometry VR Lab والموقع المصاحب له، وما لا يجمعه التطبيق، والخيارات المتاحة للمستخدم.</span><span data-lang="en">This policy explains, in direct language, what information the Geometry VR Lab application and its companion website process, what the app does not collect, and the choices available to users.</span></p>
+      <div class="meta">
+        <span class="pill"><span data-lang="ar">تاريخ السريان: 3 أغسطس 2026</span><span data-lang="en">Effective: August 3, 2026</span></span>
+        <span class="pill"><span data-lang="ar">آخر تحديث: 3 أغسطس 2026</span><span data-lang="en">Last updated: August 3, 2026</span></span>
+        <span class="pill"><span data-lang="ar">الإصدار: 1.0</span><span data-lang="en">Version: 1.0</span></span>
+      </div>
+    </section>
+
+    <aside class="summary">
+      <h2><span data-lang="ar">الخلاصة المختصرة</span><span data-lang="en">Privacy at a glance</span></h2>
+      <ul>
+        <li><span data-lang="ar">لا يتطلب التطبيق إنشاء حساب داخلي أو تسجيل الدخول إليه.</span><span data-lang="en">The app does not require an in-app account or sign-in.</span></li>
+        <li><span data-lang="ar">لا يجمع المطوّر الاسم أو البريد الإلكتروني أو الموقع الجغرافي أو جهات الاتصال أو الصور أو التسجيلات الصوتية.</span><span data-lang="en">The developer does not collect names, email addresses, precise location, contacts, photos, or voice recordings.</span></li>
+        <li><span data-lang="ar">لا توجد إعلانات أو مشتريات داخل التطبيق أو أدوات تحليل خارجية.</span><span data-lang="en">There are no ads, in-app purchases, or third-party analytics tools.</span></li>
+        <li><span data-lang="ar">قد تُعالج معلومات تقنية محدودة محليًا لأغراض التشغيل والتشخيص، ولا تُرسل تلقائيًا إلى المطوّر.</span><span data-lang="en">Limited technical information may be processed locally for operation and diagnostics and is not automatically transmitted to the developer.</span></li>
+      </ul>
+    </aside>
+
+    <article>
+      <section class="policy-section" id="scope">
+        <span class="section-number">01</span>
+        <div>
+          <h2><span data-lang="ar">نطاق هذه السياسة والجهة المسؤولة</span><span data-lang="en">Scope and responsible party</span></h2>
+          <div data-lang="ar">
+            <p>تنطبق هذه السياسة على تطبيق الواقع الافتراضي <strong>Geometry VR Lab — مختبر الهندسة بالواقع الافتراضي</strong> وصفحاته المنشورة ضمن موقع Math Apps.</p>
+            <p>طُوّر التطبيق بواسطة <strong>زهدي زاهدة</strong> ضمن مشروع تربوي في <strong>الكلية الإبراهيمية، القدس</strong>. ويُشار في هذه السياسة إلى مطوّر التطبيق وناشره بلفظ «نحن».</p>
+          </div>
+          <div data-lang="en">
+            <p>This policy applies to the <strong>Geometry VR Lab</strong> virtual reality application and its pages published within the Math Apps website.</p>
+            <p>The app was developed by <strong>Zuhdi Zahdeh</strong> as an educational project at <strong>Ibrahimieh College, Jerusalem</strong>. In this policy, the app developer and publisher are referred to as “we.”</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="purpose">
+        <span class="section-number">02</span>
+        <div>
+          <h2><span data-lang="ar">غرض التطبيق</span><span data-lang="en">Purpose of the app</span></h2>
+          <p data-lang="ar">Geometry VR Lab تجربة تعليمية مجانية موجّهة أساسًا إلى طلبة المرحلة الثانوية بعمر 13 سنة فأكثر. تساعد التجربة على فهم الهندسة الفراغية من خلال التهيئة الموجّهة، والتفاعل مع المجسّمات ثلاثية الأبعاد، واللوحات التعليمية، والإرشاد الصوتي العربي.</p>
+          <p data-lang="en">Geometry VR Lab is a free educational experience designed primarily for secondary-school learners aged 13 and older. It supports spatial-geometry learning through guided onboarding, interaction with three-dimensional solids, educational panels, and Arabic voice guidance.</p>
+        </div>
+      </section>
+
+      <section class="policy-section" id="not-collected">
+        <span class="section-number">03</span>
+        <div>
+          <h2><span data-lang="ar">البيانات الشخصية التي لا يجمعها التطبيق</span><span data-lang="en">Personal data the app does not collect</span></h2>
+          <div data-lang="ar">
+            <p>لا يطلب التطبيق من المستخدم إنشاء حساب داخلي أو إدخال بيانات تعريف شخصية. ولا يجمع المطوّر عبر التطبيق:</p>
+            <ul>
+              <li>الاسم أو عنوان البريد الإلكتروني أو رقم الهاتف أو العنوان البريدي.</li>
+              <li>الموقع الجغرافي الدقيق أو جهات الاتصال أو ملفات الجهاز الشخصية.</li>
+              <li>الصور أو الفيديو أو التسجيلات الصوتية أو محتوى الميكروفون.</li>
+              <li>بيانات الدفع أو الاشتراك، إذ لا توجد مشتريات أو اشتراكات داخل التطبيق.</li>
+              <li>معرّفات إعلانية أو ملفات تعريف لأغراض التتبّع أو الإعلانات.</li>
+            </ul>
+          </div>
+          <div data-lang="en">
+            <p>The app does not ask users to create an in-app account or enter identifying information. The developer does not collect through the app:</p>
+            <ul>
+              <li>Name, email address, phone number, or postal address.</li>
+              <li>Precise location, contacts, or personal device files.</li>
+              <li>Photos, video, voice recordings, or microphone content.</li>
+              <li>Payment or subscription data, because the app has no in-app purchases or subscriptions.</li>
+              <li>Advertising identifiers or profiles for tracking or advertising.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="local-data">
+        <span class="section-number">04</span>
+        <div>
+          <h2><span data-lang="ar">المعلومات التقنية المحلية</span><span data-lang="en">Local technical information</span></h2>
+          <div data-lang="ar">
+            <p>لدعم استقرار التجربة وتحسين أدائها، قد يعالج التطبيق على جهاز المستخدم معلومات تقنية محدودة، مثل إصدار التطبيق، وطراز الجهاز، وإصدار نظام التشغيل، وقياسات الأداء، وحالة الجلسة، وتقدّم المهام التعليمية.</p>
+            <p>تُستخدم هذه المعلومات داخل التطبيق لأغراض التشغيل والتشخيص فقط. لا يحتوي الإصدار الحالي على خادم خلفي أو خدمة تحليلات خارجية ترسل هذه المعلومات تلقائيًا إلى المطوّر.</p>
+            <p class="notice">لا تصل إلينا بيانات التشخيص المحلية إلا إذا اختار المستخدم أو المعلّم إرسالها إلينا طوعًا عند طلب الدعم. في هذه الحالة نستخدم المعلومات المرسلة لحل المشكلة فقط، ثم نحتفظ بها للمدة اللازمة لذلك.</p>
+          </div>
+          <div data-lang="en">
+            <p>To support stability and performance, the app may process limited technical information on the user’s device, such as app version, device model, operating-system version, performance measurements, session state, and educational task progress.</p>
+            <p>This information is used within the app only for operation and diagnostics. The current release has no backend server or third-party analytics service that automatically transmits this information to the developer.</p>
+            <p class="notice">We receive local diagnostic information only if a user or teacher chooses to send it to us when requesting support. In that case, we use the submitted information only to resolve the issue and keep it only as long as necessary for that purpose.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="permissions">
+        <span class="section-number">05</span>
+        <div>
+          <h2><span data-lang="ar">أذونات الجهاز وميزات الواقع الافتراضي</span><span data-lang="en">Device permissions and VR features</span></h2>
+          <div data-lang="ar">
+            <p>يعتمد التطبيق على خدمات Meta Quest الأساسية اللازمة لعرض تجربة الواقع الافتراضي وقراءة إدخال وحدات تحكم Touch وحركة الرأس داخل مساحة اللعب. لا يستخدم التطبيق هذه المدخلات للتعرّف إلى هوية المستخدم أو إنشاء ملف شخصي عنه.</p>
+            <p>إذا استخدم المستخدم ميزات النظام مثل التسجيل أو البث أو Casting، فتدير منصة Meta هذه الميزات وفق إعدادات المستخدم وسياسات Meta، ولا يحصل مطوّر Geometry VR Lab تلقائيًا على التسجيلات الناتجة.</p>
+          </div>
+          <div data-lang="en">
+            <p>The app relies on essential Meta Quest services to render VR and read Touch Controller input and headset movement within the play area. The app does not use these inputs to identify users or build profiles about them.</p>
+            <p>If a user uses system features such as recording, livestreaming, or Casting, the Meta platform manages those features under the user’s settings and Meta’s policies. The Geometry VR Lab developer does not automatically receive the resulting recordings.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="platforms">
+        <span class="section-number">06</span>
+        <div>
+          <h2><span data-lang="ar">منصة Meta والخدمات الخارجية</span><span data-lang="en">Meta platform and external services</span></h2>
+          <div data-lang="ar">
+            <p>يتم تنزيل التطبيق وتحديثه وتشغيله عبر أجهزة وخدمات Meta Quest. وقد تعالج Meta معلومات الحساب والجهاز والمتجر والأعطال وفق سياسة الخصوصية الخاصة بها. تتم هذه المعالجة بواسطة Meta وليست جمعًا مباشرًا من تطبيق Geometry VR Lab.</p>
+            <p>لا يدمج التطبيق شبكات إعلانية أو أدوات تحليل سلوكي أو خدمات تسجيل دخول خارجية. كما أن هذه الصفحات لا تضيف ملفات تعريف ارتباط أو وحدات تتبّع أو تحليلات. قد تعالج خدمة الاستضافة GitHub Pages سجلات تقنية أساسية وفق سياساتها الخاصة.</p>
+          </div>
+          <div data-lang="en">
+            <p>The app is downloaded, updated, and used through Meta Quest devices and services. Meta may process account, device, store, and crash information under its own privacy policy. That processing is performed by Meta and is not direct collection by Geometry VR Lab.</p>
+            <p>The app integrates no advertising networks, behavioural analytics, or external sign-in services. These webpages also add no cookies, trackers, or analytics. The GitHub Pages hosting service may process basic technical logs under its own policies.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="sharing">
+        <span class="section-number">07</span>
+        <div>
+          <h2><span data-lang="ar">المشاركة والبيع والإعلانات</span><span data-lang="en">Sharing, sale, and advertising</span></h2>
+          <p data-lang="ar">لا نبيع البيانات الشخصية ولا نؤجّرها ولا نشاركها لأغراض الإعلان الموجّه. التطبيق لا يعرض إعلانات ولا يستخدم البيانات لبناء ملفات إعلانية. وإذا أرسل المستخدم معلومات طوعًا للحصول على الدعم، فلا نشاركها إلا إذا كان ذلك مطلوبًا قانونيًا أو لازمًا لحماية الحقوق والسلامة.</p>
+          <p data-lang="en">We do not sell, rent, or share personal data for targeted advertising. The app displays no ads and does not use information to create advertising profiles. If a user voluntarily submits information for support, we do not share it unless required by law or necessary to protect rights and safety.</p>
+        </div>
+      </section>
+
+      <section class="policy-section" id="learners">
+        <span class="section-number">08</span>
+        <div>
+          <h2><span data-lang="ar">الطلاب وصغار السن</span><span data-lang="en">Students and younger users</span></h2>
+          <div data-lang="ar">
+            <p>صُمّم التطبيق لطلبة المرحلة الثانوية بعمر 13 سنة فأكثر، ويجب استخدامه وفق متطلبات العمر وإعدادات الإشراف المعتمدة من Meta وفي المدرسة تحت إشراف المعلّم عند الاقتضاء.</p>
+            <p>لا يطلب التطبيق من الطلاب إدخال أسمائهم أو أرقامهم أو أي بيانات تعريف شخصية، ولا ينشئ ملفات شخصية للطلاب. إذا علمنا بأن معلومات شخصية تخص طفلًا قد أُرسلت إلينا طوعًا، فسنحذفها عند التحقق من الطلب.</p>
+          </div>
+          <div data-lang="en">
+            <p>The app is designed for secondary-school learners aged 13 and older. It should be used in accordance with Meta’s age requirements and supervision settings and, where appropriate, under teacher supervision at school.</p>
+            <p>The app does not ask students to enter names, identification numbers, or other identifying data, and it creates no student profiles. If we learn that personal information relating to a child was voluntarily sent to us, we will delete it after verifying the request.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="retention">
+        <span class="section-number">09</span>
+        <div>
+          <h2><span data-lang="ar">الاحتفاظ بالبيانات وحذفها</span><span data-lang="en">Data retention and deletion</span></h2>
+          <div data-lang="ar">
+            <p>لا نحتفظ بقاعدة بيانات سحابية لحسابات المستخدمين أو بياناتهم الشخصية. تبقى الإعدادات والتقدّم وسجلات التشخيص المحلية — إن وُجدت — على الجهاز إلى أن يمسحها نظام التشغيل أو يمسح المستخدم بيانات التطبيق أو يزيل التطبيق.</p>
+            <p>يمكن حذف البيانات المحلية عبر إعدادات جهاز Meta Quest بمسح بيانات التطبيق، أو بإلغاء تثبيت التطبيق. ولطلب حذف أي معلومات أُرسلت إلينا طوعًا عند طلب الدعم، تواصل معنا من خلال قناة الاتصال في القسم 12 مع وصف كافٍ للطلب، ومن دون نشر معلومات حساسة علنًا.</p>
+          </div>
+          <div data-lang="en">
+            <p>We do not maintain a cloud database of user accounts or personal data. Local settings, progress, and diagnostic logs—if present—remain on the device until the operating system removes them, the user clears the app’s data, or the app is uninstalled.</p>
+            <p>Users can delete local data through Meta Quest device settings by clearing app data or uninstalling the app. To request deletion of information voluntarily sent to us for support, contact us using the channel in section 12 with enough detail to identify the request, without posting sensitive information publicly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-section" id="security">
+        <span class="section-number">10</span>
+        <div>
+          <h2><span data-lang="ar">أمن المعلومات</span><span data-lang="en">Information security</span></h2>
+          <p data-lang="ar">نحدّ من معالجة البيانات إلى الحد الأدنى اللازم لتشغيل التجربة. وبما أن معلومات التشغيل تبقى محلية ولا توجد خدمة خلفية للتطبيق في الإصدار الحالي، يقل خطر نقل البيانات عبر الشبكة. ومع ذلك، لا يمكن ضمان أمن أي جهاز أو منصة بنسبة مطلقة، ويُنصح المستخدم بالمحافظة على تحديث الجهاز وحماية حساب Meta الخاص به.</p>
+          <p data-lang="en">We minimise information processing to what is needed to run the experience. Because operational information remains local and the current release has no app backend, network-transmission risk is reduced. No device or platform can be guaranteed completely secure, so users should keep their device updated and protect their Meta account.</p>
+        </div>
+      </section>
+
+      <section class="policy-section" id="changes">
+        <span class="section-number">11</span>
+        <div>
+          <h2><span data-lang="ar">التغييرات على هذه السياسة</span><span data-lang="en">Changes to this policy</span></h2>
+          <p data-lang="ar">قد نحدّث هذه السياسة عند إضافة ميزات جديدة أو تغيير طريقة معالجة المعلومات أو استجابةً لمتطلبات قانونية أو متطلبات منصة Meta. سننشر النسخة المحدّثة في هذا الرابط ونغيّر تاريخ «آخر تحديث». وإذا كان التغيير جوهريًا، فسنقدّم إشعارًا مناسبًا داخل صفحة التطبيق أو من خلال قناة التوزيع.</p>
+          <p data-lang="en">We may update this policy when adding features, changing information practices, or responding to legal or Meta platform requirements. We will publish the updated version at this URL and change the “Last updated” date. If a change is material, we will provide an appropriate notice on the app page or through the distribution channel.</p>
+        </div>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <span class="section-number">12</span>
+        <div>
+          <h2><span data-lang="ar">التواصل والاستفسارات المتعلقة بالخصوصية</span><span data-lang="en">Contact and privacy questions</span></h2>
+          <div data-lang="ar">
+            <p>للاستفسار عن هذه السياسة، أو للإبلاغ عن مشكلة خصوصية، أو لطلب حذف معلومات أُرسلت إلينا طوعًا، تواصل مع المطوّر من خلال صفحة GitHub التالية. لا تنشر معلومات شخصية أو حساسة في رسالة عامة.</p>
+            <div class="contact-card"><div><strong>زهدي زاهدة</strong><br><span class="muted">Geometry VR Lab · الكلية الإبراهيمية، القدس</span></div><a href="https://github.com/zuhdizahdeh">صفحة المطوّر</a></div>
+          </div>
+          <div data-lang="en">
+            <p>For questions about this policy, to report a privacy concern, or to request deletion of information voluntarily sent to us, contact the developer through the following GitHub profile. Do not post personal or sensitive information in a public message.</p>
+            <div class="contact-card"><div><strong>Zuhdi Zahdeh</strong><br><span class="muted">Geometry VR Lab · Ibrahimieh College, Jerusalem</span></div><a href="https://github.com/zuhdizahdeh">Developer profile</a></div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <div>© 2026 Geometry VR Lab</div>
+      <div><a href="./"><span data-lang="ar">صفحة التطبيق</span><span data-lang="en">App page</span></a> · <a href="https://zuhdizahdeh.github.io/math-apps/">Math Apps</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-language]');
+
+      function setLanguage(language) {
+        const isArabic = language === 'ar';
+        root.lang = language;
+        root.dir = isArabic ? 'rtl' : 'ltr';
+        root.dataset.language = isArabic ? 'ar' : 'en';
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.setLanguage === language));
+        });
+        try { localStorage.setItem('geometry-vr-language', language); } catch (_) {}
+      }
+
+      buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.setLanguage)));
+      let savedLanguage = 'ar';
+      try { savedLanguage = localStorage.getItem('geometry-vr-language') || 'ar'; } catch (_) {}
+      setLanguage(savedLanguage === 'en' ? 'en' : 'ar');
+    })();
+  </script>
+</body>
+</html>

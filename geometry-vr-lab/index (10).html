@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081526">
+  <meta name="description" content="Geometry VR Lab is a free educational virtual reality experience for exploring spatial geometry through direct interaction and Arabic voice guidance.">
+  <meta property="og:title" content="Geometry VR Lab | مختبر الهندسة بالواقع الافتراضي">
+  <meta property="og:description" content="A free immersive learning experience for spatial geometry.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/">
+  <link rel="canonical" href="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/">
+  <title>Geometry VR Lab | مختبر الهندسة بالواقع الافتراضي</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #06111f;
+      --bg-soft: #0a1c30;
+      --surface: rgba(14, 35, 57, .76);
+      --surface-strong: #102a45;
+      --line: rgba(148, 207, 255, .19);
+      --text: #f5fbff;
+      --muted: #b7c9d9;
+      --cyan: #42d7ff;
+      --blue: #5985ff;
+      --violet: #9f78ff;
+      --mint: #71f2ce;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .34);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(64, 215, 255, .16), transparent 29rem),
+        radial-gradient(circle at 88% 2%, rgba(159, 120, 255, .17), transparent 32rem),
+        linear-gradient(145deg, #06111f 0%, #07182a 50%, #081323 100%);
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .32;
+      background-image:
+        linear-gradient(rgba(108, 173, 224, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 173, 224, .08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 80%);
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 36px), var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-inline-start: 18px;
+      top: -70px;
+      z-index: 100;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #fff;
+      color: #06111f;
+      text-decoration: none;
+      transition: top .2s ease;
+    }
+
+    .skip-link:focus { top: 14px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(148, 207, 255, .12);
+      background: rgba(6, 17, 31, .82);
+      backdrop-filter: blur(18px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 760;
+      letter-spacing: .01em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(113, 242, 206, .42);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(66, 215, 255, .2), rgba(159, 120, 255, .22));
+      box-shadow: inset 0 0 22px rgba(66, 215, 255, .12);
+    }
+
+    .brand-mark span {
+      width: 18px;
+      aspect-ratio: 1;
+      display: block;
+      border: 2px solid var(--mint);
+      transform: rotate(30deg) skew(-6deg, -6deg);
+      box-shadow: 6px -5px 0 -2px rgba(66, 215, 255, .55);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link, .lang-button, .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      padding: 9px 15px;
+      color: var(--muted);
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .lang-button {
+      min-width: 51px;
+      padding: 6px 12px;
+      border: 0;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .lang-button[aria-pressed="true"] {
+      color: #06111f;
+      background: var(--mint);
+    }
+
+    main { display: block; }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: clamp(44px, 7vw, 88px);
+      padding-block: 80px 88px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--mint);
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 18px var(--mint);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    html[dir="rtl"] h1 { letter-spacing: -.035em; }
+
+    .gradient-text {
+      display: block;
+      color: transparent;
+      background: linear-gradient(90deg, var(--cyan), var(--mint), #c0a9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .lead {
+      max-width: 670px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      padding: 12px 21px;
+      border: 1px solid var(--line);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      border-color: transparent;
+      color: #041019;
+      background: linear-gradient(100deg, var(--mint), var(--cyan));
+      box-shadow: 0 12px 38px rgba(66, 215, 255, .18);
+    }
+
+    .button-secondary { background: rgba(255, 255, 255, .045); }
+
+    .quick-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 26px 0 0;
+      padding: 0;
+      color: #d7e5f1;
+      list-style: none;
+      font-size: .94rem;
+    }
+
+    .quick-facts li::before {
+      content: "✓";
+      margin-inline-end: 7px;
+      color: var(--mint);
+      font-weight: 900;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .orb {
+      position: absolute;
+      width: 360px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 27%, rgba(255,255,255,.8), rgba(66,215,255,.24) 12%, rgba(89,133,255,.14) 42%, transparent 69%);
+      filter: blur(.2px);
+      opacity: .76;
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    .stage {
+      position: relative;
+      width: min(100%, 430px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(148, 207, 255, .2);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(28, 69, 105, .3), rgba(5, 16, 29, .12) 62%);
+      box-shadow: inset 0 0 90px rgba(66, 215, 255, .05), var(--shadow);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .stage::before, .stage::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(113, 242, 206, .24);
+      border-radius: 50%;
+      transform: rotateX(72deg);
+    }
+
+    .stage::after {
+      inset: 27% 4%;
+      border-color: rgba(159, 120, 255, .25);
+      transform: rotate(63deg);
+    }
+
+    .cube {
+      position: absolute;
+      inset: 30% auto auto 34%;
+      width: 132px;
+      aspect-ratio: 1;
+      border: 2px solid var(--cyan);
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(66, 215, 255, .3), rgba(89, 133, 255, .09));
+      box-shadow: inset 0 0 42px rgba(66, 215, 255, .17), 0 0 42px rgba(66, 215, 255, .17);
+      transform: rotate(29deg) skew(-7deg, -7deg);
+    }
+
+    .cube::before, .cube::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(113, 242, 206, .7);
+      border-radius: 8px;
+    }
+
+    .cube::before { inset: -30px 30px 30px -30px; }
+    .cube::after { inset: 30px -30px -30px 30px; opacity: .42; }
+
+    .shape-label {
+      position: absolute;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dff8ff;
+      background: rgba(6, 17, 31, .77);
+      backdrop-filter: blur(10px);
+      font-size: .82rem;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .25);
+    }
+
+    .label-one { top: 17%; inset-inline-start: 1%; }
+    .label-two { top: 59%; inset-inline-end: -2%; }
+    .label-three { bottom: 8%; inset-inline-start: 19%; }
+
+    section { padding-block: 86px; }
+
+    .section-heading { max-width: 760px; margin-bottom: 34px; }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--cyan);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    .section-copy { margin: 16px 0 0; color: var(--muted); font-size: 1.08rem; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 252px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(18, 48, 77, .72), rgba(8, 25, 43, .76));
+      box-shadow: 0 16px 50px rgba(0, 0, 0, .16);
+    }
+
+    .card-icon {
+      width: 48px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      border: 1px solid rgba(113, 242, 206, .25);
+      border-radius: 15px;
+      color: var(--mint);
+      background: rgba(113, 242, 206, .08);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .card h3 { margin: 0; font-size: 1.25rem; }
+    .card p { margin: 11px 0 0; color: var(--muted); }
+
+    .learning-flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .flow-panel, .spec-panel {
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .steps { display: grid; gap: 24px; margin-top: 28px; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 46px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #071521;
+      background: linear-gradient(135deg, var(--mint), var(--cyan));
+      font-weight: 900;
+    }
+
+    .step h3 { margin: 1px 0 4px; font-size: 1.08rem; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .spec-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(159, 120, 255, .19), transparent 22rem),
+        var(--surface);
+    }
+
+    .spec-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .spec-list li {
+      padding: 14px 15px;
+      border: 1px solid rgba(148, 207, 255, .13);
+      border-radius: 15px;
+      color: #dcecf7;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .purpose {
+      margin-top: 20px;
+      padding: 20px;
+      border-inline-start: 3px solid var(--mint);
+      border-radius: 13px;
+      color: #ddecf6;
+      background: rgba(113, 242, 206, .06);
+    }
+
+    .privacy-callout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: clamp(30px, 6vw, 58px);
+      border: 1px solid rgba(113, 242, 206, .25);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(110deg, rgba(113, 242, 206, .1), rgba(66, 215, 255, .07) 45%, rgba(159, 120, 255, .09)),
+        rgba(8, 26, 45, .86);
+      box-shadow: var(--shadow);
+    }
+
+    .privacy-callout h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .privacy-callout p { max-width: 680px; margin: 12px 0 0; color: var(--muted); }
+
+    footer {
+      margin-top: 36px;
+      padding-block: 30px 42px;
+      border-top: 1px solid rgba(148, 207, 255, .12);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a:hover { color: var(--text); }
+
+    [data-lang="en"] { display: none; }
+
+    html[data-language="en"] [data-lang="ar"] { display: none; }
+    html[data-language="en"] [data-lang="en"] { display: revert; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-13px) rotate(1deg); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(.96); opacity: .63; }
+      50% { transform: scale(1.04); opacity: .83; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 64px; }
+      .visual { min-height: 410px; order: -1; }
+      .stage { width: min(86vw, 390px); }
+      .cards { grid-template-columns: 1fr; }
+      .learning-flow { grid-template-columns: 1fr; }
+      .privacy-callout { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+      nav { min-height: 68px; }
+      .brand-copy { display: none; }
+      .nav-link { display: none; }
+      .hero { min-height: auto; gap: 20px; padding-block: 34px 60px; }
+      .visual { min-height: 335px; }
+      .cube { transform: scale(.82) rotate(29deg) skew(-7deg, -7deg); }
+      .label-one { top: 13%; }
+      .label-two { top: 65%; }
+      section { padding-block: 64px; }
+      .card, .flow-panel, .spec-panel { border-radius: 22px; }
+      .spec-list { grid-template-columns: 1fr; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">
+    <span data-lang="ar">انتقل إلى المحتوى</span>
+    <span data-lang="en">Skip to content</span>
+  </a>
+
+  <header>
+    <nav class="shell" aria-label="التنقل الرئيسي / Main navigation">
+      <a class="brand" href="./" aria-label="Geometry VR Lab home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy">Geometry VR Lab</span>
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#experience">
+          <span data-lang="ar">التجربة التعليمية</span>
+          <span data-lang="en">Learning experience</span>
+        </a>
+        <a class="nav-link" href="privacy-policy.html">
+          <span data-lang="ar">الخصوصية</span>
+          <span data-lang="en">Privacy</span>
+        </a>
+        <div class="lang-switch" role="group" aria-label="اختيار اللغة / Language selection">
+          <button class="lang-button" type="button" data-set-language="ar" aria-pressed="true">عربي</button>
+          <button class="lang-button" type="button" data-set-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="hero shell">
+      <div>
+        <p class="eyebrow">
+          <span data-lang="ar">تعلم غامر · تطبيق مجاني</span>
+          <span data-lang="en">Immersive learning · Free app</span>
+        </p>
+        <div data-lang="ar">
+          <h1>مختبر الهندسة <span class="gradient-text">بالواقع الافتراضي</span></h1>
+          <p class="lead">بيئة تعليمية غامرة تساعد طلبة المرحلة الثانوية على فهم الهندسة الفراغية من خلال لمس المجسّمات وتحريكها وفحص خصائصها داخل مختبر ثلاثي الأبعاد.</p>
+        </div>
+        <div data-lang="en">
+          <h1>Geometry learning, <span class="gradient-text">made tangible.</span></h1>
+          <p class="lead">An immersive educational environment that helps secondary-school learners understand spatial geometry by handling, moving, and examining solids in a three-dimensional laboratory.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experience">
+            <span data-lang="ar">اكتشف التجربة</span>
+            <span data-lang="en">Explore the experience</span>
+          </a>
+          <a class="button button-secondary" href="privacy-policy.html">
+            <span data-lang="ar">اقرأ سياسة الخصوصية</span>
+            <span data-lang="en">Read the privacy policy</span>
+          </a>
+        </div>
+        <ul class="quick-facts">
+          <li><span data-lang="ar">إرشاد صوتي عربي</span><span data-lang="en">Arabic voice guidance</span></li>
+          <li><span data-lang="ar">طالب واحد</span><span data-lang="en">Single player</span></li>
+          <li><span data-lang="ar">دون إعلانات</span><span data-lang="en">No ads</span></li>
+        </ul>
+      </div>
+
+      <div class="visual" role="img" aria-label="رسم تجريدي لمجسّم هندسي داخل بيئة افتراضية">
+        <div class="orb" aria-hidden="true"></div>
+        <div class="stage" aria-hidden="true">
+          <div class="cube"></div>
+          <span class="shape-label label-one"><span data-lang="ar">وجه</span><span data-lang="en">Face</span></span>
+          <span class="shape-label label-two"><span data-lang="ar">حافة</span><span data-lang="en">Edge</span></span>
+          <span class="shape-label label-three"><span data-lang="ar">رأس</span><span data-lang="en">Vertex</span></span>
+        </div>
+      </div>
+    </div>
+
+    <section id="experience" class="shell">
+      <div class="section-heading">
+        <p class="kicker"><span data-lang="ar">ماذا يقدّم التطبيق؟</span><span data-lang="en">What the app offers</span></p>
+        <h2><span data-lang="ar">من المهارة الحركية إلى الفهم الهندسي</span><span data-lang="en">From confident movement to geometric understanding</span></h2>
+        <p class="section-copy"><span data-lang="ar">صُمّمت التجربة لتوجيه الطالب تدريجيًا، بحيث يصبح التفاعل أداةً للتعلّم لا غايةً ترفيهية بحد ذاتها.</span><span data-lang="en">The experience guides learners progressively, making interaction a tool for learning rather than an entertainment goal in itself.</span></p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">01</div>
+          <h3><span data-lang="ar">تهيئة موجّهة</span><span data-lang="en">Guided onboarding</span></h3>
+          <p><span data-lang="ar">يتدرّب الطالب على الحركة والدوران والإمساك بالمجسّمات ونقلها وإفلاتها واستخدام الأزرار بثقة.</span><span data-lang="en">Learners practise movement, turning, grabbing, moving and releasing objects, and using interface controls with confidence.</span></p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">02</div>
+          <h3><span data-lang="ar">استكشاف ثلاثي الأبعاد</span><span data-lang="en">Three-dimensional exploration</span></h3>
+          <p><span data-lang="ar">يستكشف الطالب المكعّب والكرة والأسطوانة، ويغيّر زاوية النظر إليها بدل الاكتفاء بصورة مسطّحة على اللوح.</span><span data-lang="en">Learners explore a cube, sphere, and cylinder from changing viewpoints instead of relying on flat board drawings.</span></p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">03</div>
+          <h3><span data-lang="ar">إرشاد تربوي مستمر</span><span data-lang="en">Continuous learning guidance</span></h3>
+          <p><span data-lang="ar">تدعم التعليمات الصوتية العربية واللوحات والتسميات البصرية انتقال الطالب بين المهام وتحافظ على تركيزه التعليمي.</span><span data-lang="en">Arabic voice instructions, panels, and visual labels support task progression and keep the experience focused on learning.</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="learning-flow">
+        <article class="flow-panel">
+          <p class="kicker"><span data-lang="ar">مسار التعلّم</span><span data-lang="en">Learning pathway</span></p>
+          <h2><span data-lang="ar">تجربة واضحة ومتدرّجة</span><span data-lang="en">A clear, progressive experience</span></h2>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div><h3><span data-lang="ar">التعرّف إلى البيئة</span><span data-lang="en">Become familiar with VR</span></h3><p><span data-lang="ar">اكتساب مهارات التحكم الأساسية داخل المختبر.</span><span data-lang="en">Build the essential control skills needed in the lab.</span></p></div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div><h3><span data-lang="ar">التفاعل مع المجسّمات</span><span data-lang="en">Interact with solids</span></h3><p><span data-lang="ar">اختيار المجسّم وتحريكه وتدويره وإعادته إلى موضعه.</span><span data-lang="en">Select, move, rotate, and reset each solid.</span></p></div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div><h3><span data-lang="ar">قراءة الخصائص</span><span data-lang="en">Examine properties</span></h3><p><span data-lang="ar">ربط النموذج المرئي بمفاهيم الوجوه والحواف والرؤوس.</span><span data-lang="en">Connect the visual model to faces, edges, and vertices.</span></p></div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="spec-panel">
+          <div>
+            <p class="kicker"><span data-lang="ar">مصمّم للتعليم</span><span data-lang="en">Built for learning</span></p>
+            <h2><span data-lang="ar">للصف وللتعلّم الفردي</span><span data-lang="en">For classrooms and independent study</span></h2>
+            <ul class="spec-list">
+              <li><span data-lang="ar">Meta Quest 3 / 3S</span><span data-lang="en">Meta Quest 3 / 3S</span></li>
+              <li><span data-lang="ar">وحدات تحكم Touch</span><span data-lang="en">Touch Controllers</span></li>
+              <li><span data-lang="ar">وضع الوقوف والحركة</span><span data-lang="en">Standing and movement</span></li>
+              <li><span data-lang="ar">العربية والإنجليزية</span><span data-lang="en">Arabic and English</span></li>
+            </ul>
+          </div>
+          <p class="purpose"><span data-lang="ar">التطبيق مجاني، ولا يتطلب حسابًا داخليًا أو اشتراكًا أو شراءً داخل التطبيق.</span><span data-lang="en">The app is free and requires no in-app account, subscription, or in-app purchase.</span></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="privacy-callout">
+        <div>
+          <p class="kicker"><span data-lang="ar">خصوصية واضحة</span><span data-lang="en">Clear privacy</span></p>
+          <h2><span data-lang="ar">التعلّم دون تتبّع أو إعلانات</span><span data-lang="en">Learning without tracking or ads</span></h2>
+          <p><span data-lang="ar">لا يطلب التطبيق حسابًا، ولا يجمع بيانات شخصية، ولا يستخدم شبكات إعلانية أو أدوات تحليل خارجية. توضّح السياسة الكاملة كيفية التعامل مع بيانات التشخيص المحلية وخدمات منصة Meta.</span><span data-lang="en">The app requests no in-app account, collects no personal data, and uses no advertising networks or third-party analytics. The full policy explains local diagnostics and Meta platform services.</span></p>
+        </div>
+        <a class="button button-primary" href="privacy-policy.html">
+          <span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy policy</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <div>
+        <div><strong>Geometry VR Lab</strong></div>
+        <div><span data-lang="ar">تطوير: زهدي زاهدة · الكلية الإبراهيمية، القدس</span><span data-lang="en">Developed by Zuhdi Zahdeh · Ibrahimieh College, Jerusalem</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html"><span data-lang="ar">الخصوصية</span><span data-lang="en">Privacy</span></a>
+        <a href="https://zuhdizahdeh.github.io/math-apps/"><span data-lang="ar">تطبيقات الرياضيات</span><span data-lang="en">Math Apps</span></a>
+        <a href="https://github.com/zuhdizahdeh" rel="me"><span data-lang="ar">المطوّر</span><span data-lang="en">Developer</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-language]');
+
+      function setLanguage(language) {
+        const isArabic = language === 'ar';
+        root.lang = language;
+        root.dir = isArabic ? 'rtl' : 'ltr';
+        root.dataset.language = isArabic ? 'ar' : 'en';
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.setLanguage === language));
+        });
+        try { localStorage.setItem('geometry-vr-language', language); } catch (_) {}
+      }
+
+      buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.setLanguage)));
+      let savedLanguage = 'ar';
+      try { savedLanguage = localStorage.getItem('geometry-vr-language') || 'ar'; } catch (_) {}
+      setLanguage(savedLanguage === 'en' ? 'en' : 'ar');
+    })();
+  </script>
+</body>
+</html>
