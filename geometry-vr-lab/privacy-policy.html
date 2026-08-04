@@ -297,6 +297,40 @@
       white-space: nowrap;
     }
 
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+    }
+
+    .contact-card a.contact-secondary {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .contact-addresses {
+      display: grid;
+      gap: 3px;
+      margin-top: 7px;
+    }
+
+    .contact-addresses a {
+      min-height: 0;
+      width: fit-content;
+      max-width: 100%;
+      padding: 0;
+      border-radius: 0;
+      color: var(--text);
+      background: transparent;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+
+    .contact-addresses a:hover { color: var(--mint); }
+
     footer {
       padding-block: 30px 44px;
       border-top: 1px solid rgba(148, 207, 255, .12);
@@ -324,6 +358,7 @@
       article { border-radius: 22px; }
       .policy-section { grid-template-columns: 1fr; gap: 16px; padding: 25px 21px; }
       .contact-card, .footer-row { align-items: flex-start; flex-direction: column; }
+      .contact-links { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -332,7 +367,7 @@
 
   <header>
     <nav class="shell" aria-label="التنقل الرئيسي / Main navigation">
-      <a class="brand" href="./">
+      <a class="brand" href="./" aria-label="Geometry VR Lab home / الصفحة الرئيسية">
         <span class="mark" aria-hidden="true"></span>
         <span class="brand-text">Geometry VR Lab</span>
       </a>
@@ -353,8 +388,8 @@
       <p class="intro"><span data-lang="ar">تشرح هذه السياسة، بلغة مباشرة، المعلومات التي يعالجها تطبيق Geometry VR Lab والموقع المصاحب له، وما لا يجمعه التطبيق، والخيارات المتاحة للمستخدم.</span><span data-lang="en">This policy explains, in direct language, what information the Geometry VR Lab application and its companion website process, what the app does not collect, and the choices available to users.</span></p>
       <div class="meta">
         <span class="pill"><span data-lang="ar">تاريخ السريان: 3 أغسطس 2026</span><span data-lang="en">Effective: August 3, 2026</span></span>
-        <span class="pill"><span data-lang="ar">آخر تحديث: 3 أغسطس 2026</span><span data-lang="en">Last updated: August 3, 2026</span></span>
-        <span class="pill"><span data-lang="ar">الإصدار: 1.0</span><span data-lang="en">Version: 1.0</span></span>
+        <span class="pill"><span data-lang="ar">آخر تحديث: 4 أغسطس 2026</span><span data-lang="en">Last updated: August 4, 2026</span></span>
+        <span class="pill"><span data-lang="ar">الإصدار: 1.1</span><span data-lang="en">Version: 1.1</span></span>
       </div>
     </section>
 
@@ -362,7 +397,7 @@
       <h2><span data-lang="ar">الخلاصة المختصرة</span><span data-lang="en">Privacy at a glance</span></h2>
       <ul>
         <li><span data-lang="ar">لا يتطلب التطبيق إنشاء حساب داخلي أو تسجيل الدخول إليه.</span><span data-lang="en">The app does not require an in-app account or sign-in.</span></li>
-        <li><span data-lang="ar">لا يجمع المطوّر الاسم أو البريد الإلكتروني أو الموقع الجغرافي أو جهات الاتصال أو الصور أو التسجيلات الصوتية.</span><span data-lang="en">The developer does not collect names, email addresses, precise location, contacts, photos, or voice recordings.</span></li>
+        <li><span data-lang="ar">لا يجمع التطبيق تلقائيًا الاسم أو البريد الإلكتروني أو الموقع الجغرافي أو جهات الاتصال أو الصور أو التسجيلات الصوتية. ولا تصل بيانات التواصل إلى المطوّر إلا إذا أرسلها المستخدم طوعًا لطلب الدعم.</span><span data-lang="en">The app does not automatically collect names, email addresses, precise location, contacts, photos, or voice recordings. Contact details reach the developer only when a user voluntarily sends a support request.</span></li>
         <li><span data-lang="ar">لا توجد إعلانات أو مشتريات داخل التطبيق أو أدوات تحليل خارجية.</span><span data-lang="en">There are no ads, in-app purchases, or third-party analytics tools.</span></li>
         <li><span data-lang="ar">قد تُعالج معلومات تقنية محدودة محليًا لأغراض التشغيل والتشخيص، ولا تُرسل تلقائيًا إلى المطوّر.</span><span data-lang="en">Limited technical information may be processed locally for operation and diagnostics and is not automatically transmitted to the developer.</span></li>
       </ul>
@@ -459,10 +494,12 @@
           <div data-lang="ar">
             <p>يتم تنزيل التطبيق وتحديثه وتشغيله عبر أجهزة وخدمات Meta Quest. وقد تعالج Meta معلومات الحساب والجهاز والمتجر والأعطال وفق سياسة الخصوصية الخاصة بها. تتم هذه المعالجة بواسطة Meta وليست جمعًا مباشرًا من تطبيق Geometry VR Lab.</p>
             <p>لا يدمج التطبيق شبكات إعلانية أو أدوات تحليل سلوكي أو خدمات تسجيل دخول خارجية. كما أن هذه الصفحات لا تضيف ملفات تعريف ارتباط أو وحدات تتبّع أو تحليلات. قد تعالج خدمة الاستضافة GitHub Pages سجلات تقنية أساسية وفق سياساتها الخاصة.</p>
+            <p>تتضمن صفحة الموقع روابط اختيارية لفتح تطبيق البريد الإلكتروني أو WhatsApp. لا ترسل الصفحة أي بيانات إلى هذه الخدمات تلقائيًا. وعند اختيار أحد الروابط وإرسال رسالة، تعالج خدمة البريد أو WhatsApp بيانات الرسالة وفق سياسة الخصوصية الخاصة بها.</p>
           </div>
           <div data-lang="en">
             <p>The app is downloaded, updated, and used through Meta Quest devices and services. Meta may process account, device, store, and crash information under its own privacy policy. That processing is performed by Meta and is not direct collection by Geometry VR Lab.</p>
             <p>The app integrates no advertising networks, behavioural analytics, or external sign-in services. These webpages also add no cookies, trackers, or analytics. The GitHub Pages hosting service may process basic technical logs under its own policies.</p>
+            <p>The website includes optional links that open an email application or WhatsApp. The page does not automatically send any data to these services. If a user follows a link and sends a message, the email service or WhatsApp processes the message under its own privacy policy.</p>
           </div>
         </div>
       </section>
@@ -483,10 +520,12 @@
           <div data-lang="ar">
             <p>صُمّم التطبيق لطلبة المرحلة الثانوية بعمر 13 سنة فأكثر، ويجب استخدامه وفق متطلبات العمر وإعدادات الإشراف المعتمدة من Meta وفي المدرسة تحت إشراف المعلّم عند الاقتضاء.</p>
             <p>لا يطلب التطبيق من الطلاب إدخال أسمائهم أو أرقامهم أو أي بيانات تعريف شخصية، ولا ينشئ ملفات شخصية للطلاب. إذا علمنا بأن معلومات شخصية تخص طفلًا قد أُرسلت إلينا طوعًا، فسنحذفها عند التحقق من الطلب.</p>
+            <p>إذا احتاج الطالب إلى دعم يتضمن معلومات شخصية، فيُفضّل أن يتم التواصل بواسطة ولي الأمر أو المعلّم.</p>
           </div>
           <div data-lang="en">
             <p>The app is designed for secondary-school learners aged 13 and older. It should be used in accordance with Meta’s age requirements and supervision settings and, where appropriate, under teacher supervision at school.</p>
             <p>The app does not ask students to enter names, identification numbers, or other identifying data, and it creates no student profiles. If we learn that personal information relating to a child was voluntarily sent to us, we will delete it after verifying the request.</p>
+            <p>If a learner needs support involving personal information, a parent, guardian, or teacher should preferably make contact on the learner’s behalf.</p>
           </div>
         </div>
       </section>
@@ -529,12 +568,38 @@
         <div>
           <h2><span data-lang="ar">التواصل والاستفسارات المتعلقة بالخصوصية</span><span data-lang="en">Contact and privacy questions</span></h2>
           <div data-lang="ar">
-            <p>للاستفسار عن هذه السياسة، أو للإبلاغ عن مشكلة خصوصية، أو لطلب حذف معلومات أُرسلت إلينا طوعًا، تواصل مع المطوّر من خلال صفحة GitHub التالية. لا تنشر معلومات شخصية أو حساسة في رسالة عامة.</p>
-            <div class="contact-card"><div><strong>زهدي زاهدة</strong><br><span class="muted">Geometry VR Lab · الكلية الإبراهيمية، القدس</span></div><a href="https://github.com/zuhdizahdeh">صفحة المطوّر</a></div>
+            <p>للاستفسار عن هذه السياسة، أو للإبلاغ عن مشكلة خصوصية، أو لطلب حذف معلومات أُرسلت إلينا طوعًا، استخدم البريد الإلكتروني أدناه. ويمكن استخدام WhatsApp للدعم العام أو التقني. يرجى عدم إرسال كلمات مرور أو بيانات شخصية حساسة ضمن الرسالة.</p>
+            <div class="contact-card">
+              <div>
+                <strong>زهدي زاهدة</strong><br>
+                <span class="muted">Geometry VR Lab · الكلية الإبراهيمية، القدس</span>
+                <span class="contact-addresses">
+                  <a dir="ltr" href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Privacy">zuhdi.zahdeh@gmail.com</a>
+                  <a dir="ltr" href="https://wa.me/972524489882" target="_blank" rel="noopener noreferrer">+972 52-448-9882</a>
+                </span>
+              </div>
+              <div class="contact-links">
+                <a href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Privacy">البريد الإلكتروني</a>
+                <a class="contact-secondary" href="https://wa.me/972524489882?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A5%D9%84%D9%89%20%D8%AF%D8%B9%D9%85%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20Geometry%20VR%20Lab." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              </div>
+            </div>
           </div>
           <div data-lang="en">
-            <p>For questions about this policy, to report a privacy concern, or to request deletion of information voluntarily sent to us, contact the developer through the following GitHub profile. Do not post personal or sensitive information in a public message.</p>
-            <div class="contact-card"><div><strong>Zuhdi Zahdeh</strong><br><span class="muted">Geometry VR Lab · Ibrahimieh College, Jerusalem</span></div><a href="https://github.com/zuhdizahdeh">Developer profile</a></div>
+            <p>For questions about this policy, to report a privacy concern, or to request deletion of information voluntarily sent to us, use the email address below. WhatsApp may be used for general or technical support. Please do not include passwords or sensitive personal information in your message.</p>
+            <div class="contact-card">
+              <div>
+                <strong>Zuhdi Zahdeh</strong><br>
+                <span class="muted">Geometry VR Lab · Ibrahimieh College, Jerusalem</span>
+                <span class="contact-addresses">
+                  <a dir="ltr" href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Privacy">zuhdi.zahdeh@gmail.com</a>
+                  <a dir="ltr" href="https://wa.me/972524489882" target="_blank" rel="noopener noreferrer">+972 52-448-9882</a>
+                </span>
+              </div>
+              <div class="contact-links">
+                <a href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Privacy">Email</a>
+                <a class="contact-secondary" href="https://wa.me/972524489882?text=Hello%2C%20I%20need%20support%20with%20the%20Geometry%20VR%20Lab%20app." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
