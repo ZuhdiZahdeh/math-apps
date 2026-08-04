@@ -503,6 +503,86 @@
     .privacy-callout h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
     .privacy-callout p { max-width: 680px; margin: 12px 0 0; color: var(--muted); }
 
+    .contact-section { padding-top: 0; scroll-margin-top: 96px; }
+
+    .contact-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(310px, .92fr);
+      gap: clamp(28px, 6vw, 72px);
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 58px);
+      border: 1px solid rgba(159, 120, 255, .28);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(159, 120, 255, .17), transparent 28rem),
+        linear-gradient(135deg, rgba(16, 42, 69, .88), rgba(7, 24, 42, .9));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      aspect-ratio: 1;
+      inset-inline-end: -90px;
+      bottom: -120px;
+      border: 1px solid rgba(113, 242, 206, .2);
+      border-radius: 50%;
+      box-shadow: 0 0 70px rgba(66, 215, 255, .1);
+      pointer-events: none;
+    }
+
+    .contact-panel > * { position: relative; z-index: 1; }
+    .contact-panel h2 { font-size: clamp(1.9rem, 3.8vw, 3.2rem); }
+    .contact-panel .section-copy { max-width: 680px; }
+
+    .contact-options { display: grid; gap: 12px; align-content: center; }
+
+    .contact-item {
+      display: grid;
+      gap: 3px;
+      padding: 15px 17px;
+      border: 1px solid rgba(148, 207, 255, .14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .contact-value {
+      width: fit-content;
+      max-width: 100%;
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-value:hover { color: var(--mint); }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .contact-actions > .button,
+    .contact-language-action { flex: 1 1 185px; }
+
+    .contact-language-action .button { width: 100%; }
+
+    .contact-note {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
     footer {
       margin-top: 36px;
       padding-block: 30px 42px;
@@ -548,6 +628,7 @@
       .cards { grid-template-columns: 1fr; }
       .learning-flow { grid-template-columns: 1fr; }
       .privacy-callout { align-items: flex-start; flex-direction: column; }
+      .contact-panel { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -563,6 +644,7 @@
       section { padding-block: 64px; }
       .card, .flow-panel, .spec-panel { border-radius: 22px; }
       .spec-list { grid-template-columns: 1fr; }
+      .contact-panel { padding: 25px 21px; border-radius: 22px; }
       .footer-row { align-items: flex-start; flex-direction: column; }
     }
   </style>
@@ -587,6 +669,10 @@
         <a class="nav-link" href="privacy-policy.html">
           <span data-lang="ar">الخصوصية</span>
           <span data-lang="en">Privacy</span>
+        </a>
+        <a class="nav-link" href="#contact">
+          <span data-lang="ar">التواصل والدعم</span>
+          <span data-lang="en">Contact &amp; support</span>
         </a>
         <div class="lang-switch" role="group" aria-label="اختيار اللغة / Language selection">
           <button class="lang-button" type="button" data-set-language="ar" aria-pressed="true">عربي</button>
@@ -628,7 +714,7 @@
         </ul>
       </div>
 
-      <div class="visual" role="img" aria-label="رسم تجريدي لمجسّم هندسي داخل بيئة افتراضية">
+      <div id="geometry-visual" class="visual" role="img" aria-label="رسم تجريدي لمجسّم هندسي داخل بيئة افتراضية">
         <div class="orb" aria-hidden="true"></div>
         <div class="stage" aria-hidden="true">
           <div class="cube"></div>
@@ -716,6 +802,39 @@
         </a>
       </div>
     </section>
+
+    <section id="contact" class="shell contact-section" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div>
+          <p class="kicker"><span data-lang="ar">التواصل والدعم</span><span data-lang="en">Contact &amp; support</span></p>
+          <h2 id="contact-title"><span data-lang="ar">نحن هنا لمساعدتك</span><span data-lang="en">We are here to help</span></h2>
+          <p class="section-copy"><span data-lang="ar">للدعم التقني، أو الاستفسار عن استخدام التطبيق في المدارس، أو مشاركة الملاحظات، تواصل مباشرةً مع مطوّر Geometry VR Lab.</span><span data-lang="en">For technical support, questions about using the app in schools, or feedback, contact the Geometry VR Lab developer directly.</span></p>
+        </div>
+
+        <div class="contact-options">
+          <div class="contact-item">
+            <span class="contact-label"><span data-lang="ar">البريد الإلكتروني</span><span data-lang="en">Email</span></span>
+            <a class="contact-value" href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Support"><bdi dir="ltr">zuhdi.zahdeh@gmail.com</bdi></a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp</span>
+            <a class="contact-value" href="https://wa.me/972524489882" target="_blank" rel="noopener noreferrer" aria-label="+972 52-448-9882 — فتح WhatsApp في تبويب جديد / Open WhatsApp in a new tab"><bdi dir="ltr">+972 52-448-9882</bdi></a>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-secondary" href="mailto:zuhdi.zahdeh@gmail.com?subject=Geometry%20VR%20Lab%20Support">
+              <span data-lang="ar">إرسال بريد إلكتروني</span><span data-lang="en">Send an email</span>
+            </a>
+            <div class="contact-language-action" data-lang="ar">
+              <a class="button button-primary" href="https://wa.me/972524489882?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A5%D9%84%D9%89%20%D8%AF%D8%B9%D9%85%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20Geometry%20VR%20Lab." target="_blank" rel="noopener noreferrer" aria-label="مراسلة عبر WhatsApp (يفتح في تبويب جديد)">مراسلة عبر WhatsApp</a>
+            </div>
+            <div class="contact-language-action" data-lang="en">
+              <a class="button button-primary" href="https://wa.me/972524489882?text=Hello%2C%20I%20need%20support%20with%20the%20Geometry%20VR%20Lab%20app." target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp (opens in a new tab)">Message on WhatsApp</a>
+            </div>
+          </div>
+          <p class="contact-note"><span data-lang="ar">يرجى عدم إرسال كلمات مرور أو بيانات شخصية حساسة ضمن رسالة الدعم.</span><span data-lang="en">Please do not include passwords or sensitive personal information in support messages.</span></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -725,6 +844,7 @@
         <div><span data-lang="ar">تطوير: زهدي زاهدة · الكلية الإبراهيمية، القدس</span><span data-lang="en">Developed by Zuhdi Zahdeh · Ibrahimieh College, Jerusalem</span></div>
       </div>
       <div class="footer-links">
+        <a href="#contact"><span data-lang="ar">التواصل والدعم</span><span data-lang="en">Contact &amp; support</span></a>
         <a href="privacy-policy.html"><span data-lang="ar">الخصوصية</span><span data-lang="en">Privacy</span></a>
         <a href="https://zuhdizahdeh.github.io/math-apps/"><span data-lang="ar">تطبيقات الرياضيات</span><span data-lang="en">Math Apps</span></a>
         <a href="https://github.com/zuhdizahdeh" rel="me"><span data-lang="ar">المطوّر</span><span data-lang="en">Developer</span></a>
@@ -745,6 +865,12 @@
         buttons.forEach((button) => {
           button.setAttribute('aria-pressed', String(button.dataset.setLanguage === language));
         });
+        const visual = document.getElementById('geometry-visual');
+        if (visual) {
+          visual.setAttribute('aria-label', isArabic
+            ? 'رسم تجريدي لمجسّم هندسي داخل بيئة افتراضية'
+            : 'Abstract illustration of a geometric solid in a virtual environment');
+        }
         try { localStorage.setItem('geometry-vr-language', language); } catch (_) {}
       }
 
