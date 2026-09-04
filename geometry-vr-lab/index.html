@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081526">
-  <meta name="description" content="Geometry VR Lab is a free educational virtual reality experience for exploring spatial geometry through direct interaction and Arabic voice guidance.">
+  <meta name="description" content="Geometry VR Lab v1.3.0 is a free educational VR experience for Meta Quest featuring spatial geometry, transformations, interactive challenges, cross sections, and Arabic voice guidance.">
+  <meta name="application-name" content="Geometry VR Lab">
   <meta property="og:title" content="Geometry VR Lab | مختبر الهندسة بالواقع الافتراضي">
-  <meta property="og:description" content="A free immersive learning experience for spatial geometry.">
+  <meta property="og:description" content="Explore solids, geometric transformations, interactive challenges, and cross sections in an Arabic-guided VR laboratory for Meta Quest.">
+  <meta property="og:image" content="https://zuhdizahdeh.github.io/math-apps/images/thumbs/geometry-vr-lab.png">
+  <meta property="og:image:alt" content="Geometry VR Lab">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/">
   <link rel="canonical" href="https://zuhdizahdeh.github.io/math-apps/geometry-vr-lab/">
@@ -257,6 +261,22 @@
 
     .button-secondary { background: rgba(255, 255, 255, .045); }
 
+    .version-badge {
+      width: fit-content;
+      margin: 0 0 16px;
+      padding: 7px 13px;
+      border: 1px solid rgba(113, 242, 206, .38);
+      border-radius: 999px;
+      color: var(--mint);
+      background: rgba(113, 242, 206, .08);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .store-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .store-actions .button { flex: 1 1 190px; }
+    .release-note { margin: 14px 0 0; color: var(--muted); font-size: .92rem; }
+
     .quick-facts {
       display: flex;
       flex-wrap: wrap;
@@ -383,7 +403,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 18px;
     }
 
@@ -685,32 +705,34 @@
   <main id="main-content">
     <div class="hero shell">
       <div>
+        <p class="version-badge"><span data-lang="ar">الإصدار الرسمي 1.3.0</span><span data-lang="en">Official release 1.3.0</span></p>
         <p class="eyebrow">
           <span data-lang="ar">تعلم غامر · تطبيق مجاني</span>
           <span data-lang="en">Immersive learning · Free app</span>
         </p>
         <div data-lang="ar">
           <h1>مختبر الهندسة <span class="gradient-text">بالواقع الافتراضي</span></h1>
-          <p class="lead">بيئة تعليمية غامرة تساعد طلبة المرحلة الثانوية على فهم الهندسة الفراغية من خلال لمس المجسّمات وتحريكها وفحص خصائصها داخل مختبر ثلاثي الأبعاد.</p>
+          <p class="lead">بيئة تعليمية غامرة تساعد طلبة المرحلة الثانوية على استكشاف المجسّمات والتحويلات الهندسية والتحديات التطبيقية والمقاطع الناتجة عن قطع المجسّمات داخل مختبر ثلاثي الأبعاد.</p>
         </div>
         <div data-lang="en">
           <h1>Geometry learning, <span class="gradient-text">made tangible.</span></h1>
-          <p class="lead">An immersive educational environment that helps secondary-school learners understand spatial geometry by handling, moving, and examining solids in a three-dimensional laboratory.</p>
+          <p class="lead">An immersive educational environment where secondary-school learners explore solids, geometric transformations, interactive challenges, and cross sections inside a three-dimensional laboratory.</p>
         </div>
         <div class="hero-actions">
-          <a class="button button-primary" href="#experience">
-            <span data-lang="ar">اكتشف التجربة</span>
-            <span data-lang="en">Explore the experience</span>
+          <a class="button button-primary" href="https://www.meta.com/experiences/geometry-vr-lab/1305318105987268/" target="_blank" rel="noopener noreferrer">
+            <span data-lang="ar">احصل عليه من Meta Horizon</span>
+            <span data-lang="en">Get it on Meta Horizon</span>
           </a>
-          <a class="button button-secondary" href="privacy-policy.html">
-            <span data-lang="ar">اقرأ سياسة الخصوصية</span>
-            <span data-lang="en">Read the privacy policy</span>
+          <a class="button button-secondary" href="https://sidequestvr.com/app/55415/geometry-vr-lab" target="_blank" rel="noopener noreferrer">
+            <span data-lang="ar">عرضه على SideQuest</span>
+            <span data-lang="en">View on SideQuest</span>
           </a>
         </div>
         <ul class="quick-facts">
           <li><span data-lang="ar">إرشاد صوتي عربي</span><span data-lang="en">Arabic voice guidance</span></li>
           <li><span data-lang="ar">طالب واحد</span><span data-lang="en">Single player</span></li>
           <li><span data-lang="ar">دون إعلانات</span><span data-lang="en">No ads</span></li>
+          <li><span data-lang="ar">النسخة 1.3.0</span><span data-lang="en">Version 1.3.0</span></li>
         </ul>
       </div>
 
@@ -727,28 +749,40 @@
 
     <section id="experience" class="shell">
       <div class="section-heading">
-        <p class="kicker"><span data-lang="ar">ماذا يقدّم التطبيق؟</span><span data-lang="en">What the app offers</span></p>
-        <h2><span data-lang="ar">من المهارة الحركية إلى الفهم الهندسي</span><span data-lang="en">From confident movement to geometric understanding</span></h2>
-        <p class="section-copy"><span data-lang="ar">صُمّمت التجربة لتوجيه الطالب تدريجيًا، بحيث يصبح التفاعل أداةً للتعلّم لا غايةً ترفيهية بحد ذاتها.</span><span data-lang="en">The experience guides learners progressively, making interaction a tool for learning rather than an entertainment goal in itself.</span></p>
+        <p class="kicker"><span data-lang="ar">ما الجديد في 1.3.0؟</span><span data-lang="en">What is new in 1.3.0?</span></p>
+        <h2><span data-lang="ar">رحلة متكاملة من التفاعل إلى الاستنتاج</span><span data-lang="en">A complete journey from interaction to discovery</span></h2>
+        <p class="section-copy"><span data-lang="ar">تجمع النسخة 1.3.0 بين التهيئة، واستكشاف المجسّمات، والتحويلات الهندسية، والتحديات التطبيقية، والمقاطع الهندسية ضمن تجربة واحدة واضحة ومتدرّجة.</span><span data-lang="en">Version 1.3.0 brings onboarding, solid exploration, geometric transformations, applied challenges, and cross sections together in one clear, progressive experience.</span></p>
       </div>
 
       <div class="cards">
         <article class="card">
           <div class="card-icon" aria-hidden="true">01</div>
           <h3><span data-lang="ar">تهيئة موجّهة</span><span data-lang="en">Guided onboarding</span></h3>
-          <p><span data-lang="ar">يتدرّب الطالب على الحركة والدوران والإمساك بالمجسّمات ونقلها وإفلاتها واستخدام الأزرار بثقة.</span><span data-lang="en">Learners practise movement, turning, grabbing, moving and releasing objects, and using interface controls with confidence.</span></p>
+          <p><span data-lang="ar">يتدرّب الطالب على الحركة والإمساك بالمجسّمات ووضع المكعب والكرة والأسطوانة في التجاويف المناسبة.</span><span data-lang="en">Learners practise movement and object handling by placing the cube, sphere, and cylinder in their matching sockets.</span></p>
         </article>
 
         <article class="card">
           <div class="card-icon" aria-hidden="true">02</div>
-          <h3><span data-lang="ar">استكشاف ثلاثي الأبعاد</span><span data-lang="en">Three-dimensional exploration</span></h3>
-          <p><span data-lang="ar">يستكشف الطالب المكعّب والكرة والأسطوانة، ويغيّر زاوية النظر إليها بدل الاكتفاء بصورة مسطّحة على اللوح.</span><span data-lang="en">Learners explore a cube, sphere, and cylinder from changing viewpoints instead of relying on flat board drawings.</span></p>
+          <h3><span data-lang="ar">مختبر المجسّمات</span><span data-lang="en">Solids laboratory</span></h3>
+          <p><span data-lang="ar">استكشاف المكعب والكرة والأسطوانة وربط النماذج المرئية بمفاهيم الأوجه والحواف والرؤوس والأسطح المنحنية.</span><span data-lang="en">Explore the cube, sphere, and cylinder while connecting visual models to faces, edges, vertices, and curved surfaces.</span></p>
         </article>
 
         <article class="card">
           <div class="card-icon" aria-hidden="true">03</div>
-          <h3><span data-lang="ar">إرشاد تربوي مستمر</span><span data-lang="en">Continuous learning guidance</span></h3>
-          <p><span data-lang="ar">تدعم التعليمات الصوتية العربية واللوحات والتسميات البصرية انتقال الطالب بين المهام وتحافظ على تركيزه التعليمي.</span><span data-lang="en">Arabic voice instructions, panels, and visual labels support task progression and keep the experience focused on learning.</span></p>
+          <h3><span data-lang="ar">التحويلات الهندسية</span><span data-lang="en">Geometric transformations</span></h3>
+          <p><span data-lang="ar">تجربة الانتقال والدوران والانعكاس والتمدد والقص ومشاهدة أثر كل تحويل مباشرة على المجسّم.</span><span data-lang="en">Apply translation, rotation, reflection, scale, and shear and observe each transformation directly on a solid.</span></p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">04</div>
+          <h3><span data-lang="ar">تحديات تفاعلية</span><span data-lang="en">Interactive challenges</span></h3>
+          <p><span data-lang="ar">تنفيذ مهام في الانتقال والدوران والتحويلات المركبة مع تعليمات واضحة وتغذية راجعة عند النجاح.</span><span data-lang="en">Complete translation, rotation, and combined-transformation tasks with clear instructions and success feedback.</span></p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">05</div>
+          <h3><span data-lang="ar">المقاطع الهندسية</span><span data-lang="en">Cross sections</span></h3>
+          <p><span data-lang="ar">استكشاف نتائج القطع الأفقي والرأسي والمائل للمكعب والأسطوانة والمخروط وربط المجسّم ثلاثي الأبعاد بالشكل ثنائي الأبعاد.</span><span data-lang="en">Explore horizontal, vertical, and diagonal cuts of a cube, cylinder, and cone, linking three-dimensional solids to two-dimensional results.</span></p>
         </article>
       </div>
     </section>
@@ -761,15 +795,23 @@
           <div class="steps">
             <div class="step">
               <span class="step-number">1</span>
-              <div><h3><span data-lang="ar">التعرّف إلى البيئة</span><span data-lang="en">Become familiar with VR</span></h3><p><span data-lang="ar">اكتساب مهارات التحكم الأساسية داخل المختبر.</span><span data-lang="en">Build the essential control skills needed in the lab.</span></p></div>
+              <div><h3><span data-lang="ar">اكتساب مهارات التحكم</span><span data-lang="en">Build control skills</span></h3><p><span data-lang="ar">التعرّف إلى بيئة الواقع الافتراضي والتفاعل بثقة.</span><span data-lang="en">Become familiar with VR and interact confidently.</span></p></div>
             </div>
             <div class="step">
               <span class="step-number">2</span>
-              <div><h3><span data-lang="ar">التفاعل مع المجسّمات</span><span data-lang="en">Interact with solids</span></h3><p><span data-lang="ar">اختيار المجسّم وتحريكه وتدويره وإعادته إلى موضعه.</span><span data-lang="en">Select, move, rotate, and reset each solid.</span></p></div>
+              <div><h3><span data-lang="ar">فهم خصائص المجسّمات</span><span data-lang="en">Understand solid properties</span></h3><p><span data-lang="ar">فحص المجسّمات وربطها بالأوجه والحواف والرؤوس.</span><span data-lang="en">Examine solids and connect them to faces, edges, and vertices.</span></p></div>
             </div>
             <div class="step">
               <span class="step-number">3</span>
-              <div><h3><span data-lang="ar">قراءة الخصائص</span><span data-lang="en">Examine properties</span></h3><p><span data-lang="ar">ربط النموذج المرئي بمفاهيم الوجوه والحواف والرؤوس.</span><span data-lang="en">Connect the visual model to faces, edges, and vertices.</span></p></div>
+              <div><h3><span data-lang="ar">تطبيق التحويلات</span><span data-lang="en">Apply transformations</span></h3><p><span data-lang="ar">تغيير موضع المجسّم واتجاهه وشكله ومقارنة الأصل بالنتيجة.</span><span data-lang="en">Change a solid's position, orientation, and shape, then compare original and result.</span></p></div>
+            </div>
+            <div class="step">
+              <span class="step-number">4</span>
+              <div><h3><span data-lang="ar">حل التحديات</span><span data-lang="en">Solve challenges</span></h3><p><span data-lang="ar">تنفيذ سلسلة خطوات صحيحة للوصول إلى الهدف.</span><span data-lang="en">Complete the correct sequence of steps to reach the target.</span></p></div>
+            </div>
+            <div class="step">
+              <span class="step-number">5</span>
+              <div><h3><span data-lang="ar">استنتاج المقاطع</span><span data-lang="en">Discover cross sections</span></h3><p><span data-lang="ar">ربط اتجاه القطع بالشكل الهندسي الناتج في بعدين.</span><span data-lang="en">Connect the cutting direction to the resulting two-dimensional shape.</span></p></div>
             </div>
           </div>
         </article>
@@ -787,6 +829,22 @@
           </div>
           <p class="purpose"><span data-lang="ar">التطبيق مجاني، ولا يتطلب حسابًا داخليًا أو اشتراكًا أو شراءً داخل التطبيق.</span><span data-lang="en">The app is free and requires no in-app account, subscription, or in-app purchase.</span></p>
         </aside>
+      </div>
+    </section>
+
+    <section id="download" class="shell">
+      <div class="privacy-callout">
+        <div>
+          <p class="kicker"><span data-lang="ar">متاح الآن · النسخة 1.3.0</span><span data-lang="en">Available now · Version 1.3.0</span></p>
+          <h2><span data-lang="ar">ابدأ التجربة على Meta Quest</span><span data-lang="en">Start the experience on Meta Quest</span></h2>
+          <p><span data-lang="ar">نزّل التطبيق مجانًا من Meta Horizon، أو اطّلع على صفحته في SideQuest، أو اقرأ ملاحظات الإصدار الرسمية على GitHub.</span><span data-lang="en">Get the app free from Meta Horizon, view its SideQuest listing, or read the official release notes on GitHub.</span></p>
+          <div class="store-actions">
+            <a class="button button-primary" href="https://www.meta.com/experiences/geometry-vr-lab/1305318105987268/" target="_blank" rel="noopener noreferrer">Meta Horizon</a>
+            <a class="button button-secondary" href="https://sidequestvr.com/app/55415/geometry-vr-lab" target="_blank" rel="noopener noreferrer">SideQuest</a>
+            <a class="button button-secondary" href="https://github.com/ZuhdiZahdeh/math-apps/releases/tag/geometry-vr-lab-v1.3.0" target="_blank" rel="noopener noreferrer"><span data-lang="ar">ملاحظات الإصدار</span><span data-lang="en">Release notes</span></a>
+          </div>
+          <p class="release-note"><span data-lang="ar">متوافق مع Meta Quest 3 وMeta Quest 3S ووحدات تحكم Touch.</span><span data-lang="en">Compatible with Meta Quest 3, Meta Quest 3S, and Touch Controllers.</span></p>
+        </div>
       </div>
     </section>
 
